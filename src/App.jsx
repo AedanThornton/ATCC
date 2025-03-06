@@ -1,11 +1,15 @@
 import React from "react";
-import GearList from "./components/GearCard/GearCard";
+import GearList from "./components/GearList";
+import "./styles/global.css";
+import "./styles/main.css";
 
 const App = () => {
   return (
     <div className="app">
-      <h1>Gear Display</h1>
-      <GearList /> {/* This will render the list of gear cards */}
+      <h1>ATCC</h1>
+      <div className="card-list">
+        <GearList /> {/* This will render the list of gear cards */}
+      </div>
     </div>
   );
 };

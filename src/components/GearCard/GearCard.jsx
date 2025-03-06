@@ -1,6 +1,6 @@
 import React from "react";
 import "./GearCard.css"; // Add corresponding CSS for styling
-import gearData from "./src/data/JSON/gearData.json"
+import getIcon from "../Icons";
 
 const GearCard = ({ gear }) => {
   return (
@@ -14,23 +14,23 @@ const GearCard = ({ gear }) => {
       <div className="gear-card">
         <div className="gear-image">
           {/* Replace with an actual image source if available */}
-          <img src={`path/to/images/${gear["card-ids"][0]}.png`} alt={gear.name} />
+          <img src={`./src/assets/images/${gear["card-ids"][0]}.png`} alt={gear.name} />
         </div>
 
         {/* Offensive Statistics */}
         {gear["offensive-statistics"] && (
-          <div className="gear-stats gear-stats-left">
+          <div className="gear-stats-container gear-stats-left">
             {gear["offensive-statistics"]["attack-dice"] && (
-              <div className="gear-stats">Attack Dice: {gear["offensive-statistics"]["attack-dice"]}</div>
+              <div className="gear-stats">{gear["offensive-statistics"]["attack-dice"]} {getIcon("d10")}</div>
             )}
             {gear["offensive-statistics"]["precision"] && (
-              <div className="gear-stats">Precision: {gear["offensive-statistics"]["precision"]}</div>
+              <div className="gear-stats">{gear["offensive-statistics"]["precision"]}</div>
             )}
             
             {/* Power Section */}
             {gear["offensive-statistics"].power?.map((p, index) => (
               <div key={index} className="gear-stats">
-                {p.amount} {p.type} Power
+                {p.amount} {p.type}
                 {p.gate && (
                   <span className="gate" style={{ background: getGateColor(p.gate.type) }}>
                     {p.gate.type} {p.gate.value}
@@ -43,7 +43,7 @@ const GearCard = ({ gear }) => {
 
         {/* Defensive Statistics */}
         {gear["defensive-statistics"].length > 0 && (
-          <div className="gear-stats gear-stats-right">
+          <div className="gear-stats-container gear-stats-right">
             {gear["defensive-statistics"].map((stat, index) => (
               <div key={index} className="gear-stats gear-stats-right">{stat}</div>
             ))}
@@ -107,15 +107,4 @@ const getGateColor = (gatetype) => {
   return gateColors[gatetype] || "#AAAAAA";
 };
 
-// Mapping over the dataset
-const GearList = () => {
-  return (
-    <div>
-      {gearData.map((gear, index) => (
-        <GearCard key={index} gear={gear} />
-      ))}
-    </div>
-  );
-};
-
-export default GearList;
+export default GearCard;
