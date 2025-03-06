@@ -1,0 +1,141 @@
+/* Gearbox template */
+.gear {
+	background-color: #DFDBCD;
+	color: black;
+	font-size: 12px;
+	width: 270px;
+	float: right;
+	margin-left: 10px;
+    border-radius: 10px;
+}
+
+.gear p {
+    margin: 0;
+}
+
+.gear .gear-title {
+	text-align: center;
+	font-size: 18px;
+	color: white;
+    border-radius: 9px 9px 0 0;
+}
+
+.gear .gear-subtitle {
+	text-align: center;
+	font-size: 15px;
+	color: white;
+    margin: 0;
+}
+
+.gear .gear-card {
+	width: 100%;
+	position: relative;
+	min-height: 200px;
+	display: flex;
+}
+
+.gear .gear-image {
+	height: 270px;
+	width: 270px;
+}
+
+.gear .gear-image img {    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.gear .gear-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+}
+
+.gear .gear-info-header {
+	text-align: right;
+	flex-basis: 40%;
+	font-weight: BOLD;
+}
+
+.gear .gear-info-detail {
+	flex-basis: 60%;
+}
+
+.gear .gear-stats {
+	bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0%;
+    width: 20%;
+    row-gap: 8px;
+    justify-content: center;
+}
+
+.gear .gear-stats-left {
+	left: 0%;
+	right: auto;
+}
+
+.gear .gear-stats-right {
+	left: auto;
+	right: 0%;
+}
+
+.gear .gear-stats {
+    text-align: center;
+    padding: 10% 0;
+    background-color: #BFBCAB;
+}
+
+.gear .gate {
+	width: 100%;
+    color: white;
+    font-size: 9px;
+    height: 13px;
+    padding: 0;
+    line-height: 0;
+}
+
+.gear .gear-abilities {
+	text-align: center;
+	text-wrap: balance;
+	flex: 8;
+}
+
+.gear .gear-ability-gate {
+	text-align: center;
+    color: white;
+    flex-basis: 25%;
+    padding-left: 18px;
+    text-wrap: nowrap;
+}
+
+.gear .gear-gated-ability {
+	text-align: left;
+	color: white;
+	flex-basis: 60%;
+}
+
+.gear .gear-icon {
+	text-align: center;
+	flex: 2;
+}
+
+.gear .icon {
+	border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    padding: 3px;
+}
+
+.gate img, .gear-ability-gate img, .gear-gated-ability img, .icon img {
+	filter: invert(1);
+}
+
+.cycle4 img {
+	filter: brightness(0) saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
+}
+
+/* End gear template */

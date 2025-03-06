@@ -119,6 +119,14 @@
         {
           "amount": 2,
           "type": "Black"
+        },
+        {
+          "amount": 1,
+          "type": "Power",
+          "gate": {
+            "type": "Danger",
+            "value": "7+"
+          }
         }
       ]
     },
@@ -129,6 +137,11 @@
     "ascended": true,
     "abilities": {
       "keywords": [
+        {
+          "name": "Daze"
+        }
+      ],
+      "unique-abilities": [
         {
           "name": "Block",
           "x_value": 1,
@@ -142,14 +155,9 @@
           "x_value": 1
         },
         {
-          "name": "Daze"
-        },
-        {
           "name": "Kickback Resistance",
           "x_value": 1
-        }
-      ],
-      "unique-abilities": [
+        },
         {
           "name": "Ignore Exhaust cost of Block",
           "x_value": 1,
@@ -260,38 +268,10 @@
     "abilities": {
       "keywords": [
         {
-          "name": "Black",
-          "x_value": 2
-        },
-        {
-          "name": "Elation",
-          "x_value": 1
-        },
-        {
           "name": "Succor"
         },
         {
           "name": "Unholy Alchemy"
-        },
-        {
-          "name": "Reach",
-          "x_value": 2,
-          "gate": {
-            "type": "ambrosia",
-            "value": "2+"
-          }
-        },
-        {
-          "name": "Elation",
-          "x_value": 1
-        },
-        {
-          "name": "Hope",
-          "x_value": 1,
-          "gate": {
-            "type": "danger",
-            "value": "6+"
-          }
         }
       ],
       "unique-abilities": [
@@ -299,7 +279,15 @@
           "name": "Wished"
         },
         {
+          "name": "Black",
+          "x_value": 2
+        },
+        {
           "name": "Burden",
+          "x_value": 1
+        },
+        {
+          "name": "Elation",
           "x_value": 1
         },
         {
@@ -320,10 +308,30 @@
           }
         },
         {
+          "name": "Reach",
+          "x_value": 2,
+          "gate": {
+            "type": "ambrosia",
+            "value": "2+"
+          }
+        },
+        {
           "name": "Another Red Power Die becomes a Black Power Die",
           "gate": {
             "type": "ambrosia",
             "value": "3+"
+          }
+        },
+        {
+          "name": "Elation",
+          "x_value": 1
+        },
+        {
+          "name": "Hope",
+          "x_value": 1,
+          "gate": {
+            "type": "danger",
+            "value": "6+"
           }
         }
       ]
@@ -425,13 +433,12 @@
     "unique": false,
     "ascended": false,
     "abilities": {
-      "keywords": [
+      "keywords": [],
+      "unique-abilities": [
         {
           "name": "Reach",
           "x_value": 2
-        }
-      ],
-      "unique-abilities": [
+        },
         {
           "name": "Commit"
         },

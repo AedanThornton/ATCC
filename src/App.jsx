@@ -1,27 +1,13 @@
-import { useState, useEffect } from "react";
-import gameData from "./assets/testData.json"; // Import JSON file
+import React from "react";
+import GearList from "./components/GearCard/GearCard";
 
-function App() {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    setCards(gameData); // Load JSON into state
-  }, []);
-
+const App = () => {
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>My Game Data Site</h1>
-      {cards.map((card, index) => (
-        <div key={index} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
-          <h2>{card.name}</h2>
-          <p>Type: {card.type}</p>
-          <p>Damage: {card.damage}</p>
-          <p>Effect: {card.effect}</p>
-          <p>Cost: {card.cost}</p>
-        </div>
-      ))}
+    <div className="app">
+      <h1>Gear Display</h1>
+      <GearList /> {/* This will render the list of gear cards */}
     </div>
   );
-}
+};
 
 export default App;

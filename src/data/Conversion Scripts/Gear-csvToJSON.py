@@ -151,4 +151,4 @@ def csv_to_json(csv_file, json_file):
     with open(json_file, "w", encoding="utf-8") as outfile:
         json.dump(output, outfile, indent=2)
 
-csv_to_json("data/CSV/gear-data.csv", "data/JSON/gear-data.json")
+csv_to_json("./src/data/CSV/gearData.csv", "./src/data/JSON/gearData.json")
