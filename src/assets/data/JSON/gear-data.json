@@ -1,0 +1,451 @@
+[
+  {
+    "card-ids": [
+      "AJ0156",
+      "AJ0157",
+      "AJ0158",
+      "AJ0159"
+    ],
+    "name": "Fists",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Cycle I",
+    "acquisition": "Other",
+    "flavor": "",
+    "slot": "2 Hands",
+    "transforms-into": null,
+    "traits": [],
+    "offensive-statistics": {
+      "attack-dice": "2",
+      "precision": "+0",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensive-statistics": [],
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [],
+      "unique-abilities": [
+        {
+          "name": "This item can be used as a One Handed Weapon, with the following modifiers: -1 Attack Dice"
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ0217",
+      "AJ0218"
+    ],
+    "name": "Analyticos Module",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "",
+    "slot": "Support",
+    "transforms-into": null,
+    "traits": [
+      "Argotech",
+      "Augment",
+      "Helm"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "",
+      "precision": "",
+      "power": []
+    },
+    "defensive-statistics": [],
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [],
+      "unique-abilities": [
+        {
+          "name": "Place 1 Break or 1 Opening token in the Kratos Pool",
+          "costs": [
+            "Fate",
+            "Exhaust"
+          ]
+        },
+        {
+          "name": "Place 2 Break or 2 Opening tokens in the Kratos Pool",
+          "gate": {
+            "type": "danger",
+            "value": "6+"
+          },
+          "costs": [
+            "Fate",
+            "Exhaust"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "BJ0946",
+      "BJ0947"
+    ],
+    "name": "Faceshield",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle II",
+    "used-for": "Cycle II",
+    "acquisition": "Crafting",
+    "flavor": "",
+    "slot": "1 Hand",
+    "transforms-into": null,
+    "traits": [
+      "Relief",
+      "Primordial",
+      "Shield"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "1",
+      "precision": "+1",
+      "power": [
+        {
+          "amount": 2,
+          "type": "Black"
+        }
+      ]
+    },
+    "defensive-statistics": [],
+    "asterisk-effect": "X is equal to the number of Opening tokens in the Kratos Pool.",
+    "wished": false,
+    "unique": false,
+    "ascended": true,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Block",
+          "x_value": 1,
+          "costs": [
+            "Fate",
+            "Exhaust"
+          ]
+        },
+        {
+          "name": "Break",
+          "x_value": 1
+        },
+        {
+          "name": "Daze"
+        },
+        {
+          "name": "Kickback Resistance",
+          "x_value": 1
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Ignore Exhaust cost of Block",
+          "x_value": 1,
+          "gate": {
+            "type": "danger",
+            "value": "7+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ0258"
+    ],
+    "name": "The Promise",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Secret Deck 02",
+    "acquisition": "Story",
+    "flavor": "",
+    "slot": "2 Hands",
+    "transforms-into": null,
+    "traits": [
+      "Hephaestum",
+      "Metal",
+      "Sword",
+      "Ship"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "2",
+      "precision": "+1",
+      "power": [
+        {
+          "amount": 2,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensive-statistics": [],
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": true,
+    "ascended": false,
+    "abilities": {
+      "keywords": [],
+      "unique-abilities": [
+        {
+          "name": "Overbreak",
+          "x_value": 2
+        },
+        {
+          "name": "Crit Miss: Gain +1 Danger, +1 Fate"
+        },
+        {
+          "name": "Dog Days Are Over: When you deal a Critical Wound, lose -1 Strangers"
+        },
+        {
+          "name": "Overbreak",
+          "x_value": 2,
+          "gate": {
+            "type": "danger",
+            "value": "7+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "ZJ2571"
+    ],
+    "name": "Slushbane",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle IV",
+    "used-for": "Secret Deck 11",
+    "acquisition": "Doomed Investment",
+    "flavor": "The Great Alkahest of the Atlantean nation was to be their undoing.",
+    "slot": "2 Hands",
+    "transforms-into": null,
+    "traits": [
+      "Club",
+      "Sword",
+      "Ambrosia",
+      "Mud"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "1",
+      "precision": "+4",
+      "power": [
+        {
+          "amount": 3,
+          "type": "Red"
+        },
+        {
+          "amount": 1,
+          "type": "Power"
+        }
+      ]
+    },
+    "defensive-statistics": [],
+    "asterisk-effect": null,
+    "wished": true,
+    "unique": true,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Black",
+          "x_value": 2
+        },
+        {
+          "name": "Elation",
+          "x_value": 1
+        },
+        {
+          "name": "Succor"
+        },
+        {
+          "name": "Unholy Alchemy"
+        },
+        {
+          "name": "Reach",
+          "x_value": 2,
+          "gate": {
+            "type": "ambrosia",
+            "value": "2+"
+          }
+        },
+        {
+          "name": "Elation",
+          "x_value": 1
+        },
+        {
+          "name": "Hope",
+          "x_value": 1,
+          "gate": {
+            "type": "danger",
+            "value": "6+"
+          }
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Wished"
+        },
+        {
+          "name": "Burden",
+          "x_value": 1
+        },
+        {
+          "name": "Limit",
+          "x_value": 3,
+          "costs": [
+            "Ambrosia"
+          ]
+        },
+        {
+          "name": "Ignore the Curse Carapace Trait"
+        },
+        {
+          "name": "One Red Power Die becomes a Black Power Die",
+          "gate": {
+            "type": "ambrosia",
+            "value": "1+"
+          }
+        },
+        {
+          "name": "Another Red Power Die becomes a Black Power Die",
+          "gate": {
+            "type": "ambrosia",
+            "value": "3+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ9987"
+    ],
+    "name": "MWE-33B \"Chainblade\"",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Promo",
+    "acquisition": "Crafting",
+    "flavor": "",
+    "slot": "2 Hands",
+    "transforms-into": null,
+    "traits": [
+      "Kusarigama",
+      "Chain",
+      "Blade",
+      "Metal",
+      "Argotech"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "2",
+      "precision": "+1",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensive-statistics": [],
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [],
+      "unique-abilities": [
+        {
+          "name": "Ranged",
+          "y_value": 2,
+          "x_value": 3
+        },
+        {
+          "name": "When you hit, Pull the Primordial until it is adjacent to you"
+        },
+        {
+          "name": "Moving outside your effective range doesn't cause a Chain Break"
+        },
+        {
+          "name": "Overbreak",
+          "x_value": 2,
+          "gate": {
+            "type": "danger",
+            "value": "3+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ9989"
+    ],
+    "name": "MWE-6D \"Sharkscourge\"",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Promo",
+    "acquisition": "Crafting",
+    "flavor": "",
+    "slot": "1 Hand",
+    "transforms-into": null,
+    "traits": [
+      "Spear",
+      "Wood",
+      "Metal",
+      "Rope",
+      "Argotech"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "1",
+      "precision": "+1",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensive-statistics": [],
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Reach",
+          "x_value": 2
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Commit"
+        },
+        {
+          "name": "Place a negative Speed modifier token on the Primordial Sheet",
+          "costs": [
+            "Exhaust"
+          ],
+          "timing": "Wound:"
+        },
+        {
+          "name": "When you unexhaust this card, discard that token"
+        }
+      ]
+    }
+  }
+]
