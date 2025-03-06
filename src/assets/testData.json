@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Fireball",
+      "type": "Spell",
+      "damage": 30,
+      "effect": "Burns enemies",
+      "cost": 2
+    },
+    {
+      "name": "Lightning Strike",
+      "type": "Spell",
+      "damage": 40,
+      "effect": "Stuns for 1 turn",
+      "cost": 3
+    }
+  ]
+  
