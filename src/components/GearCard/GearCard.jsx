@@ -1,6 +1,6 @@
 import React from "react";
 import "./GearCard.css"; // Add corresponding CSS for styling
-import getIcon from "../Icons";
+import utils from "../utils/index";
 
 const GearCard = ({ gear }) => {
   return (
@@ -21,7 +21,7 @@ const GearCard = ({ gear }) => {
         {gear["offensive-statistics"] && (
           <div className="gear-stats-container gear-stats-left">
             {gear["offensive-statistics"]["attack-dice"] && (
-              <div className="gear-stats">{gear["offensive-statistics"]["attack-dice"]} {getIcon("d10")}</div>
+              <div className="gear-stats">{gear["offensive-statistics"]["attack-dice"]} {utils.getIcon("d10")}</div>
             )}
             {gear["offensive-statistics"]["precision"] && (
               <div className="gear-stats">{gear["offensive-statistics"]["precision"]}</div>
@@ -29,13 +29,15 @@ const GearCard = ({ gear }) => {
             
             {/* Power Section */}
             {gear["offensive-statistics"].power?.map((p, index) => (
-              <div key={index} className="gear-stats">
-                {p.amount} {p.type}
+              <div key={index} >
                 {p.gate && (
-                  <span className="gate" style={{ background: getGateColor(p.gate.type) }}>
-                    {p.gate.type} {p.gate.value}
-                  </span>
+                  <div className="gear-stats gate" style={{ background: getGateColor(p.gate.type) }}>
+                    <span>{utils.inputIconUpdatedComponent(p.gate.type)} {p.gate.value}</span>
+                  </div>
                 )}
+                <div className="gear-stats">
+                  {p.amount} {utils.inputIconUpdatedComponent(p.type, "Power")}
+                </div>
               </div>
             ))}
           </div>
@@ -44,31 +46,35 @@ const GearCard = ({ gear }) => {
         {/* Defensive Statistics */}
         {gear["defensive-statistics"].length > 0 && (
           <div className="gear-stats-container gear-stats-right">
-            {gear["defensive-statistics"].map((stat, index) => (
-              <div key={index} className="gear-stats gear-stats-right">{stat}</div>
+            {gear["defensive-statistics"]["evasion-rerolls"] && (
+              <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["evasion-rerolls"]} {utils.getIcon("EvasionReroll")}</div>
+            )}
+            {gear["defensive-statistics"]["evasion-bonus"] && (
+              <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["evasion-bonus"]} {utils.getIcon("EvasionBonus")}</div>
+            )}
+            {gear["defensive-statistics"]["armor-dice"] && (
+              <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["armor-dice"]}</div>
+            )}
+            {gear["defensive-statistics"]["resistances"].map((resistance, index) => (
+              <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.inputIconUpdatedComponent(resistance.type)}</div>
             ))}
           </div>
         )}
       </div>
 
-      {/* Slot & Traits */}
+      {/* Gear Info */}
       <div className="gear-info">
         <div className="gear-info-header">Slot</div>
         <div className="gear-info-detail">{gear.slot}</div>
-
+      </div>
+      <div className="gear-info">
         <div className="gear-info-header">Traits</div>
         <div className="gear-info-detail">{gear.traits.join(", ")}</div>
       </div>
-
-      {/* Flavor Text */}
-      {gear.flavor && (
-        <div className="gear-info">
-          <div className="gear-info-header">Flavor Text</div>
-          <div className="gear-info-detail">{gear.flavor}</div>
-        </div>
-      )}
-
-      {/* Cycle Information */}
+      <div className="gear-info">
+        <div className="gear-info-header">Flavor Text</div>
+        <div className="gear-info-detail">{gear.flavor}</div>
+      </div>
       <div className="gear-info">
         <div className="gear-info-header">Cycle</div>
         <div className="gear-info-detail">{gear.cycle}</div>
@@ -92,6 +98,7 @@ const getColor = (cycle) => {
 };
 
 const getGateColor = (gatetype) => {
+  gatetype = gatetype.toLowerCase()
   const gateColors = {
     danger: "#9B2315",
     fate: "#557DBD",

@@ -8,7 +8,7 @@ const App = () => {
     <div className="app">
       <h1>ATCC</h1>
       <div className="card-list">
-        <GearList /> {/* This will render the list of gear cards */}
+        <GearList /> {/* Renders the list of gear cards */}
       </div>
     </div>
   );

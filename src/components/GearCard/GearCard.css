@@ -51,12 +51,12 @@
 
 .gear .gear-info-header {
 	text-align: right;
-	flex-basis: 40%;
+	flex-basis: 35%;
 	font-weight: BOLD;
 }
 
 .gear .gear-info-detail {
-	flex-basis: 60%;
+	flex-basis: 65%;
 }
 
 .gear .gear-stats-container {
@@ -92,7 +92,6 @@
     font-size: 9px;
     height: 13px;
     padding: 0;
-    line-height: 0;
 }
 
 .gear .gear-abilities {

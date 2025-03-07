@@ -26,7 +26,7 @@
         }
       ]
     },
-    "defensive-statistics": [],
+    "defensive-statistics": {},
     "asterisk-effect": null,
     "wished": false,
     "unique": false,
@@ -64,7 +64,7 @@
       "precision": "",
       "power": []
     },
-    "defensive-statistics": [],
+    "defensive-statistics": {},
     "asterisk-effect": null,
     "wished": false,
     "unique": false,
@@ -130,7 +130,9 @@
         }
       ]
     },
-    "defensive-statistics": [],
+    "defensive-statistics": {
+      "evasion-rerolls": "X*"
+    },
     "asterisk-effect": "X is equal to the number of Opening tokens in the Kratos Pool.",
     "wished": false,
     "unique": false,
@@ -198,7 +200,7 @@
         }
       ]
     },
-    "defensive-statistics": [],
+    "defensive-statistics": {},
     "asterisk-effect": null,
     "wished": false,
     "unique": true,
@@ -260,7 +262,7 @@
         }
       ]
     },
-    "defensive-statistics": [],
+    "defensive-statistics": {},
     "asterisk-effect": null,
     "wished": true,
     "unique": true,
@@ -367,7 +369,7 @@
         }
       ]
     },
-    "defensive-statistics": [],
+    "defensive-statistics": {},
     "asterisk-effect": null,
     "wished": false,
     "unique": false,
@@ -427,7 +429,7 @@
         }
       ]
     },
-    "defensive-statistics": [],
+    "defensive-statistics": {},
     "asterisk-effect": null,
     "wished": false,
     "unique": false,

@@ -22,11 +22,11 @@ KEYWORDS = {
 }
 
 COSTS = {
-    "Fate", "Danger", "Exhaust", "Discard", "Midas", "Energy", "Ambrosia"
+    "Fate", "Danger", "Exhaust", "Discard", "Midas", "Energy", "Ambrosia", "Combat Action", "Movement Action"
 }
 
 TIMINGS = {
-    "Reaction", "Wound:", "Crit Fail:", "Crit Evade Fail:", "Crit Chance:", "Crit Evade:", "Full Hit:", "Full Miss:"
+    "Reaction", "Wound:", "Crit Fail:", "Crit Evade Fail:", "Crit Chance:", "Crit Evade:", "Full Hit:", "Full Miss:", "Each Hit:"
 }
 
 def parse_power(power_str):
@@ -50,6 +50,18 @@ def parse_power(power_str):
                 amount, power_type = match.groups()
                 powers.append({"amount": int(amount), "type": power_type})
     return powers
+
+def parse_armor(armor_str):
+    armor = []
+    for part in armor_str.split(". "):
+        match = re.match(r"(\d+)\s*(\w+)", part)
+        if match:
+            amount, die_type = match.groups()
+            armor.append({
+                "amount": int(amount),
+                "type": die_type
+            })
+    return armor
 
 def parse_abilities(ability_box):
     """Parses the ability box into keywords and unique abilities."""
@@ -124,6 +136,12 @@ def csv_to_json(csv_file, json_file):
                 "precision": row["Precision"],
                 "power": parse_power(row["Power"])
             }
+            defensive_statistics = {}
+            if row["Evasion Rerolls"]: defensive_statistics["evasion-rerolls"] = row["Evasion Rerolls"]
+            if row["Evasion Bonus"]: defensive_statistics["evasion-bonus"] = row["Evasion Bonus"]
+            if row["Armor Dice"]: defensive_statistics["armor-dice"] = parse_armor(row["Armor Dice"])
+            if row["Resistances"]: defensive_statistics["resistances"] = map(parse_armor, row["Resistances"].split(". "))
+
             abilities = parse_abilities(row["Ability Box"])
             
             card_json = {
@@ -139,7 +157,7 @@ def csv_to_json(csv_file, json_file):
                 "transforms-into": row["Transforms Into"] or None,
                 "traits": row["Traits"].split(", ") if row["Traits"] else [],
                 "offensive-statistics": offensive_statistics,
-                "defensive-statistics": [],
+                "defensive-statistics": defensive_statistics,
                 "asterisk-effect": row["Asterisk Effect"] or None,
                 "wished": "(Wished)" in row["Name"],
                 "unique": "Unique" in row["Ability Box"],
