@@ -35,7 +35,247 @@
       "keywords": [],
       "unique-abilities": [
         {
-          "name": "This item can be used as a One Handed Weapon, with the following modifiers: -1 Attack Dice"
+          "name": "This item can be used as a OneHanded Weapon, with the following modifiers: -1 d10"
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ0183",
+      "AJ0184"
+    ],
+    "name": "Naval Ram",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "Full speed ahead",
+    "slot": "2 Hands",
+    "transforms-into": null,
+    "traits": [
+      "Wood",
+      "Club",
+      "Flammable"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "1",
+      "precision": "+0",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        },
+        {
+          "amount": 1,
+          "type": "Power",
+          "gate": {
+            "type": "Danger",
+            "value": "5+"
+          }
+        }
+      ]
+    },
+    "defensive-statistics": {},
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Break",
+          "x_value": 2
+        },
+        {
+          "name": "Cumbersome"
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Auto-break",
+          "x_value": 2
+        },
+        {
+          "name": "Power Re-roll",
+          "x_value": 1
+        },
+        {
+          "name": "Full Miss: Place 2 Break tokens in the Kratos Pool"
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ0185",
+      "AJ0186"
+    ],
+    "name": "Heavy Kopis",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "Olympians may be gone, but their memory lingers",
+    "slot": "1 Hand",
+    "transforms-into": null,
+    "traits": [
+      "Bone",
+      "Knife"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "2",
+      "precision": "+3",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        },
+        {
+          "amount": 1,
+          "type": "Power",
+          "gate": {
+            "type": "Danger",
+            "value": "8+"
+          }
+        }
+      ]
+    },
+    "defensive-statistics": {},
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Carving",
+          "x_value": 1
+        },
+        {
+          "name": "Opening",
+          "x_value": 1
+        },
+        {
+          "name": "Sacrifice"
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "When you are about to perform a Power Roll, gain +3 Danger to gain +1 RedPowerDie for this Attack",
+          "gate": {
+            "type": "danger",
+            "value": "2+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ0187",
+      "AJ0188"
+    ],
+    "name": "Jawbone Axe",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "Made from the jaw of a giant speckled shark",
+    "slot": "1 Hand",
+    "transforms-into": null,
+    "traits": [
+      "Bone",
+      "Axe"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "2",
+      "precision": "+0",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Black"
+        }
+      ]
+    },
+    "defensive-statistics": {},
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Deadly"
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Auto-break",
+          "x_value": 1,
+          "gate": {
+            "type": "danger",
+            "value": "6+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ0193",
+      "AJ0194"
+    ],
+    "name": "Liontail Whip",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "Long-tailed lions will soon go extinct",
+    "slot": "1 Hand",
+    "transforms-into": null,
+    "traits": [
+      "Bone",
+      "Leather",
+      "Whip",
+      "Flammable"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "3",
+      "precision": "+1",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensive-statistics": {},
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Reach",
+          "x_value": 2
+        },
+        {
+          "name": "Spotlight",
+          "gate": {
+            "type": "danger",
+            "value": "6+"
+          }
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Full Hit: You may gain the PriorityTarget token"
         }
       ]
     }
@@ -133,17 +373,12 @@
     "defensive-statistics": {
       "evasion-rerolls": "X*"
     },
-    "asterisk-effect": "X is equal to the number of Opening tokens in the Kratos Pool.",
+    "asterisk-effect": "*X is equal to the number of Opening tokens in the Kratos Pool.",
     "wished": false,
     "unique": false,
     "ascended": true,
     "abilities": {
       "keywords": [
-        {
-          "name": "Daze"
-        }
-      ],
-      "unique-abilities": [
         {
           "name": "Block",
           "x_value": 1,
@@ -156,6 +391,11 @@
           "name": "Break",
           "x_value": 1
         },
+        {
+          "name": "Daze"
+        }
+      ],
+      "unique-abilities": [
         {
           "name": "Kickback Resistance",
           "x_value": 1
@@ -206,17 +446,10 @@
     "unique": true,
     "ascended": false,
     "abilities": {
-      "keywords": [],
-      "unique-abilities": [
+      "keywords": [
         {
           "name": "Overbreak",
           "x_value": 2
-        },
-        {
-          "name": "Crit Miss: Gain +1 Danger, +1 Fate"
-        },
-        {
-          "name": "Dog Days Are Over: When you deal a Critical Wound, lose -1 Strangers"
         },
         {
           "name": "Overbreak",
@@ -225,6 +458,14 @@
             "type": "danger",
             "value": "7+"
           }
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Crit Miss: Gain +1 Danger, +1 Fate"
+        },
+        {
+          "name": "Dog Days Are Over: When you deal a Critical Wound, lose -1 Strangers"
         }
       ]
     }
@@ -270,17 +511,6 @@
     "abilities": {
       "keywords": [
         {
-          "name": "Succor"
-        },
-        {
-          "name": "Unholy Alchemy"
-        }
-      ],
-      "unique-abilities": [
-        {
-          "name": "Wished"
-        },
-        {
           "name": "Black",
           "x_value": 2
         },
@@ -293,21 +523,10 @@
           "x_value": 1
         },
         {
-          "name": "Limit",
-          "x_value": 3,
-          "costs": [
-            "Ambrosia"
-          ]
+          "name": "Succor"
         },
         {
-          "name": "Ignore the Curse Carapace Trait"
-        },
-        {
-          "name": "One Red Power Die becomes a Black Power Die",
-          "gate": {
-            "type": "ambrosia",
-            "value": "1+"
-          }
+          "name": "Unholy Alchemy"
         },
         {
           "name": "Reach",
@@ -315,13 +534,6 @@
           "gate": {
             "type": "ambrosia",
             "value": "2+"
-          }
-        },
-        {
-          "name": "Another Red Power Die becomes a Black Power Die",
-          "gate": {
-            "type": "ambrosia",
-            "value": "3+"
           }
         },
         {
@@ -335,6 +547,152 @@
             "type": "danger",
             "value": "6+"
           }
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Wished"
+        },
+        {
+          "name": "Limit",
+          "x_value": 3,
+          "costs": [
+            "Ambrosia"
+          ]
+        },
+        {
+          "name": "Ignore the Curse Carapace Trait"
+        },
+        {
+          "name": "One RedPowerDie becomes a BlackPowerDie",
+          "gate": {
+            "type": "ambrosia",
+            "value": "1+"
+          }
+        },
+        {
+          "name": "Another RedPowerDie becomes a BlackPowerDie",
+          "gate": {
+            "type": "ambrosia",
+            "value": "3+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ9983"
+    ],
+    "name": "MWE-4 \"Keelbow\"",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Promo",
+    "acquisition": "Crafting",
+    "flavor": "An elegant weapon, for a more civilized time...",
+    "slot": "2 Hands",
+    "transforms-into": null,
+    "traits": [
+      "Bow",
+      "Metal",
+      "Argotech"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "2",
+      "precision": "+3",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensive-statistics": {},
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Cumbersome"
+        },
+        {
+          "name": "Daze"
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Ranged",
+          "y_value": 3,
+          "x_value": 4
+        },
+        {
+          "name": "CombatAction Take Aim: Place an Opening token on this card"
+        },
+        {
+          "name": "For each Opening on this card gain +3 Precision"
+        },
+        {
+          "name": "When you attack discard all Opening tokens from this card"
+        },
+        {
+          "name": "Loses Cumbersome",
+          "gate": {
+            "type": "danger",
+            "value": "3+"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "card-ids": [
+      "AJ9985"
+    ],
+    "name": "MWE-33U \"Gardeners\"",
+    "card-type": "Gear",
+    "card-size": "Mini American",
+    "cycle": "Cycle I",
+    "used-for": "Promo",
+    "acquisition": "Crafting",
+    "flavor": "To climb the spires of smog",
+    "slot": "2 Hands",
+    "transforms-into": null,
+    "traits": [
+      "Kusarigama",
+      "Leather",
+      "Metal",
+      "Argotech"
+    ],
+    "offensive-statistics": {
+      "attack-dice": "2",
+      "precision": "+0",
+      "power": []
+    },
+    "defensive-statistics": {},
+    "asterisk-effect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": {
+      "keywords": [
+        {
+          "name": "Reposition",
+          "x_value": 1
+        },
+        {
+          "name": "Opening",
+          "x_value": 2
+        }
+      ],
+      "unique-abilities": [
+        {
+          "name": "Each Hit: Gain +1 Power"
+        },
+        {
+          "name": "Crit Chance: Gain +1 Power"
         }
       ]
     }
@@ -375,7 +733,16 @@
     "unique": false,
     "ascended": false,
     "abilities": {
-      "keywords": [],
+      "keywords": [
+        {
+          "name": "Overbreak",
+          "x_value": 2,
+          "gate": {
+            "type": "danger",
+            "value": "3+"
+          }
+        }
+      ],
       "unique-abilities": [
         {
           "name": "Ranged",
@@ -387,14 +754,6 @@
         },
         {
           "name": "Moving outside your effective range doesn't cause a Chain Break"
-        },
-        {
-          "name": "Overbreak",
-          "x_value": 2,
-          "gate": {
-            "type": "danger",
-            "value": "3+"
-          }
         }
       ]
     }
@@ -435,12 +794,13 @@
     "unique": false,
     "ascended": false,
     "abilities": {
-      "keywords": [],
-      "unique-abilities": [
+      "keywords": [
         {
           "name": "Reach",
           "x_value": 2
-        },
+        }
+      ],
+      "unique-abilities": [
         {
           "name": "Commit"
         },

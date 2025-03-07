@@ -6,7 +6,7 @@ const GearCard = ({ gear }) => {
   return (
     <div className="gear" style={{ color: getColor(gear.cycle) }}>
       {/* Card Title */}
-      <div className="gear-title" style={{ background: getColor(gear.cycle) }}>
+      <div className="gear-title" style={{ background: getColor(gear.cycle), ...(gear.cycle === "Cycle IV" && { color: "#E7CC68" })}}>
         {gear.name}
       </div>
 
@@ -32,7 +32,7 @@ const GearCard = ({ gear }) => {
               <div key={index} >
                 {p.gate && (
                   <div className="gear-stats gate" style={{ background: getGateColor(p.gate.type) }}>
-                    <span>{utils.inputIconUpdatedComponent(p.gate.type)} {p.gate.value}</span>
+                    <span>{utils.inputIconUpdatedComponent(p.gate.type)} / {p.gate.value}</span>
                   </div>
                 )}
                 <div className="gear-stats">
@@ -44,36 +44,55 @@ const GearCard = ({ gear }) => {
         )}
 
         {/* Defensive Statistics */}
-        {gear["defensive-statistics"].length > 0 && (
-          <div className="gear-stats-container gear-stats-right">
-            {gear["defensive-statistics"]["evasion-rerolls"] && (
-              <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["evasion-rerolls"]} {utils.getIcon("EvasionReroll")}</div>
-            )}
-            {gear["defensive-statistics"]["evasion-bonus"] && (
-              <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["evasion-bonus"]} {utils.getIcon("EvasionBonus")}</div>
-            )}
-            {gear["defensive-statistics"]["armor-dice"] && (
-              <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["armor-dice"]}</div>
-            )}
-            {gear["defensive-statistics"]["resistances"].map((resistance, index) => (
-              <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.inputIconUpdatedComponent(resistance.type)}</div>
-            ))}
+        <div className="gear-stats-container gear-stats-right">
+          {gear["defensive-statistics"]["evasion-rerolls"] && (
+            <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["evasion-rerolls"]} {utils.getIcon("EvasionReroll")}</div>
+          )}
+          {gear["defensive-statistics"]["evasion-bonus"] && (
+            <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["evasion-bonus"]} {utils.getIcon("EvasionBonus")}</div>
+          )}
+          {gear["defensive-statistics"]["armor-dice"] && (
+            <div className="gear-stats gear-stats-right">{gear["defensive-statistics"]["armor-dice"]}</div>
+          )}
+          {gear["defensive-statistics"].resistances?.map((resistance, index) => (
+            <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.inputIconUpdatedComponent(resistance.type)}</div>
+          ))}
+        </div>
+      </div>
+
+      {/* Ability Box */}
+      <div className="gear-info">
+        <div className="gear-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle) }}>{utils.getIcon(gear.slot, undefined, undefined, "1.9em")}</div></div>
+        <div className="gear-abilities">
+          {gear["abilities"].keywords?.map((keyword, index) => (
+            <span key={index}>{keyword.name}{keyword.x_value && (" " + keyword.x_value)}. </span>
+          ))}
+          {gear["abilities"]["unique-abilities"]?.map((unique, index) => (
+            <span key={index}>{unique.name}. </span>
+          ))}
+          {/*     Gated Abilities TO-DO
+          <div className="gear-info" style={{ background: getGateColor(ability.gate.type) }}>
+            <div className="gear-ability-gate"></div>
+            <div className="gear-gated-ability"></div>
           </div>
-        )}
+          */}
+        </div>
+        <div className="gear-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle) }}>{utils.getIcon("Gear", undefined, undefined, "2.1em")}</div></div>
       </div>
 
       {/* Gear Info */}
-      <div className="gear-info">
-        <div className="gear-info-header">Slot</div>
-        <div className="gear-info-detail">{gear.slot}</div>
-      </div>
+      <div className="gear-subtitle" style={{ background: getColor(gear.cycle), ...(gear.cycle === "Cycle IV" && { color: "#E7CC68" }) }}>Card Info</div>
       <div className="gear-info">
         <div className="gear-info-header">Traits</div>
-        <div className="gear-info-detail">{gear.traits.join(", ")}</div>
+        <div className="gear-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
       </div>
       <div className="gear-info">
         <div className="gear-info-header">Flavor Text</div>
         <div className="gear-info-detail">{gear.flavor}</div>
+      </div>
+      <div className="gear-info">
+        <div className="gear-info-header">ID(s)</div>
+        <div className="gear-info-detail">{gear["card-ids"].join(", ")}</div>
       </div>
       <div className="gear-info">
         <div className="gear-info-header">Cycle</div>

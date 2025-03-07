@@ -125,6 +125,9 @@
     width: 30px;
     margin: 5px;
     padding: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .gate img, .gear-ability-gate img, .gear-gated-ability img, .icon img {

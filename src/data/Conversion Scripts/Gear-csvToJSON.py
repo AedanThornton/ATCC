@@ -3,22 +3,22 @@ import json
 import re
 
 KEYWORDS = {
-    "Ambrosia Limit X/+X", "Armor-Piercing", "Armor Reroll X", "Assist X", "Attack Reroll X", "Auto-Black X", "Auto-Break X", "Auto-Inspire", 
-    "Awakening Lock", "Black X", "Bleeding X", "Bleeding Limit X/+X", "Block X", "Break X", "Burden X", "Burn", "Bypass", "Carving X", 
-    "Closing X", "Clutch", "Combo-Breaker: X spaces", "Self Combo-Breaker: X spaces", "Commit (X)", "Consume", "Crash", "Cryptex Loathing", 
-    "Cumbersome", "Cursed", "Daze", "Deadly", "Death X", "Defy X", "Displace", "Diversion", "Dodge", "Doomed", "Double Commit", "Elation X", 
-    "Escalate X", "Evolving", "Fate Armor", "Fire X", "Float", "Frontlines", "Glaciate", "Giant Glaciate", "Greater Pass X", "Hardened", 
-    "Heal", "Heartseeker", "Hermes Move X", "Hermes Reflex", "Advanced Hermes Reflex", "Hermes Resposition X", "Hide", "Hope X", 
-    "Incinerated", "Inspire X", "Jump", "Advanced Jump", "Knockback X", "Knockdown", "Laser Resistance X", "Lifeline", "Light X", 
-    "Lumbering", "Masterwork", "Midas X", "Midas Immune", "Motivate X", "Opening X", "Overbreak X", "Pass X", "Perishable", "Precise", 
-    "Provoke", "Pole Position", "Power Reroll X", "Pull X", "Pursuit X", "Pushback X", "Quantum", "Ranged Y-X", "Reach X", "Reduction X", 
-    "Wish Away Reduction X", "Pushback Reduction X", "Knockback Reduction X", "Kickback Reduction X", "Pull Reduction X", "Reflex", 
-    "Advanced Reflex", "Superior Reflex", "Reinforce X", "Advanced Reinforce X", "Superior Reinforce X", "Reposition X", "Restricted (Trait)", 
-    "Rewind", "Rocksteady", "Rollout", "Rouse X", "Rush", "Improved Rush", "Sacrifice", "Scale", "Scale X", "Second Chance", "Shaded", 
-    "Solace", "Spiral X", "Spotlight", "Stalwart", "Startup X", "Strikeback X", "Succor", "Super Smart Delivery", "Superior Chance", 
+    "Ambrosia Limit", "Armor-Piercing", "Armor Reroll", "Assist", "Attack Reroll", "Auto-Black", "Auto-Break", "Auto-Inspire", 
+    "Awakening Lock", "Black", "Bleeding", "Bleeding Limit", "Block", "Break", "Burden", "Burn", "Bypass", "Carving", 
+    "Closing", "Clutch", "Combo-Breaker: X spaces", "Self Combo-Breaker: X spaces", "Commit (X)", "Consume", "Crash", "Cryptex Loathing", 
+    "Cumbersome", "Cursed", "Daze", "Deadly", "Death", "Defy", "Displace", "Diversion", "Dodge", "Doomed", "Double Commit", "Elation", 
+    "Escalate", "Evolving", "Fate Armor", "Fire", "Float", "Frontlines", "Glaciate", "Giant Glaciate", "Greater Pass", "Hardened", 
+    "Heal", "Heartseeker", "Hermes Move", "Hermes Reflex", "Advanced Hermes Reflex", "Hermes Resposition", "Hide", "Hope", 
+    "Incinerated", "Inspire", "Jump", "Advanced Jump", "Knockback", "Knockdown", "Laser Resistance", "Lifeline", "Light", 
+    "Lumbering", "Masterwork", "Midas", "Midas Immune", "Motivate", "Opening", "Overbreak", "Pass", "Perishable", "Precise", 
+    "Provoke", "Pole Position", "Power Reroll", "Pull", "Pursuit", "Pushback", "Quantum", "Ranged Y-X", "Reach", "Reduction", 
+    "Wish Away Reduction", "Pushback Reduction", "Knockback Reduction", "Kickback Reduction", "Pull Reduction", "Reflex", 
+    "Advanced Reflex", "Superior Reflex", "Reinforce", "Advanced Reinforce", "Superior Reinforce", "Reposition", "Restricted (Trait)", 
+    "Rewind", "Rocksteady", "Rollout", "Rouse", "Rush", "Improved Rush", "Sacrifice", "Scale", "Scale", "Second Chance", "Shaded", 
+    "Solace", "Spiral", "Spotlight", "Stalwart", "Startup", "Strikeback", "Succor", "Super Smart Delivery", "Superior Chance", 
     "BP Suppress", "AI Suppress", "Temporal Reflex", "Time-Clocked", "Tireless", "Titan Possession", "Argonaut Possession", "Transform", 
-    "Trauma Trick", "Wound Trick", "Fail Trick", "Tumble", "Unburden X", "Unholy Alchemy", "Reverse Unholy Alchemy", "Vault", "Forced Vault", 
-    "Voluntary Knockdown", "Wish Armor", "Wish Away X", "Wishcursed", "Wish Dodge", "Advanced Wish Dodge", "Wishrod"
+    "Trauma Trick", "Wound Trick", "Fail Trick", "Tumble", "Unburden", "Unholy Alchemy", "Reverse Unholy Alchemy", "Vault", "Forced Vault", 
+    "Voluntary Knockdown", "Wish Armor", "Wish Away", "Wishcursed", "Wish Dodge", "Advanced Wish Dodge", "Wishrod"
 }
 
 COSTS = {
@@ -130,7 +130,7 @@ def csv_to_json(csv_file, json_file):
         reader = csv.DictReader(file, delimiter=',', quotechar='"')
         output = []
         for row in reader:
-            card_ids = row["Card Number"].split(", ")
+            card_ids = row["Card ID"].split(", ")
             offensive_statistics = {
                 "attack-dice": row["Attack Dice"],
                 "precision": row["Precision"],
