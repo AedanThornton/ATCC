@@ -16,6 +16,7 @@
 	font-size: 18px;
 	color: white;
     border-radius: 9px 9px 0 0;
+	flex: 8;
 }
 
 .gear .gear-subtitle {
@@ -47,6 +48,8 @@
 	width: 100%;
 	display: flex;
 	column-gap: 10px;
+	justify-content: center;
+	align-items: center;
 }
 
 .gear .gear-info-header {
@@ -121,6 +124,8 @@
 
 .gear .icon {
 	border-radius: 50%;
+	border: 3px solid #DFDBCD;
+    box-shadow: 0 0 4px 3px #cac7b9;
     height: 30px;
     width: 30px;
     margin: 5px;
@@ -130,8 +135,8 @@
 	align-items: center;
 }
 
-.gate img, .gear-ability-gate img, .gear-gated-ability img, .icon img {
-	filter: invert(1);
+.gate .invertible, .gear-ability-gate .invertible, .gear-gated-ability .invertible, .icon .invertible {
+	filter: brightness(0) invert(1);
 }
 
 .cycle4 img {

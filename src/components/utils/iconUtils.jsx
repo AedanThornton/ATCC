@@ -1,6 +1,22 @@
 const icons = {};
 const modules = import.meta.glob("/src/assets/icons/*.svg");
 
+const invertibles = [
+    "Danger",
+    "Fate",
+    "Rage",
+    "Exhaust",
+    "Discard",
+    "Reaction",
+    "Gear",
+    "OneHanded",
+    "TwoHanded",
+    "ThreeHanded",
+    "Support",
+    "Armor",
+    "Speed"
+];
+
 for (const path in modules) {
     const key = path.split("/").pop().replace(".svg", ""); // Extract filename
     modules[path]().then((mod) => {
@@ -9,7 +25,7 @@ for (const path in modules) {
 }
 
 const utils = {
-    getIcon: (name, type = "none", index, size = "1em") => {
+    getIcon: (name, type = "none", index, size = "1em", padding = "0.1em") => {
         switch (name) {
             case "Red":
                 if (type === "Power") {
@@ -36,9 +52,10 @@ const utils = {
             case "2 Hands": name = "TwoHanded"; break
             case "3 Hands": name = "ThreeHanded"; break
         }
-        return icons[name] ? <img key={name + index} src={icons[name]} style={{height: size, verticalAlign: "middle"}} alt={name} /> : name
+        const icon = icons[name];
+        return icon ? <img key={name + index} src={icon} style={{height: size, verticalAlign: "middle", paddingBottom: padding}} alt={name} className={`${invertibles.includes(name) ? "invertible" : ""}`}/> : name;
     },
-    interpolateIcons: (str, type) => {        
+    interpolateIcons: (str, type) => {       
         return str.split(/\b/).map((word, index) => utils.getIcon(word, type, index))
     }
 }

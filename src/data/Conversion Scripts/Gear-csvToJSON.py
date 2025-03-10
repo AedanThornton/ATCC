@@ -3,7 +3,7 @@ import json
 import re
 
 KEYWORDS = {
-    "Ambrosia Limit", "Armor-Piercing", "Armor Reroll", "Assist", "Attack Reroll", "Auto-Black", "Auto-Break", "Auto-Inspire", 
+    "Ambrosia Limit", "Armor-Piercing", "Armor Reroll", "Assist", "Attack Reroll", "Auto-black", "Auto-break", "Auto-inspire", 
     "Awakening Lock", "Black", "Bleeding", "Bleeding Limit", "Block", "Break", "Burden", "Burn", "Bypass", "Carving", 
     "Closing", "Clutch", "Combo-Breaker: X spaces", "Self Combo-Breaker: X spaces", "Commit (X)", "Consume", "Crash", "Cryptex Loathing", 
     "Cumbersome", "Cursed", "Daze", "Deadly", "Death", "Defy", "Displace", "Diversion", "Dodge", "Doomed", "Double Commit", "Elation", 
@@ -11,7 +11,7 @@ KEYWORDS = {
     "Heal", "Heartseeker", "Hermes Move", "Hermes Reflex", "Advanced Hermes Reflex", "Hermes Resposition", "Hide", "Hope", 
     "Incinerated", "Inspire", "Jump", "Advanced Jump", "Knockback", "Knockdown", "Laser Resistance", "Lifeline", "Light", 
     "Lumbering", "Masterwork", "Midas", "Midas Immune", "Motivate", "Opening", "Overbreak", "Pass", "Perishable", "Precise", 
-    "Provoke", "Pole Position", "Power Reroll", "Pull", "Pursuit", "Pushback", "Quantum", "Ranged Y-X", "Reach", "Reduction", 
+    "Provoke", "Pole Position", "Power Re-roll", "Pull", "Pursuit", "Pushback", "Quantum", "Ranged Y-X", "Reach", "Reduction", 
     "Wish Away Reduction", "Pushback Reduction", "Knockback Reduction", "Kickback Reduction", "Pull Reduction", "Reflex", 
     "Advanced Reflex", "Superior Reflex", "Reinforce", "Advanced Reinforce", "Superior Reinforce", "Reposition", "Restricted (Trait)", 
     "Rewind", "Rocksteady", "Rollout", "Rouse", "Rush", "Improved Rush", "Sacrifice", "Scale", "Scale", "Second Chance", "Shaded", 
@@ -22,15 +22,15 @@ KEYWORDS = {
 }
 
 COSTS = {
-    "Fate", "Danger", "Exhaust", "Discard", "Midas", "Energy", "Ambrosia", "Combat Action", "Movement Action"
+    "Fate", "Danger", "Exhaust", "Discard", "Midas", "Energy", "Ambrosia", "CombatAction", "MovementAction"
 }
 
 TIMINGS = {
-    "Reaction", "Wound:", "Crit Fail:", "Crit Evade Fail:", "Crit Chance:", "Crit Evade:", "Full Hit:", "Full Miss:", "Each Hit:"
+    "Reaction", "Wound", "Crit Miss", "Crit Evade Fail", "Crit Chance", "Crit Evade", "Full Evade", "Full Hit", "Full Miss", "Each Hit", "Sunstarved", "Start of Battle"
 }
 
 def parse_power(power_str):
-    """Parses the power string into a structured list."""
+    """Parses the power."""
     powers = []
     for part in power_str.split(". "):
         match = re.match(r"(\w+ \d+\+)\s*\+?(\d+)\s*(\w+)", part)
@@ -64,8 +64,8 @@ def parse_armor(armor_str):
     return armor
 
 def parse_abilities(ability_box):
-    """Parses the ability box into keywords and unique abilities."""
-    keywords, unique_abilities = [], []
+    """Parses the ability box."""
+    new_ability_list = []
     ability_list = re.split(r"\.\s?", ability_box)[:-1]
     gate_pattern = re.compile(r"(\w+) (\d\+)")
     x_pattern = re.compile(r"^([\w\s:\+,\-']+?)(?:\s+([\dX\-]+))?$")
@@ -81,7 +81,10 @@ def parse_abilities(ability_box):
 
         costs = []
         timing = ""
+        timingAfter = False
+        flavorName = ""
         words = effect.split()
+        colon_timings = effect.split(":")
         if words[0] in TIMINGS:
             timing = words[0]
             words.remove(words[0])
@@ -90,16 +93,26 @@ def parse_abilities(ability_box):
                 costs.append(word)
                 words.remove(word)
             else: break
-        if costs != []:
-            if words[0] in TIMINGS:
-                timing = words[0]
-                words.remove(words[0])
+        colon_timings = " ".join(words).split(":")
+        if words[0] in TIMINGS:
+            timing = words[0]
+            timingAfter = True
+            words.remove(words[0])
+        if len(colon_timings) > 1:
+            if colon_timings[0] in TIMINGS:
+                timing = colon_timings[0]
+                words = ":".join(colon_timings).replace(colon_timings[0] + ": ", "").split()
+            elif len(colon_timings[0]) < 20:
+                flavorName = colon_timings[0]
+                words = ":".join(colon_timings).replace(colon_timings[0] + ": ", "").split()
 
         name = " ".join(words)
                 
 
         ability_json = {}
         ability_json["name"] = name
+        if flavorName:
+            ability_json["flavorName"] = flavorName
         if x_value:
             y_pattern = re.compile(r"(\d)\-(\d)")
             y_match = y_pattern.match(x_value)
@@ -111,18 +124,22 @@ def parse_abilities(ability_box):
                 ability_json["x_value"] = int(x)
         if gate_match:
             gate_type, gate_value = gate_match.groups()
-            ability_json["gate"] = {"type": gate_type.lower(), "value": gate_value}
+            ability_json["gate"] = {"type": gate_type, "value": gate_value}
         if costs != []:
             ability_json["costs"] = costs
         if timing != "":
             ability_json["timing"] = timing
+        if timingAfter:
+            ability_json["timingAfter"] = True
 
         if name in KEYWORDS:
-            keywords.append(ability_json)
+            ability_json["type"] = "keyword"
         else:
-            unique_abilities.append(ability_json)
+            ability_json["type"] = "unique"
+        
+        new_ability_list.append(ability_json)
     
-    return {"keywords": keywords, "unique-abilities": unique_abilities}
+    return new_ability_list
 
 def csv_to_json(csv_file, json_file):
     """Converts CSV data to JSON."""
@@ -132,33 +149,33 @@ def csv_to_json(csv_file, json_file):
         for row in reader:
             card_ids = row["Card ID"].split(", ")
             offensive_statistics = {
-                "attack-dice": row["Attack Dice"],
+                "attackDice": row["Attack Dice"],
                 "precision": row["Precision"],
                 "power": parse_power(row["Power"])
             }
             defensive_statistics = {}
-            if row["Evasion Rerolls"]: defensive_statistics["evasion-rerolls"] = row["Evasion Rerolls"]
-            if row["Evasion Bonus"]: defensive_statistics["evasion-bonus"] = row["Evasion Bonus"]
-            if row["Armor Dice"]: defensive_statistics["armor-dice"] = parse_armor(row["Armor Dice"])
+            if row["Evasion Rerolls"]: defensive_statistics["evasionRerolls"] = row["Evasion Rerolls"]
+            if row["Evasion Bonus"]: defensive_statistics["evasionBonus"] = row["Evasion Bonus"]
+            if row["Armor Dice"]: defensive_statistics["armorDice"] = parse_armor(row["Armor Dice"])
             if row["Resistances"]: defensive_statistics["resistances"] = map(parse_armor, row["Resistances"].split(". "))
 
             abilities = parse_abilities(row["Ability Box"])
             
             card_json = {
-                "card-ids": card_ids,
+                "cardIDs": card_ids,
                 "name": row["Name"].replace(" (Wished)", ""),
-                "card-type": row["Card Type"],
-                "card-size": row["Card Size"],
+                "cardType": row["Card Type"],
+                "cardSize": row["Card Size"],
                 "cycle": row["Cycle"],
-                "used-for": row["Used For"],
+                "usedFor": row["Used For"],
                 "acquisition": row["Acquisition"],
                 "flavor": row["Flavor"],
                 "slot": row["Slot"],
-                "transforms-into": row["Transforms Into"] or None,
+                "transformsInto": row["Transforms Into"] or None,
                 "traits": row["Traits"].split(", ") if row["Traits"] else [],
-                "offensive-statistics": offensive_statistics,
-                "defensive-statistics": defensive_statistics,
-                "asterisk-effect": row["Asterisk Effect"] or None,
+                "offensiveStatistics": offensive_statistics,
+                "defensiveStatistics": defensive_statistics,
+                "asteriskEffect": row["Asterisk Effect"] or None,
                 "wished": "(Wished)" in row["Name"],
                 "unique": "Unique" in row["Ability Box"],
                 "ascended": "Ascended" in row["Ability Box"],
