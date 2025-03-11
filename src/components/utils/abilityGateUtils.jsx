@@ -5,9 +5,11 @@ const AbilityGate = ({ icon, value }) => {
     const link = `./src/assets/icons/${icon}.svg`
 
     let iconAdjustment = 0
+    let iconSize = 22
     switch (icon){
         case "Ambrosia":
             iconAdjustment = 5
+            iconSize = 35
             break;
     }
 
@@ -57,9 +59,10 @@ const AbilityGate = ({ icon, value }) => {
         />
     )
 
-    const iconX = 18 + iconAdjustment/2
+    const iconX = 30 - iconSize/2
+    const iconY = 20 - iconSize/2
     const iconDisplay = (
-        <image className="invertible" xlinkHref={link} width="22" height="22" x={iconX} y="10" />  
+        <image className="invertible" xlinkHref={link} width={iconSize} height={iconSize} x={iconX} y={iconY} />  
     )
 
     const textX = 65 + (iconAdjustment*2)/2
