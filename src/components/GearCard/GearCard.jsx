@@ -76,8 +76,9 @@ const GearCard = ({ gear }) => {
                 {(ability.timingAfter && ability.timing) && (<b> {ability.timing}:</b>)}
                 {ability.flavorName && (<b> {ability.flavorName}</b>)}
                 {ability.type === "unique"
-                  ? utils.inputIconUpdatedComponent(`${ability.name}`) + `${ability.x_value ? ` ${ability.x_value}` : ""}`
-                  : ability.name + `${ability.x_value ? ` ${ability.x_value}` : ""}`}
+                  ? ( utils.inputIconUpdatedComponent(`${ability.name}`) )
+                  : ( <>{utils.interpolateTooltips(`${ability.name}`)}{ability.x_value ? ` ${ability.x_value}` : ""}</> )
+                }
                 .
               </span>
             )

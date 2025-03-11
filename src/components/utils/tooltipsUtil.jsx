@@ -1,19 +1,28 @@
 import * as React from 'react';
 import Tippy from '@tippyjs/react';
 import Keywords from '/src/data/JSON/keywords.json';
+import './utils.css';
 
 const createTooltip = (name, index) => {
-  if (!Keywords[name]) return name;
+  const keywordData = Keywords[name];
+
+  if (!keywordData) {
+    return <span key={index}>{name}</span>; 
+  }
 
   return (
-    <Tippy key={index} className="tooltip">
-      <h3>{name}</h3>
-      {Keywords[name].text?.map((t, index2) => (
-        <span key={index2} style={t.formatting}>
-          {t.subtype && <h5>{t.subtype}</h5>}
-          {t.text}
-        </span>
-      ))}
+    <Tippy key={index} content={
+      <div className="tooltip">
+        <div className='tooltip-title'>{name}</div>
+        {keywordData.map((entry, index2) => (
+          <span key={index2} style={entry.formatting || {}}>
+            {entry.subtype && <div className='tooltip-subtitle'>{entry.subtype}</div>}
+            {entry.text}
+          </span>
+        ))}
+      </div>
+    }>
+      <span className="tooltip-trigger">{name}</span>
     </Tippy>
   );
 };
