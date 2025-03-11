@@ -100,7 +100,7 @@
 .gear .gear-abilities {
 	text-align: center;
 	text-wrap: balance;
-	flex: 8;
+	padding: 0 10px;
 }
 
 .gear .gear-ability-gate {
@@ -109,6 +109,11 @@
     flex-basis: 25%;
     padding-left: 18px;
     text-wrap: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 .gear .gear-gated-ability {
@@ -136,7 +141,7 @@
 }
 
 .gate .invertible, .gear-ability-gate .invertible, .gear-gated-ability .invertible, .icon .invertible {
-	filter: brightness(0) invert(1);
+	filter: invert(1);
 }
 
 .cycle4 img {

@@ -1,19 +1,28 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Tippy from '@tippyjs/react';
 import Keywords from '/src/data/JSON/keywords.json';
 import './utils.css';
 
-const createTooltip = (name, index) => {
-  const keywordData = Keywords[name];
+const createTooltip = (name, index) => {  
+  let keyword="";
+  if (Keywords[name]) keyword = name;
+  else if (Keywords[name + " X"]) keyword = name + " X";
+  else if (Keywords[name + " Y-X"]) keyword = name + " Y-X";
+  else if (Keywords[name.split(' ').slice(1).join(' ')]) keyword = name.split(' ').slice(1).join(' ');
+  else if (Keywords[name.split(' ').slice(1).join(' ') + " X"]) keyword = name.split(' ').slice(1).join(' ') + " X";
+  else return name;
 
-  if (!keywordData) {
-    return <span key={index}>{name}</span>; 
-  }
+  const keywordData = Keywords[keyword];
 
   return (
-    <Tippy key={index} content={
+    <Tippy 
+      key={index} 
+      interactive 
+      duration={0} 
+      offset={[0,0]}
+      content={
       <div className="tooltip">
-        <div className='tooltip-title'>{name}</div>
+        <div className='tooltip-title'>{keyword}</div>
         {keywordData.map((entry, index2) => (
           <span key={index2} style={entry.formatting || {}}>
             {entry.subtype && <div className='tooltip-subtitle'>{entry.subtype}</div>}
@@ -28,9 +37,8 @@ const createTooltip = (name, index) => {
 };
 
 const utils = {
-  interpolateTooltips: (str) => {
-    return <>{str.split(/\b/).map((word, index) => createTooltip(word, index))}</>
-  }
+  interpolateTooltips: (str) => <>{str.split(/\b/).map((word, index) => createTooltip(word, index))}</>,
+  createTooltip: createTooltip
 };
 
 export default utils;

@@ -41,19 +41,19 @@
       "formatting": ""
     }
   ],
-  "Auto-Black X": [
+  "Auto-black X": [
     {
       "text": "During the first ability window, place X Black tokens (X.1.9.6) in the Kratos Pool.",
       "formatting": ""
     }
   ],
-  "Auto-Break X": [
+  "Auto-break X": [
     {
       "text": "During the first ability window, place X Break tokens (X.1.9.1) in the Kratos Pool.",
       "formatting": ""
     }
   ],
-  "Auto-Inspire": [
+  "Auto-inspire": [
     {
       "text": "You may stand up as a free action. You may use this ability while Knocked Down.",
       "formatting": ""
@@ -560,7 +560,7 @@
       "formatting": ""
     }
   ],
-  "Power Reroll X": [
+  "Power Re-roll X": [
     {
       "text": "During the Power Roll step of an Attack, you may re-roll up to X Power dice.",
       "formatting": ""

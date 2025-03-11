@@ -3,6 +3,8 @@
     padding: 10px;
     border-radius: 5px;
     border: 5px solid white;
+    color: white;
+    text-align: left;
 }
 
 .tooltip-title {
@@ -17,5 +19,6 @@
 }
 
 .tooltip-trigger {
-    color: skyblue
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
 }

@@ -64,34 +64,30 @@ const GearCard = ({ gear }) => {
       </div>
 
       {/* Ability Box */}
-      <div className="gear-info">
-        <div className="gear-icon"></div>
-        <div className="gear-abilities">
-          {gear.abilities.map((ability, index) => {
-            const abilityContent = (
-              <span key={index}>
-                {` `}
-                {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-                {(ability.timingAfter && ability.timing) && (<b> {ability.timing}:</b>)}
-                {ability.flavorName && (<b> {ability.flavorName}</b>)}
-                {ability.type === "unique"
-                  ? ( utils.inputIconUpdatedComponent(`${ability.name}`) )
-                  : ( <>{utils.interpolateTooltips(`${ability.name}`)}{ability.x_value ? ` ${ability.x_value}` : ""}</> )
-                }
-                .
-              </span>
-            )
-            
-            return ability.gate ? (
-              <div key={index} className="gear-info" style={{ background: getGateColor(ability.gate.type) }}>
-                <div className="gear-ability-gate">{utils.getIcon(ability.gate.type)} / {ability.gate.value}</div>
-                <div className="gear-gated-ability">{abilityContent}</div>
-              </div>
-            ) : abilityContent
-          })}
-        </div>
-        <div className="gear-icon"></div>
+      <div className="gear-abilities">
+        {gear.abilities.map((ability, index) => {
+          const abilityContent = (
+            <span key={index}>
+              {` `}
+              {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+              {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+              {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+              {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+              {ability.type === "unique"
+                ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
+                : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+              }
+              .
+            </span>
+          )
+          
+          return ability.gate ? (
+            <div key={index} className="gear-info" style={{ background: getGateColor(ability.gate.type) }}>
+              <div className="gear-ability-gate">{utils.createAbilityGate(ability.gate.type, ability.gate.value)}</div>
+              <div className="gear-gated-ability">{abilityContent}</div>
+            </div>
+          ) : abilityContent
+        })}
       </div>
 
       {/* Gear Info */}

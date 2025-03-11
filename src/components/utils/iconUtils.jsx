@@ -14,7 +14,8 @@ const invertibles = [
     "ThreeHanded",
     "Support",
     "Armor",
-    "Speed"
+    "Speed",
+    "Power"
 ];
 
 for (const path in modules) {

@@ -11,7 +11,7 @@ KEYWORDS = {
     "Heal", "Heartseeker", "Hermes Move", "Hermes Reflex", "Advanced Hermes Reflex", "Hermes Resposition", "Hide", "Hope", 
     "Incinerated", "Inspire", "Jump", "Advanced Jump", "Knockback", "Knockdown", "Laser Resistance", "Lifeline", "Light", 
     "Lumbering", "Masterwork", "Midas", "Midas Immune", "Motivate", "Opening", "Overbreak", "Pass", "Perishable", "Precise", 
-    "Provoke", "Pole Position", "Power Re-roll", "Pull", "Pursuit", "Pushback", "Quantum", "Ranged Y-X", "Reach", "Reduction", 
+    "Provoke", "Pole Position", "Power Re-roll", "Pull", "Pursuit", "Pushback", "Quantum", "Ranged", "Reach", "Reduction", 
     "Wish Away Reduction", "Pushback Reduction", "Knockback Reduction", "Kickback Reduction", "Pull Reduction", "Reflex", 
     "Advanced Reflex", "Superior Reflex", "Reinforce", "Advanced Reinforce", "Superior Reinforce", "Reposition", "Restricted (Trait)", 
     "Rewind", "Rocksteady", "Rollout", "Rouse", "Rush", "Improved Rush", "Sacrifice", "Scale", "Scale", "Second Chance", "Shaded", 

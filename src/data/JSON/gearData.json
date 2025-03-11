@@ -605,12 +605,12 @@
     "ascended": false,
     "abilities": [
       {
-        "name": "Knockback Resistance",
+        "name": "Knockback Reduction",
         "x_value": 3,
         "costs": [
           "Fate"
         ],
-        "type": "unique"
+        "type": "keyword"
       }
     ]
   },
@@ -742,9 +742,9 @@
     "ascended": false,
     "abilities": [
       {
-        "name": "Knockback Resistance",
+        "name": "Knockback Reduction",
         "x_value": 2,
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Reinforce",
@@ -820,9 +820,9 @@
     "ascended": false,
     "abilities": [
       {
-        "name": "Knockback Resistance",
+        "name": "Knockback Reduction",
         "x_value": 1,
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "BP Suppress",
@@ -1597,7 +1597,7 @@
         "name": "Ranged",
         "y_value": 2,
         "x_value": 4,
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Pull",
@@ -1662,7 +1662,7 @@
         "name": "Ranged",
         "y_value": 3,
         "x_value": 5,
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Diversion",
@@ -2078,9 +2078,9 @@
         "type": "keyword"
       },
       {
-        "name": "Kickback Resistance",
+        "name": "Kickback Reduction",
         "x_value": 1,
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Ignore Exhaust cost of Block",
@@ -2307,7 +2307,7 @@
         "name": "Ranged",
         "y_value": 3,
         "x_value": 4,
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Cumbersome",
@@ -2383,7 +2383,7 @@
         "name": "Ranged",
         "y_value": 2,
         "x_value": 3,
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "When you hit, Pull the Primordial until it is adjacent to you",
