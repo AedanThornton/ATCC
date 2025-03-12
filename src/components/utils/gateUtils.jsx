@@ -1,8 +1,18 @@
 import React from "react";
 
+const icons = {}
+const modules = import.meta.glob("/src/assets/icons/*.svg");
+
+for (const path in modules) {
+    const key = path.split("/").pop().replace(".svg", ""); // Extract filename
+    modules[path]().then((mod) => {
+        icons[key] = mod.default;
+    });
+}
+
 const AbilityGate = ({ icon, value }) => {
 
-    const link = `./src/assets/icons/${icon}.svg`
+    const link = icons[icon]
 
     let iconAdjustment = 0
     let iconSize = 22
@@ -90,7 +100,7 @@ const AbilityGate = ({ icon, value }) => {
 
 const PowerGate = ({ icon, value }) => {
 
-    const link = `./src/assets/icons/${icon}.svg`
+    const link = icons[icon]
 
     let iconAdjustment = 0
     let iconSize = 22
