@@ -25,7 +25,7 @@ const GearCard = ({ gear }) => {
         {gear.offensiveStatistics && (
           <div className="gear-stats-container gear-stats-left">
             {gear.offensiveStatistics.attackDice && (
-              <div className="gear-stats">{gear.offensiveStatistics.attackDice} {utils.getIcon("d10")}</div>
+              <div className="gear-stats">{gear.offensiveStatistics.attackDice} {utils.getIcon("d10", undefined, undefined, "1.5em")}</div>
             )}
             {gear.offensiveStatistics.precision && (
               <div className="gear-stats">{gear.offensiveStatistics.precision}</div>
@@ -39,7 +39,7 @@ const GearCard = ({ gear }) => {
                   </div>
                 )}
                 <div className="gear-stats">
-                  {p.amount} {utils.inputIconUpdatedComponent(p.type, "Power")}
+                  {p.amount} {utils.getIcon(p.type, "Power", undefined, "1.5em")}
                 </div>
               </div>
             ))}
@@ -49,16 +49,16 @@ const GearCard = ({ gear }) => {
         {/* Defensive Statistics */}
         <div className="gear-stats-container gear-stats-right">
           {gear.defensiveStatistics.evasionRerolls && (
-            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionRerolls} {utils.getIcon("EvasionReroll")}</div>
+            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionRerolls} {utils.getIcon("EvasionReroll", undefined, undefined, "1.5em")}</div>
           )}
           {gear.defensiveStatistics.evasionBonus && (
-            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionBonus} {utils.getIcon("EvasionBonus")}</div>
+            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionBonus} {utils.getIcon("EvasionBonus", undefined, undefined, "1.5em")}</div>
           )}
           {gear.defensiveStatistics.armorDice && (
-            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.armorDice[0].amount} {utils.getIcon(gear.defensiveStatistics.armorDice[0].type, "Armor")}</div>
+            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.armorDice[0].amount} {utils.getIcon(gear.defensiveStatistics.armorDice[0].type, "Armor", undefined, "1.5em")}</div>
           )}
           {gear.defensiveStatistics.resistances?.map((resistance, index) => (
-            <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.inputIconUpdatedComponent(resistance.type)}</div>
+            <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.getIcon(resistance.type, undefined, undefined, "1.5em")}</div>
           ))}
         </div>
       </div>
