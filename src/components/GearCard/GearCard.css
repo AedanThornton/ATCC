@@ -144,8 +144,8 @@
 	filter: invert(1);
 }
 
-.cycle4 img {
-	filter: brightness(0) saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
+.cycle4 .invertible {
+	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
 }
 
 /* End gear template */

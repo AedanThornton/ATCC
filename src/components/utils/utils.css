@@ -22,3 +22,11 @@
     text-decoration-line: underline;
     text-decoration-style: dotted;
 }
+
+.icon .OneHanded {
+    padding-top: 25%;
+}
+
+.icon .Armor {
+    padding-top: 5%;
+}

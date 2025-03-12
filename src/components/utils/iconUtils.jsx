@@ -49,12 +49,24 @@ const utils = {
                     name = "WhiteArmorDie"
                 }
                 break;
-            case "1 Hand": name = "OneHanded"; break
-            case "2 Hands": name = "TwoHanded"; break
-            case "3 Hands": name = "ThreeHanded"; break
+            case "1 Hand": 
+                name = "OneHanded";
+                size=String(parseFloat(size.split("em")[0]) * 0.9) + "em";
+                break
+            case "2 Hands": 
+                name = "TwoHanded"; 
+                size=String(parseFloat(size.split("em")[0]) * 1.1) + "em";
+                break
+            case "3 Hands": 
+                name = "ThreeHanded";
+                size=String(parseFloat(size.split("em")[0]) * 1.2) + "em";
+                break
+            case "Armor": 
+                size=String(parseFloat(size.split("em")[0]) * 0.9) + "em";
+                break
         }
         const icon = icons[name];
-        return icon ? <img key={name + index} src={icon} style={{height: size, verticalAlign: "middle", paddingBottom: padding}} alt={name} className={`${invertibles.includes(name) ? "invertible" : ""}`}/> : name;
+        return icon ? <img key={name + index} src={icon} style={{height: size, verticalAlign: "middle", paddingBottom: padding}} alt={name} className={`${invertibles.includes(name) ? "invertible" : ""} ${name}`}/> : name;
     },
     interpolateIcons: (str, type) => {       
         return str.split(/\b/).map((word, index) => utils.getIcon(word, type, index))

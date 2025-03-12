@@ -5,24 +5,28 @@ import re
 KEYWORDS = {
     "Ambrosia Limit", "Armor-Piercing", "Armor Reroll", "Assist", "Attack Reroll", "Auto-black", "Auto-break", "Auto-inspire", 
     "Awakening Lock", "Black", "Bleeding", "Bleeding Limit", "Block", "Break", "Burden", "Burn", "Bypass", "Carving", 
-    "Closing", "Clutch", "Combo-Breaker: X spaces", "Self Combo-Breaker: X spaces", "Commit (X)", "Consume", "Crash", "Cryptex Loathing", 
+    "Closing", "Clutch", "Combo-Breaker: X spaces", "Self Combo-Breaker: X spaces", "Commit (X)", "Commit", "Consume", "Crash", "Cryptex Loathing", 
     "Cumbersome", "Cursed", "Daze", "Deadly", "Death", "Defy", "Displace", "Diversion", "Dodge", "Doomed", "Double Commit", "Elation", 
-    "Escalate", "Evolving", "Fate Armor", "Fire", "Float", "Frontlines", "Glaciate", "Giant Glaciate", "Greater Pass", "Hardened", 
+    "Escalate", "Evolving", "Fire", "Float", "Frontlines", "Glaciate", "Giant Glaciate", "Greater Pass", "Hardened", 
     "Heal", "Heartseeker", "Hermes Move", "Hermes Reflex", "Advanced Hermes Reflex", "Hermes Resposition", "Hide", "Hope", 
     "Incinerated", "Inspire", "Jump", "Advanced Jump", "Knockback", "Knockdown", "Laser Resistance", "Lifeline", "Light", 
     "Lumbering", "Masterwork", "Midas", "Midas Immune", "Motivate", "Opening", "Overbreak", "Pass", "Perishable", "Precise", 
     "Provoke", "Pole Position", "Power Re-roll", "Pull", "Pursuit", "Pushback", "Quantum", "Ranged", "Reach", "Reduction", 
     "Wish Away Reduction", "Pushback Reduction", "Knockback Reduction", "Kickback Reduction", "Pull Reduction", "Reflex", 
     "Advanced Reflex", "Superior Reflex", "Reinforce", "Advanced Reinforce", "Superior Reinforce", "Reposition", "Restricted (Trait)", 
-    "Rewind", "Rocksteady", "Rollout", "Rouse", "Rush", "Improved Rush", "Sacrifice", "Scale", "Scale", "Second Chance", "Shaded", 
+    "Rewind", "Rocksteady", "Rollout", "Rouse", "Rush", "Improved Rush", "Sacrifice", "Scale", "Second Chance", "Shaded", 
     "Solace", "Spiral", "Spotlight", "Stalwart", "Startup", "Strikeback", "Succor", "Super Smart Delivery", "Superior Chance", 
     "BP Suppress", "AI Suppress", "Temporal Reflex", "Time-Clocked", "Tireless", "Titan Possession", "Argonaut Possession", "Transform", 
     "Trauma Trick", "Wound Trick", "Fail Trick", "Tumble", "Unburden", "Unholy Alchemy", "Reverse Unholy Alchemy", "Vault", "Forced Vault", 
     "Voluntary Knockdown", "Wish Armor", "Wish Away", "Wishcursed", "Wish Dodge", "Advanced Wish Dodge", "Wishrod"
 }
 
+KEYWORDS_WITH_COST_NAME = {
+    "Fate Armor"
+}
+
 COSTS = {
-    "Fate", "Danger", "Exhaust", "Discard", "Midas", "Energy", "Ambrosia", "CombatAction", "MovementAction"
+    "Fate", "Danger", "Exhaust", "Discard", "MidasToken", "Energy", "AmbrosiaToken", "CombatAction", "MovementAction", "FireToken"
 }
 
 TIMINGS = {
@@ -67,14 +71,16 @@ def parse_abilities(ability_box):
     """Parses the ability box."""
     new_ability_list = []
     ability_list = re.split(r"\.\s?", ability_box)[:-1]
-    gate_pattern = re.compile(r"(\w+) (\d\+)")
+    gate_pattern = re.compile(r"(\w+) (\d\+) (.*)")
     x_pattern = re.compile(r"^([\w\s:\+,\-']+?)(?:\s+([\dX\-]+))?$")
     
     for ability in ability_list:
         if ability == "Unique" or ability == "Ascended": continue
         gate_match = gate_pattern.match(ability)
+        if gate_match:
+            gate_type, gate_value, ability_name = gate_match.groups()
+        else: ability_name = ability
             
-        ability_name = ability.split("+ ")[-1]
         keyword_match = x_pattern.match(ability_name)
 
         effect, x_value = keyword_match.groups() if keyword_match else (ability_name, None)
@@ -123,7 +129,6 @@ def parse_abilities(ability_box):
             else:
                 ability_json["x_value"] = int(x)
         if gate_match:
-            gate_type, gate_value = gate_match.groups()
             ability_json["gate"] = {"type": gate_type, "value": gate_value}
         if costs != []:
             ability_json["costs"] = costs

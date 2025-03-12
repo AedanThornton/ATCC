@@ -8,6 +8,7 @@ const createTooltip = (name, index) => {
   if (Keywords[name]) keyword = name;
   else if (Keywords[name + " X"]) keyword = name + " X";
   else if (Keywords[name + " Y-X"]) keyword = name + " Y-X";
+  else if (Keywords[name + " X/+X"]) keyword = name + " X/+X";
   else if (Keywords[name.split(' ').slice(1).join(' ')]) keyword = name.split(' ').slice(1).join(' ');
   else if (Keywords[name.split(' ').slice(1).join(' ') + " X"]) keyword = name.split(' ').slice(1).join(' ') + " X";
   else return name;

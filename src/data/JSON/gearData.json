@@ -1610,7 +1610,7 @@
       },
       {
         "name": "Commit",
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Break",
@@ -1674,7 +1674,7 @@
       },
       {
         "name": "Commit",
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Opening",
@@ -1745,7 +1745,7 @@
       },
       {
         "name": "Commit",
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Diversion",
@@ -1822,7 +1822,7 @@
       },
       {
         "name": "Commit",
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Place 2 Break or Opening tokens in the Kratos Pool",
@@ -1950,7 +1950,7 @@
       },
       {
         "name": "Commit",
-        "type": "unique"
+        "type": "keyword"
       }
     ]
   },
@@ -2217,12 +2217,9 @@
         "type": "keyword"
       },
       {
-        "name": "Limit",
+        "name": "Ambrosia Limit",
         "x_value": 3,
-        "costs": [
-          "Ambrosia"
-        ],
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Ignore the Curse Carapace Trait",
@@ -2447,7 +2444,7 @@
       },
       {
         "name": "Commit",
-        "type": "unique"
+        "type": "keyword"
       },
       {
         "name": "Place a negative Speed modifier token on the Primordial Sheet",

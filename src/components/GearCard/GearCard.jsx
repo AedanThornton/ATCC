@@ -6,7 +6,7 @@ const GearCard = ({ gear }) => {
   return (
     <div className="gear" style={{ color: getColor(gear.cycle) }}>
       <div className="gear-info">
-        <div className="gear-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "1.8em", "0em")}</div></div>
+        <div className="gear-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="gear-title" style={{ color: getColor(gear.cycle), fontSize: Math.min(19, 300 / (1.2 * gear.name.length)) }}>
           {gear.name}
         </div>
@@ -35,7 +35,7 @@ const GearCard = ({ gear }) => {
               <div key={index} >
                 {p.gate && (
                   <div className="gear-stats gate" style={{ background: getGateColor(p.gate.type) }}>
-                    <span>{utils.inputIconUpdatedComponent(p.gate.type)} / {p.gate.value}</span>
+                    <span>{utils.createPowerGate(p.gate.type, p.gate.value)}</span>
                   </div>
                 )}
                 <div className="gear-stats">
@@ -91,7 +91,7 @@ const GearCard = ({ gear }) => {
       </div>
 
       {/* Gear Info */}
-      <div className="gear-subtitle" style={{ background: getColor(gear.cycle), ...(gear.cycle === "Cycle IV" && { color: "#E7CC68" }) }}>Card Info</div>
+      <div className="gear-subtitle" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
       <div className="gear-info">
         <div className="gear-info-header">Traits</div>
         <div className="gear-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
@@ -116,7 +116,7 @@ const GearCard = ({ gear }) => {
 const getColor = (cycle) => {
   const cycleColors = {
     "Cycle I": "#4A3204",
-    "Cycle II": "#492622",
+    "Cycle II": "rgb(77, 18, 11)",
     "Cycle III": "#543560",
     "Cycle IV": "#131004",
     "Cycle V": "#05233B",
@@ -126,10 +126,23 @@ const getColor = (cycle) => {
   return cycleColors[cycle] || "#FFFFFF";
 };
 
+const getCycleFontColor = (cycle) => {
+  const cycleColors = {
+    "Cycle I": "#FFFFFF",
+    "Cycle II": "rgb(199, 43, 26)",
+    "Cycle III": "#FFFFFF",
+    "Cycle IV": "#E7CC68",
+    "Cycle V": "#FFFFFF",
+    "Mnestis Theatre": "#FFFFFF",
+    "Mnestis": "#FFFFFF",
+  };
+  return cycleColors[cycle] || "#FFFFFF";
+};
+
 const getGateColor = (gatetype) => {
   gatetype = gatetype.toLowerCase()
   const gateColors = {
-    danger: "#9B2315",
+    danger: "rgb(155, 35, 21)",
     fate: "#557DBD",
     rage: "#040404",
     ambrosia: "#5D0D69",

@@ -1,6 +1,6 @@
 import iconUtils from "./iconUtils";
 import tooltipsUtils from "./tooltipsUtil";
-import abilityGateUtils from "./abilityGateUtils";
+import abilityGateUtils from "./gateUtils";
 
 const utils = {
     ...iconUtils,
