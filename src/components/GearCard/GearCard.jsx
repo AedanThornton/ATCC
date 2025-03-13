@@ -2,9 +2,14 @@ import React from "react";
 import "./GearCard.css"; // Add corresponding CSS for styling
 import utils from "../utils/index";
 
-const GearCard = ({ gear }) => {
+const GearCard = ({ gear, index }) => {
   return (
     <div className="gear" style={{ color: getColor(gear.cycle) }}>
+      <>
+        {(gear.usedFor.includes("Secret Deck") || gear.usedFor.includes("Envelope")) &&
+          (utils.SecretOverlay(gear.usedFor, index + "cover")) }
+      </>
+
       <div className="gear-info">
         <div className="gear-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="gear-title" style={{ color: getColor(gear.cycle), fontSize: Math.min(19, 300 / (1.2 * gear.name.length)) }}>

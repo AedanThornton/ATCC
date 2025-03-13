@@ -5,6 +5,8 @@
 	font-size: 12px;
 	width: 270px;
     border-radius: 10px;
+	position: relative;
+	z-index: 1;
 }
 
 .gear p {
@@ -85,8 +87,9 @@
 
 .gear .gear-stats {
     text-align: center;
-    padding: 10% 0;
+    padding: 3% 0;
     background-color: #BFBCAB;
+	font-size: 15px;
 }
 
 .gear .gate {
