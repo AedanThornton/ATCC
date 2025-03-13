@@ -1,0 +1,50 @@
+/* argonautbox template */
+.argonaut {
+	background-color: #EEE;
+}
+
+.argonaut p {
+    margin: 0;
+}
+
+.argonaut-title {
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+    border-radius: 9px 9px 0 0;
+	flex: 8;
+}
+
+.argonaut-card {
+	position: relative;
+	min-height: 140px;
+	display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.argonaut-flavor {
+    font-style: italic;
+    padding: 10px;
+}
+
+.argonaut-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.argonaut-info-header {
+	text-align: right;
+	flex-basis: 45%;
+	font-weight: BOLD;
+}
+
+.argonaut-info-detail {
+	flex-basis: 55%;
+	text-align: left;
+}
+
+/* End argonaut template */

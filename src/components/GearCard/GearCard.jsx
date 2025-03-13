@@ -4,7 +4,7 @@ import utils from "../utils/index.jsx";
 
 const GearCard = ({ gear, index }) => {
   return (
-    <div className="gear" style={{ color: getColor(gear.cycle) }}>
+    <div className="gear mini-american" style={{ color: getColor(gear.cycle) }}>
       <>
         {(gear.usedFor.includes("Secret Deck") || gear.usedFor.includes("Envelope")) &&
           (utils.SecretOverlay(gear.usedFor, index + "cover")) }

@@ -66,3 +66,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.card-type-marker {
+  border-radius: 10px;
+  font-size: 10px;
+  height: 15px;
+  width: 60px;
+  position: absolute;
+  bottom: -5px;
+  right: 10px;
+  text-align: center;
+  z-index: 5;
+  color: white;
+  background-color: black;
+}
+
+.mini-american {
+  color: black;
+  font-size: 12px;
+  width: 14vw;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}

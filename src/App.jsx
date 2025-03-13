@@ -1,5 +1,5 @@
 import React from "react";
-import GearList from "./components/GearList";
+import CardList from "./components/CardList";
 import "./styles/global.css";
 import "./styles/main.css";
 
@@ -8,7 +8,7 @@ const App = () => {
     <div className="app">
       <h1>ATCC</h1>
       <div className="card-list">
-        <GearList /> {/* Renders the list of gear cards */}
+        <CardList /> {/* Renders the list of cards */}
       </div>
     </div>
   );

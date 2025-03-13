@@ -1,12 +1,6 @@
 /* Gearbox template */
 .gear {
 	background-color: #DFDBCD;
-	color: black;
-	font-size: 12px;
-	width: 270px;
-    border-radius: 10px;
-	position: relative;
-	z-index: 1;
 }
 
 .gear p {

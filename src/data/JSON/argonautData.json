@@ -1,0 +1,101 @@
+[
+  {
+    "cardIDs": [
+      "AH0149"
+    ],
+    "name": "Phenelope",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "Aloof Phenelope is as deadly, as she is beautiful. With a natural affinity for all things machina, she shares her time between the battlefield and the Last Academy, where she helps decipher the phos scriptures. Her fair complexion and gentle features betray a foreign heritage. Somce even say she resembles the Silver People, though only the Atlanteans could verify these bold claims -- and they sleep in their watery graves.",
+    "stat": "Will"
+  },
+  {
+    "cardIDs": [
+      "AH0150"
+    ],
+    "name": "Telebacchus",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "The always jovial Telebacchus is the heart of the crew and serves as an intermediary between the 'mere mortals' and the 'awakened' Argonauts. He's also the only one who truly enjoys junctioning with his Titan, which he finds enlightening and uplifting.",
+    "stat": "Endurance"
+  },
+  {
+    "cardIDs": [
+      "AH0152"
+    ],
+    "name": "Olympia",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "Olympia is a kind and gentle soul, out of place in this world of darkness and violence. Olympia herself knows that too -- that is why she is fighting so hard, to create a better, more beautiful world, if not for her, then for those who come after.",
+    "stat": "Fury"
+  },
+  {
+    "cardIDs": [
+      "AH0153"
+    ],
+    "name": "Leocules",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "Leocules doesn't know who he was and he doesn't care a bit. His body remembers: the hardships and the struggles of a life fought and won. The violence. He treats his awakening from the Mausoleum as an opportunity: to become a gentler, more empathetic man, at peace with himself.",
+    "stat": "Will"
+  },
+  {
+    "cardIDs": [
+      "AH0154"
+    ],
+    "name": "Raz",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "Raz knows she hails from the Forbidden East, where an ancient Empire is said to have risen to immense power and wealth. She finds she has little in common with those notions, as the only thing she seeks is knowledge.",
+    "stat": "Courage"
+  },
+  {
+    "cardIDs": [
+      "AH0623"
+    ],
+    "name": "Argonaut",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "This is your story, yet unwritten.",
+    "stat": "Choose"
+  },
+  {
+    "cardIDs": [
+      "AH0624"
+    ],
+    "name": "Argonaut",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "This is your story, shrouded in Past's mists.",
+    "stat": "Choose"
+  },
+  {
+    "cardIDs": [
+      "AH0625"
+    ],
+    "name": "Argonaut",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "This is your story, to remember or reforge.",
+    "stat": "Choose"
+  },
+  {
+    "cardIDs": [
+      "AH0626"
+    ],
+    "name": "Argonaut",
+    "cardType": "Argonaut",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "flavor": "Follow your dreams.",
+    "stat": "Choose"
+  }
+]
