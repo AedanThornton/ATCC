@@ -31,8 +31,9 @@
 .gear .gear-card {
 	width: 100%;
 	position: relative;
-	min-height: 200px;
+	min-height: 140px;
 	display: flex;
+	margin: 10px 0;
 }
 
 .gear .gear-image {
@@ -68,9 +69,8 @@
 	bottom: 0%;
     display: flex;
     flex-direction: column;
-    position: absolute;
     top: 0%;
-    width: 20%;
+    flex: 1;
     row-gap: 8px;
     justify-content: center;
 }
@@ -104,6 +104,10 @@
 	text-align: center;
 	text-wrap: balance;
 	padding: 0 10px;
+	flex: 3;
+    display: flex;
+    justify-content: flex-end;
+	flex-direction: column;
 }
 
 .gear .gear-ability-gate {

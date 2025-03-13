@@ -1,6 +1,6 @@
 import React from "react";
 import "./GearCard.css"; // Add corresponding CSS for styling
-import utils from "../utils/index";
+import utils from "../utils/index.jsx";
 
 const GearCard = ({ gear, index }) => {
   return (
@@ -27,29 +27,52 @@ const GearCard = ({ gear, index }) => {
         )}
 
         {/* Offensive Statistics */}
-        {gear.offensiveStatistics && (
-          <div className="gear-stats-container gear-stats-left">
-            {gear.offensiveStatistics.attackDice && (
-              <div className="gear-stats">{gear.offensiveStatistics.attackDice} {utils.getIcon("d10", undefined, undefined, "1.5em")}</div>
-            )}
-            {gear.offensiveStatistics.precision && (
-              <div className="gear-stats">{gear.offensiveStatistics.precision}</div>
-            )}
-            
-            {gear.offensiveStatistics.power?.map((p, index) => (
-              <div key={index} >
-                {p.gate && (
-                  <div className="gear-stats gate" style={{ background: getGateColor(p.gate.type) }}>
-                    <span>{utils.createPowerGate(p.gate.type, p.gate.value)}</span>
-                  </div>
-                )}
-                <div className="gear-stats">
-                  {p.amount} {utils.getIcon(p.type, "Power", undefined, "1.5em")}
+        <div className="gear-stats-container gear-stats-left">
+          {gear.offensiveStatistics.attackDice && (
+            <div className="gear-stats">{gear.offensiveStatistics.attackDice} {utils.getIcon("d10", undefined, undefined, "1.5em")}</div>
+          )}
+          {gear.offensiveStatistics.precision && (
+            <div className="gear-stats">{gear.offensiveStatistics.precision}</div>
+          )}
+          
+          {gear.offensiveStatistics.power?.map((p, index) => (
+            <div key={index} >
+              {p.gate && (
+                <div className="gear-stats gate" style={{ background: getGateColor(p.gate.type) }}>
+                  <span>{utils.createPowerGate(p.gate.type, p.gate.value)}</span>
                 </div>
+              )}
+              <div className="gear-stats">
+                {p.amount} {utils.getIcon(p.type, "Power", undefined, "1.5em")}
               </div>
-            ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Ability Box */}
+        <div className="gear-abilities">
+          <div>
+          {gear.abilities.map((ability, index) => {
+            return (
+              <>
+              {(ability.flavorName || ability.timing) && (<br/>)}
+              <span key={index}>
+                {` `}
+                {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+                {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+                {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+                {ability.type === "unique"
+                  ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
+                  : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+                }
+                .
+              </span>
+              </>
+            )
+          })}
           </div>
-        )}
+        </div>
 
         {/* Defensive Statistics */}
         <div className="gear-stats-container gear-stats-right">
@@ -66,26 +89,6 @@ const GearCard = ({ gear, index }) => {
             <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.getIcon(resistance.type, undefined, undefined, "1.5em")}</div>
           ))}
         </div>
-      </div>
-
-      {/* Ability Box */}
-      <div className="gear-abilities">
-        {gear.abilities.map((ability, index) => {
-          return (
-            <span key={index}>
-              {` `}
-              {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-              {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-              {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-              {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-              {ability.type === "unique"
-                ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
-                : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-              }
-              .
-            </span>
-          )
-        })}
       </div>
 
       {/* Gated Abilities */}
@@ -117,15 +120,19 @@ const GearCard = ({ gear, index }) => {
 
       {/* Gear Info */}
       <div className="gear-subtitle" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
-      <div className="gear-info">
+      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="gear-info-header">Acquisition</div>
+        <div className="gear-info-detail">{gear.acquisition}</div>
+      </div>
+      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="gear-info-header">Traits</div>
         <div className="gear-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
       </div>
-      <div className="gear-info">
+      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="gear-info-header">Flavor Text</div>
         <div className="gear-info-detail">{gear.flavor}</div>
       </div>
-      <div className="gear-info">
+      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="gear-info-header">ID(s)</div>
         <div className="gear-info-detail">{gear.cardIDs.join(", ")}</div>
       </div>
