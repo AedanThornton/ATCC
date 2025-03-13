@@ -70,6 +70,7 @@ def parse_armor(armor_str):
 def parse_abilities(ability_box):
     """Parses the ability box."""
     new_ability_list = []
+    gate_ability_list = []
     ability_list = re.split(r"\.\s?", ability_box)[:-1]
     gate_pattern = re.compile(r"(\w+) (\d\+) (.*)")
     x_pattern = re.compile(r"^([\w\s:\+,\-']+?)(?:\s+([\dX\-]+))?$")
@@ -142,9 +143,12 @@ def parse_abilities(ability_box):
         else:
             ability_json["type"] = "unique"
         
-        new_ability_list.append(ability_json)
+        if gate_match:
+            gate_ability_list.append(ability_json)
+        else: 
+            new_ability_list.append(ability_json)
     
-    return new_ability_list
+    return new_ability_list, gate_ability_list
 
 def csv_to_json(csv_file, json_file):
     """Converts CSV data to JSON."""
@@ -164,7 +168,7 @@ def csv_to_json(csv_file, json_file):
             if row["Armor Dice"]: defensive_statistics["armorDice"] = parse_armor(row["Armor Dice"])
             if row["Resistances"]: defensive_statistics["resistances"] = map(parse_armor, row["Resistances"].split(". "))
 
-            abilities = parse_abilities(row["Ability Box"])
+            abilities, gated_abilities = parse_abilities(row["Ability Box"])
             
             card_json = {
                 "cardIDs": card_ids,
@@ -184,7 +188,8 @@ def csv_to_json(csv_file, json_file):
                 "wished": "(Wished)" in row["Name"],
                 "unique": "Unique" in row["Ability Box"],
                 "ascended": "Ascended" in row["Ability Box"],
-                "abilities": abilities
+                "abilities": abilities,
+                "gatedAbilities": gated_abilities
             }
             output.append(card_json)
     

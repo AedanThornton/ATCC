@@ -36,7 +36,8 @@
         "name": "This item can be used as a OneHanded Weapon, with the following modifiers: -1 d10",
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -105,7 +106,8 @@
         "timing": "Full Miss",
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -162,7 +164,9 @@
       {
         "name": "Sacrifice",
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "When you are about to perform a Power Roll, gain +3 Danger to gain +1 RedPowerDie for this Attack",
         "gate": {
@@ -210,7 +214,9 @@
       {
         "name": "Deadly",
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Auto-break",
         "x_value": 1,
@@ -267,7 +273,9 @@
         "name": "You may gain the PriorityTarget token",
         "timing": "Full Hit",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Spotlight",
         "gate": {
@@ -321,7 +329,9 @@
         "name": "Place 1 Opening token in the Kratos Pool",
         "timing": "Full Miss",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Diversion",
         "gate": {
@@ -376,7 +386,9 @@
         "name": "Reposition",
         "x_value": 1,
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Opening",
         "x_value": 2,
@@ -443,7 +455,9 @@
           "Discard"
         ],
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Reinforce 2 instead",
         "gate": {
@@ -511,7 +525,9 @@
         "name": "You may immediately resolve Knockback 2 against the Primordial",
         "timing": "Full Evade",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Place 2 Break or Opening tokens in the Kratos Pool",
         "gate": {
@@ -562,7 +578,9 @@
         "name": "Power Re-roll",
         "x_value": 1,
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Power Re-roll 2 instead",
         "gate": {
@@ -612,7 +630,8 @@
         ],
         "type": "keyword"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -651,7 +670,9 @@
           "Exhaust"
         ],
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Place 2 Break or 2 Opening tokens in the Kratos Pool",
         "gate": {
@@ -702,7 +723,8 @@
         ],
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -758,7 +780,9 @@
         "name": "Gain Rocksteady until you finish resolving this Attack",
         "timing": "Crit Evade",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Rocksteady",
         "gate": {
@@ -841,7 +865,9 @@
           "Exhaust"
         ],
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Gain Stalwart until the end of this Attack",
         "gate": {
@@ -911,7 +937,8 @@
         "timing": "Full Miss",
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -971,7 +998,8 @@
         "name": "Deadly",
         "type": "keyword"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1040,7 +1068,8 @@
         "timing": "Full Miss",
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1108,7 +1137,8 @@
         "timing": "Full Miss",
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1157,7 +1187,9 @@
           "Exhaust"
         ],
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Dodge",
         "gate": {
@@ -1209,7 +1241,9 @@
       {
         "name": "This Gear is not considered to be equipped on your Titan and can only be used with the following ability: Fate Exhaust Declare this OneHanded Gear as the Active Weapon during an Attack",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Ignore this card ability's Fate cost",
         "gate": {
@@ -1270,7 +1304,9 @@
       {
         "name": "You can use this ability while knocked down",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Gain +3 Speed instead",
         "gate": {
@@ -1311,7 +1347,8 @@
     "wished": false,
     "unique": false,
     "ascended": false,
-    "abilities": []
+    "abilities": [],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1353,7 +1390,8 @@
         ],
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1394,7 +1432,8 @@
         ],
         "type": "keyword"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1435,7 +1474,8 @@
         "name": "Vault",
         "type": "keyword"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1482,7 +1522,9 @@
         "name": "Place 1 Diversion token in the Kratos Pool",
         "timing": "Crit Evade",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Tumble",
         "gate": {
@@ -1547,7 +1589,9 @@
       {
         "name": "During an Attack, ignore Labyrinth tiles for the purposes of Line of Sight and adjacency",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Opening",
         "x_value": 2,
@@ -1611,7 +1655,9 @@
       {
         "name": "Commit",
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Break",
         "x_value": 2,
@@ -1677,17 +1723,19 @@
         "type": "keyword"
       },
       {
+        "name": "Break",
+        "x_value": 1,
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": [
+      {
         "name": "Opening",
         "x_value": 1,
         "gate": {
           "type": "Danger",
           "value": "5+"
         },
-        "type": "keyword"
-      },
-      {
-        "name": "Break",
-        "x_value": 1,
         "type": "keyword"
       }
     ]
@@ -1752,7 +1800,8 @@
         "timing": "Full Hit",
         "type": "keyword"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1829,7 +1878,8 @@
         "timing": "Full Miss",
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1891,7 +1941,8 @@
         "timing": "Wound",
         "type": "keyword"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1952,7 +2003,8 @@
         "name": "Commit",
         "type": "keyword"
       }
-    ]
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -2003,7 +2055,9 @@
           "Discard"
         ],
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "You may use Morpheus Module's Solace ability as Reaction",
         "gate": {
@@ -2081,7 +2135,9 @@
         "name": "Kickback Reduction",
         "x_value": 1,
         "type": "keyword"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Ignore Exhaust cost of Block",
         "x_value": 1,
@@ -2142,7 +2198,9 @@
         "name": "When you deal a Critical Wound, lose -1 Strangers",
         "flavorName": "Dog Days Are Over",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Overbreak",
         "x_value": 2,
@@ -2226,6 +2284,13 @@
         "type": "unique"
       },
       {
+        "name": "Elation",
+        "x_value": 1,
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": [
+      {
         "name": "One RedPowerDie becomes a BlackPowerDie",
         "gate": {
           "type": "Ambrosia",
@@ -2249,11 +2314,6 @@
           "value": "3+"
         },
         "type": "unique"
-      },
-      {
-        "name": "Elation",
-        "x_value": 1,
-        "type": "keyword"
       },
       {
         "name": "Hope",
@@ -2329,7 +2389,9 @@
       {
         "name": "When you attack discard all Opening tokens from this card",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Loses Cumbersome",
         "gate": {
@@ -2389,7 +2451,9 @@
       {
         "name": "Moving outside your effective range doesn't cause a Chain Break",
         "type": "unique"
-      },
+      }
+    ],
+    "gatedAbilities": [
       {
         "name": "Overbreak",
         "x_value": 2,
@@ -2458,6 +2522,7 @@
         "name": "When you unexhaust this card, discard that token",
         "type": "unique"
       }
-    ]
+    ],
+    "gatedAbilities": []
   }
 ]
