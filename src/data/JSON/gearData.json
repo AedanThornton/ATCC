@@ -1347,8 +1347,36 @@
     "wished": false,
     "unique": false,
     "ascended": false,
-    "abilities": [],
-    "gatedAbilities": []
+    "abilities": [
+      {
+        "name": "During voluntary movement, treat a traversible Terrain tile as 1 space",
+        "costs": [
+          "Fate",
+          "Exhaust"
+        ],
+        "type": "unique"
+      },
+      {
+        "name": "Reflex",
+        "costs": [
+          "Fate",
+          "Fate",
+          "Exhaust"
+        ],
+        "timing": "Reaction",
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": [
+      {
+        "name": "You may use Stabilizers' ability as Reaction",
+        "gate": {
+          "type": "Danger",
+          "value": "7+"
+        },
+        "type": "unique"
+      }
+    ]
   },
   {
     "cardIDs": [
