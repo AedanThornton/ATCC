@@ -4,6 +4,8 @@ import GearCard from "./GearCard/GearCard";
 import ArgonautCard from "./ArgonautCard/ArgonautCard";
 import gearData from "../data/JSON/gearData.json"
 import argonautData from "../data/JSON/argonautData.json"
+import utils from "./utils/index";
+import SecretOverlay from "./utils/secretUtils"
 
 const CardList = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -38,9 +40,14 @@ const CardList = () => {
             };
 
             const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;
+            const secretOverlay = <>{ 
+              (cardname.usedFor?.includes("Secret Deck") || cardname.usedFor?.includes("Envelope"))
+              && <SecretOverlay text={cardname.usedFor} key={index + "cover"} /> 
+            }</>
             
             return (
               <div key={index} style={{position: "relative"}}>
+                {secretOverlay}
                 {currentCard}
                 <div className="card-type-marker" style={{backgroundColor: "#666"}}>
                   {cardname.cardType}

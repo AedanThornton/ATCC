@@ -69,11 +69,12 @@ button:focus-visible {
 
 .card-type-marker {
   border-radius: 10px;
+  border: 1px dashed white;
   font-size: 10px;
   height: 15px;
   width: 60px;
   position: absolute;
-  bottom: -5px;
+  bottom: -7px;
   right: 10px;
   text-align: center;
   z-index: 5;
@@ -84,9 +85,13 @@ button:focus-visible {
 .mini-american {
   color: black;
   font-size: 12px;
-  width: 14vw;
+  width: 270px;
   height: 100%;
   border-radius: 10px;
   position: relative;
   z-index: 1;
+}
+
+.data-tippy-root {
+  z-index: 99999;
 }

@@ -21,6 +21,7 @@ const createTooltip = (name, index) => {
       interactive 
       duration={0} 
       offset={[0,0]}
+      appendTo={document.body}
       content={
       <div className="tooltip">
         <div className='tooltip-title'>{keyword}</div>

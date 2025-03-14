@@ -1,7 +1,7 @@
 import iconUtils from "./iconUtils";
 import tooltipsUtils from "./tooltipsUtil";
 import abilityGateUtils from "./gateUtils";
-import SecretOverlay from "./secretUtils";
+import titleUtils from "./titleUtils";
 
 const utils = {
     ...iconUtils,
@@ -18,7 +18,7 @@ const utils = {
             else return <>{CreatedTooltip}{!lastWord && " "}</>
         })
     },
-    SecretOverlay
+    ...titleUtils
 };
 
 export default utils;
