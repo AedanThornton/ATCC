@@ -1,82 +1,70 @@
+import React from "react";
+
+// Import all SVG files dynamically
+const modules = import.meta.glob("/src/assets/icons/*.svg", { eager: true });
+
 const icons = {};
-const modules = import.meta.glob("/src/assets/icons/*.svg");
 
-const invertibles = [
-    "Danger",
-    "Fate",
-    "Rage",
-    "Exhaust",
-    "Discard",
-    "Reaction",
-    "Gear",
-    "OneHanded",
-    "TwoHanded",
-    "ThreeHanded",
-    "Support",
-    "Armor",
-    "Speed",
-    "Power"
-];
-
+// Process and store each icon
 for (const path in modules) {
     const key = path.split("/").pop().replace(".svg", ""); // Extract filename
-    modules[path]().then((mod) => {
-        icons[key] = mod.default;
-    });
+    icons[key] = modules[path].default;
 }
 
+const invertibles = new Set([
+    "Danger", "Fate", "Rage", "Exhaust", "Discard", "Reaction",
+    "Gear", "OneHanded", "TwoHanded", "ThreeHanded",
+    "Support", "Armor", "Speed", "Power"
+]);
+
+// Utility functions
 const utils = {
     getIcon: (name, type = "none", index, size = "1em", padding = "0.1em") => {
-        switch (name) {
-            case "Red":
-                if (type === "Power") {
-                    name = "RedPowerDie"
-                } else if (type === "Armor") {
-                    name = "RedArmorDie"
-                }
-                break;
-            case "Black":
-                if (type === "Power") {
-                    name = "BlackPowerDie"
-                } else if (type === "Armor") {
-                    name = "BlackArmorDie"
-                }
-                break;
-            case "White":
-                if (type === "Power") {
-                    name = "WhitePowerDie"
-                } else if (type === "Armor") {
-                    name = "WhiteArmorDie"
-                }
-                break;
-            case "1 Hand": 
-                name = "OneHanded";
-                size=String(parseFloat(size.split("em")[0]) * 0.9) + "em";
-                break
-            case "2 Hands": 
-                name = "TwoHanded"; 
-                size=String(parseFloat(size.split("em")[0]) * 1.1) + "em";
-                break
-            case "3 Hands": 
-                name = "ThreeHanded";
-                size=String(parseFloat(size.split("em")[0]) * 1.2) + "em";
-                break
-            case "Armor": 
-                size=String(parseFloat(size.split("em")[0]) * 0.9) + "em";
-                break
+        const sizeMultiplier = {
+            "1 Hand": 0.9,
+            "2 Hands": 1.1,
+            "3 Hands": 1.2,
+            "Armor": 0.9
+        };
+
+        // Special case name mapping
+        const nameMap = {
+            "Red": type === "Power" ? "RedPowerDie" : type === "Armor" ? "RedArmorDie" : "Red",
+            "Black": type === "Power" ? "BlackPowerDie" : type === "Armor" ? "BlackArmorDie" : "Black",
+            "White": type === "Power" ? "WhitePowerDie" : type === "Armor" ? "WhiteArmorDie" : "White",
+            "1 Hand": "OneHanded",
+            "2 Hands": "TwoHanded",
+            "3 Hands": "ThreeHanded",
+            "Armor": "Armor"
+        };
+
+        if (nameMap[name]) {
+            name = nameMap[name];
+            size = `${parseFloat(size) * (sizeMultiplier[name] || 1)}em`;
         }
+
         const icon = icons[name];
-        return icon ? <img key={name + index} src={icon} style={{height: size, verticalAlign: "middle", paddingBottom: padding}} alt={name} className={`${invertibles.includes(name) ? "invertible" : ""} ${name}`}/> : name;
+        return icon ? (
+            <img 
+                key={name + index} 
+                src={icon} 
+                style={{ height: size, verticalAlign: "middle", paddingBottom: padding }} 
+                alt={name} 
+                className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
+            />
+        ) : name;
     },
-    interpolateIcons: (str, type) => {       
-        return str.split(/\b/).map((word, index) => utils.getIcon(word, type, index))
+
+    interpolateIcons: (str, type) => {
+        return str.split(/\b/).map((word, index) => utils.getIcon(word, type, index));
     }
-}
+};
 
-const TextWithIcons = ({text, type = "none"}) => <>{utils.interpolateIcons(text, type)}</>
+const TextWithIcons = ({ text, type = "none" }) => <>{utils.interpolateIcons(text, type)}</>;
 
-utils["inputIconUpdatedComponent"] = (text, type) => {
-    return <TextWithIcons text={text} type={type}/>;
-}
 
-export default utils
+utils["inputIconUpdatedComponent"] = (text, type, index) => {
+    return <TextWithIcons text={text} type={type} key={index} />;
+};
+
+export default utils;

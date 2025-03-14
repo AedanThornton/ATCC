@@ -2,7 +2,7 @@
 .argonaut {
 	background-color: #EEE;
 	display: flex;
-	min-height: 140px;
+	min-height: 200px;
 }
 
 .argonaut p {
@@ -38,7 +38,7 @@
 }
 
 .argonaut-info svg {
-	height: 20px;
+	height: 15px;
 	width: 200px;
 	align-self: center;
 	display: block;

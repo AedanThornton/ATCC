@@ -153,4 +153,9 @@
 	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
 }
 
+.asterisk-text {
+	font-size: 10px;
+	margin-top: 4px;
+}
+
 /* End gear template */

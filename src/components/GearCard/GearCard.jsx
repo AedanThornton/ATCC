@@ -67,6 +67,8 @@ const GearCard = ({ gear, index }) => {
             )
           })}
           </div>
+
+          {gear.asteriskEffect && (<div className="asterisk-text">{gear.asteriskEffect}</div>)}
         </div>
 
         {/* Defensive Statistics */}

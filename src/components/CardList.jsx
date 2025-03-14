@@ -1,23 +1,50 @@
 import React, { useState } from "react";
-import searchMatch from "./SearchParser"
+import parseSearch from "./SearchParser";
+import utils from "./utils/index";
+import SecretOverlay from "./utils/secretUtils";
+import FilterControls from "./FilterControls";
+
 import GearCard from "./GearCard/GearCard";
 import ArgonautCard from "./ArgonautCard/ArgonautCard";
-import gearData from "../data/JSON/gearData.json"
-import argonautData from "../data/JSON/argonautData.json"
-import utils from "./utils/index";
-import SecretOverlay from "./utils/secretUtils"
+import gearData from "../data/JSON/gearData.json";
+import argonautData from "../data/JSON/argonautData.json";
+
+const fullCardList = [...argonautData, ...gearData]
+const cardTypes = [...new Set(fullCardList.map(card => card.cardType))];
+const cycles = [...new Set(fullCardList.map(card => card.cycle))];
+const cardSizes = [...new Set(fullCardList.map(card => card.cardSize))];   
 
 const CardList = () => {
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchTerm] = useState("");
+  const [filters, setFilter] = useState({
+    cardType: [...cardTypes],
+    cycle: [...cycles],
+    cardSize: [...cardSizes],
+    usedFor: [undefined, ...cycles, "Promo"],
+  });
 
-  // Filter gear based on search input
-  const filteredGear = gearData.filter((gear) => searchMatch(gear, searchInput));
-  const filteredArgonauts = argonautData.filter((argonaut) => searchMatch(argonaut, searchInput));
+  const handleFilterChange = (category, option) => {
+    setFilter((prevFilters) => ({
+      ...prevFilters,
+      [category]: prevFilters[category].includes(option)
+        ? prevFilters[category].filter((item) => item !== option) // Remove if already selected
+        : [...prevFilters[category], option], // Add if not selected
+    }));
+  };
 
-  const filteredCards = [
-    ...filteredGear,
-    ...filteredArgonauts
-  ]
+  // Filter cards
+  const filteredCards = fullCardList.filter((card) => {
+    // Search Bar
+    if (searchInput && !parseSearch(card, searchInput)) return false;
+    
+    if (!filters.cardType.includes(card.cardType)) return false;
+    if (!filters.cycle.includes(card.cycle)) return false;
+    if (!filters.cardSize.includes(card.cardSize)) return false; 
+    if (!filters.usedFor.includes(card.usedFor)) return false;    
+
+    
+    return true
+  });
 
   return (
     <>
@@ -26,12 +53,15 @@ const CardList = () => {
         type="text"
         placeholder="Search Catalog..."
         value={searchInput}
-        onChange={(e) => setSearchInput(e.target.value)}
-        style={{ marginBottom: "10px", padding: "5px", width: "100%" }}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
       />
 
+      {/* Use the new FilterControls component */}
+      <FilterControls filters={filters} onFilterChange={handleFilterChange} fullCardList={fullCardList}/>
+
       {/* Render Filtered Card List */}
-      <>
+      <div className="card-list">
         {filteredCards.length > 0 ? (
           filteredCards.map((cardname, index) => {
             const cardTypes = { 
@@ -58,7 +88,7 @@ const CardList = () => {
         ) : (
           <p>No results found.</p>
         )}
-      </>
+      </div>
     </>
   );
 };
