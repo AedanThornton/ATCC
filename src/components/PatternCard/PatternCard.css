@@ -1,0 +1,161 @@
+/* patternbox template */
+.pattern {
+	background-color: #DFDBCD;
+}
+
+.pattern p {
+    margin: 0;
+}
+
+.pattern .pattern-title {
+	text-align: center;
+	font-size: 18px;
+	color: white;
+    border-radius: 9px 9px 0 0;
+	flex: 8;
+}
+
+.pattern .pattern-subtitle {
+	text-align: center;
+	font-size: 15px;
+	color: white;
+    margin: 0;
+}
+
+.pattern .pattern-card {
+	width: 100%;
+	position: relative;
+	min-height: 140px;
+	display: flex;
+	margin: 10px 0;
+}
+
+.pattern .pattern-image {
+	height: 270px;
+	width: 270px;
+}
+
+.pattern .pattern-image img {    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.pattern .pattern-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.pattern .pattern-info-header {
+	text-align: right;
+	flex-basis: 35%;
+	font-weight: BOLD;
+}
+
+.pattern .pattern-info-detail {
+	flex-basis: 65%;
+}
+
+.pattern .pattern-stats-container {
+	bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    top: 0%;
+    flex: 25;
+    row-gap: 8px;
+    justify-content: center;
+}
+
+.pattern-stats-container:empty {
+    flex: 10;
+}
+
+.pattern .pattern-stats-left {
+	left: 0%;
+	right: auto;
+}
+
+.pattern .pattern-stats-right {
+	left: auto;
+	right: 0%;
+}
+
+.pattern .pattern-stats {
+    text-align: center;
+    padding: 3% 0;
+    background-color: #BFBCAB;
+	font-size: 15px;
+}
+
+.pattern .gate {
+	width: 100%;
+    color: white;
+    font-size: 9px;
+    height: 13px;
+    padding: 0;
+}
+
+.pattern .pattern-abilities {
+	text-align: center;
+	text-wrap: balance;
+	padding: 0 10px;
+	flex: 80 50;
+    display: flex;
+    justify-content: flex-end;
+	flex-direction: column;
+}
+
+.pattern .pattern-ability-gate {
+	text-align: center;
+    color: white;
+    flex-basis: 25%;
+    padding-left: 18px;
+    text-wrap: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.pattern .pattern-gated-ability {
+	text-align: left;
+	color: white;
+	flex-basis: 60%;
+}
+
+.pattern .pattern-icon {
+	text-align: center;
+	flex: 2;
+}
+
+.pattern .icon {
+	border-radius: 50%;
+	border: 3px solid #DFDBCD;
+    box-shadow: 0 0 4px 3px #cac7b9;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    padding: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gate .invertible, .pattern-ability-gate .invertible, .pattern-gated-ability .invertible, .icon .invertible {
+	filter: invert(1);
+}
+
+.cycle4 .invertible {
+	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
+}
+
+.asterisk-text {
+	font-size: 10px;
+	margin-top: 4px;
+}
+
+/* End pattern template */
