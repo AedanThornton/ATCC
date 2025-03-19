@@ -14,7 +14,7 @@ for (const path in modules) {
 const invertibles = new Set([
     "Danger", "Fate", "Rage", "Exhaust", "Discard", "Reaction",
     "Gear", "OneHanded", "TwoHanded", "ThreeHanded",
-    "Support", "Armor", "Speed", "Power"
+    "Support", "Armor", "Speed", "Power", "Break", "Opening"
 ]);
 
 // Utility functions

@@ -5,11 +5,13 @@ import SecretOverlay from "./utils/secretUtils";
 import FilterControls from "./FilterControls";
 
 import GearCard from "./GearCard/GearCard";
-import ArgonautCard from "./ArgonautCard/ArgonautCard";
 import gearData from "../data/JSON/gearData.json";
+import ArgonautCard from "./ArgonautCard/ArgonautCard";
 import argonautData from "../data/JSON/argonautData.json";
+import PatternCard from "./PatternCard/PatternCard";
+import patternData from "../data/JSON/patternData.json";
 
-const fullCardList = [...argonautData, ...gearData]
+const fullCardList = [...argonautData, ...gearData, ...patternData]
 const cardTypes = [...new Set(fullCardList.map(card => card.cardType))];
 const cycles = [...new Set(fullCardList.map(card => card.cycle))];
 const cardSizes = [...new Set(fullCardList.map(card => card.cardSize))];   
@@ -66,7 +68,8 @@ const CardList = () => {
           filteredCards.map((cardname, index) => {
             const cardTypes = { 
               "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name}/>,
-              "Gear": (name) => <GearCard key={name.cardIDs[0]} gear={name} />
+              "Gear": (name) => <GearCard key={name.cardIDs[0]} gear={name} />,
+              "Pattern": (name) => <PatternCard key={name.cardIDs[0]} pattern={name} />
             };
 
             const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;

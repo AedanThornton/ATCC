@@ -4,10 +4,10 @@ import utils from "../utils/index.jsx";
 
 const PatternCard = ({ pattern, index }) => {
   return (
-    <div className="pattern mini-american" style={{ color: getColor(pattern.cycle) }}>
+    <div className="pattern mini-american" style={{ color: getColor(pattern) }}>
       <div className="pattern-info">
-        <div className="pattern-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.cycle)}}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
-        <div className="pattern-title" style={{ color: getColor(pattern.cycle), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>
+        <div className="pattern-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern)}}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
+        <div className="pattern-title" style={{ color: getColor(pattern), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>
           {pattern.name}
         </div>
         <div className="pattern-icon"></div>
@@ -16,14 +16,26 @@ const PatternCard = ({ pattern, index }) => {
       {/* Stats and Image */}
       <div className="pattern-card">
         <div className="pattern-table">
-            {pattern.kratosTable 
-                ? (pattern.kratosTable.map((row, index) => {
-                    {/*put kratos table constructor here*/}
-                }))
-                : (pattern.traumaTable.map((row, index) => {
-                    <div className="pattern-row">{row.range}{/*put the threshold symbol here*/}</div> 
-                }))
-            }
+          {pattern.kratosTable.length > 0
+            ? pattern.kratosTable.map((row, index) => (
+              <div className="kratos-full-row">
+                <div className="kratos-rage-box"><div className="kratos-rage-number">{index}</div></div>
+                <div key={index} className="kratos-row">
+                  {row.map((option, index) =>
+                    <div key={index} className="kratos-option">
+                        {option[0].x_value && `${option[0].x_value} `}{utils.getIcon(option[0].name, "Power", undefined, "1.3em")}
+                        {option[1]?.name && (<>{option[1].x_value && `${option[1].x_value} `}{option[1].name}</>)}
+                        {option[2]?.name && (<>{option[2].x_value && `${option[2].x_value} `}{option[2].name}</>)}
+                    </div>
+                  )}
+                </div>
+                <div className="kratos-rage-box"><div className="kratos-rage-number">{index}</div></div>
+              </div>
+            ))
+            : pattern.traumaTable.map((row, index) => (
+              <div className="trauma-row">{row.range}{/*put the threshold symbol here*/}</div> 
+            ))
+          }
         </div>
       </div>
 
@@ -50,7 +62,7 @@ const PatternCard = ({ pattern, index }) => {
             )
 
                 return (
-                    <div key={index} className="pattern-info" style={{ background: "danger" }}>
+                    <div key={index} className="pattern-info" style={{ background: getGateColor("danger"), padding: "2px 0" }}>
                         <div className="pattern-gated-ability">{abilityContent}</div>
                     </div>
                 )
@@ -86,11 +98,7 @@ const PatternCard = ({ pattern, index }) => {
       </div>
 
       {/* Pattern Info */}
-      <div className="pattern-subtitle" style={{ background: getColor(pattern.cycle), color: getCycleFontColor(pattern.cycle) }}>Card Info</div>
-      <div className="pattern-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="pattern-info-header">Acquisition</div>
-        <div className="pattern-info-detail">{pattern.acquisition}</div>
-      </div>
+      <div className="pattern-subtitle" style={{ background: getColor(pattern) }}>Card Info</div>
       <div className="pattern-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="pattern-info-header">Traits</div>
         <div className="pattern-info-detail" style={{fontStyle: 'italic'}}>{pattern.traumaTable ? "Trauma" : "Kratos"}, {pattern.patternType}</div>
@@ -112,30 +120,8 @@ const PatternCard = ({ pattern, index }) => {
 };
 
 // Helper functions for styling
-const getColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#4A3204",
-    "Cycle II": "rgb(77, 18, 11)",
-    "Cycle III": "#543560",
-    "Cycle IV": "#131004",
-    "Cycle V": "#05233B",
-    "Mnestis Theatre": "#C59A18",
-    "Mnestis": "#C59A18",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
-};
-
-const getCycleFontColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#FFFFFF",
-    "Cycle II": "rgb(199, 43, 26)",
-    "Cycle III": "#FFFFFF",
-    "Cycle IV": "#E7CC68",
-    "Cycle V": "#FFFFFF",
-    "Mnestis Theatre": "#FFFFFF",
-    "Mnestis": "#FFFFFF",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
+const getColor = (pattern) => {
+  return pattern.kratosTable.length > 0 ? "#000" : "rgba(92,14,5,1)"
 };
 
 const getGateColor = (gatetype) => {

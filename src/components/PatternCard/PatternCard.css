@@ -47,6 +47,7 @@
 	column-gap: 10px;
 	justify-content: center;
 	align-items: center;
+    padding: 0 0;
 }
 
 .pattern .pattern-info-header {
@@ -57,37 +58,6 @@
 
 .pattern .pattern-info-detail {
 	flex-basis: 65%;
-}
-
-.pattern .pattern-stats-container {
-	bottom: 0%;
-    display: flex;
-    flex-direction: column;
-    top: 0%;
-    flex: 25;
-    row-gap: 8px;
-    justify-content: center;
-}
-
-.pattern-stats-container:empty {
-    flex: 10;
-}
-
-.pattern .pattern-stats-left {
-	left: 0%;
-	right: auto;
-}
-
-.pattern .pattern-stats-right {
-	left: auto;
-	right: 0%;
-}
-
-.pattern .pattern-stats {
-    text-align: center;
-    padding: 3% 0;
-    background-color: #BFBCAB;
-	font-size: 15px;
 }
 
 .pattern .gate {
@@ -101,7 +71,6 @@
 .pattern .pattern-abilities {
 	text-align: center;
 	text-wrap: balance;
-	padding: 0 10px;
 	flex: 80 50;
     display: flex;
     justify-content: flex-end;
@@ -145,7 +114,7 @@
 	align-items: center;
 }
 
-.gate .invertible, .pattern-ability-gate .invertible, .pattern-gated-ability .invertible, .icon .invertible {
+.gate .invertible, .pattern-ability-gate .invertible, .pattern-gated-ability .invertible, .icon .invertible, .kratos-option .invertible {
 	filter: invert(1);
 }
 
@@ -153,9 +122,66 @@
 	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
 }
 
-.asterisk-text {
-	font-size: 10px;
-	margin-top: 4px;
+.pattern-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 10%;
+    gap: 5px;
+}
+
+.trauma-row {
+    flex: 1;
+    padding: 5px;
+    margin: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #DFDBCD;
+    background: rgb(92,14,5);
+    background: linear-gradient(90deg, rgba(92,14,5,1) 20%, rgba(190,31,12,1) 80%);
+}
+
+.kratos-row {
+    flex: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kratos-option {
+    background-color: black;
+    color: white;
+    margin: 1px;
+    border-radius: 3px;
+    min-width: 10%;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: 16px;
+}
+
+.kratos-full-row {
+    display: flex;
+}
+
+.kratos-rage-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kratos-rage-number {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* End pattern template */
