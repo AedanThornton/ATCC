@@ -380,7 +380,7 @@
       {
         "name": "Armor Re-roll",
         "x_value": 1,
-        "type": "unique"
+        "type": "keyword"
       }
     ],
     "gatedAbilities": []

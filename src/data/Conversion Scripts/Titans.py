@@ -33,40 +33,6 @@ TIMINGS = {
     "Reaction", "Wound", "Crit Miss", "Crit Evade Fail", "Crit Chance", "Crit Evade", "Full Evade", "Full Hit", "Full Miss", "Each Hit", "Sunstarved", "Start of Battle"
 }
 
-def parse_power(power_str):
-    """Parses the power."""
-    powers = []
-    for part in power_str.split(". "):
-        match = re.match(r"(\w+ \d+\+)\s*\+?(\d+)\s*(\w+)", part)
-        if match:
-            gate_type, amount, power_type = match.groups()
-            powers.append({
-                "amount": int(amount),
-                "type": power_type,
-                "gate": {
-                    "type": gate_type.split()[0],
-                    "value": gate_type.split()[1]
-                }
-            })
-        else:
-            match = re.match(r"(\d+)\s*(\w+)", part)
-            if match:
-                amount, power_type = match.groups()
-                powers.append({"amount": int(amount), "type": power_type})
-    return powers
-
-def parse_armor(armor_str):
-    armor = []
-    for part in armor_str.split(". "):
-        match = re.match(r"(\d+)\s*(\w+)", part)
-        if match:
-            amount, die_type = match.groups()
-            armor.append({
-                "amount": int(amount),
-                "type": die_type
-            })
-    return armor
-
 def parse_abilities(ability_box):
     """Parses the ability box."""
     new_ability_list = []
@@ -150,6 +116,60 @@ def parse_abilities(ability_box):
     
     return new_ability_list, gate_ability_list
 
+def parse_kratos(table):
+    if not table:
+        return []
+
+    parsed_table = []
+    x_pattern = re.compile(r"^([\w\s:\+,\-']+?)(?:\s+([\dX\-]+))?$")
+
+    rage_tiers = re.split(r"\. ", table)
+    for tier in rage_tiers:
+        options = re.split(r" or ", re.sub(r"\.", "", tier[2:]))
+        parsed_tier = []
+        for option in options:
+            keywords = re.split(r" and ", option)
+            parsed_option = []
+            for keyword in keywords:
+                x_match = re.match(x_pattern, keyword)
+                parsed_keywords = {}
+                name, x_value = x_match.groups()
+                parsed_keywords["name"] = name
+                if x_value:
+                    parsed_keywords["x_value"] = x_value
+                parsed_option.append(parsed_keywords) 
+            parsed_tier.append(parsed_option) 
+        parsed_table.append(parsed_tier)                
+                
+
+    return parsed_table
+    
+
+def parse_trauma(table):
+    if not table:
+        return []
+
+    parsed_table = []
+    range_pattern = re.compile(r"(\d+)\-(\d+)")
+
+    trauma_tiers = re.split(r"\, ", table)
+    for tier in trauma_tiers:
+        parsed_tier = {}
+        if tier[:2] == "Mi":
+            parsed_tier["type"] = "Minor"
+        if tier[:2] == "Ma":
+            parsed_tier["type"] = "Major"
+        if tier[0] == "G":
+            parsed_tier["type"] = "Grave"
+        if tier[0] == "O":
+            parsed_tier["type"] = "Obol"
+
+        parsed_tier["range"] = re.split(r" ", tier)[1]
+        parsed_table.append(parsed_tier)
+                
+
+    return parsed_table
+
 def csv_to_json(csv_file, json_file):
     """Converts CSV data to JSON."""
     with open(csv_file, newline='', encoding='utf-8') as file:
@@ -157,38 +177,21 @@ def csv_to_json(csv_file, json_file):
         output = []
         for row in reader:
             card_ids = row["Card ID"].split(", ")
-            offensive_statistics = {
-                "attackDice": row["Attack Dice"],
-                "precision": row["Precision"],
-                "power": parse_power(row["Power"])
-            }
-            defensive_statistics = {}
-            if row["Evasion Rerolls"]: defensive_statistics["evasionRerolls"] = row["Evasion Rerolls"]
-            if row["Evasion Bonus"]: defensive_statistics["evasionBonus"] = row["Evasion Bonus"]
-            if row["Armor Dice"]: defensive_statistics["armorDice"] = parse_armor(row["Armor Dice"])
-            if row["Resistances"]: defensive_statistics["resistances"] = map(parse_armor, row["Resistances"].split(". "))
+            kratos_table = parse_kratos(row["Kratos Table"])
+            trauma_table = parse_trauma(row["Trauma Table"])
 
-            abilities, gated_abilities = parse_abilities(row["Ability Box"])
+            abilites, gated_abilities = parse_abilities(row["Ability"])
             
             card_json = {
                 "cardIDs": card_ids,
-                "name": row["Name"].replace(" (Wished)", ""),
+                "name": row["Name"],
                 "cardType": row["Card Type"],
                 "cardSize": row["Card Size"],
                 "cycle": row["Cycle"],
-                "usedFor": row["Used For"],
-                "acquisition": row["Acquisition"],
-                "flavor": row["Flavor"],
-                "slot": row["Slot"],
-                "transformsInto": row["Transforms Into"] or None,
-                "traits": row["Traits"].split(", ") if row["Traits"] else [],
-                "offensiveStatistics": offensive_statistics,
-                "defensiveStatistics": defensive_statistics,
-                "asteriskEffect": row["Asterisk Effect"] or None,
-                "wished": "(Wished)" in row["Name"],
-                "unique": "Unique" in row["Ability Box"],
-                "ascended": "Ascended" in row["Ability Box"],
-                "abilities": abilities,
+                "patternType": row["Pattern Type"],
+                "kratosTable": kratos_table,
+                "traumaTable": trauma_table,
+                "abilities": abilites,
                 "gatedAbilities": gated_abilities
             }
             output.append(card_json)
@@ -196,4 +199,4 @@ def csv_to_json(csv_file, json_file):
     with open(json_file, "w", encoding="utf-8") as outfile:
         json.dump(output, outfile, indent=2)
 
-csv_to_json("./src/data/CSV/gearData.csv", "./src/data/JSON/gearData.json")
+csv_to_json("./src/data/CSV/titanData.csv", "./src/data/JSON/titanData.json")

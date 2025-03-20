@@ -3,7 +3,7 @@ import json
 import re
 
 KEYWORDS = {
-    "Ambrosia Limit", "Armor-Piercing", "Armor Reroll", "Assist", "Attack Reroll", "Auto-black", "Auto-break", "Auto-inspire", 
+    "Ambrosia Limit", "Armor-Piercing", "Armor Re-roll", "Assist", "Attack Reroll", "Auto-black", "Auto-break", "Auto-inspire", 
     "Awakening Lock", "Black", "Bleeding", "Bleeding Limit", "Block", "Break", "Burden", "Burn", "Bypass", "Carving", 
     "Closing", "Clutch", "Combo-Breaker: X spaces", "Self Combo-Breaker: X spaces", "Commit (X)", "Commit", "Consume", "Crash", "Cryptex Loathing", 
     "Cumbersome", "Cursed", "Daze", "Deadly", "Death", "Defy", "Displace", "Diversion", "Dodge", "Doomed", "Double Commit", "Elation", 

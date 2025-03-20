@@ -11,8 +11,8 @@ const DropdownCheckbox = ({ title, options, filters, onFilterChange }) => {
 
       {isOpen && (
         <div className="dropdown-list">
-          {options.map((option) => (
-            <label key={option} style={{ display: "block", marginBottom: "5px" }}>
+          {options.map((option, index) => (
+            <label key={index} style={{ display: "block", marginBottom: "5px" }}>
               <input
                 type="checkbox"
                 name={option}

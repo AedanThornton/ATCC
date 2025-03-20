@@ -50,19 +50,19 @@ const GearCard = ({ gear, index }) => {
           {gear.abilities.map((ability, index) => {
             return (
               <>
-              {(ability.flavorName || ability.timing) && (<br/>)}
-              <span key={index}>
-                {` `}
-                {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-                {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-                {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-                {ability.type === "unique"
-                  ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
-                  : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-                }
-                .
-              </span>
+                {(ability.flavorName || ability.timing) && (<br/>)}
+                  <span key={index}>
+                    {` `}
+                    {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+                    {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                    {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+                    {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+                    {ability.type === "unique"
+                      ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
+                      : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+                    }
+                    .
+                </span>
               </>
             )
           })}

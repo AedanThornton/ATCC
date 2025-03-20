@@ -14,7 +14,9 @@ for (const path in modules) {
 const invertibles = new Set([
     "Danger", "Fate", "Rage", "Exhaust", "Discard", "Reaction",
     "Gear", "OneHanded", "TwoHanded", "ThreeHanded",
-    "Support", "Armor", "Speed", "Power", "Break", "Opening"
+    "Support", "Armor", "Speed", "Power", "Break", "Opening",
+    "Pushback", "PowerReroll", "Reposition", "Vault", "Pole Position",
+    "Motivate", "Tireless"
 ]);
 
 // Utility functions
@@ -32,6 +34,7 @@ const utils = {
             "Red": type === "Power" ? "RedPowerDie" : type === "Armor" ? "RedArmorDie" : "Red",
             "Black": type === "Power" ? "BlackPowerDie" : type === "Armor" ? "BlackArmorDie" : "Black",
             "White": type === "Power" ? "WhitePowerDie" : type === "Armor" ? "WhiteArmorDie" : "White",
+            "Reroll": type === "Power" ? "PowerReroll" : type === "Armor" ? "EvasionReroll" : "Reroll",
             "1 Hand": "OneHanded",
             "2 Hands": "TwoHanded",
             "3 Hands": "ThreeHanded",
@@ -48,7 +51,7 @@ const utils = {
             <img 
                 key={name + index} 
                 src={icon} 
-                style={{ height: size, verticalAlign: "middle", paddingBottom: padding }} 
+                style={{ height: size, maxWidth: size, verticalAlign: "middle", paddingBottom: padding }} 
                 alt={name} 
                 className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
             />

@@ -24,8 +24,8 @@ const PatternCard = ({ pattern, index }) => {
                   {row.map((option, index) =>
                     <div key={index} className="kratos-option">
                         {option[0].x_value && `${option[0].x_value} `}{utils.getIcon(option[0].name, "Power", undefined, "1.3em")}
-                        {option[1]?.name && (<>{option[1].x_value && `${option[1].x_value} `}{option[1].name}</>)}
-                        {option[2]?.name && (<>{option[2].x_value && `${option[2].x_value} `}{option[2].name}</>)}
+                        {option[1]?.name && (<>{option[1].x_value && ` + ${option[1].x_value} `}{option[1].name}</>)}
+                        {option[2]?.name && (<>{option[2].x_value && ` + ${option[2].x_value} `}{option[2].name}</>)}
                     </div>
                   )}
                 </div>
@@ -33,7 +33,7 @@ const PatternCard = ({ pattern, index }) => {
               </div>
             ))
             : pattern.traumaTable.map((row, index) => (
-              <div className="trauma-row">{row.range}{/*put the threshold symbol here*/}</div> 
+              <div key={index} className="trauma-row">{row.range}{/*put the threshold symbol here*/}</div> 
             ))
           }
         </div>
@@ -45,25 +45,25 @@ const PatternCard = ({ pattern, index }) => {
             {pattern.abilities.map((ability, index) => {
                 const abilityContent = (
                 <>
-                {(ability.flavorName || ability.timing) && (<br/>)}
-                <span key={index}>
-                {` `}
-                {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-                {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-                {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-                {ability.type === "unique"
-                    ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
-                    : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-                }
-                .
-                </span>
+                  {(ability.flavorName || ability.timing) && (<br/>)}
+                  <span>
+                    {` `}
+                    {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+                    {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                    {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+                    {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+                    {ability.type === "unique"
+                        ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
+                        : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+                    }
+                    .
+                  </span>
                 </>
             )
 
                 return (
-                    <div key={index} className="pattern-info" style={{ background: getGateColor("danger"), padding: "2px 0" }}>
-                        <div className="pattern-gated-ability">{abilityContent}</div>
+                    <div key={index} className="pattern-info" style={{ background: getGateColor("danger"), padding: "2px 0", color: "white" }}>
+                        {abilityContent}
                     </div>
                 )
             })}
