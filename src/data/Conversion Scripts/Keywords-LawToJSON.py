@@ -7,21 +7,25 @@ Airburst X. Titans in Zone X suffer Knockdown and Knockback 1.
 
 Ambrosia Limit X/+X. Your Ambrosia Limit becomes X or is increased by X, respectively. If you have more than one instance of the former, then the one with the greatest X is used (before applying modifiers). Ambrosia Limit X does not stack, Ambrosia Limit +X does.
 
-Armor-Piercing. During the Power Roll, ignore Hardened.
+Armor-piercing. During the Power Roll, ignore Hardened.
 
-Armor Reroll X. During the Armor Roll step of a Primordial Attack Sequence, you may reroll up to X Armor dice.
+Armor Re-roll X. During the Armor Roll step of a Primordial Attack Sequence, you may reroll up to X Armor dice.
 
 Ascended. This Gear ignores Power Level penalties.
 
 Assist X. During another Titan’s Power Roll, if, after applying all bonuses, their total Power is less than the AT value and you are within your weapon’s range, you may gain 1 Rage and a Combat Fatigue to immediately add X Break tokens to the Kratos Pool. This ability can only be used if it allows the Attacker to Wound.
 
-Attack Reroll X. During an Attack Roll, you may re-roll up to X Attack dice with no cost.
+Attack Re-roll X. During an Attack Roll, you may re-roll up to X Attack dice with no cost.
 
-Auto-Black X. During the first ability window, place X Black tokens (X.1.9.6) in the Kratos Pool.
+Auto-black X. During the first ability window, place X Black tokens (X.1.9.6) in the Kratos Pool.
 
-Auto-Break X. During the first ability window, place X Break tokens (X.1.9.1) in the Kratos Pool.
+Auto-break X. During the first ability window, place X Break tokens (X.1.9.1) in the Kratos Pool.
 
-Auto-Inspire. You may stand up as a free action. You may use this ability while Knocked Down.
+Auto-hope X. During the first ability window, place X Hope tokens (X.1.9.7) in the Kratos Pool.
+
+Auto-inspire. You may stand up as a free action. You may use this ability while Knocked Down.
+
+Auto-rouse X. During the first ability window, place X Rouse tokens (X.1.9.6) in the Kratos Pool.
 
 Awakening Lock. You cannot Awaken.
 
@@ -47,8 +51,8 @@ Closing X. During the second ability window, place X Closing tokens (X.1.9.8) in
 
 Clutch. During the Power Roll step, if, after applying bonuses, you have less total Power than the AT value by exactly 1, you may gain 1 Power. After you finish resolving this Attack Sequence, discard your active weapon.
 
-Combo-Breaker: X spaces. When you would break a Combo, you may move X spaces before checking range. You may only use this ability if it would allow you to break a Combo. This ability is not stackable.
-Self Combo-Breaker: X spaces. Identical to Combo-Breaker, but you can only use the Gear card which this ability is on to break the Combo (you do not have to exhaust an additional card). This Gear must still possess a matching Weapon Trait.
+Combo-breaker: X spaces. When you would break a Combo, you may move X spaces before checking range. You may only use this ability if it would allow you to break a Combo. This ability is not stackable.
+Self Combo-breaker: X spaces. Identical to Combo-breaker, but you can only use the Gear card which this ability is on to break the Combo (you do not have to exhaust an additional card). This Gear must still possess a matching Weapon Trait.
 
 Commit (X). This Keyword forces a cost to pay in order to declare this Weapon as an Active Weapon (X.5.1). If…
 …no parentheses, you must gain 1 Fate to declare this weapon as your active weapon.
@@ -142,7 +146,7 @@ Board Edge. If the affected miniature is Knocked Back into a Board Edge, it cont
 
 Knockdown. Gain the Knockdown Condition card, “Falling down” side up, and tip your miniature on its side. Follow the rules of the Condition card. (Note: the definition of Knockdown used in the Learn to Play is incorrect)
 From Attacks. If Knockdown is caused by an Attack, it affects the Target only if it is within the Attack’s range. 
-From Responses. If Knockdown is caused by a Response, it affects the Attacker only if they are within adjacency. 
+From Responses. If Knockdown is caused by a Response, it affects the Attacker only if they are adjacent. 
 
 Laser Resistance X. Each Laser Attack hit deals X less Danger to you. In Cycle IV+, this loses its Keyword status and becomes a Defensive Statistic instead (V.2.2.4).
 
@@ -176,7 +180,7 @@ Provoke. During the first ability window, gain the Priority Target token and tur
 
 Pole Position. During either the First or second ability window, if you’re adjacent to the Primordial, you may place your Titan on any other empty space adjacent to the Primordial.
 
-Power Reroll X. During the Power Roll step of an Attack, you may re-roll up to X Power dice.
+Power Re-roll X. During the Power Roll step of an Attack, you may re-roll up to X Power dice.
 
 Pull X. Move the affected miniature X spaces towards the source of the Pull, along the shortest possible path.
 Other miniatures. The affected miniature can move through spaces occupied by other miniatures. 

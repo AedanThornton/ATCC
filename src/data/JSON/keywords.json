@@ -11,7 +11,7 @@
       "formatting": ""
     }
   ],
-  "Armor-Piercing": [
+  "Armor-piercing": [
     {
       "text": "During the Power Roll, ignore Hardened.",
       "formatting": ""
@@ -35,7 +35,7 @@
       "formatting": ""
     }
   ],
-  "Attack Reroll X": [
+  "Attack Re-roll X": [
     {
       "text": "During an Attack Roll, you may re-roll up to X Attack dice with no cost.",
       "formatting": ""
@@ -53,9 +53,21 @@
       "formatting": ""
     }
   ],
+  "Auto-hope X": [
+    {
+      "text": "During the first ability window, place X Hope tokens (X.1.9.7) in the Kratos Pool.",
+      "formatting": ""
+    }
+  ],
   "Auto-inspire": [
     {
       "text": "You may stand up as a free action. You may use this ability while Knocked Down.",
+      "formatting": ""
+    }
+  ],
+  "Auto-rouse X": [
+    {
+      "text": "During the first ability window, place X Rouse tokens (X.1.9.6) in the Kratos Pool.",
       "formatting": ""
     }
   ],
@@ -131,14 +143,14 @@
       "formatting": ""
     }
   ],
-  "Combo-Breaker: X spaces": [
+  "Combo-breaker: X spaces": [
     {
       "text": "When you would break a Combo, you may move X spaces before checking range. You may only use this ability if it would allow you to break a Combo. This ability is not stackable.",
       "formatting": ""
     },
     {
-      "subtype": "Self Combo-Breaker: X spaces",
-      "text": "Identical to Combo-Breaker, but you can only use the Gear card which this ability is on to break the Combo (you do not have to exhaust an additional card). This Gear must still possess a matching Weapon Trait.",
+      "subtype": "Self Combo-breaker: X spaces",
+      "text": "Identical to Combo-breaker, but you can only use the Gear card which this ability is on to break the Combo (you do not have to exhaust an additional card). This Gear must still possess a matching Weapon Trait.",
       "formatting": ""
     }
   ],
@@ -456,7 +468,7 @@
     },
     {
       "subtype": "From Responses",
-      "text": "If Knockdown is caused by a Response, it affects the Attacker only if they are within adjacency. ",
+      "text": "If Knockdown is caused by a Response, it affects the Attacker only if they are adjacent. ",
       "formatting": ""
     }
   ],
@@ -655,7 +667,7 @@
       "formatting": ""
     }
   ],
-  "Ranged Y-X": [
+  "Ranged Y\u2013X": [
     {
       "text": "To attack with this weapon, you must be at least Y and up to X spaces away from your target. This keyword is not stackable.",
       "formatting": ""

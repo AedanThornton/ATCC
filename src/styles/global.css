@@ -102,6 +102,20 @@ button:focus-visible {
   z-index: 1;
 }
 
+.half-page {
+  color: black;
+  font-size: 12px;
+  width: 840px;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
 .data-tippy-root {
   z-index: 99999;
+}
+
+.tooltip span .invertible {
+	filter: invert(1);
 }

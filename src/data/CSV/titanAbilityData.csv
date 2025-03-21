@@ -1,0 +1,24 @@
+Name,Effects
+Cold Open,"When you attack, if there are no Opening or Break tokens in the Kratos Pool, place 1 Opening and 1 Break token in the Kratos Pool."
+Six-Armed,You have 3 OneHanded slots OR 3 Support slots.
+Nimble Feet,You have 3 Weapon OneHanded slots. You cannot use ThreeHanded Weapons.
+Shadowdance,"When you resolve a Primordial Attack against you, you may gain +X Fate to perform MovementAction and an Attack (treat it as an Interrupt, if able). Gain a CombatAction Fatigue token. X is 3 minus the AI level."
+Dance of Fate,"When you are about to draw an Obol, you may gain +2 Fate to add 1 You live! Obol card to the Obol deck (for this draw only)."
+Selenian Strain,Start of Battle: Gain 1 Aether token.
+One Small Step,"When on a VP or the Endless Staircase, gain Rocksteady."
+Grey Alchemy,Fate Turn 1 Midas or Pain token into 1 Ambrosia token.
+Forgotten Curse,"Once per Battle, you may gain 3 Despair tokens to skip an After Attack of a Primordial Attack. You amy use the ability only during a WoO of an After Attack."
+Lightweight Curse,You can use ThreeHanded Weapons as if they were TwoHanded Weapons. You cannot use OneHanded Weapons.
+Levitate,"Fate During voluntary movement, ignore an Obstacle or Chasm Terrain tiles. You can end your move on a Chasm but not on an Obstacle. If you start your turn on a Chasm, you must immediately use this ability, If you cannot, you die."
+Fall and Soar,"Fate When you fail the Hold On test, immediately move 2 spaces instead of suffering the Falling Down effect. Fate and Knockdown to Lifeline."
+Carry the Weight,"Each time you gain Midas tokens, place 1 Generic token on your Titan Sheet. You may discard an indicated number of those tokens to triger one of the folowing effects (as a free action, unless stated otherwise): 1: When performing a Hermes Move, treat it as 1 higher. 2: When you are about to suffer Float, ignore it. 3: Discard a Condition card. 4: When performing a Pwer Roll, gain +1 Power. 5: Gain a MovementAction. 6: Remove a Curse Affliction. 7: Awaken."
+Four-Armed Centimanes,You have 4 Weapon OneHanded slots. You cannot use TwoHanded and ThreeHanded Weapons.
+Wish Shield,Each Wish Attack and Laser Attack hit deals 1 Danger less (to a minimum of 1) to you and adjacent Titans.
+Djinnslayer,"When on the Endless Staircase or on any Status card, gain +1 Power."
+Wish Engine,"Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card. Each time you gain a Wishkeen or Wishagog Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet. You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision. 2: When you attack, gain Auto-break 1. 3:Block 1. 4: When performing a Power Roll, gain +1 Power. 5: Gain MovementAction. 6: Gain CombatAction. 7: Awaken."
+Dual-Wielding,"When attacking with a OneHanded Weapon, you can add one stackable keyword of another equipped non-Perishable OneHanded Weapon."
+One for All,"If your natural Rage goes over 9 during an Attack, perform a normal Attack, but do not draw a BP card. Instead, perform a Power Roll, divide your Total Power by 2 (rounding up) and add +1 PowerIcon if you had a Crit Chance. Note the resulting Power, then clear the Kratos Pool and continue to your second ability window (do not resolve any responses). Next time any Titan attacks, it adds the Power you noted to its Total Power."
+Fearless,Immune to Fear and Dread Conditions. You cannot gain Despair tokens.
+Abyss-tainted,"Start of your turn: Gain 1 Ambrosia token. After surviving any Trauma other than Obol, gain +1 Danger."
+Logicbreak,"Fate When you survive an Obol, perform a CombatAction (up to 3 times per Round)."
+Theseus Logic,"Fate During voluntary movement, ignore an Obstacle or Chasm Terrain tile. You cannot end your move on an Obstacle or Chasm."

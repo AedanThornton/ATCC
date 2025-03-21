@@ -5,13 +5,16 @@ import SecretOverlay from "./utils/secretUtils";
 import FilterControls from "./FilterControls";
 
 import GearCard from "./GearCard/GearCard";
-import gearData from "../data/JSON/gearData.json";
 import ArgonautCard from "./ArgonautCard/ArgonautCard";
-import argonautData from "../data/JSON/argonautData.json";
 import PatternCard from "./PatternCard/PatternCard";
-import patternData from "../data/JSON/patternData.json";
+import TitanCard from "./TitanCard/TitanCard";
 
-const fullCardList = [...argonautData, ...gearData, ...patternData]
+import gearData from "../data/JSON/gearData.json";
+import argonautData from "../data/JSON/argonautData.json";
+import patternData from "../data/JSON/patternData.json";
+import titanData from "../data/JSON/titanData.json";
+
+const fullCardList = [...argonautData, ...gearData, ...patternData, ...titanData]
 const cardTypes = [...new Set(fullCardList.map(card => card.cardType))];
 const cycles = [...new Set(fullCardList.map(card => card.cycle))];
 const cardSizes = [...new Set(fullCardList.map(card => card.cardSize))];   
@@ -69,7 +72,8 @@ const CardList = () => {
             const cardTypes = { 
               "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name}/>,
               "Gear": (name) => <GearCard key={name.cardIDs[0]} gear={name} />,
-              "Pattern": (name) => <PatternCard key={name.cardIDs[0]} pattern={name} />
+              "Pattern": (name) => <PatternCard key={name.cardIDs[0]} pattern={name} />,
+              "Titan": (name) => <TitanCard key={name.cardIDs[0]} titan={name} />,
             };
 
             const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;

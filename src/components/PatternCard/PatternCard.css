@@ -23,11 +23,8 @@
 }
 
 .pattern .pattern-card {
-	width: 100%;
 	position: relative;
-	min-height: 140px;
 	display: flex;
-	margin: 10px 0;
 }
 
 .pattern .pattern-image {
@@ -125,9 +122,19 @@
 .pattern-table {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     width: 100%;
     padding: 0 10%;
     gap: 5px;
+    padding: 20px;
+}
+
+.kratos-table {
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 35%);
+}
+
+.trauma-table {
+    background: linear-gradient(0deg, rgba(92,14,5,1) 0%, rgba(255,255,255,0) 35%);
 }
 
 .trauma-row {
@@ -139,6 +146,7 @@
     color: #DFDBCD;
     background: rgb(92,14,5);
     background: linear-gradient(90deg, rgba(92,14,5,1) 20%, rgba(190,31,12,1) 80%);
+    max-height: 25px;
 }
 
 .kratos-row {
@@ -153,7 +161,7 @@
 .kratos-row::before {
     content: "";
     position: absolute;
-    width: 75%;
+    width: 200px;
     height: 8%;
     background-color: #FFF; /* Change to desired color */
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond shape */

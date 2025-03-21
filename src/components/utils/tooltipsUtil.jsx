@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Tippy from '@tippyjs/react';
-import Keywords from '/src/data/JSON/keywords.json';
 import './utils.css';
 
-const createTooltip = (name, index) => {  
+import StandardKeywords from '/src/data/JSON/keywords.json';
+import TitanAbilities from '/src/data/JSON/titanAbilityData.json';
+
+const Keywords = {...TitanAbilities, ...StandardKeywords}
+
+const createTooltip = (name, index, textParser) => {  
   let keyword="";
   if (Keywords[name]) keyword = name;
   else if (Keywords[name + " X"]) keyword = name + " X";
@@ -28,7 +32,7 @@ const createTooltip = (name, index) => {
         {keywordData.map((entry, index2) => (
           <span key={index2} style={entry.formatting || {}}>
             {entry.subtype && <div className='tooltip-subtitle'>{entry.subtype}</div>}
-            {entry.text}
+            {textParser ? textParser(entry.text) : entry.text}
           </span>
         ))}
       </div>

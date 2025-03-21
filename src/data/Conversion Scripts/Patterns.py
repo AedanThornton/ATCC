@@ -181,6 +181,9 @@ def csv_to_json(csv_file, json_file):
             kratos_table = parse_kratos(row["Kratos Table"])
             trauma_table = parse_trauma(row["Trauma Table"])
 
+            if kratos_table: table_type = "Kratos"
+            elif trauma_table: table_type = "Trauma"
+
             abilites, gated_abilities = parse_abilities(row["Ability"])
             
             card_json = {
@@ -190,7 +193,8 @@ def csv_to_json(csv_file, json_file):
                 "cardSize": row["Card Size"],
                 "cycle": row["Cycle"],
                 #"flavor": row["Flavor"],
-                "patternType": row["Pattern Type"],
+                "patternType": table_type,
+                "patternTrait": row["Trait"],
                 "kratosTable": kratos_table,
                 "traumaTable": trauma_table,
                 "abilities": abilites,

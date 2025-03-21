@@ -16,7 +16,9 @@ const invertibles = new Set([
     "Gear", "OneHanded", "TwoHanded", "ThreeHanded",
     "Support", "Armor", "Speed", "Power", "Break", "Opening",
     "Pushback", "PowerReroll", "Reposition", "Vault", "Pole Position",
-    "Motivate", "Tireless"
+    "Motivate", "Tireless", "Diversion", "Hope", "Black", "Fire", "Closing",
+    "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10",
+    "CombatAction", "MovementAction", "ComplicatedAction"
 ]);
 
 // Utility functions
@@ -34,7 +36,7 @@ const utils = {
             "Red": type === "Power" ? "RedPowerDie" : type === "Armor" ? "RedArmorDie" : "Red",
             "Black": type === "Power" ? "BlackPowerDie" : type === "Armor" ? "BlackArmorDie" : "Black",
             "White": type === "Power" ? "WhitePowerDie" : type === "Armor" ? "WhiteArmorDie" : "White",
-            "Reroll": type === "Power" ? "PowerReroll" : type === "Armor" ? "EvasionReroll" : "Reroll",
+            "Reroll": "PowerReroll",
             "1 Hand": "OneHanded",
             "2 Hands": "TwoHanded",
             "3 Hands": "ThreeHanded",

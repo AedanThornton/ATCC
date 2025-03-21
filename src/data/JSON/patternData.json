@@ -7,7 +7,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "patternType": "Strain",
+    "patternType": "Trauma",
+    "patternTrait": "Strain",
     "kratosTable": [],
     "traumaTable": [
       {
@@ -48,7 +49,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "patternType": "Strain",
+    "patternType": "Trauma",
+    "patternTrait": "Strain",
     "kratosTable": [],
     "traumaTable": [
       {
@@ -87,7 +89,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "patternType": "Conditioning",
+    "patternType": "Kratos",
+    "patternTrait": "Conditioning",
     "kratosTable": [
       [
         [
@@ -184,7 +187,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "patternType": "Training",
+    "patternType": "Kratos",
+    "patternTrait": "Training",
     "kratosTable": [
       [
         [
@@ -284,7 +288,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "patternType": "Conditioning",
+    "patternType": "Trauma",
+    "patternTrait": "Conditioning",
     "kratosTable": [],
     "traumaTable": [
       {
@@ -320,7 +325,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "patternType": "Training",
+    "patternType": "Trauma",
+    "patternTrait": "Training",
     "kratosTable": [],
     "traumaTable": [
       {
@@ -356,7 +362,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "patternType": "Training",
+    "patternType": "Trauma",
+    "patternTrait": "Training",
     "kratosTable": [],
     "traumaTable": [
       {
@@ -396,7 +403,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle II",
-    "patternType": "Cycle",
+    "patternType": "Kratos",
+    "patternTrait": "Cycle",
     "kratosTable": [
       [
         [
@@ -500,7 +508,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle II",
-    "patternType": "Conditioning",
+    "patternType": "Kratos",
+    "patternTrait": "Conditioning",
     "kratosTable": [
       [
         [
@@ -604,7 +613,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle II",
-    "patternType": "Conditioning",
+    "patternType": "Trauma",
+    "patternTrait": "Conditioning",
     "kratosTable": [],
     "traumaTable": [
       {
@@ -643,7 +653,8 @@
     "cardType": "Pattern",
     "cardSize": "Mini American",
     "cycle": "Cycle II",
-    "patternType": "Strain",
+    "patternType": "Kratos",
+    "patternTrait": "Strain",
     "kratosTable": [
       [
         [

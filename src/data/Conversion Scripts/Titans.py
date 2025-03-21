@@ -3,8 +3,8 @@ import json
 import re
 
 KEYWORDS = {
-    "Ambrosia Limit", "Armor-Piercing", "Armor Re-roll", "Assist", "Attack Reroll", "Auto-black", "Auto-break", "Auto-inspire", 
-    "Awakening Lock", "Black", "Bleeding", "Bleeding Limit", "Block", "Break", "Burden", "Burn", "Bypass", "Carving", 
+    "Ambrosia Limit", "Armor-Piercing", "Armor Re-roll", "Assist", "Attack Reroll", "Auto-black", "Auto-break", "Auto-hope", "Auto-inspire", 
+    "Auto-rouse", "Awakening Lock", "Black", "Bleeding", "Bleeding Limit", "Block", "Break", "Burden", "Burn", "Bypass", "Carving", 
     "Closing", "Clutch", "Combo-Breaker: X spaces", "Self Combo-Breaker: X spaces", "Commit (X)", "Commit", "Consume", "Crash", "Cryptex Loathing", 
     "Cumbersome", "Cursed", "Daze", "Deadly", "Death", "Defy", "Displace", "Diversion", "Dodge", "Doomed", "Double Commit", "Elation", 
     "Escalate", "Evolving", "Fire", "Float", "Frontlines", "Glaciate", "Giant Glaciate", "Greater Pass", "Hardened", 
@@ -144,7 +144,6 @@ def parse_kratos(table):
 
     return parsed_table
     
-
 def parse_trauma(table):
     if not table:
         return []
@@ -180,15 +179,17 @@ def csv_to_json(csv_file, json_file):
             kratos_table = parse_kratos(row["Kratos Table"])
             trauma_table = parse_trauma(row["Trauma Table"])
 
-            abilites, gated_abilities = parse_abilities(row["Ability"])
+            abilites, gated_abilities = parse_abilities(row["Abilities"])
             
             card_json = {
                 "cardIDs": card_ids,
                 "name": row["Name"],
+                "subtitle": row["Subtitle"] or None,
                 "cardType": row["Card Type"],
                 "cardSize": row["Card Size"],
                 "cycle": row["Cycle"],
-                "patternType": row["Pattern Type"],
+                "titanPower": row["Titan Power"],
+                "speed": row["Speed"],
                 "kratosTable": kratos_table,
                 "traumaTable": trauma_table,
                 "abilities": abilites,

@@ -1,42 +1,24 @@
 import React from "react";
 import "./PatternCard.css"; // Add corresponding CSS for styling
 import utils from "../utils/index.jsx";
+import PatternTable from "./PatternTable.jsx";
 
 const PatternCard = ({ pattern, index }) => {
   return (
-    <div className="pattern mini-american" style={{ color: getColor(pattern) }}>
-      <div className="pattern-info">
-        <div className="pattern-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern)}}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
-        <div className="pattern-title" style={{ color: getColor(pattern), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>
-          {pattern.name}
-        </div>
+    <div className="pattern mini-american" style={{ color: getColor(pattern.patternType) }}>
+      <div className="pattern-info" style={{minHeight: "30px"}}>
+        <div className="pattern-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType)}}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="pattern-title" style={{ color: getColor(pattern.patternType), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>
+            {pattern.name}
+          </div>
         <div className="pattern-icon"></div>
       </div>
 
-      {/* Stats and Image */}
       <div className="pattern-card">
-        <div className="pattern-table">
-          {pattern.kratosTable.length > 0
-            ? pattern.kratosTable.map((row, index) => (
-              <div className="kratos-full-row">
-                <div className="kratos-rage-box"><div className="kratos-rage-number">{index}</div></div>
-                <div key={index} className="kratos-row">
-                  {row.map((option, index) =>
-                    <div key={index} className="kratos-option">
-                        {option[0].x_value && `${option[0].x_value} `}{utils.getIcon(option[0].name, "Power", undefined, "1.3em")}
-                        {option[1]?.name && (<>{option[1].x_value && ` + ${option[1].x_value} `}{option[1].name}</>)}
-                        {option[2]?.name && (<>{option[2].x_value && ` + ${option[2].x_value} `}{option[2].name}</>)}
-                    </div>
-                  )}
-                </div>
-                <div className="kratos-rage-box"><div className="kratos-rage-number">{index}</div></div>
-              </div>
-            ))
-            : pattern.traumaTable.map((row, index) => (
-              <div key={index} className="trauma-row">{row.range}{/*put the threshold symbol here*/}</div> 
-            ))
-          }
-        </div>
+        <PatternTable 
+          table={pattern.patternType === "Kratos" ? pattern.kratosTable : pattern.traumaTable} 
+          type={pattern.patternType}
+        />
       </div>
 
         {/* Ability Box */}
@@ -98,10 +80,10 @@ const PatternCard = ({ pattern, index }) => {
       </div>
 
       {/* Pattern Info */}
-      <div className="pattern-subtitle" style={{ background: getColor(pattern) }}>Card Info</div>
+      <div className="pattern-subtitle" style={{ background: getColor(pattern.patternType) }}>Card Info</div>
       <div className="pattern-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="pattern-info-header">Traits</div>
-        <div className="pattern-info-detail" style={{fontStyle: 'italic'}}>{pattern.traumaTable ? "Trauma" : "Kratos"}, {pattern.patternType}</div>
+        <div className="pattern-info-detail" style={{fontStyle: 'italic'}}>{pattern.patternType}, {pattern.patternTrait}</div>
       </div>
       {/* <div className="pattern-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="pattern-info-header">Flavor Text</div>
@@ -120,8 +102,8 @@ const PatternCard = ({ pattern, index }) => {
 };
 
 // Helper functions for styling
-const getColor = (pattern) => {
-  return pattern.kratosTable.length > 0 ? "#000" : "rgba(92,14,5,1)"
+const getColor = (type) => {
+  return type === "Kratos" ? "#000" : "rgba(92,14,5,1)"
 };
 
 const getGateColor = (gatetype) => {
