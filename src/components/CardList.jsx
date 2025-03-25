@@ -21,12 +21,14 @@ const cardSizes = [...new Set(fullCardList.map(card => card.cardSize))];
 
 const CardList = () => {
   const [searchInput, setSearchTerm] = useState("");
-  const [filters, setFilter] = useState({
+  const [filters, setFilter] = useState({ //All values below are determining which checkboxes start checked (that's it)
     cardType: [...cardTypes],
     cycle: [...cycles],
     cardSize: [...cardSizes],
-    usedFor: [undefined, ...cycles, "Promo"],
+    usedFor: [undefined, "Promo"],
   });
+
+  
 
   const handleFilterChange = (category, option) => {
     setFilter((prevFilters) => ({
@@ -62,7 +64,7 @@ const CardList = () => {
         style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
       />
 
-      {/* Use the new FilterControls component */}
+      {/* Render and Handle search filters */}
       <FilterControls filters={filters} onFilterChange={handleFilterChange} fullCardList={fullCardList}/>
 
       {/* Render Filtered Card List */}

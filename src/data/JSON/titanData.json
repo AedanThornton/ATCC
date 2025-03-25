@@ -1043,7 +1043,7 @@
       [
         [
           {
-            "name": " Break",
+            "name": "Break",
             "x_value": "1"
           },
           {
@@ -1125,7 +1125,7 @@
     "cardType": "Titan",
     "cardSize": "Half-Page",
     "cycle": "Cycle IV",
-    "titanPower": "Red + Power",
+    "titanPower": "Red + PowerIcon",
     "speed": "5",
     "kratosTable": [
       [

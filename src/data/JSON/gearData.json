@@ -10,7 +10,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Other",
     "flavor": "",
     "slot": "2 Hands",
@@ -41,6 +40,265 @@
   },
   {
     "cardIDs": [
+      "AJ0160",
+      "AJ0161",
+      "AJ0162"
+    ],
+    "name": "Sail Spolas",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting, Story",
+    "flavor": "Shields little more than dignity.",
+    "slot": "Armor",
+    "transformsInto": null,
+    "traits": [
+      "Cloth",
+      "Flammable"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "",
+      "precision": "",
+      "power": []
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "+1 Courage",
+        "type": "unique"
+      },
+      {
+        "name": "Second Chance",
+        "costs": [
+          "Fate",
+          "Discard"
+        ],
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
+      "AJ0163",
+      "AJ0164"
+    ],
+    "name": "Shipwrecker Shield",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting, Story",
+    "flavor": "Wreck and rule!",
+    "slot": "1 Hand",
+    "transformsInto": null,
+    "traits": [
+      "Wood",
+      "Shield",
+      "Flammable"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "2",
+      "precision": "+0",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensiveStatistics": {
+      "evasionRerolls": "2"
+    },
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Place 2 Opening tokens in the Kratos Pool",
+        "timing": "Crit Evade",
+        "type": "unique"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
+      "AJ0165",
+      "AJ0166"
+    ],
+    "name": "Siren Panoply Armor",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting, Story",
+    "flavor": "Carved from several AE-siren shells.",
+    "slot": "Armor",
+    "transformsInto": null,
+    "traits": [
+      "Shell"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "",
+      "precision": "",
+      "power": []
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Reinforce",
+        "x_value": 1,
+        "costs": [
+          "Fate"
+        ],
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
+      "AJ0167",
+      "AJ0168"
+    ],
+    "name": "Siren Shield",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "Broken shells make sharp teeth.",
+    "slot": "1 Hand",
+    "transformsInto": null,
+    "traits": [
+      "Shell",
+      "Knife"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "3",
+      "precision": "+0",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Opening",
+        "x_value": 1,
+        "type": "keyword"
+      },
+      {
+        "name": "Reposition",
+        "x_value": 2,
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
+      "AJ0171",
+      "AJ0172"
+    ],
+    "name": "Boatmace",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting, Story",
+    "flavor": "Rock the boat.",
+    "slot": "1 Hand",
+    "transformsInto": null,
+    "traits": [
+      "Wood",
+      "Club",
+      "Flammable"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "1",
+      "precision": "+2",
+      "power": [
+        {
+          "amount": 2,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Break",
+        "x_value": 1,
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
+      "AJ0175",
+      "AJ0176"
+    ],
+    "name": "Kratos Kopis",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "To the dead gods do we raise our prayers.",
+    "slot": "1 Hand",
+    "transformsInto": null,
+    "traits": [
+      "Bone",
+      "Knife"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "2",
+      "precision": "+1",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Carving",
+        "x_value": 1,
+        "type": "keyword"
+      },
+      {
+        "name": "Sacrifice",
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
       "AJ0183",
       "AJ0184"
     ],
@@ -48,7 +306,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Full speed ahead",
     "slot": "2 Hands",
@@ -72,7 +329,8 @@
           "gate": {
             "type": "Danger",
             "value": "5+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -118,7 +376,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Olympians may be gone, but their memory lingers",
     "slot": "1 Hand",
@@ -141,7 +398,8 @@
           "gate": {
             "type": "Danger",
             "value": "8+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -168,12 +426,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "When you are about to perform a Power Roll, gain +3 Danger to gain +1 RedPowerDie for this Attack",
-        "gate": {
-          "type": "Danger",
-          "value": "2+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "2+",
+        "abilities": [
+          {
+            "name": "When you are about to perform a Power Roll, gain +3 Danger to gain +1 RedPowerDie for this Attack",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -186,7 +446,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Made from the jaw of a giant speckled shark",
     "slot": "1 Hand",
@@ -218,15 +477,125 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Auto-break",
-        "x_value": 1,
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Auto-break",
+            "x_value": 1,
+            "type": "keyword"
+          }
+        ]
       }
     ]
+  },
+  {
+    "cardIDs": [
+      "AJ0189",
+      "AJ0190"
+    ],
+    "name": "Ballista Gun",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "This naval siege weapon got a new lease on life.",
+    "slot": "1 Hand",
+    "transformsInto": null,
+    "traits": [
+      "Wood",
+      "Bow",
+      "Flammable"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "1",
+      "precision": "+2",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Black"
+        },
+        {
+          "amount": 1,
+          "type": "PowerIcon",
+          "gate": {
+            "type": "Danger",
+            "value": "7+"
+          },
+          "plus": true
+        }
+      ]
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Ranged",
+        "y_value": 4,
+        "x_value": 6,
+        "type": "keyword"
+      },
+      {
+        "name": "Cumbersome",
+        "type": "keyword"
+      },
+      {
+        "name": "Commit",
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
+      "AJ0191",
+      "AJ0192"
+    ],
+    "name": "Petrified Javelin",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "Eschaton has unearthed the undersea forests.",
+    "slot": "1 Hand",
+    "transformsInto": null,
+    "traits": [
+      "Wood",
+      "Shell",
+      "Javelin",
+      "Flammable"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "2",
+      "precision": "+1",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red"
+        }
+      ]
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Ranged",
+        "y_value": 2,
+        "x_value": 4,
+        "type": "keyword"
+      },
+      {
+        "name": "Cumbersome",
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -237,7 +606,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Long-tailed lions will soon go extinct",
     "slot": "1 Hand",
@@ -277,12 +645,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Spotlight",
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Spotlight",
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -295,7 +665,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Make a wish.",
     "slot": "2 Hands",
@@ -333,12 +702,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Diversion",
-        "gate": {
-          "type": "Danger",
-          "value": "5+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "5+",
+        "abilities": [
+          {
+            "name": "Diversion",
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -351,7 +722,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "It bears the mark of Rhodes. But we did not sail there...",
     "slot": "2 Hands",
@@ -390,15 +760,106 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Opening",
-        "x_value": 2,
-        "gate": {
-          "type": "Danger",
-          "value": "5+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "5+",
+        "abilities": [
+          {
+            "name": "Opening",
+            "x_value": 2,
+            "type": "keyword"
+          }
+        ]
       }
     ]
+  },
+  {
+    "cardIDs": [
+      "AJ0199",
+      "AJ0200",
+      "AJ0201"
+    ],
+    "name": "Iapetus Lifeguard",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "One small step makes all the difference.",
+    "slot": "Support",
+    "transformsInto": null,
+    "traits": [
+      "Argotech",
+      "Augment",
+      "Helm"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "",
+      "precision": "",
+      "power": []
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Reflex",
+        "costs": [
+          "Fate",
+          "Exhaust"
+        ],
+        "timing": "Reaction",
+        "type": "keyword"
+      }
+    ],
+    "gatedAbilities": []
+  },
+  {
+    "cardIDs": [
+      "AJ0206",
+      "AJ0207",
+      "AJ0208"
+    ],
+    "name": "Spring Harness",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "acquisition": "Crafting",
+    "flavor": "To stand when others would fall.",
+    "slot": "Support",
+    "transformsInto": null,
+    "traits": [
+      "Argotech",
+      "Wood",
+      "Footwear",
+      "Flammable",
+      "Metal"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "",
+      "precision": "",
+      "power": []
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Stand up",
+        "costs": [
+          "Fate",
+          "Exhaust"
+        ],
+        "type": "unique"
+      },
+      {
+        "name": "You can use this ability while knocked down",
+        "type": "unique"
+      }
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -409,7 +870,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Noble deeds reforged to serve a higher purpose.",
     "slot": "Armor",
@@ -459,12 +919,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Reinforce 2 instead",
-        "gate": {
-          "type": "Danger",
-          "value": "8+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "8+",
+        "abilities": [
+          {
+            "name": "Reinforce 2 instead",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -477,7 +939,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "You will not be forgotten.",
     "slot": "1 Hand",
@@ -529,13 +990,15 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Place 2 Break or Opening tokens in the Kratos Pool",
-        "gate": {
-          "type": "Danger",
-          "value": "5+"
-        },
-        "timing": "Crit Evade",
-        "type": "unique"
+        "gate": "Danger",
+        "value": "5+",
+        "abilities": [
+          {
+            "name": "Place 2 Break or Opening tokens in the Kratos Pool",
+            "timing": "Crit Evade",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -548,7 +1011,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Legacy remelted.",
     "slot": "1 Hand",
@@ -582,12 +1044,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Power Re-roll 2 instead",
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Power Re-roll 2 instead",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -600,7 +1064,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Deadstop.",
     "slot": "Support",
@@ -642,7 +1105,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "It's over 9000...",
     "slot": "Support",
@@ -674,16 +1136,18 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Place 2 Break or 2 Opening tokens in the Kratos Pool",
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "costs": [
-          "Fate",
-          "Exhaust"
-        ],
-        "type": "unique"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Place 2 Break or 2 Opening tokens in the Kratos Pool",
+            "costs": [
+              "Fate",
+              "Exhaust"
+            ],
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -695,7 +1159,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "A perfect moment is all it takes.",
     "slot": "Support",
@@ -735,7 +1198,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Weighted with stone slabs, lifted by the Centimanes' legacy.",
     "slot": "Armor",
@@ -784,12 +1246,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Rocksteady",
-        "gate": {
-          "type": "Danger",
-          "value": "9+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "9+",
+        "abilities": [
+          {
+            "name": "Rocksteady",
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -802,7 +1266,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "How you really feel",
     "slot": "1 Hand",
@@ -826,7 +1289,8 @@
           "gate": {
             "type": "Danger",
             "value": "8+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -869,13 +1333,15 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Gain Stalwart until the end of this Attack",
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "timing": "Crit Evade",
-        "type": "unique"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Gain Stalwart until the end of this Attack",
+            "timing": "Crit Evade",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -888,7 +1354,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "These columns were consecrated in the names of the Olympians.",
     "slot": "2 Hands",
@@ -912,7 +1377,8 @@
           "gate": {
             "type": "Danger",
             "value": "5+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -949,7 +1415,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Watch your fingers.",
     "slot": "1 Hand",
@@ -974,7 +1439,8 @@
           "gate": {
             "type": "Danger",
             "value": "5+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -1010,7 +1476,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Use your head.",
     "slot": "2 Hands",
@@ -1034,7 +1499,8 @@
           "gate": {
             "type": "Danger",
             "value": "8+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -1079,7 +1545,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Stones to cut stones, what beautiful symmetry.",
     "slot": "3 Hands",
@@ -1095,8 +1560,13 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 2,
+          "amount": 1,
           "type": "Black"
+        },
+        {
+          "amount": 1,
+          "type": "Red",
+          "plus": true
         },
         {
           "amount": 1,
@@ -1104,7 +1574,8 @@
           "gate": {
             "type": "Danger",
             "value": "6+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -1149,7 +1620,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Cloak of Nyx it is not, but it will do.",
     "slot": "Support",
@@ -1191,15 +1661,17 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Dodge",
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "costs": [
-          "Discard"
-        ],
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Dodge",
+            "costs": [
+              "Discard"
+            ],
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -1212,7 +1684,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Better take a spare than be left with none.",
     "slot": "Support",
@@ -1245,12 +1716,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Ignore this card ability's Fate cost",
-        "gate": {
-          "type": "Danger",
-          "value": "8+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "8+",
+        "abilities": [
+          {
+            "name": "Ignore this card ability's Fate cost",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -1263,7 +1736,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Spirit of Hermes, grant me this small favor.",
     "slot": "Support",
@@ -1308,12 +1780,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Gain +3 Speed instead",
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Gain +3 Speed instead",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -1326,7 +1800,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "In the image of the Wolf Hunters of Apollo Lykaios.",
     "slot": "Support",
@@ -1367,16 +1840,7 @@
         "type": "keyword"
       }
     ],
-    "gatedAbilities": [
-      {
-        "name": "You may use Stabilizers' ability as Reaction",
-        "gate": {
-          "type": "Danger",
-          "value": "7+"
-        },
-        "type": "unique"
-      }
-    ]
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -1387,7 +1851,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Even the tallest mountain can be climbed.",
     "slot": "Support",
@@ -1430,7 +1893,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Even the deepest chasm can be crossed.",
     "slot": "Support",
@@ -1472,7 +1934,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Light, but sturdy.",
     "slot": "Armor",
@@ -1514,7 +1975,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "This will make them angry.",
     "slot": "1 Hand",
@@ -1554,12 +2014,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Tumble",
-        "gate": {
-          "type": "Danger",
-          "value": "5+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "5+",
+        "abilities": [
+          {
+            "name": "Tumble",
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -1572,7 +2034,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "This is how they led the prisoners to the Labyrinth.",
     "slot": "2 Hands",
@@ -1590,6 +2051,11 @@
         {
           "amount": 1,
           "type": "Red"
+        },
+        {
+          "amount": 1,
+          "type": "Red",
+          "plus": true
         }
       ]
     },
@@ -1621,13 +2087,15 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Opening",
-        "x_value": 2,
-        "gate": {
-          "type": "Danger",
-          "value": "5+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "5+",
+        "abilities": [
+          {
+            "name": "Opening",
+            "x_value": 2,
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -1640,7 +2108,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Come over here!",
     "slot": "2 Hands",
@@ -1687,13 +2154,15 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Break",
-        "x_value": 2,
-        "gate": {
-          "type": "Danger",
-          "value": "5+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "5+",
+        "abilities": [
+          {
+            "name": "Break",
+            "x_value": 2,
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -1706,7 +2175,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Let it rip!",
     "slot": "2 Hands",
@@ -1749,22 +2217,24 @@
       {
         "name": "Commit",
         "type": "keyword"
-      },
-      {
-        "name": "Break",
-        "x_value": 1,
-        "type": "keyword"
       }
     ],
     "gatedAbilities": [
       {
-        "name": "Opening",
-        "x_value": 1,
-        "gate": {
-          "type": "Danger",
-          "value": "5+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "5+",
+        "abilities": [
+          {
+            "name": "Opening",
+            "x_value": 1,
+            "type": "keyword"
+          },
+          {
+            "name": "Break",
+            "x_value": 1,
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -1776,7 +2246,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "You only get one chance to make a first impression.",
     "slot": "1 Hand",
@@ -1800,7 +2269,8 @@
           "gate": {
             "type": "Danger",
             "value": "8+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -1839,7 +2309,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "Chief among them was Gigas, the Left Hand of Gaia.",
     "slot": "3 Hands",
@@ -1860,11 +2329,17 @@
         },
         {
           "amount": 1,
+          "type": "Black",
+          "plus": true
+        },
+        {
+          "amount": 1,
           "type": "PowerIcon",
           "gate": {
             "type": "Danger",
             "value": "6+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -1917,7 +2392,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "It is better to be the hammer than the anvil.",
     "slot": "2 Hands",
@@ -1938,11 +2412,17 @@
         },
         {
           "amount": 1,
+          "type": "Red",
+          "plus": true
+        },
+        {
+          "amount": 1,
           "type": "PowerIcon",
           "gate": {
             "type": "Danger",
             "value": "6+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -1980,7 +2460,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "I don't like long goodbyes.",
     "slot": "1 Hand",
@@ -2004,7 +2483,8 @@
           "gate": {
             "type": "Danger",
             "value": "7+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -2043,7 +2523,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle I",
-    "usedFor": "Cycle I",
     "acquisition": "Crafting",
     "flavor": "A sleepless sleep to calm the restless.",
     "slot": "Support",
@@ -2087,12 +2566,14 @@
     ],
     "gatedAbilities": [
       {
-        "name": "You may use Morpheus Module's Solace ability as Reaction",
-        "gate": {
-          "type": "Danger",
-          "value": "7+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "7+",
+        "abilities": [
+          {
+            "name": "You may use Morpheus Module's Solace ability as Reaction",
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -2105,7 +2586,6 @@
     "cardType": "Gear",
     "cardSize": "Mini American",
     "cycle": "Cycle II",
-    "usedFor": "Cycle II",
     "acquisition": "Crafting",
     "flavor": "",
     "slot": "1 Hand",
@@ -2129,7 +2609,8 @@
           "gate": {
             "type": "Danger",
             "value": "7+"
-          }
+          },
+          "plus": true
         }
       ]
     },
@@ -2167,13 +2648,15 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Ignore Exhaust cost of Block",
-        "x_value": 1,
-        "gate": {
-          "type": "Danger",
-          "value": "7+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "7+",
+        "abilities": [
+          {
+            "name": "Ignore Exhaust cost of Block",
+            "x_value": 1,
+            "type": "unique"
+          }
+        ]
       }
     ]
   },
@@ -2230,13 +2713,15 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Overbreak",
-        "x_value": 2,
-        "gate": {
-          "type": "Danger",
-          "value": "7+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "7+",
+        "abilities": [
+          {
+            "name": "Overbreak",
+            "x_value": 2,
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -2266,6 +2751,11 @@
         {
           "amount": 3,
           "type": "Red"
+        },
+        {
+          "amount": 1,
+          "type": "PowerIcon",
+          "plus": true
         }
       ]
     },
@@ -2310,47 +2800,55 @@
       {
         "name": "Ignore the Curse Carapace Trait",
         "type": "unique"
-      },
-      {
-        "name": "Elation",
-        "x_value": 1,
-        "type": "keyword"
       }
     ],
     "gatedAbilities": [
       {
-        "name": "One RedPowerDie becomes a BlackPowerDie",
-        "gate": {
-          "type": "Ambrosia",
-          "value": "1+"
-        },
-        "type": "unique"
+        "gate": "Ambrosia",
+        "value": "1+",
+        "abilities": [
+          {
+            "name": "One RedPowerDie becomes a BlackPowerDie",
+            "type": "unique"
+          }
+        ]
       },
       {
-        "name": "Reach",
-        "x_value": 2,
-        "gate": {
-          "type": "Ambrosia",
-          "value": "2+"
-        },
-        "type": "keyword"
+        "gate": "Ambrosia",
+        "value": "2+",
+        "abilities": [
+          {
+            "name": "Reach",
+            "x_value": 2,
+            "type": "keyword"
+          }
+        ]
       },
       {
-        "name": "Another RedPowerDie becomes a BlackPowerDie",
-        "gate": {
-          "type": "Ambrosia",
-          "value": "3+"
-        },
-        "type": "unique"
+        "gate": "Ambrosia",
+        "value": "3+",
+        "abilities": [
+          {
+            "name": "Another RedPowerDie becomes a BlackPowerDie",
+            "type": "unique"
+          },
+          {
+            "name": "Elation",
+            "x_value": 1,
+            "type": "keyword"
+          }
+        ]
       },
       {
-        "name": "Hope",
-        "x_value": 1,
-        "gate": {
-          "type": "Danger",
-          "value": "6+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "6+",
+        "abilities": [
+          {
+            "name": "Hope",
+            "x_value": 1,
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },
@@ -2421,14 +2919,78 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Loses Cumbersome",
-        "gate": {
-          "type": "Danger",
-          "value": "3+"
-        },
-        "type": "unique"
+        "gate": "Danger",
+        "value": "3+",
+        "abilities": [
+          {
+            "name": "Loses Cumbersome",
+            "type": "unique"
+          }
+        ]
       }
     ]
+  },
+  {
+    "cardIDs": [
+      "AJ9985"
+    ],
+    "name": "MWE-33U \"Gardeners\"",
+    "cardType": "Gear",
+    "cardSize": "Mini American",
+    "cycle": "Cycle I",
+    "usedFor": "Promo",
+    "acquisition": "Crafting",
+    "flavor": "To climb the spires of smog",
+    "slot": "2 Hands",
+    "transformsInto": null,
+    "traits": [
+      "Kusarigama",
+      "Leather",
+      "Metal",
+      "Argotech"
+    ],
+    "offensiveStatistics": {
+      "attackDice": "2",
+      "precision": "+0",
+      "power": [
+        {
+          "amount": 1,
+          "type": "Red",
+          "gate": {
+            "type": "Hits",
+            "value": "1+"
+          }
+        }
+      ]
+    },
+    "defensiveStatistics": {},
+    "asteriskEffect": null,
+    "wished": false,
+    "unique": false,
+    "ascended": false,
+    "abilities": [
+      {
+        "name": "Reposition",
+        "x_value": 1,
+        "type": "keyword"
+      },
+      {
+        "name": "Opening",
+        "x_value": 2,
+        "type": "keyword"
+      },
+      {
+        "name": "Gain +1 PowerIcon",
+        "timing": "Each Hit",
+        "type": "unique"
+      },
+      {
+        "name": "Gain +1 PowerIcon",
+        "timing": "Crit Chance",
+        "type": "unique"
+      }
+    ],
+    "gatedAbilities": []
   },
   {
     "cardIDs": [
@@ -2457,6 +3019,11 @@
         {
           "amount": 1,
           "type": "Red"
+        },
+        {
+          "amount": 1,
+          "type": "Red",
+          "plus": true
         }
       ]
     },
@@ -2483,13 +3050,15 @@
     ],
     "gatedAbilities": [
       {
-        "name": "Overbreak",
-        "x_value": 2,
-        "gate": {
-          "type": "Danger",
-          "value": "3+"
-        },
-        "type": "keyword"
+        "gate": "Danger",
+        "value": "3+",
+        "abilities": [
+          {
+            "name": "Overbreak",
+            "x_value": 2,
+            "type": "keyword"
+          }
+        ]
       }
     ]
   },

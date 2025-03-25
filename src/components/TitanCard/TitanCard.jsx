@@ -22,8 +22,14 @@ const TitanCard = ({ titan, index }) => {
           )}
 
           <div className="titan-stats">
-            {utils.getIcon(titan.titanPower, "Power", undefined, "1.5em")}
-            <div>{titan.speed}{utils.getIcon("Speed", undefined, undefined, "1.5em")}</div>
+            <div>
+              {titan.titanPower.split(" + ").map((power, index) => (
+                <>
+                  {index >= 1 ? " + " : ""}{utils.getIcon(power, "Power", index, "1.5em")}
+                </>
+              ))}
+            </div>
+            <div>{titan.speed}{utils.getIcon("Speed", undefined, index+"2", "1.5em")}</div>
           </div>
 
           {/* Abilities */}

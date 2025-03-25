@@ -15,6 +15,7 @@
 	border: 1px solid black;
 	border-radius: 10px;
 	display: inline-flex;
+    margin-bottom: 15px;
 }
 
 .titan .pattern-table {

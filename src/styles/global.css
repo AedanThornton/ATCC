@@ -95,7 +95,7 @@ button:focus-visible {
 .standard {
   color: black;
   font-size: 12px;
-  width: 326px;
+  width: 326.4px;
   height: 100%;
   border-radius: 10px;
   position: relative;
@@ -105,7 +105,7 @@ button:focus-visible {
 .half-page {
   color: black;
   font-size: 12px;
-  width: 840px;
+  width: 834px;
   height: 100%;
   border-radius: 10px;
   position: relative;

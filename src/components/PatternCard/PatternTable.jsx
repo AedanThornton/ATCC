@@ -6,7 +6,7 @@ const PatternTable = ({table, type}) => (
         {type === "Kratos"
         ? table.map((row, index) => (
             <div className="kratos-full-row">
-            <div className="kratos-rage-box"><div className="kratos-rage-number">{index}</div></div>
+            <div className="kratos-rage-box"><div className="kratos-rage-number">{index+1}</div></div>
             <div key={index} className="kratos-row">
                 {row.map((option, index) =>
                 <div key={index} className="kratos-option">
@@ -16,7 +16,7 @@ const PatternTable = ({table, type}) => (
                 </div>
                 )}
             </div>
-            <div className="kratos-rage-box"><div className="kratos-rage-number">{index}</div></div>
+            <div className="kratos-rage-box"><div className="kratos-rage-number">{index+1}</div></div>
             </div>
         ))
         : table.map((row, index) => (

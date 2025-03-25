@@ -34,11 +34,14 @@ const GearCard = ({ gear, index }) => {
             <div key={index} >
               {p.gate && (
                 <div className="gear-stats gate" style={{ background: getGateColor(p.gate.type) }}>
-                  <span>{utils.createPowerGate(p.gate.type, p.gate.value)}</span>
+                  <span>{p.gate.type === "Hits" 
+                    ? p.gate.value + " " + p.gate.type
+                    : utils.createPowerGate(p.gate.type, p.gate.value)}
+                  </span>
                 </div>
               )}
               <div className="gear-stats">
-                {p.amount} {utils.getIcon(p.type, "Power", undefined, "1.5em")}
+                {p.plus ? `+${p.amount}` : p.amount} {utils.getIcon(p.type, "Power", index, "1.5em")}
               </div>
             </div>
           ))}
@@ -50,18 +53,18 @@ const GearCard = ({ gear, index }) => {
           {gear.abilities.map((ability, index) => {
             return (
               <>
-                {(ability.flavorName || ability.timing) && (<br/>)}
-                  <span key={index}>
-                    {` `}
-                    {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                    {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-                    {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-                    {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-                    {ability.type === "unique"
-                      ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
-                      : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-                    }
-                    .
+                {(ability.flavorName || ability.timing || ability.costs) && (<br/>)}
+                <span key={index}>
+                  {` `}
+                  {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+                  {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                  {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+                  {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+                  {ability.type === "unique"
+                    ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
+                    : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+                  }
+                  .
                 </span>
               </>
             )
@@ -90,29 +93,27 @@ const GearCard = ({ gear, index }) => {
 
       {/* Gated Abilities */}
       <div className="gated-abilities">
-        {gear.gatedAbilities.map((ability, index) => {
-          const abilityContent = (
-            <span key={index}>
-              {` `}
-              {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-              {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-              {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-              {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-              {ability.type === "unique"
-                ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
-                : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-              }
-              .
-            </span>
-          )
-          
-          return (
-            <div key={index} className="gear-info" style={{ background: getGateColor(ability.gate.type) }}>
-              <div className="gear-ability-gate">{utils.createAbilityGate(ability.gate.type, ability.gate.value)}</div>
-              <div className="gear-gated-ability">{abilityContent}</div>
+        {gear.gatedAbilities.map((gateGroup, index) => (
+          <div key={index} className="gear-info" style={{ background: getGateColor(gateGroup.gate) }}>
+            <div className="gear-ability-gate">{utils.createAbilityGate(gateGroup.gate, gateGroup.value)}</div>
+            <div className="gear-gated-ability">
+              {gateGroup.abilities.map((ability, jndex) => 
+                <span key={index+jndex}>
+                  {` `}
+                  {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+                  {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                  {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+                  {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+                  {ability.type === "unique"
+                    ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
+                    : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+                  }
+                  .
+                </span>
+              )}
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
 
       {/* Gear Info */}
@@ -171,6 +172,7 @@ const getCycleFontColor = (cycle) => {
 const getGateColor = (gatetype) => {
   gatetype = gatetype.toLowerCase()
   const gateColors = {
+    hits: "rgb(155, 35, 21)",
     danger: "rgb(155, 35, 21)",
     fate: "#557DBD",
     rage: "#040404",

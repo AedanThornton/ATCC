@@ -37,22 +37,42 @@ def parse_power(power_str):
     """Parses the power."""
     powers = []
     for part in power_str.split(". "):
-        match = re.match(r"(\w+ \d+\+)\s*\+?(\d+)\s*(\w+)", part)
-        if match:
-            gate_type, amount, power_type = match.groups()
-            powers.append({
+        gate_match = re.match(r"(\w+ \d+\+)\s*(\+?)(\d+)\s*(\w+)", part)
+        hits_match = re.match(r"(\d+\+) Hits\s*(\d+)\s*(\w+)", part)
+        if gate_match:
+            gate_type, plus, amount, power_type = gate_match.groups()
+            power = {
                 "amount": int(amount),
                 "type": power_type,
                 "gate": {
                     "type": gate_type.split()[0],
                     "value": gate_type.split()[1]
                 }
-            })
+            }
+            if plus:
+                power["plus"] = True
+
+            powers.append(power)
+        elif hits_match:
+            hits, amount, power_type = hits_match.groups()
+            power = {
+                "amount": int(amount),
+                "type": power_type,
+                "gate": {
+                    "type": "Hits",
+                    "value": hits
+                }
+            }
+
+            powers.append(power)
         else:
-            match = re.match(r"(\d+)\s*(\w+)", part)
+            match = re.match(r"(\+?)(\d+)\s*(\w+)", part)
             if match:
-                amount, power_type = match.groups()
-                powers.append({"amount": int(amount), "type": power_type})
+                plus, amount, power_type = match.groups()
+                power = {"amount": int(amount), "type": power_type}
+                if plus:
+                    power["plus"] = True
+                powers.append(power)
     return powers
 
 def parse_armor(armor_str):
@@ -74,12 +94,17 @@ def parse_abilities(ability_box):
     ability_list = re.split(r"\.\s?", ability_box)[:-1]
     gate_pattern = re.compile(r"(\w+) (\d\+) (.*)")
     x_pattern = re.compile(r"^([\w\s:\+,\-']+?)(?:\s+([\dX\-]+))?$")
+
+    parsing_gate_abilities = False
+    gated_ability = []
+    last_gate_json = {}
     
     for ability in ability_list:
         if ability == "Unique" or ability == "Ascended": continue
         gate_match = gate_pattern.match(ability)
         if gate_match:
             gate_type, gate_value, ability_name = gate_match.groups()
+            parsing_gate_abilities = True
         else: ability_name = ability
             
         keyword_match = x_pattern.match(ability_name)
@@ -129,8 +154,6 @@ def parse_abilities(ability_box):
                 ability_json["x_value"] = int(x)
             else:
                 ability_json["x_value"] = int(x)
-        if gate_match:
-            ability_json["gate"] = {"type": gate_type, "value": gate_value}
         if costs != []:
             ability_json["costs"] = costs
         if timing != "":
@@ -142,12 +165,27 @@ def parse_abilities(ability_box):
             ability_json["type"] = "keyword"
         else:
             ability_json["type"] = "unique"
-        
+
+        gate_json = {}
         if gate_match:
-            gate_ability_list.append(ability_json)
+            gate_json["gate"] = gate_type
+            gate_json["value"] = gate_value
+        
+        if parsing_gate_abilities:
+            if gate_match:
+                if last_gate_json:
+                    last_gate_json["abilities"] = gated_ability
+                    gate_ability_list.append(last_gate_json)
+                    last_gate_json = {}
+                    gated_ability = []  
+                last_gate_json = gate_json
+            gated_ability.append(ability_json)
         else: 
             new_ability_list.append(ability_json)
-    
+
+    if last_gate_json: 
+        last_gate_json["abilities"] = gated_ability
+        gate_ability_list.append(last_gate_json)
     return new_ability_list, gate_ability_list
 
 def csv_to_json(csv_file, json_file):
@@ -176,7 +214,7 @@ def csv_to_json(csv_file, json_file):
                 "cardType": row["Card Type"],
                 "cardSize": row["Card Size"],
                 "cycle": row["Cycle"],
-                "usedFor": row["Used For"],
+                "usedFor": row["Found In"],
                 "acquisition": row["Acquisition"],
                 "flavor": row["Flavor"],
                 "slot": row["Slot"],
@@ -191,6 +229,10 @@ def csv_to_json(csv_file, json_file):
                 "abilities": abilities,
                 "gatedAbilities": gated_abilities
             }
+
+            if not card_json["usedFor"]:
+                card_json.pop("usedFor")
+
             output.append(card_json)
     
     with open(json_file, "w", encoding="utf-8") as outfile:

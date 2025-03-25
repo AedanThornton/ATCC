@@ -69,9 +69,6 @@
     justify-content: center;
 }
 
-.gear-stats-container:empty {
-    flex: 10;
-}
 
 .gear .gear-stats-left {
 	left: 0%;
@@ -93,9 +90,11 @@
 .gear .gate {
 	width: 100%;
     color: white;
-    font-size: 9px;
-    height: 13px;
+    font-size: 10px;
+    height: 11.5px;
     padding: 0;
+    font-weight: bold;
+    line-height: 11px;
 }
 
 .gear .gear-abilities {
