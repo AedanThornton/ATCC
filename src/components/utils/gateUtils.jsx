@@ -1,7 +1,7 @@
 import React from "react";
 
 const icons = {}
-const modules = import.meta.glob("/src/assets/icons/*.svg");
+const modules = import.meta.glob("/src/assets/icons/*.svg", { eager: true });
 
 for (const path in modules) {
     const key = path.split("/").pop().replace(".svg", ""); // Extract filename
