@@ -1,0 +1,979 @@
+[
+  {
+    "cardIDs": [
+      "AR0394"
+    ],
+    "name": "Left Hook",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Hekaton clenches its mighty fist.",
+    "level": "I",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "10",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockback 5"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0395"
+    ],
+    "name": "Right Hook",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Hekaton clenches its mighty fist.",
+    "level": "I",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "10",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockback 5"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0396"
+    ],
+    "name": "One, Two Punch",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "A fist jabs at you from the left, immediately followed by a right cross.",
+    "level": "I",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Perform Signature"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0397"
+    ],
+    "name": "Thunderpunch",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Hekaton rears on its hind arms and delivers a powerful downward blow.",
+    "level": "I",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [],
+    "dice": "3",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "Pushback 3"
+      },
+      {
+        "effect": "Each hit deals 1 Danger"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0398"
+    ],
+    "name": "Cold Open",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "It goes from zero to ten in a heartbeat and the punches keep on coming.",
+    "level": "I",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "4",
+    "difficulty": "6",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Pushback 3"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0399"
+    ],
+    "name": "Smash",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Hekaton smashes his front hands as if with frustration.",
+    "level": "I",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "effect": "Each hit deals 2 Danger"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockback 5"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0400"
+    ],
+    "name": "Omnipunch",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "As if it was a sea urchin, the Primordial extends all of its limbs in every direction, punching everything at arms' length.",
+    "level": "II",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "All adjacent Titans"
+      },
+      {
+        "type": "No Target:",
+        "target": "Perform Signature"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "None",
+    "attackType": "Simultaneous",
+    "attackBanners": [],
+    "dice": "3",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      },
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "4+"
+        },
+        "effect": "2 Danger instead"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockback 5"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0401"
+    ],
+    "name": "Furious Smash",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Primordial delivers a blow with its mighty armored fist.",
+    "level": "II",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [],
+    "dice": "4",
+    "difficulty": "8",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      },
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "4+"
+        },
+        "effect": "2 Danger instead"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Pushback 3"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0402"
+    ],
+    "name": "Rumble Strike",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Hekaton starts smashin the ground in a rhythmic fashion.",
+    "level": "II",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Zone 2"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "None",
+    "attackType": "Zone",
+    "attackBanners": [],
+    "dice": "2",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": true,
+    "afterAttackEffects": [
+      {
+        "effect": "Perform Signature"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0403"
+    ],
+    "name": "Chainfist",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The monster cartwheels into you like a giant ball of fists and pain.",
+    "level": "II",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "If Danger was dealt, repeat Chainfist (once)"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0404"
+    ],
+    "name": "Suckerpunch",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "It knows where it hurts the most.",
+    "level": "II",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [],
+    "dice": "2",
+    "difficulty": "8",
+    "consequences": [
+      {
+        "effect": "Each hit deals 2 Danger"
+      },
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "5+"
+        },
+        "effect": "3 Danger instead"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockback 5"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0405"
+    ],
+    "name": "Solarplexar",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "Somehow the creature understands your connection to the Titan and attacks the most vulnerable neural plexus.",
+    "level": "II",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "8",
+    "consequences": [
+      {
+        "effect": "Each hit deals 2 Danger"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "If 2+ Danger was dealt, draw a Kratos card"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0406"
+    ],
+    "name": "Death From A Hundred Fists",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "Mindless and unrelentless, it comes at you with all of its might. You may endure one, two, ten punches. One hundred is madness.",
+    "level": "III",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [],
+    "dice": "5",
+    "difficulty": "7",
+    "consequences": [
+      {
+        "effect": "Roll as many additional Evasion Dice as there are hits"
+      },
+      {
+        "effect": "Repeat until there are no hits"
+      },
+      {
+        "effect": "Then each hit deals 1 Danger"
+      },
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "6+"
+        },
+        "effect": "2 Danger Instead"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Pushback 4"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0407"
+    ],
+    "name": "Thunderclash",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Hekaton winds around, almost turning to you with its side. Then the hook comes knocking.",
+    "level": "III",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [],
+    "dice": "2",
+    "difficulty": "8",
+    "consequences": [
+      {
+        "effect": "Each hit deals 3 Danger"
+      },
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "6+"
+        },
+        "effect": "4 Danger instead"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockback 8"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0408"
+    ],
+    "name": "Backbreaker",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "One of the mighty front hands bends inwards, almost as if the Hekaton was kneeling. The other hands raise you in the air, then slam down.",
+    "level": "III",
+    "uber": true,
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [],
+    "dice": "3",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "8+"
+        },
+        "effect": "You Die"
+      },
+      {
+        "effect": "If you didn't die, each hit deals 2 Danger, then draw an Obol instead of a regular Trauma Draw"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockdown"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0409"
+    ],
+    "name": "Solarsuplexar",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "It knows you're just controlling the Titan and it intends to break that connection - with flair.",
+    "level": "III",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Priority Target in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "7+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "3",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      },
+      {
+        "WoO": true,
+        "effect": " Forced Vault"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "If Danger was dealt, draw a Kratos card"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0410"
+    ],
+    "name": "Skullcrusher",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The mighty hands of the monster clutch your helmeted head and squeeze. The screech of metal is deafening.",
+    "level": "III",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "8+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "8",
+    "consequences": [
+      {
+        "effect": "Each hit deal 4 danger"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockback 8"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0411"
+    ],
+    "name": "Hekatosmasher",
+    "cardType": "Attack",
+    "subtype": "AI",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Primordial moves all its weight onto one side and delivers the mother of all haymakers.",
+    "level": "III",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Zone 3"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "None",
+    "attackType": "Zone",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "7+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "8",
+    "consequences": [
+      {
+        "effect": "Each hit deals 2 Danger"
+      },
+      {
+        "WoO": true,
+        "effect": " Knockdown"
+      },
+      {
+        "WoO": true,
+        "effect": " Fate 5+ Knockback 5"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": true,
+    "afterAttackEffects": [
+      {
+        "effect": "Draw another AI card"
+      }
+    ]
+  },
+  {
+    "cardIDs": [
+      "AR0412"
+    ],
+    "name": "Swat",
+    "cardType": "Attack",
+    "subtype": "Signature",
+    "cardSize": "Standard",
+    "cycle": "Cycle I",
+    "usedFor": "Hekaton",
+    "flavor": "The Hekaton does what it was made to do: SMASH!",
+    "level": "X",
+    "targeting": [
+      {
+        "type": "Target:",
+        "target": "Closest Titan in front, in range"
+      },
+      {
+        "type": "Target:",
+        "target": "Closest Titan in sight"
+      }
+    ],
+    "preActionWoO": true,
+    "moveType": "Move",
+    "attackType": "Regular",
+    "attackBanners": [
+      {
+        "gate": {
+          "gateType": "Fate",
+          "gateValue": "3+"
+        },
+        "effect": "+1 d10"
+      }
+    ],
+    "dice": "2",
+    "difficulty": "9",
+    "consequences": [
+      {
+        "effect": "Each hit deals 1 Danger"
+      }
+    ],
+    "preAfterAttackWoO": true,
+    "afterFinal": false,
+    "afterAttackEffects": [
+      {
+        "effect": "Knockback 5"
+      }
+    ]
+  }
+]

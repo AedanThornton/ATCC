@@ -8,13 +8,15 @@ import GearCard from "./GearCard/GearCard";
 import ArgonautCard from "./ArgonautCard/ArgonautCard";
 import PatternCard from "./PatternCard/PatternCard";
 import TitanCard from "./TitanCard/TitanCard";
+import AttackCard from "./AttackCard/AttackCard";
 
 import gearData from "../data/JSON/gearData.json";
 import argonautData from "../data/JSON/argonautData.json";
 import patternData from "../data/JSON/patternData.json";
 import titanData from "../data/JSON/titanData.json";
+import primordialAttackData from "../data/JSON/primordialAttackData.json";
 
-const fullCardList = [...argonautData, ...gearData, ...patternData, ...titanData]
+const fullCardList = [...argonautData, ...gearData, ...patternData, ...titanData, ...primordialAttackData]
 const cardTypes = [...new Set(fullCardList.map(card => card.cardType))];
 const cycles = [...new Set(fullCardList.map(card => card.cycle))];
 const cardSizes = [...new Set(fullCardList.map(card => card.cardSize))];   
@@ -47,7 +49,7 @@ const CardList = () => {
     if (!filters.cardType.includes(card.cardType)) return false;
     if (!filters.cycle.includes(card.cycle)) return false;
     if (!filters.cardSize.includes(card.cardSize)) return false; 
-    if (!filters.usedFor.includes(card.usedFor)) return false;    
+    //if (!filters.usedFor.includes(card.usedFor)) return false;    
 
     
     return true
@@ -76,6 +78,7 @@ const CardList = () => {
               "Gear": (name) => <GearCard key={name.cardIDs[0]} gear={name} />,
               "Pattern": (name) => <PatternCard key={name.cardIDs[0]} pattern={name} />,
               "Titan": (name) => <TitanCard key={name.cardIDs[0]} titan={name} />,
+              "Attack": (name) => <AttackCard key={name.cardIDs[0]} attack={name} />,
             };
 
             const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;

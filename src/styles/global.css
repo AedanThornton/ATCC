@@ -83,7 +83,6 @@ button:focus-visible {
 }
 
 .mini-american {
-  color: black;
   font-size: 12px;
   width: 270px;
   height: 100%;
@@ -93,7 +92,6 @@ button:focus-visible {
 }
 
 .standard {
-  color: black;
   font-size: 12px;
   width: 326.4px;
   height: 100%;
@@ -103,7 +101,6 @@ button:focus-visible {
 }
 
 .half-page {
-  color: black;
   font-size: 12px;
   width: 834px;
   height: 100%;

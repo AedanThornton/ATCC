@@ -1,0 +1,278 @@
+/* Base Card Styles */
+.ai-card {
+  background-color: #DFDBCD; /* Parchment-like background */
+  font-family: sans-serif; /* Choose a fitting font */
+  overflow: hidden; /* Ensure footer border doesn't leak */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Header */
+.ai-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 8px;
+  padding: 10px;
+}
+
+.ai-card__icon-top-left {
+  width: 40px; /* Adjust size */
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #8b4513; /* Brownish border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em; /* Adjust icon size */
+}
+
+.ai-card__name {
+  font-weight: bold;
+  text-align: center;
+  margin: 0 5px;
+  padding-top: 5px; /* Align text slightly lower */
+  flex-grow: 1; /* Allow name to take space */
+}
+
+/* Right Stats Bar */
+.ai-card__stats-bar-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 38px; /* Adjust width */
+  flex-shrink: 0; /* Prevent shrinking */
+  font-size: 15px;
+}
+
+.ai-card__stats-background {
+  height: 92px;
+  width: 38px;
+  top: 25px;
+  background-color: #743e27; /* Sienna/brown */
+  position: absolute;
+  z-index: -1;
+}
+
+.stats-bar-right__level-container {
+  width: 35px;
+  height: 35px;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.stats-bar-right__level {
+  transform: rotate(-45deg);
+  font-size: 1.1em;
+  font-weight: bold;
+  border-bottom: none; /* Connect to the one below */
+}
+
+.stats-bar-right__dice {
+    padding: 8px 0 5px 0;
+    font-size: 18px;
+    position: relative; /* For icon background */
+}
+
+/* Style this to look like the die outline if using an actual image/svg */
+.stats-bar-right__dice-icon-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px; /* Make icon larger than text */
+    opacity: 0.3; /* Make it faint */
+    color: #f4f0e8; /* Light color for the background shape */
+    z-index: 1;
+}
+
+.stats-bar-right__dice-value {
+    position: relative; /* Ensure text is above icon bg */
+    z-index: 2;
+}
+
+
+.stats-bar-right__difficulty {
+  padding: 3px 0;
+  font-size: 18px;
+  border-top: 1px solid #fff; /* Lighter line separating dice/difficulty */
+}
+
+/* Artwork */
+.ai-card__artwork {
+  width: 100%;
+  margin-bottom: 8px;
+  aspect-ratio: 16 / 9; /* Adjust aspect ratio as needed */
+  background-color: #e0e0e0; /* Placeholder */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ai-card__artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Or contain, depending on art */
+}
+
+/* Flavor Text */
+.ai-card__flavor {
+  font-style: italic;
+  font-size: 11px;
+  text-align: center;
+  color: #666;
+  margin: 0 5px 10px 5px;
+  padding: 5px;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+/* Section Headers (TARGET, MOVE & ATTACK, AFTER ATTACK) */
+.ai-card__section-header {
+  display: inline-block;
+  color: white;
+  border: 1px solid white;
+  font-weight: bold;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 1px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.ai-card__section-header--action {
+  margin: 0; /* Spacing around MOVE & ATTACK */
+}
+.ai-card__section-header--after-attack {
+  margin: 0;
+}
+
+
+/* Targeting */
+.ai-card__targeting {
+  margin-bottom: 8px;
+}
+
+.ai-card__targeting-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+
+/* Action Section */
+.ai-card__action {
+  margin-bottom: 8px;
+}
+
+.ai-card__action-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.ai-card__attack-banner {
+  font-size: 12px;
+  background-color: #a0522d; /* Sienna/brown */
+  color: white;
+  border: 1px solid white;
+  padding: 1px 5px;
+  border-radius: 1px;
+  margin-left: 5px;
+  display: inline-flex; /* Align icons inside */
+  align-items: center;
+}
+.ai-card__attack-banner .icon {
+    margin: 0 2px;
+}
+
+.ai-card__consequences-list {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5em;
+  vertical-align: center;
+}
+
+.ai-card__consequences-list p, .ai-card__after-attack-list p {
+  margin: 0;
+  padding-right: 6.66%;
+  line-height: 18px;
+}
+
+/* After Attack */
+.ai-card__after-attack {
+    margin-bottom: 15px; /* Space before footer */
+}
+.ai-card__after-attack-list {
+    margin: 0;
+    font-size: 12px;
+}
+.ai-card__after-attack-item {
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+}
+
+/* Icons */
+.icon {
+  display: inline-block;
+  margin-right: 3px; /* Default spacing */
+  /* Add specific styles for images/fonts */
+}
+.icon-d10{
+    margin-left: 2px;
+    margin-right: 0;
+}
+.icon-danger{
+    color: red; /* Danger icon color */
+    font-weight: bold; /* Make it stand out */
+     margin: 0 3px;
+}
+
+
+/* Footer */
+.ai-card__footer {
+  margin-top: auto; /* Push footer to bottom */
+  padding-top: 4px;
+  padding-bottom: 2px;
+  padding: 6px 10px 4px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Add the subtle greek pattern if possible via background-image */
+}
+
+.ai-card_footer-div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-card__id {
+  font-size: 10px;
+  justify-content: flex-start;
+}
+
+.ai-card__type-indicator {
+  font-size: 0.9em;
+  font-weight: bold;
+  flex: 3;
+}
+
+.ai-card__woo-icon {
+  width: 6.66%;
+  font-size: 14px;
+}
+
+.ai-card__attack-banner .invertible {
+  filter: invert()
+}
