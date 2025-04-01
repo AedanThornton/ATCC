@@ -5,9 +5,7 @@ const modules = import.meta.glob("/src/assets/icons/*.svg", { eager: true });
 
 for (const path in modules) {
     const key = path.split("/").pop().replace(".svg", ""); // Extract filename
-    modules[path]().then((mod) => {
-        icons[key] = mod.default;
-    });
+    icons[key] = modules[path].default;
 }
 
 const AbilityGate = ({ icon, value }) => {

@@ -1,6 +1,7 @@
 /* argonautbox template */
 .argonaut {
 	background-color: #EEE;
+	color: black;
 	display: flex;
 	min-height: 200px;
 }
