@@ -49,18 +49,13 @@ const DropdownCheckbox = ({ title, options, filters, onFilterChange }) => {
   );
 };
 
-const FilterControls = ({filters, onFilterChange, fullCardList}) => {
-  const cardTypes = [...new Set(fullCardList.map(card => card.cardType))];
-  const cycles = [...new Set(fullCardList.map(card => card.cycle))];
-  const cardSizes = [...new Set(fullCardList.map(card => card.cardSize))];   
-  const usedFors = [undefined, "Promo", ...new Set(fullCardList.map(card => card.usedFor).filter((usedFor) => typeof usedFor === "string" && (usedFor.includes("Secret Deck") || usedFor.includes("Envelope"))))];          
-
+const FilterControls = ({currentFilters, onFilterChange, filterOptions}) => {  
   return (
     <div className="dropdowns">
-      <DropdownCheckbox title={"Card Type"} options={cardTypes} filters={filters.cardType} onFilterChange={(option) => onFilterChange("cardType", option)}/>
-      <DropdownCheckbox title={"Cycle"} options={cycles} filters={filters.cycle} onFilterChange={(option) => onFilterChange("cycle", option)}/>
-      <DropdownCheckbox title={"Card Size"} options={cardSizes} filters={filters.cardSize} onFilterChange={(option) => onFilterChange("cardSize", option)}/>
-      <DropdownCheckbox title={"Found in"} options={usedFors} filters={filters.usedFor} onFilterChange={(option) => onFilterChange("usedFor", option)}/>
+      <DropdownCheckbox title={"Card Type"} options={filterOptions.cardType} filters={currentFilters.cardType} onFilterChange={(option) => onFilterChange("cardType", option)}/>
+      <DropdownCheckbox title={"Cycle"} options={filterOptions.cycle} filters={currentFilters.cycle} onFilterChange={(option) => onFilterChange("cycle", option)}/>
+      <DropdownCheckbox title={"Card Size"} options={filterOptions.cardSize} filters={currentFilters.cardSize} onFilterChange={(option) => onFilterChange("cardSize", option)}/>
+      <DropdownCheckbox title={"Found in"} options={filterOptions.usedFor} filters={currentFilters.usedFor} onFilterChange={(option) => onFilterChange("usedFor", option)}/>
     </div>
   )
 }
