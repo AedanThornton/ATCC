@@ -41,7 +41,10 @@ const GearCard = ({ gear, index }) => {
                 </div>
               )}
               <div className="gear-stats">
-                {p.plus ? `+${p.amount}` : p.amount} {utils.getIcon(p.type, "Power", index, "1.5em")}
+                {p.plus ? '+ ' : ''}
+                {p.type.map((die, subindex) => (
+                  utils.getIcon(die, "Power", index+subindex, "1.5em")
+                ))}
               </div>
             </div>
           ))}
@@ -52,7 +55,7 @@ const GearCard = ({ gear, index }) => {
           <div>
           {gear.abilities.map((ability, index) => {
             return (
-              <>
+              <React.Fragment key={index}>
                 {(ability.flavorName || ability.timing || ability.costs) && (<br/>)}
                 <span key={index}>
                   {` `}
@@ -61,12 +64,12 @@ const GearCard = ({ gear, index }) => {
                   {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
                   {ability.flavorName && (<b> {ability.flavorName}: </b>)}
                   {ability.type === "unique"
-                    ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
-                    : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+                    ? ( <React.Fragment key={index}> {utils.updateComponent(`${ability.name}`, index)}</React.Fragment>)
+                    : ( <React.Fragment key={index}> {utils.createTooltip(`${ability.name}`, index)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</React.Fragment> )
                   }
                   .
                 </span>
-              </>
+              </React.Fragment>
             )
           })}
           </div>
@@ -105,7 +108,7 @@ const GearCard = ({ gear, index }) => {
                   {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
                   {ability.flavorName && (<b> {ability.flavorName}: </b>)}
                   {ability.type === "unique"
-                    ? ( <> {utils.updateComponent(`${ability.name}`)}</>)
+                    ? ( <> {utils.updateComponent(`${ability.name}`, index)}</>)
                     : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
                   }
                   .

@@ -31,8 +31,8 @@ const createTooltip = (name, index, textParser) => {
         <div className='tooltip-title'>{keyword}</div>
         {keywordData.map((entry, index2) => (
           <span key={index2} style={entry.formatting || {}}>
-            {entry.subtype && <div className='tooltip-subtitle'>{entry.subtype}</div>}
-            {textParser ? textParser(entry.text) : entry.text}
+            {entry.subtype && <div className='tooltip-subtitle' key={"subtitle-" + index2}>{entry.subtype}</div>}
+            {textParser ? textParser(entry.text, index2) : entry.text}
           </span>
         ))}
       </div>

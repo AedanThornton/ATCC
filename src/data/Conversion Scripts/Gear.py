@@ -37,42 +37,36 @@ def parse_power(power_str):
     """Parses the power."""
     powers = []
     for part in power_str.split(". "):
-        gate_match = re.match(r"(\w+ \d+\+)\s*(\+?)(\d+)\s*(\w+)", part)
-        hits_match = re.match(r"(\d+\+) Hits\s*(\d+)\s*(\w+)", part)
+        gate_match = re.match(r"(\w+ \d+\+)\s*(\+?)(\d+\s*\w+(?:,\s*\d+\s*\w+)*)", part)
+        hits_match = re.match(r"(\d+\+) Hits\s*(\+?)(\d+\s*\w+(?:,\s*\d+\s*\w+)*)", part)
+        match = re.match(r"(\+?)(\d+\s*\w+(?:,\s*\d+\s*\w+)*)", part)
+
+        gate_type, plus, hits, dice_string = "", False, "", ""
         if gate_match:
-            gate_type, plus, amount, power_type = gate_match.groups()
-            power = {
-                "amount": int(amount),
-                "type": power_type,
-                "gate": {
-                    "type": gate_type.split()[0],
-                    "value": gate_type.split()[1]
-                }
-            }
-            if plus:
-                power["plus"] = True
-
-            powers.append(power)
+            gate_type, plus, dice_string = gate_match.groups()
         elif hits_match:
-            hits, amount, power_type = hits_match.groups()
-            power = {
-                "amount": int(amount),
-                "type": power_type,
-                "gate": {
-                    "type": "Hits",
-                    "value": hits
-                }
-            }
+            hits, plus, dice_string = hits_match.groups()
+        elif match:
+            plus, dice_string = match.groups()
 
-            powers.append(power)
-        else:
-            match = re.match(r"(\+?)(\d+)\s*(\w+)", part)
-            if match:
-                plus, amount, power_type = match.groups()
-                power = {"amount": int(amount), "type": power_type}
-                if plus:
-                    power["plus"] = True
-                powers.append(power)
+        dice_list = []
+        if dice_string:
+            for dice in dice_string.split(", "):
+                count, die_type = dice.split(" ")
+                for x in range(0,int(count)):
+                    dice_list.append(die_type)
+
+        power = {"type": dice_list}
+        if (gate_match or hits_match): 
+            if (hits):
+                power["gate"] = {"type": "Hits", "value": hits}
+            else:
+                power["gate"] = {"type": gate_type.split()[0], "value": gate_type.split()[1]}
+        if (plus):
+            power["plus"] = True
+
+        powers.append(power)
+
     return powers
 
 def parse_armor(armor_str):
@@ -195,11 +189,13 @@ def csv_to_json(csv_file, json_file):
         output = []
         for row in reader:
             card_ids = row["Card ID"].split(", ")
-            offensive_statistics = {
-                "attackDice": row["Attack Dice"],
-                "precision": row["Precision"],
-                "power": parse_power(row["Power"])
-            }
+            offensive_statistics = {}
+            if row["Attack Dice"]:
+                offensive_statistics = {
+                    "attackDice": row["Attack Dice"],
+                    "precision": row["Precision"],
+                    "power": parse_power(row["Power"])
+                }
             defensive_statistics = {}
             if row["Evasion Rerolls"]: defensive_statistics["evasionRerolls"] = row["Evasion Rerolls"]
             if row["Evasion Bonus"]: defensive_statistics["evasionBonus"] = row["Evasion Bonus"]

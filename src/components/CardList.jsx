@@ -149,7 +149,6 @@ const CardList = () => {
       />
 
       {/* Render and Handle search filters */}
-      {console.log(currentFilters)}
       <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} />
 
       {/* Render Filtered Card List */}

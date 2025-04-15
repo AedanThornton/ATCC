@@ -20,8 +20,9 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -56,11 +57,7 @@
       "Cloth",
       "Flammable"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -105,8 +102,9 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -142,11 +140,7 @@
     "traits": [
       "Shell"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -186,8 +180,9 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -233,8 +228,10 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 2,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Red"
+          ]
         }
       ]
     },
@@ -274,8 +271,9 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -320,12 +318,15 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "5+"
@@ -389,12 +390,14 @@
       "precision": "+3",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "8+"
@@ -459,8 +462,9 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Black"
+          "type": [
+            "Black"
+          ]
         }
       ]
     },
@@ -512,12 +516,14 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 1,
-          "type": "Black"
+          "type": [
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "7+"
@@ -573,8 +579,9 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -621,8 +628,9 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -678,8 +686,10 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 2,
-          "type": "Black"
+          "type": [
+            "Black",
+            "Black"
+          ]
         }
       ]
     },
@@ -736,8 +746,9 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -791,11 +802,7 @@
       "Augment",
       "Helm"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -835,11 +842,7 @@
       "Flammable",
       "Metal"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -878,11 +881,7 @@
       "Metal",
       "Bronze"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {
       "armorDice": [
         {
@@ -953,8 +952,9 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -1025,8 +1025,11 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 3,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Red",
+            "Red"
+          ]
         }
       ]
     },
@@ -1074,11 +1077,7 @@
       "Wood",
       "Flammable"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1114,11 +1113,7 @@
       "Augment",
       "Helm"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1167,11 +1162,7 @@
       "Primordial",
       "Bone"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1207,11 +1198,7 @@
       "Bronze",
       "Metal"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {
       "armorDice": [
         {
@@ -1280,12 +1267,15 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "8+"
@@ -1368,12 +1358,14 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "5+"
@@ -1430,12 +1422,14 @@
       "precision": "+3",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "5+"
@@ -1490,12 +1484,16 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Black",
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "8+"
@@ -1560,17 +1558,20 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Black"
+          "type": [
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "Red",
+          "type": [
+            "Red"
+          ],
           "plus": true
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "6+"
@@ -1630,11 +1631,7 @@
       "Camo",
       "Flammable"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1693,11 +1690,7 @@
       "Sheath",
       "Flammable"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1746,11 +1739,7 @@
       "Argotech",
       "Ambrosia"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1810,11 +1799,7 @@
       "Bronze",
       "Argotech"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1861,11 +1846,7 @@
       "Hook",
       "Flammable"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1903,11 +1884,7 @@
       "Hook",
       "Flammable"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -1942,11 +1919,7 @@
       "Metal",
       "Bronze"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {
       "evasionBonus": "+1"
     },
@@ -1989,8 +1962,9 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -2049,12 +2023,14 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "Red",
+          "type": [
+            "Red"
+          ],
           "plus": true
         }
       ]
@@ -2121,8 +2097,10 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 2,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Red"
+          ]
         }
       ]
     },
@@ -2189,8 +2167,9 @@
       "precision": "+3",
       "power": [
         {
-          "amount": 1,
-          "type": "Black"
+          "type": [
+            "Black"
+          ]
         }
       ]
     },
@@ -2260,12 +2239,14 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "8+"
@@ -2324,17 +2305,20 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Black"
+          "type": [
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "Black",
+          "type": [
+            "Black"
+          ],
           "plus": true
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "6+"
@@ -2407,17 +2391,21 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 2,
-          "type": "Black"
+          "type": [
+            "Black",
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "Red",
+          "type": [
+            "Red"
+          ],
           "plus": true
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "6+"
@@ -2474,12 +2462,14 @@
       "precision": "+2",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "7+"
@@ -2532,11 +2522,7 @@
       "Augment",
       "Helm"
     ],
-    "offensiveStatistics": {
-      "attackDice": "",
-      "precision": "",
-      "power": []
-    },
+    "offensiveStatistics": {},
     "defensiveStatistics": {},
     "asteriskEffect": null,
     "wished": false,
@@ -2600,12 +2586,15 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 2,
-          "type": "Black"
+          "type": [
+            "Black",
+            "Black"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "gate": {
             "type": "Danger",
             "value": "7+"
@@ -2684,8 +2673,10 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 2,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Red"
+          ]
         }
       ]
     },
@@ -2749,12 +2740,16 @@
       "precision": "+4",
       "power": [
         {
-          "amount": 3,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Red",
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "PowerIcon",
+          "type": [
+            "PowerIcon"
+          ],
           "plus": true
         }
       ]
@@ -2875,8 +2870,9 @@
       "precision": "+3",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         }
       ]
     },
@@ -2954,8 +2950,9 @@
       "precision": "+0",
       "power": [
         {
-          "amount": 1,
-          "type": "Red",
+          "type": [
+            "Red"
+          ],
           "gate": {
             "type": "Hits",
             "value": "1+"
@@ -3017,12 +3014,14 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red"
+          ]
         },
         {
-          "amount": 1,
-          "type": "Red",
+          "type": [
+            "Red"
+          ],
           "plus": true
         }
       ]
@@ -3087,8 +3086,10 @@
       "precision": "+1",
       "power": [
         {
-          "amount": 1,
-          "type": "Red"
+          "type": [
+            "Red",
+            "Black"
+          ]
         }
       ]
     },

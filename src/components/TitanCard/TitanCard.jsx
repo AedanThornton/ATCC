@@ -23,10 +23,10 @@ const TitanCard = ({ titan, index }) => {
 
           <div className="titan-stats">
             <div>
-              {titan.titanPower.split(" + ").map((power, index) => (
-                <>
-                  {index >= 1 ? " + " : ""}{utils.getIcon(power, "Power", index, "1.5em")}
-                </>
+              {titan.titanPower.split(" + ").map((power, subindex) => (
+                <React.Fragment key={`${power}-${subindex}`}>
+                  {subindex >= 1 ? " + " : ""}{utils.getIcon(power, "Power", subindex, "1.5em")}
+                </React.Fragment>
               ))}
             </div>
             <div>{titan.speed}{utils.getIcon("Speed", undefined, index+"2", "1.5em")}</div>
@@ -37,21 +37,21 @@ const TitanCard = ({ titan, index }) => {
             <div>
             {titan.abilities.map((ability, index) => {
               return (
-                <>
-                  {(ability.flavorName || ability.timing) && (<br/>)}
-                    <span key={index}>
-                      {` `}
-                      {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                      {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-                      {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-                      {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-                      {ability.type === "unique"
-                        ? ( <> {utils.createTooltip(`${ability.name}`)}</>)
-                        : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-                      }
-                      .
+                <React.Fragment key={index}>
+                  {(ability.flavorName || ability.timing || ability.costs) && (<br/>)}
+                  <span key={index}>
+                    {` `}
+                    {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+                    {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                    {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+                    {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+                    {ability.type === "unique"
+                      ? ( <React.Fragment key={index}> {utils.updateComponent(`${ability.name}`, index)}</React.Fragment>)
+                      : ( <React.Fragment key={index}> {utils.createTooltip(`${ability.name}`, index)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</React.Fragment> )
+                    }
+                    .
                   </span>
-                </>
+                </React.Fragment>
               )
             })}
             </div>

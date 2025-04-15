@@ -4,7 +4,7 @@ import utils from "../utils/index.jsx";
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 
-const parseLines = (lines) => {
+const parseLines = (lines, superindex) => {
   const newLines = []
   let currentBlock = "";
   let startedWithWoO = false
@@ -13,11 +13,11 @@ const parseLines = (lines) => {
     if (line.WoO) {
       if (currentBlock.length > 0) {
         newLines.push(
-          <div style={{ display: "flex" }}>
+          <div key={`${newLines.length}`} style={{ display: "flex" }}>
             {startedWithWoO
               ? (<div style={{ flex: 1 }} className="ai-card__woo-icon">{wooIcon}</div>)
               : (<div style={{ flex: 1 }}></div>)}
-            <p style={{ flex: 14 }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock)}</p>
+            <p style={{ flex: 14 }}>{utils.updateComponent(currentBlock, index)}</p>
           </div>)
         currentBlock = ""
       }
@@ -27,13 +27,13 @@ const parseLines = (lines) => {
     currentBlock += line.effect + ". "
   })
   newLines.push(
-    <div style={{ display: "flex" }}>
+    <div key={newLines.length} style={{ display: "flex" }}>
       {startedWithWoO && (<div style={{ flex: 1 }} className="ai-card__woo-icon">{wooIcon}</div>)}
       {!startedWithWoO && (<div style={{ flex: 1 }}></div>)}
-      <p style={{ flex: 14 }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock)}</p>
+      <p style={{ flex: 14 }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock, superindex)}</p>
     </div>)
 
-  return (<>{newLines}</>)
+  return newLines
 }
 
 const AttackCard = ({ attack, index }) => {
@@ -67,7 +67,7 @@ const AttackCard = ({ attack, index }) => {
         </div>
         <div className="ai-card__targeting-list">
           {attack.targeting?.map((line, index) => (
-            <span style={{ display: "flex" }}>
+            <span key={index} style={{ display: "flex" }}>
               <span style={{ paddingLeft: `${100 / 15}%` }}></span>
               <span style={{ flex: 14 }}><span style={{ fontWeight: "bold" }}>{line.type}</span> {line.target}.</span>
             </span>
@@ -90,12 +90,12 @@ const AttackCard = ({ attack, index }) => {
           {/* Banners */}
           {attack.attackBanners?.map((banner, index) => (
             <span key={index} className="ai-card__attack-banner" style={{backgroundColor: getGateColor(banner.gate.gateType)}}>
-              {utils.getIcon(banner.gate?.gateType)} {banner.gate?.gateValue}: {utils.updateComponent(banner.effect)}
+              {utils.getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: {utils.updateComponent(banner.effect, index)}
             </span>
           ))}
         </div>
         <div className="ai-card__consequences-list">
-          {parseLines(attack.consequences)}
+          {parseLines(attack.consequences, "consequences")}
         </div>
       </div>
 
@@ -107,7 +107,7 @@ const AttackCard = ({ attack, index }) => {
             <span className="ai-card__section-header ai-card__section-header--after-attack" style={{backgroundColor: getColor(attack.cycle)}}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
           </div>
           <div className="ai-card__after-attack-list">
-            {parseLines(attack.afterAttackEffects)}
+            {parseLines(attack.afterAttackEffects, "afterattack")}
           </div>
         </div>
       )}
