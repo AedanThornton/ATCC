@@ -1,0 +1,66 @@
+.focus-card-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.focus-card {
+  display: flex;
+  gap: 30px;
+  width: 70vw;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.focus-big {
+  flex-direction: column;
+  align-items: center;
+}
+
+.focus-small {
+  flex-direction: row;
+}
+
+.focus-card-info-container {
+  background-color: rgb(59, 59, 59);
+  border-radius: 10px;
+  padding: 30px;
+  width: 25vw;
+}
+
+.focus-card-info-container > div {
+  display: flex;
+  padding: 4px;
+  gap: 25px;
+}
+
+.focus-card-info-container > div > strong {
+  flex: 1;
+  text-align: end;
+}
+
+.focus-card-info-container > div > p {
+  flex: 8;
+  margin: 0;
+}
+
+.focus-footer {
+  margin-bottom: 10px;
+}
+
+.focus-card-page .mini-american {
+  height: unset;
+  aspect-ratio: 1 / 1.5;
+}
+
+.focus-card-page .standard {
+  height: unset;
+  aspect-ratio: 1 / 1.4;
+}
+
+.focus-card-page .half-page {
+  height: unset;
+  aspect-ratio: 1 / 0.5;
+  /*aspect-ratio: 8.5 / 5.5;*/
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import SecretOverlay from "./utils/secretUtils";
 import FilterControls from "./FilterControls";
 
@@ -175,10 +176,12 @@ const CardList = () => {
               return (
                 <div key={index} style={{ position: "relative" }}>
                   {secretOverlay}
-                  {currentCard}
-                  <div className="card-type-marker" style={{ backgroundColor: "#666" }}>
-                    {cardname.cardType}
-                  </div>
+                  <Link to={`/card/${cardname.cardIDs[0]}`}>
+                    {currentCard}
+                    <div className="card-type-marker" style={{ backgroundColor: "#666" }}>
+                      {cardname.cardType}
+                    </div>
+                  </Link>
                 </div>
               )
             })

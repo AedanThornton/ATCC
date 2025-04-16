@@ -116,3 +116,7 @@ button:focus-visible {
 .tooltip span .invertible {
 	filter: invert(1);
 }
+
+a {
+  font-weight: unset;
+}
