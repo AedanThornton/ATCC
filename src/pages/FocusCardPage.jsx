@@ -90,11 +90,18 @@ function FocusCardPage() {
   const displayParts = (
     <>
       {currentCard}
-      <div className="focus-card-info-container">
-        <div><strong>ID:</strong> <p>{cardData.cardIDs[0]}</p></div>
-        <div><strong>Type:</strong> <p>{cardData.cardType}</p></div>
-        <div><strong>Cycle:</strong> <p>{cardData.cycle}</p></div>
-        <div><strong>Lore:</strong> <p>{cardData.flavor || 'N/A'}</p></div>
+      <div>
+        <div className="focus-card-info-container">
+          <div><strong>ID:</strong> <p>{cardData.cardIDs[0]}</p></div>
+          <div><strong>Type:</strong> <p>{cardData.cardType}</p></div>
+          <div><strong>Cycle:</strong> <p>{cardData.cycle}</p></div>
+          <div><strong>Lore:</strong> <p>{cardData.flavor || 'N/A'}</p></div>
+        </div>
+        <p></p>
+        {(cardData.faq || cardData.errata) && (<div className="focus-card-info-container">
+          {cardData.faq && (<div><strong>FAQ:</strong> <p>{cardData.faq}</p></div>)}
+          {cardData.errata && (<div><strong>Errata:</strong> <p>{cardData.errata}</p></div>)}
+        </div>)}
       </div>
     </>
   )

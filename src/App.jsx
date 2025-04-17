@@ -12,14 +12,14 @@ import NotFoundPage from './pages/NotFoundPage';
 const App = () => {
   return (
     <Routes>
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/card/:cardID" element={<FocusCardPage />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="catalog" element={<CardLibraryPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/card/:cardID" element={<FocusCardPage />} />
     </Routes>
   );
 };
