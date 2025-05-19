@@ -89,6 +89,7 @@ button:focus-visible {
   border-radius: 10px;
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .standard {
@@ -98,6 +99,7 @@ button:focus-visible {
   border-radius: 10px;
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .half-page {
@@ -107,6 +109,7 @@ button:focus-visible {
   border-radius: 10px;
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .data-tippy-root {

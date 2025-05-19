@@ -1,0 +1,139 @@
+/* production-facilitybox template */
+.production-facility {
+	background-color: #001c21;
+  padding: 10px;
+}
+
+.production-facility p {
+  margin: 0;
+}
+
+.production-facility > * {
+  color: white;
+}
+
+.production-facility-title {
+	text-align: center;
+	font-size: 18px;
+	color: white;
+  border-radius: 9px 9px 0 0;
+	flex: 8;
+}
+
+.production-facility-subtitle {
+	text-align: center;
+	font-size: 15px;
+	color: white;
+  margin: 5px 0;
+}
+
+.production-facility-card {
+	width: 100%;
+	position: relative;
+	min-height: 140px;
+	display: flex;
+	margin: 10px 0;
+}
+
+.production-facility-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.production-facility-info-header {
+	text-align: right;
+	flex-basis: 35%;
+	font-weight: BOLD;
+}
+
+.production-facility-info-detail {
+	flex-basis: 65%;
+}
+
+.production-facility-icon {
+	text-align: center;
+	flex: 2;
+}
+
+.production-facility .icon {
+	border-radius: 50%;
+	border: 3px solid #00434e;
+  box-shadow: 0 0 4px 3px #00434e;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  padding: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.gate .invertible, .production-facility-ability-gate .invertible, .production-facility-gated-ability .invertible, .icon .invertible {
+	filter: invert(1);
+}
+
+.cycle4 .invertible {
+	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
+}
+
+.production-facility-project {
+  background-color: #DFDBCD;
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.production-facility-project-divider {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.production-facility-project-flavor {
+  border-top: 1px solid #cac7b9;
+  border-bottom: 1px solid #cac7b9;
+  padding: 5px 0;
+  margin-bottom: 5px;
+  width: 100%;
+  display: flex;
+}
+
+.production-facility-project-header {
+  color: white;
+  background-color: #00434e;
+  width: fit-content;
+  padding: 0 10px;
+}
+
+.production-facility-project-box {
+  background-color: #cac7b9;
+  width: fit-content;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+
+.production-facility-tech-header {
+  font-style: italic;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.production-facility-tech-box {
+  padding-left: 15px;
+  background-color: #001215;
+}
+
+.production-facility-recipes {
+  border-top: 1px solid #00434e;
+  border-bottom: 1px solid #00434e;
+}
+
+/* End production-facility template */

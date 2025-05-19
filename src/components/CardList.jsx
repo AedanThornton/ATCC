@@ -8,6 +8,7 @@ import ArgonautCard from "./ArgonautCard/ArgonautCard";
 import PatternCard from "./PatternCard/PatternCard";
 import TitanCard from "./TitanCard/TitanCard";
 import AttackCard from "./AttackCard/AttackCard";
+import ProductionFacilityCard from "./ProductionFacilityCard/ProductionFacilityCard";
 
 const CardList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -165,6 +166,19 @@ const CardList = () => {
                 "Pattern": (name) => <PatternCard key={name.cardIDs[0]} pattern={name} />,
                 "Titan": (name) => <TitanCard key={name.cardIDs[0]} titan={name} />,
                 "Attack": (name) => <AttackCard key={name.cardIDs[0]} attack={name} />,
+                "Technology": (name) => {
+                  const techSubType = {
+                    "Production Facility": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
+                    //"Argo Ability": <ArgoAbilityCard key={name.cardIDs[0]} productionFacility={name} />,
+                    //"Core": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
+                  }
+                  const techType = {
+                    "Combat": techSubType[name.techSubType] || <></>,
+                    //"Structural": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
+                  }
+
+                  return techType[name.techType] || <></>;
+                }
               };
 
               const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;

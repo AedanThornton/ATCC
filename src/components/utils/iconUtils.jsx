@@ -18,7 +18,7 @@ const invertibles = new Set([
     "Pushback", "PowerReroll", "Reposition", "Vault", "Pole Position",
     "Motivate", "Tireless", "Diversion", "Hope", "Black", "Fire", "Closing",
     "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10",
-    "CombatAction", "MovementAction", "ComplicatedAction"
+    "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", "StructuralTech"
 ]);
 
 // Utility functions
