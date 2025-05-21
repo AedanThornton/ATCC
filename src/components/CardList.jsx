@@ -9,6 +9,7 @@ import PatternCard from "./PatternCard/PatternCard";
 import TitanCard from "./TitanCard/TitanCard";
 import AttackCard from "./AttackCard/AttackCard";
 import ProductionFacilityCard from "./ProductionFacilityCard/ProductionFacilityCard";
+import BPCard from "./BPCard/BPCard";
 
 const CardList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -178,7 +179,8 @@ const CardList = () => {
                   }
 
                   return techType[name.techType] || <></>;
-                }
+                },
+                "BP": (name) => <BPCard key={name.cardIDs[0]} bp={name} />,
               };
 
               const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;
