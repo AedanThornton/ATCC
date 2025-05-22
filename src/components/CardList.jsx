@@ -185,8 +185,8 @@ const CardList = () => {
 
               const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;
               const secretOverlay = <>{
-                (cardname.usedFor?.includes("Secret Deck") || cardname.usedFor?.includes("Envelope"))
-                && <SecretOverlay text={cardname.usedFor} key={index + "cover"} />
+                (cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope"))
+                && <SecretOverlay text={cardname.foundIn} key={index + "cover"} />
               }</>
 
               return (

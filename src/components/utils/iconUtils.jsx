@@ -17,7 +17,7 @@ const invertibles = new Set([
     "Support", "Armor", "Speed", "Power", "Break", "Opening",
     "Pushback", "PowerReroll", "Reposition", "Vault", "Pole Position",
     "Motivate", "Tireless", "Diversion", "Hope", "Black", "Fire", "Closing",
-    "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10",
+    "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10", "AT",
     "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", "StructuralTech"
 ]);
 
@@ -40,7 +40,8 @@ const utils = {
             "1 Hand": "OneHanded",
             "2 Hands": "TwoHanded",
             "3 Hands": "ThreeHanded",
-            "Armor": "Armor"
+            "Armor": "Armor",
+            "AdversaryActivation": "Adversary"
         };
 
         if (nameMap[name]) {

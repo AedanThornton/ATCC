@@ -6,6 +6,12 @@
     color: white;
     text-align: left;
     z-index: 50;
+    overflow: scroll;
+    max-height: 50vh;
+}
+
+.tooltip::-webkit-scrollbar {
+    display: none;
 }
 
 .tooltip-title {
@@ -17,6 +23,8 @@
 .tooltip-subtitle {
     font-weight: bold;
     font-size: 14px;
+    margin-top: 4px;
+    border-bottom: 1px solid white;
 }
 
 .tooltip-trigger {

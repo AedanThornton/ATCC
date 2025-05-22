@@ -53,7 +53,6 @@
   height: 92px;
   width: 38px;
   top: 25px;
-  background-color: #743e27; /* Sienna/brown */
   position: absolute;
   z-index: -1;
 }
@@ -129,13 +128,13 @@
   border-bottom: 1px solid #dcdcdc;
 }
 
-/* Section Headers (TARGET, MOVE & ATTACK, AFTER ATTACK) */
+/* Section Headers (FAIL, WOUND, etc.) */
 .bp-card__section-header {
   display: inline-block;
   color: white;
   border: 1px solid white;
   font-weight: bold;
-  padding: 2px 8px;
+  padding: 0px 4px;
   font-size: 11px;
   border-radius: 1px;
   margin-bottom: 4px;
@@ -143,18 +142,46 @@
 }
 
 .bp-card__section-header--response {
-  margin: 0; /* Spacing around MOVE & ATTACK */
+  margin: 0; /* Spacing around response headers */
+  margin-left: 6.66%;
 }
 
-/* Action Section */
-.bp-card__responses {
-  margin-bottom: 8px;
+.bp-card__value-container {
+  display: flex;
+  justify-content: center;
 }
+
+.bp-card__value-container span {
+  border-radius: 50px;
+  border: 2px solid white;
+  box-shadow: 0 0 4px 3px #cac7b9;
+  color: white;
+  padding: 1px 6px;
+  padding-right: 8px;
+  font-size: 18px;
+}
+
+/* Resources */
+.bp-card__resources-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3px 6.66%;
+}
+
+.bp-card__resources-title {
+  margin: 0;
+}
+
+.bp-card__resources-list {
+  padding: 2px 5px;
+}
+
+/* Responses */
 
 .bp-card__responses-line {
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
 }
 
 .bp-card__effects-list {
@@ -162,26 +189,33 @@
   font-size: 12px;
   line-height: 1.5em;
   vertical-align: center;
+  margin-right: 6.66%;
 }
 
-.bp-card__effects-list p, .bp-card__critical-list p {
+.bp-card__effects-list p {
   margin: 0;
-  padding-right: 6.66%;
   line-height: 18px;
 }
 
-/* After Attack */
-.bp-card__critical {
-    margin-bottom: 15px; /* Space before footer */
+/* Critical */
+.bp-card__critical-list p {
+  margin: 0;
+  margin: 3px 6.66%;
+  line-height: 18px;
 }
+
+.bp-card__critical-flavor {
+  border-top: 1px solid #cac7b9;
+  border-bottom: 1px solid #cac7b9;
+  margin: 3px 6.66%;
+  padding: 0;
+  text-align: left;
+}
+
 .bp-card__critical-list {
     margin: 0;
     font-size: 12px;
-}
-.bp-card__critical-item {
-    margin-bottom: 3px;
-    display: flex;
-    align-items: center;
+    margin: 3px 6.66%;
 }
 
 /* Footer */
@@ -205,12 +239,14 @@
 .bp-card__id {
   font-size: 10px;
   justify-content: flex-start;
+  color: white;
 }
 
 .bp-card__type-indicator {
   font-size: 0.9em;
   font-weight: bold;
   flex: 3;
+  color: white;
 }
 
 .bp-card__woo-icon {
@@ -218,6 +254,6 @@
   font-size: 14px;
 }
 
-.bp-card__attack-banner .invertible {
+.bp-card__attack-banner .invertible, .bp-card__value-container span .invertible {
   filter: invert()
 }

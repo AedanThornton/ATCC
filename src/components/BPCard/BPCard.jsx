@@ -15,9 +15,9 @@ const parseLines = (lines, superindex) => {
         newLines.push(
           <div key={`${newLines.length}`} style={{ display: "flex" }}>
             {startedWithWoO
-              ? (<div style={{ flex: 1 }} className="bp-card__woo-icon">{wooIcon}</div>)
-              : (<div style={{ flex: 1 }}></div>)}
-            <p style={{ flex: 14 }}>{utils.updateComponent(currentBlock, index)}</p>
+              ? (<div style={{ width: "6.66%" }} className="bp-card__woo-icon">{wooIcon}</div>)
+              : (<div style={{ width: "6.66%" }}></div>)}
+            <p style={{ width: "93.33%" }}>{utils.updateComponent(currentBlock, index)}</p>
           </div>)
         currentBlock = ""
       }
@@ -28,9 +28,10 @@ const parseLines = (lines, superindex) => {
   })
   newLines.push(
     <div key={newLines.length} style={{ display: "flex" }}>
-      {startedWithWoO && (<div style={{ flex: 1 }} className="bp-card__woo-icon">{wooIcon}</div>)}
-      {!startedWithWoO && (<div style={{ flex: 1 }}></div>)}
-      <p style={{ flex: 14 }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock, superindex)}</p>
+      {startedWithWoO 
+        ? (<div style={{ width: "6.66%" }} className="bp-card__woo-icon">{wooIcon}</div>)
+        : (<div style={{ width: "6.66%" }}></div>)}
+      <p style={{ width: "93.33%" }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock, superindex)}</p>
     </div>)
 
   return newLines
@@ -38,7 +39,7 @@ const parseLines = (lines, superindex) => {
 
 const BPCard = ({ bp, index }) => {
   return (
-    <div key={index} className="bp-card standard" style={{ color: getColor(bp.cycle) }}>
+    <div key={index} className="bp-card standard" style={{ color: getPrimaryCycleColor(bp.cycle) }}>
       {/* Header, Icon, and Banner */}
       <div className="bp-card__header">
         <div className="bp-card__icon-top-left">
@@ -46,18 +47,38 @@ const BPCard = ({ bp, index }) => {
         </div>
         <h2 className="bp-card__name" style={{fontSize: Math.min(19, 400 / (1.1 * bp.name.length)) }}>{bp.name}</h2>
         <div className="bp-card__stats-bar-right">
-          <div className="stats-bar-right__level-container" style={{ background: getColor(bp.cycle) }}><div className="stats-bar-right__level">{bp.level}</div></div>
-          <div className="stats-bar-right__resources">{bp.difficulty}</div>
-          <div className="bp-card__stats-background"></div>
+          <div className="stats-bar-right__level-container" style={{ background: getPrimaryCycleColor(bp.cycle) }}><div className="stats-bar-right__level">{bp.level}</div></div>
+          <div className="bp-card__stats-background" style={{ backgroundColor: getSecondaryCycleColor(bp.cycle)}}></div>
+        </div>
+      </div>
+
+      {/* Resources Section */}
+      <div className="bp-card__resources-container" style={{ borderColor: getPrimaryCycleColor(bp.cycle) }}>
+        <h3 className="bp-card__resources-title">
+          Resources
+        </h3>
+        <div className="bp-card__resources-list">
+          {bp.resources?.map((resource, index) => (
+            <div key={index}>
+              {`${resource.count}x ${resource.name}`}
+            </div>
+          ))}
         </div>
       </div>
 
       {/* AT Section */}
-      {utils.getIcon("AT")}
-      {bp.value}
+      <div className="bp-card__value-container">
+        <span style={{ background: getPrimaryCycleColor(bp.cycle) }}>
+          {utils.getIcon("AT", undefined, undefined, "20px")}
+          {` `}
+          {bp.value}
+        </span>
+      </div>
 
       {/* Non-Response Text Section */}
-      {bp.nonResponseText}
+      <div className="bp-card__critical-list"> {/* Reuse style for alignment */}
+        {bp.nonResponseText}
+      </div>
 
       {/* Responses Section */}
       <div className="bp-card__responses">
@@ -79,7 +100,6 @@ const BPCard = ({ bp, index }) => {
       {/* Crit Response Section */}
       <div className="bp-card__critical-response">
         <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
-          {bp.preAfterBPWoO && (<div className="bp-card__woo-icon">{wooIcon}</div>)}
           <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor("critical")}}>CRITICAL</span>
         </div>
         <div className="bp-card__critical-flavor">
@@ -91,9 +111,9 @@ const BPCard = ({ bp, index }) => {
       </div>
 
       {/* Footer */}
-      <div className="bp-card__footer" style={{backgroundColor: getColor(bp.cycle)}}>
-        <span className="bp-card_footer-div bp-card__id" style={{color: getCycleFontColor(bp.cycle)}}>{bp.cardIDs?.[0]}</span>
-        <span className="bp-card_footer-div bp-card__type-indicator" style={{color: getCycleFontColor(bp.cycle)}}>
+      <div className="bp-card__footer" style={{backgroundColor: getPrimaryCycleColor(bp.cycle)}}>
+        <span className="bp-card_footer-div bp-card__id">{bp.cardIDs?.[0]}</span>
+        <span className="bp-card_footer-div bp-card__type-indicator">
           BODY PART
         </span>
         <div className="bp-card_footer-div"></div>
@@ -105,14 +125,16 @@ const BPCard = ({ bp, index }) => {
 // Helper functions for styling
 const getResponseColor = (type) => {
   const responseColors = {
-    "fail": "#F78102",
+    "fail": "rgb(228, 99, 8)",
     "wound": "rgb(155, 35, 21)",
-    "instinct": "#0000FF",
+    "instinct": "rgb(36, 48, 153)",
     "critical": "#000"
   }
+
+  return responseColors[type.toLowerCase()] || "#000"
 }
 
-const getColor = (cycle) => {
+const getPrimaryCycleColor = (cycle) => {
   const cycleColors = {
     "Cycle I": "#270F03",
     "Cycle II": "rgb(77, 18, 11)",
@@ -125,10 +147,10 @@ const getColor = (cycle) => {
   return cycleColors[cycle] || "#FFFFFF";
 };
 
-const getCycleFontColor = (cycle) => {
+const getSecondaryCycleColor = (cycle) => {
   const cycleColors = {
-    "Cycle I": "#FFFFFF",
-    "Cycle II": "rgb(199, 43, 26)",
+    "Cycle I": "#743e27",
+    "Cycle II": "rgb(133, 24, 12)",
     "Cycle III": "#FFFFFF",
     "Cycle IV": "#E7CC68",
     "Cycle V": "#FFFFFF",
@@ -136,24 +158,6 @@ const getCycleFontColor = (cycle) => {
     "Mnestis": "#FFFFFF",
   };
   return cycleColors[cycle] || "#FFFFFF";
-};
-
-const getGateColor = (gatetype) => {
-  gatetype = gatetype.toLowerCase()
-  const gateColors = {
-    hits: "rgb(155, 35, 21)",
-    danger: "rgb(155, 35, 21)",
-    fate: "#557DBD",
-    rage: "#040404",
-    ambrosia: "#5D0D69",
-    bleed: "#040404",
-    labyrinth: "#7D4921",
-    despair: "#0E5653",
-    condition: "#C09513",
-    "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
-    midas: "131004",
-  };
-  return gateColors[gatetype] || "#AAAAAA";
 };
 
 export default BPCard;
