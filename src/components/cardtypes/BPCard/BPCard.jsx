@@ -1,6 +1,6 @@
 import React from "react";
 import "./BPCard.css"; // Add corresponding CSS for styling
-import utils from "../utils/index.jsx";
+import utils from "../../utils/index.jsx";
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 

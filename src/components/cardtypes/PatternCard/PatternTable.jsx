@@ -1,5 +1,5 @@
 import React from "react";
-import utils from "../utils/index";
+import utils from "../../utils/index";
 
 const PatternTable = ({table, type}) => (
     <div className={`pattern-table ${type.toLowerCase()}-table`} key={type}>

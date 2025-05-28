@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductionFacilityCard.css"; // Add corresponding CSS for styling
-import utils from "../utils/index.jsx";
+import utils from "../../utils/index.jsx";
 
 const ProductionFacilityCard = ({ productionFacility, index }) => {
   return (

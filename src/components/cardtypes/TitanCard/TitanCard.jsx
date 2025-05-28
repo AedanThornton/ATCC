@@ -1,6 +1,6 @@
 import React from "react";
 import "./TitanCard.css"; // Add corresponding CSS for styling
-import utils from "../utils/index.jsx";
+import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
 
 const TitanCard = ({ titan, index }) => {

@@ -40,7 +40,7 @@ const DropdownCheckbox = ({ title, options, filters, onFilterChange }) => {
                 checked={filters.includes(option)}
                 onChange={() => onFilterChange(option)}
               />
-              {option === undefined ? "Unspecified" : option}
+              {option}
             </label>
           ))}
         </div>
@@ -55,7 +55,7 @@ const FilterControls = ({currentFilters, onFilterChange, filterOptions}) => {
       <DropdownCheckbox title={"Card Type"} options={filterOptions.cardType} filters={currentFilters.cardType} onFilterChange={(option) => onFilterChange("cardType", option)}/>
       <DropdownCheckbox title={"Cycle"} options={filterOptions.cycle} filters={currentFilters.cycle} onFilterChange={(option) => onFilterChange("cycle", option)}/>
       <DropdownCheckbox title={"Card Size"} options={filterOptions.cardSize} filters={currentFilters.cardSize} onFilterChange={(option) => onFilterChange("cardSize", option)}/>
-      <DropdownCheckbox title={"Found in"} options={filterOptions.usedFor} filters={currentFilters.usedFor} onFilterChange={(option) => onFilterChange("usedFor", option)}/>
+      <DropdownCheckbox title={"Found in"} options={filterOptions.foundIn} filters={currentFilters.foundIn} onFilterChange={(option) => onFilterChange("foundIn", option)}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "./ArgonautCard.css"; // Add corresponding CSS for styling
-import utils from "../utils/index";
+import utils from "../../utils/index";
 
 const ArgonautCard = ({ argonaut, index }) => {
   return (

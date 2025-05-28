@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import SecretOverlay from "./utils/secretUtils";
 import FilterControls from "./FilterControls";
 
-import GearCard from "./GearCard/GearCard";
-import ArgonautCard from "./ArgonautCard/ArgonautCard";
-import PatternCard from "./PatternCard/PatternCard";
-import TitanCard from "./TitanCard/TitanCard";
-import AttackCard from "./AttackCard/AttackCard";
-import ProductionFacilityCard from "./ProductionFacilityCard/ProductionFacilityCard";
-import BPCard from "./BPCard/BPCard";
+import GearCard from "./cardtypes/GearCard/GearCard";
+import ArgonautCard from "./cardtypes/ArgonautCard/ArgonautCard";
+import PatternCard from "./cardtypes/PatternCard/PatternCard";
+import TitanCard from "./cardtypes/TitanCard/TitanCard";
+import AttackCard from "./cardtypes/AttackCard/AttackCard";
+import ProductionFacilityCard from "./cardtypes/ProductionFacilityCard/ProductionFacilityCard";
+import BPCard from "./cardtypes/BPCard/BPCard";
 
 const CardList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,7 +18,7 @@ const CardList = () => {
     cardType: [],
     cycle: [],
     cardSize: [],
-    usedFor: [],});
+    foundIn: [],});
   const [filteredCards, setFilteredCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // Start loading initially
   const [error, setError] = useState(null);
@@ -44,7 +44,7 @@ const CardList = () => {
             cardType: optionsData.cardTypes || [],
             cycle: optionsData.cycles || [],
             cardSize: optionsData.cardSizes || [],
-            usedFor: [undefined, "Promo", ...optionsData.usedFors],
+            foundIn: optionsData.foundIns || [],
         });
 
         const params = new URLSearchParams(window.location.search);
@@ -57,7 +57,7 @@ const CardList = () => {
             cardType: params.get('cardType') ? params.get('cardType').split(",") : [...optionsData.cardTypes],
             cycle: params.get('cycle') ? params.get('cycle').split(",") : [...optionsData.cycles],
             cardSize: params.get('cardSize') ? params.get('cardSize').split(",") : [...optionsData.cardSizes],
-            usedFor: [undefined, "Promo"],
+            foundIn: ["Regular", "Promo"],
         });
       } catch (e) {
           console.error("Error fetching filter options:", e);
@@ -72,12 +72,12 @@ const CardList = () => {
   }, []);
 
   const configureURLParameters = () => {
-    const params = new URLSearchParams();    
+    const params = new URLSearchParams();
     if (searchTerm) params.append('q', searchTerm);
     if (currentFilters.cardType && filterOptions.cardType && currentFilters.cardType.length !== filterOptions.cardType.length) params.set("cardType", currentFilters.cardType)
     if (currentFilters.cycle && filterOptions.cycle && currentFilters.cycle.length !== filterOptions.cycle.length) params.set("cycle", currentFilters.cycle)
     if (currentFilters.cardSize && filterOptions.cardSize && currentFilters.cardSize.length !== filterOptions.cardSize.length) params.set("cardSize", currentFilters.cardSize)
-    //if (filters["usedFor"] == [undefined, "Promo"]) params.set("usedFor", filters["usedFor"])
+    if (currentFilters.foundIn && filterOptions.foundIn && currentFilters.foundIn.length !== filterOptions.foundIn.length) params.set("foundIn", currentFilters.foundIn)
 
     return params
   }
@@ -151,7 +151,7 @@ const CardList = () => {
         style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
       />
 
-      {/* Render and Handle search filters */}
+      {/* Control Bar */}
       <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} />
 
       {/* Render Filtered Card List */}

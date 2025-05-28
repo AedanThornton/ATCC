@@ -1,6 +1,6 @@
 import React from "react";
 import "./GearCard.css"; // Add corresponding CSS for styling
-import utils from "../utils/index.jsx";
+import utils from "../../utils/index.jsx";
 
 const GearCard = ({ gear, index }) => {
   return (
