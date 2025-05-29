@@ -114,7 +114,7 @@ const AttackCard = ({ attack, index }) => {
 
       {/* Footer */}
       <div className="ai-card__footer" style={{backgroundColor: getColor(attack.cycle)}}>
-        <span className="ai-card_footer-div ai-card__id" style={{color: getCycleFontColor(attack.cycle)}}>{attack.cardIDs?.[0]}</span>
+        <span className="ai-card_footer-div ai-card__id" style={{color: getCycleFontColor(attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
         <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleFontColor(attack.cycle)}}>
           {getAttackType(attack.attackType, attack.subtype)}
         </span>

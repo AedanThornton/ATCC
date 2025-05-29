@@ -112,7 +112,7 @@ const BPCard = ({ bp, index }) => {
 
       {/* Footer */}
       <div className="bp-card__footer" style={{backgroundColor: getPrimaryCycleColor(bp.cycle)}}>
-        <span className="bp-card_footer-div bp-card__id">{bp.cardIDs?.[0]}</span>
+        <span className="bp-card_footer-div bp-card__id">ID: {bp.cardIDs?.[0]}</span>
         <span className="bp-card_footer-div bp-card__type-indicator">
           BODY PART
         </span>

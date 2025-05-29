@@ -79,7 +79,7 @@ button:focus-visible {
   text-align: center;
   z-index: 5;
   color: white;
-  background-color: black;
+  background-color: #666;
 }
 
 .mini-american {

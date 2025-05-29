@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 import SecretOverlay from "./utils/secretUtils";
 import FilterControls from "./FilterControls";
+import PaginationControls from "./PaginationControls";
+import SortControls from "./SortControls";
+import CardRenderer from "./CardRenderer";
+import "../styles/cardlist.css";
+import { useSearchParams } from "react-router-dom";
 
-import GearCard from "./cardtypes/GearCard/GearCard";
-import ArgonautCard from "./cardtypes/ArgonautCard/ArgonautCard";
-import PatternCard from "./cardtypes/PatternCard/PatternCard";
-import TitanCard from "./cardtypes/TitanCard/TitanCard";
-import AttackCard from "./cardtypes/AttackCard/AttackCard";
-import ProductionFacilityCard from "./cardtypes/ProductionFacilityCard/ProductionFacilityCard";
-import BPCard from "./cardtypes/BPCard/BPCard";
+let cardsPerPage = 30;
 
 const CardList = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  //Search states
   const [searchTerm, setSearchTerm] = useState("");
   const [filterOptions, setFilterOptions] = useState({});
   const [currentFilters, setCurrentFilters] = useState({
@@ -20,11 +21,23 @@ const CardList = () => {
     cardSize: [],
     foundIn: [],});
   const [filteredCards, setFilteredCards] = useState([]);
+
+  //Page states
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalCards, setTotalCards] = useState(0);
+
+  //Sort states
+  const [sortTerm, setSortTerm] = useState("id:asc");
+  const [showSortOptions, setShowSortOption] = useState(false)
+
+  //Function states
   const [isLoading, setIsLoading] = useState(true); // Start loading initially
   const [error, setError] = useState(null);
   const [optionsLoading, setOptionsLoading] = useState(true);
   const [optionsError, setOptionsError] = useState(null);
 
+  //On-load render
   useEffect(() => {
     const fetchOptions = async () => {
       setOptionsLoading(true);
@@ -47,16 +60,14 @@ const CardList = () => {
             foundIn: optionsData.foundIns || [],
         });
 
-        const params = new URLSearchParams(window.location.search);
-
-        // Change initial state based on URL
-        if (params.get('q')) setSearchTerm(params.get('q'));
+        // Change state based on initial URL
+        if (searchParams.get('q')) setSearchTerm(searchParams.get('q'));
         
         // --- Set the INITIAL filters state (based on URL) ---
         setCurrentFilters({
-            cardType: params.get('cardType') ? params.get('cardType').split(",") : [...optionsData.cardTypes],
-            cycle: params.get('cycle') ? params.get('cycle').split(",") : [...optionsData.cycles],
-            cardSize: params.get('cardSize') ? params.get('cardSize').split(",") : [...optionsData.cardSizes],
+            cardType: searchParams.get('cardType') ? searchParams.get('cardType').split(",") : [...optionsData.cardTypes],
+            cycle: searchParams.get('cycle') ? searchParams.get('cycle').split(",") : [...optionsData.cycles],
+            cardSize: searchParams.get('cardSize') ? searchParams.get('cardSize').split(",") : [...optionsData.cardSizes],
             foundIn: ["Regular", "Promo"],
         });
       } catch (e) {
@@ -79,6 +90,10 @@ const CardList = () => {
     if (currentFilters.cardSize && filterOptions.cardSize && currentFilters.cardSize.length !== filterOptions.cardSize.length) params.set("cardSize", currentFilters.cardSize)
     if (currentFilters.foundIn && filterOptions.foundIn && currentFilters.foundIn.length !== filterOptions.foundIn.length) params.set("foundIn", currentFilters.foundIn)
 
+    params.set("s", sortTerm)
+    params.set("p", currentPage)
+    params.set("limit", cardsPerPage)
+
     return params
   }
 
@@ -97,7 +112,10 @@ const CardList = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        setFilteredCards(data);
+        setFilteredCards(data.cards);
+        setCurrentPage(parseInt(data.currentPage));
+        setTotalCards(parseInt(data.totalCards));
+        setTotalPages(parseInt(data.totalPages));
     } catch (e) {
         console.error("Error fetching cards:", e);
         setError(e.message);
@@ -105,7 +123,7 @@ const CardList = () => {
     } finally {
         setIsLoading(false); // Set loading false when fetch finishes (success or error)
     }
-  }, [currentFilters, searchTerm]);
+  }, [currentFilters, searchTerm, currentPage, sortTerm]);
 
   // --- Effect to Fetch Data (Depends on Filters) ---
   // This runs on mount AND whenever filter state changes
@@ -123,6 +141,30 @@ const CardList = () => {
         ? prevFilters[category].filter((item) => item !== option) // Remove if already selected
         : [...prevFilters[category], option], // Add if not selected
     }));
+  };
+
+  const handleSearchChange = (value) => {
+    setSearchTerm(value);
+    setCurrentPage(1);
+  };
+
+  const handleSuggestionClick = (value) => {
+    setSortTerm(value);
+    setShowSortOption(false);
+  };
+
+  const toggleSortOptions = () => {
+    setShowSortOption(!showSortOptions);
+  };
+
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber > totalPages) {
+      pageNumber = totalPages;
+    }
+    if (pageNumber < 1) {
+      pageNumber = 1;
+    }
+    setCurrentPage(pageNumber);
   };
   
   // --- Function to Update Browser URL Bar ---
@@ -147,12 +189,21 @@ const CardList = () => {
         type="text"
         placeholder="Search Catalog..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => handleSearchChange(e.target.value)}
         style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
       />
 
       {/* Control Bar */}
-      <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} />
+      <div className="card-list__control-bar">
+        <div style={{flex: 1}}></div>
+
+        {/* Filter dropdowns */}
+        <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} />
+        <div className="card-list__control-bar--page-contols">
+          <SortControls sortTerm={sortTerm} showSortOptions={showSortOptions} onSortFocus={toggleSortOptions} onSortChange={setSortTerm} onSuggestionClick={handleSuggestionClick}/>
+          <PaginationControls currentPage={currentPage} isLoading={isLoading} totalPages={totalPages} totalCards={totalCards} onPageChange={handlePageChange}/>
+        </div>
+      </div>
 
       {/* Render Filtered Card List */}
       {isLoading && <div>Loading cards...</div>}
@@ -161,44 +212,8 @@ const CardList = () => {
         <div className="card-list">
           {filteredCards.length > 0 ? (
             filteredCards.map((cardname, index) => {
-              const cardTypes = {
-                "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name} />,
-                "Gear": (name) => <GearCard key={name.cardIDs[0]} gear={name} />,
-                "Pattern": (name) => <PatternCard key={name.cardIDs[0]} pattern={name} />,
-                "Titan": (name) => <TitanCard key={name.cardIDs[0]} titan={name} />,
-                "Attack": (name) => <AttackCard key={name.cardIDs[0]} attack={name} />,
-                "Technology": (name) => {
-                  const techSubType = {
-                    "Production Facility": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
-                    //"Argo Ability": <ArgoAbilityCard key={name.cardIDs[0]} productionFacility={name} />,
-                    //"Core": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
-                  }
-                  const techType = {
-                    "Combat": techSubType[name.techSubType] || <></>,
-                    //"Structural": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
-                  }
-
-                  return techType[name.techType] || <></>;
-                },
-                "BP": (name) => <BPCard key={name.cardIDs[0]} bp={name} />,
-              };
-
-              const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;
-              const secretOverlay = <>{
-                (cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope"))
-                && <SecretOverlay text={cardname.foundIn} key={index + "cover"} />
-              }</>
-
               return (
-                <div key={index} style={{ position: "relative" }}>
-                  {secretOverlay}
-                  <Link to={`/card/${cardname.cardIDs[0]}`}>
-                    {currentCard}
-                    <div className="card-type-marker" style={{ backgroundColor: "#666" }}>
-                      {cardname.cardType}
-                    </div>
-                  </Link>
-                </div>
+                <CardRenderer cardname={cardname} key={index}/>
               )
             })
           ) : (
