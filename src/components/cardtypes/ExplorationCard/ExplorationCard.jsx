@@ -1,0 +1,48 @@
+import React from "react";
+import "./ExplorationCard.css"; // Add corresponding CSS for styling
+import utils from "../../utils/index.jsx";
+
+const ExplorationCard = ({ exploration, index }) => {
+  return (
+    <div className="exploration mini-american">
+      {/* Exploration Info */}
+      <div className="exploration-title" style={{fontSize: Math.min(19, 300 / (1.2 * exploration.name.length)) }}>
+        {exploration.name.toUpperCase()}
+      </div>
+
+      <div className="exploration-effects"> {/* ############## Expand this with more detailed formatting for effect lines and gates */}
+        <p>{exploration.effects}</p>
+      </div>
+
+      {exploration.adversaryTriggers && (
+        <div className="adversary-icon-group">
+          {[...Array(exploration.adversaryTriggers)].map((e, index) => (
+            <div className="adversary-icon">
+              {utils.getIcon("Adversary", undefined, index, "3em")}
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="exploration-footer">
+        <div>{exploration.number && (<div className="exploration-footer__number-circle">{exploration.number}</div>)}</div>
+        <div className="exploration-footer__remove-effect">{exploration.removeEffect}</div>
+        <div>{utils.getIcon(exploration.stackType.replace(" ", ""), undefined, undefined, "2.8em")}</div>
+      </div>
+
+      <div>
+        <div className="exploration-info" style={{lineHeight: "14px"}}>
+            <div className="exploration-info-header">Cycle:</div>
+            <div className="exploration-info-detail">{exploration.cycle}</div>
+        </div>
+        <div className="exploration-info" style={{lineHeight: "14px"}}>
+            <div className="exploration-info-header">ID:</div>
+            <div className="exploration-info-detail">{exploration.cardIDs}</div>
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export default ExplorationCard;

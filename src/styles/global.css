@@ -90,6 +90,7 @@ button:focus-visible {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .standard {
@@ -100,6 +101,7 @@ button:focus-visible {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .half-page {
@@ -110,6 +112,7 @@ button:focus-visible {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .data-tippy-root {

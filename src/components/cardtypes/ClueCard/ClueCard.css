@@ -1,0 +1,68 @@
+/* cluebox template */
+.clue {
+	background-color: #EEE;
+	color: black;
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+	min-height: 200px;
+  text-align: center;
+}
+
+.clue p {
+    margin: 0;
+}
+
+.clue-title {
+	text-align: center;
+	font-size: 18px;
+	color: #FFF;
+	flex: 8;
+	background-color: #000;
+	padding: 5px 0;
+  max-height: fit-content;
+}
+
+.clue-text {
+  margin: 5px 5%;
+}
+
+.clue-flavor {
+  font-style: italic;
+  padding: 5px;
+  color: #555;
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+  margin: 0 5%;
+}
+
+.clue-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+}
+
+.clue-info svg {
+	height: 15px;
+	width: 200px;
+	align-self: center;
+	display: block;
+	margin: auto;
+}
+
+.bottom-row {
+  border-radius: 0 0 9px 9px;
+}
+
+.clue-info-header {
+	text-align: right;
+	flex-basis: 45%;
+	font-weight: BOLD;
+}
+
+.clue-info-detail {
+	flex-basis: 55%;
+	text-align: left;
+}
+
+/* End clue template */

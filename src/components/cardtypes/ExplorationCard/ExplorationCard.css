@@ -1,0 +1,115 @@
+/* explorationbox template */
+/* 
+    #DFDBCD light
+    #cac7b9 dark
+*/
+
+.exploration {
+	background-color: #DFDBCD;
+	color: black;
+	display: flex;
+  flex-direction: column;
+	min-height: 200px;
+  text-align: center;
+}
+
+.exploration p {
+    margin: 0;
+}
+
+.exploration-title {
+	text-align: center;
+	font-size: 18px;
+  line-height: 32px;
+	color: #FFF;
+	flex: 8;
+	background-color: #000;
+	padding: 5px 0;
+  max-height: 30px;
+}
+
+.exploration-effects {
+  background-color: #cac7b9;
+  flex: 1;
+  padding: 10px 0
+}
+
+.exploration-effects p {
+  margin: 0 7%;
+  text-align: left;
+}
+
+.exploration-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5%;
+  padding: 5px 0;
+}
+
+.exploration-footer__number-circle {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 28px;
+}
+
+.exploration-footer__remove-effect {
+  font-style: italic;
+  max-width: 50%;
+  line-height: 10px;
+  font-size: 10px;
+}
+
+.exploration-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+}
+
+.exploration-info svg {
+	height: 15px;
+	width: 200px;
+	align-self: center;
+	display: block;
+	margin: auto;
+}
+
+.bottom-row {
+  border-radius: 0 0 9px 9px;
+}
+
+.exploration-info-header {
+	text-align: right;
+	flex-basis: 45%;
+	font-weight: BOLD;
+}
+
+.exploration-info-detail {
+	flex-basis: 55%;
+	text-align: left;
+}
+
+.adversary-icon-group {
+  display: flex;
+  justify-content: center;
+}
+
+.adversary-icon {
+  background-color: black;
+  border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 10px;
+  padding: 2px;
+	box-shadow: 0 0 4px 3px black;
+}
+
+.exploration .invertible {
+	filter: invert(1);
+}
+
+/* End exploration template */
