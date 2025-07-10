@@ -1,0 +1,90 @@
+/* fated-mnemosbox template */
+.fated-mnemos {
+	background-color: #EEE;
+	color: black;
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+	min-height: 200px;
+  text-align: center;
+}
+
+.fated-mnemos p {
+    margin: 0;
+}
+
+.fated-mnemos-title {
+	text-align: center;
+	font-size: 18px;
+	color: #FFF;
+	flex: 8;
+	background-color: #000;
+	padding: 5px 0;
+  max-height: fit-content;
+}
+
+.fated-mnemos-text {
+  margin: 5px 5%;
+}
+
+.fated-mnemos-flavor {
+  font-style: italic;
+  padding: 5px;
+  color: #2d2d2d;
+  margin: 0 5%;
+}
+
+.fated-mnemos-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+}
+
+.fated-mnemos-info svg {
+	height: 15px;
+	width: 200px;
+	align-self: center;
+	display: block;
+	margin: auto;
+}
+
+.bottom-row {
+  border-radius: 0 0 9px 9px;
+}
+
+.fated-mnemos-info-header {
+	text-align: right;
+	flex-basis: 45%;
+	font-weight: BOLD;
+}
+
+.fated-mnemos-info-detail {
+	flex-basis: 55%;
+	text-align: left;
+}
+
+.fated-mnemos-effect-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+
+.fated-mnemos-effect-header {
+  background-color: #114ac6;
+	color: white;
+  width: fit-content;
+  padding: 2px 10px;
+}
+
+.fated-mnemos-effect {
+  background-color: #DDD;
+  padding: 2px 10px;
+  line-height: 15px;
+  text-align: center;
+}
+
+/* End fated-mnemos template */

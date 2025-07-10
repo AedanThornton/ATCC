@@ -1,6 +1,6 @@
 import React from "react";
 
-const StatTitle = ({ text }) => {
+const StatTitle = ({ text, stat }) => {
 
     const lengthAdjustment = 16 * text.length
 
@@ -72,7 +72,7 @@ const StatTitle = ({ text }) => {
             fontWeight="bold" 
             fill="#000"
         >
-            I
+            {stat}
         </text>
     )
 
@@ -87,7 +87,7 @@ const StatTitle = ({ text }) => {
 };
 
 const utils = {
-    createStatTitle: (text) => <StatTitle text={text}></StatTitle>,
+    createStatTitle: (text, stat = 1) => <StatTitle text={text} stat={stat}></StatTitle>,
 };
   
 export default utils;

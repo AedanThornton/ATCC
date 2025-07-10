@@ -1,18 +1,18 @@
-/* production-facilitybox template */
-.production-facility {
+/* technologybox template */
+.technology {
 	background-color: #001c21;
   padding: 10px;
 }
 
-.production-facility p {
+.technology p {
   margin: 0;
 }
 
-.production-facility > * {
+.technology > * {
   color: white;
 }
 
-.production-facility-title {
+.technology-title {
 	text-align: center;
 	font-size: 18px;
 	color: white;
@@ -20,14 +20,14 @@
 	flex: 8;
 }
 
-.production-facility-subtitle {
+.technology-subtitle {
 	text-align: center;
 	font-size: 15px;
 	color: white;
   margin: 5px 0;
 }
 
-.production-facility-card {
+.technology-card {
 	width: 100%;
 	position: relative;
 	min-height: 140px;
@@ -35,7 +35,7 @@
 	margin: 10px 0;
 }
 
-.production-facility-info {
+.technology-info {
 	width: 100%;
 	display: flex;
 	column-gap: 10px;
@@ -43,22 +43,22 @@
 	align-items: center;
 }
 
-.production-facility-info-header {
+.technology-info-header {
 	text-align: right;
 	flex-basis: 35%;
 	font-weight: BOLD;
 }
 
-.production-facility-info-detail {
+.technology-info-detail {
 	flex-basis: 65%;
 }
 
-.production-facility-icon {
+.technology-icon {
 	text-align: center;
 	flex: 2;
 }
 
-.production-facility .icon {
+.technology .icon {
 	border-radius: 50%;
 	border: 3px solid #00434e;
   box-shadow: 0 0 4px 3px #00434e;
@@ -71,7 +71,7 @@
 	align-items: center;
 }
 
-.gate .invertible, .production-facility-ability-gate .invertible, .production-facility-gated-ability .invertible, .icon .invertible {
+.technology-ability .invertible {
 	filter: invert(1);
 }
 
@@ -79,7 +79,7 @@
 	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
 }
 
-.production-facility-project {
+.technology-project {
   background-color: #DFDBCD;
   color: black;
   text-align: center;
@@ -89,7 +89,7 @@
   align-items: center;
 }
 
-.production-facility-project-divider {
+.technology-project-divider {
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -97,43 +97,71 @@
   padding-top: 5px;
 }
 
-.production-facility-project-flavor {
+.technology-flavor {
   border-top: 1px solid #cac7b9;
   border-bottom: 1px solid #cac7b9;
-  padding: 5px 0;
-  margin-bottom: 5px;
+  padding: 2px 0;
+  margin-bottom: 15px;
+  margin-top: 8px;
+  line-height: 14px;
   width: 100%;
-  display: flex;
+  text-align: center;
+  font-style: italic;
 }
 
-.production-facility-project-header {
+.technology-project-header {
   color: white;
   background-color: #00434e;
   width: fit-content;
   padding: 0 10px;
 }
 
-.production-facility-project-box {
+.technology-project-box {
   background-color: #cac7b9;
   width: fit-content;
+  min-width: 50%;
   padding: 0 10px;
   margin-bottom: 15px;
 }
 
-.production-facility-tech-header {
+.technology-ability-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+
+.technology-ability-header {
+  color: white;
+  background-color: #00434e;
+  width: fit-content;
+  padding: 2px 10px;
+}
+
+.technology-ability {
+  background-color: #001215;
+  padding: 2px 10px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.technology-tech-header {
   font-style: italic;
   padding-left: 15px;
   margin-top: 5px;
 }
 
-.production-facility-tech-box {
+.technology-tech-box {
   padding-left: 15px;
   background-color: #001215;
 }
 
-.production-facility-recipes {
+.technology-recipes {
   border-top: 1px solid #00434e;
   border-bottom: 1px solid #00434e;
 }
 
-/* End production-facility template */
+/* End technology template */

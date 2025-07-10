@@ -19,7 +19,8 @@ const invertibles = new Set([
     "Motivate", "Tireless", "Diversion", "Hope", "Black", "Fire", "Closing",
     "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10", "AT",
     "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", 
-    "StructuralTech", "Adversary"
+    "StructuralTech", "Adversary", "AdventureHub", "TitanIcon", "City", "Lock",
+    "ArgoFate"
 ]);
 
 // Utility functions
