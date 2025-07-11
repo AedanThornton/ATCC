@@ -1,6 +1,6 @@
 import React from "react";
 import "./FatedMnemosCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/titleUtils";
+import utils from "../../utils/index";
 
 const FatedMnemosCard = ({ fatedMnemos, index }) => {
   return (
@@ -20,7 +20,7 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
       </div>
 
       <div className="fated-mnemos-effect-box">
-        <div className="fated-mnemos-effect">{fatedMnemos.effect}</div>
+        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.effect)}</div>
       </div>
 
       <div className="fated-mnemos-info" style={{lineHeight: "14px"}}>
@@ -34,7 +34,7 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
 
       <div className="fated-mnemos-effect-box">
         <div className="fated-mnemos-effect-header">{fatedMnemos.growthName}</div>
-        <div className="fated-mnemos-effect">{fatedMnemos.growthAbility}</div>
+        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.growthAbility)}</div>
       </div>
 
       <div>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import SecretOverlay from "./utils/secretUtils";
 import FilterControls from "./FilterControls";
 import PaginationControls from "./PaginationControls";
 import SortControls from "./SortControls";
