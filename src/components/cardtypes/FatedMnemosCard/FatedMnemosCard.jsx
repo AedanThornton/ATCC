@@ -7,7 +7,7 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
     <div className="fated-mnemos mini-american">
       {/* FatedMnemos Info */}
       <div className="fated-mnemos-title">
-        <div style={{fontSize: Math.min(19, 300 / (1.2 * fatedMnemos.name.length)) }}>
+        <div style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * fatedMnemos.name.length)) }}>
             {fatedMnemos.name.toUpperCase()}
         </div>
         <div style={{fontSize: "14px", color: "gray" }}>
@@ -23,13 +23,18 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
         <div className="fated-mnemos-effect">{fatedMnemos.effect}</div>
       </div>
 
-      <div className="fated-mnemos-effect-box">
-        <div className="fated-mnemos-effect-header">Growth: {fatedMnemos.growthName}</div>
-        <div className="fated-mnemos-effect">{fatedMnemos.growthAbility}</div>
+      <div className="fated-mnemos-info" style={{lineHeight: "14px"}}>
+          {utils.createStatTitle(fatedMnemos.stats[0], "#FFF", "#000", "-1")}
+          {fatedMnemos.stats[1] && utils.createStatTitle(fatedMnemos.stats[1], "#FFF", "#000", "-1")}
       </div>
 
-      <div className="fated-mnemos-info" style={{lineHeight: "14px"}}>
-          {utils.createStatTitle(fatedMnemos.stats[0], "-1")}
+      <div className="fated-mnemos-growth-title">
+        GROWTH
+      </div>
+
+      <div className="fated-mnemos-effect-box">
+        <div className="fated-mnemos-effect-header">{fatedMnemos.growthName}</div>
+        <div className="fated-mnemos-effect">{fatedMnemos.growthAbility}</div>
       </div>
 
       <div>

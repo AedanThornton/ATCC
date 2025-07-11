@@ -1,8 +1,18 @@
 import React from "react";
 
-const StatTitle = ({ text, stat }) => {
+// Text length helper function from https://stackoverflow.com/questions/118241/calculate-text-width-with-javascript
+function getTextWidth(text, font) {
+  const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+  const context = canvas.getContext("2d");
+  context.font = font;
+  const metrics = context.measureText(text);
+  return metrics.width;
+}
 
-    const lengthAdjustment = 16 * text.length
+const StatTitle = ({ text, color, bkgdColor, stat }) => {
+
+    const lengthAdjustment = 0.95 * getTextWidth(text, "bold 26pt 'Times New Roman'")
+    const statAdjustment = 0.6 * getTextWidth(stat, "bold 26pt 'Times New Roman'")
 
     const XOffset = 0
     const YOffset = 4
@@ -19,9 +29,9 @@ const StatTitle = ({ text, stat }) => {
                         ${Arrow + XOffset} ${Height + YOffset}`
 
     const valuePoints = `${SplitPoint + SplitSize + XOffset + lengthAdjustment/2} ${YOffset},
-                        ${Width - Arrow + XOffset} ${YOffset}, 
-                        ${Width + XOffset} ${Height/2 + YOffset}, 
-                        ${Width - Arrow + XOffset} ${Height + YOffset},
+                        ${Width - Arrow + XOffset + statAdjustment} ${YOffset}, 
+                        ${Width + XOffset + statAdjustment} ${Height/2 + YOffset}, 
+                        ${Width - Arrow + XOffset + statAdjustment} ${Height + YOffset},
                         ${(Width - SplitPoint) + SplitSize + XOffset + lengthAdjustment/2} ${Height + YOffset}`
 
     const textPolygon = (
@@ -30,9 +40,9 @@ const StatTitle = ({ text, stat }) => {
                 y="0" 
                 width="120" 
                 height="40" 
-                stroke="#F9C344"
+                stroke={bkgdColor}
                 strokeWidth="2"
-                fill="#F9C344"
+                fill={bkgdColor}
                 points={iconPoints}
         />
     )
@@ -43,21 +53,20 @@ const StatTitle = ({ text, stat }) => {
                 y="0" 
                 width="120" 
                 height="40" 
-                stroke="#F9C344"
+                stroke={bkgdColor}
                 strokeWidth="2"
-                fill="#F9C344"
+                fill={bkgdColor}
                 points={valuePoints}
         />
     )
 
-    const statX = 800 / (lengthAdjustment/2)
     const statDisplay = (
         <text 
-            x={statX} 
+            x="20" 
             y="29.5" 
             fontSize="26" 
             fontWeight="bold" 
-            fill="#000"
+            fill={color}
         >
             {text.toUpperCase()}
         </text>
@@ -70,7 +79,7 @@ const StatTitle = ({ text, stat }) => {
             y="29.5" 
             fontSize="26" 
             fontWeight="bold" 
-            fill="#000"
+            fill={color}
         >
             {stat}
         </text>
@@ -87,7 +96,7 @@ const StatTitle = ({ text, stat }) => {
 };
 
 const utils = {
-    createStatTitle: (text, stat = 1) => <StatTitle text={text} stat={stat}></StatTitle>,
+    createStatTitle: (text, color = "#FFF", bkgdColor = "#000", stat = "1") => <StatTitle text={text} color={color} bkgdColor={bkgdColor} stat={stat}></StatTitle>,
 };
   
 export default utils;

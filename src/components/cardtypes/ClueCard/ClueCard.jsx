@@ -6,7 +6,7 @@ const ClueCard = ({ clue, index }) => {
     <div className="clue mini-american">
       {/* Clue Info */}
       <div className="clue-title">
-        <div style={{fontSize: Math.min(19, 300 / (1.2 * clue.name.length)) }}>
+        <div style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * clue.name.length)) }}>
             {clue.name.toUpperCase()}
         </div>
         <div style={{fontSize: Math.min(14, 300 / (1.2 * clue.subtitle.length)) }}>

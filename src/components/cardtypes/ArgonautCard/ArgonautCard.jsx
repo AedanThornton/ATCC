@@ -18,11 +18,11 @@ const ArgonautCard = ({ argonaut, index }) => {
             )}
 
             {/* Argonaut Info */}
-            <div className="argonaut-title" style={{fontSize: Math.min(19, 300 / (1.2 * argonaut.name.length)) }}>
+            <div className="argonaut-title" style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * argonaut.name.length)) }}>
                 {argonaut.name.toUpperCase()}
             </div>
             <div className="argonaut-info" style={{lineHeight: "14px"}}>
-                {utils.createStatTitle(argonaut.stat)}
+                {utils.createStatTitle(argonaut.stat, "#000", "#F9C344")}
             </div>
             <div className="argonaut-info bottom-row" style={{lineHeight: "14px"}}>
                 <div className="argonaut-info-header">ID:</div>

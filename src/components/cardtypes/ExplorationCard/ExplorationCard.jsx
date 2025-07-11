@@ -6,7 +6,7 @@ const ExplorationCard = ({ exploration, index }) => {
   return (
     <div className="exploration mini-american">
       {/* Exploration Info */}
-      <div className="exploration-title" style={{fontSize: Math.min(19, 300 / (1.2 * exploration.name.length)) }}>
+      <div className="exploration-title" style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * exploration.name.length)) }}>
         {exploration.name.toUpperCase()}
       </div>
 
