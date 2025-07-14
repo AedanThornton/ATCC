@@ -1,4 +1,5 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
@@ -38,7 +39,7 @@ const parseLines = (lines, superindex) => {
 
 const AttackCard = ({ attack, index }) => {
   return (
-    <div key={index} className="ai-card standard" style={{ color: getColor(attack.cycle) }}>
+    <div key={index} className="ai-card standard fullcard" style={{ color: getColor(attack.cycle) }}>
       {/* Header */}
       <div className="ai-card__header">
         <div className="ai-card__icon-top-left">

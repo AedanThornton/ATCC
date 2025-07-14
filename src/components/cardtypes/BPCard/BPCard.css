@@ -1,8 +1,11 @@
 /* Base Card Styles */
 .bp-card {
-  background-color: #DFDBCD; /* Parchment-like background */
-  font-family: sans-serif; /* Choose a fitting font */
-  overflow: hidden; /* Ensure footer border doesn't leak */
+  background-color: #DFDBCD;
+  /* Parchment-like background */
+  font-family: sans-serif;
+  /* Choose a fitting font */
+  overflow: hidden;
+  /* Ensure footer border doesn't leak */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -12,28 +15,34 @@
 .bp-card__header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the top */
+  align-items: flex-start;
+  /* Align items to the top */
   margin-bottom: 8px;
   padding: 10px;
 }
 
 .bp-card__icon-top-left {
-  width: 40px; /* Adjust size */
+  width: 40px;
+  /* Adjust size */
   height: 40px;
   border-radius: 50%;
-  border: 1px solid #8b4513; /* Brownish border */
+  border: 1px solid #8b4513;
+  /* Brownish border */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2em; /* Adjust icon size */
+  font-size: 1.2em;
+  /* Adjust icon size */
 }
 
 .bp-card__name {
   font-weight: bold;
   text-align: center;
   margin: 0 5px;
-  padding-top: 5px; /* Align text slightly lower */
-  flex-grow: 1; /* Allow name to take space */
+  padding-top: 5px;
+  /* Align text slightly lower */
+  flex-grow: 1;
+  /* Allow name to take space */
 }
 
 /* Right Stats Bar */
@@ -44,8 +53,10 @@
   align-items: center;
   text-align: center;
   color: white;
-  width: 38px; /* Adjust width */
-  flex-shrink: 0; /* Prevent shrinking */
+  width: 38px;
+  /* Adjust width */
+  flex-shrink: 0;
+  /* Prevent shrinking */
   font-size: 15px;
 }
 
@@ -71,49 +82,8 @@
   transform: rotate(-45deg);
   font-size: 1.1em;
   font-weight: bold;
-  border-bottom: none; /* Connect to the one below */
-}
-
-.stats-bar-right__dice {
-    padding: 8px 0 5px 0;
-    font-size: 18px;
-    position: relative; /* For icon background */
-}
-
-/* Style this to look like the die outline if using an actual image/svg */
-.stats-bar-right__dice-icon-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px; /* Make icon larger than text */
-    opacity: 0.3; /* Make it faint */
-    color: #f4f0e8; /* Light color for the background shape */
-    z-index: 1;
-}
-
-.stats-bar-right__resources {
-  padding: 3px 0;
-  font-size: 18px;
-  border-top: 1px solid #fff; /* Lighter line separating dice/difficulty */
-}
-
-/* Artwork */
-.bp-card__artwork {
-  width: 100%;
-  margin-bottom: 8px;
-  aspect-ratio: 16 / 9; /* Adjust aspect ratio as needed */
-  background-color: #e0e0e0; /* Placeholder */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.bp-card__artwork img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Or contain, depending on art */
+  border-bottom: none;
+  /* Connect to the one below */
 }
 
 /* Flavor Text */
@@ -142,7 +112,8 @@
 }
 
 .bp-card__section-header--response {
-  margin: 0; /* Spacing around response headers */
+  margin: 0;
+  /* Spacing around response headers */
   margin-left: 6.66%;
 }
 
@@ -198,12 +169,6 @@
 }
 
 /* Critical */
-.bp-card__critical-list p {
-  margin: 0;
-  margin: 3px 6.66%;
-  line-height: 18px;
-}
-
 .bp-card__critical-flavor {
   border-top: 1px solid #cac7b9;
   border-bottom: 1px solid #cac7b9;
@@ -213,14 +178,21 @@
 }
 
 .bp-card__critical-list {
-    margin: 0;
-    font-size: 12px;
-    margin: 3px 6.66%;
+  margin: 0;
+  font-size: 12px;
+  margin: 3px 6.66%;
+}
+
+.bp-card__critical-list p {
+  margin: 0;
+  margin: 3px 6.66%;
+  line-height: 18px;
 }
 
 /* Footer */
 .bp-card__footer {
-  margin-top: auto; /* Push footer to bottom */
+  margin-top: auto;
+  /* Push footer to bottom */
   padding-top: 4px;
   padding-bottom: 2px;
   padding: 6px 10px 4px 10px;
@@ -254,6 +226,7 @@
   font-size: 14px;
 }
 
-.bp-card__attack-banner .invertible, .bp-card__value-container span .invertible {
+.bp-card__attack-banner .invertible,
+.bp-card__value-container span .invertible {
   filter: invert()
 }

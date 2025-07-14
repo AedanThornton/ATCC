@@ -1,6 +1,6 @@
 /* technologybox template */
 .technology {
-	background-color: #001c21;
+  background-color: #001c21;
   padding: 10px;
 }
 
@@ -8,75 +8,40 @@
   margin: 0;
 }
 
-.technology > * {
+.technology>* {
   color: white;
 }
 
 .technology-title {
-	text-align: center;
-	font-size: 18px;
-	color: white;
+  text-align: center;
+  font-size: 18px;
+  color: white;
   border-radius: 9px 9px 0 0;
-	flex: 8;
+  flex: 8;
 }
 
 .technology-subtitle {
-	text-align: center;
-	font-size: 15px;
-	color: white;
+  text-align: center;
+  font-size: 15px;
+  color: white;
   margin: 5px 0;
 }
 
-.technology-card {
-	width: 100%;
-	position: relative;
-	min-height: 140px;
-	display: flex;
-	margin: 10px 0;
-}
-
-.technology-info {
-	width: 100%;
-	display: flex;
-	column-gap: 10px;
-	justify-content: center;
-	align-items: center;
-}
-
-.technology-info-header {
-	text-align: right;
-	flex-basis: 35%;
-	font-weight: BOLD;
-}
-
-.technology-info-detail {
-	flex-basis: 65%;
-}
-
-.technology-icon {
-	text-align: center;
-	flex: 2;
-}
-
 .technology .icon {
-	border-radius: 50%;
-	border: 3px solid #00434e;
+  border-radius: 50%;
+  border: 3px solid #00434e;
   box-shadow: 0 0 4px 3px #00434e;
   height: 30px;
   width: 30px;
   margin: 5px;
   padding: 3px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .technology-ability .invertible {
-	filter: invert(1);
-}
-
-.cycle4 .invertible {
-	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
+  filter: invert(1);
 }
 
 .technology-project {

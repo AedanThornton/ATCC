@@ -6,10 +6,6 @@
 	min-height: 200px;
 }
 
-.argonaut p {
-    margin: 0;
-}
-
 .argonaut-title {
 	text-align: center;
 	font-size: 18px;
@@ -20,14 +16,14 @@
 }
 
 .argonaut-card {
-    text-align: center;
+	text-align: center;
 	align-self: flex-end;
 	width: 100%
 }
 
 .argonaut-flavor {
-    font-style: italic;
-    padding: 10px;
+	font-style: italic;
+	padding: 10px;
 }
 
 .argonaut-info {
@@ -35,7 +31,7 @@
 	display: flex;
 	column-gap: 10px;
 	background-color: #000;
-	color:#FFF;
+	color: #FFF;
 }
 
 .argonaut-info svg {
@@ -44,21 +40,6 @@
 	align-self: center;
 	display: block;
 	margin: auto;
-}
-
-.bottom-row {
-    border-radius: 0 0 9px 9px;
-}
-
-.argonaut-info-header {
-	text-align: right;
-	flex-basis: 45%;
-	font-weight: BOLD;
-}
-
-.argonaut-info-detail {
-	flex-basis: 55%;
-	text-align: left;
 }
 
 /* End argonaut template */

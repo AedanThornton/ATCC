@@ -83,39 +83,6 @@ button:focus-visible {
   background-color: #666;
 }
 
-.mini-american {
-  font-size: 12px;
-  width: 270px;
-  height: 100%;
-  border-radius: 10px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.standard {
-  font-size: 12px;
-  width: 326.4px;
-  height: 100%;
-  border-radius: 10px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.half-page {
-  font-size: 12px;
-  width: 834px;
-  height: 100%;
-  border-radius: 10px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
 .data-tippy-root {
   z-index: 99999;
 }

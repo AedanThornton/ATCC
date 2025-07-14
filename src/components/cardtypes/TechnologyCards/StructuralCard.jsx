@@ -1,12 +1,13 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
 const StructuralCard = ({ structural, index }) => {
   return (
-    <div className="technology standard">
-      <div className="technology-info">
-        <div className="technology-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
+    <div className="technology standard fullcard">
+      <div className="card-info">
+        <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
         <div style={{display: "flex", flexDirection: "column"}}>
           <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * structural.name.length)) }}>
             {structural.name}
@@ -15,7 +16,7 @@ const StructuralCard = ({ structural, index }) => {
             {structural.altname}
           </div>)}
         </div>
-        <div className="technology-icon"></div>
+        <div className="title-icon"></div>
       </div>
 
       {/* structural Project Side */}
@@ -26,11 +27,11 @@ const StructuralCard = ({ structural, index }) => {
           </div>)}
           <div className="technology-project-header">REQUIREMENTS</div>
           <div className="technology-project-box">
-            <div className="technology-info-detail">{structural.requirements.join(", ")}</div>
+            <div className="card-info-detail">{structural.requirements.join(", ")}</div>
           </div>
           <div className="technology-project-header">LEADS TO</div>
           <div className="technology-project-box">
-            <div className="technology-info-detail">{structural.leadsTo.join(", ")}</div>
+            <div className="card-info-detail">{structural.leadsTo.join(", ")}</div>
           </div>
         </div>
       </div>
@@ -56,13 +57,13 @@ const StructuralCard = ({ structural, index }) => {
       {/* structural Info */}
       <div className="technology-subtitle">Card Info</div>
 
-      <div className="technology-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="technology-info-header">ID(s)</div>
-        <div className="technology-info-detail">{structural.cardIDs.join(", ")}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">ID(s)</div>
+        <div className="card-info-detail">{structural.cardIDs.join(", ")}</div>
       </div>
-      <div className="technology-info">
-        <div className="technology-info-header">Cycle</div>
-        <div className="technology-info-detail">{structural.cycle}</div>
+      <div className="card-info">
+        <div className="card-info-header">Cycle</div>
+        <div className="card-info-detail">{structural.cycle}</div>
       </div>
     </div>
   );

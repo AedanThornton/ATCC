@@ -15,7 +15,7 @@
 	border: 1px solid black;
 	border-radius: 10px;
 	display: inline-flex;
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .titan .pattern-table {
@@ -24,26 +24,22 @@
 	padding-bottom: 60px;
 }
 
-.titan p {
-    margin: 0;
-}
-
-.titan .titan-title {
+.titan-title {
 	text-align: center;
 	font-size: 18px;
 	color: white;
-    border-radius: 9px 9px 0 0;
+	border-radius: 9px 9px 0 0;
 	flex: 8;
 }
 
-.titan .titan-subtitle {
+.titan-subtitle {
 	text-align: center;
 	font-size: 15px;
 	color: white;
-    margin: 0;
+	margin: 0;
 }
 
-.titan .titan-card {
+.titan-card {
 	width: 100%;
 	position: relative;
 	min-height: 140px;
@@ -53,39 +49,21 @@
 	margin: 10px 0;
 }
 
-.titan .titan-image {
+.titan-image {
 	height: 270px;
 	width: 270px;
 }
 
-.titan .titan-image img {    
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.titan .titan-info {
+.titan-image img {
+	position: absolute;
+	height: 100%;
 	width: 100%;
-	display: flex;
-	column-gap: 10px;
-	justify-content: center;
-	align-items: center;
 }
 
-.titan .titan-info-header {
-	text-align: right;
-	flex-basis: 35%;
-	font-weight: BOLD;
-}
-
-.titan .titan-info-detail {
-	flex-basis: 65%;
-}
-
-.titan .titan-stats {
-    text-align: center;
-    padding: 3% 0;
-    background-color: #BFBCAB;
+.titan-stats {
+	text-align: center;
+	padding: 3% 0;
+	background-color: #BFBCAB;
 	font-size: 15px;
 	width: 100%;
 	display: flex;
@@ -93,30 +71,22 @@
 	justify-content: center;
 }
 
-.titan .gate {
-	width: 100%;
-    color: white;
-    font-size: 9px;
-    height: 13px;
-    padding: 0;
-}
-
 .titan .titan-abilities {
 	text-align: center;
 	text-wrap: balance;
 	padding: 0 10px;
 	flex: 80 50;
-    display: flex;
-    justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 	flex-direction: column;
 }
 
 .titan .titan-ability-gate {
 	text-align: center;
-    color: white;
-    flex-basis: 25%;
-    padding-left: 18px;
-    text-wrap: nowrap;
+	color: white;
+	flex-basis: 25%;
+	padding-left: 18px;
+	text-wrap: nowrap;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -130,35 +100,24 @@
 	flex-basis: 60%;
 }
 
-.titan .titan-icon {
-	text-align: center;
-	flex: 2;
-}
-
 .titan .icon {
 	border-radius: 50%;
 	border: 3px solid #DFDBCD;
-    box-shadow: 0 0 4px 3px #cac7b9;
-    height: 30px;
-    width: 30px;
-    margin: 5px;
-    padding: 3px;
+	box-shadow: 0 0 4px 3px #cac7b9;
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+	padding: 3px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.gate .invertible, .titan-ability-gate .invertible, .titan-gated-ability .invertible, .icon .invertible {
+.gate .invertible,
+.titan-ability-gate .invertible,
+.titan-gated-ability .invertible,
+.icon .invertible {
 	filter: invert(1);
-}
-
-.cycle4 .invertible {
-	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
-}
-
-.asterisk-text {
-	font-size: 10px;
-	margin-top: 4px;
 }
 
 /* End titan template */

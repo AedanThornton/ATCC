@@ -1,17 +1,18 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./PatternCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "./PatternTable.jsx";
 
 const PatternCard = ({ pattern, index }) => {
   return (
-    <div className="pattern mini-american" style={{ color: getColor(pattern.patternType) }}>
-      <div className="pattern-info" style={{minHeight: "30px"}}>
-        <div className="pattern-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType)}}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
+    <div className="pattern mini-american fullcard" style={{ color: getColor(pattern.patternType) }}>
+      <div className="card-info" style={{minHeight: "30px"}}>
+        <div className="title-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType)}}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
           <div className="pattern-title" style={{ color: getColor(pattern.patternType), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>
             {pattern.name}
           </div>
-        <div className="pattern-icon"></div>
+        <div className="title-icon"></div>
       </div>
 
       <div className="pattern-card">
@@ -44,7 +45,7 @@ const PatternCard = ({ pattern, index }) => {
             )
 
                 return (
-                    <div key={index} className="pattern-info" style={{ background: getGateColor("danger"), padding: "2px 0", color: "white" }}>
+                    <div key={index} className="card-info" style={{ background: getGateColor("danger"), padding: "2px 0", color: "white" }}>
                         {abilityContent}
                     </div>
                 )
@@ -71,7 +72,7 @@ const PatternCard = ({ pattern, index }) => {
           )
           
           return (
-            <div key={index} className="pattern-info" style={{ background: getGateColor(ability.gate.type) }}>
+            <div key={index} className="card-info" style={{ background: getGateColor(ability.gate.type) }}>
               <div className="pattern-ability-gate">{utils.createAbilityGate(ability.gate.type, ability.gate.value)}</div>
               <div className="pattern-gated-ability">{abilityContent}</div>
             </div>
@@ -81,21 +82,21 @@ const PatternCard = ({ pattern, index }) => {
 
       {/* Pattern Info */}
       <div className="pattern-subtitle" style={{ background: getColor(pattern.patternType) }}>Card Info</div>
-      <div className="pattern-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="pattern-info-header">Traits</div>
-        <div className="pattern-info-detail" style={{fontStyle: 'italic'}}>{pattern.patternType}, {pattern.patternTrait}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">Traits</div>
+        <div className="card-info-detail" style={{fontStyle: 'italic'}}>{pattern.patternType}, {pattern.patternTrait}</div>
       </div>
-      {/* <div className="pattern-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="pattern-info-header">Flavor Text</div>
-        <div className="pattern-info-detail">{pattern.flavor}</div>
+      {/* <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">Flavor Text</div>
+        <div className="card-info-detail">{pattern.flavor}</div>
       </div>*/}
-      <div className="pattern-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="pattern-info-header">ID(s)</div>
-        <div className="pattern-info-detail">{pattern.cardIDs.join(", ")}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">ID(s)</div>
+        <div className="card-info-detail">{pattern.cardIDs.join(", ")}</div>
       </div>
-      <div className="pattern-info">
-        <div className="pattern-info-header">Cycle</div>
-        <div className="pattern-info-detail">{pattern.cycle}</div>
+      <div className="card-info">
+        <div className="card-info-header">Cycle</div>
+        <div className="card-info-detail">{pattern.cycle}</div>
       </div>
     </div>
   );

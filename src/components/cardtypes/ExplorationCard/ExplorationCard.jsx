@@ -1,10 +1,11 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./ExplorationCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
 const ExplorationCard = ({ exploration, index }) => {
   return (
-    <div className="exploration mini-american">
+    <div className="exploration mini-american fullcard">
       {/* Exploration Info */}
       <div className="exploration-title" style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * exploration.name.length)) }}>
         {exploration.name.toUpperCase()}
@@ -31,13 +32,13 @@ const ExplorationCard = ({ exploration, index }) => {
       </div>
 
       <div>
-        <div className="exploration-info" style={{lineHeight: "14px"}}>
-            <div className="exploration-info-header">Cycle:</div>
-            <div className="exploration-info-detail">{exploration.cycle}</div>
+        <div className="card-info" style={{lineHeight: "14px"}}>
+            <div className="card-info-header">Cycle:</div>
+            <div className="card-info-detail">{exploration.cycle}</div>
         </div>
-        <div className="exploration-info" style={{lineHeight: "14px"}}>
-            <div className="exploration-info-header">ID:</div>
-            <div className="exploration-info-detail">{exploration.cardIDs}</div>
+        <div className="card-info" style={{lineHeight: "14px"}}>
+            <div className="card-info-header">ID:</div>
+            <div className="card-info-detail">{exploration.cardIDs}</div>
         </div>
       </div>
 

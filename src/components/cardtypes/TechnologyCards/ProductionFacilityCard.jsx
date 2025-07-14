@@ -1,16 +1,17 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
 const ProductionFacilityCard = ({ productionFacility, index }) => {
   return (
-    <div className="technology standard">
-      <div className="technology-info">
-        <div className="technology-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
+    <div className="technology standard fullcard">
+      <div className="card-info">
+        <div className="title-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * productionFacility.name.length)) }}>
           {productionFacility.name}
         </div>
-        <div className="technology-icon"></div>
+        <div className="title-icon"></div>
       </div>
 
       {/* production-facility Project Side */}
@@ -21,11 +22,11 @@ const ProductionFacilityCard = ({ productionFacility, index }) => {
           </div>)}
           <div className="technology-project-header">REQUIREMENTS</div>
           <div className="technology-project-box">
-            <div className="technology-info-detail">{productionFacility.requirements.join(", ")}</div>
+            <div className="card-info-detail">{productionFacility.requirements.join(", ")}</div>
           </div>
           <div className="technology-project-header">LEADS TO</div>
           <div className="technology-project-box">
-            <div className="technology-info-detail">{productionFacility.leadsTo.join(", ")}</div>
+            <div className="card-info-detail">{productionFacility.leadsTo.join(", ")}</div>
           </div>
         </div>
       </div>
@@ -35,9 +36,9 @@ const ProductionFacilityCard = ({ productionFacility, index }) => {
         <div className="technology-subtitle">
           {productionFacility.facilityName}
         </div>
-        {productionFacility.flavorTech && (<div className="technology-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="technology-info-header">Flavor Text</div>
-          <div className="technology-info-detail"><i>{productionFacility.flavorTech}</i></div>
+        {productionFacility.flavorTech && (<div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">Flavor Text</div>
+          <div className="card-info-detail"><i>{productionFacility.flavorTech}</i></div>
         </div>)}
 
         {productionFacility.recipes?.map((recipe, index) => (
@@ -55,13 +56,13 @@ const ProductionFacilityCard = ({ productionFacility, index }) => {
       {/* production-facility Info */}
       <div className="technology-subtitle">Card Info</div>
 
-      <div className="technology-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="technology-info-header">ID(s)</div>
-        <div className="technology-info-detail">{productionFacility.cardIDs.join(", ")}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">ID(s)</div>
+        <div className="card-info-detail">{productionFacility.cardIDs.join(", ")}</div>
       </div>
-      <div className="technology-info">
-        <div className="technology-info-header">Cycle</div>
-        <div className="technology-info-detail">{productionFacility.cycle}</div>
+      <div className="card-info">
+        <div className="card-info-header">Cycle</div>
+        <div className="card-info-detail">{productionFacility.cycle}</div>
       </div>
     </div>
   );

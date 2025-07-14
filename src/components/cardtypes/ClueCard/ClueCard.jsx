@@ -1,9 +1,10 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./ClueCard.css"; // Add corresponding CSS for styling
 
 const ClueCard = ({ clue, index }) => {
   return (
-    <div className="clue mini-american">
+    <div className="clue mini-american fullcard">
       {/* Clue Info */}
       <div className="clue-title">
         <div style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * clue.name.length)) }}>
@@ -30,24 +31,24 @@ const ClueCard = ({ clue, index }) => {
         </div>
 
         {clue.subdeck && (
-          <div className="clue-info" style={{lineHeight: "14px"}}>
-              <div className="clue-info-header">Subdeck:</div>
-              <div className="clue-info-detail">{clue.subdeck}</div>
+          <div className="card-info" style={{lineHeight: "14px"}}>
+              <div className="card-info-header">Subdeck:</div>
+              <div className="card-info-detail">{clue.subdeck}</div>
           </div>
         )}
         {clue.type === "Story" && (
-          <div className="clue-info" style={{lineHeight: "14px"}}>
-            <div className="clue-info-header">Story Card:</div>
-            <div className="clue-info-detail">{clue.storyCard}</div>
+          <div className="card-info" style={{lineHeight: "14px"}}>
+            <div className="card-info-header">Story Card:</div>
+            <div className="card-info-detail">{clue.storyCard}</div>
           </div>
         )}
-        <div className="clue-info" style={{lineHeight: "14px"}}>
-            <div className="clue-info-header">Cycle:</div>
-            <div className="clue-info-detail">{clue.cycle}</div>
+        <div className="card-info" style={{lineHeight: "14px"}}>
+            <div className="card-info-header">Cycle:</div>
+            <div className="card-info-detail">{clue.cycle}</div>
         </div>
-        <div className="clue-info" style={{lineHeight: "14px"}}>
-            <div className="clue-info-header">ID:</div>
-            <div className="clue-info-detail">{clue.cardIDs}</div>
+        <div className="card-info" style={{lineHeight: "14px"}}>
+            <div className="card-info-header">ID:</div>
+            <div className="card-info-detail">{clue.cardIDs}</div>
         </div>
       </div>
 

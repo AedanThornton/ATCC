@@ -1,0 +1,81 @@
+.mini-american {
+  font-size: 12px;
+  width: 270px;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.standard {
+  font-size: 12px;
+  width: 326.4px;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.half-page {
+  font-size: 12px;
+  width: 834px;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.fullcard p {
+  margin: 0;
+}
+
+.card-info {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-info svg {
+	height: 15px;
+	width: 200px;
+	align-self: center;
+	display: block;
+	margin: auto;
+}
+
+.card-info-header {
+	text-align: right;
+	flex-basis: 45%;
+	font-weight: BOLD;
+}
+
+.card-info-detail {
+	flex-basis: 55%;
+	text-align: left;
+}
+
+.cycle4 .invertible {
+	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
+}
+
+.asterisk-text {
+	font-size: 10px;
+	margin-top: 4px;
+}
+
+.title-icon {
+	text-align: center;
+	flex: 2;
+}
+
+.bottom-row {
+	border-radius: 0 0 9px 9px;
+}

@@ -1,16 +1,17 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
 const GearCard = ({ gear, index }) => {
   return (
-    <div className="gear mini-american" style={{ color: getColor(gear.cycle) }}>
-      <div className="gear-info">
-        <div className="gear-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "2.1em", "0em")}</div></div>
+    <div className="gear mini-american fullcard" style={{ color: getColor(gear.cycle) }}>
+      <div className="card-info">
+        <div className="title-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="gear-title" style={{ color: getColor(gear.cycle), fontSize: Math.min(19, 300 / (1.2 * gear.name.length)) }}>
           {gear.name}
         </div>
-        <div className="gear-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
+        <div className="title-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
       </div>
 
       {/* Stats and Image */}
@@ -97,7 +98,7 @@ const GearCard = ({ gear, index }) => {
       {/* Gated Abilities */}
       <div className="gated-abilities">
         {gear.gatedAbilities.map((gateGroup, index) => (
-          <div key={index} className="gear-info" style={{ background: getGateColor(gateGroup.gate) }}>
+          <div key={index} className="card-info" style={{ background: getGateColor(gateGroup.gate) }}>
             <div className="gear-ability-gate">{utils.createAbilityGate(gateGroup.gate, gateGroup.value)}</div>
             <div className="gear-gated-ability">
               {gateGroup.abilities.map((ability, jndex) => 
@@ -121,25 +122,25 @@ const GearCard = ({ gear, index }) => {
 
       {/* Gear Info */}
       <div className="gear-subtitle" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
-      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="gear-info-header">Acquisition</div>
-        <div className="gear-info-detail">{gear.acquisition}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">Acquisition</div>
+        <div className="card-info-detail">{gear.acquisition}</div>
       </div>
-      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="gear-info-header">Traits</div>
-        <div className="gear-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">Traits</div>
+        <div className="card-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
       </div>
-      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="gear-info-header">Flavor Text</div>
-        <div className="gear-info-detail">{gear.flavor}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">Flavor Text</div>
+        <div className="card-info-detail">{gear.flavor}</div>
       </div>
-      <div className="gear-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="gear-info-header">ID(s)</div>
-        <div className="gear-info-detail">{gear.cardIDs.join(", ")}</div>
+      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info-header">ID(s)</div>
+        <div className="card-info-detail">{gear.cardIDs.join(", ")}</div>
       </div>
-      <div className="gear-info">
-        <div className="gear-info-header">Cycle</div>
-        <div className="gear-info-detail">{gear.cycle}</div>
+      <div className="card-info">
+        <div className="card-info-header">Cycle</div>
+        <div className="card-info-detail">{gear.cycle}</div>
       </div>
     </div>
   );

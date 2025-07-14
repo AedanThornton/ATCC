@@ -1,122 +1,83 @@
 /* patternbox template */
 .pattern {
-	background-color: #DFDBCD;
+    background-color: #DFDBCD;
 }
 
-.pattern p {
-    margin: 0;
-}
-
-.pattern .pattern-title {
-	text-align: center;
-	font-size: 18px;
-	color: white;
+.pattern-title {
+    text-align: center;
+    font-size: 18px;
+    color: white;
     border-radius: 9px 9px 0 0;
-	flex: 8;
+    flex: 8;
 }
 
-.pattern .pattern-subtitle {
-	text-align: center;
-	font-size: 15px;
-	color: white;
+.pattern-subtitle {
+    text-align: center;
+    font-size: 15px;
+    color: white;
     margin: 0;
 }
 
-.pattern .pattern-card {
-	position: relative;
-	display: flex;
-}
-
-.pattern .pattern-image {
-	height: 270px;
-	width: 270px;
-}
-
-.pattern .pattern-image img {    
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.pattern .pattern-info {
-	width: 100%;
-	display: flex;
-	column-gap: 10px;
-	justify-content: center;
-	align-items: center;
-    padding: 0 0;
-}
-
-.pattern .pattern-info-header {
-	text-align: right;
-	flex-basis: 35%;
-	font-weight: BOLD;
-}
-
-.pattern .pattern-info-detail {
-	flex-basis: 65%;
+.pattern-card {
+    position: relative;
+    display: flex;
 }
 
 .pattern .gate {
-	width: 100%;
+    width: 100%;
     color: white;
     font-size: 9px;
     height: 13px;
     padding: 0;
 }
 
-.pattern .pattern-abilities {
-	text-align: center;
-	text-wrap: balance;
-	flex: 80 50;
+.pattern-abilities {
+    text-align: center;
+    text-wrap: balance;
+    flex: 80 50;
     display: flex;
     justify-content: flex-end;
-	flex-direction: column;
+    flex-direction: column;
 }
 
-.pattern .pattern-ability-gate {
-	text-align: center;
+.pattern-ability-gate {
+    text-align: center;
     color: white;
     flex-basis: 25%;
     padding-left: 18px;
     text-wrap: nowrap;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
-.pattern .pattern-gated-ability {
-	text-align: left;
-	color: white;
-	flex-basis: 60%;
-}
-
-.pattern .pattern-icon {
-	text-align: center;
-	flex: 2;
+.pattern-gated-ability {
+    text-align: left;
+    color: white;
+    flex-basis: 60%;
 }
 
 .pattern .icon {
-	border-radius: 50%;
-	border: 3px solid #DFDBCD;
+    border-radius: 50%;
+    border: 3px solid #DFDBCD;
     box-shadow: 0 0 4px 3px #cac7b9;
     height: 30px;
     width: 30px;
     margin: 5px;
     padding: 3px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.gate .invertible, .pattern-ability-gate .invertible, .pattern .invertible, .icon .invertible, .kratos-option .invertible {
-	filter: invert(1);
-}
-
-.cycle4 .invertible {
-	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
+.gate .invertible,
+.pattern-ability-gate .invertible,
+.pattern .invertible,
+.icon .invertible,
+.kratos-option .invertible {
+    filter: invert(1);
 }
 
 .pattern-table {
@@ -130,11 +91,11 @@
 }
 
 .kratos-table {
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 35%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 35%);
 }
 
 .trauma-table {
-    background: linear-gradient(0deg, rgba(92,14,5,1) 0%, rgba(255,255,255,0) 35%);
+    background: linear-gradient(0deg, rgba(92, 14, 5, 1) 0%, rgba(255, 255, 255, 0) 35%);
 }
 
 .trauma-row {
@@ -144,8 +105,8 @@
     font-size: 14px;
     font-weight: bold;
     color: #DFDBCD;
-    background: rgb(92,14,5);
-    background: linear-gradient(90deg, rgba(92,14,5,1) 20%, rgba(190,31,12,1) 80%);
+    background: rgb(92, 14, 5);
+    background: linear-gradient(90deg, rgba(92, 14, 5, 1) 20%, rgba(190, 31, 12, 1) 80%);
     max-height: 25px;
 }
 
@@ -155,7 +116,7 @@
     justify-content: space-around;
     align-items: center;
     height: 100%;
-    
+
 }
 
 .kratos-row::before {
@@ -163,8 +124,10 @@
     position: absolute;
     width: 200px;
     height: 8%;
-    background-color: #FFF; /* Change to desired color */
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Diamond shape */
+    background-color: #FFF;
+    /* Change to desired color */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    /* Diamond shape */
     z-index: -1;
 }
 

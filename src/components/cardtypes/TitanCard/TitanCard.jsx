@@ -1,13 +1,14 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./TitanCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
 
 const TitanCard = ({ titan, index }) => {
   return (
-    <div className="titan half-page" style={{ color: getColor(titan.cycle) }}>
+    <div className="titan half-page fullcard" style={{ color: getColor(titan.cycle) }}>
       <div className="titan-details">
-        <div className="titan-info">
+        <div className="card-info">
           <div className="titan-title" style={{ color: getColor(titan.cycle), fontSize: Math.min(19, 300 / (1.2 * titan.name.length)) }}>
             {titan.name}
           </div>
@@ -77,7 +78,7 @@ const TitanCard = ({ titan, index }) => {
             )
             
             return (
-              <div key={index} className="titan-info" style={{ background: getGateColor(ability.gate.type) }}>
+              <div key={index} className="card-info" style={{ background: getGateColor(ability.gate.type) }}>
                 <div className="titan-ability-gate">{utils.createAbilityGate(ability.gate.type, ability.gate.value)}</div>
                 <div className="titan-gated-ability">{abilityContent}</div>
               </div>
@@ -87,13 +88,13 @@ const TitanCard = ({ titan, index }) => {
 
         {/* Titan Info */}
         <div className="titan-subtitle" style={{ background: getColor(titan.cycle), color: getCycleFontColor(titan.cycle) }}>Card Info</div>
-        <div className="titan-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="titan-info-header">ID(s)</div>
-          <div className="titan-info-detail">{titan.cardIDs.join(", ")}</div>
+        <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">ID(s)</div>
+          <div className="card-info-detail">{titan.cardIDs.join(", ")}</div>
         </div>
-        <div className="titan-info">
-          <div className="titan-info-header">Cycle</div>
-          <div className="titan-info-detail">{titan.cycle}</div>
+        <div className="card-info">
+          <div className="card-info-header">Cycle</div>
+          <div className="card-info-detail">{titan.cycle}</div>
         </div>
       </div>
 

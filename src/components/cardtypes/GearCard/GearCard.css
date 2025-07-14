@@ -41,24 +41,6 @@
 	width: 100%;
 }
 
-.gear .gear-info {
-	width: 100%;
-	display: flex;
-	column-gap: 10px;
-	justify-content: center;
-	align-items: center;
-}
-
-.gear .gear-info-header {
-	text-align: right;
-	flex-basis: 35%;
-	font-weight: BOLD;
-}
-
-.gear .gear-info-detail {
-	flex-basis: 65%;
-}
-
 .gear .gear-stats-container {
 	bottom: 0%;
 	display: flex;
@@ -90,9 +72,9 @@
 .gear .gate {
 	width: 100%;
 	color: white;
+	padding: 0;
 	font-size: 10px;
 	height: 11.5px;
-	padding: 0;
 	font-weight: bold;
 	line-height: 11px;
 }
@@ -110,25 +92,18 @@
 .gear .gear-ability-gate {
 	text-align: center;
 	color: white;
-	flex-basis: 25%;
+	flex-basis: 15%;
 	padding-left: 18px;
 	text-wrap: nowrap;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 2px;
-	padding-bottom: 2px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
 .gear .gear-gated-ability {
 	text-align: left;
 	color: white;
-	flex-basis: 60%;
-}
-
-.gear .gear-icon {
-	text-align: center;
-	flex: 2;
+	flex-basis: 85%;
+	padding-right: 10px;
 }
 
 .gear .icon {
@@ -144,17 +119,12 @@
 	align-items: center;
 }
 
+.gear .card-info svg {
+	height: 15px;
+}
+
 .gate .invertible, .gear-ability-gate .invertible, .gear-gated-ability .invertible, .icon .invertible {
 	filter: invert(1);
-}
-
-.cycle4 .invertible {
-	filter: saturate(100%) invert(74%) sepia(63%) saturate(363%) hue-rotate(2deg) brightness(106%) contrast(81%);
-}
-
-.asterisk-text {
-	font-size: 10px;
-	margin-top: 4px;
 }
 
 /* End gear template */

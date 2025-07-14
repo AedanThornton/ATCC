@@ -1,10 +1,11 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./ArgonautCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index";
 
 const ArgonautCard = ({ argonaut, index }) => {
   return (
-    <div className="argonaut mini-american">
+    <div className="argonaut mini-american fullcard">
         <div className="argonaut-card">
             <div className="argonaut-flavor" style={{lineHeight: "14px", marginBottom: "4px"}}>
                 {argonaut.flavor}
@@ -25,8 +26,8 @@ const ArgonautCard = ({ argonaut, index }) => {
                 {utils.createStatTitle(argonaut.stat, "#000", "#F9C344")}
             </div>
             <div className="argonaut-info bottom-row" style={{lineHeight: "14px"}}>
-                <div className="argonaut-info-header">ID:</div>
-                <div className="argonaut-info-detail">{argonaut.cardIDs}</div>
+                <div className="info-header">ID:</div>
+                <div className="info-detail">{argonaut.cardIDs}</div>
             </div>
         </div>
     </div>

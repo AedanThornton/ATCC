@@ -1,4 +1,5 @@
 import React from "react";
+import "../cardsStyle.css"
 import "./BPCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
@@ -39,7 +40,7 @@ const parseLines = (lines, superindex) => {
 
 const BPCard = ({ bp, index }) => {
   return (
-    <div key={index} className="bp-card standard" style={{ color: getPrimaryCycleColor(bp.cycle) }}>
+    <div key={index} className="bp-card standard fullcard" style={{ color: getPrimaryCycleColor(bp.cycle) }}>
       {/* Header, Icon, and Banner */}
       <div className="bp-card__header">
         <div className="bp-card__icon-top-left">
