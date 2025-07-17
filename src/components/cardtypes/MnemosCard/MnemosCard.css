@@ -1,0 +1,48 @@
+/* mnemosbox template */
+.mnemos {
+	background-color: #EEE;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 200px;
+	text-align: center;
+}
+
+.mnemos-title {
+	text-align: center;
+	font-size: 18px;
+	flex: 8;
+	padding: 5px 0;
+	max-height: fit-content;
+}
+
+.mnemos-abilities {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+	margin: 0 15px;
+	margin-bottom: 10px;
+	gap: 10px;
+}
+
+.mnemos-ability {
+	background-color: #d1d1d1;
+	padding: 10px;
+	flex: 1 1 40px;
+}
+
+.mnemos-ability-gate {
+	width: 40px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: text-bottom;
+}
+
+.mnemos-ability-gate .invertible {
+	filter: invert(1);
+}
+
+/* End mnemos template */

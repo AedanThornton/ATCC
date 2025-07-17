@@ -51,9 +51,15 @@
 	margin: auto;
 }
 
-.card-info-header {
+.centered .card-info-header {
 	text-align: right;
 	flex-basis: 45%;
+	font-weight: BOLD;
+}
+
+.offset .card-info-header {
+	text-align: right;
+	flex-basis: 35%;
 	font-weight: BOLD;
 }
 

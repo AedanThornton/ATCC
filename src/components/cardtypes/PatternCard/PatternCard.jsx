@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./PatternCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "./PatternTable.jsx";
@@ -82,19 +82,19 @@ const PatternCard = ({ pattern, index }) => {
 
       {/* Pattern Info */}
       <div className="pattern-subtitle" style={{ background: getColor(pattern.patternType) }}>Card Info</div>
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">Traits</div>
         <div className="card-info-detail" style={{fontStyle: 'italic'}}>{pattern.patternType}, {pattern.patternTrait}</div>
       </div>
-      {/* <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      {/* <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">Flavor Text</div>
         <div className="card-info-detail">{pattern.flavor}</div>
       </div>*/}
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">ID(s)</div>
         <div className="card-info-detail">{pattern.cardIDs.join(", ")}</div>
       </div>
-      <div className="card-info">
+      <div className="card-info centered">
         <div className="card-info-header">Cycle</div>
         <div className="card-info-detail">{pattern.cycle}</div>
       </div>

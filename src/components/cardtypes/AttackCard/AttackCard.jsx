@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./ExplorationCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
@@ -32,11 +32,11 @@ const ExplorationCard = ({ exploration, index }) => {
       </div>
 
       <div>
-        <div className="card-info" style={{lineHeight: "14px"}}>
+        <div className="card-info centered" style={{lineHeight: "14px"}}>
             <div className="card-info-header">Cycle:</div>
             <div className="card-info-detail">{exploration.cycle}</div>
         </div>
-        <div className="card-info" style={{lineHeight: "14px"}}>
+        <div className="card-info centered" style={{lineHeight: "14px"}}>
             <div className="card-info-header">ID:</div>
             <div className="card-info-detail">{exploration.cardIDs}</div>
         </div>

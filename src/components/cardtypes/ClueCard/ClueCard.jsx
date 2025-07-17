@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./ClueCard.css"; // Add corresponding CSS for styling
 
 const ClueCard = ({ clue, index }) => {
@@ -31,22 +31,22 @@ const ClueCard = ({ clue, index }) => {
         </div>
 
         {clue.subdeck && (
-          <div className="card-info" style={{lineHeight: "14px"}}>
+          <div className="card-info centered" style={{lineHeight: "14px"}}>
               <div className="card-info-header">Subdeck:</div>
               <div className="card-info-detail">{clue.subdeck}</div>
           </div>
         )}
         {clue.type === "Story" && (
-          <div className="card-info" style={{lineHeight: "14px"}}>
+          <div className="card-info centered" style={{lineHeight: "14px"}}>
             <div className="card-info-header">Story Card:</div>
             <div className="card-info-detail">{clue.storyCard}</div>
           </div>
         )}
-        <div className="card-info" style={{lineHeight: "14px"}}>
+        <div className="card-info centered" style={{lineHeight: "14px"}}>
             <div className="card-info-header">Cycle:</div>
             <div className="card-info-detail">{clue.cycle}</div>
         </div>
-        <div className="card-info" style={{lineHeight: "14px"}}>
+        <div className="card-info centered" style={{lineHeight: "14px"}}>
             <div className="card-info-header">ID:</div>
             <div className="card-info-detail">{clue.cardIDs}</div>
         </div>

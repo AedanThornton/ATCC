@@ -9,6 +9,7 @@ import ClueCard from "../components/cardtypes/ClueCard/ClueCard";
 import ExplorationCard from "../components/cardtypes/ExplorationCard/ExplorationCard";
 import StructuralCard from "../components/cardtypes/TechnologyCards/StructuralCard";
 import FatedMnemosCard from "../components/cardtypes/FatedMnemosCard/FatedMnemosCard";
+import MnemosCard from "../components/cardtypes/MnemosCard/MnemosCard";
 
 const cardTypes = {
   "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name} />,
@@ -33,6 +34,7 @@ const cardTypes = {
   "Clue": (name) => <ClueCard key={name.cardIDs[0]} clue={name} />,
   "Exploration": (name) => <ExplorationCard key={name.cardIDs[0]} exploration={name} />,
   "Fated Mnemos": (name) => <FatedMnemosCard key={name.cardIDs[0]} fatedMnemos={name} />,
+  "Mnemos": (name) => <MnemosCard key={name.cardIDs[0]} mnemos={name} />,
 };
 
 export default cardTypes;

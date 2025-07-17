@@ -56,7 +56,7 @@ const utils = {
             <img 
                 key={name + index} 
                 src={icon} 
-                style={{ height: size, maxWidth: size, verticalAlign: "middle", paddingBottom: padding }} 
+                style={{ height: size, maxWidth: size, verticalAlign: "text-bottom", paddingBottom: padding }} 
                 alt={name} 
                 className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
             />

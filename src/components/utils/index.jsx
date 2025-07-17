@@ -6,7 +6,6 @@ import abilityGateUtils from "./gateUtils";
 import titleUtils from "./titleUtils";
 
 const updateComponent = (text, superindex) => {
-    console.log(text)
     return text.split(" ").map((word, index, array) => {
         const CreatedTooltip = utils.createTooltip(word, `${superindex}-${index}`)
         const isLastWord = index === array.length - 1;

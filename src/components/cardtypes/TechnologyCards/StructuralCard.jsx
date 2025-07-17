@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
@@ -57,11 +57,11 @@ const StructuralCard = ({ structural, index }) => {
       {/* structural Info */}
       <div className="technology-subtitle">Card Info</div>
 
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">ID(s)</div>
         <div className="card-info-detail">{structural.cardIDs.join(", ")}</div>
       </div>
-      <div className="card-info">
+      <div className="card-info centered">
         <div className="card-info-header">Cycle</div>
         <div className="card-info-detail">{structural.cycle}</div>
       </div>

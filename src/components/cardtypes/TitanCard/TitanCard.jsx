@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./TitanCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
@@ -88,11 +88,11 @@ const TitanCard = ({ titan, index }) => {
 
         {/* Titan Info */}
         <div className="titan-subtitle" style={{ background: getColor(titan.cycle), color: getCycleFontColor(titan.cycle) }}>Card Info</div>
-        <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>
           <div className="card-info-detail">{titan.cardIDs.join(", ")}</div>
         </div>
-        <div className="card-info">
+        <div className="card-info centered">
           <div className="card-info-header">Cycle</div>
           <div className="card-info-detail">{titan.cycle}</div>
         </div>

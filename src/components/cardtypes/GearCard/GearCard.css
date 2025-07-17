@@ -121,6 +121,7 @@
 
 .gear .card-info svg {
 	height: 15px;
+	width: fit-content;
 }
 
 .gate .invertible, .gear-ability-gate .invertible, .gear-gated-ability .invertible, .icon .invertible {

@@ -8,7 +8,7 @@ for (const path in modules) {
     icons[key] = modules[path].default;
 }
 
-const AbilityGate = ({ icon, value }) => {
+const AbilityGate = ({ icon, value, fill }) => {
 
     const link = icons[icon]
 
@@ -49,7 +49,7 @@ const AbilityGate = ({ icon, value }) => {
                 height="40" 
                 stroke="#FFF"
                 strokeWidth="3"
-                fill="none"
+                fill={fill}
                 points={iconPoints}
         />
     )
@@ -62,7 +62,7 @@ const AbilityGate = ({ icon, value }) => {
                 height="40" 
                 stroke="#FFF"
                 strokeWidth="3"
-                fill="none"
+                fill={fill}
                 points={valuePoints}
         />
     )
@@ -163,7 +163,7 @@ const PowerGate = ({ icon, value }) => {
 };
 
 const utils = {
-    createAbilityGate: (icon, value) => <AbilityGate icon={icon} value={value}></AbilityGate>,
+    createAbilityGate: (icon, value, fill = "none") => <AbilityGate icon={icon} value={value} fill={fill}></AbilityGate>,
     createPowerGate: (icon, value) => <PowerGate icon={icon} value={value}></PowerGate>
 };
   

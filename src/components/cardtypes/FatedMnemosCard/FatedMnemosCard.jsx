@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./FatedMnemosCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index";
 
@@ -39,11 +39,11 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
       </div>
 
       <div>
-        <div className="card-info" style={{lineHeight: "14px"}}>
+        <div className="card-info centered" style={{lineHeight: "14px"}}>
             <div className="card-info-header">Cycle:</div>
             <div className="card-info-detail">{fatedMnemos.cycle}</div>
         </div>
-        <div className="card-info" style={{lineHeight: "14px"}}>
+        <div className="card-info centered" style={{lineHeight: "14px"}}>
             <div className="card-info-header">ID:</div>
             <div className="card-info-detail">{fatedMnemos.cardIDs}</div>
         </div>

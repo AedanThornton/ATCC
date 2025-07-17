@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
@@ -36,7 +36,7 @@ const ProductionFacilityCard = ({ productionFacility, index }) => {
         <div className="technology-subtitle">
           {productionFacility.facilityName}
         </div>
-        {productionFacility.flavorTech && (<div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+        {productionFacility.flavorTech && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">Flavor Text</div>
           <div className="card-info-detail"><i>{productionFacility.flavorTech}</i></div>
         </div>)}
@@ -56,11 +56,11 @@ const ProductionFacilityCard = ({ productionFacility, index }) => {
       {/* production-facility Info */}
       <div className="technology-subtitle">Card Info</div>
 
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">ID(s)</div>
         <div className="card-info-detail">{productionFacility.cardIDs.join(", ")}</div>
       </div>
-      <div className="card-info">
+      <div className="card-info centered">
         <div className="card-info-header">Cycle</div>
         <div className="card-info-detail">{productionFacility.cycle}</div>
       </div>

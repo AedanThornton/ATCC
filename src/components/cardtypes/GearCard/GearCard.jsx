@@ -1,5 +1,5 @@
 import React from "react";
-import "../cardsStyle.css"
+import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
@@ -122,23 +122,23 @@ const GearCard = ({ gear, index }) => {
 
       {/* Gear Info */}
       <div className="gear-subtitle" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">Acquisition</div>
         <div className="card-info-detail">{gear.acquisition}</div>
       </div>
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">Traits</div>
         <div className="card-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
       </div>
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">Flavor Text</div>
         <div className="card-info-detail">{gear.flavor}</div>
       </div>
-      <div className="card-info" style={{lineHeight: "14px", marginBottom: "4px"}}>
+      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
         <div className="card-info-header">ID(s)</div>
         <div className="card-info-detail">{gear.cardIDs.join(", ")}</div>
       </div>
-      <div className="card-info">
+      <div className="card-info centered">
         <div className="card-info-header">Cycle</div>
         <div className="card-info-detail">{gear.cycle}</div>
       </div>
