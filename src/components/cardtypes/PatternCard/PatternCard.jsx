@@ -6,7 +6,7 @@ import PatternTable from "./PatternTable.jsx";
 
 const PatternCard = ({ pattern, index }) => {
   return (
-    <div className="pattern mini-american fullcard" style={{ color: getColor(pattern.patternType) }}>
+    <div className={`pattern ${pattern.cardSize.replace(" ", "-").toLowerCase()} card`} style={{ color: getColor(pattern.patternType) }}>
       <div className="card-info" style={{minHeight: "30px"}}>
         <div className="title-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType)}}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
           <div className="pattern-title" style={{ color: getColor(pattern.patternType), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>

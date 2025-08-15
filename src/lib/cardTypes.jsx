@@ -10,6 +10,8 @@ import ExplorationCard from "../components/cardtypes/ExplorationCard/Exploration
 import StructuralCard from "../components/cardtypes/TechnologyCards/StructuralCard";
 import FatedMnemosCard from "../components/cardtypes/FatedMnemosCard/FatedMnemosCard";
 import MnemosCard from "../components/cardtypes/MnemosCard/MnemosCard";
+import ArgoAbilityCard from "../components/cardtypes/TechnologyCards/ArgoAbilityCard";
+import GodformCard from "../components/cardtypes/GodformCard/GodformCard";
 
 const cardTypes = {
   "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name} />,
@@ -20,7 +22,7 @@ const cardTypes = {
   "Technology": (name) => {
     const techSubType = {
       "Production Facility": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
-      //"Argo Ability": <ArgoAbilityCard key={name.cardIDs[0]} productionFacility={name} />,
+      "Argo Ability": <ArgoAbilityCard key={name.cardIDs[0]} argoAbility={name} />,
       //"Core": <ProductionFacilityCard key={name.cardIDs[0]} productionFacility={name} />,
     }
     const techType = {
@@ -35,6 +37,7 @@ const cardTypes = {
   "Exploration": (name) => <ExplorationCard key={name.cardIDs[0]} exploration={name} />,
   "Fated Mnemos": (name) => <FatedMnemosCard key={name.cardIDs[0]} fatedMnemos={name} />,
   "Mnemos": (name) => <MnemosCard key={name.cardIDs[0]} mnemos={name} />,
+  "Godform": (name) => <GodformCard key={name.cardIDs[0]} godform={name} />,
 };
 
 export default cardTypes;

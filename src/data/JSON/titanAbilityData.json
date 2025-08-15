@@ -1,73 +1,7 @@
 {
-  "Cold Open": [
+  "Abyss-tainted": [
     {
-      "text": "When you attack, if there are no Opening or Break tokens in the Kratos Pool, place 1 Opening and 1 Break token in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Six-Armed": [
-    {
-      "text": "You have 3 OneHanded slots OR 3 Support slots.",
-      "formatting": ""
-    }
-  ],
-  "Nimble Feet": [
-    {
-      "text": "You have 3 Weapon OneHanded slots. You cannot use ThreeHanded Weapons.",
-      "formatting": ""
-    }
-  ],
-  "Shadowdance": [
-    {
-      "text": "When you resolve a Primordial Attack against you, you may gain +X Fate to perform MovementAction and an Attack (treat it as an Interrupt, if able). Gain a CombatAction Fatigue token. X is 3 minus the AI level.",
-      "formatting": ""
-    }
-  ],
-  "Dance of Fate": [
-    {
-      "text": "When you are about to draw an Obol, you may gain +2 Fate to add 1 You live! Obol card to the Obol deck (for this draw only).",
-      "formatting": ""
-    }
-  ],
-  "Selenian Strain": [
-    {
-      "text": "Start of Battle: Gain 1 Aether token.",
-      "formatting": ""
-    }
-  ],
-  "One Small Step": [
-    {
-      "text": "When on a VP or the Endless Staircase, gain Rocksteady.",
-      "formatting": ""
-    }
-  ],
-  "Grey Alchemy": [
-    {
-      "text": "Fate Turn 1 Midas or Pain token into 1 Ambrosia token.",
-      "formatting": ""
-    }
-  ],
-  "Forgotten Curse": [
-    {
-      "text": "Once per Battle, you may gain 3 Despair tokens to skip an After Attack of a Primordial Attack. You amy use the ability only during a WoO of an After Attack.",
-      "formatting": ""
-    }
-  ],
-  "Lightweight Curse": [
-    {
-      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons. You cannot use OneHanded Weapons.",
-      "formatting": ""
-    }
-  ],
-  "Levitate": [
-    {
-      "text": "Fate During voluntary movement, ignore an Obstacle or Chasm Terrain tiles. You can end your move on a Chasm but not on an Obstacle. If you start your turn on a Chasm, you must immediately use this ability, If you cannot, you die.",
-      "formatting": ""
-    }
-  ],
-  "Fall and Soar": [
-    {
-      "text": "Fate When you fail the Hold On test, immediately move 2 spaces instead of suffering the Falling Down effect. Fate and Knockdown to Lifeline.",
+      "text": "Start of your turn: Gain 1 Ambrosia token. After surviving any Trauma other than Obol, gain +1 Danger.",
       "formatting": ""
     }
   ],
@@ -77,15 +11,21 @@
       "formatting": ""
     }
   ],
-  "Four-Armed Centimanes": [
+  "Cheat Fate": [
     {
-      "text": "You have 4 Weapon OneHanded slots. You cannot use TwoHanded and ThreeHanded Weapons.",
+      "text": "When you are about to draw an Obol, you may choose to draw a You Live! or You Died Obol instead (once per Battle). If you do, next time you draw an Obol, you must draw the other one.",
       "formatting": ""
     }
   ],
-  "Wish Shield": [
+  "Cold Open": [
     {
-      "text": "Each Wish Attack and Laser Attack hit deals 1 Danger less (to a minimum of 1) to you and adjacent Titans.",
+      "text": "When you attack, if there are no Opening or Break tokens in the Kratos Pool, place 1 Opening and 1 Break token in the Kratos Pool.",
+      "formatting": ""
+    }
+  ],
+  "Dance of Fate": [
+    {
+      "text": "When you are about to draw an Obol, you may gain +2 Fate to add 1 You live! Obol card to the Obol deck (for this draw only).",
       "formatting": ""
     }
   ],
@@ -95,21 +35,27 @@
       "formatting": ""
     }
   ],
-  "Wish Engine": [
-    {
-      "text": "Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card. Each time you gain a Wishkeen or Wishagog Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet. You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision. 2: When you attack, gain Auto-break 1. 3:Block 1. 4: When performing a Power Roll, gain +1 Power. 5: Gain MovementAction. 6: Gain CombatAction. 7: Awaken.",
-      "formatting": ""
-    }
-  ],
   "Dual-Wielding": [
     {
       "text": "When attacking with a OneHanded Weapon, you can add one stackable keyword of another equipped non-Perishable OneHanded Weapon.",
       "formatting": ""
     }
   ],
-  "One for All": [
+  "Elder Might": [
     {
-      "text": "If your natural Rage goes over 9 during an Attack, perform a normal Attack, but do not draw a BP card. Instead, perform a Power Roll, divide your Total Power by 2 (rounding up) and add +1 PowerIcon if you had a Crit Chance. Note the resulting Power, then clear the Kratos Pool and continue to your second ability window (do not resolve any responses). Next time any Titan attacks, it adds the Power you noted to its Total Power.",
+      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons. If you don't use a ThreeHanded Weapon, you have Tireless.",
+      "formatting": ""
+    }
+  ],
+  "Fall and Soar": [
+    {
+      "text": "Fate When you fail the Hold On test, immediately move 2 spaces instead of suffering the Falling Down effect. Fate and Knockdown to Lifeline.",
+      "formatting": ""
+    }
+  ],
+  "Fate Follows": [
+    {
+      "text": "Each time you roll a Crit Miss, Adversary Adversary.",
       "formatting": ""
     }
   ],
@@ -119,9 +65,57 @@
       "formatting": ""
     }
   ],
-  "Abyss-tainted": [
+  "Fickle Fate": [
     {
-      "text": "Start of your turn: Gain 1 Ambrosia token. After surviving any Trauma other than Obol, gain +1 Danger.",
+      "text": "Start of Battle: If you have less than 2 Fate, raise Fate to 2. If at any time you have 0 Fate, you flash forward:remove the Titan from the Battle. Treat them as if they died. After surviving a Major, Grave, or Obol Trauma, lose -1 Fate.",
+      "formatting": ""
+    }
+  ],
+  "Fly": [
+    {
+      "text": "Fate Exhaust Use during voluntary movement to ignore all Terrain tiles during this movement. You cannot end your movement on an Obstacle or Chasm.",
+      "formatting": ""
+    }
+  ],
+  "Forgotten Curse": [
+    {
+      "text": "Once per Battle, you may gain 3 Despair tokens to skip an After Attack of a Primordial Attack. You amy use the ability only during a WoO of an After Attack.",
+      "formatting": ""
+    }
+  ],
+  "Four-Armed Centimanes": [
+    {
+      "text": "You have 4 Weapon OneHanded slots. You cannot use TwoHanded and ThreeHanded Weapons.",
+      "formatting": ""
+    }
+  ],
+  "Grey Alchemy": [
+    {
+      "text": "Fate Turn 1 Midas or Pain token into 1 Ambrosia token.",
+      "formatting": ""
+    }
+  ],
+  "Kreios Strain": [
+    {
+      "text": "While performing MovementAction, you can move diagonally.",
+      "formatting": ""
+    }
+  ],
+  "Last Titan Standing": [
+    {
+      "text": "If you are the last Titan on the Battle Board, you cannot gain Ambrosia tokens, Despair tokens, or suffer Knockdown.",
+      "formatting": ""
+    }
+  ],
+  "Levitate": [
+    {
+      "text": "Fate During voluntary movement, ignore an Obstacle or Chasm Terrain tiles. You can end your move on a Chasm but not on an Obstacle. If you start your turn on a Chasm, you must immediately use this ability, If you cannot, you die.",
+      "formatting": ""
+    }
+  ],
+  "Lightweight Curse": [
+    {
+      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons. You cannot use OneHanded Weapons.",
       "formatting": ""
     }
   ],
@@ -131,9 +125,195 @@
       "formatting": ""
     }
   ],
+  "Nimble Feet": [
+    {
+      "text": "You have 3 Weapon OneHanded slots. You cannot use ThreeHanded Weapons.",
+      "formatting": ""
+    }
+  ],
+  "One for All": [
+    {
+      "text": "If your natural Rage goes over 9 during an Attack, perform a normal Attack, but do not draw a BP card. Instead, perform a Power Roll, divide your Total Power by 2 (rounding up) and add +1 PowerIcon if you had a Crit Chance. Note the resulting Power, then clear the Kratos Pool and continue to your second ability window (do not resolve any responses). Next time any Titan attacks, it adds the Power you noted to its Total Power.",
+      "formatting": ""
+    }
+  ],
+  "One Small Step": [
+    {
+      "text": "When on a VP or the Endless Staircase, gain Rocksteady.",
+      "formatting": ""
+    }
+  ],
+  "Seer Sense": [
+    {
+      "text": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive Evasion token.",
+      "formatting": ""
+    }
+  ],
+  "Selenian Strain": [
+    {
+      "text": "Start of Battle: Gain 1 Aether token.",
+      "formatting": ""
+    }
+  ],
+  "Shadowdance": [
+    {
+      "text": "When you resolve a Primordial Attack against you, you may gain +X Fate to perform MovementAction and an Attack (treat it as an Interrupt, if able). Gain a CombatAction Fatigue token. X is 3 minus the AI level.",
+      "formatting": ""
+    }
+  ],
+  "Six-Armed": [
+    {
+      "text": "You have 3 OneHanded slots OR 3 Support slots.",
+      "formatting": ""
+    }
+  ],
+  "Spartan-Bred": [
+    {
+      "text": "You ignore The Strong Eat Trait.",
+      "formatting": ""
+    }
+  ],
+  "Stout": [
+    {
+      "text": "You have 3 Support slots. You cannot have more than +1 Evasion at any given time. Ignore up to -1 Speed penalty from any 1 Gear.",
+      "formatting": ""
+    }
+  ],
+  "Stubborn": [
+    {
+      "text": "You may reduce suffered Pushbacks and Knockbacks by 1. Ignore Knockdown. After surviving a Major, Grave, or Obol Trauma, lose -1 Danger.",
+      "formatting": ""
+    }
+  ],
+  "The Return": [
+    {
+      "text": "Fate If you don't have a Time Anchor on the Board, remove another Titan's Time Anchor and place your own in its space. You can use this ability while Time-clocked.",
+      "formatting": ""
+    }
+  ],
+  "The Truth": [
+    {
+      "text": "If R7 is marked, you have Auto-hope 1.",
+      "formatting": ""
+    }
+  ],
   "Theseus Logic": [
     {
       "text": "Fate During voluntary movement, ignore an Obstacle or Chasm Terrain tile. You cannot end your move on an Obstacle or Chasm.",
+      "formatting": ""
+    }
+  ],
+  "Wish Engine": [
+    {
+      "text": "Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card. Each time you gain a Wishkeen or Wishagog Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet. You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision. 2: When you attack, gain Auto-break 1. 3:Block 1. 4: When performing a Power Roll, gain +1 Power. 5: Gain MovementAction. 6: Gain CombatAction. 7: Awaken.",
+      "formatting": ""
+    }
+  ],
+  "Wish Shield": [
+    {
+      "text": "Each Wish Attack and Laser Attack hit deals 1 Danger less (to a minimum of 1) to you and adjacent Titans.",
+      "formatting": ""
+    }
+  ],
+  "Cyclopean Might": [
+    {
+      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons.",
+      "formatting": ""
+    }
+  ],
+  "In Light and Shade": [
+    {
+      "text": "Each Laser Attack hit and Sun Attack hit deals 1 Danger less (to a minimum of 1). When you are about to die from incineration, draw an Obol instead.",
+      "formatting": ""
+    }
+  ],
+  "Disturbance in Fate": [
+    {
+      "text": "Each time you roll a Crit Miss, Adversary.",
+      "formatting": ""
+    }
+  ],
+  "Rage Summit": [
+    {
+      "text": "After surviving a positive Major, Grave, or Obol Trauma, you may gain 1 Rage. After Surviving a negative Major, Grave, or Obol Trauma, you must gain 1 Rage.",
+      "formatting": ""
+    }
+  ],
+  "Unknown Might": [
+    {
+      "text": "You can use ThreeHanded Weapons as if they were TwoHanded. If you do, you have -1 Support slot.",
+      "formatting": ""
+    }
+  ],
+  "Ruse": [
+    {
+      "text": "After surviving a Major, Grave, or Obol Trauma, place 1 Opening token in the Kratos Pool.",
+      "formatting": ""
+    }
+  ],
+  "Final Countdown": [
+    {
+      "text": "Each time you roll a Crit Miss, Adversary Adversary.",
+      "formatting": ""
+    }
+  ],
+  "Internalize Pain": [
+    {
+      "text": "Start of your turn: Gain 1 Pain token.",
+      "formatting": ""
+    }
+  ],
+  "Finish Him": [
+    {
+      "text": "Oxygen Fate When attacking a BP card with a Death Blow Crit effect, gain a Crit Chance.",
+      "formatting": ""
+    }
+  ],
+  "Pain Engine": [
+    {
+      "text": "Each time you gain a Pain token (each), place 1 Generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Speed. 2: While performing MovementAction, you can move diagonally. 3: Your Titan's Power die becomes White. 4: Auto-rouse 1. 5: Deadly.",
+      "formatting": ""
+    }
+  ],
+  "Surpass!": [
+    {
+      "text": "If you have 5+ Rage, if your Weapon Gear doesn't already have the Assist X keyword, it gains Assist 1.",
+      "formatting": ""
+    }
+  ],
+  "Survive!": [
+    {
+      "text": "When you would die from an Instant Death effect, you may discard all generic tokens from your Titan sheet (at least 1) to perform an Obol Draw instead.",
+      "formatting": ""
+    }
+  ],
+  "Ascend!": [
+    {
+      "text": "Each time you survive a Trauma Draw, place 1 generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of generic tokens here: 1: +1 Precision. 2: +1 Speed. 3: Auto-break 1. 4: Stalwart. 5: Rocksteady. 6: +1 Evasion. 7: +1 Power. 8: +2 to Awakening rolls. 9: Immediately Awaken, Adversary.",
+      "formatting": ""
+    }
+  ],
+  "Arabian Nights": [
+    {
+      "text": "Treat all your Overbreak X keywords as the upgrade Cycle 4+ version.",
+      "formatting": ""
+    }
+  ],
+  "Spinning Tales": [
+    {
+      "text": "Before the Attack Roll, if the Kratos Pool is empty, activate all your applicable Kratos Table abilities that leave Kratos tokens. Do not leave any tokens during the second ability window from your Kratos Table abilities.",
+      "formatting": ""
+    }
+  ],
+  "Tall Tales": [
+    {
+      "text": "After surviving a Major, Grave, or Obol Trauma, gain the PriorityTarget token.",
+      "formatting": ""
+    }
+  ],
+  "Persian Deal": [
+    {
+      "text": "Fate Exhaust Turn 1 of your Midas tokens into 2 Ambrosia tokens, 1 Ambrosia into 2 Despair, or 1 Despair into 2 Midas.",
       "formatting": ""
     }
   ]

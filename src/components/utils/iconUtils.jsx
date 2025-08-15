@@ -51,12 +51,15 @@ const utils = {
             size = `${parseFloat(size) * (sizeMultiplier[name] || 1)}em`;
         }
 
+        let wide = 1
+        if (name === "ComplicatedAction") {wide = 2}
+
         const icon = icons[name];
         return icon ? (
             <img 
                 key={name + index} 
                 src={icon} 
-                style={{ height: size, maxWidth: size, verticalAlign: "text-bottom", paddingBottom: padding }} 
+                style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, verticalAlign: "text-bottom", paddingBottom: padding }} 
                 alt={name} 
                 className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
             />

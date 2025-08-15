@@ -4,7 +4,7 @@ import "./ClueCard.css"; // Add corresponding CSS for styling
 
 const ClueCard = ({ clue, index }) => {
   return (
-    <div className="clue mini-american fullcard">
+    <div className={`clue ${clue.cardSize.replace(" ", "-").toLowerCase()} card`}>
       {/* Clue Info */}
       <div className="clue-title">
         <div style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * clue.name.length)) }}>

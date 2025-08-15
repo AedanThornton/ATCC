@@ -5,7 +5,7 @@ import utils from "../../utils/index";
 
 const FatedMnemosCard = ({ fatedMnemos, index }) => {
   return (
-    <div className="fated-mnemos mini-american fullcard">
+    <div className={`fated-mnemos ${fatedMnemos.cardSize.replace(" ", "-").toLowerCase()} card`}>
       {/* FatedMnemos Info */}
       <div className="fated-mnemos-title">
         <div style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * fatedMnemos.name.length)) }}>

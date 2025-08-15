@@ -5,7 +5,7 @@ import utils from "../../utils/index.jsx";
 
 const GearCard = ({ gear, index }) => {
   return (
-    <div className="gear mini-american fullcard" style={{ color: getColor(gear.cycle) }}>
+    <div className={`gear ${gear.cardSize.replace(" ", "-").toLowerCase()} card`} style={{ color: getColor(gear.cycle) }}>
       <div className="card-info">
         <div className="title-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="gear-title" style={{ color: getColor(gear.cycle), fontSize: Math.min(19, 300 / (1.2 * gear.name.length)) }}>
@@ -84,7 +84,7 @@ const GearCard = ({ gear, index }) => {
             <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionRerolls} {utils.getIcon("EvasionReroll", undefined, undefined, "1.5em")}</div>
           )}
           {gear.defensiveStatistics.evasionBonus && (
-            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionBonus} {utils.getIcon("EvasionBonus", undefined, undefined, "1.5em")}</div>
+            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionBonus} {utils.getIcon("Evasion", undefined, undefined, "1.5em")}</div>
           )}
           {gear.defensiveStatistics.armorDice && (
             <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.armorDice[0].amount} {utils.getIcon(gear.defensiveStatistics.armorDice[0].type, "Armor", undefined, "1.5em")}</div>

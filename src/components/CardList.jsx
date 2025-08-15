@@ -206,7 +206,7 @@ const CardList = () => {
 
       {/* Render Filtered Card List */}
       {isLoading && <div>Loading cards...</div>}
-      {error && <div>Error: {cardsError}</div>}
+      {error && <div>Error: {error}</div>}
       {!isLoading && !error && (
         <div className="card-list">
           {filteredCards.length > 0 ? (

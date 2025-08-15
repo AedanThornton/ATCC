@@ -5,7 +5,7 @@ import utils from "../../utils/index";
 
 const ArgonautCard = ({ argonaut, index }) => {
   return (
-    <div className="argonaut mini-american fullcard">
+    <div className={`argonaut ${argonaut.cardSize.replace(" ", "-").toLowerCase()} card`}>
         <div className="argonaut-card">
             <div className="argonaut-flavor" style={{lineHeight: "14px", marginBottom: "4px"}}>
                 {argonaut.flavor}

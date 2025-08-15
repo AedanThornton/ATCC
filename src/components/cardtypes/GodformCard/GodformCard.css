@@ -1,0 +1,131 @@
+/* godformbox template */
+/* light -- #DFDBCD */
+/* dark --  #cac7b9 */
+/* accent -- #488791 */
+/* accentdark -- # */
+
+.godform {
+  background-color: #DFDBCD;
+}
+
+.godform p {
+  margin: 0;
+}
+
+.godform>* {
+  color: black;
+}
+
+.godform-title {
+  text-align: center;
+  color: white;
+  background-color: #488791;
+  font-size: 18px;
+  border-radius: 9px 9px 0 0;
+  padding: 5px; 
+  margin-bottom: 10px;
+}
+
+.godform-subtitle {
+  text-align: center;
+  color: white;
+  background-color: #488791;
+  font-size: 15px;
+  margin: 5px 0;
+  margin-top: 15px;
+}
+
+.godform-ability-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+
+.godform-ability-header {
+  color: white;
+  background-color: #245158;
+  border: 1px solid white;
+  width: fit-content;
+  padding: 0px 4px;
+}
+
+.godform-ability {
+  background-color: #cac7b9;
+  border: 1px solid #b7b4a5;
+  padding: 6px 10px;
+  line-height: 15px;
+  text-align: center;
+  width: 90%;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.godform-stats-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #cac7b9;
+  border: 1px solid #b7b4a5;
+  box-sizing: border-box;
+  width: 90%;
+  height: 30px;
+  margin: 0 5%;
+  padding: 4px 8px;
+}
+
+.godform-stat-circled {
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid #245158;
+  width: fit-content;
+  height: 15px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.godform-stat-uncircled {
+  width: fit-content;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.godform-stats-subbox {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.godform-stats-container {
+	bottom: 0%;
+	display: flex;
+	flex-direction: column;
+	top: 0%;
+	flex: 25;
+	row-gap: 8px;
+	justify-content: center;
+}
+
+
+.godform-stats-left {
+	left: 0%;
+	right: auto;
+}
+
+.godform-stats {
+	text-align: center;
+	padding: 3% 0;
+	background-color: #BFBCAB;
+	font-size: 15px;
+}
+
+/* End godform template */

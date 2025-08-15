@@ -1,11 +1,10 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
 const ProductionFacilityCard = ({ productionFacility, index }) => {
   return (
-    <div className="technology standard fullcard">
+    <div className={`technology ${productionFacility.cardSize.replace(" ", "-").toLowerCase()} card`} key={index}>
       <div className="card-info">
         <div className="title-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * productionFacility.name.length)) }}>
@@ -22,11 +21,11 @@ const ProductionFacilityCard = ({ productionFacility, index }) => {
           </div>)}
           <div className="technology-project-header">REQUIREMENTS</div>
           <div className="technology-project-box">
-            <div className="card-info-detail">{productionFacility.requirements.join(", ")}</div>
+            {productionFacility.requirements.join(", ")}
           </div>
           <div className="technology-project-header">LEADS TO</div>
           <div className="technology-project-box">
-            <div className="card-info-detail">{productionFacility.leadsTo.join(", ")}</div>
+            {productionFacility.leadsTo.join(", ")}
           </div>
         </div>
       </div>

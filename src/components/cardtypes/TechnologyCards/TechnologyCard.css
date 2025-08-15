@@ -25,6 +25,8 @@
   font-size: 15px;
   color: white;
   margin: 5px 0;
+  margin-top: 15px;
+  background-color: #00434e;
 }
 
 .technology .icon {
@@ -87,6 +89,7 @@
   min-width: 50%;
   padding: 0 10px;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .technology-ability-box {
@@ -102,15 +105,18 @@
 .technology-ability-header {
   color: white;
   background-color: #00434e;
+  border: 1px solid white;
   width: fit-content;
-  padding: 2px 10px;
+  padding: 0px 4px;
 }
 
 .technology-ability {
-  background-color: #001215;
-  padding: 2px 10px;
+  background-color: #000f11;
+  border: 1px solid #00434e;
+  padding: 6px 10px;
   line-height: 15px;
   text-align: center;
+  width: 90%;
 }
 
 .technology-tech-header {
@@ -127,6 +133,24 @@
 .technology-recipes {
   border-top: 1px solid #00434e;
   border-bottom: 1px solid #00434e;
+}
+
+.technology-aa-box {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.technology-aa-charges {
+  background-color: #000f11;
+  border: 1px solid #00434e;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 5.5rem;
+  height: 6rem;
+  aspect-ratio: 1;
+  text-align: center;
+  color: lightgrey;
 }
 
 /* End technology template */

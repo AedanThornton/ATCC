@@ -6,7 +6,7 @@ import PatternTable from "../PatternCard/PatternTable.jsx";
 
 const TitanCard = ({ titan, index }) => {
   return (
-    <div className="titan half-page fullcard" style={{ color: getColor(titan.cycle) }}>
+    <div className={`titan ${titan.cardSize.replace(" ", "-").toLowerCase()} card`} style={{ color: getColor(titan.cycle) }}>
       <div className="titan-details">
         <div className="card-info">
           <div className="titan-title" style={{ color: getColor(titan.cycle), fontSize: Math.min(19, 300 / (1.2 * titan.name.length)) }}>
