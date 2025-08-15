@@ -2,68 +2,75 @@ import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
-const ArgoAbilityCard = ({ argoAbility, index }) => {
+const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
   return (
-    <div className={`technology ${argoAbility.cardSize.replace(" ", "-").toLowerCase()} card`} key={index}>
-      <div className="card-info">
-        <div className="title-icon"><div className={`icon ${argoAbility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
-        <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * argoAbility.name.length)) }}>
-          {argoAbility.name}
-        </div>
-        <div className="title-icon"></div>
-      </div>
-
-      {/* production-facility Project Side */}
-      <div className="technology-project">
-        <div className="technology-project-divider">
-          {argoAbility.flavorTech && (<div className="technology-project-flavor">
-            <i>{argoAbility.flavorProject}</i>
-          </div>)}
-          <div className="technology-project-header">REQUIREMENTS</div>
-          <div className="technology-project-box">
-            {argoAbility.requirements.join(", ")}
+    <div className={`card technology ${argoAbility.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
+      <div>
+        <div className="card-info">
+          <div className="title-icon"><div className={`icon ${argoAbility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * argoAbility.name.length)) }}>
+            {argoAbility.name}
           </div>
-          <div className="technology-project-header">LEADS TO</div>
-          <div className="technology-project-box">
-            {argoAbility.leadsTo.join(", ")}
-          </div>
+          <div className="title-icon"></div>
         </div>
-      </div>
 
-      {/* production-facility Tech Side */}
-      <div className="technology-tech">
-        <div className="technology-subtitle">
-          {argoAbility.facilityName}
-        </div>
-        {argoAbility.flavorTech && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">Flavor Text</div>
-          <div className="card-info-detail"><i>{argoAbility.flavorTech}</i></div>
+        {/* production-facility Project Side */}
+        {currentSide == 2 && (
+        <div className="technology-project">
+          <div className="technology-project-divider">
+            {argoAbility.flavorTech && (<div className="technology-project-flavor">
+              <i>{argoAbility.flavorProject}</i>
+            </div>)}
+            <div className="technology-project-header">REQUIREMENTS</div>
+            <div className="technology-project-box">
+              {argoAbility.requirements.join(", ")}
+            </div>
+            <div className="technology-project-header">LEADS TO</div>
+            <div className="technology-project-box">
+              {argoAbility.leadsTo.join(", ")}
+            </div>
+          </div>
         </div>)}
 
-        {argoAbility.abilities?.map((ability, index) => (
-          <div className="technology-ability-box" key={index}>
-            <div style={{marginTop: "10px"}}></div>
-            <div className="technology-ability-header">{ability.name ? ability.name.toUpperCase() : "ABILITY"}</div>
-            <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}</div>
+        {/* production-facility Tech Side */}
+        {currentSide == 1 && (
+        <div className="technology-tech">
+          <div className="technology-subtitle">
+            {argoAbility.facilityName}
           </div>
-        ))}
+          {argoAbility.flavorTech && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+            <div className="card-info-header">Flavor Text</div>
+            <div className="card-info-detail"><i>{argoAbility.flavorTech}</i></div>
+          </div>)}
 
-        <div className="technology-aa-box">
-          {argoAbility.trireme === "TRUE" && (<div className="technology-aa-charges">{utils.getIcon("Trireme")}</div>)}
-          {argoAbility.charges && (<div className="technology-aa-charges">{argoAbility.charges}</div>)}
+          {argoAbility.abilities?.map((ability, index) => (
+            <div className="technology-ability-box" key={index}>
+              <div style={{marginTop: "10px"}}></div>
+              <div className="technology-ability-header">{ability.name ? ability.name.toUpperCase() : "ABILITY"}</div>
+              <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}</div>
+            </div>
+          ))}
+
+          <div className="technology-aa-box">
+            {argoAbility.trireme === "TRUE" && (<div className="technology-aa-charges">{utils.getIcon("Trireme")}</div>)}
+            {argoAbility.charges && (<div className="technology-aa-charges">{argoAbility.charges}</div>)}
+          </div>
         </div>
+        )}
       </div>
 
       {/* production-facility Info */}
-      <div className="technology-subtitle">Card Info</div>
+      <div>
+        <div className="technology-subtitle">Card Info</div>
 
-      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="card-info-header">ID(s)</div>
-        <div className="card-info-detail">{argoAbility.cardIDs.join(", ")}</div>
-      </div>
-      <div className="card-info centered">
-        <div className="card-info-header">Cycle</div>
-        <div className="card-info-detail">{argoAbility.cycle}</div>
+        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">ID(s)</div>
+          <div className="card-info-detail">{argoAbility.cardIDs.join(", ")}</div>
+        </div>
+        <div className="card-info centered">
+          <div className="card-info-header">Cycle</div>
+          <div className="card-info-detail">{argoAbility.cycle}</div>
+        </div>
       </div>
     </div>
   );

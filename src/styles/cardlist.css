@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
-    gap: 12px;
+    gap: 40px;
     margin: 0 4%;
 }
 
@@ -142,4 +142,29 @@
     min-width: 10px;
     max-width: 15px;
     margin: 0px 2px;
+}
+
+.card-menu {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: slategrey;
+    padding: 2px;
+}
+
+.card-menu button {
+    background-color: unset;
+    border: unset;
+    padding: 0;
+    height: 35px;
+    aspect-ratio: 1/1;
+}
+
+.card-menu .invertible {
+    filter: invert(1);
+}
+
+.card-menu button:hover {
+    background-color: rgba(20, 20, 20, 0.2);
 }

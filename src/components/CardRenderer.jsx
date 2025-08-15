@@ -1,25 +1,57 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useSyncExternalStore } from 'react';
 import SecretOverlay from "./utils/secretUtils";
+import CardMenu from "./CardMenu";
+import Tippy from '@tippyjs/react';
 
 import cardTypes from "../lib/cardTypes";
 
 const CardRenderer = ({cardname}) => {  
-  const currentCard = cardTypes[cardname.cardType]?.(cardname) || null;
+  const [isHidden, setIsHidden] = useState(true);
+  const [currentSide, setCurrentSide] = useState(1);
+
+  const componentRenderer = cardTypes[cardname.cardType];
+  const currentCard = componentRenderer
+    ? componentRenderer(cardname, currentSide)
+    : null;
+  
   const secretOverlay = <>{
     (cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope"))
-    && <SecretOverlay text={cardname.foundIn} />
+    && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} setIsVisible={setIsHidden}/>
   }</>
+
+  const toggleReveal = () => {
+    setIsHidden(!isHidden)
+  }
+
+  const toggleSide = () => {
+    currentSide == 1
+      ? setCurrentSide(2)
+      : setCurrentSide(1)
+  }
 
   return (
     <div style={{ position: "relative" }}>
-      {secretOverlay}
-      <Link to={`/card/${cardname.cardIDs[0]}`}>
-        {currentCard}
-        <div className="card-type-marker">
-          {cardname.cardType}
-        </div>
-      </Link>
+      <Tippy 
+        interactive 
+        duration={[0, 0]} 
+        offset={[60,-7]}
+        trigger="mouseenter focus"
+        placement="right-start"
+        animation="shift-away-extreme"
+        appendTo={document.body}
+        content={
+          <CardMenu card={cardname} flipFunc={toggleSide} secretFunc={toggleReveal}/>
+        }>
+          <div>
+            {secretOverlay}
+            {currentCard}
+          </div>
+      </Tippy>
+
+      {!isHidden && <div className="card-type-marker">
+        {cardname.cardType}
+      </div>}
+      
     </div>
   )
 };

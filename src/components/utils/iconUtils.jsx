@@ -20,7 +20,7 @@ const invertibles = new Set([
     "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10", "AT",
     "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", 
     "StructuralTech", "Adversary", "AdventureHub", "TitanIcon", "City", "Lock",
-    "ArgoFate"
+    "ArgoFate", "Inspect", "Flip"
 ]);
 
 // Utility functions

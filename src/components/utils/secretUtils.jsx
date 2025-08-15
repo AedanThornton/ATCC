@@ -1,9 +1,4 @@
-import React, { useState } from 'react';
-import icon from '/src/assets/icons/Blindspot.svg';
-
-const SecretOverlay = ({text}) => {
-  const [isVisible, setIsVisible] = useState(true);
-
+const SecretOverlay = ({text, isVisible, setIsVisible}) => {
   return (
     <>
       {isVisible && (
@@ -12,7 +7,6 @@ const SecretOverlay = ({text}) => {
           <span>{text}</span>
         </div>
       )}
-      <img className="secret-toggle" src={icon} style={{height: "25px"}} onClick={() => setIsVisible(!isVisible)}/>
     </>
   );
 };

@@ -1,4 +1,4 @@
-/* patternbox template */
+/* pattern template */
 .pattern {
     background-color: #DFDBCD;
 }
@@ -18,9 +18,19 @@
     margin: 0;
 }
 
+.pattern-title-section {
+	width: 100%;
+	display: flex;
+    min-height: 50px;
+	column-gap: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
 .pattern-card {
     position: relative;
     display: flex;
+    height: 100%;
 }
 
 .pattern .gate {
@@ -85,7 +95,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
-    padding: 0 10%;
     gap: 5px;
     padding: 20px;
 }

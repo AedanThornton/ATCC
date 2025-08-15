@@ -39,7 +39,7 @@ const parseLines = (lines, superindex) => {
 
 const AttackCard = ({ attack, index }) => {
   return (
-    <div key={index} className={`ai-card ${attack.cardSize.replace(" ", "-").toLowerCase()} card`} style={{ color: getColor(attack.cycle) }}>
+    <div key={index} className={`card ai-card ${attack.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(attack.cycle) }}>
       {/* Header */}
       <div className="ai-card__header">
         <div className="ai-card__icon-top-left">

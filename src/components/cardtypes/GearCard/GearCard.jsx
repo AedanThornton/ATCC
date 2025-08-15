@@ -5,7 +5,7 @@ import utils from "../../utils/index.jsx";
 
 const GearCard = ({ gear, index }) => {
   return (
-    <div className={`gear ${gear.cardSize.replace(" ", "-").toLowerCase()} card`} style={{ color: getColor(gear.cycle) }}>
+    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(gear.cycle) }}>
       <div className="card-info">
         <div className="title-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="gear-title" style={{ color: getColor(gear.cycle), fontSize: Math.min(19, 300 / (1.2 * gear.name.length)) }}>
@@ -96,51 +96,55 @@ const GearCard = ({ gear, index }) => {
       </div>
 
       {/* Gated Abilities */}
-      <div className="gated-abilities">
-        {gear.gatedAbilities.map((gateGroup, index) => (
-          <div key={index} className="card-info" style={{ background: getGateColor(gateGroup.gate) }}>
-            <div className="gear-ability-gate">{utils.createAbilityGate(gateGroup.gate, gateGroup.value)}</div>
-            <div className="gear-gated-ability">
-              {gateGroup.abilities.map((ability, jndex) => 
-                <span key={index+jndex}>
-                  {` `}
-                  {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                  {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
-                  {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-                  {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-                  {ability.type === "unique"
-                    ? ( <> {utils.updateComponent(`${ability.name}`, index)}</>)
-                    : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-                  }
-                  .
-                </span>
-              )}
+      {gear.gatedAbilities && gear.gatedAbilities.length > 0 && (
+        <div className="gated-abilities">
+          {gear.gatedAbilities.map((gateGroup, index) => (
+            <div key={index} className="card-info" style={{ background: getGateColor(gateGroup.gate) }}>
+              <div className="gear-ability-gate">{utils.createAbilityGate(gateGroup.gate, gateGroup.value)}</div>
+              <div className="gear-gated-ability">
+                {gateGroup.abilities.map((ability, jndex) => 
+                  <span key={index+jndex}>
+                    {` `}
+                    {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+                    {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                    {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
+                    {ability.flavorName && (<b> {ability.flavorName}: </b>)}
+                    {ability.type === "unique"
+                      ? ( <> {utils.updateComponent(`${ability.name}`, index)}</>)
+                      : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
+                    }
+                    .
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Gear Info */}
-      <div className="gear-subtitle" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
-      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="card-info-header">Acquisition</div>
-        <div className="card-info-detail">{gear.acquisition}</div>
-      </div>
-      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="card-info-header">Traits</div>
-        <div className="card-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
-      </div>
-      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="card-info-header">Flavor Text</div>
-        <div className="card-info-detail">{gear.flavor}</div>
-      </div>
-      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="card-info-header">ID(s)</div>
-        <div className="card-info-detail">{gear.cardIDs.join(", ")}</div>
-      </div>
-      <div className="card-info centered">
-        <div className="card-info-header">Cycle</div>
-        <div className="card-info-detail">{gear.cycle}</div>
+      <div>
+        <div className="gear-subtitle" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
+        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">Acquisition</div>
+          <div className="card-info-detail">{gear.acquisition}</div>
+        </div>
+        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">Traits</div>
+          <div className="card-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
+        </div>
+        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">Flavor Text</div>
+          <div className="card-info-detail">{gear.flavor}</div>
+        </div>
+        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">ID(s)</div>
+          <div className="card-info-detail">{gear.cardIDs.join(", ")}</div>
+        </div>
+        <div className="card-info centered">
+          <div className="card-info-header">Cycle</div>
+          <div className="card-info-detail">{gear.cycle}</div>
+        </div>
       </div>
     </div>
   );

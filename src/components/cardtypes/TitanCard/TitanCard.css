@@ -1,7 +1,8 @@
-/* Gearbox template */
+/* Gear template */
 .titan {
 	background-color: #DFDBCD;
 	display: flex;
+	flex-direction: row;
 }
 
 .titan-details {

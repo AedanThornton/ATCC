@@ -5,7 +5,7 @@ import utils from "../../utils/index.jsx";
 
 const ExplorationCard = ({ exploration, index }) => {
   return (
-    <div className={`exploration ${exploration.cardSize.replace(" ", "-").toLowerCase()} card`}>
+    <div className={`card exploration ${exploration.cardSize.replace(" ", "-").toLowerCase()}`}>
       {/* Exploration Info */}
       <div className="exploration-title" style={{lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * exploration.name.length)) }}>
         {exploration.name.toUpperCase()}

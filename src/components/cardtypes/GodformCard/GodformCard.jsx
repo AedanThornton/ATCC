@@ -4,7 +4,7 @@ import utils from "../../utils/index.jsx";
 
 const GodformCard = ({ godform, index }) => {
   return (
-    <div className={`godform ${godform.cardSize.replace(" ", "-").toLowerCase()} card`} key={index}>
+    <div className={`card godform ${godform.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
       <div className="godform-title" style={{ fontSize: Math.min(19, 400 / (1.1 * godform.name.length)) }}>
         {godform.name.toUpperCase()}
       </div>
@@ -57,15 +57,16 @@ const GodformCard = ({ godform, index }) => {
       </div>
 
       {/* Info */}
-      <div className="godform-subtitle">Card Info</div>
-
-      <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-        <div className="card-info-header">ID(s)</div>
-        <div className="card-info-detail">{godform.cardIDs.join(", ")}</div>
-      </div>
-      <div className="card-info centered">
-        <div className="card-info-header">Cycle</div>
-        <div className="card-info-detail">{godform.cycle}</div>
+      <div>
+        <div className="godform-subtitle">Card Info</div>
+        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">ID(s)</div>
+          <div className="card-info-detail">{godform.cardIDs.join(", ")}</div>
+        </div>
+        <div className="card-info centered">
+          <div className="card-info-header">Cycle</div>
+          <div className="card-info-detail">{godform.cycle}</div>
+        </div>
       </div>
     </div>
   );

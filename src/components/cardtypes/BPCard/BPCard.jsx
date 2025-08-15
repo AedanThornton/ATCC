@@ -40,7 +40,7 @@ const parseLines = (lines, superindex) => {
 
 const BPCard = ({ bp, index }) => {
   return (
-    <div key={index} className={`bp-card ${bp.cardSize.replace(" ", "-").toLowerCase()} card`} style={{ color: getPrimaryCycleColor(bp.cycle) }}>
+    <div key={index} className={`card bp-card ${bp.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getPrimaryCycleColor(bp.cycle) }}>
       {/* Header, Icon, and Banner */}
       <div className="bp-card__header">
         <div className="bp-card__icon-top-left">

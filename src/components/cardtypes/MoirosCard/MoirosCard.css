@@ -1,0 +1,48 @@
+/* moiros template */
+
+.moiros {
+  background-color: white;
+}
+
+.moiros p {
+  margin: 0;
+}
+
+.moiros>* {
+  color: black;
+}
+
+.moiros-title {
+  text-align: center;
+  color: #162f9a;
+  font-size: 18px;
+  border-radius: 9px 9px 0 0;
+  padding: 5px; 
+  margin: 10px 0;
+}
+
+.moiros-subtitle {
+  text-align: center;
+  color: white;
+  background-color: #162f9a;
+  font-size: 15px;
+  margin: 5px 0;
+  margin-top: 15px;
+}
+
+.moiros-flavor {
+	border-top: 1px solid lightgray;
+	color: gray;
+	margin: 0 30px;
+	font-style: italic;
+	text-align: center;
+}
+
+.moiros-effects {
+	border-top: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	margin: 0 30px;
+	text-align: center;
+}
+
+/* End moiros template */

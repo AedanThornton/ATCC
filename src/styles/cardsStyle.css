@@ -1,9 +1,11 @@
 .mini-american {
   width: 270px;
+	height: 414px;
 }
 
 .standard, .tarot {
   width: 326.4px;
+	height: 456.96px;
 }
 
 .half-page {
@@ -12,12 +14,19 @@
 
 .card {
   font-size: 12px;
-  height: 100%;
   border-radius: 10px;
   position: relative;
   z-index: 1;
   box-sizing: border-box;
   overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: scroll;
+}
+
+.card::-webkit-scrollbar{
+	display: none;
 }
 
 .card p {

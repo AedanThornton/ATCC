@@ -20,7 +20,7 @@ const Ability = ({ ability, i }) => (
 
 const MnemosCard = ({ mnemos, index }) => {
   return (
-    <div className={`mnemos ${mnemos.cardSize.replace(" ", "-").toLowerCase()} card`}>
+    <div className={`card mnemos ${mnemos.cardSize.replace(" ", "-").toLowerCase()}`}>
       {/* mnemos Info */}
       <div className="mnemos-title">
         <div style={{lineHeight: "26px", fontSize: Math.min(18, 300 / (1 * mnemos.name.length))}}>

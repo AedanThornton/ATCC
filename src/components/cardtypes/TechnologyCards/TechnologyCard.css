@@ -1,29 +1,31 @@
-/* technologybox template */
-.technology {
+/* technology template */
+.technology.techside {
   background-color: #001c21;
   padding: 10px;
+  color: white;
+}
+
+.technology.projectside {
+  background-color: #DFDBCD;
+  padding: 10px;
+  color: black;
 }
 
 .technology p {
   margin: 0;
 }
 
-.technology>* {
-  color: white;
-}
-
 .technology-title {
   text-align: center;
   font-size: 18px;
-  color: white;
   border-radius: 9px 9px 0 0;
   flex: 8;
 }
 
 .technology-subtitle {
   text-align: center;
-  font-size: 15px;
   color: white;
+  font-size: 15px;
   margin: 5px 0;
   margin-top: 15px;
   background-color: #00434e;
@@ -33,6 +35,7 @@
   border-radius: 50%;
   border: 3px solid #00434e;
   box-shadow: 0 0 4px 3px #00434e;
+  background-color: #001c21;
   height: 30px;
   width: 30px;
   margin: 5px;
