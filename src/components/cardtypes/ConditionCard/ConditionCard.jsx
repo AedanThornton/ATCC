@@ -17,7 +17,7 @@ const ConditionCard = ({ condition, index, currentSide }) => {
           {/* Effects */}
           <div className="condition-effects">{condition.sideA.effect}</div>
 
-          {/* Rally */}
+          {/* Resolution */}
           {condition.sideA.resolution && (
             <div className="condition-resolution-box">
               <div className="condition-resolution-header">{condition.sideA.resolution.split(": ")[0]}</div>
@@ -43,7 +43,7 @@ const ConditionCard = ({ condition, index, currentSide }) => {
           {/* Effects */}
           <div className="condition-effects">{condition.sideB.effect}</div>
 
-          {/* Rally */}
+          {/* Resolution */}
           {condition.sideB.resolution && (
             <div className="condition-resolution-box">
               <div className="condition-resolution-header">{condition.sideB.resolution.split(": ")[0]}</div>
@@ -59,7 +59,7 @@ const ConditionCard = ({ condition, index, currentSide }) => {
 
       {/* Info */}
       <div>
-        <div className="condition-subtitle">Card Info</div>
+        <div className="condition-info">Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>
           <div className="card-info-detail">{condition.cardIDs.join(", ")}</div>

@@ -16,6 +16,7 @@ import KratosCard from "../components/cardtypes/KratosCard/KratosCard";
 import MoirosCard from "../components/cardtypes/MoirosCard/MoirosCard";
 import NymphCard from "../components/cardtypes/NymphCard/NymphCard";
 import ConditionCard from "../components/cardtypes/ConditionCard/ConditionCard";
+import TraumaCard from "../components/cardtypes/TraumaCard/TraumaCard";
 
 const cardTypes = {
   "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name} />,
@@ -46,6 +47,7 @@ const cardTypes = {
   "Moiros": (name) => <MoirosCard key={name.cardIDs[0]} moiros={name} />,
   "Nymph": (name) => <NymphCard key={name.cardIDs[0]} nymph={name} />,
   "Condition": (name, currentSide = 1) => <ConditionCard key={name.cardIDs[0]} condition={name} currentSide={currentSide}/>,
+  "Trauma": (name) => <TraumaCard key={name.cardIDs[0]} trauma={name} />,
 };
 
 export default cardTypes;

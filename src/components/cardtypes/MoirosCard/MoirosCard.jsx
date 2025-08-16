@@ -16,7 +16,7 @@ const MoirosCard = ({ moiros, index }) => {
 
       {/* Info */}
       <div>
-        <div className="moiros-subtitle">Card Info</div>
+        <div className="moiros-info">Card Info</div>
 
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>

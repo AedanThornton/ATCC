@@ -95,6 +95,7 @@ const GearCard = ({ gear, index }) => {
         </div>
       </div>
 
+      <div>
       {/* Gated Abilities */}
       {gear.gatedAbilities && gear.gatedAbilities.length > 0 && (
         <div className="gated-abilities">
@@ -123,8 +124,7 @@ const GearCard = ({ gear, index }) => {
       )}
 
       {/* Gear Info */}
-      <div>
-        <div className="gear-subtitle" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
+        <div className="gear-info" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">Acquisition</div>
           <div className="card-info-detail">{gear.acquisition}</div>

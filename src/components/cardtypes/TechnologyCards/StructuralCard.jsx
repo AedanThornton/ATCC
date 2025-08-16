@@ -41,9 +41,6 @@ const StructuralCard = ({ structural, index, currentSide }) => {
         {/* structural Tech Side */}
         {currentSide == 1 && (
           <div className="technology-tech">
-            <div className="technology-subtitle">
-              {structural.facilityName}
-            </div>
             {structural.flavorTech && (<div className="technology-flavor">
               {structural.flavorTech}
             </div>)}
@@ -61,7 +58,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
 
       {/* structural Info */}
       <div>
-        <div className="technology-subtitle">Card Info</div>
+        <div className="technology-info">Card Info</div>
 
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>

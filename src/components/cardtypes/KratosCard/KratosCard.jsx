@@ -31,7 +31,7 @@ const KratosCard = ({ kratos, index }) => {
 
       {/* Info */}
       <div>
-        <div className="kratos-subtitle">Card Info</div>
+        <div className="kratos-info">Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>
           <div className="card-info-detail">{kratos.cardIDs.join(", ")}</div>

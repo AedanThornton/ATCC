@@ -35,9 +35,6 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
         {/* production-facility Tech Side */}
         {currentSide == 1 && (
         <div className="technology-tech">
-          <div className="technology-subtitle">
-            {argoAbility.facilityName}
-          </div>
           {argoAbility.flavorTech && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
             <div className="card-info-header">Flavor Text</div>
             <div className="card-info-detail"><i>{argoAbility.flavorTech}</i></div>
@@ -61,7 +58,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
 
       {/* production-facility Info */}
       <div>
-        <div className="technology-subtitle">Card Info</div>
+        <div className="technology-info">Card Info</div>
 
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>
