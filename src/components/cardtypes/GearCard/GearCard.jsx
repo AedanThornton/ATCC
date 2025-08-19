@@ -3,35 +3,38 @@ import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
-const GearCard = ({ gear, index }) => {
+const GearCard = ({ gear, index, currentSide }) => {
+  let side = currentSide
+  if (currentSide === 1) side = ""
+
   return (
-    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(gear.cycle) }}>
+    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(gear["cycle" + side]) }}>
       <div className="card-info">
-        <div className="title-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon(gear.slot, undefined, undefined, "2.1em", "0em")}</div></div>
-        <div className="gear-title" style={{ color: getColor(gear.cycle), fontSize: Math.min(19, 300 / (1.2 * gear.name.length)) }}>
-          {gear.name}
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear["cycle" + side])}}>{utils.getIcon(gear["slot" + side], undefined, undefined, "2.1em", "0em")}</div></div>
+        <div className="gear-title" style={{ color: getColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
+          {gear["name" + side]}
         </div>
-        <div className="title-icon"><div className={`icon ${gear.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear.cycle)}}>{utils.getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear["cycle" + side])}}>{utils.getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
       </div>
 
       {/* Stats and Image */}
       <div className="gear-card">
         {false && ( /* Disabling image rendering for now. Will reenable if loading images in becomes easier */
           <div className="gear-image">
-            <img src={`./src/assets/images/${gear.cardIDs[0]}.png`} alt={gear.name} />
+            <img src={`./src/assets/images/${gear.cardIDs[0]}.png`} alt={gear["name" + side]} />
           </div>
         )}
 
         {/* Offensive Statistics */}
         <div className="gear-stats-container gear-stats-left">
-          {gear.offensiveStatistics.attackDice && (
-            <div className="gear-stats">{gear.offensiveStatistics.attackDice} {utils.getIcon("d10", undefined, undefined, "1.5em")}</div>
+          {gear["offensiveStatistics" + side].attackDice && (
+            <div className="gear-stats">{gear["offensiveStatistics" + side].attackDice} {utils.getIcon("d10", undefined, undefined, "1.5em")}</div>
           )}
-          {gear.offensiveStatistics.precision && (
-            <div className="gear-stats">{gear.offensiveStatistics.precision}</div>
+          {gear["offensiveStatistics" + side].precision && (
+            <div className="gear-stats">{gear["offensiveStatistics" + side].precision}</div>
           )}
           
-          {gear.offensiveStatistics.power?.map((p, index) => (
+          {gear["offensiveStatistics" + side].power?.map((p, index) => (
             <div key={index} >
               {p.gate && (
                 <div className="gear-stats gate" style={{ background: getGateColor(p.gate.type) }}>
@@ -54,7 +57,7 @@ const GearCard = ({ gear, index }) => {
         {/* Ability Box */}
         <div className="gear-abilities">
           <div>
-          {gear.abilities.map((ability, index) => {
+          {gear["abilities" + side].map((ability, index) => {
             return (
               <React.Fragment key={index}>
                 {(ability.flavorName || ability.timing || ability.costs) && (<br/>)}
@@ -75,21 +78,21 @@ const GearCard = ({ gear, index }) => {
           })}
           </div>
 
-          {gear.asteriskEffect && (<div className="asterisk-text">{gear.asteriskEffect}</div>)}
+          {gear["asteriskEffect" + side] && (<div className="asterisk-text">{gear["asteriskEffect" + side]}</div>)}
         </div>
 
         {/* Defensive Statistics */}
         <div className="gear-stats-container gear-stats-right">
-          {gear.defensiveStatistics.evasionRerolls && (
-            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionRerolls} {utils.getIcon("EvasionReroll", undefined, undefined, "1.5em")}</div>
+          {gear["defensiveStatistics" + side].evasionRerolls && (
+            <div className="gear-stats gear-stats-right">{gear["defensiveStatistics" + side].evasionRerolls} {utils.getIcon("EvasionReroll", undefined, undefined, "1.5em")}</div>
           )}
-          {gear.defensiveStatistics.evasionBonus && (
-            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.evasionBonus} {utils.getIcon("Evasion", undefined, undefined, "1.5em")}</div>
+          {gear["defensiveStatistics" + side].evasionBonus && (
+            <div className="gear-stats gear-stats-right">{gear["defensiveStatistics" + side].evasionBonus} {utils.getIcon("Evasion", undefined, undefined, "1.5em")}</div>
           )}
-          {gear.defensiveStatistics.armorDice && (
-            <div className="gear-stats gear-stats-right">{gear.defensiveStatistics.armorDice[0].amount} {utils.getIcon(gear.defensiveStatistics.armorDice[0].type, "Armor", undefined, "1.5em")}</div>
+          {gear["defensiveStatistics" + side].armorDice && (
+            <div className="gear-stats gear-stats-right">{gear["defensiveStatistics" + side].armorDice[0].amount} {utils.getIcon(gear["defensiveStatistics" + side].armorDice[0].type, "Armor", undefined, "1.5em")}</div>
           )}
-          {gear.defensiveStatistics.resistances?.map((resistance, index) => (
+          {gear["defensiveStatistics" + side].resistances?.map((resistance, index) => (
             <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.getIcon(resistance.type, undefined, undefined, "1.5em")}</div>
           ))}
         </div>
@@ -97,9 +100,9 @@ const GearCard = ({ gear, index }) => {
 
       <div>
       {/* Gated Abilities */}
-      {gear.gatedAbilities && gear.gatedAbilities.length > 0 && (
+      {gear["gatedAbilities" + side] && gear["gatedAbilities" + side].length > 0 && (
         <div className="gated-abilities">
-          {gear.gatedAbilities.map((gateGroup, index) => (
+          {gear["gatedAbilities" + side].map((gateGroup, index) => (
             <div key={index} className="card-info" style={{ background: getGateColor(gateGroup.gate) }}>
               <div className="gear-ability-gate">{utils.createAbilityGate(gateGroup.gate, gateGroup.value)}</div>
               <div className="gear-gated-ability">
@@ -124,26 +127,26 @@ const GearCard = ({ gear, index }) => {
       )}
 
       {/* Gear Info */}
-        <div className="gear-info" style={{ background: getColor(gear.cycle), color: getCycleFontColor(gear.cycle) }}>Card Info</div>
+        <div className="gear-info" style={{ background: getColor(gear["cycle" + side]), color: getCycleFontColor(gear["cycle" + side]) }}>Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">Acquisition</div>
-          <div className="card-info-detail">{gear.acquisition}</div>
+          <div className="card-info-detail">{gear["acquisition" + side]}</div>
         </div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">Traits</div>
-          <div className="card-info-detail" style={{fontStyle: 'italic'}}>{gear.traits.join(", ")}</div>
+          <div className="card-info-detail" style={{fontStyle: 'italic'}}>{gear["traits" + side].join(", ")}</div>
         </div>
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">Flavor Text</div>
-          <div className="card-info-detail">{gear.flavor}</div>
-        </div>
+        {gear["flavor"+ side] && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
+          <div className="card-info-header">Flavor</div>
+          <div className="card-info-detail">{gear["flavor" + side]}</div>
+        </div>)}
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{gear.cardIDs.join(", ")}</div>
+          <div className="card-info-detail">{gear["cardIDs" + side].join(", ")}</div>
         </div>
         <div className="card-info centered">
           <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{gear.cycle}</div>
+          <div className="card-info-detail">{gear["cycle" + side]}</div>
         </div>
       </div>
     </div>

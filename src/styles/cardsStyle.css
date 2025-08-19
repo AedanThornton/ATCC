@@ -3,13 +3,30 @@
 	height: 414px;
 }
 
-.standard, .tarot {
+.standard {
   width: 326.4px;
+	height: 456.96px;
+}
+
+.tarot {
+  width: 359.04px;
+	height: 620.16px;
+}
+
+.tarot.technology {
+	width: 326.4px;
 	height: 456.96px;
 }
 
 .half-page {
   width: 834px;
+}
+
+@media (min-width: 820px) {
+	.tarot.technology {
+		width: 620.16px;
+		height: 359.04px;
+	}
 }
 
 .card {
@@ -18,7 +35,6 @@
   position: relative;
   z-index: 1;
   box-sizing: border-box;
-  overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

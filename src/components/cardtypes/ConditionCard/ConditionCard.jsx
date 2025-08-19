@@ -3,59 +3,34 @@ import "./ConditionCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
 const ConditionCard = ({ condition, index, currentSide }) => {
+  let side = currentSide
+  if (currentSide === 1) side = ""
+
   return (
     <div className={`card condition ${condition.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
-      {currentSide == 1 && (
-        <div>
-          <div className="condition-title" style={{ fontSize: Math.min(19, 400 / (1.1 * condition.name.length)) }}>
-            {condition.name.toUpperCase()}
-          </div>
-          {condition.subtitleA && <div className="condition-title" style={{fontSize: "14px"}}>
-            {`(${condition.subtitleA.toUpperCase()})`}
-          </div>}
-
-          {/* Effects */}
-          <div className="condition-effects">{condition.sideA.effect}</div>
-
-          {/* Resolution */}
-          {condition.sideA.resolution && (
-            <div className="condition-resolution-box">
-              <div className="condition-resolution-header">{condition.sideA.resolution.split(": ")[0]}</div>
-              <div className="condition-resolution">{condition.sideA.resolution.split(": ")[1]}</div>
-            </div>
-          )}
-
-          {condition.sideA.endOfBattle && (
-            <div className="condition-effects">{condition.sideA.endOfBattle}</div>
-          )}
+      <div>
+        <div className="condition-title" style={{ fontSize: Math.min(19, 400 / (1.1 * condition["name" + side].length)) }}>
+          {condition["name" + side].toUpperCase()}
         </div>
-      )}
+        {condition["subtitle" + side] && <div className="condition-title" style={{fontSize: "14px"}}>
+          {`(${condition["subtitle" + side].toUpperCase()})`}
+        </div>}
 
-      {currentSide == 2 && (
-        <div>
-          <div className="condition-title" style={{ fontSize: Math.min(19, 400 / (1.1 * condition.name.length)) }}>
-            {condition.nameB.toUpperCase()}
+        {/* Effects */}
+        <div className="condition-effects">{condition["side" + side].effect}</div>
+
+        {/* Resolution */}
+        {condition["side" + side].resolution && (
+          <div className="condition-resolution-box">
+            <div className="condition-resolution-header">{condition["side" + side].resolution.split(": ")[0]}</div>
+            <div className="condition-resolution">{condition["side" + side].resolution.split(": ")[1]}</div>
           </div>
-          {condition.subtitleB && <div className="condition-title" style={{fontSize: "14px"}}>
-            {`(${condition.subtitleB.toUpperCase()})`}
-          </div>}
+        )}
 
-          {/* Effects */}
-          <div className="condition-effects">{condition.sideB.effect}</div>
-
-          {/* Resolution */}
-          {condition.sideB.resolution && (
-            <div className="condition-resolution-box">
-              <div className="condition-resolution-header">{condition.sideB.resolution.split(": ")[0]}</div>
-              <div className="condition-resolution">{condition.sideB.resolution.split(": ")[1]}</div>
-            </div>
-          )}
-
-          {condition.sideB.endOfBattle && (
-            <div className="condition-effects"><b>End of Battle: </b>{condition.sideB.endOfBattle}</div>
-          )}
-        </div>
-      )}
+        {condition["side" + side].endOfBattle && (
+          <div className="condition-effects">{condition["side" + side].endOfBattle}</div>
+        )}
+      </div>
 
       {/* Info */}
       <div>

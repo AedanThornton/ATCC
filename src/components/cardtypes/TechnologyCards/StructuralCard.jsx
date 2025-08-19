@@ -3,18 +3,18 @@ import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 
 const StructuralCard = ({ structural, index, currentSide }) => {
+  let side = currentSide
+  if (currentSide === 1) side = ""
+
   return (
     <div className={`card technology ${structural.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
           <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("StructuralTech", undefined, undefined, "2.1em", "0em")}</div></div>
           <div style={{display: "flex", flexDirection: "column"}}>
-            {(!structural.altname || (structural.altname && currentSide == 2)) && <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * structural.name.length)) }}>
-              {structural.name}
-            </div>}
-            {structural.altname && currentSide == 1 && (<div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * structural.altname.length)) }}>
-              {structural.altname}
-            </div>)}
+            <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * structural["name" + side].length)) }}>
+              {structural["name" + side]}
+            </div>
           </div>
           <div className="title-icon"></div>
         </div>

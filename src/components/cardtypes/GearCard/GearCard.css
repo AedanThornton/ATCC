@@ -51,22 +51,15 @@
 	justify-content: center;
 }
 
-
-.gear .gear-stats-left {
-	left: 0%;
-	right: auto;
-}
-
-.gear .gear-stats-right {
-	left: auto;
-	right: 0%;
-}
-
 .gear .gear-stats {
 	text-align: center;
 	padding: 3% 0;
 	background-color: #BFBCAB;
 	font-size: 15px;
+}
+
+.gear .gear-stats img {
+	vertical-align: middle;
 }
 
 .gear .gate {

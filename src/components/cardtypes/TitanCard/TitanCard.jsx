@@ -87,7 +87,7 @@ const TitanCard = ({ titan, index }) => {
         </div>
 
         {/* Titan Info */}
-        <div className="titan-subtitle" style={{ background: getColor(titan.cycle), color: getCycleFontColor(titan.cycle) }}>Card Info</div>
+        <div className="titan-info" style={{ background: getColor(titan.cycle), color: getCycleFontColor(titan.cycle) }}>Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>
           <div className="card-info-detail">{titan.cardIDs.join(", ")}</div>

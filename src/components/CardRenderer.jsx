@@ -5,19 +5,16 @@ import Tippy from '@tippyjs/react';
 
 import cardTypes from "../lib/cardTypes";
 
-const CardRenderer = ({cardname}) => {  
-  const [isHidden, setIsHidden] = useState(true);
+const CardRenderer = ({cardname}) => { 
+  const isSecretCard = cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope")
+ 
+  const [isHidden, setIsHidden] = useState(isSecretCard);
   const [currentSide, setCurrentSide] = useState(1);
 
   const componentRenderer = cardTypes[cardname.cardType];
   const currentCard = componentRenderer
     ? componentRenderer(cardname, currentSide)
     : null;
-  
-  const secretOverlay = <>{
-    (cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope"))
-    && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} setIsVisible={setIsHidden}/>
-  }</>
 
   const toggleReveal = () => {
     setIsHidden(!isHidden)
@@ -28,6 +25,10 @@ const CardRenderer = ({cardname}) => {
       ? setCurrentSide(2)
       : setCurrentSide(1)
   }
+  
+  const secretOverlay = <>{
+    isSecretCard && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} setIsVisible={setIsHidden}/>
+  }</>
 
   return (
     <div style={{ position: "relative" }}>

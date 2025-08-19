@@ -1,103 +1,140 @@
+.app {
+  max-width: 100vw;
+}
+
 .card-list-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .card-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 40px;
-    margin: 0 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 0 4%;
 }
 
 .dropdowns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  width: 80vw;
+}
+
+.dropdown-list {
+  position: absolute;
+  z-index: 1250;
+  background-color: rgb(110, 110, 110);
+  width: 100%;
+  padding: 5px;
+  border-radius: 0 0 10px 10px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.filter-dropdown {
+  position: relative;
+}
+
+.filter-dropdown-button {
+  background-color: rgb(84, 84, 84);
+  border: none;
+  width: 100%;
+}
+
+.card-list__control-bar--page-contols {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: end;
+  gap: 0.5em;
+  margin: 0.5em 0;
+}
+
+.card-list__control-bar--page-buttons {
+  display: flex;
+  align-items: stretch;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.card-list__control-bar--page-buttons button {
+  padding: 4px 12px;
+  margin: 0px 10px;
+}
+
+@media (min-width: 820px) {
+  .card-list {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .dropdowns {
     display: flex;
+    flex-direction: unset;
     width: 100%;
     align-items: flex-start;
     justify-content: center;
     gap: 5px;
     flex: 2;
+  }
+
+  .card-list__control-bar--page-contols {
+    flex-direction: unset;
+    justify-content: center;
+  }
 }
 
-.dropdown-list {
-    position: absolute;
-    z-index: 1250;
-    background-color: rgb(110, 110, 110);
-    width: 100%;
-    padding: 5px;
-    border-radius: 0 0 10px 10px;
-    box-sizing: border-box;
-    font-size: 12px;
-}
-
-.filter-dropdown {
-    position: relative;
-}
-
-.filter-dropdown-button {
-    background-color: rgb(84, 84, 84);
-    border: none;
-    width: 100%;
-}
-
-.card-list__control-bar {
+@media (min-width: 1250px) {
+  .card-list__control-bar {
     display: flex;
     width: 100%;
     margin-bottom: 20px;
-}
+  }
 
-.card-list__control-bar--page-contols {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: end;
-}
-
-.card-list__control-bar--page-contols > * {
+  .card-list__control-bar--page-contols>* {
     margin: 0px 0px;
-}
+  }
 
-.card-list__control-bar--page-buttons {
-    display: flex;
-    align-items: stretch;
-    text-align: center;
-    font-size: 0.8em;
-}
+  .card-list__control-bar--page-contols {
+    gap: 0;
+    margin: 0;
+  }
 
-.card-list__control-bar--page-buttons button {
-    padding: 4px 12px;
-    margin: 0px 10px;
-}
-
-.card-list__control-bar--sort-search {
+  .card-list__control-bar--sort-search {
     width: 120px;
     font-size: 14px;
     border: none;
     box-sizing: border-box;
-}
+  }
 
-.card-list__control-bar--search-wrapper {
+  .card-list__control-bar--search-wrapper {
     position: relative;
+  }
 }
 
 .sort-suggestions-list {
-    background-color: rgb(84, 84, 84);
-    position: absolute;
-    border-top: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    z-index: 1000;
-    max-height: 200px;
-    overflow-y: auto;
+  background-color: rgb(84, 84, 84);
+  position: absolute;
+  border-top: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .sort-suggestions-list::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 /* Handle */
@@ -111,60 +148,60 @@
 }
 
 .sort-suggestions-list li {
-    box-sizing: border-box;
-    width: 120px;
-    font-size: 14px;
-    padding: 3px 8px;
-    cursor: pointer;
-    position: relative;
+  box-sizing: border-box;
+  width: 120px;
+  font-size: 14px;
+  padding: 3px 8px;
+  cursor: pointer;
+  position: relative;
 }
 
-.sort-suggestions-list li .tooltip-trigger{
-    text-decoration: none;
+.sort-suggestions-list li .tooltip-trigger {
+  text-decoration: none;
 }
 
 .sort-suggestions-list li:hover {
-    background-color: rgb(110, 110, 110);
+  background-color: rgb(110, 110, 110);
 }
 
 .sort-suggestion-tooltip {
-    visibility: hidden;
-    position: absolute;
-    z-index: 1;
-    background-color: gray;
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  background-color: gray;
 }
 
 .sort-suggestions-list li:hover .sort-suggestion-tooltip {
-    visibility: visible;
+  visibility: visible;
 }
 
 .card-list__control-bar--page_number {
-    min-width: 10px;
-    max-width: 15px;
-    margin: 0px 2px;
+  min-width: 10px;
+  max-width: 15px;
+  margin: 0px 2px;
 }
 
 .card-menu {
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    background-color: slategrey;
-    padding: 2px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  background-color: slategrey;
+  padding: 2px;
 }
 
 .card-menu button {
-    background-color: unset;
-    border: unset;
-    padding: 0;
-    height: 35px;
-    aspect-ratio: 1/1;
+  background-color: unset;
+  border: unset;
+  padding: 0;
+  height: 35px;
+  aspect-ratio: 1/1;
 }
 
 .card-menu .invertible {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 .card-menu button:hover {
-    background-color: rgba(20, 20, 20, 0.2);
+  background-color: rgba(20, 20, 20, 0.2);
 }
