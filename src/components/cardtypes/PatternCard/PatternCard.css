@@ -115,8 +115,11 @@
     font-weight: bold;
     color: #DFDBCD;
     background: rgb(92, 14, 5);
-    background: linear-gradient(90deg, rgba(92, 14, 5, 1) 20%, rgba(190, 31, 12, 1) 80%);
+    background: linear-gradient(90deg, rgba(92, 14, 5, 1) 20%, rgb(158, 27, 13) 80%);
     max-height: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .kratos-row {

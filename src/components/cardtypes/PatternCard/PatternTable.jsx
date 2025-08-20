@@ -10,9 +10,9 @@ const PatternTable = ({table, type}) => (
                 <div key={index} className="kratos-row">
                     {row.map((option, index) =>
                     <div key={index} className="kratos-option">
-                        {option[0].x_value && `${option[0].x_value} `}{utils.getIcon(option[0].name, option[0].x_value ? undefined : "Power", undefined, "1.3em")}
-                        {option[1]?.name && (<>{option[1].x_value && ` + ${option[1].x_value} `}{utils.getIcon(option[1].name, option[1].x_value ? undefined : "Power", undefined, "1.3em")}</>)}
-                        {option[2]?.name && (<>{option[2].x_value && ` + ${option[2].x_value} `}{utils.getIcon(option[2].name, option[2].x_value ? undefined : "Power", undefined, "1.3em")}</>)}
+                        {option[0].x_value && `${option[0].x_value} `}{utils.getIcon(option[0].name, option[0].x_value ? undefined : "Power", undefined, "1.3rem")}
+                        {option[1]?.name && (<>{" + "}{option[1].x_value && `${option[1].x_value} `}{utils.getIcon(option[1].name, option[1].x_value ? undefined : "Power", undefined, "1.3rem")}</>)}
+                        {option[2]?.name && (<>{" + "}{option[2].x_value && `${option[2].x_value} `}{utils.getIcon(option[2].name, option[2].x_value ? undefined : "Power", undefined, "1.3rem")}</>)}
                     </div>
                     )}
                 </div>
@@ -20,7 +20,12 @@ const PatternTable = ({table, type}) => (
             </div>
         ))
         : table.map((row, index) => (
-            <div key={index} className="trauma-row">{row.range}{/*put the threshold symbol here*/}</div> 
+            <div key={index} className="trauma-row">
+                <div>{row.range}</div>
+                <div style={{width: "2rem", display: "flex", justifyContent: "center"}}>
+                    {utils.getIcon(row.type, undefined, undefined, "2.5rem")}
+                </div>
+            </div> 
         ))
         }
     </div>

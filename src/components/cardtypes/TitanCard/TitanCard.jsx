@@ -47,7 +47,7 @@ const TitanCard = ({ titan, index }) => {
                     {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
                     {ability.flavorName && (<b> {ability.flavorName}: </b>)}
                     {ability.type === "unique"
-                      ? ( <React.Fragment key={index}> {utils.updateComponent(`${ability.name}`, index)}</React.Fragment>)
+                      ? ( <React.Fragment key={index}> {utils.createTooltip(`${ability.name}`, index)}</React.Fragment>)
                       : ( <React.Fragment key={index}> {utils.createTooltip(`${ability.name}`, index)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</React.Fragment> )
                     }
                     .

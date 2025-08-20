@@ -57,7 +57,30 @@
   background-color: rgb(155, 35, 21);
   box-sizing: border-box;
   padding: 0 20px;
-  min-height: 30px;
+  min-height: 20px;
+}
+
+.trauma-type-box {
+  position: relative;
+}
+
+.trauma-type-box__icon {
+  position: absolute;
+  top: -26px;
+  left: -17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+}
+
+.trauma-type-box__sign {
+  position: absolute;
+  top: -24px;
+  left: -17px;
+  font-size: 23px;
+  text-align: center;
+  width: 30px;
 }
 
 .you-died .invertible {

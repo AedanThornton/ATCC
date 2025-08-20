@@ -47,7 +47,10 @@ const TraumaCard = ({ trauma, index }) => {
               ? <div style={{fontSize: "18px"}}>{trauma.number}</div>
               : <div></div>
           }
-          <div>{utils.getIcon(trauma.subtype)}{trauma.sign}</div>
+          <div className="trauma-type-box">
+            <div className="trauma-type-box__icon">{utils.getIcon(trauma.subtype, undefined, undefined, "3rem")}</div>
+            <div className="trauma-type-box__sign">{trauma.sign}</div>
+          </div>
         </div>
         )}
         

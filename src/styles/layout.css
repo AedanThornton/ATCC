@@ -94,6 +94,7 @@
 
   .layout-nav ul a img {
     display: block;
+    margin: 0 1rem;
   }
 
   .layout-nav ul a {

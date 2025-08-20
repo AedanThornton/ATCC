@@ -14,13 +14,13 @@ for (const path in modules) {
 const invertibles = new Set([
     "Danger", "Fate", "Rage", "Exhaust", "Discard", "Reaction",
     "Gear", "OneHanded", "TwoHanded", "ThreeHanded",
-    "Support", "Armor", "Speed", "Power", "Break", "Opening",
+    "Support", "Armor", "Speed", "PowerIcon", "Break", "Opening",
     "Pushback", "PowerReroll", "Reposition", "Vault", "Pole Position",
     "Motivate", "Tireless", "Diversion", "Hope", "Black", "Fire", "Closing",
     "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10", "AT",
     "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", 
     "StructuralTech", "Adversary", "AdventureHub", "TitanIcon", "City", "Lock",
-    "ArgoFate", "Inspect", "Flip"
+    "ArgoFate", "Inspect", "Flip", "Inspire", "Clutch", "Evasion"
 ]);
 
 // Utility functions
