@@ -5,6 +5,18 @@
       "formatting": ""
     }
   ],
+  "Arabian Nights": [
+    {
+      "text": "Treat all your Overbreak X keywords as the upgrade Cycle 4+ version.",
+      "formatting": ""
+    }
+  ],
+  "Ascend!": [
+    {
+      "text": "Each time you survive a Trauma Draw, place 1 generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of generic tokens here: 1: +1 Precision. 2: +1 Speed. 3: Auto-break 1. 4: Stalwart. 5: Rocksteady. 6: +1 Evasion. 7: +1 Power. 8: +2 to Awakening rolls. 9: Immediately Awaken, Adversary.",
+      "formatting": ""
+    }
+  ],
   "Carry the Weight": [
     {
       "text": "Each time you gain Midas tokens, place 1 Generic token on your Titan Sheet. You may discard an indicated number of those tokens to triger one of the folowing effects (as a free action, unless stated otherwise): 1: When performing a Hermes Move, treat it as 1 higher. 2: When you are about to suffer Float, ignore it. 3: Discard a Condition card. 4: When performing a Pwer Roll, gain +1 Power. 5: Gain a MovementAction. 6: Remove a Curse Affliction. 7: Awaken.",
@@ -23,9 +35,21 @@
       "formatting": ""
     }
   ],
+  "Cyclopean Might": [
+    {
+      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons.",
+      "formatting": ""
+    }
+  ],
   "Dance of Fate": [
     {
       "text": "When you are about to draw an Obol, you may gain +2 Fate to add 1 You live! Obol card to the Obol deck (for this draw only).",
+      "formatting": ""
+    }
+  ],
+  "Disturbance in Fate": [
+    {
+      "text": "Each time you roll a Crit Miss, Adversary.",
       "formatting": ""
     }
   ],
@@ -71,6 +95,18 @@
       "formatting": ""
     }
   ],
+  "Final Countdown": [
+    {
+      "text": "Each time you roll a Crit Miss, Adversary Adversary.",
+      "formatting": ""
+    }
+  ],
+  "Finish Him": [
+    {
+      "text": "Oxygen Fate When attacking a BP card with a Death Blow Crit effect, gain a Crit Chance.",
+      "formatting": ""
+    }
+  ],
   "Fly": [
     {
       "text": "Fate Exhaust Use during voluntary movement to ignore all Terrain tiles during this movement. You cannot end your movement on an Obstacle or Chasm.",
@@ -92,6 +128,24 @@
   "Grey Alchemy": [
     {
       "text": "Fate Turn 1 Midas or Pain token into 1 Ambrosia token.",
+      "formatting": ""
+    }
+  ],
+  "In Light and Shade": [
+    {
+      "text": "Each Laser Attack hit and Sun Attack hit deals 1 Danger less (to a minimum of 1). When you are about to die from incineration, draw an Obol instead.",
+      "formatting": ""
+    }
+  ],
+  "Internalize Despair": [
+    {
+      "text": "Start of your turn: Gain 1 Despair token.",
+      "formatting": ""
+    }
+  ],
+  "Internalize Pain": [
+    {
+      "text": "Start of your turn: Gain 1 Pain token.",
       "formatting": ""
     }
   ],
@@ -143,6 +197,30 @@
       "formatting": ""
     }
   ],
+  "Pain Engine": [
+    {
+      "text": "Each time you gain a Pain token (each), place 1 Generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Speed. 2: While performing MovementAction, you can move diagonally. 3: Your Titan's Power die becomes White. 4: Auto-rouse 1. 5: Deadly.",
+      "formatting": ""
+    }
+  ],
+  "Persian Deal": [
+    {
+      "text": "Fate Exhaust Turn 1 of your Midas tokens into 2 Ambrosia tokens, 1 Ambrosia into 2 Despair, or 1 Despair into 2 Midas.",
+      "formatting": ""
+    }
+  ],
+  "Rage Summit": [
+    {
+      "text": "After surviving a positive Major, Grave, or Obol Trauma, you may gain 1 Rage. After Surviving a negative Major, Grave, or Obol Trauma, you must gain 1 Rage.",
+      "formatting": ""
+    }
+  ],
+  "Ruse": [
+    {
+      "text": "After surviving a Major, Grave, or Obol Trauma, place 1 Opening token in the Kratos Pool.",
+      "formatting": ""
+    }
+  ],
   "Seer Sense": [
     {
       "text": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive Evasion token.",
@@ -173,6 +251,12 @@
       "formatting": ""
     }
   ],
+  "Spinning Tales": [
+    {
+      "text": "Before the Attack Roll, if the Kratos Pool is empty, activate all your applicable Kratos Table abilities that leave Kratos tokens. Do not leave any tokens during the second ability window from your Kratos Table abilities.",
+      "formatting": ""
+    }
+  ],
   "Stout": [
     {
       "text": "You have 3 Support slots. You cannot have more than +1 Evasion at any given time. Ignore up to -1 Speed penalty from any 1 Gear.",
@@ -182,6 +266,24 @@
   "Stubborn": [
     {
       "text": "You may reduce suffered Pushbacks and Knockbacks by 1. Ignore Knockdown. After surviving a Major, Grave, or Obol Trauma, lose -1 Danger.",
+      "formatting": ""
+    }
+  ],
+  "Surpass!": [
+    {
+      "text": "If you have 5+ Rage, if your Weapon Gear doesn't already have the Assist X keyword, it gains Assist 1.",
+      "formatting": ""
+    }
+  ],
+  "Survive!": [
+    {
+      "text": "When you would die from an Instant Death effect, you may discard all generic tokens from your Titan sheet (at least 1) to perform an Obol Draw instead.",
+      "formatting": ""
+    }
+  ],
+  "Tall Tales": [
+    {
+      "text": "After surviving a Major, Grave, or Obol Trauma, gain the PriorityTarget token.",
       "formatting": ""
     }
   ],
@@ -203,6 +305,12 @@
       "formatting": ""
     }
   ],
+  "Unknown Might": [
+    {
+      "text": "You can use ThreeHanded Weapons as if they were TwoHanded. If you do, you have -1 Support slot.",
+      "formatting": ""
+    }
+  ],
   "Wish Engine": [
     {
       "text": "Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card. Each time you gain a Wishkeen or Wishagog Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet. You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision. 2: When you attack, gain Auto-break 1. 3:Block 1. 4: When performing a Power Roll, gain +1 Power. 5: Gain MovementAction. 6: Gain CombatAction. 7: Awaken.",
@@ -212,108 +320,6 @@
   "Wish Shield": [
     {
       "text": "Each Wish Attack and Laser Attack hit deals 1 Danger less (to a minimum of 1) to you and adjacent Titans.",
-      "formatting": ""
-    }
-  ],
-  "Cyclopean Might": [
-    {
-      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons.",
-      "formatting": ""
-    }
-  ],
-  "In Light and Shade": [
-    {
-      "text": "Each Laser Attack hit and Sun Attack hit deals 1 Danger less (to a minimum of 1). When you are about to die from incineration, draw an Obol instead.",
-      "formatting": ""
-    }
-  ],
-  "Disturbance in Fate": [
-    {
-      "text": "Each time you roll a Crit Miss, Adversary.",
-      "formatting": ""
-    }
-  ],
-  "Rage Summit": [
-    {
-      "text": "After surviving a positive Major, Grave, or Obol Trauma, you may gain 1 Rage. After Surviving a negative Major, Grave, or Obol Trauma, you must gain 1 Rage.",
-      "formatting": ""
-    }
-  ],
-  "Unknown Might": [
-    {
-      "text": "You can use ThreeHanded Weapons as if they were TwoHanded. If you do, you have -1 Support slot.",
-      "formatting": ""
-    }
-  ],
-  "Ruse": [
-    {
-      "text": "After surviving a Major, Grave, or Obol Trauma, place 1 Opening token in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Final Countdown": [
-    {
-      "text": "Each time you roll a Crit Miss, Adversary Adversary.",
-      "formatting": ""
-    }
-  ],
-  "Internalize Pain": [
-    {
-      "text": "Start of your turn: Gain 1 Pain token.",
-      "formatting": ""
-    }
-  ],
-  "Finish Him": [
-    {
-      "text": "Oxygen Fate When attacking a BP card with a Death Blow Crit effect, gain a Crit Chance.",
-      "formatting": ""
-    }
-  ],
-  "Pain Engine": [
-    {
-      "text": "Each time you gain a Pain token (each), place 1 Generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Speed. 2: While performing MovementAction, you can move diagonally. 3: Your Titan's Power die becomes White. 4: Auto-rouse 1. 5: Deadly.",
-      "formatting": ""
-    }
-  ],
-  "Surpass!": [
-    {
-      "text": "If you have 5+ Rage, if your Weapon Gear doesn't already have the Assist X keyword, it gains Assist 1.",
-      "formatting": ""
-    }
-  ],
-  "Survive!": [
-    {
-      "text": "When you would die from an Instant Death effect, you may discard all generic tokens from your Titan sheet (at least 1) to perform an Obol Draw instead.",
-      "formatting": ""
-    }
-  ],
-  "Ascend!": [
-    {
-      "text": "Each time you survive a Trauma Draw, place 1 generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of generic tokens here: 1: +1 Precision. 2: +1 Speed. 3: Auto-break 1. 4: Stalwart. 5: Rocksteady. 6: +1 Evasion. 7: +1 Power. 8: +2 to Awakening rolls. 9: Immediately Awaken, Adversary.",
-      "formatting": ""
-    }
-  ],
-  "Arabian Nights": [
-    {
-      "text": "Treat all your Overbreak X keywords as the upgrade Cycle 4+ version.",
-      "formatting": ""
-    }
-  ],
-  "Spinning Tales": [
-    {
-      "text": "Before the Attack Roll, if the Kratos Pool is empty, activate all your applicable Kratos Table abilities that leave Kratos tokens. Do not leave any tokens during the second ability window from your Kratos Table abilities.",
-      "formatting": ""
-    }
-  ],
-  "Tall Tales": [
-    {
-      "text": "After surviving a Major, Grave, or Obol Trauma, gain the PriorityTarget token.",
-      "formatting": ""
-    }
-  ],
-  "Persian Deal": [
-    {
-      "text": "Fate Exhaust Turn 1 of your Midas tokens into 2 Ambrosia tokens, 1 Ambrosia into 2 Despair, or 1 Despair into 2 Midas.",
       "formatting": ""
     }
   ]

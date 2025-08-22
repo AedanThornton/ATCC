@@ -1,0 +1,68 @@
+/* trait template */
+
+.trait {
+  background-color: white;
+}
+
+.trait p {
+  margin: 0;
+}
+
+.trait>* {
+  color: black;
+  font-size: 0.8rem;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+
+.trait-icon {
+	border-radius: 50%;
+	border: 3px solid rgb(106, 106, 106);
+	box-shadow: 0 0 4px 3px rgb(106, 106, 106);
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+	padding: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.trait-title {
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  border-radius: 9px 9px 0 0;
+  flex: 8;
+}
+
+.trait-level {
+  transform: rotate(45deg) scale(0.65);
+  background-color: rgb(106, 106, 106);
+}
+
+.trait-level-icon {
+  transform: rotate(-45deg);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.trait-info {
+  text-align: center;
+  color: white;
+  background-color: rgb(106, 106, 106);
+  font-size: 15px;
+  margin: 5px 0;
+  margin-top: 15px;
+}
+
+.trait-effects {
+	margin: 0 30px;
+}
+
+/* End trait template */

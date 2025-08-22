@@ -1,0 +1,111 @@
+/* story template */
+
+.story {
+  background-color: white;
+}
+
+.story p {
+  margin: 0;
+}
+
+.story>* {
+  color: black;
+  font-size: 0.6rem;
+}
+
+.story-title {
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  border-radius: 9px 9px 0 0;
+  flex: 8;
+}
+
+.story-info {
+  text-align: center;
+  color: black;
+  background-color: #BFBCAB;
+  font-size: 15px;
+  margin: 5px 0;
+  margin-top: 15px;
+}
+
+.story-book {
+  background-color: rgb(94, 48, 14);
+  width: 100%;
+  height: 100%;
+  flex: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+.story-book-middle-pages {
+  background-color: #BFBCAB;
+  height: 95%;
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.story-book-top-page {
+  background-color: #f0eedf;
+  height: 95%;
+  width: 90%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.story-flavor {
+  font-style: italic;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.story-panel {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-rules-title {
+  display: inline-block;
+  color: white;
+  background-color: rgb(47, 23, 6);
+  border: 1px solid white;
+  padding: 0px 4px;
+  font-size: 11px;
+  border-radius: 1px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.story-card-number-banner {
+  background-color: saddlebrown;
+  position: absolute;
+  left: -5%;
+  top: 8%;
+  width: 4rem;
+  height: 2.5rem;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-card-number-banner__triangle {
+  background-color: rgb(94, 48, 14);
+  text-align: center;
+  font-size: 0.8rem;
+  color: white;
+  clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+  height: 1.8rem;
+  aspect-ratio: 7/6;
+}
+
+/* End story template */

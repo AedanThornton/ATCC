@@ -20,6 +20,7 @@
 
 .half-page {
   width: 834px;
+	min-height: 359.04px;
 }
 
 @media (min-width: 820px) {

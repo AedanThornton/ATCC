@@ -8,10 +8,12 @@ const CardMenu = ({ card, flipFunc, secretFunc }) => {
       {(
         card.transformsInto || 
         card.cardType === "Technology" || 
-        card.cardType === "Condition"
+        card.cardType === "Condition" || 
+        card.cardType === "Story" || 
+        card.cardType === "Doom"
          ) && (<button onClick={flipFunc}>{utils.getIcon("Flip", undefined, undefined, "1.5em")}</button>
       )}
-      {(card.foundIn?.includes("Secret Deck") || card.foundIn?.includes("Envelope")) && (<button onClick={secretFunc}>{utils.getIcon("Blindspot", undefined, undefined, "1.5em")}</button>)}
+      {(card.foundIn?.includes("Secret Deck") || card.foundIn?.includes("Envelope")) && (<button onClick={secretFunc}>{utils.getIcon("Reveal", undefined, undefined, "1.5em")}</button>)}
     </div>
   )
 }

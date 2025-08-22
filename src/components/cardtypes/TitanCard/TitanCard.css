@@ -6,12 +6,12 @@
 }
 
 .titan-details {
-	flex: 2;
+	flex: 1;
 	padding: 10px;
 }
 
 .titan-table {
-	flex: 2;
+	flex: 1;
 	margin: 10px;
 	border: 1px solid black;
 	border-radius: 10px;
@@ -22,7 +22,11 @@
 .titan .pattern-table {
 	gap: 10px;
 	border-radius: 8px;
-	padding-bottom: 60px;
+	padding-bottom: 30px;
+}
+
+.titan .kratos-option {
+	padding: 2px 4px;
 }
 
 .titan-title {

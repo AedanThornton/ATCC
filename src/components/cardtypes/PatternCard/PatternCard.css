@@ -96,7 +96,7 @@
     justify-content: space-evenly;
     width: 100%;
     gap: 5px;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .kratos-table {
@@ -110,7 +110,7 @@
 .trauma-row {
     flex: 1;
     padding: 5px;
-    margin: 3px;
+    margin: 3px 20px;
     font-size: 14px;
     font-weight: bold;
     color: #DFDBCD;
@@ -123,19 +123,19 @@
 }
 
 .kratos-row {
-    flex: 4;
+    flex: 7;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
 
 }
 
-.kratos-row::before {
+.kratos-full-row::before {
     content: "";
     position: absolute;
     width: 200px;
-    height: 8%;
+    height: 6%;
     background-color: #FFF;
     /* Change to desired color */
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -159,10 +159,12 @@
 
 .kratos-full-row {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .kratos-rage-box {
-    flex: 1;
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;

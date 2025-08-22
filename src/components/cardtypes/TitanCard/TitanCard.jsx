@@ -101,7 +101,7 @@ const TitanCard = ({ titan, index }) => {
       <div className="titan-table">
         <PatternTable table={titan.traumaTable} type={"Trauma"}/>
       </div>
-      <div className="titan-table">
+      <div className="titan-table titan-kratos">
         <PatternTable table={titan.kratosTable} type={"Kratos"}/>
       </div>
     </div>

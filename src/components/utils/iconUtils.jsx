@@ -1,3 +1,4 @@
+import Tippy from "@tippyjs/react";
 import React from "react";
 
 // Import all SVG files dynamically
@@ -20,7 +21,8 @@ const invertibles = new Set([
     "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10", "AT",
     "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", 
     "StructuralTech", "Adversary", "AdventureHub", "TitanIcon", "City", "Lock",
-    "ArgoFate", "Inspect", "Flip", "Inspire", "Clutch", "Evasion"
+    "ArgoFate", "Inspect", "Flip", "Inspire", "Clutch", "Evasion", "Pass", "GreaterPass",
+    "Burden", "Succor", "Precise", "Energy"
 ]);
 
 // Utility functions
@@ -38,6 +40,7 @@ const utils = {
             "Red": type === "Power" ? "RedPowerDie" : type === "Armor" ? "RedArmorDie" : "Red",
             "Black": type === "Power" ? "BlackPowerDie" : type === "Armor" ? "BlackArmorDie" : "Black",
             "White": type === "Power" ? "WhitePowerDie" : type === "Armor" ? "WhiteArmorDie" : "White",
+            "Mortal": type === "Power" ? "MortalPowerDie" : type === "Armor" ? "MortalArmorDie" : "Mortal",
             "Reroll": "PowerReroll",
             "1 Hand": "OneHanded",
             "2 Hands": "TwoHanded",
@@ -56,13 +59,24 @@ const utils = {
 
         const icon = icons[name];
         return icon ? (
-            <img 
+            <Tippy
                 key={name + index} 
-                src={icon} 
-                style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, paddingBottom: padding }} 
-                alt={name} 
-                className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
-            />
+                duration={0} 
+                offset={[-10,5]}
+                appendTo={document.body}
+                placement="right-start"
+                content={
+                <span style={{backgroundColor: "gray", color: "white", padding: "2px 3px", borderRadius: "5px", fontSize: "12px"}}>
+                    {name}
+                </span>}
+            >
+                <img 
+                    src={icon} 
+                    style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, paddingBottom: padding }} 
+                    alt={name} 
+                    className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
+                />
+            </Tippy>
         ) : name;
     },
 
