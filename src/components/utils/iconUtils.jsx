@@ -27,7 +27,7 @@ const invertibles = new Set([
 
 // Utility functions
 const utils = {
-    getIcon: (name, type = "none", index, size = "1em", padding = "0.1em") => {
+    getIcon: (name, type = "none", index, size = "1em") => {
         const sizeMultiplier = {
             "1 Hand": 0.9,
             "2 Hands": 1.1,
@@ -72,7 +72,7 @@ const utils = {
             >
                 <img 
                     src={icon} 
-                    style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, paddingBottom: padding }} 
+                    style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`}} 
                     alt={name} 
                     className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
                 />
