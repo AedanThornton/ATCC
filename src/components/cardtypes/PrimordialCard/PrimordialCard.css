@@ -1,0 +1,109 @@
+/* primordial template */
+
+.primordial {
+  background-color: #DFDBCD;
+}
+
+.primordial p {
+  margin: 0;
+}
+
+.primordial>* {
+  color: black;
+  font-size: 0.8rem;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+}
+
+.primordial-icon {
+	border-radius: 50%;
+	border: 3px solid rgb(106, 106, 106);
+	box-shadow: 0 0 4px 3px rgb(106, 106, 106);
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+	padding: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.primordial-title {
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  border-radius: 9px 9px 0 0;
+  flex: 8;
+}
+
+.primordial-info {
+  text-align: center;
+  color: white;
+  background-color: rgb(106, 106, 106);
+  font-size: 15px;
+  margin: 5px 0;
+  margin-top: 15px;
+}
+
+.primordial-level-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.primordial-sheet {
+  display: flex;
+}
+
+.primordial-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.primordial-right {
+  flex: 1;
+}
+
+.primordial-statbar {
+  display: flex;
+  gap: 1rem;
+  background-color: #BFBCAB;
+}
+
+.primordial-vp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.primordial-vp-box {
+  display: flex;
+}
+
+.primordial-vp-box-left, .primordial-vp-box-right {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.primordial-attributes {
+  display: flex;
+  flex-direction: column;
+}
+
+.primordial-attributes__main {
+  display: flex;
+  gap: 1rem;
+}
+
+.primordial-attributes__bonus {
+  display: flex;
+  gap: 1rem;
+}
+
+/* End primordial template */

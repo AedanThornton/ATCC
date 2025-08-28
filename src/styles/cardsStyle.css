@@ -23,6 +23,12 @@
 	min-height: 359.04px;
 }
 
+.full-page {
+  width: 834px;
+	min-height: 359.04px;
+	/*min-height: 718.08px;*/
+}
+
 @media (min-width: 820px) {
 	.tarot.technology {
 		width: 620.16px;

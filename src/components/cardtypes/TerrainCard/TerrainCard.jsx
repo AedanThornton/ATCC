@@ -15,7 +15,7 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
         {/* Tiles */}
         <div className="terrain-tiles">
           {terrain.tiles?.map((tile, index) => (
-            <div index={index} className="terrain-tile-container">
+            <div key={index} className="terrain-tile-container">
               {`${tile.count} x `}
               <div className="terrain-tile-image-container">
                 {utils.getIcon(`Tile_${tile.type === "O" ? "2x2" : tile.type}`)}
@@ -25,14 +25,14 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
         </div>
 
         <div className="terrain-abilities">
-          <span index={index}>
+          <span key={index}>
             {terrain.keywords.join(". ")}
           </span>
         </div>
 
         <div className="terrain-abilities">
           {terrain.abilities?.map((ability, index) => (
-            <p index={index}>
+            <p key={index}>
               {ability}
             </p>
           ))}
