@@ -205,7 +205,8 @@
 
 .primordial-traits {
   padding: 5px;
-  height: 300px;
+  margin: 5px;
+  height: 400px;
   overflow-y: scroll;
   margin-right: 2px;
 }

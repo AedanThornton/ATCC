@@ -1,0 +1,140 @@
+{
+  "End of Hope": [
+    {
+      "text": "End of Primordial Round: Perform Signature.",
+      "formatting": ""
+    }
+  ],
+  "Vanish X": [
+    {
+      "text": "Move the Dragon of Phobos X spaces towards the closest Board Edge, without turning, ignoring Board Edges directly across from the Target or attacking Titan. If thes would move the Dragon of Phobos beyond a Board Edge or outside of all ranges of light, it disappears. When the Dragon of Phobos is outside the Battle Board, it cannot be affected in any way.",
+      "formatting": ""
+    }
+  ],
+  "Pale Grin of Doom": [
+    {
+      "text": "When you are attacked from behind, ignore the Evasion Roll; the Attack automatically hits with all the dice.",
+      "formatting": ""
+    }
+  ],
+  "Fear is Constant": [
+    {
+      "text": "Start of Battle: Chosen Titan gains the Fear Condition card, another Titan gains the Terror Condition card, a third one flips 1 Oxygen token.",
+      "formatting": ""
+    }
+  ],
+  "Blacker Than The Night": [
+    {
+      "text": "When the Dragon of Phobos performs Vanish X, it doesn't ignore the Board Edges directly across from teh Target or attacking Titan.",
+      "formatting": ""
+    }
+  ],
+  "Pale Grin of Death": [
+    {
+      "text": "When you are attacked from behind, ignore the Evasion Roll. You are immediately devoured (dead).",
+      "formatting": ""
+    }
+  ],
+  "Light is Dimming": [
+    {
+      "text": "If you don't have any Light X keyword, you are always considered to be attacked from behind.",
+      "formatting": ""
+    }
+  ],
+  "Psychosomatic Poisoning": [
+    {
+      "text": "When you gain a Condition card, and each time you start your turn with a Condition card, gain 1 Ambrosia token.",
+      "formatting": ""
+    }
+  ],
+  "Relentless Anxiety": [
+    {
+      "text": "When the Dragon of Phobos vanishes, immediately draw an AI card.",
+      "formatting": ""
+    }
+  ],
+  "Deeper Depths": [
+    {
+      "text": "Each Titan starts the Battle with 1 Oxygen token less.",
+      "formatting": ""
+    }
+  ],
+  "Original Trench": [
+    {
+      "text": "Normal (not Terrain) Battle Board spaces are considered Terrain tiles with the Chasm keyword. All other Terrain is considered Elevated.",
+      "formatting": ""
+    }
+  ],
+  "Beginning of the End": [
+    {
+      "text": "End of Primordial Round: Before End of Hope, draw and perform another AI card.",
+      "formatting": ""
+    }
+  ],
+  "Dragon of the Lightless Void": [
+    {
+      "text": "You can only use X amount of Opening or Closing tokens from the Kratos Pool. You can only use X amount of Break, Fire, Black, and Hope tokens from the Kratos Pool combined. X is equal to your Light X keyword.",
+      "formatting": ""
+    }
+  ],
+  "Ruthless": [
+    {
+      "text": "Remove all positive Trauma cards from the Trauma decks (except Obols).",
+      "formatting": ""
+    }
+  ],
+  "Heat Death": [
+    {
+      "text": "Meduketos doesn't destroy Petrified Vent Terrain tiles it moves through. Meduketos's Crash causes incineration.",
+      "formatting": ""
+    }
+  ],
+  "Microwave Shield": [
+    {
+      "text": "Before performing an Attack Roll, for each space between you and the Meduketos, discard 1 token from the Kratos Pool.",
+      "formatting": ""
+    }
+  ],
+  "Truth or Death": [
+    {
+      "text": "Before performing a Scan, declare if the Meduketos is there. If you are not correct, after resolving the Scan, draw an Obol.",
+      "formatting": ""
+    }
+  ],
+  "Invisible Flame": [
+    {
+      "text": "When you climb the VP, and when you start your turn on the VP, gain 1 Ambrosia token and 1 Pain token.",
+      "formatting": ""
+    }
+  ],
+  "Nap of the Vent": [
+    {
+      "text": "Meduketos destroys Petrified Vent Terrain tiles it moves through.",
+      "formatting": ""
+    }
+  ],
+  "Tigerback": [
+    {
+      "text": "To leave the VP voluntarily, you need to pass a Climb Down test (same difficulty as the Climb test).",
+      "formatting": ""
+    }
+  ],
+  "Candle in the Dark": [
+    {
+      "text": "If your Light X is lower than the Primordial level divided by 2 (rounding up), Skitter loses WoO.",
+      "formatting": ""
+    }
+  ],
+  "Black Soup": [
+    {
+      "text": "If you fail to find the Meduketos during the Titan Round, every Titan dies.",
+      "formatting": ""
+    }
+  ],
+  "Three Seconds": [
+    {
+      "text": "Ignore WoO preceding Microwave Attacks.",
+      "formatting": ""
+    }
+  ]
+}

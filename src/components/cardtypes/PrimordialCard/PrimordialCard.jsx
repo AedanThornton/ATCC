@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./PrimordialCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import { useState } from "react";
+import primordialAbilities from "../../../data/JSON/primordialAbilityData.json";
 
 const toRoman = (num) => {
   var charset = {
@@ -106,7 +107,12 @@ const PrimordialCard = ({ primordial, index }) => {
             {primordial.levels[currentLevel]?.traitsFullList.map((trait, index) => (
               <>
                 <div className="primordial-section-header">{trait.toUpperCase()}</div>
-                <p key={index}>{/*utils.primordialTrait(trait)*/}(trait description)</p>
+                <p key={index}>
+                  { primordialAbilities[trait] 
+                    ? primordialAbilities[trait][0].text
+                    : <i>Ability definition not found</i>
+                  }
+                </p>
               </>
             ))}
           </div>
