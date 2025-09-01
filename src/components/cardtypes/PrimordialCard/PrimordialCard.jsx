@@ -20,39 +20,45 @@ const toRoman = (num) => {
 }
 
 const PrimordialCard = ({ primordial, index }) => {
-  const [currentLevel, setCurrentLevel] = useState(1)
+  const [currentLevel, setCurrentLevel] = useState(0)
 
   return (
     <div className={`card primordial ${primordial.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
 
       <div className="primordial-sheet">
         <div className="primordial-left">
-          <div className="primordial-title" style={{ fontSize: Math.min(19, 400 / (1.1 * primordial.name.length)) }}>
-            {primordial.name.toUpperCase()}
-          </div>
+          <div className="primordial-left-header">
+            <div className="primordial-title" style={{ fontSize: Math.min(19, 400 / (1.1 * primordial.name.length)) }}>
+              {primordial.name.toUpperCase()}
+            </div>
 
-          <div className="primordial-statbar">
-            <div>{utils.getIcon("Tile_" + primordial.figure_size)}</div>
-            {primordial.diagramEffects?.map((effect, index) => (
-              <div key={index}>
-                {utils.getIcon(effect)}
-              </div>
-            ))}
+            <div className="primordial-statbar">
+              <div>{utils.getIcon("Tile_" + primordial.figure_size)}</div>
+              {primordial.diagramEffects?.map((effect, index) => (
+                <div key={index}>
+                  {utils.getIcon(effect)}
+                </div>
+              ))}
+            </div>
           </div>
 
           {primordial.vp && 
             <div className="primordial-vp-container">
-              {primordial.vp.vpCount !== "0" && Array.from({ length: primordial.vp.vpCount }, (_, i) => (
-                <div key={index} className="primordial-vp-circle">VP</div>
-              ))}
+              <div className="primordial-vp-circle-box">
+                {primordial.vp.vpCount !== "0" && Array.from({ length: primordial.vp.vpCount }, (_, i) => (
+                  <div key={index} className="primordial-vp-circle">VP</div>
+                ))}
+              </div>
 
-              {primordial.vp.climbTest.stat + " " + primordial.vp.climbTest.difficulty + "+"}
+              <span className="primordial-climb-test"><b>Climb: </b>Test {primordial.vp.climbTest.stat + " " + primordial.vp.climbTest.difficulty + "+"}</span>
               <div className="primordial-vp-box">
                 <div className="primordial-vp-box-left">
+                  <div className="primordial-section-header">HOLD ON</div>
                   <div className="primordial-vp-holdon"><b>End of Primordial Round:</b> Test {primordial.vp.holdOn.test}</div>
                   <div className="primordial-vp-fail"><b>Fail:</b> {primordial.vp.holdOn.fail}</div>
                 </div>
                 <div className="primordial-vp-box-right">
+                  <div className="primordial-section-header">VP EFFECTS</div>
                   {primordial.vp.effects.split(". ").map((effect, index) => (
                     <p key={index}>
                       {effect}
@@ -64,35 +70,55 @@ const PrimordialCard = ({ primordial, index }) => {
           }
         </div>
         <div className="primordial-right">
-          <div className="primordial-attributes">
-            <div className="primordial-attributes__main">
-              <div>{utils.getIcon("ToHit")} {primordial.levels[currentLevel].toHit}+</div>
-              <div>{utils.getIcon("Speed")} {primordial.levels[currentLevel].speed === "Inf" ? "∞" : primordial.levels[currentLevel].speed}</div>
-              <div>{utils.getIcon("Wounds")} {primordial.levels[currentLevel].wounds}</div>
-              <div>{primordial.levels[currentLevel].traitsChanges}</div>
+          <div className="primordial-level-bar">
+            <div className="primordial-attributes">
+              <div className="primordial-attributes__main">
+                <div className="primordial-attributes__main-stat-box">
+                  <div style={{borderColor: "#107975"}}>
+                    {utils.getIcon("ToHit", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.toHit}+</div></div>
+                <div className="primordial-attributes__main-stat-box">
+                  <div style={{borderColor: "#2f3f66"}} className="primordial-speed">
+                    {utils.getIcon("Speed", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.speed === "Inf" ? "∞" : primordial.levels[currentLevel]?.speed}</div></div>
+                <div className="primordial-attributes__main-stat-box">
+                  <div style={{borderColor: "#931e23"}}>
+                    {utils.getIcon("Wounds", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.wounds}</div></div>
+              </div>
+              <div className="primordial-attributes__bonus">
+                {Array.from({ length: 4 }, (_, i) => {
+                  return primordial.levels[currentLevel]?.attributes[i] 
+                  ? (
+                    <div key={i} className="primordial-attributes__bonus-stat-box">
+                      <span>+{primordial.levels[currentLevel]?.attributes[i].count} {utils.updateComponent(primordial.levels[currentLevel]?.attributes[i].name)}</span>
+                    </div>)
+                  : <div key={i} className="primordial-attributes__bonus-stat-placeholder"></div>
+                })}
+                <div style={{flex: "1 0 0", minWidth: "0"}}></div> {/* 5th bonus stat box, here to prevent the divider */}
+              </div>
             </div>
-            <div className="primordial-attributes__bonus">
-              {primordial.levels[currentLevel].attributes?.map((attribute, index) => (
-                <div key={index}>
-                  +{attribute.count} {utils.updateComponent(attribute.name)}
-                </div>
-              ))}
+            <div className="primordial-trait-changes">
+              <p><b>TRAITS {currentLevel !== 0 && "(+all previous):"}</b></p>
+              <p>+{primordial.levels[currentLevel]?.traitsChanges.join(", ")}</p>
             </div>
           </div>
 
 
           <div className="primordial-traits">
-            {primordial.levels[currentLevel].traitsFullList.join(". ")}
+            {primordial.levels[currentLevel]?.traitsFullList.map((trait, index) => (
+              <>
+                <div className="primordial-section-header">{trait.toUpperCase()}</div>
+                <p key={index}>{/*utils.primordialTrait(trait)*/}(trait description)</p>
+              </>
+            ))}
           </div>
         </div>
       </div>
 
 
       <div>
-        <div className="primordial-level-buttons">
+        <div className="primordial-level-button-box">
           {primordial.levels.length === 10 && (<button onClick={() => setCurrentLevel(0)} >0</button>)}
           {Array.from({ length: 9 }, (_, i) => (
-            <button onClick={() => setCurrentLevel(i)} style={{backgroundColor: currentLevel === i ? "#3a3a3a" : "black"}} key={index}>{toRoman(i+1)}</button>
+            <button className="primordial-level-button" onClick={() => setCurrentLevel(i)} style={{backgroundColor: currentLevel === i ? "#3a3a3a" : "black"}} key={index}>{toRoman(i+1)}</button>
           ))}
         </div>
 
