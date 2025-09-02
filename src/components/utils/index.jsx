@@ -6,17 +6,16 @@ import abilityGateUtils from "./gateUtils";
 import titleUtils from "./titleUtils";
 
 const updateComponent = (text, superindex) => {
-    return text.split(" ").map((word, index, array) => {
-        const CreatedTooltip = utils.createTooltip(word, `${superindex}-${index}`)
-        const isLastWord = index === array.length - 1;
+    return text.split("Icon").map((phrase, index) => {
+        const CreatedTooltip = utils.createTooltip(phrase, `${superindex}-${index}`)
 
-        const skips = ["Ambrosia"]
-        if (skips.includes(word)) return <React.Fragment key={`${superindex}-${index}`}>{word}{!isLastWord && " "}</React.Fragment>
+        const words = phrase.split(" ")
+        const icon = utils.getIcon(words.pop())
 
         if (typeof(CreatedTooltip) == "string") {
-            return <React.Fragment key={`${superindex}-${index}`}>{utils.inputIconUpdatedComponent(word, undefined, `${superindex}-${index}`)}{!isLastWord && " "}</React.Fragment>
+            return <React.Fragment key={`${superindex}-${index}`}>{words.join(" ")} {icon}</React.Fragment>
         }
-        else return <React.Fragment key={`${superindex}-${index}`}>{CreatedTooltip}{!isLastWord && " "}</React.Fragment>
+        else return <React.Fragment key={`${superindex}-${index}`}>{CreatedTooltip}</React.Fragment>
     })
 }
 
