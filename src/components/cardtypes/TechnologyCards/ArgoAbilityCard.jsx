@@ -14,7 +14,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
           <div className="title-icon"></div>
         </div>
 
-        {/* production-facility Project Side */}
+        {/* argo-ability Project Side */}
         {currentSide == 2 && (
         <div className="technology-project">
           <div className="technology-project-divider">
@@ -32,7 +32,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
           </div>
         </div>)}
 
-        {/* production-facility Tech Side */}
+        {/* argo-ability Tech Side */}
         {currentSide == 1 && (
         <div className="technology-tech">
           {argoAbility.flavorTech && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
@@ -56,7 +56,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
         )}
       </div>
 
-      {/* production-facility Info */}
+      {/* argo-ability Info */}
       <div>
         <div className="technology-info">Card Info</div>
 

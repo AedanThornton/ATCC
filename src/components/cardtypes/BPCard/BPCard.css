@@ -1,14 +1,17 @@
 /* Base Card Styles */
 .bp-card {
   background-color: #DFDBCD;
-  /* Parchment-like background */
   font-family: sans-serif;
-  /* Choose a fitting font */
   overflow: hidden;
-  /* Ensure footer border doesn't leak */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+}
+
+.bp-card__main-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 /* Header */
@@ -16,23 +19,19 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  /* Align items to the top */
   margin-bottom: 8px;
   padding: 10px;
 }
 
 .bp-card__icon-top-left {
   width: 40px;
-  /* Adjust size */
   height: 40px;
   border-radius: 50%;
   border: 1px solid #8b4513;
-  /* Brownish border */
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
-  /* Adjust icon size */
 }
 
 .bp-card__name {
@@ -40,9 +39,7 @@
   text-align: center;
   margin: 0 5px;
   padding-top: 5px;
-  /* Align text slightly lower */
   flex-grow: 1;
-  /* Allow name to take space */
 }
 
 /* Right Stats Bar */
@@ -54,9 +51,7 @@
   text-align: center;
   color: white;
   width: 38px;
-  /* Adjust width */
   flex-shrink: 0;
-  /* Prevent shrinking */
   font-size: 15px;
 }
 
@@ -83,7 +78,6 @@
   font-size: 1.1em;
   font-weight: bold;
   border-bottom: none;
-  /* Connect to the one below */
 }
 
 /* Flavor Text */
@@ -113,7 +107,6 @@
 
 .bp-card__section-header--response {
   margin: 0;
-  /* Spacing around response headers */
   margin-left: 6.66%;
 }
 
@@ -149,7 +142,6 @@
 }
 
 /* Responses */
-
 .bp-card__responses-line {
   display: flex;
   align-items: center;
@@ -191,8 +183,7 @@
 
 /* Footer */
 .bp-card__footer {
-  margin-top: auto;
-  /* Push footer to bottom */
+  margin-top: 10%;
   padding-top: 4px;
   padding-bottom: 2px;
   padding: 6px 10px 4px 10px;

@@ -24,7 +24,7 @@ const NymphCard = ({ nymph, index }) => {
         {/* Summoning */}
         <div className="nymph-text-box">
           <div className="nymph-text-header">SUMMONING</div>
-          <div className="nymph-text">{utils.updateComponent(`Spend 1 SummonCharge to summon the ${nymph.name}. Then, Adversary.`)}</div>
+          <div className="nymph-text">{utils.updateComponent(`Spend 1 SummonChargeIcon to summon the ${nymph.name}. Then, AdversaryIcon.`)}</div>
         </div>
 
         {/* Effects */}

@@ -7,7 +7,7 @@ const Ability = ({ ability, i }) => (
   <span key={i}>
     {` `}
     {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-    {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+    {ability.costs && ability.costs.map((cost, index) => <>{utils.getIcon(cost, undefined, index)} </>)}
     {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
     {ability.flavorName && (<b> {ability.flavorName}: </b>)}
     {ability.type === "unique"

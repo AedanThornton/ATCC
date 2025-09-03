@@ -53,71 +53,73 @@ const BPCard = ({ bp, index }) => {
         </div>
       </div>
 
-      {/* Resources Section */}
-      <div className="bp-card__resources-container" style={{ borderColor: getPrimaryCycleColor(bp.cycle) }}>
-        <h3 className="bp-card__resources-title">
-          Resources
-        </h3>
-        <div className="bp-card__resources-list">
-          {bp.resources?.map((resource, index) => (
-            <div key={index}>
-              {`${resource.count}x ${resource.name}`}
-            </div>
+      <div className="bp-card__main-body">
+        {/* Resources Section */}
+        <div className="bp-card__resources-container" style={{ borderColor: getPrimaryCycleColor(bp.cycle) }}>
+          <h3 className="bp-card__resources-title">
+            Resources
+          </h3>
+          <div className="bp-card__resources-list">
+            {bp.resources?.map((resource, index) => (
+              <div key={index}>
+                {`${resource.count}x ${resource.name}`}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* AT Section */}
+        <div className="bp-card__value-container">
+          <span style={{ background: getPrimaryCycleColor(bp.cycle) }}>
+            {utils.getIcon("AT", undefined, undefined, "20px")}
+            {` `}
+            {bp.value}
+          </span>
+        </div>
+
+        {/* Non-Response Text Section */}
+        <div className="bp-card__critical-list"> {/* Reuse style for alignment */}
+          {bp.nonResponseText}
+        </div>
+
+        {/* Responses Section */}
+        <div className="bp-card__responses">
+          {bp.responses?.map((response, index) => (
+            <React.Fragment key={index}>
+              <div className="bp-card__responses-line">          
+                {/* Header */}
+                <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor(response.type)}}>
+                  {response.type && response.type.toUpperCase()}
+                </span>
+              </div>
+              <div className="bp-card__effects-list">
+                {parseLines(response.effects, "effects")}
+              </div>
+            </React.Fragment>
           ))}
         </div>
-      </div>
 
-      {/* AT Section */}
-      <div className="bp-card__value-container">
-        <span style={{ background: getPrimaryCycleColor(bp.cycle) }}>
-          {utils.getIcon("AT", undefined, undefined, "20px")}
-          {` `}
-          {bp.value}
-        </span>
-      </div>
-
-      {/* Non-Response Text Section */}
-      <div className="bp-card__critical-list"> {/* Reuse style for alignment */}
-        {bp.nonResponseText}
-      </div>
-
-      {/* Responses Section */}
-      <div className="bp-card__responses">
-        {bp.responses?.map((response, index) => (
-          <React.Fragment key={index}>
-            <div className="bp-card__responses-line">          
-              {/* Header */}
-              <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor(response.type)}}>
-                {response.type && response.type.toUpperCase()}
-              </span>
-            </div>
-            <div className="bp-card__effects-list">
-              {parseLines(response.effects, "effects")}
-            </div>
-          </React.Fragment>
-        ))}
-      </div>
-
-      {/* Crit Response Section */}
-      <div className="bp-card__critical-response">
-        <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
-          <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor("critical")}}>CRITICAL</span>
+        {/* Crit Response Section */}
+        <div className="bp-card__critical-response">
+          <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
+            <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor("critical")}}>CRITICAL</span>
+          </div>
+          <div className="bp-card__critical-flavor">
+            {bp.critFlavor}
+          </div>
+          <div className="bp-card__critical-list">
+            {/*parseLines(*/bp.critResponse/*, "crit")*/}
+          </div>
         </div>
-        <div className="bp-card__critical-flavor">
-          {bp.critFlavor}
-        </div>
-        <div className="bp-card__critical-list">
-          {/*parseLines(*/bp.critResponse/*, "crit")*/}
-        </div>
-      </div>
 
-      {/* Footer */}
-      <div className="bp-card__footer" style={{backgroundColor: getPrimaryCycleColor(bp.cycle)}}>
-        <span className="bp-card_footer-div bp-card__id">ID: {bp.cardIDs?.[0]}</span>
-        <span className="bp-card_footer-div bp-card__type-indicator">
-          BODY PART
-        </span>
-        <div className="bp-card_footer-div"></div>
+        {/* Footer */}
+        <div className="bp-card__footer" style={{backgroundColor: getPrimaryCycleColor(bp.cycle)}}>
+          <span className="bp-card_footer-div bp-card__id">ID: {bp.cardIDs?.[0]}</span>
+          <span className="bp-card_footer-div bp-card__type-indicator">
+            BODY PART
+          </span>
+          <div className="bp-card_footer-div"></div>
+        </div>
       </div>
     </div>
   );

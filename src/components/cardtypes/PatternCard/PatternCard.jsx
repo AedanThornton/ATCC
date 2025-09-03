@@ -32,7 +32,7 @@ const PatternCard = ({ pattern, index }) => {
                 <span>
                   {` `}
                   {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                  {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                  {ability.costs && ability.costs.map((cost, index) => <>{utils.getIcon(cost, undefined, index)} </>)}
                   {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
                   {ability.flavorName && (<b> {ability.flavorName}: </b>)}
                   {ability.type === "unique"
@@ -61,7 +61,7 @@ const PatternCard = ({ pattern, index }) => {
               <span key={index}>
                 {` `}
                 {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                {ability.costs && utils.inputIconUpdatedComponent(ability.costs.join(" "))}
+                {ability.costs && ability.costs.map((cost, index) => <>{utils.getIcon(cost, undefined, index)} </>)}
                 {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
                 {ability.flavorName && (<b> {ability.flavorName}: </b>)}
                 {ability.type === "unique"

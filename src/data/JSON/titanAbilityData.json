@@ -1,7 +1,7 @@
 {
   "Abyss-tainted": [
     {
-      "text": "Start of your turn: Gain 1 Ambrosia token. After surviving any Trauma other than Obol, gain +1 Danger.",
+      "text": "Start of your turn: Gain 1 Ambrosia token. After surviving any Trauma other than Obol, gain +1 DangerIcon.",
       "formatting": ""
     }
   ],
@@ -13,13 +13,13 @@
   ],
   "Ascend!": [
     {
-      "text": "Each time you survive a Trauma Draw, place 1 generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of generic tokens here: 1: +1 Precision. 2: +1 Speed. 3: Auto-break 1. 4: Stalwart. 5: Rocksteady. 6: +1 Evasion. 7: +1 Power. 8: +2 to Awakening rolls. 9: Immediately Awaken, Adversary.",
+      "text": "Each time you survive a Trauma Draw, place 1 generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of generic tokens here: 1: +1 Precision. 2: +1 Speed. 3: Auto-break 1. 4: Stalwart. 5: Rocksteady. 6: +1 EvasionIcon. 7: +1 PowerIcon. 8: +2 to Awakening rolls. 9: Immediately Awaken, AdversaryIcon.",
       "formatting": ""
     }
   ],
   "Carry the Weight": [
     {
-      "text": "Each time you gain Midas tokens, place 1 Generic token on your Titan Sheet. You may discard an indicated number of those tokens to triger one of the folowing effects (as a free action, unless stated otherwise): 1: When performing a Hermes Move, treat it as 1 higher. 2: When you are about to suffer Float, ignore it. 3: Discard a Condition card. 4: When performing a Pwer Roll, gain +1 Power. 5: Gain a MovementAction. 6: Remove a Curse Affliction. 7: Awaken.",
+      "text": "Each time you gain Midas tokens, place 1 Generic token on your Titan Sheet. You may discard an indicated number of those tokens to triger one of the folowing effects (as a free action, unless stated otherwise): 1: When performing a Hermes Move, treat it as 1 higher. 2: When you are about to suffer Float, ignore it. 3: Discard a Condition card. 4: When performing a Power Roll, gain +1 PowerIcon. 5: Gain a MovementActionIcon. 6: Remove a Curse Affliction. 7: Awaken.",
       "formatting": ""
     }
   ],
@@ -37,37 +37,37 @@
   ],
   "Cyclopean Might": [
     {
-      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons.",
+      "text": "You can use ThreeHandedIcon Weapons as if they were TwoHandedIcon Weapons.",
       "formatting": ""
     }
   ],
   "Dance of Fate": [
     {
-      "text": "When you are about to draw an Obol, you may gain +2 Fate to add 1 You live! Obol card to the Obol deck (for this draw only).",
+      "text": "When you are about to draw an Obol, you may gain +2 FateIcon to add 1 You live! Obol card to the Obol deck (for this draw only).",
       "formatting": ""
     }
   ],
   "Disturbance in Fate": [
     {
-      "text": "Each time you roll a Crit Miss, Adversary.",
+      "text": "Each time you roll a Crit Miss, AdversaryIcon.",
       "formatting": ""
     }
   ],
   "Djinnslayer": [
     {
-      "text": "When on the Endless Staircase or on any Status card, gain +1 Power.",
+      "text": "When on the Endless Staircase or on any Status card, gain +1 PowerIcon.",
       "formatting": ""
     }
   ],
   "Dual-Wielding": [
     {
-      "text": "When attacking with a OneHanded Weapon, you can add one stackable keyword of another equipped non-Perishable OneHanded Weapon.",
+      "text": "When attacking with a OneHandedIcon Weapon, you can add one stackable keyword of another equipped non-Perishable OneHandedIcon Weapon.",
       "formatting": ""
     }
   ],
   "Elder Might": [
     {
-      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons. If you don't use a ThreeHanded Weapon, you have Tireless.",
+      "text": "You can use ThreeHandedIcon Weapons as if they were TwoHandedIcon Weapons. If you don't use a ThreeHandedIcon Weapon, you have Tireless.",
       "formatting": ""
     }
   ],
@@ -79,7 +79,7 @@
   ],
   "Fate Follows": [
     {
-      "text": "Each time you roll a Crit Miss, Adversary Adversary.",
+      "text": "Each time you roll a Crit Miss, AdversaryIcon AdversaryIcon.",
       "formatting": ""
     }
   ],
@@ -91,13 +91,13 @@
   ],
   "Fickle Fate": [
     {
-      "text": "Start of Battle: If you have less than 2 Fate, raise Fate to 2. If at any time you have 0 Fate, you flash forward:remove the Titan from the Battle. Treat them as if they died. After surviving a Major, Grave, or Obol Trauma, lose -1 Fate.",
+      "text": "Start of Battle: If you have less than 2 FateIcon, raise FateIcon to 2. If at any time you have 0 FateIcon, you flash forward:remove the Titan from the Battle. Treat them as if they died. After surviving a Major, Grave, or Obol Trauma, lose -1 FateIcon.",
       "formatting": ""
     }
   ],
   "Final Countdown": [
     {
-      "text": "Each time you roll a Crit Miss, Adversary Adversary.",
+      "text": "Each time you roll a Crit Miss, AdversaryIcon AdversaryIcon.",
       "formatting": ""
     }
   ],
@@ -115,13 +115,13 @@
   ],
   "Forgotten Curse": [
     {
-      "text": "Once per Battle, you may gain 3 Despair tokens to skip an After Attack of a Primordial Attack. You amy use the ability only during a WoO of an After Attack.",
+      "text": "Once per Battle, you may gain 3 Despair tokens to skip an After Attack of a Primordial Attack. You amy use the ability only during a WoOIcon of an After Attack.",
       "formatting": ""
     }
   ],
   "Four-Armed Centimanes": [
     {
-      "text": "You have 4 Weapon OneHanded slots. You cannot use TwoHanded and ThreeHanded Weapons.",
+      "text": "You have 4 Weapon OneHandedIcon slots. You cannot use TwoHandedIcon and ThreeHandedIcon Weapons.",
       "formatting": ""
     }
   ],
@@ -133,7 +133,7 @@
   ],
   "In Light and Shade": [
     {
-      "text": "Each Laser Attack hit and Sun Attack hit deals 1 Danger less (to a minimum of 1). When you are about to die from incineration, draw an Obol instead.",
+      "text": "Each Laser Attack hit and Sun Attack hit deals 1 DangerIcon less (to a minimum of 1). When you are about to die from incineration, draw an Obol instead.",
       "formatting": ""
     }
   ],
@@ -151,7 +151,7 @@
   ],
   "Kreios Strain": [
     {
-      "text": "While performing MovementAction, you can move diagonally.",
+      "text": "While performing MovementActionIcon, you can move diagonally.",
       "formatting": ""
     }
   ],
@@ -169,25 +169,25 @@
   ],
   "Lightweight Curse": [
     {
-      "text": "You can use ThreeHanded Weapons as if they were TwoHanded Weapons. You cannot use OneHanded Weapons.",
+      "text": "You can use ThreeHandedIcon Weapons as if they were TwoHandedIcon Weapons. You cannot use OneHandedIcon Weapons.",
       "formatting": ""
     }
   ],
   "Logicbreak": [
     {
-      "text": "Fate When you survive an Obol, perform a CombatAction (up to 3 times per Round).",
+      "text": "Fate When you survive an Obol, perform a CombatActionIcon (up to 3 times per Round).",
       "formatting": ""
     }
   ],
   "Nimble Feet": [
     {
-      "text": "You have 3 Weapon OneHanded slots. You cannot use ThreeHanded Weapons.",
+      "text": "You have 3 Weapon OneHandedIcon slots. You cannot use ThreeHandedIcon Weapons.",
       "formatting": ""
     }
   ],
   "One for All": [
     {
-      "text": "If your natural Rage goes over 9 during an Attack, perform a normal Attack, but do not draw a BP card. Instead, perform a Power Roll, divide your Total Power by 2 (rounding up) and add +1 PowerIcon if you had a Crit Chance. Note the resulting Power, then clear the Kratos Pool and continue to your second ability window (do not resolve any responses). Next time any Titan attacks, it adds the Power you noted to its Total Power.",
+      "text": "If your natural RageIcon goes over 9 during an Attack, perform a normal Attack, but do not draw a BP card. Instead, perform a Power Roll, divide your Total Power by 2 (rounding up) and add +1 PowerIcon if you had a Crit Chance. Note the resulting Power, then clear the Kratos Pool and continue to your second ability window (do not resolve any responses). Next time any Titan attacks, it adds the Power you noted to its Total Power.",
       "formatting": ""
     }
   ],
@@ -199,7 +199,7 @@
   ],
   "Pain Engine": [
     {
-      "text": "Each time you gain a Pain token (each), place 1 Generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Speed. 2: While performing MovementAction, you can move diagonally. 3: Your Titan's Power die becomes White. 4: Auto-rouse 1. 5: Deadly.",
+      "text": "Each time you gain a Pain token (each), place 1 Generic token on your Titan Sheet. You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 SpeedIcon. 2: While performing MovementActionIcon, you can move diagonally. 3: Your Titan's Power die becomes White. 4: Auto-rouse 1. 5: Deadly.",
       "formatting": ""
     }
   ],
@@ -211,7 +211,7 @@
   ],
   "Rage Summit": [
     {
-      "text": "After surviving a positive Major, Grave, or Obol Trauma, you may gain 1 Rage. After Surviving a negative Major, Grave, or Obol Trauma, you must gain 1 Rage.",
+      "text": "After surviving a positive Major, Grave, or Obol Trauma, you may gain 1 Rage. After Surviving a negative Major, Grave, or Obol Trauma, you must gain 1 RageIcon.",
       "formatting": ""
     }
   ],
@@ -223,7 +223,7 @@
   ],
   "Seer Sense": [
     {
-      "text": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive Evasion token.",
+      "text": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive EvasionIcon token.",
       "formatting": ""
     }
   ],
@@ -235,13 +235,13 @@
   ],
   "Shadowdance": [
     {
-      "text": "When you resolve a Primordial Attack against you, you may gain +X Fate to perform MovementAction and an Attack (treat it as an Interrupt, if able). Gain a CombatAction Fatigue token. X is 3 minus the AI level.",
+      "text": "When you resolve a Primordial Attack against you, you may gain +X Fate to perform MovementActionIcon and an Attack (treat it as an Interrupt, if able). Gain a CombatActionIcon Fatigue token. X is 3 minus the AI level.",
       "formatting": ""
     }
   ],
   "Six-Armed": [
     {
-      "text": "You have 3 OneHanded slots OR 3 Support slots.",
+      "text": "You have 3 OneHandedIcon slots OR 3 SupportIcon slots.",
       "formatting": ""
     }
   ],
@@ -259,19 +259,19 @@
   ],
   "Stout": [
     {
-      "text": "You have 3 Support slots. You cannot have more than +1 Evasion at any given time. Ignore up to -1 Speed penalty from any 1 Gear.",
+      "text": "You have 3 SupportIcon slots. You cannot have more than +1 EvasionIcon at any given time. Ignore up to -1 SpeedIcon penalty from any 1 GearIcon.",
       "formatting": ""
     }
   ],
   "Stubborn": [
     {
-      "text": "You may reduce suffered Pushbacks and Knockbacks by 1. Ignore Knockdown. After surviving a Major, Grave, or Obol Trauma, lose -1 Danger.",
+      "text": "You may reduce suffered Pushbacks and Knockbacks by 1. Ignore Knockdown. After surviving a Major, Grave, or Obol Trauma, lose -1 DangerIcon.",
       "formatting": ""
     }
   ],
   "Surpass!": [
     {
-      "text": "If you have 5+ Rage, if your Weapon Gear doesn't already have the Assist X keyword, it gains Assist 1.",
+      "text": "If you have 5+ RageIcon, if your Weapon GearIcon doesn't already have the Assist X keyword, it gains Assist 1.",
       "formatting": ""
     }
   ],
@@ -283,7 +283,7 @@
   ],
   "Tall Tales": [
     {
-      "text": "After surviving a Major, Grave, or Obol Trauma, gain the PriorityTarget token.",
+      "text": "After surviving a Major, Grave, or Obol Trauma, gain the PriorityTargetIcon token.",
       "formatting": ""
     }
   ],
@@ -307,19 +307,19 @@
   ],
   "Unknown Might": [
     {
-      "text": "You can use ThreeHanded Weapons as if they were TwoHanded. If you do, you have -1 Support slot.",
+      "text": "You can use ThreeHandedIcon Weapons as if they were TwoHandedIcon. If you do, you have -1 SupportIcon slot.",
       "formatting": ""
     }
   ],
   "Wish Engine": [
     {
-      "text": "Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card. Each time you gain a Wishkeen or Wishagog Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet. You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision. 2: When you attack, gain Auto-break 1. 3:Block 1. 4: When performing a Power Roll, gain +1 Power. 5: Gain MovementAction. 6: Gain CombatAction. 7: Awaken.",
+      "text": "Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card. Each time you gain a Wishkeen or Wishagog Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet. You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision. 2: When you attack, gain Auto-break 1. 3: Block 1. 4: When performing a Power Roll, gain +1 PowerIcon. 5: Gain MovementActionIcon. 6: Gain CombatActionIcon. 7: Awaken.",
       "formatting": ""
     }
   ],
   "Wish Shield": [
     {
-      "text": "Each Wish Attack and Laser Attack hit deals 1 Danger less (to a minimum of 1) to you and adjacent Titans.",
+      "text": "Each Wish Attack and Laser Attack hit deals 1 DangerIcon less (to a minimum of 1) to you and adjacent Titans.",
       "formatting": ""
     }
   ]

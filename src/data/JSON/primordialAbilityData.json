@@ -7,7 +7,7 @@
   ],
   "Vanish X": [
     {
-      "text": "Move the Dragon of Phobos X spaces towards the closest Board Edge, without turning, ignoring Board Edges directly across from the Target or attacking Titan. If thes would move the Dragon of Phobos beyond a Board Edge or outside of all ranges of light, it disappears. When the Dragon of Phobos is outside the Battle Board, it cannot be affected in any way.",
+      "text": "Move the Primordial X spaces towards the closest Board Edge, without turning, ignoring Board Edges directly across from the Target or attacking Titan. If thes would move the Primordial beyond a Board Edge or outside of all ranges of light, it disappears. When the Primordial is outside the Battle Board, it cannot be affected in any way.",
       "formatting": ""
     }
   ],
@@ -25,7 +25,7 @@
   ],
   "Blacker Than The Night": [
     {
-      "text": "When the Dragon of Phobos performs Vanish X, it doesn't ignore the Board Edges directly across from teh Target or attacking Titan.",
+      "text": "When the Primordial performs Vanish X, it doesn't ignore the Board Edges directly across from the Target or attacking Titan.",
       "formatting": ""
     }
   ],
@@ -49,7 +49,7 @@
   ],
   "Relentless Anxiety": [
     {
-      "text": "When the Dragon of Phobos vanishes, immediately draw an AI card.",
+      "text": "When the Primordial vanishes, immediately draw an AI card.",
       "formatting": ""
     }
   ],
@@ -85,19 +85,19 @@
   ],
   "Heat Death": [
     {
-      "text": "Meduketos doesn't destroy Petrified Vent Terrain tiles it moves through. Meduketos's Crash causes incineration.",
+      "text": "Primordial doesn't destroy Petrified Vent Terrain tiles it moves through. Primordial's Crash causes incineration.",
       "formatting": ""
     }
   ],
   "Microwave Shield": [
     {
-      "text": "Before performing an Attack Roll, for each space between you and the Meduketos, discard 1 token from the Kratos Pool.",
+      "text": "Before performing an Attack Roll, for each space between you and the Primordial, discard 1 token from the Kratos Pool.",
       "formatting": ""
     }
   ],
   "Truth or Death": [
     {
-      "text": "Before performing a Scan, declare if the Meduketos is there. If you are not correct, after resolving the Scan, draw an Obol.",
+      "text": "Before performing a Scan, declare if the Primordial is there. If you are not correct, after resolving the Scan, draw an Obol.",
       "formatting": ""
     }
   ],
@@ -109,7 +109,7 @@
   ],
   "Nap of the Vent": [
     {
-      "text": "Meduketos destroys Petrified Vent Terrain tiles it moves through.",
+      "text": "Primordial destroys Petrified Vent Terrain tiles it moves through.",
       "formatting": ""
     }
   ],
@@ -121,19 +121,19 @@
   ],
   "Candle in the Dark": [
     {
-      "text": "If your Light X is lower than the Primordial level divided by 2 (rounding up), Skitter loses WoO.",
+      "text": "If your Light X is lower than the Primordial level divided by 2 (rounding up), Skitter loses WoOIcon.",
       "formatting": ""
     }
   ],
   "Black Soup": [
     {
-      "text": "If you fail to find the Meduketos during the Titan Round, every Titan dies.",
+      "text": "If you fail to find the Primordial during the Titan Round, every Titan dies.",
       "formatting": ""
     }
   ],
   "Three Seconds": [
     {
-      "text": "Ignore WoO preceding Microwave Attacks.",
+      "text": "Ignore WoOIcon preceding Microwave Attacks.",
       "formatting": ""
     }
   ]
