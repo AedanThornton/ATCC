@@ -2,19 +2,20 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor} from "../../../lib/colors.js"
 
 const GearCard = ({ gear, index, currentSide }) => {
   let side = currentSide
   if (currentSide === 1) side = ""
 
   return (
-    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(gear["cycle" + side]) }}>
+    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()} papyrus`} style={{ color: getCyclePrimaryColor(gear["cycle" + side]) }}>
       <div className="card-info">
-        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear["cycle" + side])}}>{utils.getIcon(gear["slot" + side], undefined, undefined, "2.1em", "0em")}</div></div>
-        <div className="gear-title" style={{ color: getColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side])}}>{utils.getIcon(gear["slot" + side], undefined, undefined, "2.1em", "0em")}</div></div>
+        <div className="gear-title" style={{ color: getCyclePrimaryColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
           {gear["name" + side]}
         </div>
-        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(gear["cycle" + side])}}>{utils.getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side])}}>{utils.getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
       </div>
 
       {/* Stats and Image */}
@@ -127,7 +128,7 @@ const GearCard = ({ gear, index, currentSide }) => {
       )}
 
       {/* Gear Info */}
-        <div className="gear-info" style={{ background: getColor(gear["cycle" + side]), color: getCycleFontColor(gear["cycle" + side]) }}>Card Info</div>
+        <div className="gear-info" style={{ background: getCyclePrimaryColor(gear["cycle" + side]), color: getCycleSecondaryColor(gear["cycle" + side]) }}>Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">Acquisition</div>
           <div className="card-info-detail">{gear["acquisition" + side]}</div>
@@ -151,51 +152,6 @@ const GearCard = ({ gear, index, currentSide }) => {
       </div>
     </div>
   );
-};
-
-// Helper functions for styling
-const getColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#4A3204",
-    "Cycle II": "rgb(77, 18, 11)",
-    "Cycle III": "#543560",
-    "Cycle IV": "#131004",
-    "Cycle V": "#05233B",
-    "Mnestis Theatre": "#C59A18",
-    "Mnestis": "#C59A18",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
-};
-
-const getCycleFontColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#FFFFFF",
-    "Cycle II": "rgb(199, 43, 26)",
-    "Cycle III": "#FFFFFF",
-    "Cycle IV": "#E7CC68",
-    "Cycle V": "#FFFFFF",
-    "Mnestis Theatre": "#FFFFFF",
-    "Mnestis": "#FFFFFF",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
-};
-
-const getGateColor = (gatetype) => {
-  gatetype = gatetype.toLowerCase()
-  const gateColors = {
-    hits: "rgb(155, 35, 21)",
-    danger: "rgb(155, 35, 21)",
-    fate: "#557DBD",
-    rage: "#040404",
-    ambrosia: "#5D0D69",
-    bleed: "#040404",
-    labyrinth: "#7D4921",
-    despair: "#0E5653",
-    condition: "#C09513",
-    "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
-    midas: "131004",
-  };
-  return gateColors[gatetype] || "#AAAAAA";
 };
 
 export default GearCard;

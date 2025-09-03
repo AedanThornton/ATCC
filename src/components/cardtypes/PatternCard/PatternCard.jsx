@@ -3,6 +3,7 @@ import "/src/styles/cardsStyle.css"
 import "./PatternCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "./PatternTable.jsx";
+import {getGateColor} from "../../../lib/colors.js"
 
 const PatternCard = ({ pattern, index }) => {
   return (
@@ -109,23 +110,6 @@ const PatternCard = ({ pattern, index }) => {
 // Helper functions for styling
 const getColor = (type) => {
   return type === "Kratos" ? "#000" : "rgba(92,14,5,1)"
-};
-
-const getGateColor = (gatetype) => {
-  gatetype = gatetype.toLowerCase()
-  const gateColors = {
-    danger: "rgb(155, 35, 21)",
-    fate: "#557DBD",
-    rage: "#040404",
-    ambrosia: "#5D0D69",
-    bleed: "#040404",
-    labyrinth: "#7D4921",
-    despair: "#0E5653",
-    condition: "#C09513",
-    "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
-    midas: "131004",
-  };
-  return gateColors[gatetype] || "#AAAAAA";
 };
 
 export default PatternCard;

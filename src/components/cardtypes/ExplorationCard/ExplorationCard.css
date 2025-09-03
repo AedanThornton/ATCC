@@ -1,11 +1,11 @@
 /* exploration template */
 /* 
-    #DFDBCD light
-    #cac7b9 dark
+    var(--papyrus) light
+    var(--papyrus-dark) dark
 */
 
 .exploration {
-  background-color: #DFDBCD;
+  background-color: var(--papyrus);
   color: black;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@
 }
 
 .exploration-effects {
-  background-color: #cac7b9;
+  background-color: var(--papyrus-dark);
   flex: 1;
   padding: 10px 0
 }

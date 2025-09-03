@@ -1,6 +1,6 @@
 /* pattern template */
 .pattern {
-    background-color: #DFDBCD;
+    background-color: var(--papyrus);
 }
 
 .pattern-title {
@@ -71,8 +71,8 @@
 
 .pattern .icon {
     border-radius: 50%;
-    border: 3px solid #DFDBCD;
-    box-shadow: 0 0 4px 3px #cac7b9;
+    border: 3px solid var(--papyrus);
+    box-shadow: 0 0 4px 3px var(--papyrus-dark);
     height: 30px;
     width: 30px;
     margin: 5px;
@@ -113,7 +113,7 @@
     margin: 3px 20px;
     font-size: 14px;
     font-weight: bold;
-    color: #DFDBCD;
+    color: var(--papyrus);
     background: rgb(92, 14, 5);
     background: linear-gradient(90deg, rgba(92, 14, 5, 1) 20%, rgb(158, 27, 13) 80%);
     max-height: 25px;

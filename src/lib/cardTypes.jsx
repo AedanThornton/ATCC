@@ -22,6 +22,7 @@ import StoryCard from "../components/cardtypes/StoryCard/StoryCard";
 import DoomCard from "../components/cardtypes/DoomCard/DoomCard";
 import TerrainCard from "../components/cardtypes/TerrainCard/TerrainCard";
 import PrimordialCard from "../components/cardtypes/PrimordialCard/PrimordialCard";
+import MapCard from "../components/cardtypes/MapCard/MapCard";
 
 const cardTypes = {
   "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name} />,
@@ -58,6 +59,7 @@ const cardTypes = {
   "Doom": (name, currentSide = 1) => <DoomCard key={name.cardIDs[0]} doom={name} currentSide={currentSide} />,
   "Terrain": (name, currentSide = 1) => <TerrainCard key={name.cardIDs[0]} terrain={name} currentSide={currentSide} />,
   "Primordial": (name) => <PrimordialCard key={name.cardIDs[0]} primordial={name} />,
+  "Map": (name) => <MapCard key={name.cardIDs[0]} map={name} />,
 };
 
 export default cardTypes;

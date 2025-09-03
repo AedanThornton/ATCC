@@ -3,13 +3,14 @@ import "/src/styles/cardsStyle.css"
 import "./TitanCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
+import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor} from "../../../lib/colors.js"
 
 const TitanCard = ({ titan, index }) => {
   return (
-    <div className={`card titan ${titan.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(titan.cycle) }}>
+    <div className={`card titan ${titan.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getCyclePrimaryColor(titan.cycle) }}>
       <div className="titan-details">
         <div className="card-info">
-          <div className="titan-title" style={{ color: getColor(titan.cycle), fontSize: Math.min(19, 300 / (1.2 * titan.name.length)) }}>
+          <div className="titan-title" style={{ color: getCyclePrimaryColor(titan.cycle), fontSize: Math.min(19, 300 / (1.2 * titan.name.length)) }}>
             {titan.name}
           </div>
         </div>
@@ -87,7 +88,7 @@ const TitanCard = ({ titan, index }) => {
         </div>
 
         {/* Titan Info */}
-        <div className="titan-info" style={{ background: getColor(titan.cycle), color: getCycleFontColor(titan.cycle) }}>Card Info</div>
+        <div className="titan-info" style={{ background: getCyclePrimaryColor(titan.cycle), color: getCycleSecondaryColor(titan.cycle) }}>Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>
           <div className="card-info-detail">{titan.cardIDs.join(", ")}</div>
@@ -106,50 +107,6 @@ const TitanCard = ({ titan, index }) => {
       </div>
     </div>
   );
-};
-
-// Helper functions for styling
-const getColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#4A3204",
-    "Cycle II": "rgb(77, 18, 11)",
-    "Cycle III": "#543560",
-    "Cycle IV": "#131004",
-    "Cycle V": "#05233B",
-    "Mnestis Theatre": "#C59A18",
-    "Mnestis": "#C59A18",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
-};
-
-const getCycleFontColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#FFFFFF",
-    "Cycle II": "rgb(199, 43, 26)",
-    "Cycle III": "#FFFFFF",
-    "Cycle IV": "#E7CC68",
-    "Cycle V": "#FFFFFF",
-    "Mnestis Theatre": "#FFFFFF",
-    "Mnestis": "#FFFFFF",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
-};
-
-const getGateColor = (gatetype) => {
-  gatetype = gatetype.toLowerCase()
-  const gateColors = {
-    danger: "rgb(155, 35, 21)",
-    fate: "#557DBD",
-    rage: "#040404",
-    ambrosia: "#5D0D69",
-    bleed: "#040404",
-    labyrinth: "#7D4921",
-    despair: "#0E5653",
-    condition: "#C09513",
-    "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
-    midas: "131004",
-  };
-  return gateColors[gatetype] || "#AAAAAA";
 };
 
 export default TitanCard;

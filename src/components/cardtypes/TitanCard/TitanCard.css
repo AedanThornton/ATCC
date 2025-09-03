@@ -1,6 +1,6 @@
 /* Gear template */
 .titan {
-	background-color: #DFDBCD;
+	background-color: var(--papyrus);
 	display: flex;
 	flex-direction: row;
 }
@@ -107,8 +107,8 @@
 
 .titan .icon {
 	border-radius: 50%;
-	border: 3px solid #DFDBCD;
-	box-shadow: 0 0 4px 3px #cac7b9;
+	border: 3px solid var(--papyrus);
+	box-shadow: 0 0 4px 3px var(--papyrus-dark);
 	height: 30px;
 	width: 30px;
 	margin: 5px;

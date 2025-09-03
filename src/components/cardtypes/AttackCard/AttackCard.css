@@ -1,11 +1,8 @@
 /* Base Card Styles */
 .ai-card {
-  background-color: #DFDBCD;
-  /* Parchment-like background */
+  background-color: var(--papyrus);
   font-family: sans-serif;
-  /* Choose a fitting font */
   overflow: hidden;
-  /* Ensure footer border doesn't leak */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -16,23 +13,19 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  /* Align items to the top */
   margin-bottom: 8px;
   padding: 10px;
 }
 
 .ai-card__icon-top-left {
   width: 40px;
-  /* Adjust size */
   height: 40px;
   border-radius: 50%;
   border: 1px solid #8b4513;
-  /* Brownish border */
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2em;
-  /* Adjust icon size */
 }
 
 .ai-card__name {
@@ -40,9 +33,7 @@
   text-align: center;
   margin: 0 5px;
   padding-top: 5px;
-  /* Align text slightly lower */
   flex-grow: 1;
-  /* Allow name to take space */
 }
 
 /* Right Stats Bar */
@@ -54,9 +45,7 @@
   text-align: center;
   color: white;
   width: 38px;
-  /* Adjust width */
   flex-shrink: 0;
-  /* Prevent shrinking */
   font-size: 15px;
 }
 
@@ -65,7 +54,6 @@
   width: 38px;
   top: 25px;
   background-color: #743e27;
-  /* Sienna/brown */
   position: absolute;
   z-index: -1;
 }
@@ -85,7 +73,6 @@
   font-size: 1.1em;
   font-weight: bold;
   border-bottom: none;
-  /* Connect to the one below */
 }
 
 .stats-bar-right__dice {
@@ -97,7 +84,6 @@
 
 .stats-bar-right__dice-value {
   position: relative;
-  /* Ensure text is above icon bg */
   z-index: 2;
 }
 
@@ -106,7 +92,6 @@
   padding: 3px 0;
   font-size: 18px;
   border-top: 1px solid #fff;
-  /* Lighter line separating dice/difficulty */
 }
 
 /* Flavor Text */
@@ -136,7 +121,6 @@
 
 .ai-card__section-header--action {
   margin: 0;
-  /* Spacing around MOVE & ATTACK */
 }
 
 .ai-card__section-header--after-attack {
@@ -170,14 +154,12 @@
 .ai-card__attack-banner {
   font-size: 12px;
   background-color: #a0522d;
-  /* Sienna/brown */
   color: white;
   border: 1px solid white;
   padding: 1px 5px;
   border-radius: 1px;
   margin-left: 5px;
   display: inline-flex;
-  /* Align icons inside */
   align-items: center;
 }
 
@@ -202,7 +184,6 @@
 /* After Attack */
 .ai-card__after-attack {
   margin-bottom: 15px;
-  /* Space before footer */
 }
 
 .ai-card__after-attack-list {
@@ -213,7 +194,6 @@
 /* Footer */
 .ai-card__footer {
   margin-top: auto;
-  /* Push footer to bottom */
   padding-top: 4px;
   padding-bottom: 2px;
   padding: 6px 10px 4px 10px;

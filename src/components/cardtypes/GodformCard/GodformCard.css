@@ -1,11 +1,11 @@
 /* godform template */
-/* light -- #DFDBCD */
-/* dark --  #cac7b9 */
+/* light -- var(--papyrus) */
+/* dark --  var(--papyrus-dark) */
 /* accent -- #488791 */
 /* accentdark -- # */
 
 .godform {
-  background-color: #DFDBCD;
+  background-color: var(--papyrus);
 }
 
 .godform p {
@@ -54,7 +54,7 @@
 }
 
 .godform-ability {
-  background-color: #cac7b9;
+  background-color: var(--papyrus-dark);
   border: 1px solid #b7b4a5;
   padding: 6px 10px;
   line-height: 15px;
@@ -68,7 +68,7 @@
 .godform-stats-box {
   display: flex;
   justify-content: space-between;
-  background-color: #cac7b9;
+  background-color: var(--papyrus-dark);
   border: 1px solid #b7b4a5;
   box-sizing: border-box;
   width: 90%;

@@ -1,0 +1,33 @@
+/* map template */
+
+.map {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.map-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.map-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.map-corner {
+  background-color: var(--papyrus);
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 0.5rem;
+  display: flex;
+  gap: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* End map template */

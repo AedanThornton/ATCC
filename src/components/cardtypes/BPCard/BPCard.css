@@ -1,6 +1,6 @@
 /* Base Card Styles */
 .bp-card {
-  background-color: #DFDBCD;
+  background-color: var(--papyrus);
   font-family: sans-serif;
   overflow: hidden;
   display: flex;
@@ -118,7 +118,7 @@
 .bp-card__value-container span {
   border-radius: 50px;
   border: 2px solid white;
-  box-shadow: 0 0 4px 3px #cac7b9;
+  box-shadow: 0 0 4px 3px var(--papyrus-dark);
   color: white;
   padding: 1px 6px;
   padding-right: 8px;
@@ -162,8 +162,8 @@
 
 /* Critical */
 .bp-card__critical-flavor {
-  border-top: 1px solid #cac7b9;
-  border-bottom: 1px solid #cac7b9;
+  border-top: 1px solid var(--papyrus-dark);
+  border-bottom: 1px solid var(--papyrus-dark);
   margin: 3px 6.66%;
   padding: 0;
   text-align: left;
