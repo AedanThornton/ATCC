@@ -9,9 +9,6 @@ for (const path in modules) {
 }
 
 const AbilityGate = ({ icon, value, fill }) => {
-
-    const link = icons[icon]
-
     let iconAdjustment = 0
     let iconSize = 22
     switch (icon){
@@ -19,7 +16,12 @@ const AbilityGate = ({ icon, value, fill }) => {
             iconAdjustment = 5
             iconSize = 35
             break;
+        case "Labyrinth":
+            icon = "Labyrinthians"
+            break;
     }
+
+    const link = icons[icon]
 
     const gateXOffset = 2
     const gateYOffset = 4

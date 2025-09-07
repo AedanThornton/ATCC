@@ -22,7 +22,7 @@ const invertibles = new Set([
     "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", 
     "StructuralTech", "Adversary", "AdventureHub", "Titan", "City", "Lock",
     "ArgoFate", "Inspect", "Flip", "Inspire", "Clutch", "Evasion", "Pass", "GreaterPass",
-    "Burden", "Succor", "Precise", "Energy", "PolePosition"
+    "Burden", "Succor", "Precise", "Energy", "PolePosition", "Labyrinthians"
 ]);
 
 // Utility functions
@@ -47,8 +47,8 @@ const utils = {
             "3 Hands": "ThreeHanded",
             "2 1 Hands": "TwoOneHanded",
             "3 1 Hands": "ThreeOneHanded",
-            "Armor": "Armor",
-            "AdversaryActivation": "Adversary"
+            "AdversaryActivation": "Adversary",
+            "Labyrinth": "Labyrinthians"
         };
 
         if (nameMap[name]) {

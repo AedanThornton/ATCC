@@ -1,0 +1,18 @@
+.weapon-stats {
+	text-align: center;
+	padding: 3% 0;
+	background-color: #BFBCAB;
+	font-size: 15px;
+    gap: 3px;
+}
+
+.weapon-stats img {
+	vertical-align: middle;
+}
+
+
+.weapon-stats-bar {
+	display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

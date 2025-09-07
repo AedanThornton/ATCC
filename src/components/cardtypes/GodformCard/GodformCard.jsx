@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./GodformCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import WeaponRenderer from "../../WeaponRenderer.jsx";
 
 const GodformCard = ({ godform, index }) => {
   return (
@@ -14,23 +15,8 @@ const GodformCard = ({ godform, index }) => {
         <div className="godform-ability-box" key={index}>
           <div className="godform-ability-header">{ability.name.toUpperCase()}</div>
           <div className="godform-ability">
-            {ability.attack && <div style={{flex: 1}} className="godform-stats-container godform-stats-left">
-              {ability.attack.attackDice && (
-                <div className="godform-stats">{ability.attack.attackDice} {utils.getIcon("d10")}</div>
-              )}
-              {ability.attack.precision && (
-                <div className="godform-stats">{ability.attack.precision}</div>
-              )}
-              
-              {ability.attack.power?.map((p, index) => (
-                <div key={index} >
-                  <div className="godform-stats">
-                    {p.type.map((die, subindex) => (
-                      utils.getIcon(die, "Power", index+subindex)
-                    ))}
-                  </div>
-                </div>
-              ))}
+            {ability.attack && <div style={{flex: 1}}>
+              <WeaponRenderer statsArray={ability.attack}/>
             </div>}
             <div style={{flex: 4}}>{utils.updateComponent(`${ability.effects}`)}</div>
           </div>

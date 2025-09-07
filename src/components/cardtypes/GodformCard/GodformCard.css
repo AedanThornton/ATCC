@@ -57,7 +57,6 @@
   background-color: var(--papyrus-dark);
   border: 1px solid #b7b4a5;
   padding: 6px 10px;
-  line-height: 15px;
   text-align: center;
   width: 90%;
   display: flex;
@@ -113,12 +112,6 @@
 	flex: 25;
 	row-gap: 8px;
 	justify-content: center;
-}
-
-
-.godform-stats-left {
-	left: 0%;
-	right: auto;
 }
 
 .godform-stats {
