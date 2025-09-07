@@ -2,31 +2,87 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./MapCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils";
+import {getCyclePrimaryColor, getCycleSecondaryColor} from "../../../lib/colors.js"
+
+const MapArrow = ({ cycle, dir, nextTile, split = "", lock = "" }) => {
+  const directions = {
+    "north": {borderUpColor: getCyclePrimaryColor(cycle)},
+    "south": {borderBottomColor: getCyclePrimaryColor(cycle)},
+    "west": {borderLeftColor: getCyclePrimaryColor(cycle)},
+    "east": {borderRightColor: getCyclePrimaryColor(cycle)}
+  }
+
+  return (
+    <div className={`map-arrow-box ${dir}`}>
+      <div className="map-arrow" style={{flexFlow: (dir === "east" ? "row-reverse" : "row")}}>
+        <div style={{backgroundColor: getCyclePrimaryColor(cycle)}}>{nextTile}</div>
+        {split && <div className="map-arrow-square">{split}</div>}
+        {lock && 
+          <>
+            <div className="map-arrow-square">{utils.getIcon(lock)}</div>
+            <div className="map-arrow-circle">{utils.getIcon("Lock", undefined, undefined, "0.8rem")}</div>
+          </>
+        }
+      </div>
+
+      <div className={`map-arrow-symbol-${dir}`} style={directions[cycle]}></div>
+    </div>
+  )
+}
+
+const ArrowArray = ({ dir, arrowArray, cycle }) => {
+  return arrowArray.map((arrow, index) => 
+    <MapArrow key={index} cycle={cycle} dir={dir} nextTile={arrow.nextTile} split={arrow.split || ""} lock={arrow.lock || ""} />
+  )
+}
+
+function getCycleWaterColor(cycle) {
+  const cycleColors = {
+    "Cycle I": "#2450a7ff",
+    "Cycle II": "#0a99b9ff",
+    "Cycle III": "#765ac9ff",
+    "Cycle IV": "#a78824ff",
+    "Cycle V": "#132e64ff",
+  };
+  return cycleColors[cycle] || "#2450a7ff";
+}
 
 const MapCard = ({ map, index }) => {
   return (
-    <div className={`card map ${map.cardSize.replace(" ", "-").toLowerCase()}`} key={index} style={{backgroundColor: getCyclePrimaryColor(map.cycle), color: getCycleSecondaryColor(map.cycle)}}>
+    <div className={`card map ${map.cardSize.replace(" ", "-").toLowerCase()}`} 
+      key={index}
+      style={{
+        outline: `4px solid ${getCyclePrimaryColor(map.cycle)}`, 
+        outlineOffset: "-8px",
+        color: getCycleSecondaryColor(map.cycle),
+        backgroundColor: getCycleWaterColor(map.cycle)
+      }}
+    >
 
       <div className="map-row">
-        <div>
+        <div className="left">
           {/* Placeholder */}
         </div>
 
         {/* Top Arrows */}
+        <div className="middle">
+          {map.movementArrows.north && <ArrowArray dir={"north"} cycle={map.cycle} arrowArray={map.movementArrows.north} />}
+        </div>
 
-        <div className="map-tile-number map-corner">
+        <div className="map-tile-number map-corner right">
           {map.name}
         </div>
       </div>
 
       <div className="map-row">
-        <div className="map-bar">
+        <div className="map-bar left">
           {/* Left Arrows */}
+          {map.movementArrows.west && <ArrowArray dir={"west"} cycle={map.cycle} arrowArray={map.movementArrows.west} />}
         </div>
 
-        <div>
+        <div className="map-info-container middle">
           {/* Info */}
-          <div className="map-info">Card Info</div>
+          <div className="map-info" style={{backgroundColor: getCyclePrimaryColor(map.cycle)}}>Card Info</div>
           <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
             <div className="card-info-header">ID(s)</div>
             <div className="card-info-detail">{map.cardIDs.join(", ")}</div>
@@ -37,21 +93,25 @@ const MapCard = ({ map, index }) => {
           </div>
         </div>
 
-        <div className="map-bar">
+        <div className="map-bar right">
           {/* Right Arrows */}
+          {map.movementArrows.east && <ArrowArray dir={"east"} cycle={map.cycle} arrowArray={map.movementArrows.east} />}
         </div>
       </div>
 
       <div className="map-row">
-        <div className="map-symbols map-corner">
+        <div className="map-symbols map-corner left">
           {map.symbols.map((symbol, index) => (
             <React.Fragment key={index}>{utils.getIcon(symbol, undefined, undefined, "1.3em")}</React.Fragment>
           ))}
         </div>
 
         {/* Bottom Arrows */}
+        <div className="middle">
+          {map.movementArrows.south && <ArrowArray dir={"south"} cycle={map.cycle} arrowArray={map.movementArrows.south} />}
+        </div>
 
-        <div className="map-factions map-corner">
+        <div className="map-factions map-corner right">
           {map.factions.map((faction, index) => (
             <React.Fragment key={index}>{utils.getIcon(faction, undefined, undefined, "1.3em")}</React.Fragment>
           ))}
@@ -60,33 +120,6 @@ const MapCard = ({ map, index }) => {
 
     </div>
   );
-};
-
-// Helper functions for styling
-const getCyclePrimaryColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#4A3204",
-    "Cycle II": "rgb(77, 18, 11)",
-    "Cycle III": "#543560",
-    "Cycle IV": "#131004",
-    "Cycle V": "#05233B",
-    "Mnestis Theatre": "#C59A18",
-    "Mnestis": "#C59A18",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
-};
-
-const getCycleSecondaryColor = (cycle) => {
-  const cycleColors = {
-    "Cycle I": "#FFFFFF",
-    "Cycle II": "rgb(199, 43, 26)",
-    "Cycle III": "#FFFFFF",
-    "Cycle IV": "#E7CC68",
-    "Cycle V": "#FFFFFF",
-    "Mnestis Theatre": "#FFFFFF",
-    "Mnestis": "#FFFFFF",
-  };
-  return cycleColors[cycle] || "#FFFFFF";
 };
 
 export default MapCard;

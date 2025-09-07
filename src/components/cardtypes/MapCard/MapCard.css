@@ -4,11 +4,13 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
+
+  --arrow-size: 0.6rem;
 }
 
 .map-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
 }
 
@@ -28,6 +30,120 @@
   gap: 5px;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.map-arrow {
+  color: white;
+  display: flex;
+}
+
+.map-arrow .invertible{
+  filter: invert(1);
+}
+
+.map-arrow div {
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0 2px;
+}
+
+.map-arrow-square {
+  background-color: black;
+  width: 1.3rem;
+  height: 1.3rem;
+  overflow: hidden;
+}
+
+.map-arrow-circle {
+  background-color: black;
+  border-radius: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-left: 2px;
+}
+
+.map-arrow-symbol-north {
+  width: 0; 
+  height: 0; 
+  border-left: var(--arrow-size) solid transparent;
+  border-right: var(--arrow-size) solid transparent;
+  border-bottom: var(--arrow-size) solid black;
+}
+
+.map-arrow-symbol-south {
+  width: 0; 
+  height: 0; 
+  border-left: var(--arrow-size) solid transparent;
+  border-right: var(--arrow-size) solid transparent;
+  border-top: var(--arrow-size) solid black;
+}
+
+.map-arrow-symbol-east {
+  width: 0; 
+  height: 0; 
+  border-top: var(--arrow-size) solid transparent;
+  border-bottom: var(--arrow-size) solid transparent;
+  border-left: var(--arrow-size) solid black;
+}
+
+.map-arrow-symbol-west {
+  width: 0; 
+  height: 0; 
+  border-top: var(--arrow-size) solid transparent;
+  border-bottom: var(--arrow-size) solid transparent; 
+  border-right: var(--arrow-size) solid black; 
+}
+
+.map-arrow-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-arrow-box.north {
+  display: flex;
+  flex-flow: column-reverse;
+}
+
+.map-arrow-box.south {
+  display: flex;
+  flex-flow: column;
+}
+
+.map-arrow-box.west {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+.map-arrow-box.east {
+  display: flex;
+}
+
+.left {
+  justify-self: start;
+}
+
+.middle {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+
+.map-info-container {
+  min-width: 10rem;
+}
+
+.map-info {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 /* End map template */
