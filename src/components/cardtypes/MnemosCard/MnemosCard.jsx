@@ -4,7 +4,7 @@ import "./MnemosCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index";
 import {getGateColor} from "../../../lib/colors.js"
 
-const Ability = ({ ability, i }) => (
+const MnemosAbility = ({ ability, i }) => (
   <span key={i}>
     {` `}
     {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
@@ -34,20 +34,20 @@ const MnemosCard = ({ mnemos, index }) => {
 
       <div className="mnemos-abilities">
         {mnemos.abilities && mnemos.abilities.map((box, index) => (
-          <div className="mnemos-ability">
+          <div key={index} className="mnemos-ability">
             {box.map((ability, index2) => (
-              <React.Fragment key={index+index2}>
+              <React.Fragment key={index2}>
                 {ability.gate ? 
                   <>
                     <div className="mnemos-ability-gate">
                       {utils.createAbilityGate(ability.gate, ability.value, getGateColor(ability.gate) || "none")}
                     </div>
                     {ability.abilities?.map((gateAbility, index3) => 
-                      <Ability ability={gateAbility} i={index+index2+index3}></Ability>
+                      <MnemosAbility ability={gateAbility} i={index3}></MnemosAbility>
                     )}
                   </>
                   :
-                  (<Ability ability={ability} i={index+index2}></Ability>)
+                  (<MnemosAbility ability={ability} i={index+index2}></MnemosAbility>)
                 }
               </React.Fragment>
             ))}

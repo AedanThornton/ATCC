@@ -4,6 +4,7 @@ import "./TitanCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
 import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor} from "../../../lib/colors.js"
+import { Abilities, GatedAbilities } from "../../AbilityRenderer.jsx";
 
 const TitanCard = ({ titan, index }) => {
   return (
@@ -37,54 +38,14 @@ const TitanCard = ({ titan, index }) => {
           {/* Abilities */}
           <div className="titan-abilities">
             <div>
-            {titan.abilities.map((ability, index) => {
-              return (
-                <React.Fragment key={index}>
-                  {(ability.flavorName || ability.timing || ability.costs) && (<br/>)}
-                  <span key={index}>
-                    {` `}
-                    {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                    {ability.costs && ability.costs.map((cost, index) => <>{utils.getIcon(cost, undefined, index)} </>)}
-                    {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-                    {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-                    {ability.type === "unique"
-                      ? ( <React.Fragment key={index}> {utils.createTooltip(`${ability.name}`, index)}</React.Fragment>)
-                      : ( <React.Fragment key={index}> {utils.createTooltip(`${ability.name}`, index)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</React.Fragment> )
-                    }
-                    .
-                  </span>
-                </React.Fragment>
-              )
-            })}
+              <Abilities abilitiesList={titan.abilities} />
             </div>
           </div>
         </div>
 
         {/* Gated Abilities */}
         <div className="gated-abilities">
-          {titan.gatedAbilities.map((ability, index) => {
-            const abilityContent = (
-              <span key={index}>
-                {` `}
-                {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
-                {ability.costs && ability.costs.map((cost, index) => <>{utils.getIcon(cost, undefined, index)} </>)}
-                {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-                {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-                {ability.type === "unique"
-                  ? ( <> {utils.createTooltip(`${ability.name}`)}</>)
-                  : ( <> {utils.createTooltip(`${ability.name}`)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-                }
-                .
-              </span>
-            )
-            
-            return (
-              <div key={index} className="card-info" style={{ background: getGateColor(ability.gate.type) }}>
-                <div className="titan-ability-gate">{utils.createAbilityGate(ability.gate.type, ability.gate.value)}</div>
-                <div className="titan-gated-ability">{abilityContent}</div>
-              </div>
-            )
-          })}
+          <GatedAbilities gatedAbilitiesList={titan.gatedAbilities} />
         </div>
 
         {/* Titan Info */}
