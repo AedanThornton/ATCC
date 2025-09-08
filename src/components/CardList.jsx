@@ -1,19 +1,20 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import FilterControls from "./FilterControls";
 import PaginationControls from "./PaginationControls";
 import SortControls from "./SortControls";
 import CardRenderer from "./CardRenderer";
 import "../styles/cardlist.css";
 import { useSearchParams } from "react-router-dom";
+import { useDebounce } from "use-debounce";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const searchTerm = searchParams.get('q') || "";
   const currentPage = parseInt(searchParams.get('p')) || 1;
-  const cardsPerPage = searchParams.get("limit") || 30;
   const sortTerm = searchParams.get("s") || "id:asc";
 
   //Search states
+  const [searchTermUI, setSearchTermUI] = useState(searchParams.get("q") || "")
+  const [debouncedSearchTerm] = useDebounce(searchTermUI, 300)
   const [filterOptions, setFilterOptions] = useState({});
   const [currentFilters, setCurrentFilters] = useState({
     cardType: [],
@@ -31,6 +32,26 @@ const CardList = () => {
   const [error, setError] = useState(null);
   const [optionsLoading, setOptionsLoading] = useState(true);
   const [optionsError, setOptionsError] = useState(null);
+
+  //Setup debounce
+  useEffect(() => {
+    const newParams = new URLSearchParams(searchParams);
+    // Use the debounced value to update the URL
+    if (debouncedSearchTerm) {
+      newParams.set('q', debouncedSearchTerm);
+    } else {
+      newParams.delete('q');
+    }
+
+    // Only reset page if the search term has actually changed
+    // This prevents resetting page on initial load
+    if (debouncedSearchTerm !== (searchParams.get('q') || '')) {
+       newParams.set('p', '1');
+    }
+
+    // Use replace: true to avoid polluting browser history with every keystroke
+    setSearchParams(newParams, { replace: true });
+  }, [debouncedSearchTerm]);
 
   //On-load render
   useEffect(() => {
@@ -74,21 +95,6 @@ const CardList = () => {
     fetchOptions();
   }, []);
 
-  const configureURLParameters = () => {
-    const params = new URLSearchParams();
-    if (searchTerm) params.append('q', searchTerm);
-    if (currentFilters.cardType && filterOptions.cardType && currentFilters.cardType.length !== filterOptions.cardType.length) params.set("cardType", currentFilters.cardType)
-    if (currentFilters.cycle && filterOptions.cycle && currentFilters.cycle.length !== filterOptions.cycle.length) params.set("cycle", currentFilters.cycle)
-    if (currentFilters.cardSize && filterOptions.cardSize && currentFilters.cardSize.length !== filterOptions.cardSize.length) params.set("cardSize", currentFilters.cardSize)
-    if (currentFilters.foundIn && filterOptions.foundIn && currentFilters.foundIn.length !== filterOptions.foundIn.length) params.set("foundIn", currentFilters.foundIn)
-
-    params.set("s", sortTerm)
-    params.set("p", currentPage)
-    params.set("limit", cardsPerPage)
-
-    setSearchParams(params)
-  }
-
   // --- Effect to Fetch Data (Depends on Filters) ---
   // This runs on mount AND whenever filter state changes
   useEffect(() => {
@@ -100,7 +106,6 @@ const CardList = () => {
       setError(null);
 
       // IMPORTANT: Use the *current state* variables here
-      configureURLParameters()
       const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/cards?${searchParams.toString()}`;
 
       try {
@@ -135,14 +140,7 @@ const CardList = () => {
   };
 
   const handleSearchChange = (newTerm) => {
-    const params = new URLSearchParams(searchParams);
-    if (newTerm) {
-      params.set("q", newTerm)
-    } else {
-      params.delete("q")
-    }
-    params.set("p", 1)
-    setSearchParams(params, {replace: true})
+    setSearchTermUI(newTerm, {replace: true})
   };
 
   const handlePageChange = (pageNumber) => {
@@ -159,13 +157,6 @@ const CardList = () => {
     setSearchParams(params, {replace: true})
   }
   
-  // --- Function to Update Browser URL Bar ---
-  const updateUrlParams = () => {
-      configureURLParameters()
-      const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
-      window.history.pushState({}, '', newUrl);
-  };
-  
   // Showing loading screen while waiting for sync
   if (optionsError) {
     return <div>Error: {optionsError}</div>;
@@ -180,7 +171,7 @@ const CardList = () => {
       <input
         type="text"
         placeholder="Search Catalog..."
-        value={searchTerm}
+        value={searchTermUI}
         onChange={(e) => handleSearchChange(e.target.value)}
         style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
       />
