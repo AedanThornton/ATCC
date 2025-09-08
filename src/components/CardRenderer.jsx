@@ -1,4 +1,4 @@
-import React, { useState, useSyncExternalStore } from 'react';
+import { useState } from 'react';
 import SecretOverlay from "./utils/secretUtils";
 import CardMenu from "./CardMenu";
 import Tippy from '@tippyjs/react';

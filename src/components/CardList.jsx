@@ -235,7 +235,7 @@ const CardList = () => {
           {filteredCards.length > 0 ? (
             filteredCards.map((cardname, index) => {
               return (
-                <CardRenderer cardname={cardname} key={index}/>
+                <CardRenderer cardname={cardname} key={cardname.cardIDs[0]}/>
               )
             })
           ) : (
