@@ -4,7 +4,7 @@ import PaginationControls from "./PaginationControls";
 import SortControls from "./SortControls";
 import CardRenderer from "./CardRenderer";
 import "../styles/cardlist.css";
-import { useSearchParams } from "react-router-dom";
+import { replace, useSearchParams } from "react-router-dom";
 import { useDebounce } from "use-debounce";
 
 const CardList = () => {
@@ -20,7 +20,7 @@ const CardList = () => {
     cardType: [],
     cycle: [],
     cardSize: [],
-    foundIn: [],});
+    foundIn: []});
   const [filteredCards, setFilteredCards] = useState([]);
 
   //Page states
@@ -102,10 +102,9 @@ const CardList = () => {
 
     // --- API Fetching Function (using useCallback) ---
     const fetchCards = async () => {
-      setIsLoading(true); // Set loading true when fetch starts
+      setIsLoading(true);
       setError(null);
 
-      // IMPORTANT: Use the *current state* variables here
       const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/cards?${searchParams.toString()}`;
 
       try {
@@ -131,16 +130,56 @@ const CardList = () => {
 
   // Update Filters based on boxes checked in dropdowns
   const handleFilterChange = (category, option) => {
+    const currentCategoryValues = currentFilters[category]
+
+    //Update UI state
+    const isSelected = currentCategoryValues.includes(option)
+    const newCategoryValues = isSelected
+        ? currentCategoryValues.filter((item) => item !== option) // Remove if already selected
+        : [...currentCategoryValues, option]; // Add if not selected
+
     setCurrentFilters((prevFilters) => ({
       ...prevFilters,
-      [category]: prevFilters[category].includes(option)
-        ? prevFilters[category].filter((item) => item !== option) // Remove if already selected
-        : [...prevFilters[category], option], // Add if not selected
+      [category]: newCategoryValues
     }));
+
+    //Update URL and data state
+    const params = new URLSearchParams(searchParams)
+    if (newCategoryValues.length > 0 && newCategoryValues.length < filterOptions[category]?.length) {
+      params.set(category, newCategoryValues.join(','));
+    } else {
+      // If the array is empty or all items are selected, remove the parameter from the URL.
+      params.delete(category);
+    }
+    params.set("p", 1)
+    setSearchParams(params, {replace: true})
   };
 
   const handleSearchChange = (newTerm) => {
     setSearchTermUI(newTerm, {replace: true})
+  };
+
+  const handleCheckAll = (category, shouldCheckAll) => {
+    let newCategoryValues;
+
+    if (shouldCheckAll) {
+      // Uncheck all
+      newCategoryValues = [...filterOptions[category]];
+    } else {
+      // Check all
+      newCategoryValues = [];
+    }
+
+    setCurrentFilters((prevFilters) => ({
+      ...prevFilters,
+      [category]: newCategoryValues
+    }));
+
+    //Update URL and data state
+    const params = new URLSearchParams(searchParams)
+    params.delete(category); //remove all regardless from URL because all unchecked = show everything
+    params.set("p", 1)
+    setSearchParams(params, {replace: true})
   };
 
   const handlePageChange = (pageNumber) => {
@@ -181,7 +220,7 @@ const CardList = () => {
         <div style={{flex: 1}}></div>
 
         {/* Filter dropdowns */}
-        <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} />
+        <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} onCheckAll={handleCheckAll} />
         <div className="card-list__control-bar--page-contols">
           <SortControls sortTerm={sortTerm} onSortChange={handleSortTermChange}/>
           <PaginationControls currentPage={currentPage} isLoading={isLoading} totalPages={totalPages} totalCards={totalCards} onPageChange={handlePageChange}/>

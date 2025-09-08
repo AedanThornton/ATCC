@@ -26,7 +26,7 @@ const PaginationControls = ({sortTerm, onSortChange}) => {
         type="text"
         placeholder="Sort by..."
         value={sortTerm}
-        onChange={(e) => toggleSortOptions(e.target.value)}
+        onChange={(e) => onSortChange(e.target.value)}
         onFocus={toggleSortOptions}
         style={{ padding: "5px", display: "border-box" }}
         className="card-list__control-bar--sort-search"
