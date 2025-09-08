@@ -1,5 +1,5 @@
-import React from "react";
 import Tippy from '@tippyjs/react';
+import { React, useState } from "react";
 
 const sortSuggestions = [
   { label: "Name (Asc)", value: "name:asc"},
@@ -8,15 +8,26 @@ const sortSuggestions = [
   { label: "ID (Desc)", value: "id:desc"},
 ];
 
-const PaginationControls = ({sortTerm, showSortOptions, onSortFocus, onSortChange, onSuggestionClick}) => {
+const PaginationControls = ({sortTerm, onSortChange}) => {
+  const [showSortOptions, setShowSortOption] = useState(false)
+
+  const handleSuggestionClick = (value) => {
+    onSortChange(value);
+    setShowSortOption(false);
+  };
+
+  const toggleSortOptions = () => {
+    setShowSortOption(!showSortOptions);
+  };
+
   return (
     <div className="card-list__control-bar--search-wrapper">
       <input
         type="text"
         placeholder="Sort by..."
         value={sortTerm}
-        onChange={(e) => onSortChange(e.target.value)}
-        onFocus={onSortFocus}
+        onChange={(e) => toggleSortOptions(e.target.value)}
+        onFocus={toggleSortOptions}
         style={{ padding: "5px", display: "border-box" }}
         className="card-list__control-bar--sort-search"
       />
@@ -36,7 +47,7 @@ const PaginationControls = ({sortTerm, showSortOptions, onSortFocus, onSortChang
               </span>
             }>
               <li
-                onClick={() => onSuggestionClick(option.value)}
+                onClick={() => handleSuggestionClick(option.value)}
               >
                 <span className="tooltip-trigger"> {option.label} </span>
               </li>

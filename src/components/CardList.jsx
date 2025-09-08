@@ -10,9 +10,12 @@ let cardsPerPage = 30;
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const searchTerm = searchParams.get('q');
+  const currentPage = parseInt(searchParams.get('p'));
+  const cardsPerPage = searchParams.get("limit");
+  const sortTerm = searchParams.get("s");
 
   //Search states
-  const [searchTerm, setSearchTerm] = useState("");
   const [filterOptions, setFilterOptions] = useState({});
   const [currentFilters, setCurrentFilters] = useState({
     cardType: [],
@@ -22,13 +25,8 @@ const CardList = () => {
   const [filteredCards, setFilteredCards] = useState([]);
 
   //Page states
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [totalCards, setTotalCards] = useState(0);
-
-  //Sort states
-  const [sortTerm, setSortTerm] = useState("id:asc");
-  const [showSortOptions, setShowSortOption] = useState(false)
 
   //Function states
   const [isLoading, setIsLoading] = useState(true); // Start loading initially
@@ -58,9 +56,6 @@ const CardList = () => {
             cardSize: optionsData.cardSizes || [],
             foundIn: optionsData.foundIns || [],
         });
-
-        // Change state based on initial URL
-        if (searchParams.get('q')) setSearchTerm(searchParams.get('q'));
         
         // --- Set the INITIAL filters state (based on URL) ---
         setCurrentFilters({
@@ -111,8 +106,11 @@ const CardList = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        const params = new URLSearchParams(searchParams);
+        params.set("p", data.currentPage)
+        setSearchParams(params)
+        
         setFilteredCards(data.cards);
-        setCurrentPage(parseInt(data.currentPage));
         setTotalCards(parseInt(data.totalCards));
         setTotalPages(parseInt(data.totalPages));
     } catch (e) {
@@ -142,18 +140,11 @@ const CardList = () => {
     }));
   };
 
-  const handleSearchChange = (value) => {
-    setSearchTerm(value);
-    setCurrentPage(1);
-  };
-
-  const handleSuggestionClick = (value) => {
-    setSortTerm(value);
-    setShowSortOption(false);
-  };
-
-  const toggleSortOptions = () => {
-    setShowSortOption(!showSortOptions);
+  const handleSearchChange = (newTerm) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("p", 1)
+    params.set("q", newTerm)
+    setSearchParams(params)
   };
 
   const handlePageChange = (pageNumber) => {
@@ -163,8 +154,16 @@ const CardList = () => {
     if (pageNumber < 1) {
       pageNumber = 1;
     }
-    setCurrentPage(pageNumber);
+    const params = new URLSearchParams(searchParams);
+    params.set("p", pageNumber)
+    setSearchParams(params)
   };
+
+  const handleSortTermChange = (newTerm) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("s", newTerm)
+    setSearchParams(params)
+  }
   
   // --- Function to Update Browser URL Bar ---
   const updateUrlParams = () => {
@@ -199,7 +198,7 @@ const CardList = () => {
         {/* Filter dropdowns */}
         <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} />
         <div className="card-list__control-bar--page-contols">
-          <SortControls sortTerm={sortTerm} showSortOptions={showSortOptions} onSortFocus={toggleSortOptions} onSortChange={setSortTerm} onSuggestionClick={handleSuggestionClick}/>
+          <SortControls sortTerm={sortTerm} onSortChange={handleSortTermChange}/>
           <PaginationControls currentPage={currentPage} isLoading={isLoading} totalPages={totalPages} totalCards={totalCards} onPageChange={handlePageChange}/>
         </div>
       </div>
