@@ -6,14 +6,12 @@ import CardRenderer from "./CardRenderer";
 import "../styles/cardlist.css";
 import { useSearchParams } from "react-router-dom";
 
-let cardsPerPage = 30;
-
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const searchTerm = searchParams.get('q');
-  const currentPage = parseInt(searchParams.get('p'));
-  const cardsPerPage = searchParams.get("limit");
-  const sortTerm = searchParams.get("s");
+  const searchTerm = searchParams.get('q') || "";
+  const currentPage = parseInt(searchParams.get('p')) || 1;
+  const cardsPerPage = searchParams.get("limit") || 30;
+  const sortTerm = searchParams.get("s") || "id:asc";
 
   //Search states
   const [filterOptions, setFilterOptions] = useState({});
@@ -62,7 +60,7 @@ const CardList = () => {
             cardType: searchParams.get('cardType') ? searchParams.get('cardType').split(",") : [...optionsData.cardTypes],
             cycle: searchParams.get('cycle') ? searchParams.get('cycle').split(",") : [...optionsData.cycles],
             cardSize: searchParams.get('cardSize') ? searchParams.get('cardSize').split(",") : [...optionsData.cardSizes],
-            foundIn: ["Regular", "Promo"],
+            foundIn: searchParams.get('foundIn') ? searchParams.get('foundIn').split(",") : ["Regular", "Promo"],
         });
       } catch (e) {
           console.error("Error fetching filter options:", e);
@@ -88,47 +86,43 @@ const CardList = () => {
     params.set("p", currentPage)
     params.set("limit", cardsPerPage)
 
-    return params
+    setSearchParams(params)
   }
-
-  // --- API Fetching Function (using useCallback) ---
-  const fetchCards = useCallback(async () => {
-    setIsLoading(true); // Set loading true when fetch starts
-    setError(null);
-
-    // IMPORTANT: Use the *current state* variables here
-    let params = configureURLParameters()
-    const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/cards?${params.toString()}`;
-
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        const params = new URLSearchParams(searchParams);
-        params.set("p", data.currentPage)
-        setSearchParams(params)
-        
-        setFilteredCards(data.cards);
-        setTotalCards(parseInt(data.totalCards));
-        setTotalPages(parseInt(data.totalPages));
-    } catch (e) {
-        console.error("Error fetching cards:", e);
-        setError(e.message);
-        setFilteredCards([]);
-    } finally {
-        setIsLoading(false); // Set loading false when fetch finishes (success or error)
-    }
-  }, [currentFilters, searchTerm, currentPage, sortTerm]);
 
   // --- Effect to Fetch Data (Depends on Filters) ---
   // This runs on mount AND whenever filter state changes
   useEffect(() => {
+    if (optionsLoading || !currentFilters) { return; }
+
+    // --- API Fetching Function (using useCallback) ---
+    const fetchCards = async () => {
+      setIsLoading(true); // Set loading true when fetch starts
+      setError(null);
+
+      // IMPORTANT: Use the *current state* variables here
+      configureURLParameters()
+      const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/cards?${searchParams.toString()}`;
+
+      try {
+          const response = await fetch(apiUrl);
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          const data = await response.json();
+          
+          setFilteredCards(data.cards);
+          setTotalCards(parseInt(data.totalCards));
+          setTotalPages(parseInt(data.totalPages));
+      } catch (e) {
+          console.error("Error fetching cards:", e);
+          setError(e.message);
+          setFilteredCards([]);
+      } finally {
+          setIsLoading(false); // Set loading false when fetch finishes (success or error)
+      }
+    };
+
     console.log("Filters changed or initial load done, fetching data...");
-    updateUrlParams();
     fetchCards();
-  }, [fetchCards]);
+  }, [searchParams, currentFilters]);
 
   // Update Filters based on boxes checked in dropdowns
   const handleFilterChange = (category, option) => {
@@ -142,33 +136,33 @@ const CardList = () => {
 
   const handleSearchChange = (newTerm) => {
     const params = new URLSearchParams(searchParams);
+    if (newTerm) {
+      params.set("q", newTerm)
+    } else {
+      params.delete("q")
+    }
     params.set("p", 1)
-    params.set("q", newTerm)
-    setSearchParams(params)
+    setSearchParams(params, {replace: true})
   };
 
   const handlePageChange = (pageNumber) => {
-    if (pageNumber > totalPages) {
-      pageNumber = totalPages;
-    }
-    if (pageNumber < 1) {
-      pageNumber = 1;
-    }
+    const newPage = Math.max(1, Math.min(totalPages || 1, Number(pageNumber)));
     const params = new URLSearchParams(searchParams);
-    params.set("p", pageNumber)
-    setSearchParams(params)
+    params.set("p", newPage)
+    setSearchParams(params, {replace: true})
   };
 
   const handleSortTermChange = (newTerm) => {
     const params = new URLSearchParams(searchParams);
     params.set("s", newTerm)
-    setSearchParams(params)
+    params.set("p", 1)
+    setSearchParams(params, {replace: true})
   }
   
   // --- Function to Update Browser URL Bar ---
   const updateUrlParams = () => {
-      let params = configureURLParameters()
-      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      configureURLParameters()
+      const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
       window.history.pushState({}, '', newUrl);
   };
   
