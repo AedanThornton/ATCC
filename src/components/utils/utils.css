@@ -57,12 +57,3 @@
     z-index: 500;
     border-radius: 10px;
 }
-
-.secret-toggle {
-    position: absolute;
-    bottom: 1%;
-    right: 82%;
-    height: 100%;
-    color: white;
-    z-index: 1000;
-}
