@@ -1,39 +1,35 @@
-import React, { useState } from "react";
-
 const DropdownCheckbox = ({ title, options, filters, onFilterChange, onCheckAll }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const allChecked = filters.length === options.length && options.length > 0;  
 
   return (
     <div className="filter-dropdown">
-      <button onClick={() => setIsOpen(!isOpen)} className="filter-dropdown-button" style={{ borderRadius: `10px 10px ${!isOpen ? "10px 10px" : "0 0"}` }}>
-        {title} {isOpen ? "▲" : "▼"}
+      <button className="filter-dropdown-button">
+        {title}
       </button>
 
-      {isOpen && (
-        <div className="dropdown-list">
-          <label key={title} style={{ display: "block", marginBottom: "5px" }}>
+      <div className="dropdown-list">
+        <label key={title} className="dropdown-list-item">
+          <input
+            type="checkbox"
+            name="All"
+            checked={allChecked}
+            onChange={() => {onCheckAll(!allChecked)}}
+          />
+          All
+        </label>
+        {options.map((option, index) => (
+          <label key={index} className="dropdown-list-item">
             <input
               type="checkbox"
-              name="All"
-              checked={allChecked}
-              onChange={() => {onCheckAll(!allChecked)}}
+              name={option}
+              checked={filters.includes(option)}
+              onChange={() => onFilterChange(option)}
             />
-            All
+            {option}
           </label>
-          {options.map((option, index) => (
-            <label key={index} style={{ display: "block", marginBottom: "5px" }}>
-              <input
-                type="checkbox"
-                name={option}
-                checked={filters.includes(option)}
-                onChange={() => onFilterChange(option)}
-              />
-              {option}
-            </label>
-          ))}
-        </div>
-      )}
+        ))}
+      </div>
+
     </div>
   );
 };

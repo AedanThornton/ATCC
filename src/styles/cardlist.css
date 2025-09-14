@@ -19,35 +19,58 @@
   margin: 0 4%;
 }
 
+
+/* Filter Dropdowns */
 .dropdowns {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.5em;
   width: 80vw;
-}
-
-.dropdown-list {
-  position: absolute;
-  z-index: 1250;
-  background-color: rgb(110, 110, 110);
-  width: 100%;
-  padding: 5px;
-  border-radius: 0 0 10px 10px;
-  box-sizing: border-box;
-  font-size: 12px;
+  border-bottom: 1px solid rgb(84, 84, 84);
 }
 
 .filter-dropdown {
   position: relative;
+  flex: 0 1 20%;
 }
 
 .filter-dropdown-button {
-  background-color: rgb(84, 84, 84);
   border: none;
   width: 100%;
+  border-radius: unset;
+  background-color: unset;
 }
+
+.filter-dropdown-button:hover {
+  background-color: rgb(48, 48, 48);
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  z-index: 1250;
+  background-color: rgb(48, 48, 48);
+  padding: 1rem;
+  border-radius: 0 0 5px 5px;
+  box-sizing: border-box;
+  font-size: 12px;
+  max-height: 25vh;
+  width: 50vw;
+}
+
+.filter-dropdown:hover .dropdown-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.dropdown-list-item {
+  display: block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+/* END Filter Dropdowns */
 
 .card-list__control-bar--page-contols {
   display: flex;
@@ -83,7 +106,6 @@
     width: 100%;
     align-items: flex-start;
     justify-content: center;
-    gap: 5px;
     flex: 2;
   }
 
