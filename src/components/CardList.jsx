@@ -126,7 +126,7 @@ const CardList = () => {
 
     console.log("Filters changed or initial load done, fetching data...");
     fetchCards();
-  }, [searchParams, currentFilters]);
+  }, [searchParams]);
 
   // Update Filters based on boxes checked in dropdowns
   const handleFilterChange = (category, option) => {
