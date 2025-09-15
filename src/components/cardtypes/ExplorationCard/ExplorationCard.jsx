@@ -11,8 +11,13 @@ const ExplorationCard = ({ exploration, index }) => {
         {exploration.name.toUpperCase()}
       </div>
 
-      <div className="exploration-effects"> {/* ############## Expand this with more detailed formatting for effect lines and gates */}
-        <p>{exploration.effects}</p>
+      <div className="exploration-effects">
+        {exploration.effects?.map((effect, index) => (
+          <p key={index} style={{fontSize: "12px", lineHeight: "12px"}}>
+            {effect.diplomacy && <div className="exploration-diplomacy-banner">{utils.createStatTitle(effect.diplomacy, "white", "black", effect.sign || "")}</div>}
+            <div className="exploration-effect-text">{utils.updateComponent(effect.effect)}.</div>
+          </p>
+        ))}
       </div>
 
       {exploration.adversaryTriggers && (

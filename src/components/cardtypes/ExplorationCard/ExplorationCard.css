@@ -27,12 +27,33 @@
 .exploration-effects {
   background-color: var(--papyrus-dark);
   flex: 1;
-  padding: 10px 0
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .exploration-effects p {
   margin: 0 7%;
   text-align: left;
+  display: flex;
+  gap: 5px;
+}
+
+.exploration-effect-text {
+  flex: 7;
+}
+
+.exploration-diplomacy-banner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex: 3;
+  min-height: fit-content;
+}
+
+.exploration-diplomacy-banner svg {
+  flex: 1;
 }
 
 .exploration-footer {
@@ -75,7 +96,7 @@
   box-shadow: 0 0 4px 3px black;
 }
 
-.exploration .invertible {
+.adversary-icon .invertible {
   filter: invert(1);
 }
 
