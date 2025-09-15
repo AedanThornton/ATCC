@@ -48,7 +48,7 @@
 
 .dropdown-list {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 600;
   background-color: rgb(48, 48, 48);
   padding: 1rem;
@@ -56,7 +56,12 @@
   box-sizing: border-box;
   font-size: 12px;
   max-height: 25vh;
-  width: 50vw;
+  width: 70vw;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .filter-dropdown:hover .dropdown-list {
@@ -69,6 +74,19 @@
   display: block;
   margin-bottom: 5px;
   margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  background-color: rgb(48, 48, 48);
+  text-align: left;
+  max-width: 33%;
+}
+
+.dropdown-list-item:hover {
+  background-color: rgb(66, 66, 66);
+}
+
+.dropdown-list-item__selected {
+  background-color: rgb(84, 84, 84);
 }
 /* END Filter Dropdowns */
 
@@ -103,7 +121,6 @@
   .dropdowns {
     display: flex;
     flex-direction: unset;
-    width: 100%;
     align-items: flex-start;
     justify-content: center;
     flex: 2;

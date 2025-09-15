@@ -1,5 +1,5 @@
 const DropdownCheckbox = ({ title, options, filters, onFilterChange, onCheckAll }) => {
-  const allChecked = filters.length === options.length && options.length > 0;  
+  const allChecked = filters.length === options.length && options.length > 0;
 
   return (
     <div className="filter-dropdown">
@@ -8,25 +8,21 @@ const DropdownCheckbox = ({ title, options, filters, onFilterChange, onCheckAll 
       </button>
 
       <div className="dropdown-list">
-        <label key={title} className="dropdown-list-item">
-          <input
-            type="checkbox"
-            name="All"
-            checked={allChecked}
-            onChange={() => {onCheckAll(!allChecked)}}
-          />
-          All
-        </label>
+        <button 
+          key={title}
+          className={`dropdown-list-item ${allChecked && 'dropdown-list-item__selected'}`}
+          onClick={() => {onCheckAll(!allChecked)}}
+        >
+          Select All
+        </button>
         {options.map((option, index) => (
-          <label key={index} className="dropdown-list-item">
-            <input
-              type="checkbox"
-              name={option}
-              checked={filters.includes(option)}
-              onChange={() => onFilterChange(option)}
-            />
+          <button 
+            key={index}
+            className={`dropdown-list-item ${filters.includes(option) && 'dropdown-list-item__selected'}`}
+            onClick={() => onFilterChange(option)}
+          >
             {option}
-          </label>
+          </button>
         ))}
       </div>
 
