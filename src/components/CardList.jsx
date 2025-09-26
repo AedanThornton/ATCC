@@ -9,6 +9,7 @@ import { useDebounce } from "use-debounce";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const currentPage = parseInt(searchParams.get('p')) || 1;
   const sortTerm = searchParams.get("s") || "id:asc";
 
@@ -35,6 +36,11 @@ const CardList = () => {
 
   //Setup debounce
   useEffect(() => {
+    // Avoid running on initial mount if search terms match
+    if (debouncedSearchTerm === (searchParams.get('q') || '')) {
+      return;
+    }
+
     const newParams = new URLSearchParams(searchParams);
     // Use the debounced value to update the URL
     if (debouncedSearchTerm) {
@@ -49,7 +55,6 @@ const CardList = () => {
        newParams.set('p', '1');
     }
 
-    // Use replace: true to avoid polluting browser history with every keystroke
     setSearchParams(newParams, { replace: true });
   }, [debouncedSearchTerm]);
 
@@ -95,17 +100,30 @@ const CardList = () => {
     fetchOptions();
   }, []);
 
+  // Set Initial params if missing
+  useEffect(() => {
+    if (!searchParams.has("p") || !searchParams.has("s") || !searchParams.has("limit")){
+      const newParams = new URLSearchParams(searchParams)
+
+      if (!newParams.has("p")) newParams.set("p", 1)
+      if (!newParams.has("s")) newParams.set("s", "id:asc")
+      if (!newParams.has("limit")) newParams.set("limit", 30)
+
+      setSearchParams(newParams)
+    }
+  }, [searchParams, setSearchParams])
+
   // --- Effect to Fetch Data (Depends on Filters) ---
   // This runs on mount AND whenever filter state changes
   useEffect(() => {
-    if (optionsLoading || !currentFilters) { return; }
+    if (!searchParams.has("p") || !searchParams.has("s") || optionsLoading || !currentFilters) { return; }
 
     // --- API Fetching Function (using useCallback) ---
     const fetchCards = async () => {
       setIsLoading(true);
       setError(null);
 
-      const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/cards?${searchParams.toString()}`;
+      const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/cards?${searchParams.toString()}`;            
 
       try {
           const response = await fetch(apiUrl);
@@ -126,7 +144,7 @@ const CardList = () => {
 
     console.log("Filters changed or initial load done, fetching data...");
     fetchCards();
-  }, [searchParams]);
+  }, [searchParams, currentFilters]);
 
   // Update Filters based on boxes checked in dropdowns
   const handleFilterChange = (category, option) => {
