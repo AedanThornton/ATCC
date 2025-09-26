@@ -113,3 +113,8 @@ a {
 img {
   vertical-align: text-bottom;
 }
+
+svg {
+  height: 10px;
+  width: auto;
+}

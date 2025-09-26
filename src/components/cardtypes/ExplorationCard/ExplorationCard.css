@@ -47,13 +47,13 @@
 .exploration-diplomacy-banner {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
-  flex: 3;
-  min-height: fit-content;
+  align-items: center;
+  flex: 4;
 }
 
 .exploration-diplomacy-banner svg {
   flex: 1;
+  height: 12px;
 }
 
 .exploration-footer {
