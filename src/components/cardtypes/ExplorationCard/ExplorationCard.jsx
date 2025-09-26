@@ -14,8 +14,8 @@ const ExplorationCard = ({ exploration, index }) => {
       <div className="exploration-effects">
         {exploration.effects?.map((effect, index) => (
           <p key={index} style={{fontSize: "12px", lineHeight: "12px"}}>
-            {effect.diplomacy && <div className="exploration-diplomacy-banner">{utils.createStatTitle(effect.diplomacy, "white", "black", effect.sign || "")}</div>}
-            <div className="exploration-effect-text">{utils.updateComponent(effect.effect)}.</div>
+            {effect.diplomacy && <span className="exploration-diplomacy-banner">{utils.createStatTitle(effect.diplomacy, "white", "black", effect.sign || "")}</span>}
+            <span className="exploration-effect-text">{utils.updateComponent(effect.effect)}.</span>
           </p>
         ))}
       </div>
