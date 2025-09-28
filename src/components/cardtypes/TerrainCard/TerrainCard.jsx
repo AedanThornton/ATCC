@@ -26,14 +26,14 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
 
         <div className="terrain-abilities">
           <span key={index}>
-            {terrain.keywords.join(". ")}
+            {terrain.keywords.join(". ")}.
           </span>
         </div>
 
         <div className="terrain-abilities">
           {terrain.abilities?.map((ability, index) => (
             <p key={index}>
-              {ability}
+              {ability}{ability && "."}
             </p>
           ))}
         </div>

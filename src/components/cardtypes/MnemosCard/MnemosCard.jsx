@@ -39,9 +39,7 @@ const MnemosCard = ({ mnemos, index }) => {
               <React.Fragment key={index2}>
                 {ability.gate ? 
                   <>
-                    <div className="mnemos-ability-gate">
-                      {utils.createAbilityGate(ability.gate, ability.value, getGateColor(ability.gate) || "none")}
-                    </div>
+                    {utils.createAbilityGate(ability.gate, ability.value, getGateColor(ability.gate) || "none")}
                     {ability.abilities?.map((gateAbility, index3) => 
                       <MnemosAbility ability={gateAbility} i={index3}></MnemosAbility>
                     )}
@@ -67,7 +65,7 @@ const MnemosCard = ({ mnemos, index }) => {
         </div>
         <div className="card-info offset" style={{lineHeight: "14px"}}>
             <div className="card-info-header">Flavor:</div>
-            <div className="card-info-detail"><i>{mnemos.flavor}</i></div>
+            <div className="card-info-detail"><i>{mnemos.flavor}.</i></div>
         </div>
         <div className="card-info offset" style={{lineHeight: "14px"}}>
             <div className="card-info-header">ID:</div>

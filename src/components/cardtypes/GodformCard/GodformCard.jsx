@@ -18,14 +18,14 @@ const GodformCard = ({ godform, index }) => {
             {ability.attack && <div style={{flex: 1}}>
               <WeaponRenderer statsArray={ability.attack}/>
             </div>}
-            <div style={{flex: 4}}>{utils.updateComponent(`${ability.effects}`)}</div>
+            <div style={{flex: 4}}>{utils.updateComponent(`${ability.effects}`)}.</div>
           </div>
         </div>
       ))}
       
       {godform.keywords && (
         <div className="godform-ability-box">
-          <div className="godform-ability"><div>{utils.updateComponent(godform.keywords.split(", ").join(". "))}</div></div>
+          <div className="godform-ability"><div>{utils.updateComponent(godform.keywords.split(", ").join(". "))}.</div></div>
         </div>
       )}
 

@@ -7,11 +7,11 @@ const ArgonautCard = ({ argonaut, index }) => {
   return (
     <div className={`card argonaut ${argonaut.cardSize.replace(" ", "-").toLowerCase()}`}>
       <div className="argonaut-flavor" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-        {argonaut.flavor}
+        {argonaut.flavor}.
       </div>
 
       {/* Argonaut Info */}
-      <div>
+      <div className="argonaut-name-box">
         <div className="argonaut-title" style={{ lineHeight: "19px", fontSize: Math.min(19, 300 / (1.2 * argonaut.name.length)) }}>
           {argonaut.name.toUpperCase()}
         </div>

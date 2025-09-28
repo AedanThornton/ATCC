@@ -17,11 +17,11 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
       </div>
 
       <div className="fated-mnemos-flavor" style={{lineHeight: "14px"}}>
-        {fatedMnemos.flavor}
+        {fatedMnemos.flavor}.
       </div>
 
       <div className="fated-mnemos-effect-box">
-        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.effect)}</div>
+        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.effect)}.</div>
       </div>
 
       <div className="card-info" style={{lineHeight: "14px"}}>
@@ -35,7 +35,7 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
 
       <div className="fated-mnemos-effect-box">
         <div className="fated-mnemos-effect-header">{fatedMnemos.growthName}</div>
-        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.growthAbility)}</div>
+        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.growthAbility)}.</div>
       </div>
 
       <div>

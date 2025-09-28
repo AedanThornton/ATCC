@@ -11,17 +11,17 @@ const KratosCard = ({ kratos, index }) => {
         </div>
 
         {/* Flavor */}
-        {kratos.flavor && (<div className="kratos-flavor">"{kratos.flavor}"</div>)}
+        {kratos.flavor && (<div className="kratos-flavor">"{kratos.flavor}."</div>)}
 
         {/* Effects */}
-        <div className="kratos-effects">{utils.updateComponent(kratos.effects)}</div>
+        <div className="kratos-effects">{utils.updateComponent(kratos.effects)}.</div>
 
         {/* Rally */}
         {kratos.rally && (
           <div className="kratos-rally-box">
             <div className="kratos-rally-header">RALLY</div>
             <div className="kratos-rally">
-              <p><b>End of your turn:</b> {kratos.rally}</p>
+              <p><b>End of your turn:</b> {kratos.rally}.</p>
               <p><b>Success:</b> Discard this card.</p>
             </div>
           </div>

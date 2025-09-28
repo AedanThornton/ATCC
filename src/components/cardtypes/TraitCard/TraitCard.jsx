@@ -15,7 +15,7 @@ const TraitCard = ({ trait, index }) => {
         </div>
 
         {/* Effects */}
-        <div className="trait-effects">{utils.updateComponent(trait.effects)}</div>
+        <div className="trait-effects">{utils.updateComponent(trait.effects)}.</div>
       </div>
       
 

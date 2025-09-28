@@ -108,7 +108,7 @@ const BPCard = ({ bp, index }) => {
             {bp.critFlavor}
           </div>
           <div className="bp-card__critical-list">
-            {/*parseLines(*/bp.critResponse/*, "crit")*/}
+            {/*parseLines(*/utils.updateComponent(bp.critResponse)/*, "crit")*/}.
           </div>
         </div>
 

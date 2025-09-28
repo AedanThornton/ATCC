@@ -225,6 +225,12 @@
   font-size: 14px;
 }
 
-.ai-card__attack-banner .invertible {
+.ai-card__attack-banner .invertible, .stats-bar-right__dice .invertible {
   filter: invert()
+}
+
+.ai-card_main-body {
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
 }

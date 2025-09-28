@@ -55,14 +55,14 @@ const PrimordialCard = ({ primordial, index }) => {
               <div className="primordial-vp-box">
                 <div className="primordial-vp-box-left">
                   <div className="primordial-section-header">HOLD ON</div>
-                  <div className="primordial-vp-holdon"><b>End of Primordial Round:</b> Test {primordial.vp.holdOn.test}</div>
+                  <div className="primordial-vp-holdon"><b>End of Primordial Round:</b> Test {primordial.vp.holdOn.test}.</div>
                   <div className="primordial-vp-fail"><b>Fail:</b> {primordial.vp.holdOn.fail}</div>
                 </div>
                 <div className="primordial-vp-box-right">
                   <div className="primordial-section-header">VP EFFECTS</div>
                   {primordial.vp.effects.split(". ").map((effect, index) => (
                     <p key={index}>
-                      {effect}
+                      {effect}.
                     </p>
                   ))}
                 </div>
@@ -98,7 +98,7 @@ const PrimordialCard = ({ primordial, index }) => {
             </div>
             <div className="primordial-trait-changes">
               <p><b>TRAITS {currentLevel !== 0 && "(+all previous):"}</b></p>
-              <p>+{primordial.levels[currentLevel]?.traitsChanges.join(", ")}</p>
+              <p>+{primordial.levels[currentLevel]?.traitsChanges.join(", ")}.</p>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ const PrimordialCard = ({ primordial, index }) => {
                   { primordialAbilities[trait] 
                     ? primordialAbilities[trait][0].text
                     : <i>Ability definition not found</i>
-                  }
+                  }.
                 </p>
               </>
             ))}

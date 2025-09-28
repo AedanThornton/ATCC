@@ -12,20 +12,18 @@
 	font-size: 18px;
 	color: #FFF;
 	flex: 8;
-	background-color: #000;
 	padding-top: 5px;
 }
 
 .argonaut-flavor {
 	font-style: italic;
-	padding: 10px;
+	padding: 30px;
 }
 
 .argonaut-info {
 	width: 100%;
 	display: flex;
 	column-gap: 10px;
-	background-color: #000;
 	color: #FFF;
 }
 
@@ -35,6 +33,14 @@
 	align-self: center;
 	display: block;
 	margin: auto;
+}
+
+.argonaut-name-box {
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+	padding-bottom: 0.3rem;
 }
 
 /* End argonaut template */

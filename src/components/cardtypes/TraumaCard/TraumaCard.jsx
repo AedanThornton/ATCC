@@ -17,11 +17,11 @@ const TraumaCard = ({ trauma, index }) => {
         </div>
 
         {trauma.flavor && <div className="trauma-flavor">
-          "{trauma.flavor}"
+          "{trauma.flavor}."
         </div>}
 
         <div className="trauma-text">
-          {utils.updateComponent(trauma.effects)}
+          {utils.updateComponent(trauma.effects)}.
         </div>
       </div>
       )}
@@ -30,10 +30,10 @@ const TraumaCard = ({ trauma, index }) => {
         <div style={{height: "100%", backgroundColor: `${trauma.name.toUpperCase().includes("LIVE") ? "white" : "black"}`, color: `${trauma.name.toUpperCase().includes("LIVE") ? "black" : "white"}`}}>
           <div style={{height: "15%"}}></div>
           <div className="trauma-title">{trauma.name.toUpperCase()}</div>
-          <div className="trauma-flavor">"{trauma.flavor}"</div>
-          <div className={`trauma-text ${trauma.name.toUpperCase().includes("LIVE") ? "" : "you-died"}`}>
-            {utils.updateComponent(trauma.effects)}
-          </div>
+          {trauma.flavor && <div className="trauma-flavor">"{trauma.flavor}."</div>}
+          {trauma.effects && <div className={`trauma-text ${trauma.name.toUpperCase().includes("LIVE") ? "" : "you-died"}`}>
+            {utils.updateComponent(trauma.effects)}.
+          </div>}
         </div>
       )}
 

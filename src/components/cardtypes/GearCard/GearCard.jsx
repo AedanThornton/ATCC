@@ -77,7 +77,7 @@ const GearCard = ({ gear, index, currentSide }) => {
         </div>
         {gear["flavor"+ side] && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">Flavor</div>
-          <div className="card-info-detail">{gear["flavor" + side]}</div>
+          <div className="card-info-detail">{gear["flavor" + side]}.</div>
         </div>)}
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">ID(s)</div>

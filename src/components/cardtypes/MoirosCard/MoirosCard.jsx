@@ -11,7 +11,7 @@ const MoirosCard = ({ moiros, index }) => {
         </div>
 
         {/* Effects */}
-        <div className="moiros-effects">{utils.updateComponent(moiros.effects)}</div>
+        <div className="moiros-effects">{utils.updateComponent(moiros.effects)}.</div>
       </div>
 
       {/* Info */}

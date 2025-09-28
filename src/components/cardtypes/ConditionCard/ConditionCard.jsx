@@ -17,18 +17,18 @@ const ConditionCard = ({ condition, index, currentSide }) => {
         </div>}
 
         {/* Effects */}
-        <div className="condition-effects">{condition["side" + side].effect}</div>
+        <div className="condition-effects">{condition["side" + side].effect}.</div>
 
         {/* Resolution */}
         {condition["side" + side].resolution && (
           <div className="condition-resolution-box">
             <div className="condition-resolution-header">{condition["side" + side].resolution.split(": ")[0]}</div>
-            <div className="condition-resolution">{condition["side" + side].resolution.split(": ")[1]}</div>
+            <div className="condition-resolution">{condition["side" + side].resolution.split(": ")[1]}.</div>
           </div>
         )}
 
         {condition["side" + side].endOfBattle && (
-          <div className="condition-effects">{condition["side" + side].endOfBattle}</div>
+          <div className="condition-effects">{condition["side" + side].endOfBattle}.</div>
         )}
       </div>
 

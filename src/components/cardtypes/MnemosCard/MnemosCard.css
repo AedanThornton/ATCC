@@ -33,15 +33,15 @@
 	flex: 1 1 40px;
 }
 
-.mnemos-ability-gate {
-	width: 40px;
+.mnemos-ability svg {
+	height: 15px;
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
 	vertical-align: text-bottom;
 }
 
-.mnemos-ability-gate .invertible {
+.mnemos-ability svg .invertible {
 	filter: invert(1);
 }
 

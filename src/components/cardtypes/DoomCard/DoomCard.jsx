@@ -23,7 +23,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
 
                 <div className="doom-flavor">
                   {doom["flavor" + side] && doom["flavor" + side].map((paragraph, index) => (
-                    <p>{paragraph}</p>
+                    <p>{paragraph}.</p>
                   ))}
                 </div>
                 <span className="doom-rules-title">
@@ -31,7 +31,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
                 </span>
                 <div>
                   {doom["rules" + side] && doom["rules" + side].map((paragraph, index) => (
-                    <p>{utils.updateComponent(paragraph)}</p>
+                    <p>{utils.updateComponent(paragraph)}.</p>
                   ))}
                 </div>
               </div>

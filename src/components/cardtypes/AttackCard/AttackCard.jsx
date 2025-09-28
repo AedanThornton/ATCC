@@ -58,69 +58,71 @@ const AttackCard = ({ attack, index }) => {
         </div>
       </div>
 
-      {/* Flavor Text */}
-      {attack.flavor && <p className="ai-card__flavor">{attack.flavor}</p>}
+      <div className="ai-card_main-body">
+        {/* Flavor Text */}
+        {attack.flavor && <p className="ai-card__flavor">{attack.flavor}.</p>}
 
-      {/* Targeting */}
-      <div className="ai-card__targeting">
-        <div className="ai-card__action-line">
-          <span style={{ width: "6.66%" }}></span>
-          <span className="ai-card__section-header ai-card__section-header--target" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>TARGET</span>
+        {/* Targeting */}
+        <div className="ai-card__targeting">
+          <div className="ai-card__action-line">
+            <span style={{ width: "6.66%" }}></span>
+            <span className="ai-card__section-header ai-card__section-header--target" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>TARGET</span>
+          </div>
+          <div className="ai-card__targeting-list">
+            {attack.targeting?.map((line, index) => (
+              <span key={index} style={{ display: "flex" }}>
+                <span style={{ paddingLeft: `${100 / 15}%` }}></span>
+                <span style={{ flex: 14 }}><span style={{ fontWeight: "bold" }}>{line.type}</span> {utils.updateComponent(line.target)}.</span>
+              </span>
+            )
+            )}
+          </div>
         </div>
-        <div className="ai-card__targeting-list">
-          {attack.targeting?.map((line, index) => (
-            <span key={index} style={{ display: "flex" }}>
-              <span style={{ paddingLeft: `${100 / 15}%` }}></span>
-              <span style={{ flex: 14 }}><span style={{ fontWeight: "bold" }}>{line.type}</span> {line.target}.</span>
+
+        {/* Action Section */}
+        <div className="ai-card__action">
+          <div className="ai-card__action-line">
+            {/* WoO */}
+            {attack.preActionWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
+            
+            {/* Header */}
+            <span className="ai-card__section-header ai-card__section-header--action" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>
+              MOVE & {attack.preAction && attack.preAction.toUpperCase() + " & "}{attack.attackType.toUpperCase().includes("JUDGEMENT") ? "JUDGE" : "ATTACK"}
             </span>
-          )
-          )}
+            
+            {/* Banners */}
+            {attack.attackBanners?.map((banner, index) => (
+              <span key={index} className="ai-card__attack-banner" style={{backgroundColor: getGateColor(banner.gate?.gateType || "danger")}}>
+                {utils.getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: {utils.updateComponent(banner.effect, index)}
+              </span>
+            ))}
+          </div>
+          <div className="ai-card__consequences-list">
+            {parseLines(attack.consequences, "consequences")}
+          </div>
         </div>
-      </div>
 
-      {/* Action Section */}
-      <div className="ai-card__action">
-        <div className="ai-card__action-line">
-          {/* WoO */}
-          {attack.preActionWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
-          
-          {/* Header */}
-          <span className="ai-card__section-header ai-card__section-header--action" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>
-            MOVE & {attack.preAction && attack.preAction.toUpperCase() + " & "}{attack.attackType.toUpperCase().includes("JUDGEMENT") ? "JUDGE" : "ATTACK"}
+        {/* After Attack Section */}
+        {attack.afterAttackEffects?.length > 0 && (
+          <div className="ai-card__after-attack">
+            <div className="ai-card__action-line"> {/* Reuse style for alignment */}
+              {attack.preAfterAttackWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
+              <span className="ai-card__section-header ai-card__section-header--after-attack" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
+            </div>
+            <div className="ai-card__after-attack-list">
+              {parseLines(attack.afterAttackEffects, "afterattack")}
+            </div>
+          </div>
+        )}
+
+        {/* Footer */}
+        <div className="ai-card__footer" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>
+          <span className="ai-card_footer-div ai-card__id" style={{color: getCycleSecondaryColor(attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
+          <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleSecondaryColor(attack.cycle)}}>
+            {getAttackType(attack.attackType, attack.subtype)}
           </span>
-          
-          {/* Banners */}
-          {attack.attackBanners?.map((banner, index) => (
-            <span key={index} className="ai-card__attack-banner" style={{backgroundColor: getGateColor(banner.gate.gateType)}}>
-              {utils.getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: {utils.updateComponent(banner.effect, index)}
-            </span>
-          ))}
+          <div className="ai-card_footer-div"></div>
         </div>
-        <div className="ai-card__consequences-list">
-          {parseLines(attack.consequences, "consequences")}
-        </div>
-      </div>
-
-      {/* After Attack Section */}
-      {attack.afterAttackEffects?.length > 0 && (
-        <div className="ai-card__after-attack">
-          <div className="ai-card__action-line"> {/* Reuse style for alignment */}
-            {attack.preAfterAttackWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
-            <span className="ai-card__section-header ai-card__section-header--after-attack" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
-          </div>
-          <div className="ai-card__after-attack-list">
-            {parseLines(attack.afterAttackEffects, "afterattack")}
-          </div>
-        </div>
-      )}
-
-      {/* Footer */}
-      <div className="ai-card__footer" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>
-        <span className="ai-card_footer-div ai-card__id" style={{color: getCycleSecondaryColor(attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
-        <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleSecondaryColor(attack.cycle)}}>
-          {getAttackType(attack.attackType, attack.subtype)}
-        </span>
-        <div className="ai-card_footer-div"></div>
       </div>
     </div>
   );

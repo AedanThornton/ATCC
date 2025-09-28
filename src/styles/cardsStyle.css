@@ -109,5 +109,5 @@
 }
 
 .bottom-row {
-	border-radius: 0 0 9px 9px;
+	overflow: hidden;
 }

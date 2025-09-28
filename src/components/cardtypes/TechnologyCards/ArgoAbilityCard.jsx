@@ -44,7 +44,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
             <div className="technology-ability-box" key={index}>
               <div style={{marginTop: "10px"}}></div>
               <div className="technology-ability-header">{ability.name ? ability.name.toUpperCase() : "ABILITY"}</div>
-              <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}</div>
+              <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}.</div>
             </div>
           ))}
 

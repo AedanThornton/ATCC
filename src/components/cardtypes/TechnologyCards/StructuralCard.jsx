@@ -13,7 +13,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
           <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("StructuralTech", undefined, undefined, "2.1em", "0em")}</div></div>
           <div style={{display: "flex", flexDirection: "column"}}>
             <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * structural["name" + side].length)) }}>
-              {structural["name" + side]}
+              {(structural.name2 && currentSide === 2) ? structural.name2 : structural.name}
             </div>
           </div>
           <div className="title-icon"></div>
@@ -28,7 +28,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
               </div>)}
               <div className="technology-project-header">REQUIREMENTS</div>
               <div className="technology-project-box">
-                {structural.requirements.join(", ")}
+                {utils.updateComponent(structural.requirements.join(", "))}
               </div>
               <div className="technology-project-header">LEADS TO</div>
               <div className="technology-project-box">
@@ -49,7 +49,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
             {structural.abilities?.map((ability, index) => (
               <div className="technology-ability-box" key={index}>
                 <div className="technology-ability-header">{ability.name.toUpperCase()}</div>
-                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}</div>
+                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}.</div>
               </div>
             ))}
           </div>
