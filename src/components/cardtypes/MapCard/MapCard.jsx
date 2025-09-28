@@ -47,6 +47,17 @@ function getCycleWaterColor(cycle) {
   return cycleColors[cycle] || "#2450a7ff";
 }
 
+function getRandomArrow() {
+  const arrows = [
+    {borderBottomRightRadius: 0},
+    {borderBottomLeftRadius: 0},
+    {borderTopRightRadius: 0},
+    {borderTopLeftRadius: 0},
+  ]
+
+  return arrows[Math.floor(Math.random() * 4)]
+}
+
 const MapCard = ({ map, index }) => {
   return (
     <div className={`card map ${map.cardSize.replace(" ", "-").toLowerCase()}`} 
@@ -74,13 +85,33 @@ const MapCard = ({ map, index }) => {
         </div>
       </div>
 
-      <div className="map-row">
+      <div className="map-row" style={{flex: 1}}>
         <div className="map-bar left">
           {/* Left Arrows */}
           {map.movementArrows.west && <ArrowArray dir={"west"} cycle={map.cycle} arrowArray={map.movementArrows.west} />}
         </div>
 
         <div className="map-info-container middle">
+
+          {map.symbols && map.symbols.length > 0 &&
+            <div className="map-symbol-container">
+              {map.symbols.map((symbol, index) => (
+                <div className="map-symbol" style={getRandomArrow()}>
+                  {utils.getIcon(symbol)}
+                </div>
+              ))}
+            </div>
+          }
+
+          {map.otherFeatures && map.otherFeatures.length > 0 && <>
+            <div className="map-info" style={{backgroundColor: getCyclePrimaryColor(map.cycle)}}>Other Map Details</div>
+            <div className="map-other-features">
+              {map.otherFeatures.map((feature, index) => (
+                <p key={index}>{feature}.</p>
+              ))}
+            </div>
+          </>}
+
           {/* Info */}
           <div className="map-info" style={{backgroundColor: getCyclePrimaryColor(map.cycle)}}>Card Info</div>
           <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
@@ -100,10 +131,12 @@ const MapCard = ({ map, index }) => {
       </div>
 
       <div className="map-row">
-        <div className="map-symbols map-corner left">
-          {map.symbols.map((symbol, index) => (
-            <React.Fragment key={index}>{utils.getIcon(symbol, undefined, undefined, "1.3em")}</React.Fragment>
-          ))}
+        <div>
+          {map.progDoom && map.progDoom.length > 0 && <div className="map-symbols map-corner left">
+            {map.progDoom.map((symbol, index) => (
+              <React.Fragment key={index}>{utils.getIcon(symbol, undefined, undefined, "1.3em")}</React.Fragment>
+            ))}
+          </div>}
         </div>
 
         {/* Bottom Arrows */}
@@ -113,7 +146,7 @@ const MapCard = ({ map, index }) => {
 
         <div className="map-factions map-corner right">
           {map.factions.map((faction, index) => (
-            <React.Fragment key={index}>{utils.getIcon(faction, undefined, undefined, "1.3em")}</React.Fragment>
+            <React.Fragment key={index}>{utils.getIcon(faction.split(" ").join(""), undefined, undefined, "1.3em")}</React.Fragment>
           ))}
         </div>
       </div>
