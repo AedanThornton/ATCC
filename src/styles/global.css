@@ -70,7 +70,7 @@ button {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 300;
+  z-index: 600;
   display: none;
   left: 50%;
   transform: translateX(-50%);
@@ -117,4 +117,15 @@ img {
 svg {
   height: 10px;
   width: auto;
+}
+
+html, body {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }

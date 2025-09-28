@@ -69,8 +69,9 @@ const CardRenderer = ({cardname}) => {
         <div className='focus-card-overlay__buttons'>
           <button onClick={setDisplayHelper}>X</button>
           {cardname.name2 && (<button onClick={toggleSide}>{utils.getIcon("Flip", undefined, undefined, "1.5em")}</button>)}
+          {isSecretCard && (<button onClick={toggleReveal}>{utils.getIcon("Reveal", undefined, undefined, "1.5em")}</button>)}
         </div>
-        <FocusCard cardData={cardname} currentSide={currentSide} setCurrentSide={setCurrentSide} />
+        <FocusCard cardData={cardname} currentSide={currentSide} secretOverlay={secretOverlay} />
       </div>
       
     </div>
