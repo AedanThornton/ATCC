@@ -42,6 +42,12 @@
   background-color: unset;
 }
 
+.filter-reset-button {
+  font-size: 75%;
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+}
+
 .filter-dropdown-button:hover {
   background-color: rgb(48, 48, 48);
 }
@@ -121,7 +127,6 @@
   .dropdowns {
     display: flex;
     flex-direction: unset;
-    align-items: flex-start;
     justify-content: center;
     flex: 2;
   }
@@ -129,6 +134,10 @@
   .card-list__control-bar--page-contols {
     flex-direction: unset;
     justify-content: center;
+  }
+
+  .filter-reset-button {
+    margin-left: 1rem;
   }
 }
 

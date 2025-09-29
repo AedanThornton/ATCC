@@ -83,9 +83,9 @@ const CardList = () => {
         
         // --- Set the INITIAL filters state (based on URL) ---
         setCurrentFilters({
-            cardType: searchParams.get('cardType') ? searchParams.get('cardType').split(",") : [...optionsData.cardTypes],
-            cycle: searchParams.get('cycle') ? searchParams.get('cycle').split(",") : [...optionsData.cycles],
-            cardSize: searchParams.get('cardSize') ? searchParams.get('cardSize').split(",") : [...optionsData.cardSizes],
+            cardType: searchParams.get('cardType') ? searchParams.get('cardType').split(",") : [],
+            cycle: searchParams.get('cycle') ? searchParams.get('cycle').split(",") : [],
+            cardSize: searchParams.get('cardSize') ? searchParams.get('cardSize').split(",") : [],
             foundIn: searchParams.get('foundIn') ? searchParams.get('foundIn').split(",") : ["Regular", "Promo"],
         });
       } catch (e) {
@@ -177,29 +177,6 @@ const CardList = () => {
     setSearchTermUI(newTerm, {replace: true})
   };
 
-  const handleCheckAll = (category, shouldCheckAll) => {
-    let newCategoryValues;
-
-    if (shouldCheckAll) {
-      // Uncheck all
-      newCategoryValues = [...filterOptions[category]];
-    } else {
-      // Check all
-      newCategoryValues = [];
-    }
-
-    setCurrentFilters((prevFilters) => ({
-      ...prevFilters,
-      [category]: newCategoryValues
-    }));
-
-    //Update URL and data state
-    const params = new URLSearchParams(searchParams)
-    params.delete(category); //remove all regardless from URL because all unchecked = show everything
-    params.set("p", 1)
-    setSearchParams(params, {replace: true})
-  };
-
   const handlePageChange = (pageNumber) => {
     const newPage = Math.max(1, Math.min(totalPages || 1, Number(pageNumber)));
     const params = new URLSearchParams(searchParams);
@@ -211,6 +188,22 @@ const CardList = () => {
     const params = new URLSearchParams(searchParams);
     params.set("s", newTerm)
     params.set("p", 1)
+    setSearchParams(params, {replace: true})
+  }
+
+  const resetFilters = () => {
+    setCurrentFilters({
+      cardType: [],
+      cycle: [],
+      cardSize: [],
+      foundIn: ["Regular", "Promo"]
+    })
+
+    const params = new URLSearchParams(searchParams);
+    params.delete("cardType")
+    params.delete("cycle")
+    params.delete("cardSize")
+    params.delete("foundIn")
     setSearchParams(params, {replace: true})
   }
   
@@ -238,7 +231,7 @@ const CardList = () => {
         <div style={{flex: 1}}></div>
 
         {/* Filter dropdowns */}
-        <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} onCheckAll={handleCheckAll} />
+        <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} resetFilters={() => resetFilters()}/>
         <div className="card-list__control-bar--page-contols">
           <SortControls sortTerm={sortTerm} onSortChange={handleSortTermChange}/>
           <PaginationControls currentPage={currentPage} isLoading={isLoading} totalPages={totalPages} totalCards={totalCards} onPageChange={handlePageChange}/>
