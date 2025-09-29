@@ -43,13 +43,18 @@
 
 .focus-card-info-container__container {
   margin-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .focus-card-info-container {
   background-color: rgb(59, 59, 59);
   border-radius: 10px;
   padding: 30px;
-  width: 70vw;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .focus-card-info-container > div {
@@ -99,9 +104,10 @@
 .focus-card-secrets {
   min-height: 15vh;
   position: relative;
-  background-color: rgb(59, 59, 59);
-  border-radius: 10px;
-  padding: 30px;
+}
+
+.focus-card-secrets > div {
+  display: flex;
 }
 
 @media (min-width: 820px) {

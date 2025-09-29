@@ -48,14 +48,12 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
           <div><strong>Card Size:</strong> <p>{cardData.cardSize}</p></div>
           <div><strong>Lore:</strong> <p><i>{displayFlavor(cardData, currentSide)}</i></p></div>
         </div>
-        <p></p>
         {(cardData.faq || cardData.errata) && (<div className="focus-card-info-container">
           {cardData.faq && (<div><strong>FAQ:</strong> <p>{cardData.faq}</p></div>)}
           {cardData.errata && (<div><strong>Errata:</strong> <p>{cardData.errata}</p></div>)}
         </div>)}
-        <p></p>
         
-        <div className="focus-card-secrets">
+        <div className="focus-card-info-container focus-card-secrets">
           <button className='focus-card-secrets-button' onClick={() => setSecretsAreVisible(!secretsAreVisible)}>{utils.getIcon("Reveal")}</button>
           <SecretOverlay text={"This section may contain secrets"} isVisible={secretsAreVisible}/>
           This card contains the following secrets:
