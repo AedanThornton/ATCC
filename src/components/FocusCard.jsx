@@ -8,6 +8,24 @@ function isWide(card){
   return (card.cardSize === "Half-Page" || card.cardSize === "Full-Page" || card.techSubType === "Core")
 }
 
+function displayFlavor(cardData, currentSide){
+  if (cardData.flavor) return cardData.flavor + "."
+  else if (cardData.flavorTech || cardData.flavorProject) return currentSide === 1 ? cardData.flavorTech + "." : cardData.flavorProject + "."
+  else return "N/A"
+}
+
+function displayCycle(cycle){
+  const cycleName = {
+    "Cycle I": "Cycle I: Truth of the Labyrinth",
+    "Cycle II": "Cycle II: Abysswatchers",
+    "Cycle III": "Cycle III: Pitiless of the Sun",
+    "Cycle IV": "Cycle IV: Cycles of Infinite Growth",
+    "Cycle V": "Cycle V: Truthsayer",
+  }
+
+  return cycleName[cycle]
+}
+
 function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
   const [secretsAreVisible, setSecretsAreVisible] = useState(true);
 
@@ -24,9 +42,11 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
       <div className='focus-card-info-container__container'>
         <div className="focus-card-info-container">
           <div><strong>ID:</strong> <p>{cardData.cardIDs[0]}</p></div>
-          <div><strong>Type:</strong> <p>{cardData.cardType}</p></div>
-          <div><strong>Cycle:</strong> <p>{cardData.cycle}</p></div>
-          <div><strong>Lore:</strong> <p>{cardData.flavor || 'N/A'}</p></div>
+          <div><strong>Type:</strong> <p>{cardData.techSubType && cardData.techSubType + " "}{cardData.subtype && cardData.subtype + " "}{cardData.cardType} Card</p></div>
+          <div><strong>Game:</strong> <p>Aeon Trespass: {cardData.game}</p></div>
+          <div><strong>Cycle:</strong> <p>{displayCycle(cardData.cycle)}</p></div>
+          <div><strong>Card Size:</strong> <p>{cardData.cardSize}</p></div>
+          <div><strong>Lore:</strong> <p><i>{displayFlavor(cardData, currentSide)}</i></p></div>
         </div>
         <p></p>
         {(cardData.faq || cardData.errata) && (<div className="focus-card-info-container">
@@ -35,7 +55,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
         </div>)}
         <p></p>
         
-        <div className="focus-card-info-container focus-card-secrets">
+        <div className="focus-card-secrets">
           <button className='focus-card-secrets-button' onClick={() => setSecretsAreVisible(!secretsAreVisible)}>{utils.getIcon("Reveal")}</button>
           <SecretOverlay text={"This section may contain secrets"} isVisible={secretsAreVisible}/>
           This card contains the following secrets:
@@ -43,7 +63,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
             ? cardData.secrets.map((secret, index) => (
               <p key={index}>{secret}</p>
             ))
-            : <p>This card contains no known secrets.</p>
+            : <p>No known secrets.</p>
           }
         </div>
       </div>

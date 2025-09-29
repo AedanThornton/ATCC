@@ -3,8 +3,7 @@
   flex-direction: column;
   height: 100vh;
   align-items: center;
-  padding: 2% 5%;
-  border-radius: 5px;
+  border-radius: 15px;
   position: relative;
 }
 
@@ -22,12 +21,12 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 80vh;
   justify-content: center;
   align-items: center;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  gap: 1rem;
 }
 
 .focus-card::-webkit-scrollbar {
@@ -35,9 +34,11 @@
 }
 
 .focus-card__card-container {
-  transform: scale(1.3); 
   transform-origin: top center;
-  margin: 30vh 0;
+  transition: transform 0.5s ease;
+}
+.focus-card__card-container:hover  {
+  transform: scale(1.3);
 }
 
 .focus-card-info-container__container {
@@ -49,22 +50,20 @@
   border-radius: 10px;
   padding: 30px;
   width: 70vw;
-  position: relative;
 }
 
 .focus-card-info-container > div {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   padding: 4px;
   gap: 25px;
 }
 
 .focus-card-info-container > div > strong {
-  flex: 1;
   text-align: end;
 }
 
 .focus-card-info-container > div > p {
-  flex: 8;
   margin: 0;
 }
 
@@ -99,6 +98,10 @@
 
 .focus-card-secrets {
   min-height: 15vh;
+  position: relative;
+  background-color: rgb(59, 59, 59);
+  border-radius: 10px;
+  padding: 30px;
 }
 
 @media (min-width: 820px) {
@@ -121,7 +124,7 @@
   }
 
   .focus-card-info-container {
-    width: 25vw;
+    width: 33vw;
   }
 
 }
