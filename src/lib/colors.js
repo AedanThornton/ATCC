@@ -3,7 +3,7 @@ export function getCyclePrimaryColor(cycle) {
   const cycleColors = {
     "Cycle I": "#270F03", /* 4A3204 */
     "Cycle II": "rgb(77, 18, 11)",
-    "Cycle III": "#543560",
+    "Cycle III": "#271a2bff",
     "Cycle IV": "#131004",
     "Cycle V": "#05233B",
     "Mnestis Theatre": "#C59A18",
@@ -13,6 +13,19 @@ export function getCyclePrimaryColor(cycle) {
 };
 
 export function getCycleSecondaryColor(cycle) {
+  const cycleColors = {
+    "Cycle I": "#743e27",
+    "Cycle II": "rgb(199, 43, 26)",
+    "Cycle III": "#46364dff",
+    "Cycle IV": "#E7CC68",
+    "Cycle V": "#072e4eff",
+    "Mnestis Theatre": "#FFFFFF",
+    "Mnestis": "#FFFFFF",
+  };
+  return cycleColors[cycle] || "#FFFFFF";
+};
+
+export function getCycleTextColor(cycle) {
   const cycleColors = {
     "Cycle I": "#FFFFFF",
     "Cycle II": "rgb(199, 43, 26)",

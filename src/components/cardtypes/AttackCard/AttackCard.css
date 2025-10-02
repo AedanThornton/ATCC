@@ -18,14 +18,16 @@
 }
 
 .ai-card__icon-top-left {
-  width: 40px;
-  height: 40px;
   border-radius: 50%;
-  border: 1px solid #8b4513;
+  border: 3px solid var(--papyrus);
+  box-shadow: 0 0 4px 3px var(--papyrus-dark);
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  padding: 3px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2em;
 }
 
 .ai-card__name {
@@ -53,7 +55,6 @@
   height: 92px;
   width: 38px;
   top: 25px;
-  background-color: #743e27;
   position: absolute;
   z-index: -1;
 }

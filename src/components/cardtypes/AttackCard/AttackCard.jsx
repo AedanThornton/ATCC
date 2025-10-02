@@ -2,7 +2,7 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
-import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor} from "../../../lib/colors.js"
+import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor} from "../../../lib/colors.js"
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 
@@ -43,7 +43,7 @@ const AttackCard = ({ attack, index }) => {
     <div key={index} className={`card ai-card ${attack.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getCyclePrimaryColor(attack.cycle) }}>
       {/* Header */}
       <div className="ai-card__header">
-        <div className="ai-card__icon-top-left">
+        <div className="ai-card__icon-top-left" style={{ background: getCyclePrimaryColor(attack.cycle), color: getCycleSecondaryColor(attack.cycle) }}>
           {/* {attack.usedFor && utils.getIcon(attack.usedFor)} */}
         </div>
         <h2 className="ai-card__name" style={{fontSize: Math.min(19, 400 / (1.1 * attack.name.length)) }}>{attack.name}</h2>
@@ -54,7 +54,7 @@ const AttackCard = ({ attack, index }) => {
             {utils.getIcon("d10")}
           </div>
           <div className="stats-bar-right__difficulty">{attack.difficulty}+</div>
-          <div className="ai-card__stats-background"></div>
+          <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(attack.cycle) }}></div>
         </div>
       </div>
 
@@ -116,9 +116,9 @@ const AttackCard = ({ attack, index }) => {
         )}
 
         {/* Footer */}
-        <div className="ai-card__footer" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>
-          <span className="ai-card_footer-div ai-card__id" style={{color: getCycleSecondaryColor(attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
-          <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleSecondaryColor(attack.cycle)}}>
+        <div className="ai-card__footer" style={{backgroundColor: getCycleSecondaryColor(attack.cycle)}}>
+          <span className="ai-card_footer-div ai-card__id" style={{color: getCycleTextColor(attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
+          <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleTextColor(attack.cycle)}}>
             {getAttackType(attack.attackType, attack.subtype)}
           </span>
           <div className="ai-card_footer-div"></div>
