@@ -22,7 +22,7 @@ const invertibles = new Set([
     "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", 
     "StructuralTech", "Adversary", "AdventureHub", "Titan", "City", "Lock",
     "ArgoFate", "Inspect", "Flip", "Inspire", "Clutch", "Evasion", "Pass", "GreaterPass",
-    "Burden", "Succor", "Precise", "Energy", "PolePosition", "Labyrinthians"
+    "Burden", "Succor", "Precise", "Energy", "PolePosition", "Labyrinthians", "Attachment"
 ]);
 
 // Utility functions

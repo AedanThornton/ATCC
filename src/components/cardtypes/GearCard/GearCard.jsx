@@ -2,7 +2,7 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
-import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor} from "../../../lib/colors.js"
+import {getCyclePrimaryColor, getCycleTextColor} from "../../../lib/colors.js"
 import { Abilities, GatedAbilities } from "../../AbilityRenderer.jsx"
 import WeaponRenderer from "../../WeaponRenderer.jsx";
 
@@ -39,7 +39,7 @@ const GearCard = ({ gear, index, currentSide }) => {
             <Abilities abilitiesList={gear["abilities" + side]} />
           </div>
 
-          {gear["asteriskEffect" + side] && (<div className="asterisk-text">{gear["asteriskEffect" + side]}</div>)}
+          {gear["asteriskEffect" + side] && (<div className="asterisk-text">*{utils.updateComponent(gear["asteriskEffect" + side])}.</div>)}
         </div>
 
         {/* Defensive Statistics */}
@@ -66,7 +66,7 @@ const GearCard = ({ gear, index, currentSide }) => {
       )}
 
       {/* Gear Info */}
-        <div className="gear-info" style={{ background: getCyclePrimaryColor(gear["cycle" + side]), color: getCycleSecondaryColor(gear["cycle" + side]) }}>Card Info</div>
+        <div className="gear-info" style={{ background: getCyclePrimaryColor(gear["cycle" + side]), color: getCycleTextColor(gear["cycle" + side]) }}>Card Info</div>
         <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
           <div className="card-info-header">Acquisition</div>
           <div className="card-info-detail">{gear["acquisition" + side]}</div>

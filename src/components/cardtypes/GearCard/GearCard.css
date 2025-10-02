@@ -24,8 +24,6 @@
 
 .gear .gear-card {
 	width: 100%;
-	position: relative;
-	min-height: 140px;
 	display: flex;
 	margin: 10px 0;
 }
@@ -49,6 +47,7 @@
 	flex: 25;
 	row-gap: 8px;
 	justify-content: center;
+	overflow: hidden;
 }
 
 .gear .gear-stats {

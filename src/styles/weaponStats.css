@@ -16,3 +16,7 @@
     flex-direction: column;
     gap: 0.5rem;
 }
+
+.weapon-stats .gate svg {
+	height: 1.5em;
+}
