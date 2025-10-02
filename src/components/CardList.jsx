@@ -78,7 +78,19 @@ const CardList = () => {
             cardType: optionsData.cardTypes || [],
             cycle: optionsData.cycles || [],
             cardSize: optionsData.cardSizes || [],
-            foundIn: optionsData.foundIns || [],
+            foundIn: optionsData.foundIns.sort((a, b) => {
+                const getPriority = (str) => {
+                  if (str.startsWith("Secret Deck")) return 1;
+                  if (str.startsWith("Envelope")) return 2;
+                  return 0; // default, non-secret, non-envelope
+                };
+
+                const pa = getPriority(a);
+                const pb = getPriority(b);
+
+                if (pa !== pb) return pa - pb; // sort by category first
+                return a.localeCompare(b, undefined, { numeric: true }); // then alphabetical, numeric-aware
+              }) || [],
         });
         
         // --- Set the INITIAL filters state (based on URL) ---
@@ -108,6 +120,7 @@ const CardList = () => {
       if (!newParams.has("p")) newParams.set("p", 1)
       if (!newParams.has("s")) newParams.set("s", "id:asc")
       if (!newParams.has("limit")) newParams.set("limit", 30)
+      if (!newParams.has("foundIn")) newParams.set("foundIn", ["Regular", "Promo"])
 
       setSearchParams(newParams)
     }
@@ -144,7 +157,7 @@ const CardList = () => {
 
     console.log("Filters changed or initial load done, fetching data...");
     fetchCards();
-  }, [searchParams, currentFilters]);
+  }, [searchParams, filterOptions]);
 
   // Update Filters based on boxes checked in dropdowns
   const handleFilterChange = (category, option) => {
