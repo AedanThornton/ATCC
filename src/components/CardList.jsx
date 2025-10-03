@@ -219,6 +219,22 @@ const CardList = () => {
     params.delete("foundIn")
     setSearchParams(params, {replace: true})
   }
+
+  const addCardReference = (newCard, resetFilters = true, previousCard) => {
+    const searchReference = () => {
+      resetFilters && resetFilters()
+
+      const newSearchTerm = newCard
+      if (previousCard) newSearchTerm = newSearchTerm + " || " + previousCard
+      handleSearchChange(newSearchTerm)
+    }
+
+    return (
+      <a onClick={() => searchReference()}>
+        {newCard}
+      </a>
+    )
+  }
   
   // Showing loading screen while waiting for sync
   if (optionsError) {
