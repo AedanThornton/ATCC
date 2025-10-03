@@ -1,17 +1,17 @@
 /* Gear template */
 .titan {
 	background-color: var(--papyrus);
-	display: flex;
-	flex-direction: row;
+}
+
+.card.titan {
+	overflow-y: unset;
 }
 
 .titan-details {
-	flex: 1;
 	padding: 10px;
 }
 
 .titan-table {
-	flex: 1;
 	margin: 10px;
 	border: 1px solid black;
 	border-radius: 10px;
@@ -31,10 +31,20 @@
 
 .titan-title {
 	text-align: center;
-	font-size: 18px;
-	color: white;
-	border-radius: 9px 9px 0 0;
-	flex: 8;
+	font-size: 22px;
+	padding: 0.3rem;
+}
+
+.titan-main {
+	flex: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 278px);
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.titan-main::-webkit-scrollbar{
+	display: none;
 }
 
 .titan-info {
@@ -52,17 +62,6 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	margin: 10px 0;
-}
-
-.titan-image {
-	height: 270px;
-	width: 270px;
-}
-
-.titan-image img {
-	position: absolute;
-	height: 100%;
-	width: 100%;
 }
 
 .titan-stats {

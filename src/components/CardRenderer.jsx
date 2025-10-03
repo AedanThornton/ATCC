@@ -42,7 +42,7 @@ const CardRenderer = ({cardname}) => {
       <Tippy 
         interactive 
         duration={[0, 0]} 
-        offset={[60,-7]}
+        offset={[15,-25]}
         trigger="mouseenter focus"
         placement="right-start"
         animation="shift-away-extreme"

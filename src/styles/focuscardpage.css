@@ -1,9 +1,6 @@
 .focus-card-page {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   align-items: center;
-  border-radius: 15px;
   position: relative;
 }
 
@@ -21,6 +18,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   overflow: auto;
@@ -31,14 +29,6 @@
 
 .focus-card::-webkit-scrollbar {
   display: none;
-}
-
-.focus-card__card-container {
-  transform-origin: top center;
-  transition: transform 0.5s ease;
-}
-.focus-card__card-container:hover  {
-  transform: scale(1.3);
 }
 
 .focus-card-info-container__container {
@@ -53,7 +43,7 @@
   background-color: rgb(59, 59, 59);
   border-radius: 10px;
   padding: 30px;
-  width: 100%;
+  width: 95%;
   box-sizing: border-box;
 }
 
@@ -76,22 +66,6 @@
   margin-bottom: 10px;
 }
 
-.focus-card-page .mini-american {
-  height: unset;
-  aspect-ratio: 1 / 1.5;
-}
-
-.focus-card-page .standard {
-  height: unset;
-  aspect-ratio: 1 / 1.4;
-}
-
-.focus-card-page .half-page {
-  height: unset;
-  aspect-ratio: 1 / 0.5;
-  /*aspect-ratio: 8.5 / 5.5;*/
-}
-
 .focus-card-secrets-button {
   z-index: 700;
   position: absolute;
@@ -110,27 +84,78 @@
   display: flex;
 }
 
+.focus-card-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 600;
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(137, 137, 137, 0.684);
+  top: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.focus-card-overlay .focus-card-page {
+  width: 100vw;
+  background-color: #242424;
+}
+
+.focus-card-overlay__buttons {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.focus-card-overlay__buttons .invertible {
+  filter: invert(1)
+}
+
 @media (min-width: 820px) {
 
   .focus-card {
     justify-content: space-around;
   }
 
+  .focus-card__card-container {
+    margin-top: 0;
+  }
+
+  .focus-card-overlay .focus-card-page {
+    width: 80vw;
+  }
+
+  .focus-card-page {
+    border-radius: 15px;
+  }
+
+  .focus-card__card-container {
+    transform-origin: top center;
+    transition: transform 0.5s ease;
+  }
+  .focus-card__card-container:hover  {
+    transform: scale(1.3);
+  }
+
+  .focus-card-info-container {
+    max-width: 50vw;
+  }
+
+}
+
+@media (min-width: 1250px) {
   .focus-small {
     flex-direction: row;
     align-items: flex-start;
   }
 
-  .focus-card__card-container {
-    margin-top: 0;
-  }
-
   .focus-small .focus-card__card-container {
     margin-left: 5%;
   }
-
-  .focus-card-info-container {
-    width: 33vw;
-  }
-
 }

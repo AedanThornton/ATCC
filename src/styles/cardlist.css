@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   gap: 40px;
-  margin: 0 4%;
+  margin: 4%;
 }
 
 
@@ -32,7 +32,6 @@
 
 .filter-dropdown {
   position: relative;
-  flex: 0 1 20%;
 }
 
 .filter-dropdown-button {
@@ -57,12 +56,12 @@
   position: fixed;
   z-index: 600;
   background-color: rgb(48, 48, 48);
-  padding: 1rem;
+  padding: 3rem;
   border-radius: 0 0 5px 5px;
   box-sizing: border-box;
-  font-size: 12px;
-  max-height: 25vh;
-  width: 70vw;
+  font-size: 14px;
+  max-height: 60vh;
+  width: 100vw;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: stretch;
@@ -73,7 +72,6 @@
 .filter-dropdown:hover .dropdown-list {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 }
 
 .dropdown-list-item {
@@ -85,10 +83,6 @@
   background-color: rgb(48, 48, 48);
   text-align: left;
   max-width: 33%;
-}
-
-.dropdown-list-item:hover {
-  background-color: rgb(66, 66, 66);
 }
 
 .dropdown-list-item__selected {
@@ -104,6 +98,8 @@
   justify-content: end;
   gap: 0.5em;
   margin: 0.5em 0;
+  border-bottom: 1px solid rgb(84, 84, 84);
+  padding-bottom: 0.5rem;
 }
 
 .card-list__control-bar--page-buttons {
@@ -118,10 +114,15 @@
   margin: 0px 10px;
 }
 
+.card-list__control-bar--search-wrapper {
+  padding: 0.3rem;
+}
+
 @media (min-width: 820px) {
   .card-list {
     flex-wrap: wrap;
     flex-direction: row;
+    margin: 0 4%;
   }
 
   .dropdowns {
@@ -134,10 +135,19 @@
   .card-list__control-bar--page-contols {
     flex-direction: unset;
     justify-content: center;
+    border: unset;
   }
 
   .filter-reset-button {
     margin-left: 1rem;
+  }
+
+  .filter-dropdown {
+    flex: 0 1 20%;
+  }
+
+  .dropdown-list {
+    width: 80vw;
   }
 }
 
@@ -166,6 +176,14 @@
 
   .card-list__control-bar--search-wrapper {
     position: relative;
+  }
+
+  .dropdown-list {
+    width: 70vw;
+  }
+
+  .dropdown-list-item:hover {
+    background-color: rgb(66, 66, 66);
   }
 }
 

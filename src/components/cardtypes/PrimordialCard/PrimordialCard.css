@@ -53,10 +53,12 @@
 .primordial-level-button-box {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .primordial-sheet {
   display: flex;
+  flex-direction: column;
 }
 
 .primordial-left {
@@ -129,6 +131,7 @@
 
 .primordial-level-bar {
   display: flex;
+  flex-direction: column;
   background-color: #BFBCAB;
   padding: 3px;
 }
@@ -198,7 +201,7 @@
 }
 
 .primordial-trait-changes {
-  width: 45%;
+  width: 100%;
   padding: 2px 7px;
   box-sizing: border-box;
 }
@@ -206,7 +209,7 @@
 .primordial-traits {
   padding: 5px;
   margin: 5px;
-  height: 400px;
+  height: 200px;
   overflow-y: scroll;
   margin-right: 2px;
 }
@@ -226,6 +229,24 @@
   background-color: #BFBCAB;
   border: 3px solid var(--papyrus);
   width: 0.3rem;
+}
+
+@media (min-width: 820px) {
+  .primordial-sheet {
+    flex-direction: row;
+  }
+
+  .primordial-traits {
+    height: 400px;
+  }
+  
+  .primordial-level-bar {
+    flex-direction: row;
+  }
+
+  .primordial-trait-changes {
+    width: 45%;
+  }
 }
 
 /* End primordial template */

@@ -1,37 +1,28 @@
 .mini-american {
-  width: 270px;
+	width: 270px;
 	height: 414px;
 }
 
 .standard {
-  width: 326.4px;
-	height: 456.96px;
-}
-
-.square {
-  width: 352.5px;
-	height: 352.5px;
-}
-
-.tarot {
-  width: 359.04px;
-	height: 620.16px;
-}
-
-.tarot.technology {
 	width: 326.4px;
 	height: 456.96px;
 }
 
-.half-page {
-  width: 834px;
-	min-height: 359.04px;
+.square {
+	width: 352.5px;
+	height: 352.5px;
 }
 
+.tarot {
+	width: 359.04px;
+	height: 620.16px;
+}
+
+.tarot.technology,
+.half-page,
 .full-page {
-  width: 834px;
-	min-height: 359.04px;
-	/*min-height: 718.08px;*/
+	width: 326.4px;
+	height: 456.96px;
 }
 
 @media (min-width: 820px) {
@@ -39,26 +30,37 @@
 		width: 620.16px;
 		height: 359.04px;
 	}
+
+	.half-page {
+		width: 834px;
+		min-height: 359.04px;
+	}
+
+	.full-page {
+		width: 834px;
+		min-height: 359.04px;
+		/*min-height: 718.08px;*/
+	}
 }
 
 .card {
-  font-size: 12px;
-  border-radius: 10px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
+	font-size: 12px;
+	border-radius: 10px;
+	position: relative;
+	z-index: 1;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	overflow: scroll;
+	overflow-y: auto;
 }
 
-.card::-webkit-scrollbar{
+.card::-webkit-scrollbar {
 	display: none;
 }
 
 .card p {
-  margin: 0;
+	margin: 0;
 }
 
 .card-info {
