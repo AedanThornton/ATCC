@@ -1,38 +1,37 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useDebounce } from "use-debounce";
 import FilterControls from "./FilterControls";
 import PaginationControls from "./PaginationControls";
 import SortControls from "./SortControls";
-import CardRenderer from "./CardRenderer";
 import "../styles/cardlist.css";
-import { replace, useSearchParams } from "react-router-dom";
-import { useDebounce } from "use-debounce";
+import CardGrid from "./CardGrid";
+import { useFilterOptions } from "../hooks/useFilterOptions";
+import { useCards } from "../hooks/useCards";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  //Search states
+  const [searchTermUI, setSearchTermUI] = useState(searchParams.get("q") || "");
+  const [debouncedSearchTerm] = useDebounce(searchTermUI, 300);
+
+  //Response values from API
+  const { filterOptions, optionsLoading, optionsError } = useFilterOptions();
+  const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
+
   const currentPage = parseInt(searchParams.get('p')) || 1;
   const sortTerm = searchParams.get("s") || "id:asc";
 
-  //Search states
-  const [searchTermUI, setSearchTermUI] = useState(searchParams.get("q") || "")
-  const [debouncedSearchTerm] = useDebounce(searchTermUI, 300)
-  const [filterOptions, setFilterOptions] = useState({});
-  const [currentFilters, setCurrentFilters] = useState({
-    cardType: [],
-    cycle: [],
-    cardSize: [],
-    foundIn: []});
-  const [filteredCards, setFilteredCards] = useState([]);
-
-  //Page states
-  const [totalPages, setTotalPages] = useState(0);
-  const [totalCards, setTotalCards] = useState(0);
-
-  //Function states
-  const [isLoading, setIsLoading] = useState(true); // Start loading initially
-  const [error, setError] = useState(null);
-  const [optionsLoading, setOptionsLoading] = useState(true);
-  const [optionsError, setOptionsError] = useState(null);
+  const currentFilters = useMemo(() => {
+    if (!filterOptions) return null;
+    return {
+      cardType: searchParams.get('cardType')?.split(',') || [],
+      cycle: searchParams.get('cycle')?.split(',') || [],
+      cardSize: searchParams.get('cardSize')?.split(',') || [],
+      foundIn: searchParams.get('foundIn')?.split(',') || ["Regular", "Promo"],
+    };
+  }, [searchParams, filterOptions]);
 
   //Setup debounce
   useEffect(() => {
@@ -58,59 +57,6 @@ const CardList = () => {
     setSearchParams(newParams, { replace: true });
   }, [debouncedSearchTerm]);
 
-  //On-load render
-  useEffect(() => {
-    const fetchOptions = async () => {
-      setOptionsLoading(true);
-      setOptionsError(null);
-
-      const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/filter-options`;      
-
-      try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const optionsData = await response.json();
-
-        // --- Set the INITIAL filters state (all selected by default) ---
-        setFilterOptions({
-            cardType: optionsData.cardTypes || [],
-            cycle: optionsData.cycles || [],
-            cardSize: optionsData.cardSizes || [],
-            foundIn: optionsData.foundIns.sort((a, b) => {
-                const getPriority = (str) => {
-                  if (str.startsWith("Secret Deck")) return 1;
-                  if (str.startsWith("Envelope")) return 2;
-                  return 0; // default, non-secret, non-envelope
-                };
-
-                const pa = getPriority(a);
-                const pb = getPriority(b);
-
-                if (pa !== pb) return pa - pb; // sort by category first
-                return a.localeCompare(b, undefined, { numeric: true }); // then alphabetical, numeric-aware
-              }) || [],
-        });
-        
-        // --- Set the INITIAL filters state (based on URL) ---
-        setCurrentFilters({
-            cardType: searchParams.get('cardType') ? searchParams.get('cardType').split(",") : [],
-            cycle: searchParams.get('cycle') ? searchParams.get('cycle').split(",") : [],
-            cardSize: searchParams.get('cardSize') ? searchParams.get('cardSize').split(",") : [],
-            foundIn: searchParams.get('foundIn') ? searchParams.get('foundIn').split(",") : ["Regular", "Promo"],
-        });
-      } catch (e) {
-          console.error("Error fetching filter options:", e);
-          setOptionsError("Could not load filter options.");
-          setCurrentFilters({}); // Set to empty object on error? Or null?
-      } finally {
-          setOptionsLoading(false);
-      }
-    };
-
-    fetchOptions();
-  }, []);
 
   // Set Initial params if missing
   useEffect(() => {
@@ -126,39 +72,6 @@ const CardList = () => {
     }
   }, [searchParams, setSearchParams])
 
-  // --- Effect to Fetch Data (Depends on Filters) ---
-  // This runs on mount AND whenever filter state changes
-  useEffect(() => {
-    if (!searchParams.has("p") || !searchParams.has("s") || optionsLoading || !currentFilters) { return; }
-
-    // --- API Fetching Function (using useCallback) ---
-    const fetchCards = async () => {
-      setIsLoading(true);
-      setError(null);
-
-      const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/cards?${searchParams.toString()}`;            
-
-      try {
-          const response = await fetch(apiUrl);
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-          const data = await response.json();
-          
-          setFilteredCards(data.cards);
-          setTotalCards(parseInt(data.totalCards));
-          setTotalPages(parseInt(data.totalPages));
-      } catch (e) {
-          console.error("Error fetching cards:", e);
-          setError(e.message);
-          setFilteredCards([]);
-      } finally {
-          setIsLoading(false); // Set loading false when fetch finishes (success or error)
-      }
-    };
-
-    console.log("Filters changed or initial load done, fetching data...");
-    fetchCards();
-  }, [searchParams, filterOptions]);
-
   // Update Filters based on boxes checked in dropdowns
   const handleFilterChange = (category, option) => {
     const currentCategoryValues = currentFilters[category]
@@ -169,17 +82,11 @@ const CardList = () => {
         ? currentCategoryValues.filter((item) => item !== option) // Remove if already selected
         : [...currentCategoryValues, option]; // Add if not selected
 
-    setCurrentFilters((prevFilters) => ({
-      ...prevFilters,
-      [category]: newCategoryValues
-    }));
-
     //Update URL and data state
     const params = new URLSearchParams(searchParams)
     if (newCategoryValues.length > 0 && newCategoryValues.length < filterOptions[category]?.length) {
       params.set(category, newCategoryValues.join(','));
     } else {
-      // If the array is empty or all items are selected, remove the parameter from the URL.
       params.delete(category);
     }
     params.set("p", 1)
@@ -205,13 +112,6 @@ const CardList = () => {
   }
 
   const resetFilters = () => {
-    setCurrentFilters({
-      cardType: [],
-      cycle: [],
-      cardSize: [],
-      foundIn: ["Regular", "Promo"]
-    })
-
     const params = new URLSearchParams(searchParams);
     params.delete("cardType")
     params.delete("cycle")
@@ -223,10 +123,7 @@ const CardList = () => {
   const addCardReference = (newCard, resetFilters = true, previousCard) => {
     const searchReference = () => {
       resetFilters && resetFilters()
-
-      const newSearchTerm = newCard
-      if (previousCard) newSearchTerm = newSearchTerm + " || " + previousCard
-      handleSearchChange(newSearchTerm)
+      handleSearchChange(previousCard ? newCard + " || " + previousCard : newCard)
     }
 
     return (
@@ -240,8 +137,8 @@ const CardList = () => {
   if (optionsError) {
     return <div>Error: {optionsError}</div>;
   }
-  if (!currentFilters || !filterOptions || optionsLoading) {
-     return <div>Initializing data...</div>;
+  if (!filterOptions || optionsLoading) {
+    return <div>Initializing data...</div>;
   }
 
   return (
@@ -268,21 +165,7 @@ const CardList = () => {
       </div>
 
       {/* Render Filtered Card List */}
-      {isLoading && <div>Loading cards...</div>}
-      {error && <div>Error: {error}</div>}
-      {!isLoading && !error && (
-        <div className="card-list">
-          {filteredCards.length > 0 ? (
-            filteredCards.map((cardname, index) => {
-              return (
-                <CardRenderer cardname={cardname} key={cardname.cardIDs[0] + index}/>
-              )
-            })
-          ) : (
-            <p>No results found.</p>
-          )}
-        </div>
-      )}
+      <CardGrid isLoading={isLoading} error={error} filteredCards={filteredCards} />
     </>
   );
 };
