@@ -16,18 +16,16 @@ const PaginationControls = ({sortTerm, onSortChange}) => {
     setShowSortOption(false);
   };
 
-  const toggleSortOptions = () => {
-    setShowSortOption(!showSortOptions);
-  };
-
   return (
-    <div className="card-list__control-bar--search-wrapper">
+    <div className="card-list__control-bar--search-wrapper"
+      onMouseLeave={() => setShowSortOption(false)}
+    >
       <input
         type="text"
         placeholder="Sort by..."
         value={sortTerm}
         onChange={(e) => onSortChange(e.target.value)}
-        onFocus={toggleSortOptions}
+        onMouseEnter={() => setShowSortOption(true)}
         style={{ padding: "5px", display: "border-box" }}
         className="card-list__control-bar--sort-search"
       />
