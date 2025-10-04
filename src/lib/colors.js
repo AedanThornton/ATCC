@@ -17,7 +17,7 @@ export function getCyclePrimaryColor(cycle) {
 export function getCycleSecondaryColor(cycle) {
   const cycleColors = {
     "Cycle I": "#743e27",
-    "Cycle II": "rgb(199, 43, 26)",
+    "Cycle II": "rgba(138, 22, 9, 1)",
     "Cycle III": "#46364dff",
     "Cycle IV": "#E7CC68",
     "Cycle V": "#072e4eff",

@@ -2,7 +2,6 @@
 .bp-card {
   background-color: var(--papyrus);
   font-family: sans-serif;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -183,7 +182,6 @@
 
 /* Footer */
 .bp-card__footer {
-  margin-top: 10%;
   padding-top: 4px;
   padding-bottom: 2px;
   padding: 6px 10px 4px 10px;

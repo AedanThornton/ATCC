@@ -79,9 +79,16 @@ const BPCard = ({ bp, index }) => {
         </div>
 
         {/* Non-Response Text Section */}
-        <div className="bp-card__critical-list"> {/* Reuse style for alignment */}
-          {bp.nonResponseText}
-        </div>
+        {bp.nonResponseText && <div> {/* Reuse style for alignment */}
+          <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
+            <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getCyclePrimaryColor(bp.cycle), outline: `1px solid ${getCyclePrimaryColor(bp.cycle)}`}}>
+              {bp.nonResponseText.split(" ")[0]}
+            </span>
+          </div>
+          <div className="bp-card__critical-list">
+            {bp.nonResponseText.split(" ").slice(1).join(" ")}
+          </div>
+        </div>}
 
         {/* Responses Section */}
         <div className="bp-card__responses">
@@ -89,7 +96,7 @@ const BPCard = ({ bp, index }) => {
             <React.Fragment key={index}>
               <div className="bp-card__responses-line">          
                 {/* Header */}
-                <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor(response.type)}}>
+                <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor(response.type), outline: `1px solid ${getResponseColor(response.type)}`}}>
                   {response.type && response.type.toUpperCase()}
                 </span>
               </div>
@@ -103,7 +110,7 @@ const BPCard = ({ bp, index }) => {
         {/* Crit Response Section */}
         <div className="bp-card__critical-response">
           <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
-            <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor("critical")}}>CRITICAL</span>
+            <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor("critical"), outline: `1px solid ${getResponseColor("critical")}`}}>CRITICAL</span>
           </div>
           <div className="bp-card__critical-flavor">
             {bp.critFlavor}
