@@ -8,6 +8,8 @@ export function getCyclePrimaryColor(cycle) {
     "Cycle V": "#05233B",
     "Mnestis Theatre": "#C59A18",
     "Mnestis": "#C59A18",
+    
+    "Adversary": "#223746ff",
   };
   return cycleColors[cycle] || "#FFFFFF";
 };
@@ -21,6 +23,8 @@ export function getCycleSecondaryColor(cycle) {
     "Cycle V": "#072e4eff",
     "Mnestis Theatre": "#FFFFFF",
     "Mnestis": "#FFFFFF",
+
+    "Adversary": "#4d6b80ff"
   };
   return cycleColors[cycle] || "#FFFFFF";
 };
@@ -34,6 +38,8 @@ export function getCycleTextColor(cycle) {
     "Cycle V": "#FFFFFF",
     "Mnestis Theatre": "#FFFFFF",
     "Mnestis": "#FFFFFF",
+
+    "Adversary": "#FFFFFF",
   };
   return cycleColors[cycle] || "#FFFFFF";
 };
@@ -55,3 +61,10 @@ export function getGateColor(gatetype) {
   };
   return gateColors[gatetype] || "#AAAAAA";
 };
+
+export const isAdversary = {
+  "Hermesian Pursuer": 1,
+  "The Burden": 1,
+  "Dahaka": 1,
+  "Titan X": 1
+}

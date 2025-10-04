@@ -2,7 +2,7 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
-import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor} from "../../../lib/colors.js"
+import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary} from "../../../lib/colors.js"
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 
@@ -40,21 +40,21 @@ const parseLines = (lines, superindex) => {
 
 const AttackCard = ({ attack, index }) => {
   return (
-    <div key={index} className={`card ai-card ${attack.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getCyclePrimaryColor(attack.cycle) }}>
+    <div key={index} className={`card ai-card ${attack.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}>
       {/* Header */}
       <div className="ai-card__header">
-        <div className="ai-card__icon-top-left" style={{ background: getCyclePrimaryColor(attack.cycle), color: getCycleSecondaryColor(attack.cycle) }}>
+        <div className="ai-card__icon-top-left" style={{ background: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle), color: getCycleSecondaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}>
           {/* {attack.usedFor && utils.getIcon(attack.usedFor)} */}
         </div>
         <h2 className="ai-card__name" style={{fontSize: Math.min(19, 400 / (1.1 * attack.name.length)) }}>{attack.name}</h2>
         <div className="ai-card__stats-bar-right">
-          <div className="stats-bar-right__level-container" style={{ background: getCyclePrimaryColor(attack.cycle) }}><div className="stats-bar-right__level">{attack.level}</div></div>
+          <div className="stats-bar-right__level-container" style={{ background: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}><div className="stats-bar-right__level">{attack.level}</div></div>
           <div className="stats-bar-right__dice">
             <span className="stats-bar-right__dice-value">{attack.dice}</span>
             {utils.getIcon("d10")}
           </div>
           <div className="stats-bar-right__difficulty">{attack.difficulty}+</div>
-          <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(attack.cycle) }}></div>
+          <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}></div>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ const AttackCard = ({ attack, index }) => {
         <div className="ai-card__targeting">
           <div className="ai-card__action-line">
             <span style={{ width: "6.66%" }}></span>
-            <span className="ai-card__section-header ai-card__section-header--target" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>TARGET</span>
+            <span className="ai-card__section-header ai-card__section-header--target" style={{backgroundColor: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>TARGET</span>
           </div>
           <div className="ai-card__targeting-list">
             {attack.targeting?.map((line, index) => (
@@ -86,7 +86,7 @@ const AttackCard = ({ attack, index }) => {
             {attack.preActionWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
             
             {/* Header */}
-            <span className="ai-card__section-header ai-card__section-header--action" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>
+            <span className="ai-card__section-header ai-card__section-header--action" style={{backgroundColor: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
               MOVE & {attack.preAction && attack.preAction.toUpperCase() + " & "}{attack.attackType.toUpperCase().includes("JUDGEMENT") ? "JUDGE" : "ATTACK"}
             </span>
             
@@ -107,7 +107,7 @@ const AttackCard = ({ attack, index }) => {
           <div className="ai-card__after-attack">
             <div className="ai-card__action-line"> {/* Reuse style for alignment */}
               {attack.preAfterAttackWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
-              <span className="ai-card__section-header ai-card__section-header--after-attack" style={{backgroundColor: getCyclePrimaryColor(attack.cycle)}}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
+              <span className="ai-card__section-header ai-card__section-header--after-attack" style={{backgroundColor: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
             </div>
             <div className="ai-card__after-attack-list">
               {parseLines(attack.afterAttackEffects, "afterattack")}
@@ -116,9 +116,9 @@ const AttackCard = ({ attack, index }) => {
         )}
 
         {/* Footer */}
-        <div className="ai-card__footer" style={{backgroundColor: getCycleSecondaryColor(attack.cycle)}}>
-          <span className="ai-card_footer-div ai-card__id" style={{color: getCycleTextColor(attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
-          <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleTextColor(attack.cycle)}}>
+        <div className="ai-card__footer" style={{backgroundColor: getCycleSecondaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
+          <span className="ai-card_footer-div ai-card__id" style={{color: getCycleTextColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
+          <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleTextColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
             {getAttackType(attack.attackType, attack.subtype)}
           </span>
           <div className="ai-card_footer-div"></div>
