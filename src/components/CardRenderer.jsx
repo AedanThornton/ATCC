@@ -38,7 +38,7 @@ const CardRenderer = ({cardname}) => {
   }</>
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className='card-wrapper'>
       <Tippy 
         interactive 
         duration={[0, 0]} 
@@ -53,12 +53,12 @@ const CardRenderer = ({cardname}) => {
             flipFunc={toggleSide}
             secretFunc={toggleReveal}
             setDisplay={setDisplayHelper}
-          />
-        }>
-          <div>
-            {secretOverlay}
-            {currentCard}
-          </div>
+          />}
+      >
+        <div>
+          {currentCard}
+          {secretOverlay}
+        </div>
       </Tippy>
 
       {!isHidden && <div className="card-type-marker">

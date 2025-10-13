@@ -5,13 +5,16 @@
 }
 
 .focus-card-page > .secret-overlay {
-  z-index: 750;
+  z-index: 550;
 }
 
 .focus-card-page h1 {
-  background-color: #242424;
-  padding: 2% 5%;
+  padding: 1rem;
+  margin: 0;
+  margin-bottom: 1rem;
   border-radius: 5px;
+  font-size: 20px;
+  background-color: #242424;
 }
 
 .focus-card {
@@ -19,12 +22,12 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  justify-content: center;
   align-items: center;
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
   gap: 1rem;
+  padding-top: 4rem;
 }
 
 .focus-card::-webkit-scrollbar {
@@ -37,12 +40,14 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  width: 100%;
+  flex: 3;
 }
 
 .focus-card-info-container {
   background-color: rgb(59, 59, 59);
   border-radius: 10px;
-  padding: 30px;
+  padding: 1rem 0.8rem;
   width: 95%;
   box-sizing: border-box;
 }
@@ -67,7 +72,7 @@
 }
 
 .focus-card-secrets-button {
-  z-index: 700;
+  z-index: 525;
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -105,16 +110,28 @@
 
 .focus-card-overlay__buttons {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: 0.5rem;
+  right: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   gap: 1rem;
-  z-index: 1;
+  z-index: 600;
 }
 
 .focus-card-overlay__buttons .invertible {
   filter: invert(1)
+}
+
+.focus-card__card-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex: 2;
+}
+
+.focus-card__card-container .card {
+  transform-origin: top center;
+  transition: transform 0.5s ease;
 }
 
 @media (min-width: 820px) {
@@ -135,16 +152,14 @@
     border-radius: 15px;
   }
 
-  .focus-card__card-container {
-    transform-origin: top center;
-    transition: transform 0.5s ease;
-  }
-  .focus-card__card-container:hover  {
-    transform: scale(1.3);
-  }
-
   .focus-card-info-container {
     max-width: 50vw;
+  }
+
+  .focus-card-overlay__buttons {
+    top: 2rem;
+    right: 2rem;
+    flex-direction: column;
   }
 
 }
@@ -153,9 +168,19 @@
   .focus-small {
     flex-direction: row;
     align-items: flex-start;
+    padding: 2rem;
+    box-sizing: border-box;
   }
 
-  .focus-small .focus-card__card-container {
-    margin-left: 5%;
+  .focus-small .focus-card__card-container .card {
+    transform: scale(1.3);
+  }
+
+  .focus-card__card-container .card:hover {
+    transform: scale(1.3);
+  }
+
+  .focus-card {
+    padding-top: 4rem;
   }
 }

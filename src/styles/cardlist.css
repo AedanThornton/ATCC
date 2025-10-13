@@ -17,8 +17,19 @@
   align-items: center;
   gap: 40px;
   margin: 4%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.card-wrapper {
+  position: relative;
+	max-width: 100%;
+}
+
+.card-wrapper > div {
+	display: flex;
+	justify-content: center;
+}
 
 /* Filter Dropdowns */
 .dropdowns {

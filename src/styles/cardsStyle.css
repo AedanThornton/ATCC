@@ -21,26 +21,8 @@
 .tarot.technology,
 .half-page,
 .full-page {
-	width: 326.4px;
+	width: 834px;
 	height: 456.96px;
-}
-
-@media (min-width: 820px) {
-	.tarot.technology {
-		width: 620.16px;
-		height: 359.04px;
-	}
-
-	.half-page {
-		width: 834px;
-		min-height: 359.04px;
-	}
-
-	.full-page {
-		width: 834px;
-		min-height: 359.04px;
-		/*min-height: 718.08px;*/
-	}
 }
 
 .card {
@@ -53,6 +35,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	overflow-y: auto;
+	max-width: 95%;
 }
 
 .card::-webkit-scrollbar {
@@ -112,4 +95,20 @@
 
 .bottom-row {
 	overflow: hidden;
+}
+
+@media (min-width: 820px) {
+	.tarot.technology {
+		width: 620.16px;
+		height: 359.04px;
+	}
+
+	.card {
+		max-width: unset;
+	}
+
+	.half-page, .full-page {
+		min-height: 456.96px;
+		height: unset;
+	}
 }

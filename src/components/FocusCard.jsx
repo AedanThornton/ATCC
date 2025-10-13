@@ -21,6 +21,7 @@ function displayCycle(cycle){
     "Cycle III": "Cycle III: Pitiless of the Sun",
     "Cycle IV": "Cycle IV: Cycles of Infinite Growth",
     "Cycle V": "Cycle V: Truthsayer",
+    "ALL": "This card is used in all Cycles"
   }
 
   return cycleName[cycle]
@@ -41,11 +42,12 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
       </div>
       <div className='focus-card-info-container__container'>
         <div className="focus-card-info-container">
-          <div><strong>ID:</strong> <p>{cardData.cardIDs[0]}</p></div>
+          <h1>{cardData.name}</h1>
+          <div><strong>ID(s):</strong> <p>{cardData.cardIDs.map((id, i, array) => {let isLast = i === array.length - 1; return `${id}${isLast ? "" : ", "}`})}</p></div>
           <div><strong>Type:</strong> <p>{cardData.techSubType && cardData.techSubType + " "}{cardData.subtype && cardData.subtype + " "}{cardData.cardType} Card</p></div>
+          <div><strong>Card Size:</strong> <p>{cardData.cardSize}</p></div>
           <div><strong>Game:</strong> <p>Aeon Trespass: {cardData.game}</p></div>
           <div><strong>Cycle:</strong> <p>{displayCycle(cardData.cycle)}</p></div>
-          <div><strong>Card Size:</strong> <p>{cardData.cardSize}</p></div>
           <div><strong>Lore:</strong> <p><i>{displayFlavor(cardData, currentSide)}</i></p></div>
         </div>
         {(cardData.faq || cardData.errata) && (<div className="focus-card-info-container">
@@ -71,7 +73,6 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
   return (
     <div className='focus-card-page'>
       {secretOverlay && secretOverlay}
-      <h1>{cardData.name}</h1>
       <div className={`focus-card ${isWide(cardData) ? "" : "focus-small"}`}>
         {displayParts}
       </div>
