@@ -119,7 +119,7 @@ const AttackCard = ({ attack, index }) => {
         <div className="ai-card__footer" style={{backgroundColor: getCycleSecondaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
           <span className="ai-card_footer-div ai-card__id" style={{color: getCycleTextColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
           <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleTextColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
-            {getAttackType(attack.attackType, attack.subtype)}
+            {getAttackType(attack.attackType, attack.subtype || "AI")}
           </span>
           <div className="ai-card_footer-div"></div>
         </div>

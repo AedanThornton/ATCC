@@ -1,0 +1,13 @@
+.dahaka .bp-card {
+  overflow: hidden;
+  height: fit-content;
+}
+
+.dahaka .ai-card {
+  height: fit-content;
+}
+
+.dahaka {
+  display: block;
+  overflow: scroll;
+}

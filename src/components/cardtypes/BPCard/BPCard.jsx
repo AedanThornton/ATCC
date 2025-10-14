@@ -70,13 +70,13 @@ const BPCard = ({ bp, index }) => {
         </div>
 
         {/* AT Section */}
-        <div className="bp-card__value-container">
+        {bp.value && <div className="bp-card__value-container">
           <span style={{ background: getCyclePrimaryColor(isAdversary[bp.usedFor] ? "Adversary" : bp.cycle) }}>
             {utils.getIcon("AT", undefined, undefined, "20px")}
             {` `}
             {bp.value}
           </span>
-        </div>
+        </div>}
 
         {/* Non-Response Text Section */}
         {bp.nonResponseText && <div> {/* Reuse style for alignment */}
@@ -140,6 +140,10 @@ const getResponseColor = (type) => {
     "wound": "rgb(155, 35, 21)",
     "instinct": "rgb(36, 48, 153)",
     "critical": "#000"
+  }
+
+  if (type.split(" ").length > 1) {
+    type = type.split(" ")[1]
   }
 
   return responseColors[type.toLowerCase()] || "#000"
