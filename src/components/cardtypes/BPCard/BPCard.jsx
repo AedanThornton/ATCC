@@ -2,7 +2,7 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./BPCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
-import {getCyclePrimaryColor, getCycleSecondaryColor, isAdversary} from "../../../lib/colors.js"
+import { getCyclePrimaryColor, getCycleSecondaryColor, isAdversary, adversaryPrimaryColor, getCycleTextColor } from "../../../lib/colors.js"
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 
@@ -30,7 +30,7 @@ const parseLines = (lines, superindex) => {
   })
   newLines.push(
     <div key={newLines.length} style={{ display: "flex" }}>
-      {startedWithWoO 
+      {startedWithWoO
         ? (<div style={{ width: "6.66%" }} className="bp-card__woo-icon">{wooIcon}</div>)
         : (<div style={{ width: "6.66%" }}></div>)}
       <p style={{ width: "93.33%" }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock, superindex)}</p>
@@ -39,24 +39,42 @@ const parseLines = (lines, superindex) => {
   return newLines
 }
 
-const BPCard = ({ bp, index }) => {
+const BPCard = ({ bp, index, isDahaka = false }) => {
+  const colorInput = isAdversary[bp.usedFor] ? "Adversary" : bp.cycle
+
   return (
-    <div key={index} className={`card bp-card ${bp.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getCyclePrimaryColor(isAdversary[bp.usedFor] ? "Adversary" : bp.cycle) }}>
+    <div
+      key={index} className={`card bp-card ${bp.cardSize.replace(" ", "-").toLowerCase()}`}
+      style={{
+        color: isDahaka ? "black" : getCyclePrimaryColor(colorInput),
+        backgroundColor: isAdversary[bp.usedFor] && isDahaka ? getCycleSecondaryColor(colorInput) : adversaryPrimaryColor,
+        borderTopLeftRadius: isDahaka && 0,
+        borderTopRightRadius: isDahaka && 0,
+      }}
+    >
       {/* Header, Icon, and Banner */}
       <div className="bp-card__header">
-        <div className="bp-card__icon-top-left">
+        <div className="bp-card__icon-top-left" style={{ borderColor: getCyclePrimaryColor(colorInput), border: isDahaka && "none" }}>
           {/* {bp.usedFor && utils.getIcon(bp.usedFor)} */}
         </div>
-        <h2 className="bp-card__name" style={{fontSize: Math.min(19, 400 / (1.1 * bp.name.length)) }}>{bp.name}</h2>
-        <div className="bp-card__stats-bar-right">
-          <div className="stats-bar-right__level-container" style={{ background: getCyclePrimaryColor(isAdversary[bp.usedFor] ? "Adversary" : bp.cycle) }}><div className="stats-bar-right__level">{bp.level}</div></div>
-          <div className="bp-card__stats-background" style={{ backgroundColor: getCycleSecondaryColor(isAdversary[bp.usedFor] ? "Adversary" : bp.cycle)}}></div>
+        <h2 className="bp-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * bp.name.length)) }}>{bp.name}</h2>
+        <div className="bp-card__stats-bar-right" style={{ color: getCycleTextColor(colorInput) }}>
+          <div
+            className="stats-bar-right__level-container"
+            style={{
+              background: isDahaka ? adversaryPrimaryColor : getCyclePrimaryColor(colorInput),
+              borderColor: isDahaka ? "white" : getCycleTextColor(colorInput),
+              color: isDahaka && "white"
+            }}>
+            <div className="stats-bar-right__level">{bp.level}</div>
+          </div>
+          <div className="bp-card__stats-background" style={{ backgroundColor: isDahaka ? adversaryPrimaryColor : getCycleSecondaryColor(colorInput) }}></div>
         </div>
       </div>
 
       <div className="bp-card__main-body">
         {/* Resources Section */}
-        <div className="bp-card__resources-container" style={{ borderColor: getCyclePrimaryColor(isAdversary[bp.usedFor] ? "Adversary" : bp.cycle) }}>
+        <div className="bp-card__resources-container" style={{ borderColor: getCyclePrimaryColor(colorInput) }}>
           <h3 className="bp-card__resources-title">
             Resources
           </h3>
@@ -71,7 +89,7 @@ const BPCard = ({ bp, index }) => {
 
         {/* AT Section */}
         {bp.value && <div className="bp-card__value-container">
-          <span style={{ background: getCyclePrimaryColor(isAdversary[bp.usedFor] ? "Adversary" : bp.cycle) }}>
+          <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput) }} className={!isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}>
             {utils.getIcon("AT", undefined, undefined, "20px")}
             {` `}
             {bp.value}
@@ -81,11 +99,11 @@ const BPCard = ({ bp, index }) => {
         {/* Non-Response Text Section */}
         {bp.nonResponseText && <div> {/* Reuse style for alignment */}
           <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
-            <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getCyclePrimaryColor(bp.cycle), outline: `1px solid ${getCyclePrimaryColor(bp.cycle)}`}}>
+            <span className="bp-card__section-header bp-card__section-header--response" style={{ backgroundColor: getCyclePrimaryColor(bp.cycle), outline: `1px solid ${getCyclePrimaryColor(bp.cycle)}` }}>
               {bp.nonResponseText.split(" ")[0]}
             </span>
           </div>
-          <div className="bp-card__critical-list">
+          <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
             {bp.nonResponseText.split(" ").slice(1).join(" ")}
           </div>
         </div>}
@@ -94,13 +112,13 @@ const BPCard = ({ bp, index }) => {
         <div className="bp-card__responses">
           {bp.responses?.map((response, index) => (
             <React.Fragment key={index}>
-              <div className="bp-card__responses-line">          
+              <div className="bp-card__responses-line">
                 {/* Header */}
-                <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor(response.type), outline: `1px solid ${getResponseColor(response.type)}`}}>
+                <span className="bp-card__section-header bp-card__section-header--response" style={{ backgroundColor: getResponseColor(response.type), outline: `1px solid ${getResponseColor(response.type)}` }}>
                   {response.type && response.type.toUpperCase()}
                 </span>
               </div>
-              <div className="bp-card__effects-list">
+              <div className={`bp-card__effects-list  ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
                 {parseLines(response.effects, "effects")}
               </div>
             </React.Fragment>
@@ -110,20 +128,25 @@ const BPCard = ({ bp, index }) => {
         {/* Crit Response Section */}
         <div className="bp-card__critical-response">
           <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
-            <span className="bp-card__section-header bp-card__section-header--response" style={{backgroundColor: getResponseColor("critical"), outline: `1px solid ${getResponseColor("critical")}`}}>CRITICAL</span>
+            <span
+              className="bp-card__section-header bp-card__section-header--response"
+              style={{ backgroundColor: getResponseColor("critical"), outline: `1px solid ${getResponseColor("critical")}` }}
+            >
+              CRITICAL
+            </span>
           </div>
-          <div className="bp-card__critical-flavor">
+          <div className="bp-card__critical-flavor" style={{ color: isAdversary[bp.usedFor] && !isDahaka && "white" }}>
             {bp.critFlavor}
           </div>
-          <div className="bp-card__critical-list">
+          <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
             {/*parseLines(*/utils.updateComponent(bp.critResponse)/*, "crit")*/}.
           </div>
         </div>
 
         {/* Footer */}
-        <div className="bp-card__footer" style={{backgroundColor: getCyclePrimaryColor(isAdversary[bp.usedFor] ? "Adversary" : bp.cycle)}}>
-          <span className="bp-card_footer-div bp-card__id">ID: {bp.cardIDs?.[0]}</span>
-          <span className="bp-card_footer-div bp-card__type-indicator">
+        <div className="bp-card__footer" style={{ backgroundColor: isDahaka ? getCycleSecondaryColor(colorInput) : getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>
+          <span className="bp-card_footer-div bp-card__id" >ID: {bp.cardIDs?.[0]}</span>
+          <span className="bp-card_footer-div bp-card__type-indicator" >
             BODY PART
           </span>
           <div className="bp-card_footer-div"></div>

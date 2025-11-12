@@ -2,7 +2,7 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
-import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary} from "../../../lib/colors.js"
+import { getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary, adversaryPrimaryColor } from "../../../lib/colors.js"
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 
@@ -38,23 +38,35 @@ const parseLines = (lines, superindex) => {
   return newLines
 }
 
-const AttackCard = ({ attack, index }) => {
+const AttackCard = ({ attack, index, isDahaka = false }) => {
+  const colorInput = isAdversary[attack.usedFor] ? "Adversary" : attack.cycle
+
   return (
-    <div key={index} className={`card ai-card ${attack.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}>
+    <div key={index}
+      className={`card ai-card ${attack.cardSize.replace(" ", "-").toLowerCase()}`}
+      style={{
+        color: getCyclePrimaryColor(colorInput),
+        backgroundColor: isAdversary[attack.usedFor] && adversaryPrimaryColor,
+        borderBottomLeftRadius: isDahaka && 0,
+        borderBottomRightRadius: isDahaka && 0,
+      }}
+    >
       {/* Header */}
       <div className="ai-card__header">
-        <div className="ai-card__icon-top-left" style={{ background: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle), color: getCycleSecondaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}>
+        <div className="ai-card__icon-top-left" style={{ background: getCyclePrimaryColor(colorInput), color: getCycleSecondaryColor(colorInput) }}>
           {/* {attack.usedFor && utils.getIcon(attack.usedFor)} */}
         </div>
-        <h2 className="ai-card__name" style={{fontSize: Math.min(19, 400 / (1.1 * attack.name.length)) }}>{attack.name}</h2>
-        <div className="ai-card__stats-bar-right">
-          <div className="stats-bar-right__level-container" style={{ background: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}><div className="stats-bar-right__level">{attack.level}</div></div>
-          <div className="stats-bar-right__dice">
+        <h2 className="ai-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * attack.name.length)) }}>{attack.name}</h2>
+        <div className="ai-card__stats-bar-right" style={{ color: getCycleTextColor(colorInput) }}>
+          <div className="stats-bar-right__level-container" style={{ background: getCyclePrimaryColor(colorInput) }}>
+            <div className="stats-bar-right__level">{attack.level}</div>
+          </div>
+          <div className={`stats-bar-right__dice ${!isAdversary[attack.usedFor] && "invert-icons"}`}>
             <span className="stats-bar-right__dice-value">{attack.dice}</span>
             {utils.getIcon("d10")}
           </div>
           <div className="stats-bar-right__difficulty">{attack.difficulty}+</div>
-          <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle) }}></div>
+          <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(colorInput) }}></div>
         </div>
       </div>
 
@@ -66,7 +78,14 @@ const AttackCard = ({ attack, index }) => {
         <div className="ai-card__targeting">
           <div className="ai-card__action-line">
             <span style={{ width: "6.66%" }}></span>
-            <span className="ai-card__section-header ai-card__section-header--target" style={{backgroundColor: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>TARGET</span>
+            <span
+              className="ai-card__section-header ai-card__section-header--target"
+              style={{
+                backgroundColor: getCyclePrimaryColor(colorInput),
+                color: getCycleTextColor(colorInput)
+              }}>
+              TARGET
+            </span>
           </div>
           <div className="ai-card__targeting-list">
             {attack.targeting?.map((line, index) => (
@@ -83,21 +102,21 @@ const AttackCard = ({ attack, index }) => {
         <div className="ai-card__action">
           <div className="ai-card__action-line">
             {/* WoO */}
-            {attack.preActionWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
-            
+            <div className="ai-card__woo-icon">{attack.preActionWoO && wooIcon}</div>
+
             {/* Header */}
-            <span className="ai-card__section-header ai-card__section-header--action" style={{backgroundColor: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
+            <span className="ai-card__section-header ai-card__section-header--action" style={{ backgroundColor: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>
               MOVE & {attack.preAction && attack.preAction.toUpperCase() + " & "}{attack.attackType.toUpperCase().includes("JUDGEMENT") ? "JUDGE" : "ATTACK"}
             </span>
-            
+
             {/* Banners */}
             {attack.attackBanners?.map((banner, index) => (
-              <span key={index} className="ai-card__attack-banner" style={{backgroundColor: getGateColor(banner.gate?.gateType || "danger")}}>
+              <span key={index} className="ai-card__attack-banner invert-icons" style={{ backgroundColor: getGateColor(banner.gate?.gateType || "danger") }}>
                 {utils.getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: {utils.updateComponent(banner.effect, index)}
               </span>
             ))}
           </div>
-          <div className="ai-card__consequences-list">
+          <div className={`ai-card__consequences-list ${isAdversary[attack.usedFor] && "invert-icons"}`}>
             {parseLines(attack.consequences, "consequences")}
           </div>
         </div>
@@ -107,7 +126,7 @@ const AttackCard = ({ attack, index }) => {
           <div className="ai-card__after-attack">
             <div className="ai-card__action-line"> {/* Reuse style for alignment */}
               {attack.preAfterAttackWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
-              <span className="ai-card__section-header ai-card__section-header--after-attack" style={{backgroundColor: getCyclePrimaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
+              <span className="ai-card__section-header ai-card__section-header--after-attack" style={{ backgroundColor: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
             </div>
             <div className="ai-card__after-attack-list">
               {parseLines(attack.afterAttackEffects, "afterattack")}
@@ -116,9 +135,9 @@ const AttackCard = ({ attack, index }) => {
         )}
 
         {/* Footer */}
-        <div className="ai-card__footer" style={{backgroundColor: getCycleSecondaryColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
-          <span className="ai-card_footer-div ai-card__id" style={{color: getCycleTextColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>ID: {attack.cardIDs?.[0]}</span>
-          <span className="ai-card_footer-div ai-card__type-indicator" style={{color: getCycleTextColor(isAdversary[attack.usedFor] ? "Adversary" : attack.cycle)}}>
+        <div className="ai-card__footer" style={{ backgroundColor: isDahaka ? adversaryPrimaryColor : getCycleSecondaryColor(colorInput) }}>
+          <span className="ai-card_footer-div ai-card__id" style={{ color: getCycleTextColor(colorInput) }}>{!isDahaka && `ID: ${attack.cardIDs?.[0]}`}</span>
+          <span className="ai-card_footer-div ai-card__type-indicator" style={{ color: isDahaka ? "white" : getCycleTextColor(colorInput) }}>
             {getAttackType(attack.attackType, attack.subtype || "AI")}
           </span>
           <div className="ai-card_footer-div"></div>

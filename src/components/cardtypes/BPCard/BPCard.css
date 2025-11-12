@@ -70,6 +70,8 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+  border: 2px solid black;
+  box-sizing: border-box;
 }
 
 .stats-bar-right__level {
@@ -184,7 +186,7 @@
 .bp-card__footer {
   padding-top: 4px;
   padding-bottom: 2px;
-  padding: 6px 10px 4px 10px;
+  padding: 6px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -195,27 +197,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 
 .bp-card__id {
   font-size: 10px;
   justify-content: flex-start;
-  color: white;
 }
 
 .bp-card__type-indicator {
   font-size: 0.9em;
   font-weight: bold;
   flex: 3;
-  color: white;
 }
 
 .bp-card__woo-icon {
   width: 6.66%;
   font-size: 14px;
-}
-
-.bp-card__attack-banner .invertible,
-.bp-card__value-container span .invertible {
-  filter: invert()
 }

@@ -9,7 +9,7 @@ export function getCyclePrimaryColor(cycle) {
     "Mnestis Theatre": "#C59A18",
     "Mnestis": "#C59A18",
     
-    "Adversary": "#223746ff",
+    "Adversary": "#FFFFFF",
   };
   return cycleColors[cycle] || "#FFFFFF";
 };
@@ -24,7 +24,7 @@ export function getCycleSecondaryColor(cycle) {
     "Mnestis Theatre": "#FFFFFF",
     "Mnestis": "#FFFFFF",
 
-    "Adversary": "#4d6b80ff"
+    "Adversary": "#ccc4bfff"
   };
   return cycleColors[cycle] || "#FFFFFF";
 };
@@ -32,14 +32,14 @@ export function getCycleSecondaryColor(cycle) {
 export function getCycleTextColor(cycle) {
   const cycleColors = {
     "Cycle I": "#FFFFFF",
-    "Cycle II": "rgb(199, 43, 26)",
+    "Cycle II": "#FFFFFF",
     "Cycle III": "#FFFFFF",
     "Cycle IV": "#E7CC68",
     "Cycle V": "#FFFFFF",
     "Mnestis Theatre": "#FFFFFF",
     "Mnestis": "#FFFFFF",
 
-    "Adversary": "#FFFFFF",
+    "Adversary": "#000000",
   };
   return cycleColors[cycle] || "#FFFFFF";
 };
@@ -68,3 +68,6 @@ export const isAdversary = {
   "Dahaka": 1,
   "Titan X": 1
 }
+
+export const adversaryPrimaryColor = "#12222eff"
+export const adversarySecondaryColor = "#4d6b80"

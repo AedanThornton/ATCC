@@ -27,8 +27,8 @@ const DahakaCard = ({ dahaka, index }) => {
 
   return (
     <div key={index} className={`card dahaka ai-card bp-card ${dahaka.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getCyclePrimaryColor(isAdversary[dahaka.usedFor] ? "Adversary" : dahaka.cycle) }}>
-      <AttackCard attack={{...stdData, ...AIData}}/>
-      <BPCard bp={{...stdData, ...BPData}}/>
+      <AttackCard attack={{...stdData, ...AIData}} isDahaka={true}/>
+      <BPCard bp={{...stdData, ...BPData}} isDahaka={true}/>
     </div>
   );
 };

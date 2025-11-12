@@ -6,6 +6,8 @@ import abilityGateUtils from "./gateUtils";
 import titleUtils from "./titleUtils";
 
 const updateComponent = (text, superindex) => {
+    if (text.split("Icon").length < 2) return text
+
     return text.split("Icon").map((phrase, index) => {
         const CreatedTooltip = utils.createTooltip(phrase, `${superindex}-${index}`)
 
