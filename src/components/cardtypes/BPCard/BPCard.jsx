@@ -127,27 +127,29 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
 
         {/* Crit Response Section */}
         <div className="bp-card__critical-response">
-          <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
-            <span
-              className="bp-card__section-header bp-card__section-header--response"
-              style={{ backgroundColor: getResponseColor("critical"), outline: `1px solid ${getResponseColor("critical")}` }}
-            >
-              CRITICAL
-            </span>
-          </div>
-          <div className="bp-card__critical-flavor" style={{ color: isAdversary[bp.usedFor] && !isDahaka && "white" }}>
-            {bp.critFlavor}
-          </div>
-          <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
-            {/*parseLines(*/utils.updateComponent(bp.critResponse)/*, "crit")*/}.
-          </div>
+          {bp.critResponse && <>
+            <div className="bp-card__responses-line"> {/* Reuse style for alignment */}
+              <span
+                className="bp-card__section-header bp-card__section-header--response"
+                style={{ backgroundColor: getResponseColor("critical"), outline: `1px solid ${getResponseColor("critical")}` }}
+              >
+                CRITICAL
+              </span>
+            </div>
+            <div className="bp-card__critical-flavor" style={{ color: isAdversary[bp.usedFor] && !isDahaka && "white" }}>
+              {bp.critFlavor}
+            </div>
+            <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
+              {/*parseLines(*/utils.updateComponent(bp.critResponse)/*, "crit")*/}.
+            </div>
+          </>}
         </div>
 
         {/* Footer */}
         <div className="bp-card__footer" style={{ backgroundColor: isDahaka ? getCycleSecondaryColor(colorInput) : getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>
           <span className="bp-card_footer-div bp-card__id" >ID: {bp.cardIDs?.[0]}</span>
           <span className="bp-card_footer-div bp-card__type-indicator" >
-            BODY PART
+            {bp.cardType === "Sig | Rout" ? 'ROUTINE' : 'BODY PART'}
           </span>
           <div className="bp-card_footer-div"></div>
         </div>

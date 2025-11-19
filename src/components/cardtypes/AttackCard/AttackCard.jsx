@@ -106,7 +106,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
 
             {/* Header */}
             <span className="ai-card__section-header ai-card__section-header--action" style={{ backgroundColor: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>
-              MOVE & {attack.preAction && attack.preAction.toUpperCase() + " & "}{attack.attackType.toUpperCase().includes("JUDGEMENT") ? "JUDGE" : "ATTACK"}
+              MOVE & {attack.preAction && attack.preAction.toUpperCase() + " & "}{attack.attackType.includes("Judgement") ? "JUDGE" : "ATTACK"}
             </span>
 
             {/* Banners */}
@@ -147,12 +147,22 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
   );
 };
 
-const getAttackType = (type, subtype) => {
+const getAttackType = (attackType, subtype) => {
   if (subtype !== "AI") return subtype.toUpperCase()
 
-  type = type.toUpperCase()
-  type = type.includes("JUDGEMENT") ? type : type.replace("REGULAR", "") + " ATTACK"
-  return type
+  const typeList = [
+    "Judgement", "Wish", "Sequential", "Simultaneous", "Regular"
+  ]
+
+  const priType = attackType.includes("Judgement") ? "JUDGEMENT" : "ATTACK"
+  const isWish = attackType.includes("Wish") ? "WISH" : ""
+  const secType = attackType.filter(type => !typeList.includes(type)).join(" ").toUpperCase()
+  const terType = 
+    attackType.includes("Sequential") ? "SEQUENTIAL" : 
+    attackType.includes("Simultaneous") ? "SIMULTANEOUS" : ""
+
+
+  return `${terType && terType + " "}${secType && secType + " "}${isWish && isWish + " "}${priType}`
 }
 
 export default AttackCard;
