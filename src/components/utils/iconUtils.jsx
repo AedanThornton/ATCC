@@ -12,17 +12,8 @@ for (const path in modules) {
     icons[key] = modules[path].default;
 }
 
-const invertibles = new Set([
-    "Danger", "Fate", "Rage", "Exhaust", "Discard", "Reaction",
-    "Gear", "OneHanded", "TwoHanded", "ThreeHanded",
-    "Support", "Armor", "Speed", "Power", "Break", "Opening",
-    "Pushback", "PowerReroll", "Reposition", "Vault", "Pole Position",
-    "Motivate", "Tireless", "Diversion", "Hope", "Black", "Fire", "Closing",
-    "Rouse", "Heartseeker", "Elation", "Overbreak", "Provoke", "d10", "AT",
-    "CombatAction", "MovementAction", "ComplicatedAction", "CombatTech", 
-    "StructuralTech", "Adversary", "AdventureHub", "Titan", "City", "Lock",
-    "ArgoFate", "Inspect", "Flip", "Inspire", "Clutch", "Evasion", "Pass", "GreaterPass",
-    "Burden", "Succor", "Precise", "Energy", "PolePosition", "Labyrinthians", "Attachment"
+const nonInvertibles = new Set([
+    "Progress", "Reveal"
 ]);
 
 // Utility functions
@@ -51,6 +42,8 @@ const utils = {
             "Labyrinth": "Labyrinthians"
         };
 
+        if (typeof(name) === "string" && name.endsWith("Token")) name = name.slice(0, -"Token".length)
+
         if (nameMap[name]) {
             name = nameMap[name];
             size = `${parseFloat(size) * (sizeMultiplier[name] || 1)}em`;
@@ -76,7 +69,7 @@ const utils = {
                     src={icon} 
                     style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`}} 
                     alt={name} 
-                    className={`${invertibles.has(name) ? "invertible" : ""} ${name}`}
+                    className={`${nonInvertibles.has(name) ? "" : "invertible"} ${name}`}
                 />
             </Tippy>
         ) : name;

@@ -54,7 +54,13 @@ const GearCard = ({ gear, index, currentSide }) => {
             <div className="gear-stats gear-stats-right">{gear["defensiveStatistics" + side].armorDice[0].amount} {utils.getIcon(gear["defensiveStatistics" + side].armorDice[0].type, "Armor", undefined, "1.5em")}</div>
           )}
           {gear["defensiveStatistics" + side].resistances?.map((resistance, index) => (
-            <div key={index} className="gear-stats gear-stats-right">{resistance.amount} {utils.getIcon(resistance.type, undefined, undefined, "1.5em")}</div>
+            <div 
+              key={index} 
+              className="gear-stats gear-stats-right invert-icons"
+              style={{ backgroundColor: "black", color: "white" }}
+            >
+              {resistance.amount} {utils.getIcon(resistance.type, undefined, undefined, "1.5em")}
+            </div>
           ))}
         </div>
       </div>

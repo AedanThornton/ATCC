@@ -8,7 +8,7 @@ const Abilities = ({ abilitiesList }) => {
       {(ability.flavorName || ability.timing || ability.costs) && index !== 0 && (<br/>)}
       <span>
         {` `}
-        {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}: </b>)}
+        {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}{ability.timing !== "Reaction" && ':'} </b>)}
         {ability.costs && ability.costs.map((cost, index) => <React.Fragment key={index}>{utils.getIcon(cost, undefined, index)} </React.Fragment>)}
         {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
         {ability.flavorName && (<b> {ability.flavorName}: </b>)}

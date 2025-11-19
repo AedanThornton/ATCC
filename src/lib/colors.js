@@ -54,10 +54,10 @@ export function getGateColor(gatetype) {
     ambrosia: "#5D0D69",
     bleed: "#040404",
     labyrinth: "#7D4921",
-    despair: "#0E5653",
+    despair: "#07302fff",
     condition: "#C09513",
     "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
-    midas: "131004",
+    midas: "#d4ae43ff",
   };
   return gateColors[gatetype] || "#AAAAAA";
 };
