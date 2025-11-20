@@ -3,7 +3,7 @@ import "/src/styles/cardsStyle.css"
 import "./TitanCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
-import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor} from "../../../lib/colors.js"
+import {getCyclePrimaryColor, getCycleTextColor, getGateColor} from "../../../lib/colors.js"
 import { Abilities, GatedAbilities } from "../../AbilityRenderer.jsx";
 
 const TitanCard = ({ titan, index }) => {
@@ -42,7 +42,7 @@ const TitanCard = ({ titan, index }) => {
           </div>
 
           {/* Titan Info */}
-          <div className="titan-info" style={{ background: getCyclePrimaryColor(titan.cycle), color: getCycleSecondaryColor(titan.cycle) }}>Card Info</div>
+          <div className="titan-info" style={{ background: getCyclePrimaryColor(titan.cycle), color: getCycleTextColor(titan.cycle) }}>Card Info</div>
           <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
             <div className="card-info-header">ID(s)</div>
             <div className="card-info-detail">{titan.cardIDs.join(", ")}</div>

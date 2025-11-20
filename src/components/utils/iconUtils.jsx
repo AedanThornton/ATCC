@@ -42,8 +42,6 @@ const utils = {
             "Labyrinth": "Labyrinthians"
         };
 
-        if (typeof(name) === "string" && name.endsWith("Token")) name = name.slice(0, -"Token".length)
-
         if (nameMap[name]) {
             name = nameMap[name];
             size = `${parseFloat(size) * (sizeMultiplier[name] || 1)}em`;

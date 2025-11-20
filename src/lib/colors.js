@@ -48,6 +48,7 @@ export function getGateColor(gatetype) {
   gatetype = gatetype.toLowerCase()
   const gateColors = {
     hits: "rgb(155, 35, 21)",
+    "full hit": "rgb(155, 35, 21)",
     danger: "rgb(155, 35, 21)",
     fate: "#557DBD",
     rage: "#040404",
