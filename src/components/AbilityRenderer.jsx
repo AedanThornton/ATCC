@@ -2,38 +2,52 @@ import React from "react";
 import {getGateColor} from "../lib/colors.js"
 import utils from "./utils/index.jsx";
 
+function formatText(textClump) {
+  switch(textClump.type) {
+    case "keyword":
+      return utils.createTooltip(textClump.value)
+    case "timing":
+      return <><br /><b>{textClump.value}</b>:</>
+    case "bold":
+      return <b>{textClump.value}</b>
+    case "italics":
+      return <i>{textClump.value}</i>
+    case "icon":
+      return utils.getIcon(textClump.value)
+    default:
+      return textClump.value
+  }
+}
+
 const Abilities = ({ abilitiesList }) => {
-  return abilitiesList.map((ability, index) => (
+  return abilitiesList?.map((ability, index) => (
     <React.Fragment key={index}>
-      {(ability.flavorName || ability.timing || ability.costs) && index !== 0 && (<br/>)}
-      <span>
-        {` `}
-        {(!ability.timingAfter && ability.timing) && (<b>{utils.getIcon(ability.timing)}{ability.timing !== "Reaction" && ':'} </b>)}
-        {ability.costs && ability.costs.map((cost, index) => <React.Fragment key={index}>{utils.getIcon(cost, undefined, index)} </React.Fragment>)}
-        {(ability.timingAfter && ability.timing) && (<b> {ability.timing}: </b>)}
-        {ability.flavorName && (<b> {ability.flavorName}: </b>)}
-        {ability.type === "unique"
-          ? ( <> {utils.updateComponent(`${ability.name}`, index)}</>)
-          : ( <> {utils.createTooltip(`${ability.name}`, index)}{ability.y_value ? ` ${ability.y_value}-${ability.x_value}` : (ability.x_value ? ` ${ability.x_value}` : "")}</> )
-        }
-        .
-      </span>
+      {ability.abilityText.map((textClump, index2, array) => (
+        <React.Fragment key={index2}>
+          {formatText(textClump)}{index2 !== array.length -1 && " "}
+        </React.Fragment>
+      ))}{". "}
     </React.Fragment>
   ))
 }
 
 const GatedAbilities = ({ gatedAbilitiesList }) => {
   return (
-  <div className="gated-abilities">
-    {gatedAbilitiesList.map((gateGroup, index) => (
-      <div key={index} className="card-info" style={{ background: getGateColor(gateGroup.gate) }}>
-        <div className="gear-ability-gate">{utils.createAbilityGate(gateGroup.gate, gateGroup.value)}</div>
-        <div className="gear-gated-ability">
-          <Abilities abilitiesList={gateGroup.abilities}/>
+    <div className="gated-abilities">
+      {gatedAbilitiesList.map((gateGroup, index) => (
+        <div key={index} className="card-info" style={{ background: getGateColor(gateGroup.gate) }}>
+          <div className="gear-ability-gate">{utils.createAbilityGate(gateGroup.gate, gateGroup.value)}</div>
+          <div className="gear-gated-ability">
+            {gateGroup.abilityText.map((textClump, index2, array) => (
+              <React.Fragment key={index2}>
+                {formatText(textClump)}{index2 !== array.length -1 && " "}
+              </React.Fragment>
+            ))}{". "}
+          </div>
         </div>
-      </div>
-    ))}
-  </div>)
+      ))}
+    </div>
+  )
 }
 
 export { Abilities, GatedAbilities }
