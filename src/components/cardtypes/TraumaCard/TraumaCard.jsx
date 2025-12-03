@@ -13,8 +13,8 @@ const TraumaCard = ({ trauma, index }) => {
               <div style={{lineHeight: "26px", fontSize: Math.min(18, 300 / (1 * trauma.name.length))}}>
                   {trauma.name.toUpperCase()}
               </div>
-              {trauma.cycle !== "ALL" && <div className="trauma-subtitle">
-                  {trauma.cycle.toUpperCase()} ONLY
+              {trauma.usedFor && <div className="trauma-subtitle">
+                  {trauma.usedFor.toUpperCase()} ONLY
               </div>}
             </div>
 

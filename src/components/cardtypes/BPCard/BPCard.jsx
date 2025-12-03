@@ -48,7 +48,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
       key={index} className={`card bp-card ${bp.cardSize.replace(" ", "-").toLowerCase()}`}
       style={{
         color: isDahaka ? "black" : getCyclePrimaryColor(colorInput),
-        backgroundColor: isAdversary[bp.usedFor] && isDahaka ? getCycleSecondaryColor(colorInput) : adversaryPrimaryColor,
+        backgroundColor: isAdversary[bp.usedFor] && (isDahaka ? getCycleSecondaryColor(colorInput) : adversaryPrimaryColor),
         borderTopLeftRadius: isDahaka && 0,
         borderTopRightRadius: isDahaka && 0,
       }}
