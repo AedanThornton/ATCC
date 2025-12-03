@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./DoomCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils";
+import utils from "../../utils/index";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const DoomCard = ({ doom, index, currentSide }) => {
   let side = currentSide
@@ -31,7 +32,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
                 </span>
                 <div>
                   {doom["rules" + side] && doom["rules" + side].map((paragraph, index) => (
-                    <p>{utils.updateComponent(paragraph)}.</p>
+                    <p><FormattedParagraph paragraph={paragraph} />.</p>
                   ))}
                 </div>
               </div>

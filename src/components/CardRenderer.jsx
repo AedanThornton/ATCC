@@ -8,7 +8,7 @@ import FocusCard from './FocusCard';
 import utils from './utils';
 
 const CardRenderer = ({cardname}) => { 
-  const isSecretCard = cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope")
+  const isSecretCard = cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope") || cardname.foundIn === "Ultra-secret"
  
   const [isHidden, setIsHidden] = useState(isSecretCard);
   const [currentSide, setCurrentSide] = useState(1);

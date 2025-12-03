@@ -2,13 +2,14 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary, adversaryPrimaryColor } from "../../../lib/colors.js"
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 
 const parseLines = (lines, superindex) => {
   const newLines = []
-  let currentBlock = "";
+  let currentBlock = [];
   let startedWithWoO = false
 
   lines.forEach((line, index) => {
@@ -19,27 +20,27 @@ const parseLines = (lines, superindex) => {
             {startedWithWoO
               ? (<div style={{ flex: 1 }} className="ai-card__woo-icon">{wooIcon}</div>)
               : (<div style={{ flex: 1 }}></div>)}
-            <p style={{ flex: 14 }}>{utils.updateComponent(currentBlock, index)}</p>
+            <p style={{ flex: 14 }}>{currentBlock}</p>
           </div>)
-        currentBlock = ""
+        currentBlock = []
       }
       startedWithWoO = true
     }
 
-    currentBlock += line.effect + ". "
+    currentBlock.push(<FormattedParagraph paragraph={line.effect} />)
   })
   newLines.push(
     <div key={newLines.length} style={{ display: "flex" }}>
       {startedWithWoO && (<div style={{ flex: 1 }} className="ai-card__woo-icon">{wooIcon}</div>)}
       {!startedWithWoO && (<div style={{ flex: 1 }}></div>)}
-      <p style={{ flex: 14 }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock, superindex)}</p>
+      <p style={{ flex: 14 }} key={`${newLines.length}`}>{currentBlock}</p>
     </div>)
 
   return newLines
 }
 
 const AttackCard = ({ attack, index, isDahaka = false }) => {
-  const colorInput = isAdversary[attack.usedFor] ? "Adversary" : attack.cycle
+  const colorInput = isAdversary[attack.usedFor] ? "Adversary" : attack.cycle  
 
   return (
     <div key={index}
@@ -91,7 +92,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
             {attack.targeting?.map((line, index) => (
               <span key={index} style={{ display: "flex" }}>
                 <span style={{ paddingLeft: `${100 / 15}%` }}></span>
-                <span style={{ flex: 14 }}><span style={{ fontWeight: "bold" }}>{line.type}</span> {utils.updateComponent(line.target)}.</span>
+                <span style={{ flex: 14 }}><span style={{ fontWeight: "bold" }}>{line.type}</span> <FormattedParagraph paragraph={line.target} /></span>
               </span>
             )
             )}
@@ -112,7 +113,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
             {/* Banners */}
             {attack.attackBanners?.map((banner, index) => (
               <span key={index} className="ai-card__attack-banner invert-icons" style={{ backgroundColor: getGateColor(banner.gate?.gateType || "danger") }}>
-                {utils.getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: {utils.updateComponent(banner.effect, index)}
+                {utils.getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: <FormattedParagraph paragraph={banner.effect} />
               </span>
             ))}
           </div>

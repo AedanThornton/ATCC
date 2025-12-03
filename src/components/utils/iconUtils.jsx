@@ -67,7 +67,7 @@ const utils = {
                     src={icon} 
                     style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`}} 
                     alt={name} 
-                    className={`${nonInvertibles.has(name) ? "" : "invertible"} ${name}`}
+                    className={`text-icon ${nonInvertibles.has(name) ? "" : "invertible"} ${name}`}
                 />
             </Tippy>
         ) : name;

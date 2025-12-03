@@ -84,7 +84,7 @@
 
 .gate .invertible,
 .pattern-ability-gate .invertible,
-.pattern .invertible,
+.pattern-abilities .invertible,
 .icon .invertible,
 .kratos-option .invertible {
     filter: invert(1);

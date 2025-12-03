@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./GodformCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 import WeaponRenderer from "../../WeaponRenderer.jsx";
 
 const GodformCard = ({ godform, index }) => {
@@ -18,14 +19,14 @@ const GodformCard = ({ godform, index }) => {
             {ability.attack && <div style={{flex: 1}}>
               <WeaponRenderer statsArray={ability.attack}/>
             </div>}
-            <div style={{flex: 4}}>{utils.updateComponent(`${ability.effects}`)}.</div>
+            <div style={{flex: 4}}><FormattedParagraph paragraph={ability.effects[0]} /></div>
           </div>
         </div>
       ))}
       
-      {godform.keywords && (
+      {godform.keywords[0].length > 0 && (
         <div className="godform-ability-box">
-          <div className="godform-ability"><div>{utils.updateComponent(godform.keywords.split(", ").join(". "))}.</div></div>
+          <div className="godform-ability"><div><FormattedParagraph paragraph={godform.keywords[0]} /></div></div>
         </div>
       )}
 

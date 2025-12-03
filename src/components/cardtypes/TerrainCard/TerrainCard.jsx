@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TerrainCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const TerrainCard = ({ terrain, index, currentSide }) => {
   return (
@@ -31,11 +32,7 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
         </div>
 
         <div className="terrain-abilities">
-          {terrain.abilities?.map((ability, index) => (
-            <p key={index}>
-              {ability}{ability && "."}
-            </p>
-          ))}
+          <FormattedParagraph paragraph={terrain.abilities[0]} />
         </div>
       </div>
 

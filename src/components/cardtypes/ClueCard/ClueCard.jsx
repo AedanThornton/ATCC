@@ -2,6 +2,7 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./ClueCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const ClueCard = ({ clue, index }) => {
   return (
@@ -23,7 +24,8 @@ const ClueCard = ({ clue, index }) => {
       )}
 
       <div className="clue-text" style={{lineHeight: "14px"}}>
-        {utils.updateComponent(clue.text)}.
+        <FormattedParagraph paragraph={clue.text[0]} />
+        <FormattedParagraph paragraph={clue.text[1]} inLineGate={true} />
       </div>
 
       <div>

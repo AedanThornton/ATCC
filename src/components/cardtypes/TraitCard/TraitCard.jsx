@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TraitCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const TraitCard = ({ trait, index }) => {
   return (
@@ -15,7 +16,7 @@ const TraitCard = ({ trait, index }) => {
         </div>
 
         {/* Effects */}
-        <div className="trait-effects">{utils.updateComponent(trait.effects)}.</div>
+        <div className="trait-effects"><FormattedParagraph paragraph={trait.effects[0]} /></div>
       </div>
       
 

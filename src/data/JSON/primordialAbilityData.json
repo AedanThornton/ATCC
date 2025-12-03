@@ -1,140 +1,670 @@
 {
   "End of Hope": [
     {
-      "text": "End of Primordial Round: Perform Signature.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "End of Primordial Round: Perform Signature"
+        }
+      ]
     }
   ],
   "Vanish X": [
     {
-      "text": "Move the Primordial X spaces towards the closest Board Edge, without turning, ignoring Board Edges directly across from the Target or attacking Titan. If thes would move the Primordial beyond a Board Edge or outside of all ranges of light, it disappears. When the Primordial is outside the Battle Board, it cannot be affected in any way.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Move the Primordial X spaces towards the closest Board Edge, without turning, ignoring Board Edges directly across from the Target or attacking Titan"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If thes would move the Primordial beyond a Board Edge or outside of all ranges of light, it disappears"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Primordial is outside the Battle Board, it cannot be affected in any way"
+        }
+      ]
     }
   ],
   "Pale Grin of Doom": [
     {
-      "text": "When you are attacked from behind, ignore the Evasion Roll; the Attack automatically hits with all the dice.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you are attacked from behind, ignore the Evasion Roll; the Attack automatically hits with all the dice"
+        }
+      ]
     }
   ],
   "Fear is Constant": [
     {
-      "text": "Start of Battle: Chosen Titan gains the Fear Condition card, another Titan gains the Terror Condition card, a third one flips 1 Oxygen token.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Battle"
+        },
+        {
+          "type": "plainText",
+          "value": "Chosen Titan gains the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Fear",
+          "refID": "AL0299"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card, another Titan gains the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Terror",
+          "refID": ""
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card, a third one flips 1 Oxygen token"
+        }
+      ]
     }
   ],
   "Blacker Than The Night": [
     {
-      "text": "When the Primordial performs Vanish X, it doesn't ignore the Board Edges directly across from the Target or attacking Titan.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Primordial performs"
+        },
+        {
+          "type": "keyword",
+          "value": "Vanish X"
+        },
+        {
+          "type": "plainText",
+          "value": ", it doesn't ignore the Board Edges directly across from the Target or attacking Titan"
+        }
+      ]
     }
   ],
   "Pale Grin of Death": [
     {
-      "text": "When you are attacked from behind, ignore the Evasion Roll. You are immediately devoured (dead).",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you are attacked from behind, ignore the Evasion Roll"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "You are immediately devoured (dead)"
+        }
+      ]
     }
   ],
   "Light is Dimming": [
     {
-      "text": "If you don't have any Light X keyword, you are always considered to be attacked from behind.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you don't have any"
+        },
+        {
+          "type": "keyword",
+          "value": "Light X"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword, you are always considered to be attacked from behind"
+        }
+      ]
     }
   ],
   "Psychosomatic Poisoning": [
     {
-      "text": "When you gain a Condition card, and each time you start your turn with a Condition card, gain 1 Ambrosia token.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you gain a Condition card, and each time you start your turn with a Condition card, gain 1 Ambrosia token"
+        }
+      ]
     }
   ],
   "Relentless Anxiety": [
     {
-      "text": "When the Primordial vanishes, immediately draw an AI card.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Primordial vanishes, immediately draw an AI card"
+        }
+      ]
     }
   ],
   "Deeper Depths": [
     {
-      "text": "Each Titan starts the Battle with 1 Oxygen token less.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Titan starts the Battle with 1 Oxygen token less"
+        }
+      ]
     }
   ],
   "Original Trench": [
     {
-      "text": "Normal (not Terrain) Battle Board spaces are considered Terrain tiles with the Chasm keyword. All other Terrain is considered Elevated.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Normal (not Terrain) Battle Board spaces are considered Terrain tiles with the"
+        },
+        {
+          "type": "keyword",
+          "value": "Chasm"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "All other Terrain is considered"
+        },
+        {
+          "type": "keyword",
+          "value": "Elevated"
+        }
+      ]
     }
   ],
   "Beginning of the End": [
     {
-      "text": "End of Primordial Round: Before End of Hope, draw and perform another AI card.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Before"
+        },
+        {
+          "type": "keyword",
+          "value": "End of Hope"
+        },
+        {
+          "type": "plainText",
+          "value": ", draw and perform another AI card"
+        }
+      ]
     }
   ],
   "Dragon of the Lightless Void": [
     {
-      "text": "You can only use X amount of Opening or Closing tokens from the Kratos Pool. You can only use X amount of Break, Fire, Black, and Hope tokens from the Kratos Pool combined. X is equal to your Light X keyword.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "You can only use X amount of Opening or Closing tokens from the Kratos Pool"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "You can only use X amount of Break, Fire, Black, and Hope tokens from the Kratos Pool combined"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "X is equal to your Light X keyword"
+        }
+      ]
     }
   ],
   "Ruthless": [
     {
-      "text": "Remove all positive Trauma cards from the Trauma decks (except Obols).",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Remove all positive Trauma cards from the Trauma decks (except Obols)"
+        }
+      ]
     }
   ],
   "Heat Death": [
     {
-      "text": "Primordial doesn't destroy Petrified Vent Terrain tiles it moves through. Primordial's Crash causes incineration.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Primordial doesn't destroy"
+        },
+        {
+          "type": "cardRef",
+          "value": "Petrified Vent",
+          "refID": ""
+        },
+        {
+          "type": "plainText",
+          "value": "Terrain tiles it moves through"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Primordial's Crash causes incineration"
+        }
+      ]
     }
   ],
   "Microwave Shield": [
     {
-      "text": "Before performing an Attack Roll, for each space between you and the Primordial, discard 1 token from the Kratos Pool.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Before performing an Attack Roll, for each space between you and the Primordial, discard 1 token from the Kratos Pool"
+        }
+      ]
     }
   ],
   "Truth or Death": [
     {
-      "text": "Before performing a Scan, declare if the Primordial is there. If you are not correct, after resolving the Scan, draw an Obol.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Before performing a Scan, declare if the Primordial is there"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you are not correct, after resolving the Scan, draw an Obol"
+        }
+      ]
     }
   ],
   "Invisible Flame": [
     {
-      "text": "When you climb the VP, and when you start your turn on the VP, gain 1 Ambrosia token and 1 Pain token.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you climb the VP, and when you start your turn on the VP, gain 1 Ambrosia token and 1 Pain token"
+        }
+      ]
     }
   ],
   "Nap of the Vent": [
     {
-      "text": "Primordial destroys Petrified Vent Terrain tiles it moves through.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Primordial destroys"
+        },
+        {
+          "type": "cardRef",
+          "value": "Petrified Vent",
+          "refID": ""
+        },
+        {
+          "type": "plainText",
+          "value": "Terrain tiles it moves through"
+        }
+      ]
     }
   ],
   "Tigerback": [
     {
-      "text": "To leave the VP voluntarily, you need to pass a Climb Down test (same difficulty as the Climb test).",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "To leave the VP voluntarily, you need to pass a Climb Down test (same difficulty as the Climb test)"
+        }
+      ]
     }
   ],
   "Candle in the Dark": [
     {
-      "text": "If your Light X is lower than the Primordial level divided by 2 (rounding up), Skitter loses WoOIcon.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If your Light X is lower than the Primordial level divided by 2 (rounding up), Skitter loses"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        }
+      ]
     }
   ],
   "Black Soup": [
     {
-      "text": "If you fail to find the Primordial during the Titan Round, every Titan dies.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you fail to find the Primordial during the Titan Round, every Titan dies"
+        }
+      ]
     }
   ],
   "Three Seconds": [
     {
-      "text": "Ignore WoOIcon preceding Microwave Attacks.",
-      "formatting": ""
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "preceding Microwave Attacks"
+        }
+      ]
+    }
+  ],
+  "Imperial Leap": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "This Trait replaces the"
+        },
+        {
+          "type": "keyword",
+          "value": "Imperial Impetus"
+        },
+        {
+          "type": "plainText",
+          "value": "Trait and the effects of the"
+        },
+        {
+          "type": "keyword",
+          "value": "Imperial Impetus"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Imperial Impetus"
+        },
+        {
+          "type": "plainText",
+          "value": ": Place an"
+        },
+        {
+          "type": "cardRef",
+          "value": "Ambrosia Cloud",
+          "refID": ""
+        },
+        {
+          "type": "plainText",
+          "value": "Terrain tile beneath the Nosoi Dragon"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Nosoi Dragon moves onto the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Irem Tower",
+          "refID": ""
+        },
+        {
+          "type": "plainText",
+          "value": "Terrain tile in front that is at least 11 spaces away from it"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Then, all Titans in Zone 2 from the Nosoi Dragon gain 1 Ambrosia token and draw an Obol"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "This movement does not cause Crash"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Nosoi Dragon cannot perform Imperial Impetus, move it onto the closest"
+        },
+        {
+          "type": "cardRef",
+          "value": "Ambrosia Cloud",
+          "refID": ""
+        },
+        {
+          "type": "plainText",
+          "value": "(if able) and perform Routine"
+        }
+      ]
+    }
+  ],
+  "Enriched Toxins": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Whenever a Titan would gain one or more Ambrosia tokens, they additionally gain 1 Midas token"
+        }
+      ]
+    }
+  ],
+  "Pollution Aura": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Titan starts the Battle with 1 Oxygen token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan ends their turn in Zone 2 from the Nosoi Dragon, they discard 1 Oxygen token and gain 1 Ambrosia token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If, at any point, you must discard an Oxygen token and you don't have any, you die"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Note; Do not use Cycle V Oxygen token rules"
+        }
+      ]
+    }
+  ],
+  "God Given Law": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "preceding"
+        },
+        {
+          "type": "cardRef",
+          "value": "Merciless Sun",
+          "refID": ""
+        }
+      ]
+    }
+  ],
+  "Magnifying Glass": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "VP becomes unshaded"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After a Titan fails a Climb test, perform Signature against that Titan"
+        }
+      ]
+    }
+  ],
+  "Blinding Shine": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Old Haunt cannot be Wounded from the front"
+        }
+      ]
+    }
+  ],
+  "Unworthy Will Die": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "At the end of the Primordial Round, the Old Haunt destroys the closest"
+        },
+        {
+          "type": "cardRef",
+          "value": "Irem Tower",
+          "refID": ""
+        }
+      ]
+    }
+  ],
+  "Cannot Hide from the Sun": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Titan with the"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "Priority Target token cannot be shaded in any way"
+        }
+      ]
+    }
+  ],
+  "God Taken Law": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When an"
+        },
+        {
+          "type": "cardRef",
+          "value": "Irem Tower",
+          "refID": ""
+        },
+        {
+          "type": "plainText",
+          "value": "is destroyed, each Titan adjacent to it is dealt X"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": ", where X is the number of Towers already removed"
+        }
+      ]
+    }
+  ],
+  "Make the Sun Move and the Earth Stand Still": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "At the end of the Primordial Round, the Old Haunt appears at the closest Sun Circle"
+        }
+      ]
+    }
+  ],
+  "Spontaneous Supernova": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Old Haunt appears at a Sun Circle, all unshaded Titans are incinerated and destroy any Terrain tile that shaded a Titan, even if indestructible"
+        }
+      ]
+    }
+  ],
+  "Gods Don't Look Back": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Titans attacking from the Blindspot have an additional +1 Precision"
+        }
+      ]
     }
   ]
 }

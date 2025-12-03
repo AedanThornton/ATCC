@@ -4,7 +4,7 @@ import "./PatternCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "./PatternTable.jsx";
 import { getGateColor } from "../../../lib/colors.js"
-import { Abilities, GatedAbilities } from "../../AbilityRenderer.jsx";
+import FormattedParagraph, { GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
 
 const PatternCard = ({ pattern, index }) => {
   return (
@@ -28,13 +28,13 @@ const PatternCard = ({ pattern, index }) => {
         {/* Ability Box */}
         <div className="pattern-abilities">
           {pattern.abilities?.length > 0 && <div key={index} style={{ background: getGateColor("danger"), padding: "2px 0", color: "white" }}>
-            <Abilities abilitiesList={pattern.abilities} />
+            <FormattedParagraph paragraph={pattern.abilities} />
           </div>}
         </div>
 
         {/* Gated Abilities */}
         {pattern.gatedAbilities && pattern.gatedAbilities.length > 0 && (
-          <GatedAbilities gatedAbilitiesList={pattern.gatedAbilities} />
+          <GatedFormattedParagraph gatedParagraph={pattern.gatedAbilities} />
         )}
 
         {/* Pattern Info */}

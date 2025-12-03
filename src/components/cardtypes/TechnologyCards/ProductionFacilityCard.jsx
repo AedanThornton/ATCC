@@ -23,7 +23,16 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
               </div>)}
               <div className="technology-project-header">REQUIREMENTS</div>
               <div className="technology-project-box">
-                {productionFacility.requirements.join(", ")}
+                {productionFacility.requirements.map((req, i, array) => {
+                  return (
+                    <>
+                    {req.startsWith("@ArgoKnowledge") 
+                      ? <>{utils.getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                      : req}
+                    {!(i >= array.length - 1) && ", "}
+                    </>
+                  )
+                })}
               </div>
               <div className="technology-project-header">LEADS TO</div>
               <div className="technology-project-box">

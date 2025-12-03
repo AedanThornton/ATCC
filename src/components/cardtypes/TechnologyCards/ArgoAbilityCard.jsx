@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph, { FormattedSentence } from "../../FormattedParagraph.jsx";
 
 const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
   return (
@@ -23,7 +24,16 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
             </div>)}
             <div className="technology-project-header">REQUIREMENTS</div>
             <div className="technology-project-box">
-              {argoAbility.requirements.join(", ")}
+              {argoAbility.requirements.map((req, i, array) => {
+                return (
+                  <>
+                  {req.startsWith("@ArgoKnowledge") 
+                    ? <>{utils.getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                    : req}
+                  {!(i >= array.length - 1) && ", "}
+                  </>
+                )
+              })}
             </div>
             <div className="technology-project-header">LEADS TO</div>
             <div className="technology-project-box">
@@ -44,7 +54,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
             <div className="technology-ability-box" key={index}>
               <div style={{marginTop: "10px"}}></div>
               <div className="technology-ability-header">{ability.name ? ability.name.toUpperCase() : "ABILITY"}</div>
-              <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}.</div>
+              <div className="technology-ability"><FormattedSentence sentence={ability.effects} /></div>
             </div>
           ))}
 

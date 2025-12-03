@@ -4,7 +4,7 @@ import "./TitanCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
 import {getCyclePrimaryColor, getCycleTextColor, getGateColor} from "../../../lib/colors.js"
-import { Abilities, GatedAbilities } from "../../AbilityRenderer.jsx";
+import FormattedParagraph, { GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
 
 const TitanCard = ({ titan, index }) => {
   return (
@@ -31,14 +31,14 @@ const TitanCard = ({ titan, index }) => {
             {/* Abilities */}
             <div className="titan-abilities">
               <div>
-                <Abilities abilitiesList={titan.abilities} />
+                <FormattedParagraph paragraph={titan.abilities} />
               </div>
             </div>
           </div>
 
           {/* Gated Abilities */}
           <div className="gated-abilities">
-            <GatedAbilities gatedAbilitiesList={titan.gatedAbilities} />
+            <GatedFormattedParagraph gatedParagraph={titan.gatedAbilities} />
           </div>
 
           {/* Titan Info */}

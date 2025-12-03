@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const StructuralCard = ({ structural, index, currentSide }) => {
   let side = currentSide
@@ -28,7 +29,16 @@ const StructuralCard = ({ structural, index, currentSide }) => {
               </div>)}
               <div className="technology-project-header">REQUIREMENTS</div>
               <div className="technology-project-box">
-                {utils.updateComponent(structural.requirements.join(", "))}
+                {structural.requirements.map((req, i, array) => {
+                  return (
+                    <>
+                    {req.startsWith("@ArgoKnowledge") 
+                      ? <>{utils.getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                      : req}
+                    {!(i >= array.length - 1) && ", "}
+                    </>
+                  )
+                })}
               </div>
               <div className="technology-project-header">LEADS TO</div>
               <div className="technology-project-box">
@@ -49,7 +59,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
             {structural.abilities?.map((ability, index) => (
               <div className="technology-ability-box" key={index}>
                 <div className="technology-ability-header">{ability.name.toUpperCase()}</div>
-                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}{utils.updateComponent(`${ability.effects}`)}.</div>
+                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}<FormattedParagraph paragraph={ability.effects[0]} /></div>
               </div>
             ))}
           </div>

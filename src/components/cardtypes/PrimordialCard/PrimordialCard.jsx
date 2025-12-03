@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./PrimordialCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph, { FormattedSentence } from "../../FormattedParagraph.jsx";
 import { useState } from "react";
 import primordialAbilities from "../../../data/JSON/primordialAbilityData.json";
 
@@ -60,11 +61,7 @@ const PrimordialCard = ({ primordial, index }) => {
                 </div>
                 <div className="primordial-vp-box-right">
                   <div className="primordial-section-header">VP EFFECTS</div>
-                  {primordial.vp.effects.split(". ").map((effect, index) => (
-                    <p key={index}>
-                      {effect}.
-                    </p>
-                  ))}
+                  <FormattedParagraph paragraph={primordial.vp.effects} />
                 </div>
               </div>
             </div>
@@ -86,10 +83,11 @@ const PrimordialCard = ({ primordial, index }) => {
               </div>
               <div className="primordial-attributes__bonus">
                 {Array.from({ length: 4 }, (_, i) => {
-                  return primordial.levels[currentLevel]?.attributes[i] 
+                  const attr = primordial.levels[currentLevel]?.attributes[i]?.name.split(" ") || []
+                  return primordial.levels[currentLevel]?.attributes[i]
                   ? (
                     <div key={i} className="primordial-attributes__bonus-stat-box">
-                      <span>+{primordial.levels[currentLevel]?.attributes[i].count} {utils.updateComponent(primordial.levels[currentLevel]?.attributes[i].name)}</span>
+                      <span>+{primordial.levels[currentLevel]?.attributes[i].count} {utils.getIcon(attr[0])} {attr.length > 1 && attr.shift() && attr.join(" ")}</span>
                     </div>)
                   : <div key={i} className="primordial-attributes__bonus-stat-placeholder"></div>
                 })}
@@ -109,9 +107,9 @@ const PrimordialCard = ({ primordial, index }) => {
                 <div className="primordial-section-header">{trait.toUpperCase()}</div>
                 <p key={index}>
                   { primordialAbilities[trait] 
-                    ? primordialAbilities[trait][0].text
+                    ? <FormattedParagraph paragraph={primordialAbilities[trait]} />
                     : <i>Ability definition not found</i>
-                  }.
+                  }
                 </p>
               </>
             ))}

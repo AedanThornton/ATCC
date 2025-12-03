@@ -2,13 +2,14 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./BPCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, isAdversary, adversaryPrimaryColor, getCycleTextColor } from "../../../lib/colors.js"
 
 const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
 
 const parseLines = (lines, superindex) => {
   const newLines = []
-  let currentBlock = "";
+  let currentBlock = [];
   let startedWithWoO = false
 
   lines.forEach((line, index) => {
@@ -19,21 +20,21 @@ const parseLines = (lines, superindex) => {
             {startedWithWoO
               ? (<div style={{ width: "6.66%" }} className="bp-card__woo-icon">{wooIcon}</div>)
               : (<div style={{ width: "6.66%" }}></div>)}
-            <p style={{ width: "93.33%" }}>{utils.updateComponent(currentBlock, index)}</p>
+            <p style={{ width: "93.33%" }}>{currentBlock}</p>
           </div>)
-        currentBlock = ""
+        currentBlock = []
       }
       startedWithWoO = true
     }
 
-    currentBlock += line.effect + ". "
+    currentBlock.push(<FormattedParagraph paragraph={line.effect} />)
   })
   newLines.push(
     <div key={newLines.length} style={{ display: "flex" }}>
       {startedWithWoO
         ? (<div style={{ width: "6.66%" }} className="bp-card__woo-icon">{wooIcon}</div>)
         : (<div style={{ width: "6.66%" }}></div>)}
-      <p style={{ width: "93.33%" }} key={`${newLines.length}`}>{utils.updateComponent(currentBlock, superindex)}</p>
+      <p style={{ width: "93.33%" }} key={`${newLines.length}`}>{currentBlock}</p>
     </div>)
 
   return newLines

@@ -62,3 +62,7 @@
 .invert-icons .invertible {
     filter: invert(1);
 }
+
+.ability-costs .text-icon {
+    margin-right: 2px;
+}

@@ -28,7 +28,7 @@ const ConditionCard = ({ condition, index, currentSide }) => {
         )}
 
         {condition["side" + side].endOfBattle && (
-          <div className="condition-effects">{condition["side" + side].endOfBattle}.</div>
+          <div className="condition-effects"><b>End of Battle: </b>{condition["side" + side].endOfBattle}.</div>
         )}
       </div>
 

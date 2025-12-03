@@ -2,8 +2,13 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./ExplorationCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import {FormattedSentence} from "../../FormattedParagraph.jsx";
 
 const ExplorationCard = ({ exploration, index }) => {
+  const diplomacies = [
+    "Allied", "Friendly", "Neutral", "Unfriendly", "Denounced", "At War", "Aligned with Nemesis", "Hidden", "Distrustful"
+  ]
+
   return (
     <div className={`card exploration ${exploration.cardSize.replace(" ", "-").toLowerCase()}`}>
       {/* Exploration Info */}
@@ -12,12 +17,31 @@ const ExplorationCard = ({ exploration, index }) => {
       </div>
 
       <div className="exploration-effects">
-        {exploration.effects?.map((effect, index) => (
+        {exploration.effects[0]?.map((effect, index) => (
           <p key={index} style={{fontSize: "12px", lineHeight: "12px"}}>
-            {effect.diplomacy && <span className="exploration-diplomacy-banner"><span>{utils.createStatTitle(effect.diplomacy, "white", "black", effect.sign || "")}</span></span>}
-            <span className="exploration-effect-text">{utils.updateComponent(effect.effect)}.</span>
+            <span className="exploration-effect-text">
+              <FormattedSentence sentence={effect} />
+            </span>
           </p>
         ))}
+        {exploration.effects[1]?.map((effect, index) => {
+          let diplomacy = '', diplomacySign = ''
+          if (effect.gate) {
+            diplomacySign = effect.gate.endsWith('+') ? '+' : effect.gate.endsWith('-') ? '-' : ''
+            if (diplomacySign) {
+              diplomacy = diplomacies.includes(effect.gate.slice(0, -1)) ? effect.gate.slice(0, -1) : ''
+            } else {
+              diplomacy = diplomacies.includes(effect.gate) ? effect.gate : ''
+            }
+          }
+
+          return <p key={index} style={{fontSize: "12px", lineHeight: "12px"}}>
+            {diplomacy !== '' && <span className="exploration-diplomacy-banner"><span>{utils.createStatTitle(diplomacy, "white", "black", diplomacySign || "")}</span></span>}
+            <span className="exploration-effect-text">
+              <FormattedSentence sentence={effect} />
+            </span>
+          </p>
+        })}
       </div>
 
       {exploration.adversaryTriggers && (

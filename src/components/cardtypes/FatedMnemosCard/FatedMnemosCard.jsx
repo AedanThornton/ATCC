@@ -2,6 +2,7 @@ import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./FatedMnemosCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index";
+import {FormattedSentence} from "../../FormattedParagraph.jsx";
 
 const FatedMnemosCard = ({ fatedMnemos, index }) => {
   return (
@@ -21,7 +22,7 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
       </div>
 
       <div className="fated-mnemos-effect-box">
-        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.effect)}.</div>
+        <div className="fated-mnemos-effect"><FormattedSentence sentence={fatedMnemos.effect} /></div>
       </div>
 
       <div className="card-info" style={{lineHeight: "14px"}}>
@@ -35,7 +36,7 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
 
       <div className="fated-mnemos-effect-box">
         <div className="fated-mnemos-effect-header">{fatedMnemos.growthName}</div>
-        <div className="fated-mnemos-effect">{utils.updateComponent(fatedMnemos.growthAbility)}.</div>
+        <div className="fated-mnemos-effect"><FormattedSentence sentence={fatedMnemos.growthAbility} /></div>
       </div>
 
       <div>

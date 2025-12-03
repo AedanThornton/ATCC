@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./MoirosCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const MoirosCard = ({ moiros, index }) => {
   return (
@@ -11,7 +12,7 @@ const MoirosCard = ({ moiros, index }) => {
         </div>
 
         {/* Effects */}
-        <div className="moiros-effects">{utils.updateComponent(moiros.effects)}.</div>
+        <div className="moiros-effects"><FormattedParagraph paragraph={moiros.effects} />.</div>
       </div>
 
       {/* Info */}

@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./StoryCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils";
+import utils from "../../utils/index";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const StoryCard = ({ story, index, currentSide }) => {
   let side = currentSide
@@ -33,7 +34,7 @@ const StoryCard = ({ story, index, currentSide }) => {
                 {story["rulesTitle" + side] && (<p><b>{story["rulesTitle" + side].replace(".", "")}</b></p>)}
                 <div>
                   {story["rules" + side] && story["rules" + side].map((paragraph, index) => (
-                    <p>{utils.updateComponent(paragraph)}.</p>
+                    <p><FormattedParagraph paragraph={paragraph} /></p>
                   ))}
                 </div>
               </div>

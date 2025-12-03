@@ -7,14 +7,18 @@ import TitanAbilities from '/src/data/JSON/titanAbilityData.json';
 
 const Keywords = {...TitanAbilities, ...StandardKeywords}
 
-const createTooltip = (name, index, textParser) => {  
+const createTooltip = (name, index, textParser) => {
   let keyword="";
   if (Keywords[name]) keyword = name;
   else if (Keywords[name + " X"]) keyword = name + " X";
-  else if (Keywords[name + " Y-X"]) keyword = name + " Y-X";
   else if (Keywords[name + " X/+X"]) keyword = name + " X/+X";
   else if (Keywords[name.split(' ').slice(1).join(' ')]) keyword = name.split(' ').slice(1).join(' ');
   else if (Keywords[name.split(' ').slice(1).join(' ') + " X"]) keyword = name.split(' ').slice(1).join(' ') + " X";
+  else if (Keywords[name.slice(0, -1) + "X"]) keyword = name.slice(0, -1) + "X";
+  else if (name.slice(0, -1).endsWith("Limit ") && Keywords[name.slice(0, -1) + "X/+X"]) keyword = name.slice(0, -1) + "X/+X";
+  else if (name.slice(0, -2).endsWith("Limit ") && Keywords[name.slice(0, -2) + "X/+X"]) keyword = name.slice(0, -2) + "X/+X";
+  else if (name.startsWith("Ranged")) keyword = "Ranged Y\u2013X";
+  else if (name === "Commit") keyword = "Commit (X)";
   else return name;
 
   const keywordData = Keywords[keyword];
@@ -27,16 +31,17 @@ const createTooltip = (name, index, textParser) => {
       offset={[0,0]}
       appendTo={document.body}
       content={
-      <div className="tooltip">
-        <div className='tooltip-title'>{keyword}</div>
-        {keywordData.map((entry, index2) => (
-          <span key={index2} style={entry.formatting || {}}>
-            {entry.subtype && <div className='tooltip-subtitle' key={"subtitle-" + index2}>{entry.subtype}</div>}
-            {textParser ? textParser(entry.text, index2) : entry.text}
-          </span>
-        ))}
-      </div>
-    }>
+        <div className="tooltip">
+          <div className='tooltip-title'>{keyword}</div>
+          {keywordData.map((entry, index2) => (
+            <span key={index2} style={entry.formatting || {}}>
+              {entry.subtype && <div className='tooltip-subtitle' key={"subtitle-" + index2}>{entry.subtype}</div>}
+              {textParser ? textParser(entry.text, index2) : entry.text}
+            </span>
+          ))}
+        </div>
+      }
+    >
       <span className="tooltip-trigger">{name}</span>
     </Tippy>
   );
