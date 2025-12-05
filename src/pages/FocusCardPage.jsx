@@ -68,7 +68,7 @@ function FocusCardPage() {
     return <div>Card not found.</div>;
   }
 
-  <FocusCard cardData={cardData} />
+  return <FocusCard cardData={cardData} />
 }
 
 export default FocusCardPage;

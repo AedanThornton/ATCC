@@ -1,7 +1,9 @@
 .focus-card-page {
   height: 100vh;
+  width: 100vw;
   align-items: center;
   position: relative;
+  color: white;
 }
 
 .focus-card-page > .secret-overlay {
@@ -132,6 +134,15 @@
 .focus-card__card-container .card {
   transform-origin: top center;
   transition: transform 0.5s ease;
+}
+
+.card-ref-text > button {
+  background-color: unset;
+  border: unset;
+  padding: 0;
+  font-weight: unset;
+  font-style: italic;
+  color: brown;
 }
 
 @media (min-width: 820px) {
