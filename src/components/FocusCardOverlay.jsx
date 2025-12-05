@@ -1,9 +1,10 @@
 import SecretOverlay from "./utils/secretUtils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Children } from "react";
 import utils from "./utils";
 import FocusCard from "./FocusCard";
+import { createPortal } from "react-dom";
 
-const FocusCardOverlay = ({ cardID, isDisplayed = false, setIsDisplayed }) => {
+const FocusCardOverlay = ({ cardID, children }) => {
   const [cardData, setCardData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,7 +45,7 @@ const FocusCardOverlay = ({ cardID, isDisplayed = false, setIsDisplayed }) => {
 
   const [isHidden, setIsHidden] = useState(isSecretCard);
   const [currentSide, setCurrentSide] = useState(1);
-  const [focusDisplay, setFocusDisplay] = useState(isDisplayed);
+  const [focusDisplay, setFocusDisplay] = useState(false);
 
   const toggleReveal = () => {
     setIsHidden(!isHidden)
@@ -66,21 +67,30 @@ const FocusCardOverlay = ({ cardID, isDisplayed = false, setIsDisplayed }) => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>
+    return <>{children}</>
   }
 
   if (!cardData) {
     return <div>Card not found.</div>;
   }
 
-  return <div className='focus-card-overlay' style={{display: isDisplayed ? "flex" : "none"}}>
-    <div className='focus-card-overlay__buttons'>
-      <button onClick={() => setIsDisplayed(false)}>X</button>
-      {cardData.name2 && (<button onClick={toggleSide}>{utils.getIcon("Flip", undefined, undefined, "1.5em")}</button>)}
-      {isSecretCard && (<button onClick={toggleReveal}>{utils.getIcon("Reveal", undefined, undefined, "1.5em")}</button>)}
-    </div>
-    <FocusCard cardData={cardData} currentSide={currentSide} secretOverlay={secretOverlay} />
-  </div>
+  return (
+    <span className="card-ref-text">
+      <button onClick={() => setFocusDisplay(!focusDisplay)}>
+        {children}
+      </button>
+      {createPortal(
+      <div className='focus-card-overlay' style={{display: focusDisplay ? "flex" : "none"}}>
+        <div className='focus-card-overlay__buttons'>
+          <button onClick={() => setFocusDisplay(false)}>X</button>
+          {cardData.name2 && (<button onClick={toggleSide}>{utils.getIcon("Flip", undefined, undefined, "1.5em")}</button>)}
+          {isSecretCard && (<button onClick={toggleReveal}>{utils.getIcon("Reveal", undefined, undefined, "1.5em")}</button>)}
+        </div>
+        <FocusCard cardData={cardData} currentSide={currentSide} secretOverlay={secretOverlay} />
+      </div>, 
+      document.getElementById('root'))}
+    </span>
+  )
 
 }
 

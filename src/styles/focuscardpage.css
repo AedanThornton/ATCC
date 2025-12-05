@@ -139,10 +139,16 @@
 .card-ref-text > button {
   background-color: unset;
   border: unset;
+  border-radius: unset;
   padding: 0;
   font-weight: unset;
   font-style: italic;
-  color: brown;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+.card-ref-text > button:hover {
+  border: 1px dotted white;
 }
 
 @media (min-width: 820px) {

@@ -2,11 +2,8 @@ import React, { useState } from "react"
 import utils from "./utils"
 import { getGateColor } from "../lib/colors"
 import FocusCardOverlay from "./FocusCardOverlay"
-import { createPortal } from "react-dom"
 
 export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => {
-  const [displayRef, setDisplayRef] = useState(false)
-
   if (typeof sentence === "string") {
     console.log("!!!Formatted text had a string input!!!", sentence)
     return sentence
@@ -29,12 +26,10 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
         return utils.getIcon(textClump.value)
       case "cardRef":
         return textClump.refID
-          ? <span className="card-ref-text"><button onClick={() => setDisplayRef(!displayRef)}>
+          ? <FocusCardOverlay cardID={textClump.refID}>
               {textClump.value}
-            </button>
-              {createPortal(<FocusCardOverlay cardID={textClump.refID} isDisplayed={displayRef} setIsDisplayed={setDisplayRef}/>, document.getElementById('root'))}
-            </span>
-          : <span className="card-ref-text">{textClump.value}</span>
+            </FocusCardOverlay>
+          : <>{textClump.value}</>
       default:
         return textClump.value
     }
