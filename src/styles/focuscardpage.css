@@ -145,10 +145,14 @@
   font-style: italic;
   box-sizing: border-box;
   color: inherit;
+  text-shadow: 
+      0.5px 0.5px 0 rgb(255, 0, 0),
+      -0.5px -0.5px 0 brown;
 }
 
 .card-ref-text > button:hover {
-  border: 1px dotted white;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
 }
 
 @media (min-width: 820px) {

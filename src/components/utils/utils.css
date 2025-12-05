@@ -32,6 +32,10 @@
     text-decoration-style: dotted;
 }
 
+.tooltip-trigger:hover {
+    color: rgb(212, 16, 16);
+}
+
 .icon .OneHanded {
     padding-top: 25%;
 }
