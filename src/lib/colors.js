@@ -59,6 +59,8 @@ export function getGateColor(gatetype) {
     condition: "#C09513",
     "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
     midas: "#d4ae43ff",
+    pain: "#707070ff",
+    aether: "#071530ff"
   };
   return gateColors[gatetype] || "#AAAAAA";
 };
