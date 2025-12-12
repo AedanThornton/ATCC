@@ -3,7 +3,6 @@
 	padding: 3% 0;
 	background-color: #BFBCAB;
 	font-size: 15px;
-    gap: 3px;
 }
 
 .weapon-stats img {
@@ -13,10 +12,23 @@
 
 .weapon-stats-bar {
 	display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .weapon-stats .gate svg {
 	height: 1.5em;
+}
+
+.power-dice-group {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.power-die {
+  position: absolute;
+  transform-origin: center;
+  pointer-events: none;
 }
