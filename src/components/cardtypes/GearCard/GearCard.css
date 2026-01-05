@@ -1,6 +1,7 @@
 /* Gear template */
 .gear {
 	background-color: var(--papyrus);
+	color: black;
 }
 
 .gear p {

@@ -3,15 +3,18 @@ import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
 import utils from "../../utils/index.jsx";
 import FormattedParagraph, { FormattedSentence, GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
-import { getCyclePrimaryColor, getCycleTextColor } from "../../../lib/colors.js"
+import { getCyclePrimaryColor, getCycleTextColor, getGateColor } from "../../../lib/colors.js"
 import WeaponRenderer from "../../WeaponRenderer.jsx";
+import { DiceStack } from "../../DiceStack.jsx";
 
 const GearCard = ({ gear, index, currentSide }) => {
   let side = currentSide
-  if (currentSide === 1) side = ""  
+  if (currentSide === 1) side = ""
+
+  const resistances = ["Midas", "Laser", "Microwave", "Sun", "Despair", "Pain"]
 
   return (
-    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()} papyrus`} style={{ color: getCyclePrimaryColor(gear["cycle" + side]) }}>
+    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()} papyrus`} >
       <div className="card-info">
         <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{utils.getIcon(gear["slot" + side], undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="gear-title" style={{ color: getCyclePrimaryColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
@@ -44,24 +47,36 @@ const GearCard = ({ gear, index, currentSide }) => {
 
         {/* Defensive Statistics */}
         <div className="gear-stats-container gear-stats-right">
-          {gear["defensiveStatistics" + side].evasionRerolls && (
-            <div className="gear-stats gear-stats-right">{gear["defensiveStatistics" + side].evasionRerolls} {utils.getIcon("EvasionReroll", undefined, undefined, "1.5em")}</div>
-          )}
-          {gear["defensiveStatistics" + side].evasionBonus && (
-            <div className="gear-stats gear-stats-right">{gear["defensiveStatistics" + side].evasionBonus} {utils.getIcon("Evasion", undefined, undefined, "1.5em")}</div>
-          )}
-          {gear["defensiveStatistics" + side].armorDice && (
-            <div className="gear-stats gear-stats-right">{gear["defensiveStatistics" + side].armorDice[0].amount} {utils.getIcon(gear["defensiveStatistics" + side].armorDice[0].type, "Armor", undefined, "1.5em")}</div>
-          )}
-          {gear["defensiveStatistics" + side].resistances?.map((resistance, index) => (
-            <div
-              key={index}
-              className="gear-stats gear-stats-right invert-icons"
-              style={{ backgroundColor: "black", color: "white" }}
-            >
-              {resistance.amount} {utils.getIcon(resistance.type, undefined, undefined, "1.5em")}
-            </div>
-          ))}
+          {gear["defensiveStatistics" + side]?.map((defensiveStat, index) => {
+            const isResistance = resistances.includes(defensiveStat.type)
+            return (
+                    
+              <div
+                key={index}
+                className={`gear-stats gear-stats-right ${isResistance && "invert-icons"}`}
+                style={{ 
+                  backgroundColor: isResistance && "black",
+                  color: isResistance && "white" 
+                }}
+              >
+                {defensiveStat.gate && (
+                  <div className="gate" style={{ background: getGateColor(defensiveStat.gate.type) }}>
+                    <span>
+                      {
+                        defensiveStat.gate.type === "Hits" ? defensiveStat.gate.value + " " + (defensiveStat.gate.value === "1" ? "Hit" : "Hits")
+                          : defensiveStat.gate.type === "Full Hit" ? "Full Hit"
+                            : utils.createPowerGate(defensiveStat.gate.type, defensiveStat.gate.value)
+                      }
+                    </span>
+                  </div>
+                )}
+                {defensiveStat.type === "Armor"
+                  ? <DiceStack diceArray={defensiveStat.armorDice}/>
+                  : <>{defensiveStat.amount} {utils.getIcon(defensiveStat.type, undefined, undefined, "1.5em")}</>
+                }
+              </div>
+            )
+          })}
         </div>
       </div>
 
@@ -72,7 +87,7 @@ const GearCard = ({ gear, index, currentSide }) => {
         )}
 
         {/* Gear Info */}
-        <div className="gear-info" style={{ background: getCyclePrimaryColor(gear["cycle" + side]), color: getCycleTextColor(gear["cycle" + side]) }}>Card Info</div>
+        <div className="gear-info" style={{ background: getCyclePrimaryColor(gear["cycle" + side]), color: "white" }}>Card Info</div>
         <div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
           <div className="card-info-header">Acquisition</div>
           <div className="card-info-detail">{gear["acquisition" + side]}</div>

@@ -50,6 +50,7 @@ export function getGateColor(gatetype) {
     hits: "rgb(155, 35, 21)",
     "full hit": "rgb(155, 35, 21)",
     danger: "rgb(155, 35, 21)",
+    energy: "rgb(155, 35, 21)",
     fate: "#557DBD",
     rage: "#040404",
     ambrosia: "#5D0D69",
