@@ -32,7 +32,7 @@ const utils = {
             "Black": type === "Power" ? "BlackPowerDie" : type === "Armor" ? "BlackArmorDie" : "Black",
             "White": type === "Power" ? "WhitePowerDie" : type === "Armor" ? "WhiteArmorDie" : "White",
             "Mortal": type === "Power" ? "MortalPowerDie" : type === "Armor" ? "MortalArmorDie" : "Mortal",
-            "Reroll": "PowerReroll",
+            "Reroll": type === "Armor" ? "EvasionReroll" : "PowerReroll",
             "1 Hand": "OneHanded",
             "2 Hands": "TwoHanded",
             "3 Hands": "ThreeHanded",

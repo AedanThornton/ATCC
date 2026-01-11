@@ -1,20 +1,10 @@
 {
-  "End of Hope": [
+  "A Fist for a Fist": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "End of Primordial Round: Perform Signature"
-        }
-      ]
-    }
-  ],
-  "Vanish X": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Move the Primordial X spaces towards the closest Board Edge, without turning, ignoring Board Edges directly across from the Target or attacking Titan"
+          "value": "Each time the Hekaton gains a Wound (a Double Wound is treated as 2 Wounds) place a token on this Trait"
         }
       ]
     },
@@ -22,85 +12,53 @@
       "abilityText": [
         {
           "type": "plainText",
-          "value": "If thes would move the Primordial beyond a Board Edge or outside of all ranges of light, it disappears"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When the Primordial is outside the Battle Board, it cannot be affected in any way"
+          "value": "If there are 3 or more tokens on this Trait, finish resolving the current action, discard all tokens, then perform Signature"
         }
       ]
     }
   ],
-  "Pale Grin of Doom": [
+  "A Wall of Fists": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "When you are attacked from behind, ignore the Evasion Roll; the Attack automatically hits with all the dice"
+          "value": "Titans cannot voluntarily move into spaces adjacent to the Hekaton"
         }
       ]
     }
   ],
-  "Fear is Constant": [
+  "Aggressive Expansion": [
     {
       "abilityText": [
         {
           "type": "timing",
-          "value": "Start of Battle"
+          "value": "Start of Primordial Round"
         },
         {
-          "type": "plainText",
-          "value": "Chosen Titan gains the"
-        },
-        {
-          "type": "cardRef",
-          "value": "Fear",
-          "refID": "AL0299"
-        },
-        {
-          "type": "plainText",
-          "value": "Condition card, another Titan gains the"
-        },
-        {
-          "type": "cardRef",
-          "value": "Terror",
-          "refID": ""
-        },
-        {
-          "type": "plainText",
-          "value": "Condition card, a third one flips 1 Oxygen token"
-        }
-      ]
-    }
-  ],
-  "Blacker Than The Night": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When the Primordial performs"
+          "type": "icon",
+          "value": "WoO"
         },
         {
           "type": "keyword",
-          "value": "Vanish X"
-        },
-        {
-          "type": "plainText",
-          "value": ", it doesn't ignore the Board Edges directly across from the Target or attacking Titan"
+          "value": "Airburst 3"
         }
       ]
     }
   ],
-  "Pale Grin of Death": [
+  "Antisherpa": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "When you are attacked from behind, ignore the Evasion Roll"
+          "value": "Titans in columns 1-7 are dealt +2"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "per hit"
         }
       ]
     },
@@ -108,73 +66,48 @@
       "abilityText": [
         {
           "type": "plainText",
-          "value": "You are immediately devoured (dead)"
-        }
-      ]
-    }
-  ],
-  "Light is Dimming": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you don't have any"
+          "value": "Titans in columns 8-15 are dealt +1"
         },
         {
-          "type": "keyword",
-          "value": "Light X"
+          "type": "icon",
+          "value": "Danger"
         },
         {
           "type": "plainText",
-          "value": "keyword, you are always considered to be attacked from behind"
+          "value": "per hit"
         }
       ]
     }
   ],
-  "Psychosomatic Poisoning": [
+  "Ariadne's Logic": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "When you gain a Condition card, and each time you start your turn with a Condition card, gain 1 Ambrosia token"
-        }
-      ]
-    }
-  ],
-  "Relentless Anxiety": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When the Primordial vanishes, immediately draw an AI card"
-        }
-      ]
-    }
-  ],
-  "Deeper Depths": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each Titan starts the Battle with 1 Oxygen token less"
-        }
-      ]
-    }
-  ],
-  "Original Trench": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Normal (not Terrain) Battle Board spaces are considered Terrain tiles with the"
+          "value": "When attacked from a Labyrinth tiles, Temenos has -1"
         },
         {
-          "type": "keyword",
-          "value": "Chasm"
+          "type": "icon",
+          "value": "AT"
+        }
+      ]
+    }
+  ],
+  "Bane of Odysseus": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you don't pass the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Trojan Ire",
+          "refID": "DZ2589"
         },
         {
           "type": "plainText",
-          "value": "keyword"
+          "value": "card, die"
         }
       ]
     },
@@ -182,11 +115,11 @@
       "abilityText": [
         {
           "type": "plainText",
-          "value": "All other Terrain is considered"
+          "value": "Then, random Titan gains the"
         },
         {
-          "type": "keyword",
-          "value": "Elevated"
+          "type": "italics",
+          "value": "Trojan Ire"
         }
       ]
     }
@@ -209,6 +142,833 @@
         {
           "type": "plainText",
           "value": ", draw and perform another AI card"
+        }
+      ]
+    }
+  ],
+  "Black Rain": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Titan turn"
+        },
+        {
+          "type": "plainText",
+          "value": "If you are in front of the Chimera, unless you have an Umbrella"
+        },
+        {
+          "type": "icon",
+          "value": "Gear"
+        },
+        {
+          "type": "plainText",
+          "value": "card, gain 1 Ambrosia token"
+        }
+      ]
+    }
+  ],
+  "Black Soup": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you fail to find the Primordial during the Titan Round, every Titan dies"
+        }
+      ]
+    }
+  ],
+  "Black Sun": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you are hit by"
+        },
+        {
+          "type": "italics",
+          "value": "Merciless Sun"
+        },
+        {
+          "type": "plainText",
+          "value": ", you are incinerated"
+        }
+      ]
+    }
+  ],
+  "Blacker Than The Night": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Primordial performs"
+        },
+        {
+          "type": "keyword",
+          "value": "Vanish X"
+        },
+        {
+          "type": "plainText",
+          "value": ", it doesn't ignore the Board Edges directly across from the Target or attacking Titan"
+        }
+      ]
+    }
+  ],
+  "Bleed Your Heart Out": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Bleeding token gives you -1"
+        },
+        {
+          "type": "icon",
+          "value": "Speed"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "keyword",
+          "value": "Bleeding Limit -1"
+        }
+      ]
+    }
+  ],
+  "Blinding Shine": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Old Haunt cannot be Wounded from the front"
+        }
+      ]
+    }
+  ],
+  "Bloodlost": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Battle"
+        },
+        {
+          "type": "plainText",
+          "value": "Starting from the highest"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "and continuing in descending order, Titans suffer:"
+        },
+        {
+          "type": "keyword",
+          "value": "Bleeding 4"
+        },
+        {
+          "type": "plainText",
+          "value": ", Bleeding 3, Bleeding 2, and Bleeding 2"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "This Trait overrides the Start of Battle effect of the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Predator",
+          "refID": "CX1681"
+        },
+        {
+          "type": "plainText",
+          "value": "Trait"
+        }
+      ]
+    }
+  ],
+  "Bow or Die": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you don't start the Primordial Round knocked down, you are incinerated"
+        }
+      ]
+    }
+  ],
+  "Bred for War": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setp:"
+        },
+        {
+          "type": "plainText",
+          "value": "Place a Combo token on the Maul space of the Combo track"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After resolving a Combo or Combo Break, move the token clockwise to the next space"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Combo:"
+        },
+        {
+          "type": "plainText",
+          "value": "After resolving the first AI card in a Round, perform"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "bold",
+          "value": "Combo:"
+        },
+        {
+          "type": "plainText",
+          "value": "Draw and resolve another AI card"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "timing",
+          "value": "Reaction"
+        },
+        {
+          "type": "bold",
+          "value": "Combo Break:"
+        },
+        {
+          "type": "plainText",
+          "value": "A Titan who is"
+        },
+        {
+          "type": "bold",
+          "value": "not the"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "Priority Target, and has"
+        },
+        {
+          "type": "icon",
+          "value": "Gear"
+        },
+        {
+          "type": "plainText",
+          "value": "with a Weapon class indicated by the Combo track, may exhaust this Weapon to break the Combo"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Titan must be within this Weapon's effective range"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "It gains the"
+        },
+        {
+          "type": "icon",
+          "value": "PriortyTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Note:"
+        },
+        {
+          "type": "icon",
+          "value": "Rage"
+        },
+        {
+          "type": "plainText",
+          "value": "gain doesn't trigger"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "change"
+        }
+      ]
+    }
+  ],
+  "Built for Eternity": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Endless Staircase has 18 spaces"
+        }
+      ]
+    }
+  ],
+  "Built to Be Broken": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each time you fail to wound, lock the highest unlocked Endless Staircase tier"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "All Titans on that Staircase tier die"
+        }
+      ]
+    }
+  ],
+  "By Any Other Name": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Blackbeak is a Hermesian Pursuer with modified attributes and Traits as denoted on this card and an additional Flare card"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The"
+        },
+        {
+          "type": "cardRef",
+          "value": "Toying",
+          "refID": "EX3219"
+        },
+        {
+          "type": "plainText",
+          "value": "and"
+        },
+        {
+          "type": "keyword",
+          "value": "Tease"
+        },
+        {
+          "type": "plainText",
+          "value": "Traits are disabled"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Permanently remove the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Black-blood Cryptex",
+          "refID": "AS0581"
+        },
+        {
+          "type": "plainText",
+          "value": "BP card from its BP deck"
+        }
+      ]
+    }
+  ],
+  "Cackle": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan becomes adjacent to the Hermesian Pursuer, they gain the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Fear",
+          "refID": "AL0299"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card"
+        }
+      ]
+    }
+  ],
+  "Candle in the Dark": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If your Light X is lower than the Primordial level divided by 2 (rounding up), Skitter loses"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        }
+      ]
+    }
+  ],
+  "Cannot Hide from the Sun": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Titan with the"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "Priority Target token cannot be shaded in any way"
+        }
+      ]
+    }
+  ],
+  "Cities of Gold": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Terrain tile is displaced as a result of the Midascore's movement, place a generic token on that tile"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan starts or ends their turn on a Terrain tile, they gain 1 Midas token for each generic token on that tile"
+        }
+      ]
+    }
+  ],
+  "Clever Boy": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Board Edges gain Boundless: they are now high cliffs"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan is moved beyond the edge, they die"
+        }
+      ]
+    }
+  ],
+  "Contaminated Cuts": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Titan turn"
+        },
+        {
+          "type": "plainText",
+          "value": "Gain"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "equal to the number of Ambrosia tokens you have"
+        }
+      ]
+    }
+  ],
+  "Crimson Tide": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Perform Routine"
+        }
+      ]
+    }
+  ],
+  "Critical Mass": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each time the Chimera gains a Wound on the"
+        },
+        {
+          "type": "bold",
+          "value": "Secondary Wound Stack"
+        },
+        {
+          "type": "plainText",
+          "value": "or you"
+        },
+        {
+          "type": "bold",
+          "value": "OoR evade"
+        },
+        {
+          "type": "plainText",
+          "value": ", place a generic token on this Trait"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If there are 3 or more tokens on this Trait, finish resolving the current action, discard all tokens, then draw and resolve the top AI card"
+        }
+      ]
+    }
+  ],
+  "Curse Carapace": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Demidjinn gains +1"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        },
+        {
+          "type": "plainText",
+          "value": "for every"
+        },
+        {
+          "type": "cardRef",
+          "value": "Wishkeen",
+          "refID": "DL2011"
+        },
+        {
+          "type": "plainText",
+          "value": "and"
+        },
+        {
+          "type": "cardRef",
+          "value": "Wishagog",
+          "refID": "DL2011"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card in play (but not on dead Titans)"
+        }
+      ]
+    }
+  ],
+  "Danger Sense": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The D letters on the Primordial Diagram mark the Danger Zone spaces"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan moves through or into the Danger Zone during the Titan Round, roll a d10"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "On a 7+, they manage to get through"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Otherwise, tehy immediately stop and the Nietzschean performs Signature against that Titan"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore this Trait during a Nietzschean Attack"
+        }
+      ]
+    }
+  ],
+  "Darkness Comes With Me": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After the Pursuer moves, but before it Attack, every Titan in any of the 2 rows of spaces behind the Pursuer sufferes Unavoidable Knockback 7 (regardless of adjacency)"
+        }
+      ]
+    }
+  ],
+  "Dealbreaker Stance": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Use this Combo Track instead of the regular one"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Sword: Knife, Shield"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Fire: Spear, Sword, Cestus"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ambrosia: Club, Axe"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Hatred: Whip, Bow, Slabsword"
+        }
+      ]
+    }
+  ],
+  "Debts of Succession": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Double all Midas token gains"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan dies, after placing half of their Midas tokens on"
+        },
+        {
+          "type": "cardRef",
+          "value": "Incremental Painment",
+          "refID": "DX3222"
+        },
+        {
+          "type": "plainText",
+          "value": ", distribute the rest of the tokens evenly among all other Titans"
+        }
+      ]
+    }
+  ],
+  "Deep Cut": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Titan Turn"
+        },
+        {
+          "type": "plainText",
+          "value": "Gain"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "equal to the number of Bleeding tokens you have"
+        }
+      ]
+    }
+  ],
+  "Deeper Depths": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Titan starts the Battle with 1 Oxygen token less"
+        }
+      ]
+    }
+  ],
+  "Devour Whole": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round"
+        },
+        {
+          "type": "keyword",
+          "value": "Consume"
+        },
+        {
+          "type": "plainText",
+          "value": "all Titans adjacent to the Icarian Harpy"
+        }
+      ]
+    }
+  ],
+  "Digestive Acids": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Each Titan gains as many"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "as they have Ambrosia tokens"
+        }
+      ]
+    }
+  ],
+  "Dissipate": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Move the Dahaka to the closest"
+        },
+        {
+          "type": "cardRef",
+          "value": "Ambrosia Cloud",
+          "refID": "DI2031"
+        },
+        {
+          "type": "plainText",
+          "value": "Terrain tile other than the one it is currently on, so that its base is fully placed on the Terrain tile, then turn it to face the most Titans"
+        }
+      ]
+    }
+  ],
+  "Djinnian Determination": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Demidjinn is about to perform Wish Away, turn it toward the closest Board Edge"
+        }
+      ]
+    }
+  ],
+  "Djinnian Precision": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Wish Away must be performed to the Irem Tower that is exactly X spaces from the Demidjinn, where X is the Wish Away value"
+        }
+      ]
+    }
+  ],
+  "Doom of the Centimanes": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you're not adjacent to another Titan, you cannot use"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        },
+        {
+          "type": "plainText",
+          "value": "to re-roll your Attack Rolls, Evasion Rolls, and Judgement tests"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you're not adjacent to another Titan and you fully miss an Attack, you die"
         }
       ]
     }
@@ -239,12 +999,600 @@
       ]
     }
   ],
-  "Ruthless": [
+  "Dreadnought": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "Remove all positive Trauma cards from the Trauma decks (except Obols)"
+          "value": "During the Titan Round, Cyclonus can only be Wounded from its Blindspot"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Combos can be broken only from the Blindspot"
+        }
+      ]
+    }
+  ],
+  "Drift": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Dahaka performs Drift, it moves through the Target stopping directly across the Target, then turns to face them"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Dahaka cannot Drift across the Target, it stops adjacent to the Target and the Target dies"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Dahaka moves through a Titan during Drift, that Titan gains a negative Precision token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Drift does not cause Crash"
+        }
+      ]
+    }
+  ],
+  "Drifter of Wastes": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Dahaka ignores Line of Sight"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Dahaka has the following unique movement abilities:"
+        },
+        {
+          "type": "keyword",
+          "value": "Drift"
+        },
+        {
+          "type": "plainText",
+          "value": ","
+        },
+        {
+          "type": "keyword",
+          "value": "Dissipate"
+        }
+      ]
+    }
+  ],
+  "End of Hope": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "End of Primordial Round: Perform Signature"
+        }
+      ]
+    }
+  ],
+  "Endless Escalator": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When there is at least one Titan in the Endless Staircase, at the start of the Primordial Round, move the lowest segment of the Endless Staircase to the top"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Titans on the lowest segment die"
+        }
+      ]
+    }
+  ],
+  "Endless Staircase": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "This fight uses the Endless Staircase (see Cycle IV Storybook for details)"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Staircase has a number of tiers equal to the Primordial level (max"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "4)"
+        }
+      ]
+    }
+  ],
+  "Endless Wish": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Every Attack becomes a Wish Attack in addition to its other types"
+        }
+      ]
+    }
+  ],
+  "Enriched Toxins": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Whenever a Titan would gain one or more Ambrosia tokens, they additionally gain 1 Midas token"
+        }
+      ]
+    }
+  ],
+  "Extinguish Possibilities": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Look at the top Trauma card from each deck"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If it's positive, remove it from the Battle"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If it's negative, leave it on top"
+        }
+      ]
+    }
+  ],
+  "Extradimensional Trample": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "preceeding Trample Responses"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Treat all Labyrinthauros Movement as having the following ability: If the Labyrinthauros moves through a knocked down Titan, it dies"
+        }
+      ]
+    }
+  ],
+  "Eye for an Eye": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each time Cyclonus gains a Wound (a Double Wound is treated as 2 Wounds) or performs an unbroken Combo, place a token on this Trait"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If there are 4 or more tokens on this Trait, finish resolving the current action, discard all tokens, then draw and resolve the top AI card"
+        }
+      ]
+    }
+  ],
+  "Fate of a Debtor": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan gains Midas tokens, each other Titan gains the same amount of Midas tokens"
+        }
+      ]
+    }
+  ],
+  "Fate of All Cowards": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan voluntarily moves away from the Nietzschean, the Nietzschean immediately performs Signature against that Titan"
+        }
+      ]
+    }
+  ],
+  "Fear is Constant": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Battle"
+        },
+        {
+          "type": "plainText",
+          "value": "Chosen Titan gains the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Fear",
+          "refID": "AL0299"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card, another Titan gains the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Terror",
+          "refID": "EL2596"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card, a third one flips 1 Oxygen token"
+        }
+      ]
+    }
+  ],
+  "Feedback Loop": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each time you use"
+        },
+        {
+          "type": "keyword",
+          "value": "Wish Armor"
+        },
+        {
+          "type": "plainText",
+          "value": "against an AI Attack, place 1 token on the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Wish for a Wish",
+          "refID": "DX3223"
+        },
+        {
+          "type": "plainText",
+          "value": "Trait"
+        }
+      ]
+    }
+  ],
+  "Fissurebuilder": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Treat all Labyrinth tiles as Maze Fissure tiles"
+        }
+      ]
+    }
+  ],
+  "Fissures": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Alternate Battle Diagram"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you are playing an Ambush Battle, replace the Labyrinth tiles with Maze Fissure tiles of the corresponding size and shape"
+        }
+      ]
+    }
+  ],
+  "Flawless": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Disable the"
+        },
+        {
+          "type": "italics",
+          "value": "All for One"
+        },
+        {
+          "type": "plainText",
+          "value": "Trait"
+        }
+      ]
+    }
+  ],
+  "Fleet of Hands": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "+1 to all Pushbacks and +2 to all Knockbacks performed by the Hekaton"
+        }
+      ]
+    }
+  ],
+  "Flickering Wishes": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Perform the \"Start of Primordial Round\" effect of the Global Wish Trait after every Attack (Demidjinn and Titan) instead"
+        }
+      ]
+    }
+  ],
+  "Forbidden Alchemy": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you gain Ambrosia tokens in any way, double the amount gained"
+        }
+      ]
+    }
+  ],
+  "Friendly Warning": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "-2 to all Knockbacks performed by the Hekaton"
+        }
+      ]
+    }
+  ],
+  "Gaze of the Void": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round (except 1st)"
+        },
+        {
+          "type": "plainText",
+          "value": "All Titans in front of the Oracle die"
+        }
+      ]
+    }
+  ],
+  "Global Wish": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Take all Global Wish cards with a level that is equal to or lower than the current Demidjinn level, shuffle them, and place them face up on the Global Wish stack"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round (ignore during the first round)"
+        },
+        {
+          "type": "plainText",
+          "value": "Place the top card from the Global Wish stack in the Active Global Wish space, discarding any card that was already on it"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Then, if there are no cards on the Global Wish stack, shuffle all discard Global Wish cards and place them face up on the Global Wish stack"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Global Wish card is on the Active Global Wish space, it takes effect during both the Primordial and Titan Rounds"
+        }
+      ]
+    }
+  ],
+  "God Among Men": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Nietzschean performs his Round after 2 Titan turns"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Then the other 2 Titans go, then the Nietzschean, then the players can rearrange their playing order"
+        }
+      ]
+    }
+  ],
+  "God Given Law": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "preceding"
+        },
+        {
+          "type": "italics",
+          "value": "Merciless Sun"
+        }
+      ]
+    }
+  ],
+  "God Taken Law": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When an"
+        },
+        {
+          "type": "cardRef",
+          "value": "Irem Tower",
+          "refID": "DI2028"
+        },
+        {
+          "type": "plainText",
+          "value": "is destroyed, each Titan adjacent to it is dealt X"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": ", where X is the number of Towers already removed"
+        }
+      ]
+    }
+  ],
+  "Gods Don't Look Back": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Titans attacking from the Blindspot have an additional +1 Precision"
+        }
+      ]
+    }
+  ],
+  "Goldtaste": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Argonauts with the Goldthirst Curse Affliction must apply all"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        },
+        {
+          "type": "plainText",
+          "value": "+ or"
+        },
+        {
+          "type": "icon",
+          "value": "Midas"
+        },
+        {
+          "type": "plainText",
+          "value": "+ effects regardless of their actual"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        },
+        {
+          "type": "plainText",
+          "value": "or"
+        },
+        {
+          "type": "icon",
+          "value": "Midas"
+        }
+      ]
+    }
+  ],
+  "Head to Head": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "You cannot attack the Hermesian Pursuer unless you're adjacent to it"
+        }
+      ]
+    }
+  ],
+  "Headhunter": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you have a Cryptex, resolve your Trauma Draw as if you crossed the next threshold on your Trauma Table (or Massive Danger chart)"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Time a Titan dies, the Hermesian Pursuer performs Heal (if possible)"
         }
       ]
     }
@@ -259,7 +1607,7 @@
         {
           "type": "cardRef",
           "value": "Petrified Vent",
-          "refID": ""
+          "refID": "EI2606"
         },
         {
           "type": "plainText",
@@ -276,22 +1624,82 @@
       ]
     }
   ],
-  "Microwave Shield": [
+  "Heavenward": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "Before performing an Attack Roll, for each space between you and the Primordial, discard 1 token from the Kratos Pool"
+          "value": "When you are instructed to create an Irem Tower, place it on any empty Battle Board space not adjacent to any other Terrain tile"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "plainText",
+          "value": "When you are instructed to remove an Irem Tower, remove an Irem Tower Terrain tile closest to the Babelian Lunacy"
         }
       ]
     }
   ],
-  "Truth or Death": [
+  "Hyperaggression": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "Before performing a Scan, declare if the Primordial is there"
+          "value": "Add +1 to all Pushbacks and Pulls and +2 to all Knockbacks performed by the Cyclonus"
+        }
+      ]
+    }
+  ],
+  "Hypertimefront": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Level 3: When the Timefront moves, it moves 4 spaces forward instead"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "plainText",
+          "value": "Level 4+: When the Timefront moves, it moves 5 spaces forward instead"
+        }
+      ]
+    }
+  ],
+  "Ice Age": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Treat every Battle Board space as if it had the"
+        },
+        {
+          "type": "keyword",
+          "value": "Slippery"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword"
+        }
+      ]
+    }
+  ],
+  "Icecapade": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Disable abilities that allow to treat Slippery tiles as one tile"
         }
       ]
     },
@@ -299,88 +1707,79 @@
       "abilityText": [
         {
           "type": "plainText",
-          "value": "If you are not correct, after resolving the Scan, draw an Obol"
+          "value": "If you end the Primordial Round or your Titan turn on a Slippery space, move towards the lowest colu,m until you are no longer on a Slippery space"
         }
       ]
-    }
-  ],
-  "Invisible Flame": [
+    },
     {
       "abilityText": [
         {
-          "type": "plainText",
-          "value": "When you climb the VP, and when you start your turn on the VP, gain 1 Ambrosia token and 1 Pain token"
-        }
-      ]
-    }
-  ],
-  "Nap of the Vent": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Primordial destroys"
-        },
-        {
-          "type": "cardRef",
-          "value": "Petrified Vent",
-          "refID": ""
+          "type": "bold",
+          "value": "Additional Setup:"
         },
         {
           "type": "plainText",
-          "value": "Terrain tiles it moves through"
+          "value": "Alternate Battle Diagram"
         }
       ]
     }
   ],
-  "Tigerback": [
+  "Imminent Destruction": [
     {
       "abilityText": [
         {
-          "type": "plainText",
-          "value": "To leave the VP voluntarily, you need to pass a Climb Down test (same difficulty as the Climb test)"
-        }
-      ]
-    }
-  ],
-  "Candle in the Dark": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If your Light X is lower than the Primordial level divided by 2 (rounding up), Skitter loses"
-        },
-        {
-          "type": "icon",
-          "value": "WoO"
-        }
-      ]
-    }
-  ],
-  "Black Soup": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you fail to find the Primordial during the Titan Round, every Titan dies"
-        }
-      ]
-    }
-  ],
-  "Three Seconds": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Ignore"
-        },
-        {
-          "type": "icon",
-          "value": "WoO"
+          "type": "timing",
+          "value": "End of Titan turn"
         },
         {
           "type": "plainText",
-          "value": "preceding Microwave Attacks"
+          "value": "If you didn't Attack this turn, resolve the top AI card"
+        }
+      ]
+    }
+  ],
+  "Imperial Impetus": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Imperial Impetus:"
+        },
+        {
+          "type": "plainText",
+          "value": "The Midascore moves X spaces in a straight line"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "X is equal to 7 + the Primordial LVL (max"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "11)"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Midascore moves through or ends its move on a knocked down Titan, that Titan draws an Obol"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan suffers Crash as a result of Imperial Impetus, they additionally gain 1 Midas token"
         }
       ]
     }
@@ -423,7 +1822,7 @@
         {
           "type": "cardRef",
           "value": "Ambrosia Cloud",
-          "refID": ""
+          "refID": "DI2031"
         },
         {
           "type": "plainText",
@@ -440,7 +1839,7 @@
         {
           "type": "cardRef",
           "value": "Irem Tower",
-          "refID": ""
+          "refID": "DI2028"
         },
         {
           "type": "plainText",
@@ -468,26 +1867,873 @@
       "abilityText": [
         {
           "type": "plainText",
-          "value": "If the Nosoi Dragon cannot perform Imperial Impetus, move it onto the closest"
-        },
-        {
-          "type": "cardRef",
-          "value": "Ambrosia Cloud",
-          "refID": ""
-        },
-        {
-          "type": "plainText",
-          "value": "(if able) and perform Routine"
+          "value": "If the Nosoi Dragon cannot perform Imperial Impetus, move it onto the closest Ambrosia Cloud (if able) and perform Routine"
         }
       ]
     }
   ],
-  "Enriched Toxins": [
+  "Incorpreal Wraith": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "Whenever a Titan would gain one or more Ambrosia tokens, they additionally gain 1 Midas token"
+          "value": "The Dahaka can only be Wounded by Interrupt Attacks"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Always use the higher"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        },
+        {
+          "type": "plainText",
+          "value": "value of the BP cards"
+        }
+      ]
+    }
+  ],
+  "Insatiable Pull": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Pull each Titan X spaces, where X is the number of Ambrosia tokens they have"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you are pulled adjacent to the Chimera and the Pull value was not lowered to 0, instead of continuing the Pull, you are Absorbed"
+        }
+      ]
+    }
+  ],
+  "Invisible Flame": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you climb the VP, and when you start your turn on the VP, gain 1 Ambrosia token and 1 Pain token"
+        }
+      ]
+    }
+  ],
+  "Labyrinth X": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Place a Labyrinth token on the topmost space of the Labyrinth track"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "keyword",
+          "value": "Labyrinth X"
+        }
+      ]
+    }
+  ],
+  "Land That Knows Nothing of the Sea": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you gain"
+        },
+        {
+          "type": "cardRef",
+          "value": "The Oar",
+          "refID": "DZ2585"
+        },
+        {
+          "type": "plainText",
+          "value": "card, immediately flip it"
+        }
+      ]
+    }
+  ],
+  "Layover": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Titan Round"
+        },
+        {
+          "type": "plainText",
+          "value": "The Titan with the most"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        },
+        {
+          "type": "plainText",
+          "value": "is moved to the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Omega Terminus",
+          "refID": "CR1365"
+        }
+      ]
+    }
+  ],
+  "Leleges Spin": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Place one generic token on this Trait"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Signature becomes a Zone Attack performed in Zone X, where X is the number of tokens on this Trait"
+        }
+      ]
+    }
+  ],
+  "Light is Dimming": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you don't have any"
+        },
+        {
+          "type": "keyword",
+          "value": "Light X"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword, you are always considered to be attacked from behind"
+        }
+      ]
+    }
+  ],
+  "Lightspeeder": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "preceeding Move and Attack instructions"
+        }
+      ]
+    }
+  ],
+  "Living Fortress": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "You can only Wound the Chimera from a VP or when Absorbed"
+        }
+      ]
+    }
+  ],
+  "Living Tornado": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Demidjinn ignores Line of Sight"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "It does not destroy Terrain tiles, unless stated otherwise"
+        }
+      ]
+    }
+  ],
+  "Loss of Liquidity": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Midas token on a non-Weapon"
+        },
+        {
+          "type": "icon",
+          "value": "Gear"
+        },
+        {
+          "type": "plainText",
+          "value": "lowers your"
+        },
+        {
+          "type": "icon",
+          "value": "Speed"
+        },
+        {
+          "type": "plainText",
+          "value": "and Hermes Move by 1"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you don't move during your Titan turn, you die"
+        }
+      ]
+    }
+  ],
+  "Magnifying Glass": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "All VPs becomes unshaded"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After a Titan fails a Hold On test, perform Signature against that Titan"
+        }
+      ]
+    }
+  ],
+  "Make the Sun Move and the Earth Stand Still": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "At the end of the Primordial Round, the Old Haunt appears at the closest Sun Circle"
+        }
+      ]
+    }
+  ],
+  "Maze Hyperactive Armor": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "All BP cards without a Wound Response gain: Wound:"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "keyword",
+          "value": "Trample"
+        }
+      ]
+    }
+  ],
+  "Maze Reactive Armor": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "All BP cards without a Fail Response gain: Fail: Gain +1"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Labyrinthauros turns towards the Attacker, Labyrinth 1"
+        }
+      ]
+    }
+  ],
+  "Maze Reconfiguration": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When Temenos is instructed to place a Labyrinth tile under a Titan that is already on a Labyrinth tiles, that Titan draws an Obol instead"
+        }
+      ]
+    }
+  ],
+  "Mazebuilder": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After performing Trample from a Response, immediately perform Labyrinth 1"
+        }
+      ]
+    }
+  ],
+  "Mazesense": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Labyrinth tiles do not block this Primordial's Line of Sight"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Argonauts with the Mazetouched Affliction must apply all"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        },
+        {
+          "type": "plainText",
+          "value": "X+ banner effects, regardless of their actual"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        }
+      ]
+    }
+  ],
+  "Megaton": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After End of Hope, draw and perform another AI card"
+        }
+      ]
+    }
+  ],
+  "Merciless Sun": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Perform"
+        },
+        {
+          "type": "cardRef",
+          "value": "Merciless Sun",
+          "refID": ""
+        }
+      ]
+    }
+  ],
+  "Metamorphosis": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Chimera's physical state is indicated by the last wounded BP card"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "At the start of Battle, the Chimera has no state"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you deal a Wound, move the State token to the state designated on that card"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Gelatinous:"
+        },
+        {
+          "type": "plainText",
+          "value": "If attacked with a Weapon other than"
+        },
+        {
+          "type": "italics",
+          "value": "Club, Cestus, Slabsword"
+        },
+        {
+          "type": "plainText",
+          "value": ", or"
+        },
+        {
+          "type": "italics",
+          "value": "Shield"
+        },
+        {
+          "type": "plainText",
+          "value": ", the Chimera has +1"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Supersolid:"
+        },
+        {
+          "type": "plainText",
+          "value": "If attacked with a"
+        },
+        {
+          "type": "italics",
+          "value": "Club, Cestus, Slabsword"
+        },
+        {
+          "type": "plainText",
+          "value": ", or"
+        },
+        {
+          "type": "italics",
+          "value": "Shield"
+        },
+        {
+          "type": "plainText",
+          "value": "Weapon, the Chimera has +1"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "plainText",
+          "value": "Level 4+: +2"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        },
+        {
+          "type": "plainText",
+          "value": "instead"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Corrosive:"
+        },
+        {
+          "type": "plainText",
+          "value": "After you resolve a successful Attack (at least 1 hit), if your Weapon is not"
+        },
+        {
+          "type": "italics",
+          "value": "Stone, Relief, Divine, Hephaestum, Cyclopean, Mythic"
+        },
+        {
+          "type": "plainText",
+          "value": ", or"
+        },
+        {
+          "type": "italics",
+          "value": "Electrum"
+        },
+        {
+          "type": "plainText",
+          "value": ", exhaust it and gain"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "equal to the Chimera LVL"
+        }
+      ]
+    }
+  ],
+  "Microwave Shield": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Before performing an Attack Roll, for each space between you and the Primordial, discard 1 token from the Kratos Pool"
+        }
+      ]
+    }
+  ],
+  "Moirai Vault": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Place stolen"
+        },
+        {
+          "type": "icon",
+          "value": "Gear"
+        },
+        {
+          "type": "plainText",
+          "value": ", Mnemos cards, and"
+        },
+        {
+          "type": "icon",
+          "value": "Progress"
+        },
+        {
+          "type": "plainText",
+          "value": "tokens on this Trait, note stolen Mnemos nodes, Game elements placed here cannot be used in any way"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you do not reclaim them until the end of Battle, they are permanently lost"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you Wound a Fateless Eye BP, instead of dealing a Wound, you may take 1 thing from the Moirai Vault"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Then discard the BP card and gain +1"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        }
+      ]
+    }
+  ],
+  "Mothwing Trance": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you're in front of the Pursuer, you cannot re-roll your Attack Rolls, Evasion Rolls, and Judgement tests"
+        }
+      ]
+    }
+  ],
+  "Mountain of Madness": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Treat the Cliffs marked as red on the diagram as Boundless Board Edges"
+        }
+      ]
+    }
+  ],
+  "Nap of the Vent": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Primordial destroys"
+        },
+        {
+          "type": "cardRef",
+          "value": "Petrified Vent",
+          "refID": "EI2606"
+        },
+        {
+          "type": "plainText",
+          "value": "Terrain tiles it moves through"
+        }
+      ]
+    }
+  ],
+  "Nemesis Vow": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you are about to draw a Flare card, each Titan gains 1 Ambrosia token"
+        }
+      ]
+    }
+  ],
+  "No Missed Chances": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan performs a Full Evade or reduces all"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "from an Attack to 0, perform Signature"
+        }
+      ]
+    }
+  ],
+  "No Quarter": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan has to resolve an Obol Draw, they die instead"
+        }
+      ]
+    }
+  ],
+  "Not Yet": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Disable Rewind"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Cycle II only"
+        }
+      ]
+    }
+  ],
+  "Omega Terminus": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Place the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Omega Terminus",
+          "refID": "CR1365"
+        },
+        {
+          "type": "plainText",
+          "value": "Status card near the Primordial Sheet"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Instead of the normal effect, a Titan that suffers Crash is immediately moved onto that card"
+        }
+      ]
+    }
+  ],
+  "Once Upon a Time": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each time the Oracle consumes a Time Anchor or gains a Wound (a Double Wound is treated as 2 Wounds), place a token on this Trait"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After resolving the current action, when there are 4 or more tokens on this Trait, discard all tokens, then draw and resolve the top AI card"
+        }
+      ]
+    }
+  ],
+  "One Fool at a Time": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan enters the Endless Staircase, the Staircase Entrance disappears!"
+        }
+      ]
+    }
+  ],
+  "Original Trench": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Normal (not Terrain) Battle Board spaces are considered Terrain tiles with the"
+        },
+        {
+          "type": "keyword",
+          "value": "Chasm"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "All other Terrain is considered"
+        },
+        {
+          "type": "keyword",
+          "value": "Elevated"
+        }
+      ]
+    }
+  ],
+  "Overclocked": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "preceding Laser Attacks"
+        }
+      ]
+    }
+  ],
+  "Pale Grin of Death": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you are attacked from behind, ignore the Evasion Roll"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "You are immediately devoured (dead)"
+        }
+      ]
+    }
+  ],
+  "Pale Grin of Doom": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you are attacked from behind, ignore the Evasion Roll; the Attack automatically hits with all the dice"
+        }
+      ]
+    }
+  ],
+  "Perfection": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Titan Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Place an additional generic token on top of any Rapid Adaptation Token on the Icarian Adaptation Board"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "This Adaptation token cannot be moved or removed until the end of Battle"
         }
       ]
     }
@@ -526,12 +2772,107 @@
       ]
     }
   ],
-  "God Given Law": [
+  "Primordial Plasma": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "Ignore"
+          "value": "From now on, if there are no Wound cards in the Wound Stack or the last card is a Single of Double Wound, the Chimera's state is"
+        },
+        {
+          "type": "bold",
+          "value": "Plasmous"
+        },
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Plasmous:"
+        },
+        {
+          "type": "plainText",
+          "value": "If attacked with a Weapon other than"
+        },
+        {
+          "type": "italics",
+          "value": "Primordial, DIvine, Mythic"
+        },
+        {
+          "type": "plainText",
+          "value": ", or"
+        },
+        {
+          "type": "italics",
+          "value": "Eldertech"
+        },
+        {
+          "type": "plainText",
+          "value": ", the Chimera has +2"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        },
+        {
+          "type": "plainText",
+          "value": "and you exhaust your Weapon after resolving this Attack"
+        }
+      ]
+    }
+  ],
+  "Psychosomatic Poisoning": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you gain a Condition card, and each time you start your turn with a Condition card, gain 1 Ambrosia token"
+        }
+      ]
+    }
+  ],
+  "Quantum Eye": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you reveal a BP card with this open-eyed symbol as a result of a card or an ability effect (not during a normal BP Draw), gain"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        },
+        {
+          "type": "plainText",
+          "value": "equal to the BP card's level"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "This is a Permanent Rule: From now on, this Trait is added to every Battle in the game, regardless of the Primordial or Cycle! Even to new campaigns!"
+        }
+      ]
+    }
+  ],
+  "Quantumfront": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Timefront moves, it moves 6 spaces instead"
+        }
+      ]
+    }
+  ],
+  "Ram of Fists": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Disable all"
         },
         {
           "type": "icon",
@@ -539,22 +2880,25 @@
         },
         {
           "type": "plainText",
-          "value": "preceding"
-        },
-        {
-          "type": "cardRef",
-          "value": "Merciless Sun",
-          "refID": ""
+          "value": "preceding Knockbacks"
         }
       ]
     }
   ],
-  "Magnifying Glass": [
+  "Refuse Credit": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "VP becomes unshaded"
+          "value": "Disable the"
+        },
+        {
+          "type": "keyword",
+          "value": "Shifting"
+        },
+        {
+          "type": "plainText",
+          "value": "Keyword on Terrain tiles"
         }
       ]
     },
@@ -562,69 +2906,214 @@
       "abilityText": [
         {
           "type": "plainText",
-          "value": "After a Titan fails a Climb test, perform Signature against that Titan"
+          "value": "The Midascore destroys Irem Towers during movement"
         }
       ]
     }
   ],
-  "Blinding Shine": [
+  "Regurgitate": [
     {
       "abilityText": [
         {
-          "type": "plainText",
-          "value": "The Old Haunt cannot be Wounded from the front"
-        }
-      ]
-    }
-  ],
-  "Unworthy Will Die": [
-    {
-      "abilityText": [
+          "type": "bold",
+          "value": "Regurgitate:"
+        },
         {
           "type": "plainText",
-          "value": "At the end of the Primordial Round, the Old Haunt destroys the closest"
+          "value": "Place an"
         },
         {
           "type": "cardRef",
-          "value": "Irem Tower",
-          "refID": ""
+          "value": "Ambrosia Pool",
+          "refID": "AI0371"
+        },
+        {
+          "type": "plainText",
+          "value": "Terrain tile beneath the Primordial"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "plainText",
+          "value": "Level 2+: Treat all Ambrosia Pools as"
+        },
+        {
+          "type": "cardRef",
+          "value": "Black Glaciers",
+          "refID": "CI1316"
         }
       ]
     }
   ],
-  "Cannot Hide from the Sun": [
+  "Relentless Anxiety": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "Titan with the"
+          "value": "When the Primordial vanishes, immediately draw an AI card"
+        }
+      ]
+    }
+  ],
+  "Roost Battle": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Board Edges gain Boundless: they are now high cliffs"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan is moved beyond the edge, they die"
+        }
+      ]
+    }
+  ],
+  "Rupture Veins": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Instead of the normal Bleeding Build-up, gain as many Bleeding tokens as there are Bleeding tokens on your Titan"
+        }
+      ]
+    }
+  ],
+  "Ruthless": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Remove all positive Trauma cards from the Trauma decks (except Obols)"
+        }
+      ]
+    }
+  ],
+  "Sandstorm Spiral": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Sandstorm Spiral:"
+        },
+        {
+          "type": "plainText",
+          "value": "If adjacent to a Target, the Demidjinn moves clockwise around the Target, so that it ends up on four spaces directly across the Target"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the movement is blocked by a Board Edge, the Demidjinn moves 6 spaces directly away from the Target without turning instead"
+        }
+      ]
+    }
+  ],
+  "Scourge of the Centimanes": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "All BP cards without a Wound Response gain: Wound:"
         },
         {
           "type": "icon",
-          "value": "PriorityTarget"
+          "value": "WoO"
         },
         {
           "type": "plainText",
-          "value": "Priority Target token cannot be shaded in any way"
+          "value": "Pushback 3"
         }
       ]
-    }
-  ],
-  "God Taken Law": [
+    },
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "When an"
+          "value": "Fail: Knockback 5"
+        }
+      ]
+    }
+  ],
+  "Semicorporeal Wraith": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the special"
         },
         {
-          "type": "cardRef",
-          "value": "Irem Tower",
-          "refID": ""
+          "type": "icon",
+          "value": "GoldWoO"
         },
         {
           "type": "plainText",
-          "value": "is destroyed, each Titan adjacent to it is dealt X"
+          "value": "comes up, a Titan adjacent to the Dahaka may perform an Interrupt Attack"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If they do, they gain a"
+        },
+        {
+          "type": "icon",
+          "value": "CombatAction"
+        },
+        {
+          "type": "plainText",
+          "value": "Fatigue token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Bonus Attacks are always Interrupt Attacks (but you do not gain the Fatigue token)"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Chain Break doesn't disable the special"
+        },
+        {
+          "type": "icon",
+          "value": "GoldWoO"
+        }
+      ]
+    }
+  ],
+  "Shackles of Regret": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Apply the following modifiers to all Dahaka Attacks: -1"
+        },
+        {
+          "type": "icon",
+          "value": "d10"
+        },
+        {
+          "type": "plainText",
+          "value": "and -1"
         },
         {
           "type": "icon",
@@ -632,17 +3121,218 @@
         },
         {
           "type": "plainText",
-          "value": ", where X is the number of Towers already removed"
+          "value": "per hit (minimum 1)"
         }
       ]
-    }
-  ],
-  "Make the Sun Move and the Earth Stand Still": [
+    },
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "At the end of the Primordial Round, the Old Haunt appears at the closest Sun Circle"
+          "value": "As long as this Trait is active, the End of Hope Trait is disabled"
+        }
+      ]
+    }
+  ],
+  "Shadow and the Flame": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Attacks that don't normally deal Ambrosia, deal 1 Ambrosia token"
+        }
+      ]
+    }
+  ],
+  "Shadow Backstep": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Dahaka Shadowsteps through the Board Edge, the Dahaka performs"
+        },
+        {
+          "type": "keyword",
+          "value": "Heal"
+        }
+      ]
+    }
+  ],
+  "Shadow in the Skies": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Midascore ignores Line of Sight"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "During movement it does not destroyt Terrain tiles, unless stated otherwise"
+        }
+      ]
+    }
+  ],
+  "Shadowstep X": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Dahaka moves X spaces directly away from the Target, without turning"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If it would move past the Board Edge, it appears on the other side of the Board in a straight line from its previous position and continues the movement in the same direction"
+        }
+      ]
+    }
+  ],
+  "Sisyphus's Spiral": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Burden moves adjacent to its Target, if it is not above the Target (i"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "e"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "isn't positioned in solely higher-numbered columns than the Target), it swivels clockwise around the Target, so that it ends up on the four spaces directly above the Target"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the movement is blocked by the Board Edge, the Burden moves onto the Target's space instead and the Target is Displaced onto a lower space adjacent to the Burden (this may results in being displaced 2 spaces!)"
+        }
+      ]
+    }
+  ],
+  "Slippery Slope": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "+3 to all Kickbacks performed by the Burden"
+        }
+      ]
+    }
+  ],
+  "Snail of Nothing": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each time Temenos gains a Wound, it gains 1 positive"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        },
+        {
+          "type": "plainText",
+          "value": "token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Next time you resolve an AI card, discard all of the"
+        },
+        {
+          "type": "icon",
+          "value": "AT"
+        },
+        {
+          "type": "plainText",
+          "value": "tokens and add that many"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "to the"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "dealt by that Attack"
+        }
+      ]
+    }
+  ],
+  "Song of Great Fear": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each time you gain a Despair token, you also gain the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Fear",
+          "refID": "AL0299"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card"
+        }
+      ]
+    }
+  ],
+  "Soulrend": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Lose 1 Mnemos node from every Mnemos"
+        }
+      ]
+    }
+  ],
+  "Soundspeed Impetus": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Midascore moves through or ends it move on a knocked down or floating Titan, that Titan dies"
+        }
+      ]
+    }
+  ],
+  "Splash": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan suffers Crash as a result of Primordial movement, they additionally gain 1 Ambrosia token"
         }
       ]
     }
@@ -657,12 +3347,1029 @@
       ]
     }
   ],
-  "Gods Don't Look Back": [
+  "Starfish": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "If the Hekaton is adjacent to 2 or more Titans, all of those Titans suffer Knockback 5"
+        }
+      ]
+    }
+  ],
+  "Stay Your Hand": [
     {
       "abilityText": [
         {
           "type": "plainText",
-          "value": "Titans attacking from the Blindspot have an additional +1 Precision"
+          "value": "Each Nietzschean Attack does 1"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "less"
+        }
+      ]
+    }
+  ],
+  "Sunken Costs": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Gain"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "equal to the number of Midas tokens you have"
+        }
+      ]
+    }
+  ],
+  "Supersonic Punch": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you are pushed into an Obstacle, you die"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Alternate Battle Diagram, see Mnestis Battle Diagrams in the Rulebook"
+        }
+      ]
+    }
+  ],
+  "Symphony of Despair": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Titan Turn"
+        },
+        {
+          "type": "plainText",
+          "value": "Gain 1 Despair token"
+        }
+      ]
+    }
+  ],
+  "Temporal Ruthlessness": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you draw a positive Trauma card or an Obol, ignore it and draw again (once per Draw)"
+        }
+      ]
+    }
+  ],
+  "Tentacled Monstrosity": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "+3 to all Pulls performed by the Harpy"
+        }
+      ]
+    }
+  ],
+  "The Dragon Does Not Sleep": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Place a Combo token on the Cleaver space of the Combo track"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After resolving a Combo or Combo Break, move the token clockwise to the next space"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Combo:"
+        },
+        {
+          "type": "plainText",
+          "value": "Dahaka AI card cannot be Interrupt Attacked, unless you perform a Combo Break"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "bold",
+          "value": "Combo Break:"
+        },
+        {
+          "type": "plainText",
+          "value": "A Titan who is not the"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "PriorityTarget and has a"
+        },
+        {
+          "type": "icon",
+          "value": "Gear"
+        },
+        {
+          "type": "plainText",
+          "value": "with a Weapon class indicated by the Combo track may exhaust this Weapon to break the Combo"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Titan must be within this Weapon's effective range"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "They gain the"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Note:"
+        },
+        {
+          "type": "icon",
+          "value": "Rage"
+        },
+        {
+          "type": "plainText",
+          "value": "gain doesn't trigger"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "change"
+        }
+      ]
+    }
+  ],
+  "The Game is Rigged": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan ends their turn with the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Sisyphean",
+          "refID": "BL0673"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition, they die"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Primordial Round"
+        },
+        {
+          "type": "plainText",
+          "value": "Burden performs Heal"
+        }
+      ]
+    }
+  ],
+  "The Last": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Battle Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Place the special"
+        },
+        {
+          "type": "cardRef",
+          "value": "AI 0",
+          "refID": "DR2456"
+        },
+        {
+          "type": "plainText",
+          "value": "card at the bottom of the AI deck"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "It is never shuffled or discard"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "After Escalation:"
+        },
+        {
+          "type": "plainText",
+          "value": "If the top AI card is not an AI IV or AI 0, discard it (once per Escalation)"
+        }
+      ]
+    }
+  ],
+  "The Strong Eat": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setup:"
+        },
+        {
+          "type": "plainText",
+          "value": "Add 1"
+        },
+        {
+          "type": "italics",
+          "value": "You died"
+        },
+        {
+          "type": "plainText",
+          "value": "Obol to the Obol deck"
+        }
+      ]
+    }
+  ],
+  "Thread Lightly": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you fail an Ascent Check, draw an Obol"
+        }
+      ]
+    }
+  ],
+  "Three Point Six": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan becomes adjacent to the Chimera, they gain 1 Ambrosia token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan is Absorbed, they immediately gain 1 Ambrosia token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan ends their turn on a VP, they gain 1 Ambrosia token"
+        }
+      ]
+    }
+  ],
+  "Three Seconds": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "preceding Microwave Attacks"
+        }
+      ]
+    }
+  ],
+  "Ties That Bind Us": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Titans can involuntarily moved outside the Tethered limit"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If at any point a Titan is outside the Tethered limit, it treats all spaces as Chasms until it returns within the limit"
+        }
+      ]
+    }
+  ],
+  "Tigerback": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "To leave the VP voluntarily, you need to pass a Climb Down test (same difficulty as the Climb test)"
+        }
+      ]
+    }
+  ],
+  "Timefront Beckons": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Battle"
+        },
+        {
+          "type": "plainText",
+          "value": "Place the Timefront tiles on the bottom column (1)"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "End of Titan Round"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "plainText",
+          "value": "Move the Timefront 3 spaces up (towards the highest column)"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Timefront moves onto a space occupied by a Titan, this Titan is erased from existence"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Timefront moves onto a space with a Terrain tile, this tile is destroyed (unless Indestructible)"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Timefront is about to move onto a space occupied by the Primordial, move the Primordial directly away from the Timefront to enable full Timefront movement"
+        }
+      ]
+    }
+  ],
+  "Total Eclipse": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Treat every Battle Board space as if it had the"
+        },
+        {
+          "type": "keyword",
+          "value": "Chasm"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword"
+        }
+      ]
+    }
+  ],
+  "Tower of Madness": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "At the start of the Battle, the Endless Staircase and all VPs are locked, which means you cannot enter them in any way"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Each Wound you deal from outside the Endless Staircase unnlocks an Endless Staircase tier up to the current Battle's tier limit"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When all tiers are unlocked, you start to unlock VPs"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "plainText",
+          "value": "You can only wound a BP III card from a VP"
+        }
+      ]
+    }
+  ],
+  "Trample": [
+    {
+      "abilityText": [
+        {
+          "type": "keyword",
+          "value": "Trample"
+        }
+      ]
+    }
+  ],
+  "Trigger Happy": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Signature becomes"
+        },
+        {
+          "type": "cardRef",
+          "value": "Trigger Finger",
+          "refID": "CV1800"
+        },
+        {
+          "type": "plainText",
+          "value": "(you know which one)"
+        }
+      ]
+    }
+  ],
+  "True Babylon": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Battle"
+        },
+        {
+          "type": "plainText",
+          "value": "Each player chooses a different language"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "For the duration of the Battle, they can only speak in their chosen language"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "For each word spoken in a different language, they gain +1"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        }
+      ]
+    }
+  ],
+  "Truth or Death": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Before performing a Scan, declare if the Primordial is there"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If you are not correct, after resolving the Scan, draw an Obol"
+        }
+      ]
+    }
+  ],
+  "Unbeatable Guard": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "During the Titan Round, Cyclonus cannot be Wounded from the front and Combos cannot be broken from the front"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Ignore this Trait during a Cyclonus Attack"
+        }
+      ]
+    }
+  ],
+  "Unholy Inflation": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you are about to suffer Knockdown, if you have 3+ MIdas tokens, suffer Float instead"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you are about to suffer Float, if you have the Windblight Curse Affliction, you die instead"
+        }
+      ]
+    }
+  ],
+  "Unworthy Will Die": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "At the end of the Primordial Round, the Old Haunt destroys the closest"
+        },
+        {
+          "type": "cardRef",
+          "value": "Irem Tower",
+          "refID": "DI2028"
+        }
+      ]
+    }
+  ],
+  "Vanish X": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Move the Primordial X spaces towards the closest Board Edge, without turning, ignoring Board Edges directly across from the Target or attacking Titan"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If thes would move the Primordial beyond a Board Edge or outside of all ranges of light, it disappears"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Primordial is outside the Battle Board, it cannot be affected in any way"
+        }
+      ]
+    }
+  ],
+  "Voracious Bog": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "During the Primordial Round, Ambrosia Pools and Ambrosia Trails have the"
+        },
+        {
+          "type": "keyword",
+          "value": "Chasm"
+        },
+        {
+          "type": "plainText",
+          "value": "keyword"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If a Titan ends their turn on an Ambrosia Pool or Ambrosia Trail tile, they die, consumed by the living abyss"
+        }
+      ]
+    }
+  ],
+  "Voracious Parasite": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Hypertime Oracle consumes all Time Anchors it moves through and all Time Anchors it is adjacent to at the end of the Primordial Round"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Remove consumed Time Anchors from the Battle Board"
+        }
+      ]
+    }
+  ],
+  "Weapon Master": [
+    {
+      "abilityText": [
+        {
+          "type": "bold",
+          "value": "Additional Setp:"
+        },
+        {
+          "type": "plainText",
+          "value": "Place a Combo token on the Sword space of the Combo track"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "After resolving a Combo or Combo Break, move the token clockwise to the next space"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Combo:"
+        },
+        {
+          "type": "plainText",
+          "value": "After resolving the first AI card in a Round, perform"
+        },
+        {
+          "type": "icon",
+          "value": "WoO"
+        },
+        {
+          "type": "bold",
+          "value": "Combo:"
+        },
+        {
+          "type": "plainText",
+          "value": "Draw and resolve another AI card"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "timing",
+          "value": "Reaction"
+        },
+        {
+          "type": "bold",
+          "value": "Combo Break:"
+        },
+        {
+          "type": "plainText",
+          "value": "A Titan who is"
+        },
+        {
+          "type": "bold",
+          "value": "not the"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "Priority Target, and has"
+        },
+        {
+          "type": "icon",
+          "value": "Gear"
+        },
+        {
+          "type": "plainText",
+          "value": "with a Weapon class indicated by the Combo track, may exhaust this Weapon to break the Combo"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "The Titan must be within this Weapon's effective range"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "It gains the"
+        },
+        {
+          "type": "icon",
+          "value": "PriortyTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "token"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Inevitable:"
+        },
+        {
+          "type": "plainText",
+          "value": "If the Nietzschean has 6+ Wounds, Sword Combos cannot be broken"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "If the Nietzschean has 10+ Wounds, Fire Combos cannot be broken"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "newline"
+        },
+        {
+          "type": "bold",
+          "value": "Note:"
+        },
+        {
+          "type": "icon",
+          "value": "Rage"
+        },
+        {
+          "type": "plainText",
+          "value": "gain doesn't trigger"
+        },
+        {
+          "type": "icon",
+          "value": "PriorityTarget"
+        },
+        {
+          "type": "plainText",
+          "value": "change"
+        }
+      ]
+    }
+  ],
+  "Weight of Greed": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When a Titan with Midas tokens dies, place half of their Midas tokens (rounding up) on the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Incremental Painment",
+          "refID": "DX3222"
+        },
+        {
+          "type": "plainText",
+          "value": "Trait"
+        }
+      ]
+    }
+  ],
+  "Win Together Die Alone": [
+    {
+      "abilityText": [
+        {
+          "type": "timing",
+          "value": "Start of Titan Turn"
+        },
+        {
+          "type": "plainText",
+          "value": "If you're not adjacent to another Titan, gain +2"
+        },
+        {
+          "type": "icon",
+          "value": "Danger"
+        },
+        {
+          "type": "plainText",
+          "value": "and +2"
+        },
+        {
+          "type": "icon",
+          "value": "Fate"
+        }
+      ]
+    }
+  ],
+  "Winnowing": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Remove the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Fearful Hospitality",
+          "refID": "DZ2584"
+        },
+        {
+          "type": "plainText",
+          "value": "card and add the"
+        },
+        {
+          "type": "cardRef",
+          "value": "Trojan Ire",
+          "refID": "DZ2589"
+        },
+        {
+          "type": "plainText",
+          "value": "and"
+        },
+        {
+          "type": "cardRef",
+          "value": "The Oar",
+          "refID": "DZ2585"
+        },
+        {
+          "type": "plainText",
+          "value": "cards to the Battle (See Cycle IV Storybook, pg"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "171)"
+        }
+      ]
+    }
+  ],
+  "Wish Away": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When the Primordial performs Wish Away, it performs Wish Away X, where X is 8 + the Primordial level (max"
+        }
+      ]
+    },
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "12)"
+        }
+      ]
+    }
+  ],
+  "Wishtanglement": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "When you gain a"
+        },
+        {
+          "type": "cardRef",
+          "value": "Wishkeen",
+          "refID": "DL2011"
+        },
+        {
+          "type": "plainText",
+          "value": "or"
+        },
+        {
+          "type": "cardRef",
+          "value": "Wishagog",
+          "refID": "DL2011"
+        },
+        {
+          "type": "plainText",
+          "value": "Condition card, every other Titan gains the same Condition card"
+        }
+      ]
+    }
+  ],
+  "Worm of the Labyrinth": [
+    {
+      "abilityText": [
+        {
+          "type": "plainText",
+          "value": "Temenos can only be attacked from the white spaces marked on the diagram or the VP"
         }
       ]
     }

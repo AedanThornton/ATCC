@@ -13,6 +13,8 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
 
   function formatText(textClump) {
     switch(textClump.type) {
+      case "newline":
+        return (<br />)
       case "keyword":
         return utils.createTooltip(textClump.value)
       case "timing":
@@ -45,7 +47,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
           <>{utils.getIcon(cost, undefined, i)}</>
         ))}
       </span>
-      {sentence.abilityText.map((textClump, index2, array) => (
+      {sentence.abilityText?.map((textClump, index2, array) => (
         <React.Fragment key={index2}>
           {formatText(textClump)}{index2 !== array.length -1 && " "}
         </React.Fragment>

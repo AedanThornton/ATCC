@@ -1,6 +1,6 @@
 import utils from "./utils";
 
-export const DiceStack = ({ diceArray }) => {
+export const DiceStack = ({ diceArray, diceType = "Power" }) => {
   const boxHeight = 20 + 5 * Math.floor((diceArray.length + 1) / 2);
 
   return (
@@ -18,7 +18,7 @@ export const DiceStack = ({ diceArray }) => {
         let x = dir * (9 - depth); // zig-zag offset        
         const y = -8 * Math.floor(depth / 2) * scale - 2 * depth + 4 * Math.floor((array.length - 1) / 2); // push upward in pairs
 
-        if (src === "Power" || array.length < 2) return utils.getIcon(src, "Power", i + src, `1.5em`);
+        if (src === "Power" || array.length < 2) return utils.getIcon(src, diceType, i + src, `1.5em`);
         if (i === array.length - 1 && dir === -1) x = 0;
 
         return (
@@ -30,7 +30,7 @@ export const DiceStack = ({ diceArray }) => {
               transform: `translate(${x}px, ${y}px) scale(${-dir}, 1)`
             }}
           >
-            {utils.getIcon(src, "Power", i + src, `${(1 + (0.1 * (3 - Math.floor(depth / 2)))) * scale}em`)}
+            {utils.getIcon(src, diceType, i + src, `${(1 + (0.1 * (3 - Math.floor(depth / 2)))) * scale}em`)}
           </div>
         );
       })}

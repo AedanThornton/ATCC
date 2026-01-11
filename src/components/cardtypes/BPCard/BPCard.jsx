@@ -141,7 +141,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
               {bp.critFlavor}
             </div>
             <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
-              {/*parseLines(*/utils.updateComponent(bp.critResponse)/*, "crit")*/}.
+              {bp.critResponse}.
             </div>
           </>}
         </div>

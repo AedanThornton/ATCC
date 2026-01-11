@@ -71,8 +71,8 @@ const GearCard = ({ gear, index, currentSide }) => {
                   </div>
                 )}
                 {defensiveStat.type === "Armor"
-                  ? <DiceStack diceArray={defensiveStat.armorDice}/>
-                  : <>{defensiveStat.amount} {utils.getIcon(defensiveStat.type, undefined, undefined, "1.5em")}</>
+                  ? <DiceStack diceArray={defensiveStat.armorDice} diceType="Armor"/>
+                  : <>{defensiveStat.amount} {utils.getIcon(defensiveStat.type, "Armor", undefined, "1.5em")}</>
                 }
               </div>
             )
