@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import "../styles/layout.css"
 import logo from "../assets/ATCC.svg"
+import FilterSidebar from './FilterSidebar';
 
 function Layout() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(true);
+  const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(true);
 
   return (
     <div className="app-layout">
@@ -22,7 +24,18 @@ function Layout() {
         </div>
         
         <h1>ATCC</h1>
-        <div></div>
+
+        <div className='top-menu'>
+          <div className='filters-menu'>
+            <button className='filters-hamburger-button' onClick={() => setIsFilterSidebarOpen(!isFilterSidebarOpen)}>
+              <div className='hamburger-bar'></div>
+              <div className='hamburger-bar'></div>
+              <div className='hamburger-bar'></div>
+            </button>
+
+            {isFilterSidebarOpen && <FilterSidebar />}
+          </div>
+        </div>
       </header>
       <main className="app">
         <Outlet />
