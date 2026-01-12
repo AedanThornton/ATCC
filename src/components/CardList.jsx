@@ -4,7 +4,6 @@ import "../styles/cardlist.css";
 import { useFilterOptions } from "../hooks/useFilterOptions";
 import { useCards } from "../hooks/useCards";
 import CardRenderer from "./CardRenderer"
-import ControlBar from "./ControlBar";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,8 +44,6 @@ const CardList = () => {
 
   return (
     <>
-      <ControlBar totalPages={totalPages} totalCards={totalCards} isLoading={isLoading}/>
-
       <div className="card-list">
         {filteredCards.length > 0 ? (
           filteredCards.map((cardname, index) => {

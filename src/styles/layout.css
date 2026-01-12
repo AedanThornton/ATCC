@@ -11,7 +11,6 @@
 }
 
 .layout-nav {
-  position: absolute;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -26,19 +25,22 @@
 
 .layout-nav ul {
   padding: 0;
+  margin: 0;
   flex: 6;
   display: flex;
   flex-direction: column;
-  max-height: 0;
   overflow: hidden;
   width: 100%;
+  gap: 10px;
 }
 
 .layout-nav li {
   display: inline;
-  padding: 6px 15px;
+  padding: 3px 15px;
   font-size: 1.5rem;
   border: 1px solid #ffffff00;
+  background-color: rgb(86, 86, 86);
+  border-radius: 15px;
 }
 
 .layout-nav li:hover {
@@ -46,36 +48,31 @@
   border: 1px solid rgb(59, 59, 59);
 }
 
-.layout-nav ul a img {
-  display: none;
-}
-
 .layout-nav ul a {
   color:rgba(255, 255, 255, 0.87);
 }
 
-.app-header {
+.layout-row {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
+  width: 100%;
 }
 
-.app-header h1 {
-  margin: 0;
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.menu-button {
-  display: block;
-  background-color: unset;
-}
-
-.filters-hamburger-button {
+.menu-button, .filters-hamburger-button {
   display: flex;
   flex-direction: column;
   gap: 8px;
   background-color: unset;
   z-index: 550;
+  position: relative;
 }
 
 .hamburger-bar {
@@ -98,39 +95,33 @@
   top: 0%;
   position: fixed;
   z-index: 525;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-sidebar {
+  z-index: 525;
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  background-color: rgb(59, 59, 59);
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+
+.menu-button:hover .nav-sidebar {
+  display: flex;
+}
+
+.card-search-bar {
+  margin-bottom: 0px;
+  padding: 5px;
+  width: 90vw;
 }
 
 @media (min-width: 820px) {
-  .menu-button {
-    display: none;
-  }
-
-  .top-menu {
-    position: static;
-  }
-
-  .layout-nav {
-    position: static;
-  }
-
-  .layout-nav ul {
-    flex-direction: unset;
-    max-height: unset;
-    overflow: unset;
-  }
-
-  .layout-nav ul a img {
-    display: block;
-    margin: 0 1rem;
-  }
-
-  .layout-nav ul a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-
   .filters-menu {
     position: static;
   }
@@ -138,5 +129,17 @@
   .filter-sidebar {
     width: 30%;
     left: 70%;
+  }
+
+  .nav-sidebar {
+    width: max-content;
+    left: unset;
+    background-color: unset;
+    padding: 0;
+  }
+
+  .card-search-bar {
+    width: 60vw;
+    margin-bottom: 20px;
   }
 }

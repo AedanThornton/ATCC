@@ -1,40 +1,14 @@
 import PaginationControls from "./PaginationControls";
 import SortControls from "./SortControls";
 import { useSearchParams } from "react-router-dom";
-import { useDebounce } from "use-debounce";
-import { useState, useEffect } from "react";
+import { useCards } from "../hooks/useCards";
 
-const ControlBar = ({totalPages, totalCards, isLoading}) => {
+const ControlBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchTermUI, setSearchTermUI] = useState(searchParams.get("q") || "");
-  const [debouncedSearchTerm] = useDebounce(searchTermUI, 300);
+  const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
 
   const currentPage = parseInt(searchParams.get('p')) || 1;
   const sortTerm = searchParams.get("s") || "id:asc";
-
-  //Setup debounce
-  useEffect(() => {
-    // Avoid running on initial mount if search terms match
-    if (debouncedSearchTerm === (searchParams.get('q') || '')) {
-      return;
-    }
-
-    const newParams = new URLSearchParams(searchParams);
-    // Use the debounced value to update the URL
-    if (debouncedSearchTerm) {
-      newParams.set('q', debouncedSearchTerm);
-    } else {
-      newParams.delete('q');
-    }
-
-    // Only reset page if the search term has actually changed
-    // This prevents resetting page on initial load
-    if (debouncedSearchTerm !== (searchParams.get('q') || '')) {
-      newParams.set('p', '1');
-    }
-
-    setSearchParams(newParams, { replace: true });
-  }, [debouncedSearchTerm]);
 
   //Helper functions
   const handlePageChange = (pageNumber) => {
@@ -51,10 +25,6 @@ const ControlBar = ({totalPages, totalCards, isLoading}) => {
     setSearchParams(params, { replace: true })
   }
 
-  const handleSearchChange = (newTerm) => {
-    setSearchTermUI(newTerm, { replace: true })
-  };
-
   const addCardReference = (newCard, resetFilters = true, previousCard) => {
     const searchReference = () => {
       resetFilters && resetFilters()
@@ -70,17 +40,6 @@ const ControlBar = ({totalPages, totalCards, isLoading}) => {
 
   return (
     <div className="card-list__control-bar">
-      <div style={{ flex: 1 }}></div>
-
-      {/* Search Bar Input */}
-      <input
-        type="text"
-        placeholder="Search Catalog..."
-        value={searchTermUI}
-        onChange={(e) => handleSearchChange(e.target.value)}
-        style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
-      />
-
       <div className="card-list__control-bar--page-contols">
         <SortControls sortTerm={sortTerm} onSortChange={handleSortTermChange} />
         <PaginationControls currentPage={currentPage} isLoading={isLoading} totalPages={totalPages} totalCards={totalCards} onPageChange={handlePageChange} />
