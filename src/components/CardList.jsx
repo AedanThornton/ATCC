@@ -1,56 +1,21 @@
-import { useState, useEffect, useMemo, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useDebounce } from "use-debounce";
-import FilterControls from "./FilterControls";
-import PaginationControls from "./PaginationControls";
-import SortControls from "./SortControls";
 import "../styles/cardlist.css";
-import CardGrid from "./CardGrid";
 import { useFilterOptions } from "../hooks/useFilterOptions";
 import { useCards } from "../hooks/useCards";
+import CardRenderer from "./CardRenderer"
+import ControlBar from "./ControlBar";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  //Search states
-  const [searchTermUI, setSearchTermUI] = useState(searchParams.get("q") || "");
-  const [debouncedSearchTerm] = useDebounce(searchTermUI, 300);
 
   //Response values from API
   const { filterOptions, optionsLoading, optionsError } = useFilterOptions();
   const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
 
-  const currentPage = parseInt(searchParams.get('p')) || 1;
-  const sortTerm = searchParams.get("s") || "id:asc";
-
-  //Setup debounce
-  useEffect(() => {
-    // Avoid running on initial mount if search terms match
-    if (debouncedSearchTerm === (searchParams.get('q') || '')) {
-      return;
-    }
-
-    const newParams = new URLSearchParams(searchParams);
-    // Use the debounced value to update the URL
-    if (debouncedSearchTerm) {
-      newParams.set('q', debouncedSearchTerm);
-    } else {
-      newParams.delete('q');
-    }
-
-    // Only reset page if the search term has actually changed
-    // This prevents resetting page on initial load
-    if (debouncedSearchTerm !== (searchParams.get('q') || '')) {
-       newParams.set('p', '1');
-    }
-
-    setSearchParams(newParams, { replace: true });
-  }, [debouncedSearchTerm]);
-
-
   // Set Initial params if missing
   useEffect(() => {
-    if (!searchParams.has("p") || !searchParams.has("s") || !searchParams.has("limit")){
+    if (!searchParams.has("p") || !searchParams.has("s") || !searchParams.has("limit")) {
       const newParams = new URLSearchParams(searchParams)
 
       if (!newParams.has("p")) newParams.set("p", 1)
@@ -61,39 +26,8 @@ const CardList = () => {
       setSearchParams(newParams)
     }
   }, [searchParams, setSearchParams])
-
-  const handleSearchChange = (newTerm) => {
-    setSearchTermUI(newTerm, {replace: true})
-  };
-
-  const handlePageChange = (pageNumber) => {
-    const newPage = Math.max(1, Math.min(totalPages || 1, Number(pageNumber)));
-    const params = new URLSearchParams(searchParams);
-    params.set("p", newPage)
-    setSearchParams(params, {replace: true})
-  };
-
-  const handleSortTermChange = (newTerm) => {
-    const params = new URLSearchParams(searchParams);
-    params.set("s", newTerm)
-    params.set("p", 1)
-    setSearchParams(params, {replace: true})
-  }
-
-  const addCardReference = (newCard, resetFilters = true, previousCard) => {
-    const searchReference = () => {
-      resetFilters && resetFilters()
-      handleSearchChange(previousCard ? newCard + " || " + previousCard : newCard)
-    }
-
-    return (
-      <a onClick={() => searchReference()}>
-        {newCard}
-      </a>
-    )
-  }
   
-  // Showing loading screen while waiting for sync
+  // Loading screen for Filters sync
   if (optionsError) {
     return <div>Error: {optionsError}</div>;
   }
@@ -101,29 +35,29 @@ const CardList = () => {
     return <div>Initializing data...</div>;
   }
 
+  // Loading screen for Cards sync
+  if (error) {
+   return <div>Error: {error}</div>
+  };
+  if (isLoading) {
+    return <div>Loading cards...</div>
+  };
+
   return (
     <>
-      {/* Control Bar */}
-      <div className="card-list__control-bar">
-        <div style={{flex: 1}}></div>
+      <ControlBar totalPages={totalPages} totalCards={totalCards} isLoading={isLoading}/>
 
-        {/* Search Bar Input */}
-        <input
-          type="text"
-          placeholder="Search Catalog..."
-          value={searchTermUI}
-          onChange={(e) => handleSearchChange(e.target.value)}
-          style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
-        />
-
-        <div className="card-list__control-bar--page-contols">
-          <SortControls sortTerm={sortTerm} onSortChange={handleSortTermChange}/>
-          <PaginationControls currentPage={currentPage} isLoading={isLoading} totalPages={totalPages} totalCards={totalCards} onPageChange={handlePageChange}/>
-        </div>
+      <div className="card-list">
+        {filteredCards.length > 0 ? (
+          filteredCards.map((cardname, index) => {
+            return (
+              <CardRenderer cardname={cardname} key={cardname.cardIDs[0] + index}/>
+            )
+          })
+        ) : (
+          <p>No results found.</p>
+        )}
       </div>
-
-      {/* Render Filtered Card List */}
-      <CardGrid isLoading={isLoading} error={error} filteredCards={filteredCards} />
     </>
   );
 };
