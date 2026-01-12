@@ -1,5 +1,14 @@
 .app {
-  max-width: 100vw;
+  width: 100vw;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.app > div {
+  height: inherit;
+  flex: 1;
+  display: flex;
 }
 
 .card-list-main {
@@ -18,7 +27,15 @@
   gap: 40px;
   margin: 4%;
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0% 2% 2% 2%;
+}
+
+.card-list::-webkit-scrollbar-thumb {
+  background-color: black;
 }
 
 .card-wrapper {

@@ -1,4 +1,5 @@
 :root {
+  height: inherit;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -29,7 +30,7 @@ a:hover {
 body {
   margin: 0;
   place-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 h1 {
@@ -88,7 +89,7 @@ svg {
 }
 
 html, body {
-  overflow: auto;
+  overflow: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
