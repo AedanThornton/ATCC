@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "use-debounce";
 import FilterControls from "./FilterControls";
@@ -22,16 +22,6 @@ const CardList = () => {
 
   const currentPage = parseInt(searchParams.get('p')) || 1;
   const sortTerm = searchParams.get("s") || "id:asc";
-
-  const currentFilters = useMemo(() => {
-    if (!filterOptions) return null;
-    return {
-      cardType: searchParams.get('cardType')?.split(',') || [],
-      cycle: searchParams.get('cycle')?.split(',') || [],
-      cardSize: searchParams.get('cardSize')?.split(',') || [],
-      foundIn: searchParams.get('foundIn')?.split(',') || ["Regular", "Promo"],
-    };
-  }, [searchParams, filterOptions]);
 
   //Setup debounce
   useEffect(() => {
@@ -72,27 +62,6 @@ const CardList = () => {
     }
   }, [searchParams, setSearchParams])
 
-  // Update Filters based on boxes checked in dropdowns
-  const handleFilterChange = (category, option) => {
-    const currentCategoryValues = currentFilters[category]
-
-    //Update UI state
-    const isSelected = currentCategoryValues.includes(option)
-    const newCategoryValues = isSelected
-        ? currentCategoryValues.filter((item) => item !== option) // Remove if already selected
-        : [...currentCategoryValues, option]; // Add if not selected
-
-    //Update URL and data state
-    const params = new URLSearchParams(searchParams)
-    if (newCategoryValues.length > 0 && newCategoryValues.length < filterOptions[category]?.length) {
-      params.set(category, newCategoryValues.join(','));
-    } else {
-      params.delete(category);
-    }
-    params.set("p", 1)
-    setSearchParams(params, {replace: true})
-  };
-
   const handleSearchChange = (newTerm) => {
     setSearchTermUI(newTerm, {replace: true})
   };
@@ -108,15 +77,6 @@ const CardList = () => {
     const params = new URLSearchParams(searchParams);
     params.set("s", newTerm)
     params.set("p", 1)
-    setSearchParams(params, {replace: true})
-  }
-
-  const resetFilters = () => {
-    const params = new URLSearchParams(searchParams);
-    params.delete("cardType")
-    params.delete("cycle")
-    params.delete("cardSize")
-    params.delete("foundIn")
     setSearchParams(params, {replace: true})
   }
 
@@ -143,21 +103,19 @@ const CardList = () => {
 
   return (
     <>
-      {/* Search Bar Input */}
-      <input
-        type="text"
-        placeholder="Search Catalog..."
-        value={searchTermUI}
-        onChange={(e) => handleSearchChange(e.target.value)}
-        style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
-      />
-
       {/* Control Bar */}
       <div className="card-list__control-bar">
         <div style={{flex: 1}}></div>
 
-        {/* Filter dropdowns */}
-        <FilterControls currentFilters={currentFilters} onFilterChange={handleFilterChange} filterOptions={filterOptions} resetFilters={() => resetFilters()}/>
+        {/* Search Bar Input */}
+        <input
+          type="text"
+          placeholder="Search Catalog..."
+          value={searchTermUI}
+          onChange={(e) => handleSearchChange(e.target.value)}
+          style={{ marginBottom: "10px", padding: "5px", width: "60vw" }}
+        />
+
         <div className="card-list__control-bar--page-contols">
           <SortControls sortTerm={sortTerm} onSortChange={handleSortTermChange}/>
           <PaginationControls currentPage={currentPage} isLoading={isLoading} totalPages={totalPages} totalCards={totalCards} onPageChange={handlePageChange}/>
