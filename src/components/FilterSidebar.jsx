@@ -1,5 +1,4 @@
-import { useContext, useMemo } from "react"
-import { FiltersContext } from "../context/FiltersContext"
+import { useMemo } from "react"
 import { useFilterOptions } from "../hooks/useFilterOptions";
 import { useSearchParams } from "react-router-dom";
 
