@@ -1,8 +1,8 @@
 import "/src/styles/cardsStyle.css"
 import "./GodformCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
 import WeaponRenderer from "../../WeaponRenderer.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const GodformCard = ({ godform, index }) => {
   return (
@@ -33,12 +33,12 @@ const GodformCard = ({ godform, index }) => {
       {/* Stats */}
       <div className="godform-stats-box">
         <div className="godform-stats-subbox">
-          <div className="godform-stat-circled">{utils.getIcon(godform.power, "Power", undefined)}</div>
-          <div className="godform-stat-circled">{utils.getIcon("Speed")}{godform.speed}</div>
+          <div className="godform-stat-circled">{getIcon(godform.power, "Power", undefined)}</div>
+          <div className="godform-stat-circled">{getIcon("Speed")}{godform.speed}</div>
         </div>
         <div className="godform-stats-subbox">
           {godform.stats && godform.stats.split(", ").map((stat, index) => (
-            <div className="godform-stat-uncircled">{stat.split(" ")[0]} {utils.getIcon(stat.split(" ").slice(1).join(""))}</div>
+            <div className="godform-stat-uncircled">{stat.split(" ")[0]} {getIcon(stat.split(" ").slice(1).join(""))}</div>
           ))}
         </div>
       </div>

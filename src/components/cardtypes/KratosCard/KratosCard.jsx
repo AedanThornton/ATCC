@@ -1,6 +1,5 @@
 import "/src/styles/cardsStyle.css"
 import "./KratosCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph, { FormattedSentence } from "../../FormattedParagraph.jsx";
 
 const KratosCard = ({ kratos, index }) => {

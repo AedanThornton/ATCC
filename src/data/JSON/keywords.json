@@ -1,1028 +1,3536 @@
 {
-  "Airburst X": [
-    {
-      "text": "Titans in Zone X suffer Knockdown and Knockback 1.",
-      "formatting": ""
-    }
-  ],
-  "Ambrosia Limit X/+X": [
-    {
-      "text": "Your Ambrosia Limit becomes X or is increased by X, respectively. If you have more than one instance of the former, then the one with the greatest X is used (before applying modifiers). Ambrosia Limit X does not stack, Ambrosia Limit +X does.",
-      "formatting": ""
-    }
-  ],
-  "Armor-piercing": [
-    {
-      "text": "During the Power Roll, ignore Hardened.",
-      "formatting": ""
-    }
-  ],
-  "Armor Re-roll X": [
-    {
-      "text": "During the Armor Roll step of a Primordial Attack Sequence, you may reroll up to X Armor dice.",
-      "formatting": ""
-    }
-  ],
-  "Ascended": [
-    {
-      "text": "This Gear ignores Power Level penalties.",
-      "formatting": ""
-    }
-  ],
-  "Assist X": [
-    {
-      "text": "During another Titan\u2019s Power Roll, if, after applying all bonuses, their total Power is less than the AT value and you are within your weapon\u2019s range, you may gain 1 Rage and a Combat Fatigue to immediately add X Break tokens to the Kratos Pool. This ability can only be used if it allows the Attacker to Wound.",
-      "formatting": ""
-    }
-  ],
-  "Attack Re-roll X": [
-    {
-      "text": "During an Attack Roll, you may re-roll up to X Attack dice with no cost.",
-      "formatting": ""
-    }
-  ],
-  "Auto-black X": [
-    {
-      "text": "During the first ability window, place X Black tokens (X.1.9.6) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Auto-break X": [
-    {
-      "text": "During the first ability window, place X Break tokens (X.1.9.1) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Auto-hope X": [
-    {
-      "text": "During the first ability window, place X Hope tokens (X.1.9.7) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Auto-inspire": [
-    {
-      "text": "You may stand up as a free action. You may use this ability while Knocked Down.",
-      "formatting": ""
-    }
-  ],
-  "Auto-rouse X": [
-    {
-      "text": "During the first ability window, place X Rouse tokens (X.1.9.6) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Awakening Lock": [
-    {
-      "text": "You cannot Awaken.",
-      "formatting": ""
-    }
-  ],
-  "Black X": [
-    {
-      "text": "During the second ability window, place X Black tokens (X.1.9.6) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Bleeding X": [
-    {
-      "text": "Gain the Bleeding Condition card (unless you already have it) and place X Bleeding tokens on it.",
-      "formatting": ""
-    }
-  ],
-  "Bleeding Limit X/+X": [
-    {
-      "text": "Your Bleeding Limit becomes X or is increased by X, respectively. If you have more than one instance of the former, then the one with the greatest X is used (before applying modifiers). Bleeding Limit X does not stack, Bleeding Limit +X does.",
-      "formatting": ""
-    }
-  ],
-  "Block X": [
-    {
-      "text": "After counting hits from an Evasion Roll, subtract X hits.",
-      "formatting": ""
-    }
-  ],
-  "Break X": [
-    {
-      "text": "During the second ability window, place X Break tokens (X.1.9.1) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Burden X": [
-    {
-      "text": "During the First or second ability window, take X Condition, Despair, or Ambrosia tokens from the nearest Titan. (This does not count as gaining those tokens.)",
-      "formatting": ""
-    }
-  ],
-  "Burn": [
-    {
-      "text": "Gain 1 Danger for each Metal Gear card you have equipped and discard all Flammable Gear cards. If this is part of a Primordial Attack Sequence, add the Danger gained to the Danger gained from hits.",
-      "formatting": ""
-    }
-  ],
-  "Bypass": [
-    {
-      "text": "You may move through other Titans. You cannot end your voluntary movement on a space occupied by another Titan.",
-      "formatting": ""
-    }
-  ],
-  "Carving X": [
-    {
-      "text": "When you wound the Primordial, test Wisdom (8+). On a success, you immediately gain X additional non-Core Primordial resources from that BP card. These resources are not multiplied by the Primordial level.",
-      "formatting": ""
-    }
-  ],
-  "Closing X": [
-    {
-      "text": "During the second ability window, place X Closing tokens (X.1.9.8) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Clutch": [
-    {
-      "text": "During the Power Roll step, if, after applying bonuses, you have less total Power than the AT value by exactly 1, you may gain 1 Power. After you finish resolving this Attack Sequence, discard your active weapon.",
-      "formatting": ""
-    }
-  ],
-  "Combo-breaker: X spaces": [
-    {
-      "text": "When you would break a Combo, you may move X spaces before checking range. You may only use this ability if it would allow you to break a Combo. This ability is not stackable.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Self Combo-breaker: X spaces",
-      "text": "Identical to Combo-breaker, but you can only use the Gear card which this ability is on to break the Combo (you do not have to exhaust an additional card). This Gear must still possess a matching Weapon Trait.",
-      "formatting": ""
-    }
-  ],
-  "Commit (X)": [
-    {
-      "text": "This Keyword forces a cost to pay in order to declare this Weapon as an Active Weapon (X.5.1). If\u2026",
-      "formatting": ""
-    },
-    {
-      "text": "\u2026no parentheses, you must gain 1 Fate to declare this weapon as your active weapon.",
-      "formatting": ""
-    },
-    {
-      "text": "\u2026X is a Midas token, you must gain 1 Midas token to declare this weapon as your active weapon.",
-      "formatting": ""
-    },
-    {
-      "text": "\u2026X is a Charge token, you must discard 1 Charge token to declare this weapon as your active weapon.",
-      "formatting": ""
-    },
-    {
-      "text": "\u2026X is a Fire token, you must discard 1 Fire token from the Kratos Pool to declare this weapon as your active weapon.",
-      "formatting": ""
-    }
-  ],
-  "Consume": [
-    {
-      "text": "Treat \u201cconsume\u201d as an Instant Death effect.",
-      "formatting": ""
-    }
-  ],
-  "Crash": [
-    {
-      "text": "Gain 1 Danger and Knockdown.",
-      "formatting": ""
-    }
-  ],
-  "Cryptex Loathing": [
-    {
-      "text": "Treat your Cryptex gear card as blank.",
-      "formatting": ""
-    }
-  ],
-  "Cumbersome": [
-    {
-      "text": "During the second ability window, if you successfully wounded with this weapon, exhaust it. This is treated as a voluntary exhaust.",
-      "formatting": ""
-    }
-  ],
-  "Cursed": [
-    {
-      "text": "During your Titan Attack, you cannot re-roll d10s.",
-      "formatting": ""
-    }
-  ],
-  "Daze": [
-    {
-      "text": "During the first ability window, if you are adjacent to the Primordial, you may turn the Primordial so that you are in a Rear space.",
-      "formatting": ""
-    }
-  ],
-  "Deadly": [
-    {
-      "text": "During an Attack Roll, replace one of your regular Attack dice with an additional Crit die. If you roll only one Attack die, you gain a Crit Chance on a natural 9\u201310 result instead.",
-      "formatting": ""
-    }
-  ],
-  "Death X": [
-    {
-      "text": "Gain the Death Condition card (unless you already have it) and place X Condition tokens on it. If you already have the Death Condition card and X is lower than the number of Condition tokens you have, discard Condition tokens until you X matches.",
-      "formatting": ""
-    }
-  ],
-  "Defy X": [
-    {
-      "text": "While performing a Skill test caused by a Judgement, treat X successful hits as evaded.",
-      "formatting": ""
-    }
-  ],
-  "Displace": [
-    {
-      "text": "Move to an empty space adjacent to its current position. If a Titan is displaced and there is no space it can be legally displaced to, it dies instead.",
-      "formatting": ""
-    }
-  ],
-  "Diversion": [
-    {
-      "text": "During the second ability window, place a Diversion token (X.1.9.3) in the Kratos Pool. ",
-      "formatting": ""
-    }
-  ],
-  "Dodge": [
-    {
-      "text": "When you are about to resolve an Evasion Roll, gain +1 Evasion for this roll.",
-      "formatting": ""
-    }
-  ],
-  "Doomed": [
-    {
-      "text": "During this effect, dice cannot be re-rolled using Fate.",
-      "formatting": ""
-    }
-  ],
-  "Double Commit": [
-    {
-      "text": "You must gain 2 Fate to declare this weapon as your active weapon.",
-      "formatting": ""
-    }
-  ],
-  "Elation X": [
-    {
-      "text": "During the second ability window, you may discard X Despair tokens or Ambrosia tokens to place X Opening tokens in the Kratos Pool (X.1.9.2).",
-      "formatting": ""
-    }
-  ],
-  "Escalate X": [
-    {
-      "text": "Escalate X times (X.5.10.6). Do not look at the removed cards.",
-      "formatting": ""
-    }
-  ],
-  "Evolving": [
-    {
-      "text": "When you equip a Gear card with this keyword, write the Gear\u2019s name on your Argonaut sheet in the Mnemos section. The Gear instructs you on what you need to do to evolve it. Track your progress on doing so by marking nodes on the Mnemos track. If this Gear card is equipped by another Argonaut, continue keeping track on the original sheet. If the Argonaut the original sheet belongs to dies, transfer the progress to another living Argonaut\u2019s sheet. If you permanently lose the Gear card, erase it from the sheet; you lose all evolution progress on it.",
-      "formatting": ""
-    }
-  ],
-  "Fate Armor": [
-    {
-      "text": "This card\u2019s Armor Dice may also be used to mitigate Fate dealt by Primordial Attacks. If you are dealt Fate and Danger, you may distribute the mitigation between the two.",
-      "formatting": ""
-    }
-  ],
-  "Fire X": [
-    {
-      "text": "During the second ability window, place X Fire tokens (X.1.9.4) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Float": [
-    {
-      "text": "Gain the Float Condition card, Float (up) side up, and place your miniature on its side.",
-      "formatting": ""
-    }
-  ],
-  "Frontlines": [
-    {
-      "text": "If your Titan is dead, at the End of Battle roll a d10. On a \u20181\u2019, your Argonaut dies as well.",
-      "formatting": ""
-    }
-  ],
-  "Glaciate": [
-    {
-      "text": "To Glaciate a space, place a Black Iceberg Terrain tile there.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Giant Glaciate",
-      "text": "To Giant Glaciate a space, place a Giant Black Iceberg Terrain tile there.",
-      "formatting": ""
-    }
-  ],
-  "Greater Pass X": [
-    {
-      "text": "During the Clear the Kratos Pool step, choose up to X Kratos tokens to remain in the pool.",
-      "formatting": ""
-    }
-  ],
-  "Hardened": [
-    {
-      "text": "A BP card with this keyword has +2 AT. Ignore this ability if you have a Crit Chance.",
-      "formatting": ""
-    }
-  ],
-  "Heal": [
-    {
-      "text": "Take the top card from the Wound Stack and remove it from the Battle. It does not provide resources at the end of the Battle.",
-      "formatting": ""
-    }
-  ],
-  "Heartseeker": [
-    {
-      "text": "During the Draw BP card step of a Titan Attack Sequence (X.5.6), you may look at the top two BP cards and choose which one to attack. Shuffle the other card back into the deck.",
-      "formatting": ""
-    }
-  ],
-  "Hermes Move X": [
-    {
-      "text": "Perform up to X Hermes Moves. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Hermes Move",
-      "text": "To perform a Hermes Move, draw a straight line in any cardinal direction from the Titan performing the action, stopping when you hit a Terrain tile. Then, choose an Elevated Terrain tile space, either the one the line ended on or one on a space adjacent to the spaces the drawn line went through, and place the Titan on that Terrain tile.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Must Be Empty",
-      "text": "The chosen Terrain tile space must be empty. When performing more than one Hermes Move from a single action, only the final Hermes Move needs to follow this rule.",
-      "formatting": ""
-    }
-  ],
-  "Hermes Reflex": [
-    {
-      "text": "Perform one Hermes Move.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Advanced Hermes Reflex",
-      "text": "Perform up to two Hermes Moves instead.",
-      "formatting": ""
-    }
-  ],
-  "Hermes Resposition X": [
-    {
-      "text": "During the second ability window, you may resolve Hermes Move X.",
-      "formatting": ""
-    }
-  ],
-  "Hide": [
-    {
-      "text": "If you are not in front of the Primordial, you may activate this ability at the end of your turn to become Hidden. If you have the Priority Target token, pass it to the Titan with the highest Rage other than you. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Hidden",
-      "text": "As long as you are Hidden, you have +1 Evasion and +1 Precision. You stop being Hidden if you move in front of the Primordial, gain the Priority Target token, after the second ability window of your Attack, or at the end of your next turn. (Place a generic token on the game element granting you Hide as a reminder.)",
-      "formatting": ""
-    }
-  ],
-  "Hope X": [
-    {
-      "text": "During the second ability window, place X Hope tokens (X.1.9.7) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Incinerated": [
-    {
-      "text": "Treat \u201cincinerated\u201d as an Instant Death effect.",
-      "formatting": ""
-    }
-  ],
-  "Inspire X": [
-    {
-      "text": "During the first ability window, choose up to X Knocked Down Titans, they may immediately stand up.",
-      "formatting": ""
-    }
-  ],
-  "Jump": [
-    {
-      "text": "At the start of movement, you may activate this ability to ignore up to 1 space of a Terrain tile.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Advanced Jump",
-      "text": "Ignore up to 2 spaces instead.",
-      "formatting": ""
-    }
-  ],
-  "Knockback X": [
-    {
-      "text": "Move the affected miniature X spaces directly away from the source of Knockback in a straight line (or in a specific direction if specified).",
-      "formatting": ""
-    },
-    {
-      "subtype": "From Attacks",
-      "text": "If Knockback is caused by a Primordial Attack, it affects the Target(s) only if the Target(s) are within the Attack\u2019s range.",
-      "formatting": ""
-    },
-    {
-      "subtype": "From Responses",
-      "text": "If Knockback is caused by a Primordial Response, it affects the Attacker only if they are within adjacency. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Knocked Back Titans",
-      "text": "",
-      "formatting": ""
-    },
-    {
-      "subtype": "Ignore Terrain except Obstacles",
-      "text": "Knocked back Titans ignore all Terrain tiles they move through except Obstacles. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Destructible Obstacles",
-      "text": "If a Titan would be forced to move through a Destructible Obstacle Terrain tile, stop its movement, remove the Terrain tile from the Battle Board and place the Titan in its space, then the Titan suffers CRASH. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Indestructible Obstacles",
-      "text": "If a Titan would be forced to move through an Indestructible Obstacle, it stops on an adjacent space right before the Obstacle instead, then suffers CRASH. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Knocked Back Primordials",
-      "text": "Knocked Back Primordials can move through any Terrain tiles and miniatures without hindrance. They destroy any Terrain tiles (except Indestructible) they move through and cause CRASH and Unavoidable Knockback to Titans as normal. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Board Edge",
-      "text": "If the affected miniature is Knocked Back into a Board Edge, it continues to move along the edge, if possible, away from the source of Knockback. ",
-      "formatting": ""
-    }
-  ],
-  "Knockdown": [
-    {
-      "text": "Gain the Knockdown Condition card, \u201cFalling down\u201d side up, and tip your miniature on its side. Follow the rules of the Condition card. (Note: the definition of Knockdown used in the Learn to Play is incorrect)",
-      "formatting": ""
-    },
-    {
-      "subtype": "From Attacks",
-      "text": "If Knockdown is caused by an Attack, it affects the Target only if it is within the Attack\u2019s range. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "From Responses",
-      "text": "If Knockdown is caused by a Response, it affects the Attacker only if they are adjacent. ",
-      "formatting": ""
-    }
-  ],
-  "Laser Resistance X": [
-    {
-      "text": "Each Laser Attack hit deals X less Danger to you. In Cycle IV+, this loses its Keyword status and becomes a Defensive Statistic instead (V.2.2.4).",
-      "formatting": ""
-    }
-  ],
-  "Lifeline": [
-    {
-      "text": "When you are about to die from a Chasm space, Displace instead (in Cycle 4, you may instead place the Titan on the closest Irem Tower Terrain tile). Alternatively, when you are about to die from falling from a Boundless Board Edge, stop adjacent to it. This ability can be used even if Knocked Down or otherwise prohibited from using active abilities. ",
-      "formatting": ""
-    }
-  ],
-  "Light X": [
-    {
-      "text": "No effect in C4.",
-      "formatting": ""
-    }
-  ],
-  "Lumbering": [
-    {
-      "text": "Cannot be involuntarily moved.",
-      "formatting": ""
-    }
-  ],
-  "Masterwork": [
-    {
-      "text": "During an Attack Roll, you may reroll 1s with no cost.",
-      "formatting": ""
-    }
-  ],
-  "Midas X": [
-    {
-      "text": "Place X Midas tokens (X.7.16) on your gear cards.",
-      "formatting": ""
-    }
-  ],
-  "Midas Immune": [
-    {
-      "text": "Ignore the effects of Midas tokens placed on this particular gear card.",
-      "formatting": ""
-    }
-  ],
-  "Motivate X": [
-    {
-      "text": "During the second ability window, choose another Titan. That Titan may move up to X spaces. This ability is not required to Stack (I.3.6.1).",
-      "formatting": ""
-    }
-  ],
-  "Opening X": [
-    {
-      "text": "During the second ability window, place X Opening tokens in the Kratos Pool (X.1.9.2). ",
-      "formatting": ""
-    }
-  ],
-  "Overbreak X": [
-    {
-      "text": "",
-      "formatting": ""
-    },
-    {
-      "subtype": "Umbral",
-      "text": "(Cycles 1-3 only) During the second ability window, if your Total Power exceeds the AT value by at least 1, place X Break tokens in the Kratos Pool (X.1.9.1).",
-      "formatting": ""
-    },
-    {
-      "subtype": "Illuminated",
-      "text": "(Cycles 4-5 only) Break X. Then, if your Total Power exceeds the AT value by at least 1, place up to X additional Break tokens but no more than the exceeded value.",
-      "formatting": ""
-    }
-  ],
-  "Pass X": [
-    {
-      "text": "During the Clear the Kratos Pool step, choose up to X Opening and/or Break tokens to remain in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Perishable": [
-    {
-      "text": "After you finish resolving a Titan Attack Sequence with this weapon, discard it. (If the sequence is interrupted, it is still considered resolved.)",
-      "formatting": ""
-    }
-  ],
-  "Precise": [
-    {
-      "text": "During the Draw a BP card step (X.5.6), after drawing the card you may choose to draw the top card of the BP discard instead. If you do, place the first drawn card back into the BP deck and shuffle it.",
-      "formatting": ""
-    }
-  ],
-  "Provoke": [
-    {
-      "text": "During the first ability window, gain the Priority Target token and turn the Primordial to face you.",
-      "formatting": ""
-    }
-  ],
-  "Pole Position": [
-    {
-      "text": "During either the First or second ability window, if you\u2019re adjacent to the Primordial, you may place your Titan on any other empty space adjacent to the Primordial.",
-      "formatting": ""
-    }
-  ],
-  "Power Re-roll X": [
-    {
-      "text": "During the Power Roll step of an Attack, you may re-roll up to X Power dice.",
-      "formatting": ""
-    }
-  ],
-  "Pull X": [
-    {
-      "text": "Move the affected miniature X spaces towards the source of the Pull, along the shortest possible path.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Other miniatures",
-      "text": "The affected miniature can move through spaces occupied by other miniatures. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Terrain",
-      "text": "The affected miniature must resolve the effects of any Terrain tiles it moves through. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Destructible Obstacles",
-      "text": "If a Titan is about to be pulled into a Destructible Obstacle (e.g. a Column), remove the Terrain tile from the Battle Board, the Titan suffers CRASH, then continue the Pull. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Indestructible Obstacles",
-      "text": "If a Titan is about to be pulled into an Indestructible Obstacle, it suffers CRASH and continues to move along the Obstacle\u2019s edge along the shortest possible path towards the Primordial. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Adjacency",
-      "text": "If the affected miniature is or becomes adjacent to the source, the Pull does not end. Instead, move the source directly away from the affected miniature the remaining number of spaces, then finish the Pull. The source\u2019s movement is voluntary, the affected miniature\u2019s movement is involuntary. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Titan Timing",
-      "text": "Titans may use the Pull X keyword during either the first or second ability window. ",
-      "formatting": ""
-    }
-  ],
-  "Pursuit X": [
-    {
-      "text": "When resolving an AI card, if you\u2019re not a Target, move X spaces in a straight line in the same direction as the Primordial.",
-      "formatting": ""
-    }
-  ],
-  "Pushback X": [
-    {
-      "text": "Turn the source towards the affected miniature. Then, move X spaces in the direction of the affected miniature, pushing it in a straight line.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Other miniatures",
-      "text": "Pushed Titans can move through spaces occupied by other miniatures. If a Titan ends involuntary movement on a space with another miniature, the other miniature is Displaced. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Terrain",
-      "text": "The affected miniature must resolve the effects of any Terrain tiles it moves through. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Shortest path",
-      "text": "If the affected miniature is not adjacent, move the source in its direction along the shortest possible path.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Destructible Obstacles",
-      "text": "If a Titan is about to be pushed into a Destructible Obstacle, remove that Terrain tile from the Battle Board, the Titan suffers CRASH, then continue Pushback. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Indestructible Obstacles",
-      "text": "If a Titan is about to be pushed into an Indestructible Obstacle, displace it to an adjacent space that would allow the Primordial to continue movement onto a space previously occupied by the Titan, then continue Pushback. If the Titan dies from displacement, then once the Primordial has moved into the space formerly occupied by the Titan, the Pushback stops. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Board Edge",
-      "text": "If a Titan or Primordial is about to be pushed into the Board Edge, it is displaced to an adjacent space in a way that would allow the source of Pushback to move onto a space previously occupied by the affected miniature, then continue Pushback.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Titan Timing",
-      "text": "Titans may resolve the Pushback X keyword during either the first or second ability window of their Attack or when specifically instructed to resolve it immediately.",
-      "formatting": ""
-    }
-  ],
-  "Quantum": [
-    {
-      "text": "For the purposes of Rapid Adaptation (exclusive to Icarian Harpy), if attacking from the Blindspot, your weapon can have any Weapon Trait.",
-      "formatting": ""
-    }
-  ],
-  "Ranged Y\u2013X": [
-    {
-      "text": "To attack with this weapon, you must be at least Y and up to X spaces away from your target. This keyword is not stackable.",
-      "formatting": ""
-    }
-  ],
-  "Reach X": [
-    {
-      "text": "You may attack from up to X spaces away. This keyword is not stackable.",
-      "formatting": ""
-    }
-  ],
-  "Reduction X": [
-    {
-      "text": "You may reduce involuntary movement suffered by up to X.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Wish Away Reduction X",
-      "text": "You may reduce Wish Aways suffered by up to X. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Pushback Reduction X",
-      "text": "You may reduce Pushbacks suffered by up to X. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Knockback Reduction X",
-      "text": "You may reduce Knockbacks suffered by up to X. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Kickback Reduction X",
-      "text": "You may reduce Kickbacks suffered by up to X. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Pull Reduction X",
-      "text": "You may reduce Pulls suffered by up to X. ",
-      "formatting": ""
-    }
-  ],
-  "Reflex": [
-    {
-      "text": "Move up to 1 space.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Advanced Reflex",
-      "text": "2 spaces instead. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Superior Reflex",
-      "text": "3 spaces instead. ",
-      "formatting": ""
-    }
-  ],
-  "Reinforce X": [
-    {
-      "text": "When you are about to resolve an Armor Roll, add X red dice to your Armor dice pool. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Advanced Reinforce X",
-      "text": "Add X black dice instead.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Superior Reinforce X",
-      "text": "Add X white dice instead.",
-      "formatting": ""
-    }
-  ],
-  "Reposition X": [
-    {
-      "text": "During the second ability window, you may move up to X spaces. ",
-      "formatting": ""
-    }
-  ],
-  "Restricted (Trait)": [
-    {
-      "text": "You can equip only one gear card with the list Trait.",
-      "formatting": ""
-    }
-  ],
-  "Rewind": [
-    {
-      "text": "Place your Titan on your Time Anchor. If your Time Anchor is not on the Board, you are erased from existence instead.",
-      "formatting": ""
-    }
-  ],
-  "Rocksteady": [
-    {
-      "text": "When you are about to suffer Knockdown, you may use this ability to ignore it.",
-      "formatting": ""
-    }
-  ],
-  "Rollout": [
-    {
-      "text": "When you are about to suffer Knockdown while adjacent to the Primordial, suffer Knockback 4 instead.",
-      "formatting": ""
-    }
-  ],
-  "Rouse X": [
-    {
-      "text": "During the second ability window, place X Rouse tokens (X.1.9.6) in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Rush": [
-    {
-      "text": "Move with +1 Speed and perform a Melee/Reach Attack with Auto-break 1. You must move at least 3 spaces and reach your target via the shortest possible path.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Improved Rush",
-      "text": "+2 Speed instead and additionally gain +1 Precision on the Attack.",
-      "formatting": ""
-    }
-  ],
-  "Sacrifice": [
-    {
-      "text": "During the first ability window, you may gain 1 Danger to place one Break token in the Kratos Pool (X.1.9.1).",
-      "formatting": ""
-    }
-  ],
-  "Scale": [
-    {
-      "text": "When you are about to perform a test to climb a Vantage Point or Elevated Terrain, automatically succeed at that test instead.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Scale X",
-      "text": "May be treated as Scale. Otherwise, during the first or second ability window, if you are adjacent to the Primordial, you may immediately climb a VP, move to another VP, or move X spaces up on the Endless Staircase.",
-      "formatting": ""
-    }
-  ],
-  "Second Chance": [
-    {
-      "text": "After you draw a Trauma or Obol card, you may ignore its effect and discard it. Draw and resolve another card from the same deck (note: a discarded Obol is immediately shuffled back into the Obol deck). You cannot ignore the second draw in any way. This ability can be used even when knocked down or when an effect says that you cannot use any active abilities. ",
-      "formatting": ""
-    }
-  ],
-  "Shaded": [
-    {
-      "text": "Until the start of the next Titan Round, treat your Titan as being on as shaded space.",
-      "formatting": ""
-    }
-  ],
-  "Solace": [
-    {
-      "text": "Discard a Mind Condition card or a Despair token from yourself or an adjacent Titan.",
-      "formatting": ""
-    }
-  ],
-  "Spiral X": [
-    {
-      "text": "During the Attack Roll step, you may reroll up to X hits to lose 1 Fate for each. If you reroll a Crit die this way, the original result does not grant you a Crit Chance.",
-      "formatting": ""
-    }
-  ],
-  "Spotlight": [
-    {
-      "text": "During the first ability window, if you have the Priority Target token, gain 1 Red Power Die for this Attack.",
-      "formatting": ""
-    }
-  ],
-  "Stalwart": [
-    {
-      "text": "When you are about to suffer Knockback, you may use this ability to ignore it.",
-      "formatting": ""
-    }
-  ],
-  "Startup X": [
-    {
-      "text": "When you are about to Attack, if there are no Kratos tokens in the Kratos Pool, place X Opening and/or Break tokens in the Kratos Pool.",
-      "formatting": ""
-    }
-  ],
-  "Strikeback X": [
-    {
-      "text": "If you fully evade a Primordial Attack, you may immediately move up to X spaces and perform a Combat Action, then gain a Combat Fatigue. This is an Interrupt Attack. If this Ability is used during the Primordial Round, gain 1 Power for the Attack.",
-      "formatting": ""
-    }
-  ],
-  "Succor": [
-    {
-      "text": "During another Titan\u2019s Power Roll, if, after applying all bonuses, they have less total Power than the AT value by exactly 1 and you are within your weapon range of the Primordial, you may gain 1 Rage, a Combat Fatigue, and discard this weapon to add 1 Power to that Power Roll.",
-      "formatting": ""
-    }
-  ],
-  "Super Smart Delivery": [
-    {
-      "text": "A Titan with sufficient open hand slots may, as a Free Action or a WoO, equip a gear card with Super Smart Delivery from the Armory and gain 1 Rage.",
-      "formatting": ""
-    }
-  ],
-  "Superior Chance": [
-    {
-      "text": "Second Chance, but if drawing from Obols, first remove the You died horribly card from that deck for this draw only.",
-      "formatting": ""
-    }
-  ],
-  "Suppress": [
-    {
-      "text": "When you deal a wound5 (before responses)7, shuffle the discard pile denoted by the subtype into the appropriate deck. (This keyword does not exist without a subtype.)",
-      "formatting": ""
-    },
-    {
-      "subtype": "BP Suppress",
-      "text": "Shuffle the BP discard pile into the BP deck. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "AI Suppress",
-      "text": "Shuffle the AI discard pile into the AI deck. ",
-      "formatting": ""
-    }
-  ],
-  "Temporal  Reflex": [
-    {
-      "text": "When you are about to suffer CRASH, ignore it. If you would suffer Unavoidable Knockback, displace instead.",
-      "formatting": ""
-    }
-  ],
-  "Time-Clocked": [
-    {
-      "text": "Gain the Time-Clocked Condition card, Departing side up and remove your miniature from the board. Follow the rules of the Condition card. ",
-      "formatting": ""
-    }
-  ],
-  "Tireless": [
-    {
-      "text": "When you are about to activate the Cumbersome keyword, you may ignore it.",
-      "formatting": ""
-    }
-  ],
-  "Titan Possession": [
-    {
-      "text": "Once you equip this Gear card on a Titan, you have to equip it on this Titan for every subsequent Battle. You may, however, junction this Titan with a different Argonaut.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Argonaut Possession",
-      "text": "Once you equip this Gear card on an Argonaut, you have to equip it on that Argonaut\u2019s Titan for every subsequent Battle. ",
-      "formatting": ""
-    }
-  ],
-  "Transform": [
-    {
-      "text": "Use this ability to flip this Gear card to the other side. This ability can only be used as a free action.",
-      "formatting": ""
-    }
-  ],
-  "Trick": [
-    {
-      "text": "Weapons with the Transform keyword and Trick may immediately flip to the other side when you meet the Trick condition. (This ignores the free action restriction of the Transform keyword.)",
-      "formatting": ""
-    },
-    {
-      "subtype": "Trauma Trick",
-      "text": "You may immediately flip this card after you resolve a Trauma card. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Wound Trick",
-      "text": "You may immediately flip this card after you Wound. ",
-      "formatting": ""
-    },
-    {
-      "subtype": "Fail Trick",
-      "text": "You may immediately flip this card after you Fail to Wound. ",
-      "formatting": ""
-    }
-  ],
-  "Tumble": [
-    {
-      "text": "When you are about to suffer CRASH, roll a d10. On a 6+ ignore it.",
-      "formatting": ""
-    }
-  ],
-  "Unburden X": [
-    {
-      "text": "During the first or second ability window, give X Condition, Despair, or Ambrosia tokens to the closest Titan. (This does not count as gaining those tokens.)",
-      "formatting": ""
-    }
-  ],
-  "Unholy Alchemy": [
-    {
-      "text": "Turn all of your Midas tokens into Ambrosia tokens. (This does not count as gaining or discarding either tokens.)",
-      "formatting": ""
-    },
-    {
-      "subtype": "Reverse Unholy Alchemy",
-      "text": "Turn all of your Ambrosia tokens into Midas tokens. (This does not count as gaining or discarding either tokens.)",
-      "formatting": ""
-    }
-  ],
-  "Unique": [
-    {
-      "text": "There can be no more than one instance of a unique card in play or in the Argo Armory at any given time.",
-      "formatting": ""
-    }
-  ],
-  "Vault": [
-    {
-      "text": "If you are adjacent to the Primordial, place your miniature on an empty space in a straight line from you, on the opposite side of the Primordial, adjacent to it. A Titan may use this ability in either the first or second ability window.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Forced Vault",
-      "text": "Same as Vault, but treat it as involuntary movement. If you would have to end this movement outside the Board Edge or on an Indestructible Obstacle Terrain tile, you die instead.",
-      "formatting": ""
-    }
-  ],
-  "Voluntary Knockdown": [
-    {
-      "text": "You may gain the Knockdown (standing up) Condition card as a free action.",
-      "formatting": ""
-    }
-  ],
-  "Wish Armor": [
-    {
-      "text": "When you resolve a Wish Attack, you may perform Evasion Rolls and Armor Rolls as if it were a non-Wish Attack. If you exhausted or discarded the gear card that gave you this keyword, you may still use the defensive statistics of that card for this Attack.",
-      "formatting": ""
-    }
-  ],
-  "Wish Away X": [
-    {
-      "text": "Place the affected Titan on an Irem Tower Terrain tile in front of the Primordial at least X spaces away. If there is no such space, the Titan dies.",
-      "formatting": ""
-    }
-  ],
-  "Wishcursed": [
-    {
-      "text": "When you trigger Wish Armor, gain 1 Fate.",
-      "formatting": ""
-    }
-  ],
-  "Wish Dodge": [
-    {
-      "text": "When you are about to resolve an Evasion Roll, gain +1 Evasion bonus for this roll if you used Wish Armor.",
-      "formatting": ""
-    },
-    {
-      "subtype": "Advanced Wish Dodge",
-      "text": "+2 Evasion bonus instead.",
-      "formatting": ""
-    }
-  ],
-  "Wishrod": [
-    {
-      "text": " During Targeting, if the Attack is a Wish Attack, you may become the Target instead. The Attack gains Doomed.",
-      "formatting": ""
-    }
-  ]
+  "Abysswalk": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the Primordial moves away from you because of a Response, move your Titan to become adjacent"
+          }
+        ]
+      }
+    ]
+  },
+  "Acrobatics": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you would receive Knockdown while adjacent to the Primordial, resolve Vault instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Airburst X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Titans in Zone X suffer Knockdown and Knockback 1"
+          }
+        ]
+      }
+    ]
+  },
+  "Ambrosia Limit X/+X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Your Ambrosia Limit becomes X or is increased by X, respectively"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you have more than one instance of the former, then the one with the greatest X is used (before applying modifiers)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Ambrosia Limit X does not stack, Ambrosia Limit +X does"
+          }
+        ]
+      }
+    ]
+  },
+  "Armor-Piercing": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Power Roll, ignore Hardened"
+          }
+        ]
+      }
+    ]
+  },
+  "Armor Reroll X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Armor Roll step of a Primordial Attack Sequence, you may reroll up to X Armor dice"
+          }
+        ]
+      }
+    ]
+  },
+  "Ascended": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This Gear ignores Power Level penalties"
+          }
+        ]
+      }
+    ]
+  },
+  "Assist X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During another Titan\u2019s Power Roll, if, after applying all bonuses, their total Power is less than the AT value and you are within your weapon\u2019s range, you may gain 1 Rage and a Combat Fatigue to immediately add X Break tokens to the Kratos Pool"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This ability can only be used if it allows the Attacker to Wound"
+          }
+        ]
+      }
+    ]
+  },
+  "Attack Reroll X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During an Attack Roll, you may re-roll up to X Attack dice with no cost"
+          }
+        ]
+      }
+    ]
+  },
+  "Auto-inspire": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may stand up as a free action"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can use this ability while Knocked Down"
+          }
+        ]
+      }
+    ]
+  },
+  "Awakening Lock": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot Awaken"
+          }
+        ]
+      }
+    ]
+  },
+  "Black X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place X Black tokens (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6) in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Bleeding X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain the Bleeding Condition card (unless you already have it) and place X Bleeding tokens on it"
+          }
+        ]
+      }
+    ]
+  },
+  "Bleeding Limit X/+X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Your Bleeding Limit becomes X or is increased by X, respectively"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you have more than one instance of the former, then the one with the greatest X is used (before applying modifiers)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Bleeding Limit X does not stack, Bleeding Limit +X does"
+          }
+        ]
+      }
+    ]
+  },
+  "Block X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After counting hits from an Evasion Roll, subtract X hits"
+          }
+        ]
+      }
+    ]
+  },
+  "Break X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place X Break tokens (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1) in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Burden X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the First or second ability window, take X Condition, Despair, or Ambrosia tokens from the nearest Titan"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(This does not count as gaining those tokens"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ]
+  },
+  "Burn": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain 1 Danger for each Metal Gear card you have equipped and discard all Flammable Gear cards"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If this is part of a Primordial Attack Sequence, add the Danger gained to the Danger gained from hits"
+          }
+        ]
+      }
+    ],
+    "subName0": "Cycle V",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "In Cycle V, when you resolve Burn, first discard 1 Aether token, then proceed with the standard effects"
+          }
+        ]
+      }
+    ]
+  },
+  "Bypass": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may move through other Titans"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot end your voluntary movement on a space occupied by another Titan"
+          }
+        ]
+      }
+    ],
+    "subName0": "Primordial Bypass",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can move through, but not end on, the Primordial"
+          }
+        ]
+      }
+    ]
+  },
+  "Carving X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you Wound the Primordial, test Wisdom (8+)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "On a success, you immediately gain X additional non-Core Primordial resources from that BP card"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "These resources are not multiplied by the Primordial level"
+          }
+        ]
+      }
+    ]
+  },
+  "Closing X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place X Closing tokens (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "8) in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Clutch": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Power Roll step, if, after applying bonuses, you have less total Power than the AT value by exactly 1, you may gain 1 Power"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After you finish resolving this Attack Sequence, discard your active weapon"
+          }
+        ]
+      }
+    ]
+  },
+  "Combo-Breaker: X spaces": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you would break a Combo, you may move X spaces before checking range"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may only use this ability if it would allow you to break a Combo"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This ability is not stackable"
+          }
+        ]
+      }
+    ],
+    "subName0": "Self Combo-Breaker: X spaces",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Identical to Combo-Breaker, but you can only use the Gear card which this ability is on to break the Combo (you do not have to exhaust an additional card)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This Gear must still possess a matching Weapon Trait"
+          }
+        ]
+      }
+    ]
+  },
+  "Commit (X)": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This Keyword forces a cost to pay in order to declare this Weapon as an Active Weapon (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If\u2026"
+          }
+        ]
+      }
+    ],
+    "subDef0": "\u2026no parentheses, you must gain 1 Fate to declare this weapon as your active weapon.",
+    "subDef1": "\u2026X is a negative token, you must gain 1 of that token type to declare this weapon as your active weapon.",
+    "subDef2": "\u2026X is a positive token, you must discard 1 of that  token type to declare this weapon as your active weapon.",
+    "subDef3": "\u2026X is a Charge token, you must discard 1 Charge token to declare this weapon as your active weapon."
+  },
+  "Consume": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Treat \u201cconsume\u201d as an Instant Death effect"
+          }
+        ]
+      }
+    ]
+  },
+  "Crash": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain 1 Danger and Knockdown"
+          }
+        ]
+      }
+    ]
+  },
+  "Cryptex Loathing": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Treat your Cryptex gear card as blank"
+          }
+        ]
+      }
+    ]
+  },
+  "Cumbersome": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, if you successfully wounded with this weapon, exhaust it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This is treated as a voluntary exhaust"
+          }
+        ]
+      }
+    ]
+  },
+  "Cursed": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During your Titan Attack, you cannot re-roll d10s"
+          }
+        ]
+      }
+    ]
+  },
+  "Dare": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to draw an Obol, you may choose to resolve the opposite Obol than the one you draw"
+          }
+        ]
+      }
+    ]
+  },
+  "Daze": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During either the first or second ability window, if you are adjacent to the Primordial, you may turn the Primordial so that you are in a Rear space"
+          }
+        ]
+      }
+    ]
+  },
+  "Deadly": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During an Attack Roll, replace one of your regular Attack dice with an additional Crit die"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you roll only one Attack die, you gain a Crit Chance on a natural 9\u201310 result instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Death X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain the Death Condition card (unless you already have it) and place X Condition tokens on it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you already have the Death Condition card and X is lower than the number of Condition tokens you have, discard Condition tokens until you X matches"
+          }
+        ]
+      }
+    ]
+  },
+  "Defy X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "While performing a Skill test caused by a Judgement, treat X successful hits as evaded"
+          }
+        ]
+      }
+    ]
+  },
+  "Deny": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When the Primordial is about to Vanish, Lightbend, or Flicker while within your Weapon\u2019s effective range, ignore that effect and perform an Attack"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "At the end of the Attack, gain a Combat Fatigue token and draw an Obol"
+          }
+        ]
+      }
+    ]
+  },
+  "Displace": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Move to an empty space adjacent to its current position"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan is displaced and there is no space it can be legally displaced to, it dies instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Diversion": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place a Diversion token (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3) in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Dodge": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to resolve an Evasion Roll, gain +1 Evasion for this roll"
+          }
+        ]
+      }
+    ]
+  },
+  "Doomed": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During this effect, dice cannot be re-rolled using Fate"
+          }
+        ]
+      }
+    ]
+  },
+  "Double Commit": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You must gain 2 Fate to declare this weapon as your active weapon"
+          }
+        ]
+      }
+    ]
+  },
+  "Elation X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, you may discard X Despair tokens or Ambrosia tokens to place X Opening tokens in the Kratos Pool (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2)"
+          }
+        ]
+      }
+    ]
+  },
+  "Escalate X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Escalate X times (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "10"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Do not look at the removed cards"
+          }
+        ]
+      }
+    ]
+  },
+  "Evasion Spiral X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reroll up to X successful evasion dice to lose 1 Fate for each rerolled"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you re-roll a Crit die, you only resolve Crit Evade effects if you roll another \u201810\u2019"
+          }
+        ]
+      }
+    ]
+  },
+  "Evolving": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you equip a Gear card with this keyword, write the Gear\u2019s name on your Argonaut sheet in the Mnemos section"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The Gear instructs you on what you need to do to evolve it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Track your progress on doing so by marking nodes on the Mnemos track"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If this Gear card is equipped by another Argonaut, continue keeping track on the original sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the Argonaut the original sheet belongs to dies, transfer the progress to another living Argonaut\u2019s sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you permanently lose the Gear card, erase it from the sheet; you lose all evolution progress on it"
+          }
+        ]
+      }
+    ]
+  },
+  "Fate Armor": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This card\u2019s Armor Dice may also be used to mitigate Fate dealt by Primordial Attacks"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you are dealt Fate and Danger, you may distribute the mitigation between the two"
+          }
+        ]
+      }
+    ]
+  },
+  "Fearless": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Immune to Fear and Dread"
+          }
+        ]
+      }
+    ]
+  },
+  "Fire X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place X Fire tokens (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4) in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Float": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain the Float Condition card, Float (up) side up, and place your miniature on its side"
+          }
+        ]
+      }
+    ]
+  },
+  "Frontlines": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If your Titan is dead, at the End of Battle roll a d10"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "On a \u20181\u2019, your Argonaut dies as well"
+          }
+        ]
+      }
+    ]
+  },
+  "Glaciate": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "To Glaciate a space, place a Black Iceberg Terrain tile there"
+          }
+        ]
+      }
+    ],
+    "subName0": "Giant Glaciate",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "To Giant Glaciate a space, place a Giant Black Iceberg Terrain tile there"
+          }
+        ]
+      }
+    ]
+  },
+  "Greater Pass X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Clear the Kratos Pool step, choose up to X Kratos tokens to remain in the pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Hardened": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "A BP card with this keyword has +2 AT"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Ignore this ability if you have a Crit Chance"
+          }
+        ]
+      }
+    ]
+  },
+  "Harpooned": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During a Titan Attack, if you have at least one hit and become adjacent to the Primordial, immediately move to the VP"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Moving outside your effect range doesn\u2019t cause a chain break"
+          }
+        ]
+      }
+    ]
+  },
+  "Heal": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Take the top card from the Wound Stack and remove it from the Battle"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "It does not provide resources at the end of the Battle"
+          }
+        ]
+      }
+    ]
+  },
+  "Heartseeker": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Draw BP card step of a Titan Attack Sequence (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6), you may look at the top two BP cards and choose which one to attack"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Shuffle the other card back into the deck"
+          }
+        ]
+      }
+    ]
+  },
+  "Hermes Move X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Perform up to X Hermes Moves"
+          }
+        ]
+      }
+    ],
+    "subName0": "Hermes Move",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "To perform a Hermes Move, draw a straight line in any cardinal direction from the Titan performing the action, stopping when you hit a Terrain tile"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Then, choose an Elevated Terrain tile space, either the one the line ended on or one on a space adjacent to the spaces the drawn line went through, and place the Titan on that Terrain tile"
+          }
+        ]
+      }
+    ],
+    "subName1": "Must Be Empty",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The chosen Terrain tile space must be empty"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When performing more than one Hermes Move from a single action, only the final Hermes Move needs to follow this rule"
+          }
+        ]
+      }
+    ]
+  },
+  "Hermes Reflex": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Perform one Hermes Move"
+          }
+        ]
+      }
+    ],
+    "subName0": "Advanced Hermes Reflex",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Perform up to two Hermes Moves instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Hermes Reposition X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, you may resolve Hermes Move X"
+          }
+        ]
+      }
+    ]
+  },
+  "Hide": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you are not in front of the Primordial, you may activate this ability at the end of your turn to become Hidden"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you have the Priority Target token, pass it to the Titan with the highest Rage other than you"
+          }
+        ]
+      }
+    ],
+    "subName0": "Hidden",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "As long as you are Hidden, you have +1 Evasion and +1 Precision"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You stop being Hidden if you move in front of the Primordial, gain the Priority Target token, after the second ability window of your Attack, or at the end of your next turn"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(Place a generic token on the game element granting you Hide as a reminder"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ]
+  },
+  "Hope X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place X Hope tokens (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "7) in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Incinerated": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Treat \u201cincinerated\u201d as an Instant Death effect"
+          }
+        ]
+      }
+    ]
+  },
+  "Inkblot": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Place an Inkblot Terrain tile under the Primordial"
+          }
+        ]
+      }
+    ]
+  },
+  "Inspire X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the first ability window, choose up to X Knocked Down Titans, they may immediately stand up"
+          }
+        ]
+      }
+    ]
+  },
+  "Jump": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "At the start of movement, you may activate this ability to ignore up to 1 space of a Terrain tile"
+          }
+        ]
+      }
+    ],
+    "subName0": "Advanced Jump",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Ignore up to 2 spaces instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Knockback X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Move the affected miniature X spaces directly away from the source of Knockback in a straight line (or in a specific direction if specified)"
+          }
+        ]
+      }
+    ],
+    "subName0": "From Attacks",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If Knockback is caused by a Primordial Attack, it affects the Target(s) only if the Target(s) are within the Attack\u2019s range"
+          }
+        ]
+      }
+    ],
+    "subName1": "From Responses",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If Knockback is caused by a Primordial Response, it affects the Attacker only if they are within adjacency"
+          }
+        ]
+      }
+    ],
+    "subName2": "Knocked Back Titans",
+    "subDef2": [],
+    "subName3": "Ignore Terrain except Obstacles",
+    "subDef3": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Knocked back Titans ignore all Terrain tiles they move through except Obstacles"
+          }
+        ]
+      }
+    ],
+    "subName4": "Destructible Obstacles",
+    "subDef4": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan would be forced to move through a Destructible Obstacle Terrain tile, stop its movement, remove the Terrain tile from the Battle Board and place the Titan in its space, then the Titan suffers CRASH"
+          }
+        ]
+      }
+    ],
+    "subName5": "Indestructible Obstacles",
+    "subDef5": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan would be forced to move through an Indestructible Obstacle, it stops on an adjacent space right before the Obstacle instead, then suffers CRASH"
+          }
+        ]
+      }
+    ],
+    "subName6": "Knocked Back Primordials",
+    "subDef6": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Knocked Back Primordials can move through any Terrain tiles and miniatures without hindrance"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "They destroy any Terrain tiles (except Indestructible) they move through and cause CRASH and Unavoidable Knockback to Titans as normal"
+          }
+        ]
+      }
+    ],
+    "subName7": "Board Edge",
+    "subDef7": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the affected miniature is Knocked Back into a Board Edge, it continues to move along the edge, if possible, away from the source of Knockback"
+          }
+        ]
+      }
+    ]
+  },
+  "Knockdown": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain the Knockdown Condition card, \u201cFalling down\u201d side up, and tip your miniature on its side"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Follow the rules of the Condition card"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(Note: the definition of Knockdown used in the Learn to Play is incorrect)"
+          }
+        ]
+      }
+    ],
+    "subName0": "From Attacks",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If Knockdown is caused by an Attack, it affects the Target only if it is within the Attack\u2019s range"
+          }
+        ]
+      }
+    ],
+    "subName1": "From Responses",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If Knockdown is caused by a Response, it affects the Attacker only if they are adjacent"
+          }
+        ]
+      }
+    ]
+  },
+  "Laser Resistance X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each Laser Attack hit deals X less Danger to you"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "In Cycle IV+, this loses its Keyword status and becomes a Defensive Statistic instead (V"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4)"
+          }
+        ]
+      }
+    ]
+  },
+  "Lifeline": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to die from a Chasm space, Displace instead (in Cycle 4, you may instead place the Titan on the closest Irem Tower Terrain tile)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Alternatively, when you are about to die from falling from a Boundless Board Edge, stop adjacent to it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This ability can be used even if Knocked Down or otherwise prohibited from using active abilities"
+          }
+        ]
+      }
+    ]
+  },
+  "Light X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Game elements on the Battle Board with this keyword emit light and are considered light sources"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This ability is disabled on a game element owned by a Titan if that Titan cannot use abilities, the element is exhausted, or the element is Smothered (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "X)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "A game element is within \u2018range of light\u2019 if it is within X spaces of a light source"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When counting from a Titan light source, only spaces in front of that Titan can be counted (see Titan Facing, X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "X)"
+          }
+        ]
+      }
+    ]
+  },
+  "Lightbend": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If possible, place a Petrified Vent Terrain tile centered under the Primordial and the Primordial disappears"
+          }
+        ]
+      }
+    ]
+  },
+  "Liquid Edge": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When checking your weapon\u2019s effect range, you may count along diagonal spaces"
+          }
+        ]
+      }
+    ]
+  },
+  "Lumbering": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Cannot be involuntarily moved"
+          }
+        ]
+      }
+    ]
+  },
+  "Masterwork": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During an Attack Roll, you may reroll 1s with no cost"
+          }
+        ]
+      }
+    ]
+  },
+  "Midas X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Place X Midas tokens (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "7"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "16) on your gear cards"
+          }
+        ]
+      }
+    ]
+  },
+  "Midas Immune": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Ignore the effects of Midas tokens placed on this particular gear card"
+          }
+        ]
+      }
+    ]
+  },
+  "Motivate X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, choose another Titan"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "That Titan may move up to X spaces"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This ability is not required to Stack (I"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1)"
+          }
+        ]
+      }
+    ]
+  },
+  "Opening X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place X Opening tokens in the Kratos Pool (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2)"
+          }
+        ]
+      }
+    ]
+  },
+  "Overbreak X": {
+    "mainDef": [],
+    "subName0": "Umbral",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(Cycles 1-3 only) During the second ability window, if your Total Power exceeds the AT value by at least 1, place X Break tokens in the Kratos Pool (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1)"
+          }
+        ]
+      }
+    ],
+    "subName1": "Illuminated",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(Cycles 4-5 only) Break X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Then, if your Total Power exceeds the AT value by at least 1, place up to X additional Break tokens but no more than the exceeded value"
+          }
+        ]
+      }
+    ]
+  },
+  "Pain X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain X Pain tokens"
+          }
+        ]
+      }
+    ]
+  },
+  "Pass X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Clear the Kratos Pool step, choose up to X Opening and/or Break tokens to remain in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Perishable": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After you finish resolving a Titan Attack Sequence with this weapon, discard it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(If the sequence is interrupted, it is still considered resolved"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ]
+  },
+  "Pole Position": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During either the First or second ability window, if you\u2019re adjacent to the Primordial, you may place your Titan on any other empty space adjacent to the Primordial"
+          }
+        ]
+      }
+    ]
+  },
+  "Power Reroll X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Power Roll step of an Attack, you may re-roll up to X Power dice"
+          }
+        ]
+      }
+    ]
+  },
+  "Precise": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Draw a BP card step (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6), after drawing the card you may choose to draw the top card of the BP discard instead"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you do, place the first drawn card back into the BP deck and shuffle it"
+          }
+        ]
+      }
+    ]
+  },
+  "Provoke": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the first ability window, gain the Priority Target token and turn the Primordial to face you"
+          }
+        ]
+      }
+    ]
+  },
+  "Pull X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Move the affected miniature X spaces towards the source of the Pull, along the shortest possible path"
+          }
+        ]
+      }
+    ],
+    "subName0": "Other miniatures",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The affected miniature can move through spaces occupied by other miniatures"
+          }
+        ]
+      }
+    ],
+    "subName1": "Terrain",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The affected miniature must resolve the effects of any Terrain tiles it moves through"
+          }
+        ]
+      }
+    ],
+    "subName2": "Destructible Obstacles",
+    "subDef2": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan is about to be pulled into a Destructible Obstacle (e"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "g"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "a Column), remove the Terrain tile from the Battle Board, the Titan suffers CRASH, then continue the Pull"
+          }
+        ]
+      }
+    ],
+    "subName3": "Indestructible Obstacles",
+    "subDef3": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan is about to be pulled into an Indestructible Obstacle, it suffers CRASH and continues to move along the Obstacle\u2019s edge along the shortest possible path towards the Primordial"
+          }
+        ]
+      }
+    ],
+    "subName4": "Adjacency",
+    "subDef4": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the affected miniature is or becomes adjacent to the source, the Pull does not end"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Instead, move the source directly away from the affected miniature the remaining number of spaces, then finish the Pull"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The source\u2019s movement is voluntary, the affected miniature\u2019s movement is involuntary"
+          }
+        ]
+      }
+    ],
+    "subName5": "Titan Timing",
+    "subDef5": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Titans may use the Pull X keyword during either the first or second ability window"
+          }
+        ]
+      }
+    ]
+  },
+  "Pursuit X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When resolving an AI card, if you\u2019re not a Target, move X spaces in a straight line in the same direction as the Primordial"
+          }
+        ]
+      }
+    ]
+  },
+  "Pushback X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Turn the source towards the affected miniature"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Then, move X spaces in the direction of the affected miniature, pushing it in a straight line"
+          }
+        ]
+      }
+    ],
+    "subName0": "Other miniatures",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Pushed Titans can move through spaces occupied by other miniatures"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan ends involuntary movement on a space with another miniature, the other miniature is Displaced"
+          }
+        ]
+      }
+    ],
+    "subName1": "Terrain",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The affected miniature must resolve the effects of any Terrain tiles it moves through"
+          }
+        ]
+      }
+    ],
+    "subName2": "Shortest path",
+    "subDef2": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the affected miniature is not adjacent, move the source in its direction along the shortest possible path"
+          }
+        ]
+      }
+    ],
+    "subName3": "Destructible Obstacles",
+    "subDef3": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan is about to be pushed into a Destructible Obstacle, remove that Terrain tile from the Battle Board, the Titan suffers CRASH, then continue Pushback"
+          }
+        ]
+      }
+    ],
+    "subName4": "Indestructible Obstacles",
+    "subDef4": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan is about to be pushed into an Indestructible Obstacle, displace it to an adjacent space that would allow the Primordial to continue movement onto a space previously occupied by the Titan, then continue Pushback"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the Titan dies from displacement, then once the Primordial has moved into the space formerly occupied by the Titan, the Pushback stops"
+          }
+        ]
+      }
+    ],
+    "subName5": "Board Edge",
+    "subDef5": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan or Primordial is about to be pushed into the Board Edge, it is displaced to an adjacent space in a way that would allow the source of Pushback to move onto a space previously occupied by the affected miniature, then continue Pushback"
+          }
+        ]
+      }
+    ],
+    "subName6": "Titan Timing",
+    "subDef6": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Titans may resolve the Pushback X keyword during either the first or second ability window of their Attack or when specifically instructed to resolve it immediately"
+          }
+        ]
+      }
+    ]
+  },
+  "Quantum": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "For the purposes of Rapid Adaptation (exclusive to Icarian Harpy), if attacking from the Blindspot, your weapon can have any Weapon Trait"
+          }
+        ]
+      }
+    ]
+  },
+  "Ranged Y\u2013X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "To attack with this weapon, you must be at least Y and up to X spaces away from your target"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This keyword is not stackable"
+          }
+        ]
+      }
+    ]
+  },
+  "Reach X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may attack from up to X spaces away"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This keyword is not stackable"
+          }
+        ]
+      }
+    ]
+  },
+  "Reduction X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reduce involuntary movement suffered by up to X"
+          }
+        ]
+      }
+    ],
+    "subName0": "Wish Away Reduction X",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reduce Wish Aways suffered by up to X"
+          }
+        ]
+      }
+    ],
+    "subName1": "Pushback Reduction X",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reduce Pushbacks suffered by up to X"
+          }
+        ]
+      }
+    ],
+    "subName2": "Knockback Reduction X",
+    "subDef2": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reduce Knockbacks suffered by up to X"
+          }
+        ]
+      }
+    ],
+    "subName3": "Kickback Reduction X",
+    "subDef3": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reduce Kickbacks suffered by up to X"
+          }
+        ]
+      }
+    ],
+    "subName4": "Pull Reduction X",
+    "subDef4": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reduce Pulls suffered by up to X"
+          }
+        ]
+      }
+    ]
+  },
+  "Reflex": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Move up to 1 space"
+          }
+        ]
+      }
+    ],
+    "subName0": "Advanced Reflex",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2 spaces instead"
+          }
+        ]
+      }
+    ],
+    "subName1": "Superior Reflex",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3 spaces instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Reinforce X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to resolve an Armor Roll, add X red dice to your Armor dice pool"
+          }
+        ]
+      }
+    ],
+    "subName0": "Advanced Reinforce X",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Add X black dice instead"
+          }
+        ]
+      }
+    ],
+    "subName1": "Superior Reinforce X",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Add X white dice instead"
+          }
+        ]
+      }
+    ],
+    "subName2": "Mortal Reinforce X",
+    "subDef2": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Add X mortal dice instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Remote Scan": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you perform a Scan, you may do so from up to 3 spaces away"
+          }
+        ]
+      }
+    ]
+  },
+  "Reposition X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, you may move up to X spaces"
+          }
+        ]
+      }
+    ]
+  },
+  "Rescan": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you perform a Scan, you may redraw the Major Trauma you just drew"
+          }
+        ]
+      }
+    ]
+  },
+  "Restricted (Trait)": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can equip only one gear card with the list Trait"
+          }
+        ]
+      }
+    ]
+  },
+  "Retreat X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The Primordial moves X spaces directly away from the Target or the Attacker without turning"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the Target/Attacker is on a VP, choose the direction"
+          }
+        ]
+      }
+    ]
+  },
+  "Rewind": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Place your Titan on your Time Anchor"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If your Time Anchor is not on the Board, you are erased from existence instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Rocksteady": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to suffer Knockdown, you may use this ability to ignore it"
+          }
+        ]
+      }
+    ]
+  },
+  "Rollout": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to suffer Knockdown while adjacent to the Primordial, suffer Knockback 4 instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Rouse X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the second ability window, place X Rouse tokens (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6) in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Rush": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Move with +1 Speed and perform a Melee/Reach Attack with Auto-break 1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You must move at least 3 spaces and reach your target via the shortest possible path"
+          }
+        ]
+      }
+    ],
+    "subName0": "Improved Rush",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "+2 Speed instead and additionally gain +1 Precision on the Attack"
+          }
+        ]
+      }
+    ]
+  },
+  "Sacrifice": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the first ability window, you may gain 1 Danger to place one Break token in the Kratos Pool (X"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "1)"
+          }
+        ]
+      }
+    ]
+  },
+  "Scale": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to perform a test to climb a Vantage Point or Elevated Terrain, automatically succeed at that test instead"
+          }
+        ]
+      }
+    ],
+    "subName0": "Scale X",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "May be treated as Scale"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Otherwise, during the first or second ability window, if you are adjacent to the Primordial, you may immediately climb a VP, move to another VP, or move X spaces up on the Endless Staircase"
+          }
+        ]
+      }
+    ]
+  },
+  "Second Chance": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After you draw a Trauma or Obol card, you may ignore its effect and discard it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Draw and resolve another card from the same deck (note: a discarded Obol is immediately shuffled back into the Obol deck)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot ignore the second draw in any way"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This ability can be used even when knocked down or when an effect says that you cannot use any active abilities"
+          }
+        ]
+      }
+    ]
+  },
+  "Shaded": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Until the start of the next Titan Round, treat your Titan as being on as shaded space"
+          }
+        ]
+      }
+    ]
+  },
+  "Skitter": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The Primordial immediately moves X spaces in a straight line in a random direction, where X is its current level"
+          }
+        ]
+      }
+    ]
+  },
+  "Solace": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Discard a Mind Condition card or a Despair token from yourself or an adjacent Titan"
+          }
+        ]
+      }
+    ]
+  },
+  "Spiral X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Attack Roll step, you may reroll up to X hits to lose 1 Fate for each"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you reroll a Crit die this way, the original result does not grant you a Crit Chance"
+          }
+        ]
+      }
+    ]
+  },
+  "Spotlight": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the first ability window, if you have the Priority Target token, gain 1 Red Power Die for this Attack"
+          }
+        ]
+      }
+    ]
+  },
+  "Stalwart": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to suffer Knockback, you may use this ability to ignore it"
+          }
+        ]
+      }
+    ]
+  },
+  "Startup X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to Attack, if there are no Kratos tokens in the Kratos Pool, place X Opening and/or Break tokens in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Strikeback X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you fully evade a Primordial Attack, you may immediately move up to X spaces and perform a Combat Action, then gain a Combat Fatigue"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This is an Interrupt Attack"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If this Ability is used during the Primordial Round, gain 1 Power for the Attack"
+          }
+        ]
+      }
+    ]
+  },
+  "Stuck": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you initiate an attack with this Weapon, you cannot perform any more voluntary movements this turn"
+          }
+        ]
+      }
+    ]
+  },
+  "Succor": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During another Titan\u2019s Power Roll, if, after applying all bonuses, they have less total Power than the AT value by exactly 1 and you are within your weapon range of the Primordial, you may gain 1 Rage, a Combat Fatigue, and discard this weapon to add 1 Power to that Power Roll"
+          }
+        ]
+      }
+    ]
+  },
+  "Super Smart Delivery": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "A Titan with sufficient open hand slots may, as a Free Action or a WoO, equip a gear card with Super Smart Delivery from the Armory and gain 1 Rage"
+          }
+        ]
+      }
+    ]
+  },
+  "Superior Chance": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Second Chance, but if drawing from Obols, first remove the You died horribly card from that deck for this draw only"
+          }
+        ]
+      }
+    ]
+  },
+  "Suppress": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you deal a wound5 (before responses)7, shuffle the discard pile denoted by the subtype into the appropriate deck"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may only use this ability if there is at least one card in the corresponding discard pile10"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(This keyword does not exist without a subtype"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ],
+    "subName0": "BP Suppress",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Shuffle the BP discard pile into the BP deck"
+          }
+        ]
+      }
+    ],
+    "subName1": "AI Suppress",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Shuffle the AI discard pile into the AI deck"
+          }
+        ]
+      }
+    ]
+  },
+  "Taint X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the First Ability Window, you must turn X Break tokens in the Kratos Pool into Black tokens"
+          }
+        ]
+      }
+    ]
+  },
+  "Temporal  Reflex": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to suffer CRASH, ignore it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you would suffer Unavoidable Knockback, displace instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Tilt": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to draw a BP card during an Attack, first discard the top BP card"
+          }
+        ]
+      }
+    ]
+  },
+  "Time-Clocked": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain the Time-Clocked Condition card, Departing side up and remove your miniature from the board"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Follow the rules of the Condition card"
+          }
+        ]
+      }
+    ]
+  },
+  "Tireless": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to activate the Cumbersome keyword, you may ignore it"
+          }
+        ]
+      }
+    ]
+  },
+  "Titan Possession": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Once you equip this Gear card on a Titan, you have to equip it on this Titan for every subsequent Battle"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may, however, junction this Titan with a different Argonaut"
+          }
+        ]
+      }
+    ],
+    "subName0": "Argonaut Possession",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Once you equip this Gear card on an Argonaut, you have to equip it on that Argonaut\u2019s Titan for every subsequent Battle"
+          }
+        ]
+      }
+    ]
+  },
+  "Transform": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Use this ability to flip this Gear card to the other side"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This ability can only be used as a free action"
+          }
+        ]
+      }
+    ]
+  },
+  "Trick": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Weapons with the Transform keyword and Trick may immediately flip to the other side when you meet the Trick condition"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(This ignores the free action restriction of the Transform keyword"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ],
+    "subName0": "Trauma Trick",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may immediately flip this card after you resolve a Trauma card"
+          }
+        ]
+      }
+    ],
+    "subName1": "Wound Trick",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may immediately flip this card after you Wound"
+          }
+        ]
+      }
+    ],
+    "subName2": "Fail Trick",
+    "subDef2": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may immediately flip this card after you Fail to Wound"
+          }
+        ]
+      }
+    ]
+  },
+  "Truth X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Second Ability Window, place X Break, Opening, Fire, Black, and/or Closing tokens in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Tumble": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to suffer CRASH, roll a d10"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "On a 6+ ignore it"
+          }
+        ]
+      }
+    ]
+  },
+  "Unburden X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the first or second ability window, give X Condition, Despair, or Ambrosia tokens to the closest Titan"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(This does not count as gaining those tokens"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ]
+  },
+  "Unholy Alchemy": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Turn all of your Midas tokens into Ambrosia tokens"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(This does not count as gaining or discarding either tokens"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ],
+    "subName0": "Reverse Unholy Alchemy",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Turn all of your Ambrosia tokens into Midas tokens"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(This does not count as gaining or discarding either tokens"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ]
+  },
+  "Unique": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "There can be no more than one instance of a unique card in play or in the Argo Armory at any given time"
+          }
+        ]
+      }
+    ]
+  },
+  "Unwieldy": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When checking range with this weapon, you can only count spaces in straight lines from you"
+          }
+        ]
+      }
+    ]
+  },
+  "Ur-Knockback X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Knockback X towards the closest short Board Edge"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This is considered a regular Knockback"
+          }
+        ]
+      }
+    ]
+  },
+  "Ur-Pull X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Pull X towards the Ur-Fleece"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This is considered a regular Pull"
+          }
+        ]
+      }
+    ]
+  },
+  "Vault": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you are adjacent to the Primordial, place your miniature on an empty space in a straight line from you, on the opposite side of the Primordial, adjacent to it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "A Titan may use this ability in either the first or second ability window"
+          }
+        ]
+      }
+    ],
+    "subName0": "Forced Vault",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Vault, but treat it as involuntary movement"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you would have to end this movement outside the Board Edge or on an Indestructible Obstacle Terrain tile, you die instead"
+          }
+        ]
+      }
+    ],
+    "subName1": "Terrain Vault",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Vault, but check against an adjacent Terrain tile instead of the Primordial"
+          }
+        ]
+      }
+    ]
+  },
+  "Voluntary Knockdown": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may gain the Knockdown (standing up) Condition card as a free action"
+          }
+        ]
+      }
+    ]
+  },
+  "Wish Armor": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you resolve a Wish Attack, you may perform Evasion Rolls and Armor Rolls as if it were a non-Wish Attack"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you exhausted or discarded the gear card that gave you this keyword, you may still use the defensive statistics of that card for this Attack"
+          }
+        ]
+      }
+    ]
+  },
+  "Wish Away X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Place the affected Titan on an Irem Tower Terrain tile in front of the Primordial at least X spaces away"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If there is no such space, the Titan dies"
+          }
+        ]
+      }
+    ]
+  },
+  "Wishcursed": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you trigger Wish Armor, gain 1 Fate"
+          }
+        ]
+      }
+    ]
+  },
+  "Wish Dodge": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to resolve an Evasion Roll, gain +1 Evasion bonus for this roll if you used Wish Armor"
+          }
+        ]
+      }
+    ],
+    "subName0": "Advanced Wish Dodge",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "+2 Evasion bonus instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Wishrod": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During Targeting, if the Attack is a Wish Attack, you may become the Target instead"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The Attack gains Doomed"
+          }
+        ]
+      }
+    ]
+  }
 }

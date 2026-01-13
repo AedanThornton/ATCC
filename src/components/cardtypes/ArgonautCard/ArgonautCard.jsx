@@ -1,7 +1,6 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./ArgonautCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index";
+import StatTitle from "../../utils/StatTitle"
 
 const ArgonautCard = ({ argonaut, index }) => {
   return (
@@ -16,7 +15,7 @@ const ArgonautCard = ({ argonaut, index }) => {
           {argonaut.name.toUpperCase()}
         </div>
         <div className="argonaut-info" style={{ lineHeight: "14px" }}>
-          {utils.createStatTitle(argonaut.stat, "#000", "#F9C344")}
+          <StatTitle text={argonaut.stat} color={"#000"} bkgdColor={"#F9C344"} />
         </div>
         <div className="argonaut-info bottom-row centered" style={{ lineHeight: "14px" }}>
           <div className="card-info-header">ID:</div>

@@ -1,1852 +1,1980 @@
 {
-  "Abyss-tainted": [
-    {
-      "abilityText": [
-        {
-          "type": "timing",
-          "value": "Start of your turn"
-        },
-        {
-          "type": "plainText",
-          "value": "Gain 1 Ambrosia token"
-        }
-      ]
-    }
-  ],
-  "Aether Lamp": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You have"
-        },
-        {
-          "type": "keyword",
-          "value": "Light X"
-        },
-        {
-          "type": "plainText",
-          "value": ", where X is the nymber of Aether tokens you have"
-        }
-      ]
-    }
-  ],
-  "Arabian Nights": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Treat all your"
-        },
-        {
-          "type": "keyword",
-          "value": "Overbreak X"
-        },
-        {
-          "type": "plainText",
-          "value": "keywords as the upgrade Cycle 4+ version"
-        }
-      ]
-    }
-  ],
-  "Ascend!": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you survive a Trauma Draw, place 1 generic token on your Titan Sheet"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You gain the following stacking benefits depending on the number of generic tokens here: 1: +1 Precision"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "2: +1 Speed"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "3: Auto-break 1"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "4: Stalwart"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "5: Rocksteady"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "6: +1"
-        },
-        {
-          "type": "icon",
-          "value": "Evasion"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "7: +1"
-        },
-        {
-          "type": "icon",
-          "value": "Power"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "8: +2 to Awakening rolls"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "9: Immediately Awaken,"
-        },
-        {
-          "type": "icon",
-          "value": "Adversary"
-        }
-      ]
-    }
-  ],
-  "Born in the Dark": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Immune to"
-        },
-        {
-          "type": "cardRef",
-          "value": "Fear",
-          "refID": "AL0299"
-        },
-        {
-          "type": "plainText",
-          "value": "and"
-        },
-        {
-          "type": "cardRef",
-          "value": "Dread",
-          "refID": "AL0299"
-        },
-        {
-          "type": "plainText",
-          "value": "Conditions cards and Despair"
-        }
-      ]
-    }
-  ],
-  "Carry the Weight": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you gain Midas tokens, place 1 Generic token on your Titan Sheet"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You may discard an indicated number of those tokens to triger one of the folowing effects (as a free action, unless stated otherwise): 1: When performing a Hermes Move, treat it as 1 higher"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "2: When you are about to suffer Float, ignore it"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "3: Discard a Condition card"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "4: When performing a Power Roll, gain +1"
-        },
-        {
-          "type": "icon",
-          "value": "Power"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "5: Gain a"
-        },
-        {
-          "type": "icon",
-          "value": "MovementAction"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "6: Remove a Curse Affliction"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "7: Awaken"
-        }
-      ]
-    }
-  ],
-  "Cheat Fate": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you are about to draw an Obol, you may choose to draw a You Live! or You Died Obol instead (once per Battle)"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you do, next time you draw an Obol, you must draw the other one"
-        }
-      ]
-    }
-  ],
-  "Cold Open": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you attack, if there are no Opening or Break tokens in the Kratos Pool, place 1 Opening and 1 Break token in the Kratos Pool"
-        }
-      ]
-    }
-  ],
-  "Cyclopean Might": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You can use"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons as if they were"
-        },
-        {
-          "type": "icon",
-          "value": "TwoHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons"
-        }
-      ]
-    }
-  ],
-  "Dance of Fate": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you are about to draw an Obol, you may gain +2"
-        },
-        {
-          "type": "icon",
-          "value": "Fate"
-        },
-        {
-          "type": "plainText",
-          "value": "to add 1 You live! Obol card to the Obol deck (for this draw only)"
-        }
-      ]
-    }
-  ],
-  "Disturbance in Fate": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you roll a Crit Miss,"
-        },
-        {
-          "type": "icon",
-          "value": "Adversary"
-        }
-      ]
-    }
-  ],
-  "Djinnslayer": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When on the Endless Staircase or on any Status card, gain +1"
-        },
-        {
-          "type": "icon",
-          "value": "Power"
-        }
-      ]
-    }
-  ],
-  "Dual-Wielding": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When attacking with a"
-        },
-        {
-          "type": "icon",
-          "value": "OneHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapon, you can add one stackable keyword of another equipped non-Perishable"
-        },
-        {
-          "type": "icon",
-          "value": "OneHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapon"
-        }
-      ]
-    }
-  ],
-  "Elder Might": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You can use"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons as if they were"
-        },
-        {
-          "type": "icon",
-          "value": "TwoHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you don't use a"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapon, you have"
-        },
-        {
-          "type": "keyword",
-          "value": "Tireless"
-        }
-      ]
-    }
-  ],
-  "Electromagnetic Shield": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each Laser Attack hit and Microwave Attack hit deals 1"
-        },
-        {
-          "type": "icon",
-          "value": "Danger"
-        },
-        {
-          "type": "plainText",
-          "value": "less (to a minimum of 1) to you and adjacent Titans"
-        }
-      ]
-    }
-  ],
-  "Fall and Soar": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you fail the Hold On test, immediately move 2 spaces instead of suffering the Falling Down effect"
-        }
-      ],
-      "costs": [
-        "Fate"
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "and"
-        },
-        {
-          "type": "keyword",
-          "value": "Knockdown"
-        },
-        {
-          "type": "plainText",
-          "value": "to Lifeline"
-        }
-      ],
-      "costs": [
-        "Fate"
-      ]
-    }
-  ],
-  "Fate Follows": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you roll a Crit Miss,"
-        },
-        {
-          "type": "icon",
-          "value": "Adversary"
-        },
-        {
-          "type": "icon",
-          "value": "Adversary"
-        }
-      ]
-    }
-  ],
-  "Fear is the Mind Killer": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you gain a"
-        },
-        {
-          "type": "cardRef",
-          "value": "Fear",
-          "refID": "AL0299"
-        },
-        {
-          "type": "plainText",
-          "value": "Condition card,"
-        },
-        {
-          "type": "cardRef",
-          "value": "Dread",
-          "refID": "AL0299"
-        },
-        {
-          "type": "plainText",
-          "value": "Condition card, or a Despair token (each), place 1 Generic token on your Titan Sheet"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Precision"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "2: +1"
-        },
-        {
-          "type": "icon",
-          "value": "Speed"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "3:"
-        },
-        {
-          "type": "keyword",
-          "value": "Defy 1"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "4: +1"
-        },
-        {
-          "type": "icon",
-          "value": "Power"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you would ever have 5+ Generic tokens, you immediately die"
-        }
-      ]
-    }
-  ],
-  "Fearless": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Immune to"
-        },
-        {
-          "type": "cardRef",
-          "value": "Fear",
-          "refID": "AL0299"
-        },
-        {
-          "type": "plainText",
-          "value": "and"
-        },
-        {
-          "type": "cardRef",
-          "value": "Dread",
-          "refID": "AL0299"
-        },
-        {
-          "type": "plainText",
-          "value": "Conditions"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You cannot gain Despair tokens"
-        }
-      ]
-    }
-  ],
-  "Fickle Fate": [
-    {
-      "abilityText": [
-        {
-          "type": "timing",
-          "value": "Start of Battle"
-        },
-        {
-          "type": "plainText",
-          "value": "If you have less than 2"
-        },
-        {
-          "type": "icon",
-          "value": "Fate"
-        },
-        {
-          "type": "plainText",
-          "value": ", raise"
-        },
-        {
-          "type": "icon",
-          "value": "Fate"
-        },
-        {
-          "type": "plainText",
-          "value": "to 2"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If at any time you have 0"
-        },
-        {
-          "type": "icon",
-          "value": "Fate"
-        },
-        {
-          "type": "plainText",
-          "value": ", you flash forward: remove the Titan from the Battle"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Treat them as if they died"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving a Major, Grave, or Obol Trauma, lose -1"
-        },
-        {
-          "type": "icon",
-          "value": "Fate"
-        }
-      ]
-    }
-  ],
-  "Final Countdown": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you roll a Crit Miss,"
-        },
-        {
-          "type": "icon",
-          "value": "Adversary"
-        },
-        {
-          "type": "icon",
-          "value": "Adversary"
-        }
-      ]
-    }
-  ],
-  "Finish Him": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When attacking a BP card with a Death Blow Crit effect, gain a Crit Chance"
-        }
-      ],
-      "costs": [
-        "Oxygen",
-        "Fate"
-      ]
-    }
-  ],
-  "Fly": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Use during voluntary movement to ignore all Terrain tiles during this movement"
-        }
-      ],
-      "costs": [
-        "Fate",
-        "Exhaust"
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You cannot end your movement on an Obstacle or Chasm"
-        }
-      ]
-    }
-  ],
-  "Forgotten Curse": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Once per Battle, you may gain 3 Despair tokens to skip an After Attack of a Primordial Attack"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You may use the ability only during a"
-        },
-        {
-          "type": "icon",
-          "value": "WoO"
-        },
-        {
-          "type": "plainText",
-          "value": "of an After Attack"
-        }
-      ]
-    }
-  ],
-  "Four-Armed Centimanes": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You have 4 Weapon"
-        },
-        {
-          "type": "icon",
-          "value": "OneHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "slots"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You cannot use"
-        },
-        {
-          "type": "icon",
-          "value": "TwoHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "and"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons"
-        }
-      ]
-    }
-  ],
-  "Grey Alchemy": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Turn 1 Midas or Pain token into 1 Ambrosia token"
-        }
-      ],
-      "costs": [
-        "Fate"
-      ]
-    }
-  ],
-  "In Light and Shade": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each Laser Attack hit and Sun Attack hit deals 1"
-        },
-        {
-          "type": "icon",
-          "value": "Danger"
-        },
-        {
-          "type": "plainText",
-          "value": "less (to a minimum of 1)"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you are about to die from incineration, draw an Obol instead"
-        }
-      ]
-    }
-  ],
-  "Internalize Despair": [
-    {
-      "abilityText": [
-        {
-          "type": "timing",
-          "value": "Start of your turn"
-        },
-        {
-          "type": "plainText",
-          "value": "Gain 1 Despair token"
-        }
-      ]
-    }
-  ],
-  "Internalize Pain": [
-    {
-      "abilityText": [
-        {
-          "type": "timing",
-          "value": "Start of your turn"
-        },
-        {
-          "type": "plainText",
-          "value": "Gain 1 Pain token"
-        }
-      ]
-    }
-  ],
-  "Kreios Strain": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "While performing"
-        },
-        {
-          "type": "icon",
-          "value": "MovementAction"
-        },
-        {
-          "type": "plainText",
-          "value": ", you can move diagonally"
-        }
-      ]
-    }
-  ],
-  "Last Titan Standing": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you are the last Titan on the Battle Board, you cannot gain Ambrosia tokens, Despair tokens, or suffer Knockdown"
-        }
-      ]
-    }
-  ],
-  "Levitate": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "During voluntary movement, ignore an Obstacle or Chasm Terrain tiles"
-        }
-      ],
-      "costs": [
-        "Fate"
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You can end your move on a Chasm but not on an Obstacle"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you start your turn on a Chasm, you must immediately use this ability, If you cannot, you die"
-        }
-      ]
-    }
-  ],
-  "Lightweight Curse": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You can use"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons as if they were"
-        },
-        {
-          "type": "icon",
-          "value": "TwoHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You cannot use"
-        },
-        {
-          "type": "icon",
-          "value": "OneHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons"
-        }
-      ]
-    }
-  ],
-  "Logicbreak": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you survive an Obol, perform a"
-        },
-        {
-          "type": "icon",
-          "value": "CombatAction"
-        },
-        {
-          "type": "plainText",
-          "value": "(up to 3 times per Round)"
-        }
-      ],
-      "costs": [
-        "Fate"
-      ]
-    }
-  ],
-  "Maze Awareness": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive"
-        },
-        {
-          "type": "icon",
-          "value": "Evasion"
-        },
-        {
-          "type": "plainText",
-          "value": "token If you are on a Terrain tile, you have +1"
-        },
-        {
-          "type": "icon",
-          "value": "Evasion"
-        }
-      ]
-    }
-  ],
-  "Nimble Feet": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You have 3 Weapon"
-        },
-        {
-          "type": "icon",
-          "value": "OneHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "slots"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You cannot use"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons"
-        }
-      ]
-    }
-  ],
-  "Nimble Hands": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You may use"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeOneHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons as if they were"
-        },
-        {
-          "type": "icon",
-          "value": "TwoHanded"
-        }
-      ]
-    }
-  ],
-  "One for All": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If your natural"
-        },
-        {
-          "type": "icon",
-          "value": "Rage"
-        },
-        {
-          "type": "plainText",
-          "value": "goes over 9 during an Attack, perform a normal Attack, but do not draw a BP card"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Instead, perform a Power Roll, divide your Total Power by 2 (rounding up) and add +1"
-        },
-        {
-          "type": "icon",
-          "value": "Power"
-        },
-        {
-          "type": "plainText",
-          "value": "if you had a Crit Chance"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Note the resulting Power, then clear the Kratos Pool and continue to your second ability window (do not resolve any responses)"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Next time any Titan attacks, it adds the Power you noted to its Total Power"
-        }
-      ]
-    }
-  ],
-  "One Small Step": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When on a VP or the Endless Staircase, gain"
-        },
-        {
-          "type": "keyword",
-          "value": "Rocksteady"
-        }
-      ]
-    }
-  ],
-  "Pain Engine": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you gain a Pain token (each), place 1 Generic token on your Titan Sheet"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1"
-        },
-        {
-          "type": "icon",
-          "value": "Speed"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "2: While performing"
-        },
-        {
-          "type": "icon",
-          "value": "MovementAction"
-        },
-        {
-          "type": "plainText",
-          "value": ", you can move diagonally"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "3: Your Titan's Power die becomes"
-        },
-        {
-          "type": "icon",
-          "value": "WhitePowerDie"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "4:"
-        },
-        {
-          "type": "keyword",
-          "value": "Auto-rouse 1"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "5:"
-        },
-        {
-          "type": "keyword",
-          "value": "Deadly"
-        }
-      ]
-    }
-  ],
-  "Persian Deal": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Turn 1 of your Midas tokens into 2 Ambrosia tokens, 1 Ambrosia into 2 Despair, or 1 Despair into 2 Midas"
-        }
-      ],
-      "costs": [
-        "Fate",
-        "Exhaust"
-      ]
-    }
-  ],
-  "Rage Summit": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving a positive Major, Grave, or Obol Trauma, you may gain 1"
-        },
-        {
-          "type": "icon",
-          "value": "Rage"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After Surviving a negative Major, Grave, or Obol Trauma, you must gain 1"
-        },
-        {
-          "type": "icon",
-          "value": "Rage"
-        }
-      ]
-    }
-  ],
-  "Ruse": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving a Major, Grave, or Obol Trauma, place 1 Opening token in the Kratos Pool"
-        }
-      ]
-    }
-  ],
-  "Seer Sense": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive"
-        },
-        {
-          "type": "icon",
-          "value": "Evasion"
-        },
-        {
-          "type": "plainText",
-          "value": "token"
-        }
-      ]
-    }
-  ],
-  "Selenian Strain": [
-    {
-      "abilityText": [
-        {
-          "type": "timing",
-          "value": "Start of Battle"
-        },
-        {
-          "type": "plainText",
-          "value": "Gain 1 Aether token"
-        }
-      ]
-    }
-  ],
-  "Shadowdance": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you resolve a Primordial Attack against you, you may gain +X"
-        },
-        {
-          "type": "icon",
-          "value": "Fate"
-        },
-        {
-          "type": "plainText",
-          "value": "to perform"
-        },
-        {
-          "type": "icon",
-          "value": "MovementAction"
-        },
-        {
-          "type": "plainText",
-          "value": "and an Attack (treat it as an Interrupt, if able)"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Gain a"
-        },
-        {
-          "type": "icon",
-          "value": "CombatAction"
-        },
-        {
-          "type": "plainText",
-          "value": "Fatigue token"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "X is 3 minus the AI level"
-        }
-      ]
-    }
-  ],
-  "Silver Strain": [
-    {
-      "abilityText": [
-        {
-          "type": "timing",
-          "value": "Start of Battle"
-        },
-        {
-          "type": "plainText",
-          "value": "Gain 1 Oxygen token"
-        }
-      ]
-    }
-  ],
-  "Six-Armed": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You have 3"
-        },
-        {
-          "type": "icon",
-          "value": "OneHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "slots OR 3"
-        },
-        {
-          "type": "icon",
-          "value": "Support"
-        },
-        {
-          "type": "plainText",
-          "value": "slots"
-        }
-      ]
-    }
-  ],
-  "Spartan-Bred": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You ignore"
-        },
-        {
-          "type": "keyword",
-          "value": "The Strong Eat"
-        },
-        {
-          "type": "plainText",
-          "value": "Trait"
-        }
-      ]
-    }
-  ],
-  "Spinning Tales": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Before the Attack Roll, if the Kratos Pool is empty, activate all your applicable Kratos Table abilities that leave Kratos tokens"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Do not leave any tokens during the second ability window from your Kratos Table abilities"
-        }
-      ]
-    }
-  ],
-  "Stout": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You have 3"
-        },
-        {
-          "type": "icon",
-          "value": "Support"
-        },
-        {
-          "type": "plainText",
-          "value": "slots"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You cannot have more than +1"
-        },
-        {
-          "type": "icon",
-          "value": "Evasion"
-        },
-        {
-          "type": "plainText",
-          "value": "at any given time"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Ignore up to -1"
-        },
-        {
-          "type": "icon",
-          "value": "Speed"
-        },
-        {
-          "type": "plainText",
-          "value": "penalty from any 1"
-        },
-        {
-          "type": "icon",
-          "value": "Gear"
-        }
-      ]
-    }
-  ],
-  "Stubborn": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You may reduce suffered Pushbacks and Knockbacks by 1"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Ignore Knockdown"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving a Major, Grave, or Obol Trauma, lose -1"
-        },
-        {
-          "type": "icon",
-          "value": "Danger"
-        }
-      ]
-    }
-  ],
-  "Surpass!": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you have 5+"
-        },
-        {
-          "type": "icon",
-          "value": "Rage"
-        },
-        {
-          "type": "plainText",
-          "value": ", if your Weapon"
-        },
-        {
-          "type": "icon",
-          "value": "Gear"
-        },
-        {
-          "type": "plainText",
-          "value": "doesn't already have the Assist X keyword, it gains"
-        },
-        {
-          "type": "keyword",
-          "value": "Assist 1"
-        }
-      ]
-    }
-  ],
-  "Survive!": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "When you would die from an Instant Death effect, you may discard all generic tokens from your Titan sheet (at least 1) to perform an Obol Draw instead"
-        }
-      ]
-    }
-  ],
-  "Tall Tales": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving a Major, Grave, or Obol Trauma, gain the"
-        },
-        {
-          "type": "icon",
-          "value": "PriorityTarget"
-        },
-        {
-          "type": "plainText",
-          "value": "token"
-        }
-      ]
-    }
-  ],
-  "The Abyss Calls": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "After surviving any Trauma other than Obol, gain +1"
-        },
-        {
-          "type": "icon",
-          "value": "Danger"
-        }
-      ]
-    }
-  ],
-  "The Return": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you don't have a Time Anchor on the Board, remove another Titan's Time Anchor and place your own in its space"
-        }
-      ],
-      "costs": [
-        "Fate"
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You can use this ability while"
-        },
-        {
-          "type": "cardRef",
-          "value": "Time-clocked",
-          "refID": "CL1295"
-        }
-      ]
-    }
-  ],
-  "The Truth": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If R7 is marked, you have"
-        },
-        {
-          "type": "keyword",
-          "value": "Auto-hope 1"
-        }
-      ]
-    }
-  ],
-  "Theseus Logic": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "During voluntary movement, ignore an Obstacle or Chasm Terrain tile"
-        }
-      ],
-      "costs": [
-        "Fate"
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You cannot end your move on an Obstacle or Chasm"
-        }
-      ]
-    }
-  ],
-  "To Dark We Will at Last Return": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you gain an Ambrosia token (each), place 1 Generic token on your Titan Sheet"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Precision"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "2:"
-        },
-        {
-          "type": "keyword",
-          "value": "Stalwart"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "3:"
-        },
-        {
-          "type": "keyword",
-          "value": "Tireless"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "4:"
-        },
-        {
-          "type": "keyword",
-          "value": "Rocksteady"
-        }
-      ]
-    }
-  ],
-  "Unknown Might": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You can use"
-        },
-        {
-          "type": "icon",
-          "value": "ThreeHanded"
-        },
-        {
-          "type": "plainText",
-          "value": "Weapons as if they were"
-        },
-        {
-          "type": "icon",
-          "value": "TwoHanded"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "If you do, you have -1"
-        },
-        {
-          "type": "icon",
-          "value": "Support"
-        },
-        {
-          "type": "plainText",
-          "value": "slot"
-        }
-      ]
-    }
-  ],
-  "Ur-Tainted": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You do not provide any adjacency benefits to other Titans"
-        }
-      ]
-    }
-  ],
-  "Wish Engine": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each time you gain a"
-        },
-        {
-          "type": "cardRef",
-          "value": "Wishkeen",
-          "refID": "DL2011"
-        },
-        {
-          "type": "plainText",
-          "value": "or"
-        },
-        {
-          "type": "cardRef",
-          "value": "Wishagog",
-          "refID": "DL2011"
-        },
-        {
-          "type": "plainText",
-          "value": "Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "2: When you attack, gain"
-        },
-        {
-          "type": "keyword",
-          "value": "Auto-break 1"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "3:"
-        },
-        {
-          "type": "keyword",
-          "value": "Block 1"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "4: When performing a Power Roll, gain +1"
-        },
-        {
-          "type": "icon",
-          "value": "Power"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "5: Gain"
-        },
-        {
-          "type": "icon",
-          "value": "MovementAction"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "6: Gain"
-        },
-        {
-          "type": "icon",
-          "value": "CombatAction"
-        }
-      ]
-    },
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "7: Awaken"
-        }
-      ]
-    }
-  ],
-  "Wish Shield": [
-    {
-      "abilityText": [
-        {
-          "type": "plainText",
-          "value": "Each Wish Attack and Laser Attack hit deals 1"
-        },
-        {
-          "type": "icon",
-          "value": "Danger"
-        },
-        {
-          "type": "plainText",
-          "value": "less (to a minimum of 1) to you and adjacent Titans"
-        }
-      ]
-    }
-  ]
+  "Abyss-tainted": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "timing",
+            "value": "Start of your turn"
+          },
+          {
+            "type": "plainText",
+            "value": "Gain 1 Ambrosia token"
+          }
+        ]
+      }
+    ]
+  },
+  "Aether Lamp": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You have"
+          },
+          {
+            "type": "keyword",
+            "value": "Light X"
+          },
+          {
+            "type": "plainText",
+            "value": ", where X is the nymber of Aether tokens you have"
+          }
+        ]
+      }
+    ]
+  },
+  "Arabian Nights": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Treat all your"
+          },
+          {
+            "type": "keyword",
+            "value": "Overbreak X"
+          },
+          {
+            "type": "plainText",
+            "value": "keywords as the upgrade Cycle 4+ version"
+          }
+        ]
+      }
+    ]
+  },
+  "Ascend!": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you survive a Trauma Draw, place 1 generic token on your Titan Sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You gain the following stacking benefits depending on the number of generic tokens here: 1: +1 Precision"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2: +1 Speed"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3: Auto-break 1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4: Stalwart"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5: Rocksteady"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6: +1"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "7: +1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "8: +2 to Awakening rolls"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "9: Immediately Awaken,"
+          },
+          {
+            "type": "icon",
+            "value": "Adversary"
+          }
+        ]
+      }
+    ]
+  },
+  "Born in the Dark": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Immune to"
+          },
+          {
+            "type": "cardRef",
+            "value": "Fear",
+            "refID": "AL0299"
+          },
+          {
+            "type": "plainText",
+            "value": "and"
+          },
+          {
+            "type": "cardRef",
+            "value": "Dread",
+            "refID": "AL0299"
+          },
+          {
+            "type": "plainText",
+            "value": "Conditions cards and Despair"
+          }
+        ]
+      }
+    ]
+  },
+  "Carry the Weight": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you gain Midas tokens, place 1 Generic token on your Titan Sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may discard an indicated number of those tokens to triger one of the folowing effects (as a free action, unless stated otherwise): 1: When performing a Hermes Move, treat it as 1 higher"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2: When you are about to suffer Float, ignore it"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3: Discard a Condition card"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4: When performing a Power Roll, gain +1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5: Gain a"
+          },
+          {
+            "type": "icon",
+            "value": "MovementAction"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6: Remove a Curse Affliction"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "7: Awaken"
+          }
+        ]
+      }
+    ]
+  },
+  "Cheat Fate": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to draw an Obol, you may choose to draw a You Live! or You Died Obol instead (once per Battle)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you do, next time you draw an Obol, you must draw the other one"
+          }
+        ]
+      }
+    ]
+  },
+  "Cold Open": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you attack, if there are no Opening or Break tokens in the Kratos Pool, place 1 Opening and 1 Break token in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Cyclopean Might": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can use"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons as if they were"
+          },
+          {
+            "type": "icon",
+            "value": "TwoHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons"
+          }
+        ]
+      }
+    ]
+  },
+  "Dance of Fate": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to draw an Obol, you may gain +2"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "to add 1 You live! Obol card to the Obol deck (for this draw only)"
+          }
+        ]
+      }
+    ]
+  },
+  "Disturbance in Fate": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you roll a Crit Miss,"
+          },
+          {
+            "type": "icon",
+            "value": "Adversary"
+          }
+        ]
+      }
+    ]
+  },
+  "Djinnslayer": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When on the Endless Staircase or on any Status card, gain +1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          }
+        ]
+      }
+    ]
+  },
+  "Dual-Wielding": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When attacking with a"
+          },
+          {
+            "type": "icon",
+            "value": "OneHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapon, you can add one stackable keyword of another equipped non-Perishable"
+          },
+          {
+            "type": "icon",
+            "value": "OneHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapon"
+          }
+        ]
+      }
+    ]
+  },
+  "Elder Might": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can use"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons as if they were"
+          },
+          {
+            "type": "icon",
+            "value": "TwoHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you don't use a"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapon, you have"
+          },
+          {
+            "type": "keyword",
+            "value": "Tireless"
+          }
+        ]
+      }
+    ]
+  },
+  "Electromagnetic Shield": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each Laser Attack hit and Microwave Attack hit deals 1"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": "less (to a minimum of 1) to you and adjacent Titans"
+          }
+        ]
+      }
+    ]
+  },
+  "Fall and Soar": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you fail the Hold On test, immediately move 2 spaces instead of suffering the Falling Down effect"
+          }
+        ],
+        "costs": [
+          "Fate"
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "and"
+          },
+          {
+            "type": "keyword",
+            "value": "Knockdown"
+          },
+          {
+            "type": "plainText",
+            "value": "to Lifeline"
+          }
+        ],
+        "costs": [
+          "Fate"
+        ]
+      }
+    ]
+  },
+  "Fate Follows": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you roll a Crit Miss,"
+          },
+          {
+            "type": "icon",
+            "value": "Adversary"
+          },
+          {
+            "type": "icon",
+            "value": "Adversary"
+          }
+        ]
+      }
+    ]
+  },
+  "Fear is the Mind Killer": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you gain a"
+          },
+          {
+            "type": "cardRef",
+            "value": "Fear",
+            "refID": "AL0299"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card,"
+          },
+          {
+            "type": "cardRef",
+            "value": "Dread",
+            "refID": "AL0299"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card, or a Despair token (each), place 1 Generic token on your Titan Sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Precision"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2: +1"
+          },
+          {
+            "type": "icon",
+            "value": "Speed"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3:"
+          },
+          {
+            "type": "keyword",
+            "value": "Defy 1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4: +1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you would ever have 5+ Generic tokens, you immediately die"
+          }
+        ]
+      }
+    ]
+  },
+  "Fearless": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Immune to"
+          },
+          {
+            "type": "cardRef",
+            "value": "Fear",
+            "refID": "AL0299"
+          },
+          {
+            "type": "plainText",
+            "value": "and"
+          },
+          {
+            "type": "cardRef",
+            "value": "Dread",
+            "refID": "AL0299"
+          },
+          {
+            "type": "plainText",
+            "value": "Conditions"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot gain Despair tokens"
+          }
+        ]
+      }
+    ]
+  },
+  "Fickle Fate": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "timing",
+            "value": "Start of Battle"
+          },
+          {
+            "type": "plainText",
+            "value": "If you have less than 2"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": ", raise"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "to 2"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If at any time you have 0"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": ", you flash forward: remove the Titan from the Battle"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Treat them as if they died"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving a Major, Grave, or Obol Trauma, lose -1"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          }
+        ]
+      }
+    ]
+  },
+  "Final Countdown": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you roll a Crit Miss,"
+          },
+          {
+            "type": "icon",
+            "value": "Adversary"
+          },
+          {
+            "type": "icon",
+            "value": "Adversary"
+          }
+        ]
+      }
+    ]
+  },
+  "Finish Him": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When attacking a BP card with a Death Blow Crit effect, gain a Crit Chance"
+          }
+        ],
+        "costs": [
+          "Oxygen",
+          "Fate"
+        ]
+      }
+    ]
+  },
+  "Fly": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Use during voluntary movement to ignore all Terrain tiles during this movement"
+          }
+        ],
+        "costs": [
+          "Fate",
+          "Exhaust"
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot end your movement on an Obstacle or Chasm"
+          }
+        ]
+      }
+    ]
+  },
+  "Forgotten Curse": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Once per Battle, you may gain 3 Despair tokens to skip an After Attack of a Primordial Attack"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may use the ability only during a"
+          },
+          {
+            "type": "icon",
+            "value": "WoO"
+          },
+          {
+            "type": "plainText",
+            "value": "of an After Attack"
+          }
+        ]
+      }
+    ]
+  },
+  "Four-Armed Centimanes": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You have 4 Weapon"
+          },
+          {
+            "type": "icon",
+            "value": "OneHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "slots"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot use"
+          },
+          {
+            "type": "icon",
+            "value": "TwoHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "and"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons"
+          }
+        ]
+      }
+    ]
+  },
+  "Grey Alchemy": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Turn 1 Midas or Pain token into 1 Ambrosia token"
+          }
+        ],
+        "costs": [
+          "Fate"
+        ]
+      }
+    ]
+  },
+  "In Light and Shade": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each Laser Attack hit and Sun Attack hit deals 1"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": "less (to a minimum of 1)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to die from incineration, draw an Obol instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Internalize Despair": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "timing",
+            "value": "Start of your turn"
+          },
+          {
+            "type": "plainText",
+            "value": "Gain 1 Despair token"
+          }
+        ]
+      }
+    ]
+  },
+  "Internalize Pain": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "timing",
+            "value": "Start of your turn"
+          },
+          {
+            "type": "plainText",
+            "value": "Gain 1 Pain token"
+          }
+        ]
+      }
+    ]
+  },
+  "Kreios Strain": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "While performing"
+          },
+          {
+            "type": "icon",
+            "value": "MovementAction"
+          },
+          {
+            "type": "plainText",
+            "value": ", you can move diagonally"
+          }
+        ]
+      }
+    ]
+  },
+  "Last Titan Standing": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you are the last Titan on the Battle Board, you cannot gain Ambrosia tokens, Despair tokens, or suffer Knockdown"
+          }
+        ]
+      }
+    ]
+  },
+  "Levitate": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During voluntary movement, ignore an Obstacle or Chasm Terrain tiles"
+          }
+        ],
+        "costs": [
+          "Fate"
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can end your move on a Chasm but not on an Obstacle"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you start your turn on a Chasm, you must immediately use this ability, If you cannot, you die"
+          }
+        ]
+      }
+    ]
+  },
+  "Lightweight Curse": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can use"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons as if they were"
+          },
+          {
+            "type": "icon",
+            "value": "TwoHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot use"
+          },
+          {
+            "type": "icon",
+            "value": "OneHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons"
+          }
+        ]
+      }
+    ]
+  },
+  "Logicbreak": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you survive an Obol, perform a"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          },
+          {
+            "type": "plainText",
+            "value": "(up to 3 times per Round)"
+          }
+        ],
+        "costs": [
+          "Fate"
+        ]
+      }
+    ]
+  },
+  "Maze Awareness": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          },
+          {
+            "type": "plainText",
+            "value": "token If you are on a Terrain tile, you have +1"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          }
+        ]
+      }
+    ]
+  },
+  "Nimble Feet": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You have 3 Weapon"
+          },
+          {
+            "type": "icon",
+            "value": "OneHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "slots"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot use"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons"
+          }
+        ]
+      }
+    ]
+  },
+  "Nimble Hands": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may use"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeOneHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons as if they were"
+          },
+          {
+            "type": "icon",
+            "value": "TwoHanded"
+          }
+        ]
+      }
+    ]
+  },
+  "One for All": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If your natural"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          },
+          {
+            "type": "plainText",
+            "value": "goes over 9 during an Attack, perform a normal Attack, but do not draw a BP card"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Instead, perform a Power Roll, divide your Total Power by 2 (rounding up) and add +1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          },
+          {
+            "type": "plainText",
+            "value": "if you had a Crit Chance"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Note the resulting Power, then clear the Kratos Pool and continue to your second ability window (do not resolve any responses)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Next time any Titan attacks, it adds the Power you noted to its Total Power"
+          }
+        ]
+      }
+    ]
+  },
+  "One Small Step": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When on a VP or the Endless Staircase, gain"
+          },
+          {
+            "type": "keyword",
+            "value": "Rocksteady"
+          }
+        ]
+      }
+    ]
+  },
+  "Pain Engine": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you gain a Pain token (each), place 1 Generic token on your Titan Sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1"
+          },
+          {
+            "type": "icon",
+            "value": "Speed"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2: While performing"
+          },
+          {
+            "type": "icon",
+            "value": "MovementAction"
+          },
+          {
+            "type": "plainText",
+            "value": ", you can move diagonally"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3: Your Titan's Power die becomes"
+          },
+          {
+            "type": "icon",
+            "value": "WhitePowerDie"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4:"
+          },
+          {
+            "type": "keyword",
+            "value": "Auto-rouse 1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5:"
+          },
+          {
+            "type": "keyword",
+            "value": "Deadly"
+          }
+        ]
+      }
+    ]
+  },
+  "Persian Deal": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Turn 1 of your Midas tokens into 2 Ambrosia tokens, 1 Ambrosia into 2 Despair, or 1 Despair into 2 Midas"
+          }
+        ],
+        "costs": [
+          "Fate",
+          "Exhaust"
+        ]
+      }
+    ]
+  },
+  "Rage Summit": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving a positive Major, Grave, or Obol Trauma, you may gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After Surviving a negative Major, Grave, or Obol Trauma, you must gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          }
+        ]
+      }
+    ]
+  },
+  "Ruse": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving a Major, Grave, or Obol Trauma, place 1 Opening token in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Seer Sense": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving a Major, Grave, or Obol Trauma, gain 1 temporary positive"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          },
+          {
+            "type": "plainText",
+            "value": "token"
+          }
+        ]
+      }
+    ]
+  },
+  "Selenian Strain": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "timing",
+            "value": "Start of Battle"
+          },
+          {
+            "type": "plainText",
+            "value": "Gain 1 Aether token"
+          }
+        ]
+      }
+    ]
+  },
+  "Shadowdance": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you resolve a Primordial Attack against you, you may gain +X"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "to perform"
+          },
+          {
+            "type": "icon",
+            "value": "MovementAction"
+          },
+          {
+            "type": "plainText",
+            "value": "and an Attack (treat it as an Interrupt, if able)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Gain a"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          },
+          {
+            "type": "plainText",
+            "value": "Fatigue token"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "X is 3 minus the AI level"
+          }
+        ]
+      }
+    ]
+  },
+  "Silver Strain": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "timing",
+            "value": "Start of Battle"
+          },
+          {
+            "type": "plainText",
+            "value": "Gain 1 Oxygen token"
+          }
+        ]
+      }
+    ]
+  },
+  "Six-Armed": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You have 3"
+          },
+          {
+            "type": "icon",
+            "value": "OneHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "slots OR 3"
+          },
+          {
+            "type": "icon",
+            "value": "Support"
+          },
+          {
+            "type": "plainText",
+            "value": "slots"
+          }
+        ]
+      }
+    ]
+  },
+  "Spartan-Bred": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You ignore"
+          },
+          {
+            "type": "keyword",
+            "value": "The Strong Eat"
+          },
+          {
+            "type": "plainText",
+            "value": "Trait"
+          }
+        ]
+      }
+    ]
+  },
+  "Spinning Tales": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Before the Attack Roll, if the Kratos Pool is empty, activate all your applicable Kratos Table abilities that leave Kratos tokens"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Do not leave any tokens during the second ability window from your Kratos Table abilities"
+          }
+        ]
+      }
+    ]
+  },
+  "Stout": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You have 3"
+          },
+          {
+            "type": "icon",
+            "value": "Support"
+          },
+          {
+            "type": "plainText",
+            "value": "slots"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot have more than +1"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          },
+          {
+            "type": "plainText",
+            "value": "at any given time"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Ignore up to -1"
+          },
+          {
+            "type": "icon",
+            "value": "Speed"
+          },
+          {
+            "type": "plainText",
+            "value": "penalty from any 1"
+          },
+          {
+            "type": "icon",
+            "value": "Gear"
+          }
+        ]
+      }
+    ]
+  },
+  "Stubborn": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may reduce suffered Pushbacks and Knockbacks by 1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Ignore Knockdown"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving a Major, Grave, or Obol Trauma, lose -1"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          }
+        ]
+      }
+    ]
+  },
+  "Surpass!": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you have 5+"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          },
+          {
+            "type": "plainText",
+            "value": ", if your Weapon"
+          },
+          {
+            "type": "icon",
+            "value": "Gear"
+          },
+          {
+            "type": "plainText",
+            "value": "doesn't already have the Assist X keyword, it gains"
+          },
+          {
+            "type": "keyword",
+            "value": "Assist 1"
+          }
+        ]
+      }
+    ]
+  },
+  "Survive!": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you would die from an Instant Death effect, you may discard all generic tokens from your Titan sheet (at least 1) to perform an Obol Draw instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Tall Tales": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving a Major, Grave, or Obol Trauma, gain the"
+          },
+          {
+            "type": "icon",
+            "value": "PriorityTarget"
+          },
+          {
+            "type": "plainText",
+            "value": "token"
+          }
+        ]
+      }
+    ]
+  },
+  "The Abyss Calls": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "After surviving any Trauma other than Obol, gain +1"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          }
+        ]
+      }
+    ]
+  },
+  "The Return": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you don't have a Time Anchor on the Board, remove another Titan's Time Anchor and place your own in its space"
+          }
+        ],
+        "costs": [
+          "Fate"
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can use this ability while"
+          },
+          {
+            "type": "cardRef",
+            "value": "Time-clocked",
+            "refID": "CL1295"
+          }
+        ]
+      }
+    ]
+  },
+  "The Truth": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If R7 is marked, you have"
+          },
+          {
+            "type": "keyword",
+            "value": "Auto-hope 1"
+          }
+        ]
+      }
+    ]
+  },
+  "Theseus Logic": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During voluntary movement, ignore an Obstacle or Chasm Terrain tile"
+          }
+        ],
+        "costs": [
+          "Fate"
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot end your move on an Obstacle or Chasm"
+          }
+        ]
+      }
+    ]
+  },
+  "To Dark We Will at Last Return": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you gain an Ambrosia token (each), place 1 Generic token on your Titan Sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You gain the following stacking benefits depending on the number of Generic tokens here: 1: +1 Precision"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2:"
+          },
+          {
+            "type": "keyword",
+            "value": "Stalwart"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3:"
+          },
+          {
+            "type": "keyword",
+            "value": "Tireless"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4:"
+          },
+          {
+            "type": "keyword",
+            "value": "Rocksteady"
+          }
+        ]
+      }
+    ]
+  },
+  "Unknown Might": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You can use"
+          },
+          {
+            "type": "icon",
+            "value": "ThreeHanded"
+          },
+          {
+            "type": "plainText",
+            "value": "Weapons as if they were"
+          },
+          {
+            "type": "icon",
+            "value": "TwoHanded"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you do, you have -1"
+          },
+          {
+            "type": "icon",
+            "value": "Support"
+          },
+          {
+            "type": "plainText",
+            "value": "slot"
+          }
+        ]
+      }
+    ]
+  },
+  "Ur-Tainted": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You do not provide any adjacency benefits to other Titans"
+          }
+        ]
+      }
+    ]
+  },
+  "Wish Engine": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you survive a Wish Attack, place X Generic tokens on your Titan Sheet, where X is the level of the AI card"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each time you gain a"
+          },
+          {
+            "type": "cardRef",
+            "value": "Wishkeen",
+            "refID": "DL2011"
+          },
+          {
+            "type": "plainText",
+            "value": "or"
+          },
+          {
+            "type": "cardRef",
+            "value": "Wishagog",
+            "refID": "DL2011"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card, place respectively 1 or 2 Generic tokens on your Titan Sheet"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may discard an indicated number of those tokens to trigger one of the following effects (as a free action, unless stated otherwise): 1: When you attack, gain +1 Precision"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "2: When you attack, gain"
+          },
+          {
+            "type": "keyword",
+            "value": "Auto-break 1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "3:"
+          },
+          {
+            "type": "keyword",
+            "value": "Block 1"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "4: When performing a Power Roll, gain +1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "5: Gain"
+          },
+          {
+            "type": "icon",
+            "value": "MovementAction"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "6: Gain"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "7: Awaken"
+          }
+        ]
+      }
+    ]
+  },
+  "Wish Shield": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Each Wish Attack and Laser Attack hit deals 1"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": "less (to a minimum of 1) to you and adjacent Titans"
+          }
+        ]
+      }
+    ]
+  }
 }

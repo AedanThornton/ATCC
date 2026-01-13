@@ -1,16 +1,16 @@
 import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./PatternCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import PatternTable from "./PatternTable.jsx";
 import { getGateColor } from "../../../lib/colors.js"
 import FormattedParagraph, { GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const PatternCard = ({ pattern, index }) => {
   return (
     <div className={`card pattern ${pattern.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(pattern.patternType) }}>
       <div className="pattern-title-section">
-        <div className="title-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType) }}>{utils.getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
+        <div className="title-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType) }}>{getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="pattern-title" style={{ color: getColor(pattern.patternType), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>
           {pattern.name}
         </div>

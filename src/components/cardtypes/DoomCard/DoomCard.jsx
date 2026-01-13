@@ -1,6 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./DoomCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index";
+import getIcon from "../../utils/iconUtils.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const DoomCard = ({ doom, index, currentSide }) => {
@@ -55,7 +55,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
             </div>
           </div>
         </div>
-        <div className="doom-panel">{utils.getIcon("Doom", undefined, undefined, "18rem")}</div>
+        <div className="doom-panel">{getIcon("Doom", undefined, undefined, "18rem")}</div>
       </div>
     </div>
   );

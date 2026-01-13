@@ -1,8 +1,7 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./FatedMnemosCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index";
 import {FormattedSentence} from "../../FormattedParagraph.jsx";
+import StatTitle from "../../utils/StatTitle.jsx";
 
 const FatedMnemosCard = ({ fatedMnemos, index }) => {
   return (
@@ -26,8 +25,8 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
       </div>
 
       <div className="card-info" style={{lineHeight: "14px"}}>
-          {utils.createStatTitle(fatedMnemos.stats[0], "#FFF", "#000", "-1")}
-          {fatedMnemos.stats[1] && utils.createStatTitle(fatedMnemos.stats[1], "#FFF", "#000", "-1")}
+          <StatTitle text={fatedMnemos.stats[0]} color="#FFF" bkgdColor="#000" stat="1" />
+          {fatedMnemos.stats[1] && <StatTitle text={fatedMnemos.stats[1]} color="#FFF" bkgdColor="#000" stat="1" />}
       </div>
 
       <div className="fated-mnemos-growth-title">

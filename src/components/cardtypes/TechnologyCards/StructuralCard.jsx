@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const StructuralCard = ({ structural, index, currentSide }) => {
   let side = currentSide
@@ -11,7 +11,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
     <div className={`card technology ${structural.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
-          <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("StructuralTech", undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon("StructuralTech", undefined, undefined, "2.1em", "0em")}</div></div>
           <div style={{display: "flex", flexDirection: "column"}}>
             <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * structural["name" + side].length)) }}>
               {(structural.name2 && currentSide === 2) ? structural.name2 : structural.name}
@@ -33,7 +33,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
                   return (
                     <>
                     {req.startsWith("@ArgoKnowledge") 
-                      ? <>{utils.getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                      ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
                       : req}
                     {!(i >= array.length - 1) && ", "}
                     </>
@@ -59,7 +59,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
             {structural.abilities?.map((ability, index) => (
               <div className="technology-ability-box" key={index}>
                 <div className="technology-ability-header">{ability.name.toUpperCase()}</div>
-                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{utils.getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}<FormattedParagraph paragraph={ability.effects[0]} /></div>
+                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{getIcon("City")} Negotiation. </> : `${ability.type}. `}</b>)}<FormattedParagraph paragraph={ability.effects[0]} /></div>
               </div>
             ))}
           </div>

@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./StoryCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const StoryCard = ({ story, index, currentSide }) => {
   let side = currentSide
@@ -10,7 +10,7 @@ const StoryCard = ({ story, index, currentSide }) => {
   return (
     <div className={`card story ${story.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
       <div style={{display: "flex", height: "500px"}}>
-        <div className="story-panel">{utils.getIcon("Progress", undefined, undefined, "18rem")}</div>
+        <div className="story-panel">{getIcon("Progress", undefined, undefined, "18rem")}</div>
         <div className="story-book">
           <div className="story-card-number-banner">
             <div className="story-card-number-banner__triangle">{story.cardNumber === "IO" ? "1": story.cardNumber}{side ? "B" : "A"}</div>

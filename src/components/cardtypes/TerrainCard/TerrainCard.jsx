@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TerrainCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const TerrainCard = ({ terrain, index, currentSide }) => {
   return (
@@ -19,7 +19,7 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
             <div key={index} className="terrain-tile-container">
               {`${tile.count} x `}
               <div className="terrain-tile-image-container">
-                {utils.getIcon(`Tile_${tile.type === "O" ? "2x2" : tile.type}`)}
+                {getIcon(`Tile_${tile.type === "O" ? "2x2" : tile.type}`)}
               </div>
             </div>
           ))}

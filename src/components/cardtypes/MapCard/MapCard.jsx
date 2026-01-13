@@ -1,8 +1,8 @@
 import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./MapCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils";
 import { getCyclePrimaryColor, getCycleSecondaryColor } from "../../../lib/colors.js"
+import getIcon from "../../utils/iconUtils.jsx"
 
 const MapArrow = ({ cycle, dir, nextTile, split = "", lock = "" }) => {
   const directions = {
@@ -19,8 +19,8 @@ const MapArrow = ({ cycle, dir, nextTile, split = "", lock = "" }) => {
         {split && <div className="map-arrow-square">{split}</div>}
         {lock &&
           <>
-            <div className="map-arrow-square">{utils.getIcon(lock)}</div>
-            <div className="map-arrow-circle">{utils.getIcon("Lock", undefined, undefined, "0.8rem")}</div>
+            <div className="map-arrow-square">{getIcon(lock)}</div>
+            <div className="map-arrow-circle">{getIcon("Lock", undefined, undefined, "0.8rem")}</div>
           </>
         }
       </div>
@@ -97,7 +97,7 @@ const MapCard = ({ map, index }) => {
             <div className="map-symbol-container">
               {map.symbols.map((symbol, index) => (
                 <div className="map-symbol" style={getRandomArrow()}>
-                  {utils.getIcon(symbol)}
+                  {getIcon(symbol)}
                 </div>
               ))}
             </div>
@@ -134,7 +134,7 @@ const MapCard = ({ map, index }) => {
         <div>
           {map.progDoom && map.progDoom.length > 0 && <div className="map-symbols map-corner left">
             {map.progDoom.map((symbol, index) => (
-              <React.Fragment key={index}>{utils.getIcon(symbol, undefined, undefined, "1.3em")}</React.Fragment>
+              <React.Fragment key={index}>{getIcon(symbol, undefined, undefined, "1.3em")}</React.Fragment>
             ))}
           </div>}
         </div>
@@ -146,7 +146,7 @@ const MapCard = ({ map, index }) => {
 
         <div className="map-factions map-corner right">
           {map.factions.map((faction, index) => (
-            <React.Fragment key={index}>{utils.getIcon(faction.split(" ").join(""), undefined, undefined, "1.3em")}</React.Fragment>
+            <React.Fragment key={index}>{getIcon(faction.split(" ").join(""), undefined, undefined, "1.3em")}</React.Fragment>
           ))}
         </div>
       </div>

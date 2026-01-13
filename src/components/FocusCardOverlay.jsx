@@ -1,8 +1,8 @@
-import SecretOverlay from "./utils/secretUtils";
+import SecretOverlay from "./utils/SecretOverlay";
 import { useState, useEffect, Children } from "react";
-import utils from "./utils";
 import FocusCard from "./FocusCard";
 import { createPortal } from "react-dom";
+import getIcon from "./utils/iconUtils";
 
 const FocusCardOverlay = ({ cardID, children }) => {
   const [cardData, setCardData] = useState(null);
@@ -67,8 +67,8 @@ const FocusCardOverlay = ({ cardID, children }) => {
         <div className='focus-card-overlay' style={{ display: focusDisplay ? "flex" : "none" }}>
           <div className='focus-card-overlay__buttons'>
             <button onClick={() => setFocusDisplay(false)}>X</button>
-            {cardData?.name2 && (<button onClick={toggleSide}>{utils.getIcon("Flip", undefined, undefined, "1.5em")}</button>)}
-            {isSecretCard && (<button onClick={toggleReveal}>{utils.getIcon("Reveal", undefined, undefined, "1.5em")}</button>)}
+            {cardData?.name2 && (<button onClick={toggleSide}>{getIcon("Flip", undefined, undefined, "1.5em")}</button>)}
+            {isSecretCard && (<button onClick={toggleReveal}>{getIcon("Reveal", undefined, undefined, "1.5em")}</button>)}
           </div>
           {isLoading ? (
             <div>Loading card details...</div>

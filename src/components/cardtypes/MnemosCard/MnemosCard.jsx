@@ -1,8 +1,8 @@
 import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./MnemosCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index";
 import { FormattedSentence } from "../../FormattedParagraph.jsx";
+import StatTitle from "../../utils/StatTitle.jsx";
 
 const MnemosCard = ({ mnemos, index }) => {
   return (
@@ -30,8 +30,8 @@ const MnemosCard = ({ mnemos, index }) => {
       </div>
 
       <div className="card-info" style={{marginBottom: "5px"}}>
-          {utils.createStatTitle(mnemos.stats[0], "#FFF", "#000")}
-          {mnemos.stats[1] && utils.createStatTitle(mnemos.stats[1], "#FFF", "#000")}
+          <StatTitle text={mnemos.stats[0]} color="#FFF" bkgdColor="#000" />
+          {mnemos.stats[1] && <StatTitle text={mnemos.stats[1]} color="#FFF" bkgdColor="#000" />}
       </div>
 
       <div>

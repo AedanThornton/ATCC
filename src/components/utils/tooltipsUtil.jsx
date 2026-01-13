@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
 import Tippy from '@tippyjs/react';
 import './utils.css';
 
 import StandardKeywords from '/src/data/JSON/keywords.json';
 import TitanAbilities from '/src/data/JSON/titanAbilityData.json';
+import FormattedParagraph from '../FormattedParagraph';
 
 const Keywords = {...TitanAbilities, ...StandardKeywords}
 
-const createTooltip = (name, index, textParser) => {
+const createTooltip = (name, index) => {
   let keyword="";
   if (Keywords[name]) keyword = name;
   else if (Keywords[name + " X"]) keyword = name + " X";
@@ -33,12 +33,18 @@ const createTooltip = (name, index, textParser) => {
       content={
         <div className="tooltip">
           <div className='tooltip-title'>{keyword}</div>
-          {keywordData.map((entry, index2) => (
-            <span key={index2} style={entry.formatting || {}}>
-              {entry.subtype && <div className='tooltip-subtitle' key={"subtitle-" + index2}>{entry.subtype}</div>}
-              {textParser ? textParser(entry.text, index2) : entry.text}
+            <span>
+              <FormattedParagraph paragraph={keywordData.mainDef} inLineGate={true} />
+              {Array.from({ length: 8 }, (x, i) => {
+                {keywordData["subName" + x] && 
+                  <>
+                    <div className='tooltip-subtitle' key={"subtitle-" + i}>{keywordData["subName" + x]}</div>
+                    {keywordData["subDef" + x] ? <FormattedParagraph paragraph={keywordData["subDef" + x]} inLineGate={true} /> : <span>Missing definition...</span>}
+                  </>
+                }
+              })}
+              
             </span>
-          ))}
         </div>
       }
     >
@@ -47,9 +53,5 @@ const createTooltip = (name, index, textParser) => {
   );
 };
 
-const utils = {
-  interpolateTooltips: (str) => <>{str.split(/\b/).map((word, index) => createTooltip(word, index))}</>,
-  createTooltip: createTooltip
-};
-
-export default utils;
+export const interpolateTooltips = (str) => <>{str.split(/\b/).map((word, index) => createTooltip(word, index))}</>
+export default createTooltip;

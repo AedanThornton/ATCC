@@ -1,7 +1,9 @@
 import React, { useState } from "react"
-import utils from "./utils"
 import { getGateColor } from "../lib/colors"
 import FocusCardOverlay from "./FocusCardOverlay"
+import createTooltip from "./utils/tooltipsUtil"
+import getIcon from "./utils/iconUtils"
+import { createAbilityGate } from "./utils/gateUtils"
 
 export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => {
   if (typeof sentence === "string") {
@@ -16,7 +18,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
       case "newline":
         return (<br />)
       case "keyword":
-        return utils.createTooltip(textClump.value)
+        return createTooltip(textClump.value)
       case "timing":
         if (isReaction) return
         return <><b>{textClump.value}:</b></>
@@ -25,7 +27,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
       case "italics":
         return <i>{textClump.value}</i>
       case "icon":
-        return utils.getIcon(textClump.value)
+        return getIcon(textClump.value)
       case "cardRef":
         return textClump.refID
           ? <FocusCardOverlay cardID={textClump.refID}>
@@ -39,12 +41,12 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
 
   return (
     <>
-      {inLineGate && sentence.gate && utils.createAbilityGate(sentence.gate, sentence.value, getGateColor(sentence.gate) || "none")}
+      {inLineGate && sentence.gate && createAbilityGate(sentence.gate, sentence.value, getGateColor(sentence.gate) || "none")}
       {pos > 0 && (sentence.abilityText[0].type === "timing" || sentence.costs) && <br />}
       <span className="ability-costs">
-        {isReaction && (<>{utils.getIcon("Reaction")}</>)}
+        {isReaction && (<>{getIcon("Reaction")}</>)}
         {sentence.costs?.map((cost, i) => (
-          <>{utils.getIcon(cost, undefined, i)}</>
+          <>{getIcon(cost, undefined, i)}</>
         ))}
       </span>
       {sentence.abilityText?.map((textClump, index2, array) => (
@@ -69,7 +71,7 @@ export const GatedFormattedParagraph = ({ gatedParagraph }) => {
     <div className="gated-abilities">
       {gatedParagraph.map((gatedSentence, index) => {
         return <div key={index} className="card-info" style={{ background: getGateColor(gatedSentence.gate) }}>
-          <div className="gear-ability-gate">{utils.createAbilityGate(gatedSentence.gate, gatedSentence.value)}</div>
+          <div className="gear-ability-gate">{createAbilityGate(gatedSentence.gate, gatedSentence.value)}</div>
           <div className="gear-gated-ability">
             <FormattedSentence sentence={gatedSentence}/>
           </div>

@@ -1,8 +1,8 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./ExplorationCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import {FormattedSentence} from "../../FormattedParagraph.jsx";
+import StatTitle from "../../utils/StatTitle.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const ExplorationCard = ({ exploration, index }) => {
   const diplomacies = [
@@ -36,7 +36,7 @@ const ExplorationCard = ({ exploration, index }) => {
           }
 
           return <p key={index} style={{fontSize: "12px", lineHeight: "12px"}}>
-            {diplomacy !== '' && <span className="exploration-diplomacy-banner"><span>{utils.createStatTitle(diplomacy, "white", "black", diplomacySign || "")}</span></span>}
+            {diplomacy !== '' && <span className="exploration-diplomacy-banner"><span><StatTitle text={diplomacy} color="white" bkgdColor="black" stat={diplomacySign} /></span></span>}
             <span className="exploration-effect-text">
               <FormattedSentence sentence={effect} />
             </span>
@@ -48,7 +48,7 @@ const ExplorationCard = ({ exploration, index }) => {
         <div className="adversary-icon-group">
           {[...Array(exploration.adversaryTriggers)].map((e, index) => (
             <div className="adversary-icon">
-              {utils.getIcon("Adversary", undefined, index, "3em")}
+              {getIcon("Adversary", undefined, index, "3em")}
             </div>
           ))}
         </div>
@@ -57,7 +57,7 @@ const ExplorationCard = ({ exploration, index }) => {
       <div className="exploration-footer">
         <div>{exploration.number && (<div className="exploration-footer__number-circle">{exploration.number}</div>)}</div>
         <div className="exploration-footer__remove-effect">{exploration.removeEffect}</div>
-        <div>{utils.getIcon(exploration.stackType.replace(" ", ""), undefined, undefined, "2.8em")}</div>
+        <div>{getIcon(exploration.stackType.replace(" ", ""), undefined, undefined, "2.8em")}</div>
       </div>
 
       <div>

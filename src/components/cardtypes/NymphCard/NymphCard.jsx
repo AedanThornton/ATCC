@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./NymphCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const NymphCard = ({ nymph, index }) => {
   return (
@@ -25,7 +25,7 @@ const NymphCard = ({ nymph, index }) => {
         {/* Summoning */}
         <div className="nymph-text-box">
           <div className="nymph-text-header">SUMMONING</div>
-          <div className="nymph-text">Spend 1 {utils.getIcon("SummonCharge")} to summon the {nymph.name}. Then, {utils.getIcon("Adversary")}.</div>
+          <div className="nymph-text">Spend 1 {getIcon("SummonCharge")} to summon the {nymph.name}. Then, {getIcon("Adversary")}.</div>
         </div>
 
         {/* Effects */}

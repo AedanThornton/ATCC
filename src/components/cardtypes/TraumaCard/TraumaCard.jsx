@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TraumaCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const TraumaCard = ({ trauma, index }) => {
   return (
@@ -44,13 +44,13 @@ const TraumaCard = ({ trauma, index }) => {
         {trauma.subtype !== "Obol" && (
         <div className="trauma-bottom-bar">
           {trauma.subtype === "Minor" 
-            ? <div>{utils.getIcon(trauma.arrow)}</div>
+            ? <div>{getIcon(trauma.arrow)}</div>
             : trauma.subtype === "Major" 
               ? <div style={{fontSize: "18px"}}>{trauma.number}</div>
               : <div></div>
           }
           <div className="trauma-type-box">
-            <div className="trauma-type-box__icon">{utils.getIcon(trauma.subtype, undefined, undefined, "3rem")}</div>
+            <div className="trauma-type-box__icon">{getIcon(trauma.subtype, undefined, undefined, "3rem")}</div>
             <div className="trauma-type-box__sign">{trauma.sign}</div>
           </div>
         </div>

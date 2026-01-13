@@ -1,10 +1,10 @@
 import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./TitanCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import PatternTable from "../PatternCard/PatternTable.jsx";
 import {getCyclePrimaryColor, getCycleTextColor, getGateColor} from "../../../lib/colors.js"
 import FormattedParagraph, { GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const TitanCard = ({ titan, index }) => {
   return (
@@ -21,11 +21,11 @@ const TitanCard = ({ titan, index }) => {
               <div>
                 {titan.titanPower.split(" + ").map((power, subindex) => (
                   <React.Fragment key={`${power}-${subindex}`}>
-                    {subindex >= 1 ? " + " : ""}{utils.getIcon(power, "Power", subindex, "1.5em")}
+                    {subindex >= 1 ? " + " : ""}{getIcon(power, "Power", subindex, "1.5em")}
                   </React.Fragment>
                 ))}
               </div>
-              <div>{titan.speed}{utils.getIcon("Speed", undefined, index+"2", "1.5em")}</div>
+              <div>{titan.speed}{getIcon("Speed", undefined, index+"2", "1.5em")}</div>
             </div>
 
             {/* Abilities */}

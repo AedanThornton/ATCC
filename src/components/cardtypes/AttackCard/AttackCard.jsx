@@ -1,11 +1,11 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary, adversaryPrimaryColor } from "../../../lib/colors.js"
+import getIcon from "../../utils/iconUtils.jsx";
 
-const wooIcon = utils.getIcon("WoO", undefined, undefined, "1.3em")
+
+const wooIcon = getIcon("WoO", undefined, undefined, "1.3em")
 
 const parseLines = (lines, superindex) => {
   const newLines = []
@@ -55,7 +55,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
       {/* Header */}
       <div className="ai-card__header">
         <div className="ai-card__icon-top-left" style={{ background: getCyclePrimaryColor(colorInput), color: getCycleSecondaryColor(colorInput) }}>
-          {/* {attack.usedFor && utils.getIcon(attack.usedFor)} */}
+          {/* {attack.usedFor && getIcon(attack.usedFor)} */}
         </div>
         <h2 className="ai-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * attack.name.length)) }}>{attack.name}</h2>
         <div className="ai-card__stats-bar-right" style={{ color: getCycleTextColor(colorInput) }}>
@@ -64,7 +64,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           </div>
           <div className={`stats-bar-right__dice ${!isAdversary[attack.usedFor] && "invert-icons"}`}>
             <span className="stats-bar-right__dice-value">{attack.dice}</span>
-            {utils.getIcon("d10")}
+            {getIcon("d10")}
           </div>
           <div className="stats-bar-right__difficulty">{attack.difficulty}+</div>
           <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(colorInput) }}></div>
@@ -113,7 +113,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
             {/* Banners */}
             {attack.attackBanners?.map((banner, index) => (
               <span key={index} className="ai-card__attack-banner invert-icons" style={{ backgroundColor: getGateColor(banner.gate?.gateType || "danger") }}>
-                {utils.getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: <FormattedParagraph paragraph={banner.effect} />
+                {getIcon(banner.gate?.gateType, undefined, "icon-" + index)} {banner.gate?.gateValue}: <FormattedParagraph paragraph={banner.effect} />
               </span>
             ))}
           </div>

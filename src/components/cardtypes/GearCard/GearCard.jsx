@@ -1,11 +1,11 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph, { FormattedSentence, GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleTextColor, getGateColor } from "../../../lib/colors.js"
 import WeaponRenderer from "../../WeaponRenderer.jsx";
 import { DiceStack } from "../../DiceStack.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
+import { createPowerGate } from "../../utils/gateUtils.jsx";
 
 const GearCard = ({ gear, index, currentSide }) => {
   let side = currentSide
@@ -16,11 +16,11 @@ const GearCard = ({ gear, index, currentSide }) => {
   return (
     <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()} papyrus`} >
       <div className="card-info">
-        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{utils.getIcon(gear["slot" + side], undefined, undefined, "2.1em", "0em")}</div></div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon(gear["slot" + side], undefined, undefined, "2.1em", "0em")}</div></div>
         <div className="gear-title" style={{ color: getCyclePrimaryColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
           {gear["name" + side]}
         </div>
-        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{utils.getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon("Gear", undefined, undefined, "2em", "0em")}</div></div>
       </div>
 
       {/* Stats and Image */}
@@ -65,14 +65,14 @@ const GearCard = ({ gear, index, currentSide }) => {
                       {
                         defensiveStat.gate.type === "Hits" ? defensiveStat.gate.value + " " + (defensiveStat.gate.value === "1" ? "Hit" : "Hits")
                           : defensiveStat.gate.type === "Full Hit" ? "Full Hit"
-                            : utils.createPowerGate(defensiveStat.gate.type, defensiveStat.gate.value)
+                            : createPowerGate(defensiveStat.gate.type, defensiveStat.gate.value)
                       }
                     </span>
                   </div>
                 )}
                 {defensiveStat.type === "Armor"
                   ? <DiceStack diceArray={defensiveStat.armorDice} diceType="Armor"/>
-                  : <>{defensiveStat.amount} {utils.getIcon(defensiveStat.type, "Armor", undefined, "1.5em")}</>
+                  : <>{defensiveStat.amount} {getIcon(defensiveStat.type, "Armor", undefined, "1.5em")}</>
                 }
               </div>
             )

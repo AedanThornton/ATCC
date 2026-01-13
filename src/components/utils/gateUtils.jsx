@@ -1,5 +1,3 @@
-import React from "react";
-
 const icons = {}
 const modules = import.meta.glob("/src/assets/icons/*.svg", { eager: true });
 
@@ -164,9 +162,5 @@ const PowerGate = ({ icon, value }) => {
     );
 };
 
-const utils = {
-    createAbilityGate: (icon, value, fill = "none") => <AbilityGate icon={icon} value={value} fill={fill}></AbilityGate>,
-    createPowerGate: (icon, value) => <PowerGate icon={icon} value={value}></PowerGate>
-};
-  
-export default utils;
+export const createAbilityGate = (icon, value, fill = "none") => <AbilityGate icon={icon} value={value} fill={fill}></AbilityGate>
+export const createPowerGate = (icon, value) => <PowerGate icon={icon} value={value}></PowerGate>

@@ -1,6 +1,5 @@
 import "/src/styles/cardsStyle.css"
 import "./ConditionCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 
 const ConditionCard = ({ condition, index, currentSide }) => {
   let side = currentSide

@@ -1,14 +1,14 @@
 import "/src/styles/cardsStyle.css"
 import "./TraitCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 
 const TraitCard = ({ trait, index }) => {
   return (
     <div className={`card trait ${trait.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
       <div>
         <div className="title-row">
-          <div className="title-icon"><div className="trait-icon">{utils.getIcon(trait.primordial, undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="title-icon"><div className="trait-icon">{getIcon(trait.primordial, undefined, undefined, "2.1em", "0em")}</div></div>
           <div className="trait-title" style={{ fontSize: Math.min(19, 400 / (1.1 * trait.name.length)) }}>
             {trait.name.toUpperCase()}
           </div>

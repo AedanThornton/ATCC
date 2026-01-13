@@ -1,9 +1,11 @@
+import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./PrimordialCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
-import FormattedParagraph, { FormattedSentence } from "../../FormattedParagraph.jsx";
+import FormattedParagraph from "../../FormattedParagraph.jsx";
 import { useState } from "react";
 import primordialAbilities from "../../../data/JSON/primordialAbilityData.json";
+import getIcon from "../../utils/iconUtils.jsx";
+import FocusCardOverlay from "../../FocusCardOverlay.jsx";
 
 const toRoman = (num) => {
   var charset = {
@@ -21,6 +23,63 @@ const toRoman = (num) => {
   return charset[num]
 }
 
+const traitIDs = {
+	"Viscious": "AX0446",  
+	"Song Of Hopelessness": "AX0517",
+	"Lesser Danger Sense":  "BX0715",
+	"Slime Trail":  "BX0764",
+	"This Train": "BX0765",
+	"Highly Toxic": "BX0768",
+	"Burden Hardest To Bear": "BX1158",
+	"Backwards Momentum": "CT1326",
+	"Death By Fate":  "CT1329",
+	"Rapid Adaptation": "CX1679",
+	"Predator": "CX1681",
+	"Quantum Eye":  "DX2387",
+	"Bleak Outlook":  "DX2388",
+	"Abundance Has Impoverished You": "DX2389",
+	"You Will Never Win": "DX2390",
+	"Reap the Ashes": "DX2391",
+	"Years to Rust":  "DX2392",
+	"Inverted Battle":  "DX2393",
+	"Amongst the Bleached Bones": "DX3221",
+	"Incremental Painment": "DX3222",
+	"Wish for a Wish":  "DX3223",
+	"Moon Call":  "DX3224",
+	"Total Eclipse":  "DX3225",
+	"God's Breath": "DX3226",
+	"Smother":  "EX3019",
+	"Oxygen and Aether":  "EX3020",
+	"Phobian Hierarchy":  "EX3211",
+	"A Truth for a Truth":  "EX3212",
+	"Fat with Fear":  "EX3213",
+	"Fat with Light": "EX3213",
+	"A Lie For a Truth":  "EX3214",
+	"Clicks & Pings": "EX3215",
+	"Slow Boiling": "EX3216",
+	"Hide & Heatseek":  "EX3217",
+	"Mortal Kindling":  "EX3218",
+	"Toying": "EX3219",
+	"Just a Memory":  "EX3244",
+	"All For One":  "BX1059",
+	"Ticking Clock":  "BX1060",
+	"Argo's Parting Gift":  "EX3227",
+	"All for All":  "EX3246",
+	"All Good Things":  "EX3247",
+	"Scarred":  "AX9968",
+	"Time's Woe Momentum":  "CR9994",
+	"Argo-Drift Cryptex": "ZX9998",
+	"Wise Providence":  "ZX9999",
+	"Pitiless Sun": "CV1817",
+	"God Among Men":  "CV1818",
+	"Race the Sun": "CV1819",
+	"Pitiless Sun (Old Haunt)": "DV2536",
+	"God Among Men (Old Haunt)":  "DV2537",
+	"Glass It All": "DV2538",
+	"Old Wounds": "DV2539",
+	"Blackbeak Traits": "EX3143",
+}
+
 const PrimordialCard = ({ primordial, index }) => {
   const [currentLevel, setCurrentLevel] = useState(0)
 
@@ -35,10 +94,10 @@ const PrimordialCard = ({ primordial, index }) => {
             </div>
 
             <div className="primordial-statbar">
-              <div>{utils.getIcon("Tile_" + primordial.figure_size)}</div>
+              <div>{getIcon("Tile_" + primordial.figure_size)}</div>
               {primordial.diagramEffects?.map((effect, index) => (
                 <div key={index}>
-                  {utils.getIcon(effect)}
+                  {getIcon(effect)}
                 </div>
               ))}
             </div>
@@ -73,13 +132,13 @@ const PrimordialCard = ({ primordial, index }) => {
               <div className="primordial-attributes__main">
                 <div className="primordial-attributes__main-stat-box">
                   <div style={{borderColor: "#107975"}}>
-                    {utils.getIcon("ToHit", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.toHit}+</div></div>
+                    {getIcon("ToHit", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.toHit}+</div></div>
                 <div className="primordial-attributes__main-stat-box">
                   <div style={{borderColor: "#2f3f66"}} className="primordial-speed">
-                    {utils.getIcon("Speed", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.speed === "Inf" ? "∞" : primordial.levels[currentLevel]?.speed}</div></div>
+                    {getIcon("Speed", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.speed === "Inf" ? "∞" : primordial.levels[currentLevel]?.speed}</div></div>
                 <div className="primordial-attributes__main-stat-box">
                   <div style={{borderColor: "#931e23"}}>
-                    {utils.getIcon("Wounds", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.wounds}</div></div>
+                    {getIcon("Wounds", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.wounds}</div></div>
               </div>
               <div className="primordial-attributes__bonus">
                 {Array.from({ length: 4 }, (_, i) => {
@@ -87,7 +146,7 @@ const PrimordialCard = ({ primordial, index }) => {
                   return primordial.levels[currentLevel]?.attributes[i]
                   ? (
                     <div key={i} className="primordial-attributes__bonus-stat-box">
-                      <span>+{primordial.levels[currentLevel]?.attributes[i].count} {utils.getIcon(attr[0])} {attr.length > 1 && attr.shift() && attr.join(" ")}</span>
+                      <span>+{primordial.levels[currentLevel]?.attributes[i].count} {getIcon(attr[0])} {attr.length > 1 && attr.shift() && attr.join(" ")}</span>
                     </div>)
                   : <div key={i} className="primordial-attributes__bonus-stat-placeholder"></div>
                 })}
@@ -103,15 +162,17 @@ const PrimordialCard = ({ primordial, index }) => {
 
           <div className="primordial-traits">
             {primordial.levels[currentLevel]?.traitsFullList.map((trait, index) => (
-              <>
-                <div className="primordial-section-header">{trait.toUpperCase()}</div>
-                <p key={index}>
-                  { primordialAbilities[trait] 
-                    ? <FormattedParagraph paragraph={primordialAbilities[trait]} />
-                    : <i>Ability definition not found</i>
+              <React.Fragment key={index}>
+                <div className="primordial-section-header">
+                  {primordialAbilities[trait]
+                    ? <span>{trait.toUpperCase()}</span>
+                    : <FocusCardOverlay cardID={traitIDs[trait]}>{trait.toUpperCase()}</FocusCardOverlay>
                   }
+                </div>
+                <p>
+                  {primordialAbilities[trait] && <FormattedParagraph paragraph={primordialAbilities[trait].mainDef} />}
                 </p>
-              </>
+              </React.Fragment>
             ))}
           </div>
         </div>

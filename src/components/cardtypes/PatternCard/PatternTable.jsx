@@ -1,5 +1,4 @@
-import React from "react";
-import utils from "../../utils/index";
+import getIcon from "../../utils/iconUtils"
 
 const PatternTable = ({table, type}) => (
     <div className={`pattern-table ${type.toLowerCase()}-table`} key={type}>
@@ -11,9 +10,9 @@ const PatternTable = ({table, type}) => (
                 <div key={index} className="kratos-row" style={{justifyContent: (row.length === 1 && 'center')}}>
                     {row.map((option, index) =>
                     <div key={index} className="kratos-option">
-                        {option[0].x_value && `${option[0].x_value} `}{utils.getIcon(option[0].name, option[0].x_value ? undefined : "Power", undefined, "1.3rem")}
-                        {option[1]?.name && (<>{" +"}{option[1].x_value && `${option[1].x_value} `}{utils.getIcon(option[1].name, option[1].x_value ? undefined : "Power", undefined, "1.3rem")}</>)}
-                        {option[2]?.name && (<>{" +"}{option[2].x_value && `${option[2].x_value} `}{utils.getIcon(option[2].name, option[2].x_value ? undefined : "Power", undefined, "1.3rem")}</>)}
+                        {option[0].x_value && `${option[0].x_value} `}{getIcon(option[0].name, option[0].x_value ? undefined : "Power", undefined, "1.3rem")}
+                        {option[1]?.name && (<>{" +"}{option[1].x_value && `${option[1].x_value} `}{getIcon(option[1].name, option[1].x_value ? undefined : "Power", undefined, "1.3rem")}</>)}
+                        {option[2]?.name && (<>{" +"}{option[2].x_value && `${option[2].x_value} `}{getIcon(option[2].name, option[2].x_value ? undefined : "Power", undefined, "1.3rem")}</>)}
                     </div>
                     )}
                 </div>
@@ -25,7 +24,7 @@ const PatternTable = ({table, type}) => (
             <div key={index} className="trauma-row">
                 <div>{row.range}</div>
                 <div style={{width: "2rem", display: "flex", justifyContent: "center"}}>
-                    {utils.getIcon(row.type, undefined, undefined, "2.5rem")}
+                    {getIcon(row.type, undefined, undefined, "2.5rem")}
                 </div>
             </div> 
         ))

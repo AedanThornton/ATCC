@@ -1,7 +1,5 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./DahakaCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import {getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary} from "../../../lib/colors.js"
 import AttackCard from "../AttackCard/AttackCard.jsx"
 import BPCard from "../BPCard/BPCard.jsx"

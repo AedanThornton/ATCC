@@ -1,6 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
 import FocusCardOverlay from "../../FocusCardOverlay.jsx";
 
 const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
@@ -8,7 +8,7 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
     <div className={`card technology ${productionFacility.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
-          <div className="title-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="title-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
           <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * productionFacility.name.length)) }}>
             {productionFacility.name}
           </div>
@@ -28,7 +28,7 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
                   return (
                     <>
                     {req.startsWith("@ArgoKnowledge") 
-                      ? <>{utils.getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                      ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
                       : req}
                     {!(i >= array.length - 1) && ", "}
                     </>

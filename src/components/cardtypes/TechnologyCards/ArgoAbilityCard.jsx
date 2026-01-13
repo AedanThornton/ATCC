@@ -1,14 +1,14 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
-import FormattedParagraph, { FormattedSentence } from "../../FormattedParagraph.jsx";
+import getIcon from "../../utils/iconUtils.jsx";
+import { FormattedSentence } from "../../FormattedParagraph.jsx";
 
 const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
   return (
     <div className={`card technology ${argoAbility.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
-          <div className="title-icon"><div className={`icon ${argoAbility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{utils.getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="title-icon"><div className={`icon ${argoAbility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
           <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * argoAbility.name.length)) }}>
             {argoAbility.name}
           </div>
@@ -28,7 +28,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
                 return (
                   <>
                   {req.startsWith("@ArgoKnowledge") 
-                    ? <>{utils.getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                    ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
                     : req}
                   {!(i >= array.length - 1) && ", "}
                   </>
@@ -59,7 +59,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
           ))}
 
           <div className="technology-aa-box">
-            {argoAbility.trireme === "TRUE" && (<div className="technology-aa-charges">{utils.getIcon("Trireme")}</div>)}
+            {argoAbility.trireme === "TRUE" && (<div className="technology-aa-charges">{getIcon("Trireme")}</div>)}
             {argoAbility.charges && (<div className="technology-aa-charges">{argoAbility.charges}</div>)}
           </div>
         </div>

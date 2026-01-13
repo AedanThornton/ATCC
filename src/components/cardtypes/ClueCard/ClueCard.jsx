@@ -1,7 +1,5 @@
-import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./ClueCard.css"; // Add corresponding CSS for styling
-import utils from "../../utils/index.jsx";
 import FormattedParagraph from "../../FormattedParagraph.jsx";
 
 const ClueCard = ({ clue, index }) => {

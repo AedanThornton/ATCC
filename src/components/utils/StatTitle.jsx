@@ -9,7 +9,7 @@ function getTextWidth(text, font) {
   return metrics.width;
 }
 
-const StatTitle = ({ text, color, bkgdColor, stat }) => {
+const StatTitle = ({ text, color = "#FFF", bkgdColor = "#000", stat = "1" }) => {
 
     const lengthAdjustment = 0.95 * getTextWidth(text, "bold 26pt 'Times New Roman'")
     const statAdjustment = 0.6 * getTextWidth(stat, "bold 26pt 'Times New Roman'")
@@ -94,9 +94,5 @@ const StatTitle = ({ text, color, bkgdColor, stat }) => {
         </svg>
     );
 };
-
-const utils = {
-    createStatTitle: (text, color = "#FFF", bkgdColor = "#000", stat = "1") => <StatTitle text={text} color={color} bkgdColor={bkgdColor} stat={stat}></StatTitle>,
-};
   
-export default utils;
+export default StatTitle;
