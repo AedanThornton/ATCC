@@ -762,6 +762,34 @@
       }
     ]
   },
+  "Despair Limit X/+X": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "The number of Despair tokens it takes to kill you becomes X or is increased by X, respectively"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you have more than one instance of the former, then the one with the greatest X is used (before applying modifiers)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Despair Limit X does not stack, Despair Limit +X does"
+          }
+        ]
+      }
+    ]
+  },
   "Displace": {
     "mainDef": [
       {
@@ -2648,7 +2676,7 @@
       }
     ]
   },
-  "Rollout": {
+  "Roll Out": {
     "mainDef": [
       {
         "abilityText": [
@@ -2925,7 +2953,7 @@
         ]
       }
     ],
-    "subName0": "Full Stanch (X)",
+    "subName0": "Superior Stanch (X)",
     "subDef0": [
       {
         "abilityText": [
@@ -3777,8 +3805,16 @@
       }
     ]
   },
-  "Ambrosia: When a Titan ends its movement on this tile (voluntarily or not), it gains 1 Ambrosia token": {
+  "Ambrosia": {
     "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When a Titan ends its movement on this tile (voluntarily or not), it gains 1 Ambrosia token"
+          }
+        ]
+      },
       {
         "abilityText": [
           {

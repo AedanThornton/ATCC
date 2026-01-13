@@ -3,23 +3,43 @@ import './utils.css';
 
 import StandardKeywords from '/src/data/JSON/keywords.json';
 import TitanAbilities from '/src/data/JSON/titanAbilityData.json';
+import PrimordialAbilities from '/src/data/JSON/primordialAbilityData.json'
 import FormattedParagraph from '../FormattedParagraph';
 
-const Keywords = {...TitanAbilities, ...StandardKeywords}
+const Keywords = {...TitanAbilities, ...StandardKeywords, ...PrimordialAbilities}
+
+const keywordLookup = {};
+
+Object.entries(Keywords).forEach(([key, def]) => {
+  keywordLookup[key.toLowerCase()] = key; // main name
+  Object.keys(def)
+    .filter(k => k.startsWith("subName"))
+    .forEach(subKey => {
+      keywordLookup[def[subKey]] = key; // map subName → main key
+    });
+});
 
 const createTooltip = (name, index) => {
-  let keyword="";
-  if (Keywords[name]) keyword = name;
-  else if (Keywords[name + " X"]) keyword = name + " X";
-  else if (Keywords[name + " X/+X"]) keyword = name + " X/+X";
-  else if (Keywords[name.split(' ').slice(1).join(' ')]) keyword = name.split(' ').slice(1).join(' ');
-  else if (Keywords[name.split(' ').slice(1).join(' ') + " X"]) keyword = name.split(' ').slice(1).join(' ') + " X";
-  else if (Keywords[name.slice(0, -1) + "X"]) keyword = name.slice(0, -1) + "X";
-  else if (name.slice(0, -1).endsWith("Limit ") && Keywords[name.slice(0, -1) + "X/+X"]) keyword = name.slice(0, -1) + "X/+X";
-  else if (name.slice(0, -2).endsWith("Limit ") && Keywords[name.slice(0, -2) + "X/+X"]) keyword = name.slice(0, -2) + "X/+X";
-  else if (name.startsWith("Ranged")) keyword = "Ranged Y\u2013X";
-  else if (name === "Commit") keyword = "Commit (X)";
-  else return name;
+  let isAuto = false
+  if (name.startsWith("Auto-")) {
+    name = name.slice(5)
+    isAuto = true
+  }
+
+  const keyword =
+    keywordLookup[name.toLowerCase()] ||
+    keywordLookup[name.toLowerCase() + " x"] ||
+    keywordLookup[name.toLowerCase().slice(0, -1) + "x"] ||
+    keywordLookup[name.toLowerCase().slice(0, -2) + "x"] ||
+    keywordLookup[name.toLowerCase() + " x/+x"] ||
+    keywordLookup[name.toLowerCase().slice(0, -1) + "x/+x"] ||
+    keywordLookup[name.toLowerCase().slice(0, -2) + "x/+x"] ||
+    keywordLookup[name.toLowerCase() + " (x)"] ||
+    keywordLookup[name.toLowerCase().split(' ').slice(1).join(' ')] ||
+    keywordLookup[name.toLowerCase().split(' ').slice(1).join(' ') + " x"] ||
+    (name.toLowerCase().startsWith("ranged") && "ranged y–x") ||
+    name;
+  if (!Keywords[keyword]) return `${isAuto && "Auto-"}name`
 
   const keywordData = Keywords[keyword];
 
@@ -32,23 +52,28 @@ const createTooltip = (name, index) => {
       appendTo={document.body}
       content={
         <div className="tooltip">
-          <div className='tooltip-title'>{keyword}</div>
+          <div className='tooltip-title'>{isAuto && "Auto-"}{keyword}</div>
             <span>
+              {isAuto && <>
+                <span>"Auto-" makes the following ability trigger during the first ability window instead of the listed timing</span>
+                <br />
+                <br />
+              </>}
               <FormattedParagraph paragraph={keywordData.mainDef} inLineGate={true} />
-              {Array.from({ length: 8 }, (x, i) => {
-                {keywordData["subName" + x] && 
+              {Array.from({ length: 8 }, (_, i) => {
+                return<>{keywordData["subName" + i] && 
                   <>
-                    <div className='tooltip-subtitle' key={"subtitle-" + i}>{keywordData["subName" + x]}</div>
-                    {keywordData["subDef" + x] ? <FormattedParagraph paragraph={keywordData["subDef" + x]} inLineGate={true} /> : <span>Missing definition...</span>}
+                    <div className='tooltip-subtitle' key={"subtitle-" + i}>{keywordData["subName" + i]}</div>
+                    {keywordData["subDef" + i] ? <FormattedParagraph paragraph={keywordData["subDef" + i]} inLineGate={true} /> : <span>Missing definition...</span>}
                   </>
-                }
+                }</>
               })}
               
             </span>
         </div>
       }
     >
-      <span className="tooltip-trigger">{name}</span>
+      <span className="tooltip-trigger">{isAuto && "Auto-"}{name}</span>
     </Tippy>
   );
 };
