@@ -6,7 +6,7 @@ import FilterSidebar from './FilterSidebar';
 import ControlBar from "./ControlBar";
 import SearchBar from './SearchBar';
 
-function Layout() {
+function Layout({ isCatalog = false }) {
   const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false);
 
   return (
@@ -28,7 +28,7 @@ function Layout() {
             </nav>
           </div>
           
-          <ControlBar />
+          {isCatalog && <ControlBar />}
 
           <div className='top-menu'>
             <div className='filters-menu'>
@@ -43,15 +43,15 @@ function Layout() {
           </div>
         </div>
 
-        <SearchBar />
+        {isCatalog && <SearchBar />}
         
       </header>
       <main className="app">
         <Outlet />
       </main>
-      {/*<footer className="app-footer">
-        <p>Temp Footer</p>
-      </footer>*/}
+      <footer className="app-footer">
+        <span>This site is fan-made, unofficial, and unaffiliated with Into the Unknown Studios</span>
+      </footer>
     </div>
   );
 }

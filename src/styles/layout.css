@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+.app-footer {
+  text-align: center;
+}
+
 .top-menu {
   position: relative;
   flex: 1;
