@@ -17,7 +17,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "When you would receive Knockdown while adjacent to the Primordial, resolve Vault instead"
+            "value": "When you would receive Knockdown while adjacent to the Primordial, resolve"
+          },
+          {
+            "type": "keyword",
+            "value": "Vault"
+          },
+          {
+            "type": "plainText",
+            "value": "instead"
           }
         ]
       }
@@ -29,7 +37,19 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Titans in Zone X suffer Knockdown and Knockback 1"
+            "value": "Titans in Zone X suffer"
+          },
+          {
+            "type": "keyword",
+            "value": "Knockdown"
+          },
+          {
+            "type": "plainText",
+            "value": "and"
+          },
+          {
+            "type": "keyword",
+            "value": "Knockback 1"
           }
         ]
       }
@@ -69,19 +89,23 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the Power Roll, ignore Hardened"
+            "value": "During the Power Roll, ignore"
+          },
+          {
+            "type": "keyword",
+            "value": "Hardened"
           }
         ]
       }
     ]
   },
-  "Armor Reroll X": {
+  "Armor Re-roll X": {
     "mainDef": [
       {
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the Armor Roll step of a Primordial Attack Sequence, you may reroll up to X Armor dice"
+            "value": "During the Armor Roll step of a Primordial Attack Sequence, you may re-roll up to X Armor dice"
           }
         ]
       }
@@ -105,7 +129,23 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During another Titan\u2019s Power Roll, if, after applying all bonuses, their total Power is less than the AT value and you are within your weapon\u2019s range, you may gain 1 Rage and a Combat Fatigue to immediately add X Break tokens to the Kratos Pool"
+            "value": "During another Titan\u2019s Power Roll, if, after applying all bonuses, their total Power is less than the AT value and you are within your weapon\u2019s range, you may gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          },
+          {
+            "type": "plainText",
+            "value": "and a"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          },
+          {
+            "type": "plainText",
+            "value": "Fatigue to immediately add X Break tokens to the Kratos Pool"
           }
         ]
       },
@@ -119,7 +159,7 @@
       }
     ]
   },
-  "Attack Reroll X": {
+  "Attack Re-roll X": {
     "mainDef": [
       {
         "abilityText": [
@@ -151,13 +191,24 @@
       }
     ]
   },
-  "Awakening Lock": {
+  "Husk": {
     "mainDef": [
       {
         "abilityText": [
           {
             "type": "plainText",
             "value": "You cannot Awaken"
+          }
+        ]
+      }
+    ],
+    "subName0": "Awakening Lock",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "See Husk"
           }
         ]
       }
@@ -169,31 +220,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place X Black tokens (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "6) in the Kratos Pool"
+            "value": "During the second ability window, place X Black tokens in the Kratos Pool"
           }
         ]
       }
@@ -205,7 +232,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Gain the Bleeding Condition card (unless you already have it) and place X Bleeding tokens on it"
+            "value": "Gain the"
+          },
+          {
+            "type": "cardRef",
+            "value": "Bleeding",
+            "refID": "CL1283"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card (unless you already have it) and place X Bleeding tokens on it"
           }
         ]
       }
@@ -257,31 +293,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place X Break tokens (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1) in the Kratos Pool"
+            "value": "During the second ability window, place X Break tokens in the Kratos Pool"
           }
         ]
       }
@@ -321,7 +333,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Gain 1 Danger for each Metal Gear card you have equipped and discard all Flammable Gear cards"
+            "value": "Gain 1 Danger for each"
+          },
+          {
+            "type": "italics",
+            "value": "Metal"
+          },
+          {
+            "type": "plainText",
+            "value": "Gear card you have equipped and discard all Flammable Gear cards"
           }
         ]
       },
@@ -329,7 +349,23 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If this is part of a Primordial Attack Sequence, add the Danger gained to the Danger gained from hits"
+            "value": "If this is part of a Primordial Attack Sequence, add the"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": "gained to the"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": "gained from hits"
           }
         ]
       }
@@ -411,31 +447,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place X Closing tokens (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "8) in the Kratos Pool"
+            "value": "During the second ability window, place X Closing tokens in the Kratos Pool"
           }
         ]
       }
@@ -447,7 +459,11 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the Power Roll step, if, after applying bonuses, you have less total Power than the AT value by exactly 1, you may gain 1 Power"
+            "value": "During the Power Roll step, if, after applying bonuses, you have less total Power than the AT value by exactly 1, you may gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
           }
         ]
       },
@@ -514,23 +530,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "This Keyword forces a cost to pay in order to declare this Weapon as an Active Weapon (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "5"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1)"
+            "value": "This Keyword forces a cost to pay in order to declare this Weapon as an Active Weapon"
           }
         ]
       },
@@ -543,7 +543,7 @@
         ]
       }
     ],
-    "subDef0": "\u2026no parentheses, you must gain 1 Fate to declare this weapon as your active weapon.",
+    "subDef0": "\u2026no parentheses, you must gain 1 @Fate to declare this weapon as your active weapon.",
     "subDef1": "\u2026X is a negative token, you must gain 1 of that token type to declare this weapon as your active weapon.",
     "subDef2": "\u2026X is a positive token, you must discard 1 of that  token type to declare this weapon as your active weapon.",
     "subDef3": "\u2026X is a Charge token, you must discard 1 Charge token to declare this weapon as your active weapon."
@@ -566,7 +566,20 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Gain 1 Danger and Knockdown"
+            "value": "Gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": "and"
+          },
+          {
+            "type": "cardRef",
+            "value": "Knockdown",
+            "refID": "AL0303"
           }
         ]
       }
@@ -666,7 +679,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Gain the Death Condition card (unless you already have it) and place X Condition tokens on it"
+            "value": "Gain the"
+          },
+          {
+            "type": "cardRef",
+            "value": "Death",
+            "refID": "CL1287"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card (unless you already have it) and place X Condition tokens on it"
           }
         ]
       },
@@ -675,6 +697,26 @@
           {
             "type": "plainText",
             "value": "If you already have the Death Condition card and X is lower than the number of Condition tokens you have, discard Condition tokens until you X matches"
+          }
+        ]
+      }
+    ]
+  },
+  "Deflate": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Discard the Float Condition card"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may use this ability while floating"
           }
         ]
       }
@@ -706,7 +748,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "At the end of the Attack, gain a Combat Fatigue token and draw an Obol"
+            "value": "At the end of the Attack, gain a"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          },
+          {
+            "type": "plainText",
+            "value": "Fatigue token and draw an Obol"
           }
         ]
       }
@@ -738,31 +788,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place a Diversion token (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "3) in the Kratos Pool"
+            "value": "During the second ability window, place a Diversion token in the Kratos Pool"
           }
         ]
       }
@@ -786,7 +812,11 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During this effect, dice cannot be re-rolled using Fate"
+            "value": "During this effect, dice cannot be re-rolled using"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
           }
         ]
       }
@@ -798,7 +828,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "You must gain 2 Fate to declare this weapon as your active weapon"
+            "value": "You must gain 2"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "to declare this weapon as your active weapon"
           }
         ]
       }
@@ -810,31 +848,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, you may discard X Despair tokens or Ambrosia tokens to place X Opening tokens in the Kratos Pool (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "2)"
+            "value": "During the second ability window, you may discard X Despair tokens or Ambrosia tokens to place X Opening tokens in the Kratos Pool"
           }
         ]
       }
@@ -846,31 +860,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Escalate X times (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "5"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "10"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "6)"
+            "value": "Escalate X times"
           }
         ]
       },
@@ -890,7 +880,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "You may reroll up to X successful evasion dice to lose 1 Fate for each rerolled"
+            "value": "You may re-roll up to X successful evasion dice to lose 1"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "for each re-rolled"
           }
         ]
       },
@@ -962,7 +960,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "This card\u2019s Armor Dice may also be used to mitigate Fate dealt by Primordial Attacks"
+            "value": "This card\u2019s Armor Dice may also be used to mitigate"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "dealt by Primordial Attacks"
           }
         ]
       },
@@ -970,7 +976,23 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If you are dealt Fate and Danger, you may distribute the mitigation between the two"
+            "value": "If you are dealt"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "and"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": ", you may distribute the mitigation between the two"
           }
         ]
       }
@@ -994,31 +1016,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place X Fire tokens (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "4) in the Kratos Pool"
+            "value": "During the second ability window, place X Fire tokens in the Kratos Pool"
           }
         ]
       }
@@ -1030,7 +1028,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Gain the Float Condition card, Float (up) side up, and place your miniature on its side"
+            "value": "Gain the"
+          },
+          {
+            "type": "cardRef",
+            "value": "Float",
+            "refID": "DL2023"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card, Float (up) side up, and place your miniature on its side"
           }
         ]
       }
@@ -1062,7 +1069,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "To Glaciate a space, place a Black Iceberg Terrain tile there"
+            "value": "To Glaciate a space, place a"
+          },
+          {
+            "type": "cardRef",
+            "value": "Black Iceberg",
+            "refID": "CI1313"
+          },
+          {
+            "type": "plainText",
+            "value": "Terrain tile there"
           }
         ]
       }
@@ -1073,7 +1089,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "To Giant Glaciate a space, place a Giant Black Iceberg Terrain tile there"
+            "value": "To Giant Glaciate a space, place a"
+          },
+          {
+            "type": "cardRef",
+            "value": "Giant Black Iceberg",
+            "refID": "CI1314"
+          },
+          {
+            "type": "plainText",
+            "value": "Terrain tile there"
           }
         ]
       }
@@ -1097,7 +1122,11 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "A BP card with this keyword has +2 AT"
+            "value": "A BP card with this keyword has +2"
+          },
+          {
+            "type": "icon",
+            "value": "AT"
           }
         ]
       },
@@ -1157,23 +1186,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the Draw BP card step of a Titan Attack Sequence (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "5"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "6), you may look at the top two BP cards and choose which one to attack"
+            "value": "During the Draw BP card step of a Titan Attack Sequence, you may look at the top two BP cards and choose which one to attack"
           }
         ]
       },
@@ -1286,7 +1299,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If you have the Priority Target token, pass it to the Titan with the highest Rage other than you"
+            "value": "If you have the"
+          },
+          {
+            "type": "icon",
+            "value": "PriorityTarget"
+          },
+          {
+            "type": "plainText",
+            "value": "Priority Target token, pass it to the Titan with the highest Rage other than you"
           }
         ]
       }
@@ -1297,7 +1318,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "As long as you are Hidden, you have +1 Evasion and +1 Precision"
+            "value": "As long as you are Hidden, you have +1"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          },
+          {
+            "type": "plainText",
+            "value": "and +1 Precision"
           }
         ]
       },
@@ -1305,7 +1334,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "You stop being Hidden if you move in front of the Primordial, gain the Priority Target token, after the second ability window of your Attack, or at the end of your next turn"
+            "value": "You stop being Hidden if you move in front of the Primordial, gain the"
+          },
+          {
+            "type": "icon",
+            "value": "PriorityTarget"
+          },
+          {
+            "type": "plainText",
+            "value": "Priority Target token, after the second ability window of your Attack, or at the end of your next turn"
           }
         ]
       },
@@ -1333,31 +1370,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place X Hope tokens (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "7) in the Kratos Pool"
+            "value": "During the second ability window, place X Hope tokens in the Kratos Pool"
           }
         ]
       }
@@ -1381,7 +1394,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Place an Inkblot Terrain tile under the Primordial"
+            "value": "Place an"
+          },
+          {
+            "type": "cardRef",
+            "value": "Inkblot",
+            "refID": "EI2605"
+          },
+          {
+            "type": "plainText",
+            "value": "Terrain tile under the Primordial"
           }
         ]
       }
@@ -1474,7 +1496,11 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If a Titan would be forced to move through a Destructible Obstacle Terrain tile, stop its movement, remove the Terrain tile from the Battle Board and place the Titan in its space, then the Titan suffers CRASH"
+            "value": "If a Titan would be forced to move through a Destructible Obstacle Terrain tile, stop its movement, remove the Terrain tile from the Battle Board and place the Titan in its space, then the Titan suffers"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
           }
         ]
       }
@@ -1485,7 +1511,11 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If a Titan would be forced to move through an Indestructible Obstacle, it stops on an adjacent space right before the Obstacle instead, then suffers CRASH"
+            "value": "If a Titan would be forced to move through an Indestructible Obstacle, it stops on an adjacent space right before the Obstacle instead, then suffers"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
           }
         ]
       }
@@ -1504,7 +1534,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "They destroy any Terrain tiles (except Indestructible) they move through and cause CRASH and Unavoidable Knockback to Titans as normal"
+            "value": "They destroy any Terrain tiles (except Indestructible) they move through and cause"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
+          },
+          {
+            "type": "plainText",
+            "value": "and Unavoidable Knockback to Titans as normal"
           }
         ]
       }
@@ -1577,7 +1615,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Each Laser Attack hit deals X less Danger to you"
+            "value": "Each Laser Attack hit deals X less"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "plainText",
+            "value": "to you"
           }
         ]
       },
@@ -1717,7 +1763,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If possible, place a Petrified Vent Terrain tile centered under the Primordial and the Primordial disappears"
+            "value": "If possible, place a"
+          },
+          {
+            "type": "cardRef",
+            "value": "Petrified Vent",
+            "refID": "EI2606"
+          },
+          {
+            "type": "plainText",
+            "value": "Terrain tile centered under the Primordial and the Primordial disappears"
           }
         ]
       }
@@ -1753,7 +1808,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During an Attack Roll, you may reroll 1s with no cost"
+            "value": "During an Attack Roll, you may re-roll 1s with no cost"
           }
         ]
       }
@@ -1765,23 +1820,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Place X Midas tokens (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "7"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "16) on your gear cards"
+            "value": "Place X Midas tokens on your gear cards"
           }
         ]
       }
@@ -1857,31 +1896,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place X Opening tokens in the Kratos Pool (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "2)"
+            "value": "During the second ability window, place X Opening tokens in the Kratos Pool"
           }
         ]
       }
@@ -1895,31 +1910,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "(Cycles 1-3 only) During the second ability window, if your Total Power exceeds the AT value by at least 1, place X Break tokens in the Kratos Pool (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
+            "value": "(Cycles 1-3 only) During the second ability window, if your Total Power exceeds the"
+          },
+          {
+            "type": "icon",
+            "value": "AT"
+          },
           {
             "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1)"
+            "value": "value by at least 1, place X Break tokens in the Kratos Pool"
           }
         ]
       }
@@ -1938,7 +1937,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Then, if your Total Power exceeds the AT value by at least 1, place up to X additional Break tokens but no more than the exceeded value"
+            "value": "Then, if your Total Power exceeds the"
+          },
+          {
+            "type": "icon",
+            "value": "AT"
+          },
+          {
+            "type": "plainText",
+            "value": "value by at least 1, place up to X additional Break tokens but no more than the exceeded value"
           }
         ]
       }
@@ -2002,13 +2009,13 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During either the First or second ability window, if you\u2019re adjacent to the Primordial, you may place your Titan on any other empty space adjacent to the Primordial"
+            "value": "During either the first or second ability window, if you\u2019re adjacent to the Primordial, you may place your Titan on any other empty space adjacent to the Primordial"
           }
         ]
       }
     ]
   },
-  "Power Reroll X": {
+  "Power Re-roll X": {
     "mainDef": [
       {
         "abilityText": [
@@ -2026,23 +2033,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the Draw a BP card step (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "5"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "6), after drawing the card you may choose to draw the top card of the BP discard instead"
+            "value": "During the Draw a BP card step, after drawing the card you may choose to draw the top card of the BP discard instead"
           }
         ]
       },
@@ -2062,7 +2053,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the first ability window, gain the Priority Target token and turn the Primordial to face you"
+            "value": "During the first ability window, gain the"
+          },
+          {
+            "type": "icon",
+            "value": "PriorityTarget"
+          },
+          {
+            "type": "plainText",
+            "value": "Priority Target token and turn the Primordial to face you"
           }
         ]
       }
@@ -2123,7 +2122,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "a Column), remove the Terrain tile from the Battle Board, the Titan suffers CRASH, then continue the Pull"
+            "value": "a Column), remove the Terrain tile from the Battle Board, the Titan suffers"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
+          },
+          {
+            "type": "plainText",
+            "value": ", then continue the Pull"
           }
         ]
       }
@@ -2134,7 +2141,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If a Titan is about to be pulled into an Indestructible Obstacle, it suffers CRASH and continues to move along the Obstacle\u2019s edge along the shortest possible path towards the Primordial"
+            "value": "If a Titan is about to be pulled into an Indestructible Obstacle, it suffers"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
+          },
+          {
+            "type": "plainText",
+            "value": "and continues to move along the Obstacle\u2019s edge along the shortest possible path towards the Primordial"
           }
         ]
       }
@@ -2256,7 +2271,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If a Titan is about to be pushed into a Destructible Obstacle, remove that Terrain tile from the Battle Board, the Titan suffers CRASH, then continue Pushback"
+            "value": "If a Titan is about to be pushed into a Destructible Obstacle, remove that Terrain tile from the Battle Board, the Titan suffers"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
+          },
+          {
+            "type": "plainText",
+            "value": ", then continue Pushback"
           }
         ]
       }
@@ -2513,6 +2536,30 @@
       }
     ]
   },
+  "Renege (X)": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This Keyword forces a cost to pay in order to declare this Weapon as an Active Weapon"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If\u2026"
+          }
+        ]
+      }
+    ],
+    "subDef0": "\u2026no parentheses, you must lose 1 Fate to declare this weapon as your active weapon.",
+    "subDef1": "\u2026X is a negative token, you must discard 1 of that token type to declare this weapon as your active weapon.",
+    "subDef2": "\u2026X is a positive token, you must gain 1 of that  token type to declare this weapon as your active weapon.",
+    "subDef3": "\u2026X is a Charge token, you must gain 1 Charge token to declare this weapon as your active weapon."
+  },
   "Reposition X": {
     "mainDef": [
       {
@@ -2543,7 +2590,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "You can equip only one gear card with the list Trait"
+            "value": "You can equip only one gear card with the listed Trait"
           }
         ]
       }
@@ -2619,31 +2666,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the second ability window, place X Rouse tokens (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "6) in the Kratos Pool"
+            "value": "During the second ability window, place X Rouse tokens in the Kratos Pool"
           }
         ]
       }
@@ -2655,7 +2678,19 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Move with +1 Speed and perform a Melee/Reach Attack with Auto-break 1"
+            "value": "Move with +1"
+          },
+          {
+            "type": "icon",
+            "value": "Speed"
+          },
+          {
+            "type": "plainText",
+            "value": "and perform a Melee/Reach Attack with"
+          },
+          {
+            "type": "keyword",
+            "value": "Auto-break 1"
           }
         ]
       },
@@ -2674,7 +2709,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "+2 Speed instead and additionally gain +1 Precision on the Attack"
+            "value": "+2"
+          },
+          {
+            "type": "icon",
+            "value": "Speed"
+          },
+          {
+            "type": "plainText",
+            "value": "instead and additionally gain +1 Precision on the Attack"
           }
         ]
       }
@@ -2686,31 +2729,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the first ability window, you may gain 1 Danger to place one Break token in the Kratos Pool (X"
-          }
-        ]
-      },
-      {
-        "abilityText": [
+            "value": "During the first ability window, you may gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
           {
             "type": "plainText",
-            "value": "1"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "9"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
-            "value": "1)"
+            "value": "to place one Break token in the Kratos Pool"
           }
         ]
       }
@@ -2825,7 +2852,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the Attack Roll step, you may reroll up to X hits to lose 1 Fate for each"
+            "value": "During the Attack Roll step, you may re-roll up to X hits to lose 1"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "plainText",
+            "value": "for each"
           }
         ]
       },
@@ -2833,7 +2868,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If you reroll a Crit die this way, the original result does not grant you a Crit Chance"
+            "value": "If you re-roll a Crit die this way, the original result does not grant you a Crit Chance"
           }
         ]
       }
@@ -2845,7 +2880,23 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the first ability window, if you have the Priority Target token, gain 1 Red Power Die for this Attack"
+            "value": "During the first ability window, if you have the"
+          },
+          {
+            "type": "icon",
+            "value": "PriorityTarget"
+          },
+          {
+            "type": "plainText",
+            "value": "Priority Target token, gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "RedPowerDie"
+          },
+          {
+            "type": "plainText",
+            "value": "for this Attack"
           }
         ]
       }
@@ -2858,6 +2909,49 @@
           {
             "type": "plainText",
             "value": "When you are about to suffer Knockback, you may use this ability to ignore it"
+          }
+        ]
+      }
+    ]
+  },
+  "Stanch (X)": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to gain X, reduce that gain by 1 (to a minimum of 1)"
+          }
+        ]
+      }
+    ],
+    "subName0": "Full Stanch (X)",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When you are about to gain X, reduce that gain to 1"
+          }
+        ]
+      }
+    ]
+  },
+  "Stand up": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Discard the Knockdown Condition card"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You may use this ability while knocked down"
           }
         ]
       }
@@ -2881,7 +2975,23 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If you fully evade a Primordial Attack, you may immediately move up to X spaces and perform a Combat Action, then gain a Combat Fatigue"
+            "value": "If you fully evade a Primordial Attack, you may immediately move up to X spaces and perform a"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          },
+          {
+            "type": "plainText",
+            "value": ", then gain a"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          },
+          {
+            "type": "plainText",
+            "value": "Fatigue"
           }
         ]
       },
@@ -2897,7 +3007,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If this Ability is used during the Primordial Round, gain 1 Power for the Attack"
+            "value": "If this Ability is used during the Primordial Round, gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          },
+          {
+            "type": "plainText",
+            "value": "for the Attack"
           }
         ]
       }
@@ -2921,7 +3039,31 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During another Titan\u2019s Power Roll, if, after applying all bonuses, they have less total Power than the AT value by exactly 1 and you are within your weapon range of the Primordial, you may gain 1 Rage, a Combat Fatigue, and discard this weapon to add 1 Power to that Power Roll"
+            "value": "During another Titan\u2019s Power Roll, if, after applying all bonuses, they have less total Power than the AT value by exactly 1 and you are within your weapon range of the Primordial, you may gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          },
+          {
+            "type": "plainText",
+            "value": ", a"
+          },
+          {
+            "type": "icon",
+            "value": "CombatAction"
+          },
+          {
+            "type": "plainText",
+            "value": "Fatigue, and discard this weapon to add 1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          },
+          {
+            "type": "plainText",
+            "value": "to that Power Roll"
           }
         ]
       }
@@ -2933,7 +3075,19 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "A Titan with sufficient open hand slots may, as a Free Action or a WoO, equip a gear card with Super Smart Delivery from the Armory and gain 1 Rage"
+            "value": "A Titan with sufficient open hand slots may, as a Free Action or a"
+          },
+          {
+            "type": "icon",
+            "value": "Reaction"
+          },
+          {
+            "type": "plainText",
+            "value": ", equip a gear card with Super Smart Delivery from the Armory and gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
           }
         ]
       }
@@ -2944,8 +3098,12 @@
       {
         "abilityText": [
           {
+            "type": "keyword",
+            "value": "Second Chance"
+          },
+          {
             "type": "plainText",
-            "value": "Second Chance, but if drawing from Obols, first remove the You died horribly card from that deck for this draw only"
+            "value": ", but if drawing from Obols, first remove the You died horribly card from that deck for this draw only"
           }
         ]
       }
@@ -2957,7 +3115,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "When you deal a wound5 (before responses)7, shuffle the discard pile denoted by the subtype into the appropriate deck"
+            "value": "When you deal a wound (before responses), shuffle the discard pile denoted by the subtype into the appropriate deck"
           }
         ]
       },
@@ -3027,7 +3185,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "When you are about to suffer CRASH, ignore it"
+            "value": "When you are about to suffer"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
+          },
+          {
+            "type": "plainText",
+            "value": ", ignore it"
           }
         ]
       },
@@ -3059,7 +3225,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Gain the Time-Clocked Condition card, Departing side up and remove your miniature from the board"
+            "value": "Gain the"
+          },
+          {
+            "type": "cardRef",
+            "value": "Time-clocked",
+            "refID": "CL1295"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card, Departing side up and remove your miniature from the board"
           }
         ]
       },
@@ -3079,7 +3254,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "When you are about to activate the Cumbersome keyword, you may ignore it"
+            "value": "When you are about to activate the"
+          },
+          {
+            "type": "keyword",
+            "value": "Cumbersome"
+          },
+          {
+            "type": "plainText",
+            "value": "keyword, you may ignore it"
           }
         ]
       }
@@ -3215,7 +3398,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "When you are about to suffer CRASH, roll a d10"
+            "value": "When you are about to suffer"
+          },
+          {
+            "type": "keyword",
+            "value": "Crash"
+          },
+          {
+            "type": "plainText",
+            "value": ", roll a d10"
           }
         ]
       },
@@ -3432,7 +3623,16 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "You may gain the Knockdown (standing up) Condition card as a free action"
+            "value": "You may gain the"
+          },
+          {
+            "type": "cardRef",
+            "value": "Knockdown (standing up)",
+            "refID": "AL0303"
+          },
+          {
+            "type": "plainText",
+            "value": "Condition card as a free action"
           }
         ]
       }
@@ -3484,7 +3684,11 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "When you trigger Wish Armor, gain 1 Fate"
+            "value": "When you trigger Wish Armor, gain 1"
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
           }
         ]
       }
@@ -3496,7 +3700,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "When you are about to resolve an Evasion Roll, gain +1 Evasion bonus for this roll if you used Wish Armor"
+            "value": "When you are about to resolve an Evasion Roll, gain +1"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          },
+          {
+            "type": "plainText",
+            "value": "bonus for this roll if you used Wish Armor"
           }
         ]
       }
@@ -3507,7 +3719,15 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "+2 Evasion bonus instead"
+            "value": "+2"
+          },
+          {
+            "type": "icon",
+            "value": "Evasion"
+          },
+          {
+            "type": "plainText",
+            "value": "bonus instead"
           }
         ]
       }
@@ -3527,7 +3747,641 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "The Attack gains Doomed"
+            "value": "The Attack gains"
+          },
+          {
+            "type": "keyword",
+            "value": "Doomed"
+          }
+        ]
+      }
+    ]
+  },
+  "Abyss": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "A Titan cannot voluntarily move through or ignore this tile in any way"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Range cannot be measured through unoccupied spaces of this tile (but can be measured around the outside)"
+          }
+        ]
+      }
+    ]
+  },
+  "Ambrosia: When a Titan ends its movement on this tile (voluntarily or not), it gains 1 Ambrosia token": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan starts its turn on this tile and does not move until the end of this turn, it gains 1 Ambrosia token"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan moves through this tile but does not end its movement on it, roll a d10"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "On a 5 or less, gain 1 Ambrosia token"
+          }
+        ]
+      }
+    ]
+  },
+  "Black Ice": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you suffer Crash on this tile, gain 1 Ambrosia"
+          }
+        ]
+      }
+    ]
+  },
+  "Black Smoke": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you suffer Crash on this tile, gain 1 Ambrosia"
+          }
+        ]
+      }
+    ]
+  },
+  "Board Edge": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This tile counts as a Board Edge"
+          }
+        ]
+      }
+    ]
+  },
+  "Boundless": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You cannot voluntarily move onto this tile"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If you would be forced to move onto or beyond this tile or Board Edge, you die"
+          }
+        ]
+      }
+    ]
+  },
+  "Chasm": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Titans cannot voluntarily move through Chasm spaces"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan ends involuntary movement on a Chasm space, it dies"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If it is pushed back or pulled through a Chasm space, it dies"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Chasm tile is placed under a Titan, it dies"
+          }
+        ]
+      }
+    ]
+  },
+  "Cloud": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Titans on other Elevated spaces do not ignore this Terrain tile\u2019s Obstacle or Obscuring Traits"
+          }
+        ]
+      }
+    ]
+  },
+  "Cover": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Titans on this tile have +1 Evasion"
+          }
+        ]
+      }
+    ]
+  },
+  "Destructible": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When the Primordial moves onto this tile or a Titan is involuntarily moved onto it, the tile is destroyed"
+          }
+        ]
+      }
+    ],
+    "subName0": "Reinforced Destructible",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When this tile would be destroyed, instead flip it and the corresponding terrain card over"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "It then becomes Destructible"
+          }
+        ]
+      }
+    ]
+  },
+  "Elevated": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When a Titan performs a move onto an Elevated space that ignores Terrain tiles, is on an Elevated  space, or is Knocked Back from an Elevated space, they ignore the Obscuring and Obstacle keywords of every Terrain tile on the Board (if in regards to movement, only for the duration of that movement)"
+          }
+        ]
+      }
+    ]
+  },
+  "Exposed": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the Primordial is on this tile, it has -1 To-Hit"
+          }
+        ]
+      }
+    ]
+  },
+  "Indestructible": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This Terrain tile cannot be destroyed in any way"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "It invalidates Terrain placement on top of it"
+          }
+        ]
+      }
+    ]
+  },
+  "Inhabited": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Apply any bonuses and penalties listed on the Terrain card based on your Diplomacy Score with the Local Faction"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If this Terrain tile is destroyed, lose 1 Diplomacy with the Local Faction"
+          }
+        ]
+      }
+    ]
+  },
+  "Light Void": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This tile is never considered to be in range of light and a light source on this tile emits no light"
+          }
+        ]
+      }
+    ]
+  },
+  "Mobile": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "A Titan moving through or from any space of this tile may move this tile up to 2 spaces in the same direction"
+          }
+        ]
+      }
+    ]
+  },
+  "Monument to Progress": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Treat this tile as a Titan for the purposes of Despair adjacency"
+          }
+        ]
+      }
+    ]
+  },
+  "Obscuring": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This tile blocks Line of Sight except to or from Targets standing on any of its spaces"
+          }
+        ]
+      }
+    ]
+  },
+  "Obstacle": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Titans cannot move through this tile"
+          }
+        ]
+      }
+    ]
+  },
+  "Omnilight": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This tile projects light in all directions"
+          }
+        ]
+      }
+    ]
+  },
+  "Shifting": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the Primordial ends its movement on this Terrain tile, displace this tile to the closest empty space"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If the space was occupied by a Titan, treat them as if the Primordial had ended movement on them"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If this tile is moved in any other way, Titans on the tile move with it instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Slippery": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "When a Titan voluntarily moves onto this tile, it must continue to move, and do so in the same cardinal direction for the rest of the movement as long as it is on this tile or until it cannot move further"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If a Titan moved diagonally onto this tile, it must continue in a cardinal direction instead"
+          }
+        ]
+      }
+    ]
+  },
+  "Trap": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This tile has special interactions with the Primordial, listed on the Terrain card"
+          }
+        ]
+      }
+    ],
+    "subName0": "Triggering",
+    "subDef0": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Trap Terrain tiles trigger off of all involuntary movement, not just the ones listed"
+          }
+        ]
+      }
+    ]
+  },
+  "Treasure": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "This tile has special interactions with Titans, listed on the Terrain card"
+          }
+        ]
+      }
+    ]
+  },
+  "Break tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Attacking Titans may use any number of Break tokens during the Power Roll step to turn 1"
+          },
+          {
+            "type": "icon",
+            "value": "Potential"
+          },
+          {
+            "type": "plainText",
+            "value": "into 1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          },
+          {
+            "type": "plainText",
+            "value": "for each token used"
+          }
+        ]
+      }
+    ]
+  },
+  "Opening tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Attacking Titans may use any number of Opening tokens during the Attack Roll step to gain 1 Precision for each token used"
+          }
+        ]
+      }
+    ]
+  },
+  "Diversion tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If there is a Diversion token in the Kratos Pool, the attacking Titan may use it to ignore Fail Responses"
+          }
+        ]
+      }
+    ]
+  },
+  "Fire tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "During the Power Roll step of a Titan Attack, the Attacking Titan must turn 1"
+          },
+          {
+            "type": "icon",
+            "value": "Potential"
+          },
+          {
+            "type": "plainText",
+            "value": "into 1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          },
+          {
+            "type": "plainText",
+            "value": "for each Fire token in the pool (other tokens may be used first)"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Remove used Fire tokens after the Power Roll step"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Then, during the Clear the Kratos Pool step, remove only 1 Fire token and leave the rest in the Kratos Pool"
+          }
+        ]
+      }
+    ]
+  },
+  "Rouse tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "For each Rouse token in the Kratos Pool, the attacking Titan may treat their"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          },
+          {
+            "type": "plainText",
+            "value": "as if it were 1 higher"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "(This does not cause you to die if you have to treat your"
+          },
+          {
+            "type": "icon",
+            "value": "Rage"
+          },
+          {
+            "type": "plainText",
+            "value": "as higher than 9"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": ")"
+          }
+        ]
+      }
+    ]
+  },
+  "Black tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Attacking Titans may use any number of Black tokens during the Power Roll step to re-roll a Power die and then may convert 1"
+          },
+          {
+            "type": "icon",
+            "value": "Potential"
+          },
+          {
+            "type": "plainText",
+            "value": "on that die into 1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          },
+          {
+            "type": "plainText",
+            "value": "for each token used"
+          }
+        ]
+      }
+    ]
+  },
+  "Hope tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Attacking Titans may use any number of Hope tokens during the Power Roll step to turn 1"
+          },
+          {
+            "type": "icon",
+            "value": "Potential"
+          },
+          {
+            "type": "plainText",
+            "value": "or 1"
+          },
+          {
+            "type": "icon",
+            "value": "Dot"
+          },
+          {
+            "type": "plainText",
+            "value": "into 1"
+          },
+          {
+            "type": "icon",
+            "value": "Power"
+          },
+          {
+            "type": "plainText",
+            "value": "for each token used"
+          }
+        ]
+      }
+    ]
+  },
+  "Closing tokens": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Attacking Titans may use any number of  Closing tokens to gain 1 Precision for each token used and then may re-roll 1 of their Attack dice with no additional cost for each token used"
           }
         ]
       }
