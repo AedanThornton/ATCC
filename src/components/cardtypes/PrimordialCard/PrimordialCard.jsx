@@ -9,6 +9,7 @@ import FocusCardOverlay from "../../FocusCardOverlay.jsx";
 
 const toRoman = (num) => {
   var charset = {
+    "0": "0",
     "1": "I",
     "2": "II",
     "3": "III",
@@ -83,6 +84,11 @@ const traitIDs = {
 const PrimordialCard = ({ primordial, index }) => {
   const [currentLevel, setCurrentLevel] = useState(0)
 
+  let vpTier = "vp"
+  if (primordial.levels[currentLevel]?.traitsFullList.includes("VP Modification")) {
+    vpTier = "vp+"
+  }
+
   return (
     <div className={`card primordial ${primordial.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
 
@@ -106,21 +112,21 @@ const PrimordialCard = ({ primordial, index }) => {
           {primordial.vp && 
             <div className="primordial-vp-container">
               <div className="primordial-vp-circle-box">
-                {primordial.vp.vpCount !== "0" && Array.from({ length: primordial.vp.vpCount }, (_, i) => (
+                {primordial[vpTier].vpCount !== "0" && Array.from({ length: primordial[vpTier].vpCount }, (_, i) => (
                   <div key={index} className="primordial-vp-circle">VP</div>
                 ))}
               </div>
 
-              <span className="primordial-climb-test"><b>Climb: </b>Test {primordial.vp.climbTest.stat + " " + primordial.vp.climbTest.difficulty + "+"}</span>
+              <span className="primordial-climb-test"><b>Climb: </b>Test {primordial[vpTier].climbTest.stat + " " + primordial[vpTier].climbTest.difficulty + "+"}</span>
               <div className="primordial-vp-box">
                 <div className="primordial-vp-box-left">
                   <div className="primordial-section-header">HOLD ON</div>
-                  <div className="primordial-vp-holdon"><b>End of Primordial Round:</b> Test {primordial.vp.holdOn.test}.</div>
-                  <div className="primordial-vp-fail"><b>Fail:</b> {primordial.vp.holdOn.fail}</div>
+                  <div className="primordial-vp-holdon"><b>End of Primordial Round:</b> Test {primordial[vpTier].holdOn.test}.</div>
+                  <div className="primordial-vp-fail"><b>Fail:</b> {primordial[vpTier].holdOn.fail}</div>
                 </div>
                 <div className="primordial-vp-box-right">
                   <div className="primordial-section-header">VP EFFECTS</div>
-                  <FormattedParagraph paragraph={primordial.vp.effects} />
+                  <FormattedParagraph paragraph={primordial[vpTier].effects} />
                 </div>
               </div>
             </div>
@@ -146,7 +152,13 @@ const PrimordialCard = ({ primordial, index }) => {
                   return primordial.levels[currentLevel]?.attributes[i]
                   ? (
                     <div key={i} className="primordial-attributes__bonus-stat-box">
-                      <span>+{primordial.levels[currentLevel]?.attributes[i].count} {getIcon(attr[0])} {attr.length > 1 && attr.shift() && attr.join(" ")}</span>
+                      <span>
+                        {primordial.levels[currentLevel]?.attributes[i].count.startsWith("-") ? "" : "+"}
+                        {primordial.levels[currentLevel]?.attributes[i].count}
+                        {" "}
+                        {getIcon(attr[0])}
+                        {" "}
+                        {attr.length > 1 && attr.shift() && attr.join(" ")}</span>
                     </div>)
                   : <div key={i} className="primordial-attributes__bonus-stat-placeholder"></div>
                 })}
@@ -155,14 +167,15 @@ const PrimordialCard = ({ primordial, index }) => {
             </div>
             <div className="primordial-trait-changes">
               <p><b>TRAITS {currentLevel !== 0 && "(+all previous):"}</b></p>
-              <p>+{primordial.levels[currentLevel]?.traitsChanges.join(", ")}.</p>
+              {primordial.levels[currentLevel]?.traitsChanges.length > 0 && <p>+{primordial.levels[currentLevel]?.traitsChanges.join(", ")}.</p>}
             </div>
           </div>
 
 
           <div className="primordial-traits">
-            {primordial.levels[currentLevel]?.traitsFullList.map((trait, index) => (
-              <React.Fragment key={index}>
+            {primordial.levels[currentLevel]?.traitsFullList.map((trait, index) => {
+              if (trait === "VP Modification"){return}
+              return <React.Fragment key={index}>
                 <div className="primordial-section-header">
                   {primordialAbilities[trait]
                     ? <span>{trait.toUpperCase()}</span>
@@ -173,7 +186,7 @@ const PrimordialCard = ({ primordial, index }) => {
                   {primordialAbilities[trait] && <FormattedParagraph paragraph={primordialAbilities[trait].mainDef} />}
                 </p>
               </React.Fragment>
-            ))}
+            })}
           </div>
         </div>
       </div>
@@ -181,9 +194,8 @@ const PrimordialCard = ({ primordial, index }) => {
 
       <div>
         <div className="primordial-level-button-box">
-          {primordial.levels.length === 10 && (<button onClick={() => setCurrentLevel(0)} >0</button>)}
-          {Array.from({ length: 9 }, (_, i) => (
-            <button className="primordial-level-button" onClick={() => setCurrentLevel(i)} style={{backgroundColor: currentLevel === i ? "#3a3a3a" : "black"}} key={index}>{toRoman(i+1)}</button>
+          {primordial.levels.map((level, i) => (
+            <button className="primordial-level-button" onClick={() => setCurrentLevel(i)} style={{backgroundColor: currentLevel === i ? "#3a3a3a" : "black"}} key={index}>{toRoman(level.level)}</button>
           ))}
         </div>
 
