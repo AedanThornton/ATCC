@@ -11,11 +11,11 @@ const Keywords = {...TitanAbilities, ...StandardKeywords, ...PrimordialAbilities
 const keywordLookup = {};
 
 Object.entries(Keywords).forEach(([key, def]) => {
-  keywordLookup[key.toLowerCase()] = key; // main name
+  keywordLookup[key.toLowerCase()] = key;
   Object.keys(def)
     .filter(k => k.startsWith("subName"))
     .forEach(subKey => {
-      keywordLookup[def[subKey]] = key; // map subName → main key
+      keywordLookup[def[subKey].toLowerCase()] = key;
     });
 });
 
@@ -39,7 +39,7 @@ const createTooltip = (name, index) => {
     keywordLookup[name.toLowerCase().split(' ').slice(1).join(' ') + " x"] ||
     (name.toLowerCase().startsWith("ranged") && "ranged y–x") ||
     name;
-  if (!Keywords[keyword]) return `${isAuto && "Auto-"}name`
+  if (!Keywords[keyword]) return `${isAuto ? "Auto-" : ""}${name}`
 
   const keywordData = Keywords[keyword];
 
