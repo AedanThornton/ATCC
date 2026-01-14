@@ -20,7 +20,7 @@ const CardList = () => {
       if (!newParams.has("p")) newParams.set("p", 1)
       if (!newParams.has("s")) newParams.set("s", "id:asc")
       if (!newParams.has("limit")) newParams.set("limit", 30)
-      if (!newParams.has("foundIn")) newParams.set("foundIn", ["Regular", "Promo"])
+      if (!newParams.has("foundIn")) newParams.set("foundIn", ["Regular"])
 
       setSearchParams(newParams)
     }
