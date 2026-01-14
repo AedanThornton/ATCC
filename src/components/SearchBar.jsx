@@ -1,6 +1,8 @@
 import { useDebounce } from "use-debounce";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
+import getIcon from "./utils/iconUtils";
+import "../styles/searchBar.css"
 
 //Search Bar Input
 const SearchBar = () => {
@@ -38,13 +40,18 @@ const SearchBar = () => {
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Search Catalog..."
-      value={searchTermUI}
-      onChange={(e) => handleSearchChange(e.target.value)}
-      className="card-search-bar"
-    />
+    <div className="search-bar-container">
+      <input
+        type="text"
+        placeholder="Search Catalog..."
+        value={searchTermUI}
+        onChange={(e) => handleSearchChange(e.target.value)}
+        className="card-search-bar"
+      />
+      <Link to="/search-info" target="_blank" rel="noopener noreferrer">
+        <span className="search-info-link">{getIcon("info")}</span>
+      </Link>
+    </div>
   )
 }
 

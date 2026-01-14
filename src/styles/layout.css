@@ -119,12 +119,6 @@
   display: flex;
 }
 
-.card-search-bar {
-  margin-bottom: 0px;
-  padding: 5px;
-  width: 90vw;
-}
-
 @media (min-width: 820px) {
   .filters-menu {
     position: static;
@@ -140,10 +134,5 @@
     left: unset;
     background-color: unset;
     padding: 0;
-  }
-
-  .card-search-bar {
-    width: 60vw;
-    margin-bottom: 20px;
   }
 }

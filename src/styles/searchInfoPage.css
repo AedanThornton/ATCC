@@ -1,0 +1,19 @@
+.search-info-page {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5%;
+}
+
+.search-info__title-section {
+  text-align: center;
+}
+
+.search-info__documentation {
+  overflow-y: auto;
+  padding: 2% 5%;
+  background-color: #141414;
+}
+
+.search-info__element-example {
+  font-style: italic;
+}

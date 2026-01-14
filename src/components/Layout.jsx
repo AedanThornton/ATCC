@@ -21,6 +21,7 @@ function Layout({ isCatalog = false }) {
                   <ul>
                     <li><Link to="/home">Home</Link></li>
                     <li><Link to="/catalog">Card Catalog</Link></li>
+                    <li><Link to="/search-info">Catalog Docs</Link></li>
                     <li><Link to="/about">About</Link></li>
                   </ul>
                 </div>
@@ -31,7 +32,7 @@ function Layout({ isCatalog = false }) {
           {isCatalog && <ControlBar />}
 
           <div className='top-menu'>
-            <div className='filters-menu'>
+            {isCatalog && <div className='filters-menu'>
               <button className='filters-hamburger-button' onClick={() => setIsFilterSidebarOpen(!isFilterSidebarOpen)}>
                 <div className='hamburger-bar'></div>
                 <div className='hamburger-bar'></div>
@@ -39,7 +40,7 @@ function Layout({ isCatalog = false }) {
               </button>
 
               {isFilterSidebarOpen && <FilterSidebar />}
-            </div>
+            </div>}
           </div>
         </div>
 
