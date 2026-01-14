@@ -34,7 +34,7 @@ const FilterSidebar = () => {
       cardType: searchParams.get('cardType')?.split(',') || [],
       cycle: searchParams.get('cycle')?.split(',') || [],
       cardSize: searchParams.get('cardSize')?.split(',') || [],
-      foundIn: searchParams.get('foundIn')?.split(',') || ["Regular", "Promo"],
+      foundIn: searchParams.get('foundIn')?.split(',') || [],
     };
   }, [searchParams, filterOptions]);
 
