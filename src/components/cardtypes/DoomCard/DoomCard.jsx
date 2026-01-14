@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./DoomCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
-import FormattedParagraph from "../../FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 
 const DoomCard = ({ doom, index, currentSide }) => {
   let side = currentSide

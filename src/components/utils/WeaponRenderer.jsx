@@ -1,8 +1,8 @@
-import { getGateColor } from "../lib/colors";
+import { getGateColor } from "../../lib/colors";
 import "/src/styles/weaponStats.css"
 import { DiceStack } from "./DiceStack";
-import getIcon from "./utils/iconUtils";
-import { createPowerGate } from "./utils/gateUtils";
+import getIcon from "./iconUtils";
+import { createPowerGate } from "./gateUtils";
 
 const WeaponRenderer = ({ statsArray }) => (
   <div className="weapon-stats-bar">

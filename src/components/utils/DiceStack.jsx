@@ -1,4 +1,4 @@
-import getIcon from "./utils/iconUtils";
+import getIcon from "./iconUtils";
 
 export const DiceStack = ({ diceArray, diceType = "Power" }) => {
   const boxHeight = 20 + 5 * Math.floor((diceArray.length + 1) / 2);

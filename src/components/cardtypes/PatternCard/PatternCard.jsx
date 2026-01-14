@@ -3,7 +3,7 @@ import "/src/styles/cardsStyle.css"
 import "./PatternCard.css"; // Add corresponding CSS for styling
 import PatternTable from "./PatternTable.jsx";
 import { getGateColor } from "../../../lib/colors.js"
-import FormattedParagraph, { GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
+import FormattedParagraph, { GatedFormattedParagraph } from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 
 const PatternCard = ({ pattern, index }) => {

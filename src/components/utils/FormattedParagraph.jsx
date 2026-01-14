@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { getGateColor } from "../lib/colors"
-import FocusCardOverlay from "./FocusCardOverlay"
-import createTooltip from "./utils/tooltipsUtil"
-import getIcon from "./utils/iconUtils"
-import { createAbilityGate } from "./utils/gateUtils"
+import { getGateColor } from "../../lib/colors"
+import FocusCardOverlay from "../FocusCardOverlay"
+import createTooltip from "./tooltipsUtil"
+import getIcon from "./iconUtils"
+import { createAbilityGate } from "./gateUtils"
 
 export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => {
   if (typeof sentence === "string") {

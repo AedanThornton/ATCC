@@ -1,6 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph from "../../FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary, adversaryPrimaryColor } from "../../../lib/colors.js"
 import getIcon from "../../utils/iconUtils.jsx";
 

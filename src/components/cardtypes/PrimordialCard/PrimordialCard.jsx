@@ -1,7 +1,7 @@
 import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./PrimordialCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph from "../../FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { useState } from "react";
 import primordialAbilities from "../../../data/JSON/primordialAbilityData.json";
 import getIcon from "../../utils/iconUtils.jsx";

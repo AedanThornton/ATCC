@@ -1,7 +1,7 @@
 import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./BPCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph from "../../FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, isAdversary, adversaryPrimaryColor, getCycleTextColor } from "../../../lib/colors.js"
 import getIcon from "../../utils/iconUtils.jsx";
 

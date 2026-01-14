@@ -1,6 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./TraumaCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph from "../../FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 
 const TraumaCard = ({ trauma, index }) => {

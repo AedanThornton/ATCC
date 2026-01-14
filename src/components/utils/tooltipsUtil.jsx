@@ -4,7 +4,7 @@ import './utils.css';
 import StandardKeywords from '/src/data/JSON/keywords.json';
 import TitanAbilities from '/src/data/JSON/titanAbilityData.json';
 import PrimordialAbilities from '/src/data/JSON/primordialAbilityData.json'
-import FormattedParagraph from '../FormattedParagraph';
+import FormattedParagraph from './FormattedParagraph';
 
 const Keywords = {...TitanAbilities, ...StandardKeywords, ...PrimordialAbilities}
 

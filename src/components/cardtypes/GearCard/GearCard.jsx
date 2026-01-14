@@ -1,9 +1,9 @@
 import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph, { FormattedSentence, GatedFormattedParagraph } from "../../FormattedParagraph.jsx";
+import FormattedParagraph, { FormattedSentence, GatedFormattedParagraph } from "../../utils/FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleTextColor, getGateColor } from "../../../lib/colors.js"
-import WeaponRenderer from "../../WeaponRenderer.jsx";
-import { DiceStack } from "../../DiceStack.jsx";
+import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
+import { DiceStack } from "../../utils/DiceStack.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import { createPowerGate } from "../../utils/gateUtils.jsx";
 

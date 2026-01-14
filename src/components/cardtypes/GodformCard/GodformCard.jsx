@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./GodformCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph from "../../FormattedParagraph.jsx";
-import WeaponRenderer from "../../WeaponRenderer.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
+import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 
 const GodformCard = ({ godform, index }) => {

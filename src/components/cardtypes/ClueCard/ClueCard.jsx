@@ -1,6 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./ClueCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph from "../../FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 
 const ClueCard = ({ clue, index }) => {
   return (

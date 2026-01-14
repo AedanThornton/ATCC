@@ -1,6 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./ExplorationCard.css"; // Add corresponding CSS for styling
-import {FormattedSentence} from "../../FormattedParagraph.jsx";
+import {FormattedSentence} from "../../utils/FormattedParagraph.jsx";
 import StatTitle from "../../utils/StatTitle.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 
