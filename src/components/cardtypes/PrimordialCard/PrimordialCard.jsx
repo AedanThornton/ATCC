@@ -33,7 +33,7 @@ const traitIDs = {
 	"Highly Toxic": "BX0768",
 	"Burden Hardest To Bear": "BX1158",
 	"Backwards Momentum": "CT1326",
-	"Death By Fate":  "CT1329",
+	"Death by Fate":  "CT1329",
 	"Rapid Adaptation": "CX1679",
 	"Predator": "CX1681",
 	"Quantum Eye":  "DX2387",
