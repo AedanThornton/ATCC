@@ -46,7 +46,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
       <span className="ability-costs">
         {isReaction && (<>{getIcon("Reaction")}</>)}
         {sentence.costs?.map((cost, i) => (
-          <>{getIcon(cost, undefined, i)}</>
+          <React.Fragment key={i}>{getIcon(cost, undefined, i)}</React.Fragment>
         ))}
       </span>
       {sentence.abilityText?.map((textClump, index2, array) => (

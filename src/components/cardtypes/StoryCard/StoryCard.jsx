@@ -25,7 +25,7 @@ const StoryCard = ({ story, index, currentSide }) => {
 
                 <div className="story-flavor">
                   {story["flavor" + side] && story["flavor" + side].map((paragraph, index) => (
-                    <p>{paragraph}.</p>
+                    <p key={index}>{paragraph}.</p>
                   ))}
                 </div>
                 <span className="story-rules-title">
@@ -34,7 +34,7 @@ const StoryCard = ({ story, index, currentSide }) => {
                 {story["rulesTitle" + side] && (<p><b>{story["rulesTitle" + side].replace(".", "")}</b></p>)}
                 <div>
                   {story["rules" + side] && story["rules" + side].map((paragraph, index) => (
-                    <p><FormattedParagraph paragraph={paragraph} /></p>
+                    <p key={index}><FormattedParagraph paragraph={paragraph} /></p>
                   ))}
                 </div>
               </div>

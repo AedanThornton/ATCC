@@ -96,7 +96,7 @@ const MapCard = ({ map, index }) => {
           {map.symbols && map.symbols.length > 0 &&
             <div className="map-symbol-container">
               {map.symbols.map((symbol, index) => (
-                <div className="map-symbol" style={getRandomArrow()}>
+                <div key={index} className="map-symbol" style={getRandomArrow()}>
                   {getIcon(symbol)}
                 </div>
               ))}

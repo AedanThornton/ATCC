@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
 import FocusCardOverlay from "../../FocusCardOverlay.jsx";
+import React from "react";
 
 const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
   return (
@@ -26,12 +27,12 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
               <div className="technology-project-box">
                 {productionFacility.requirements.map((req, i, array) => {
                   return (
-                    <>
+                    <React.Fragment key={i}>
                     {req.startsWith("@ArgoKnowledge") 
                       ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
                       : req}
                     {!(i >= array.length - 1) && ", "}
-                    </>
+                    </React.Fragment>
                   )
                 })}
               </div>

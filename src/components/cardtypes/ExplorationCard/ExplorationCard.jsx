@@ -47,8 +47,8 @@ const ExplorationCard = ({ exploration, index }) => {
       {exploration.adversaryTriggers && (
         <div className="adversary-icon-group">
           {[...Array(exploration.adversaryTriggers)].map((e, index) => (
-            <div className="adversary-icon">
-              {getIcon("Adversary", undefined, index, "3em")}
+            <div key={index} className="adversary-icon">
+              {getIcon("Adversary", undefined, undefined, "3em")}
             </div>
           ))}
         </div>

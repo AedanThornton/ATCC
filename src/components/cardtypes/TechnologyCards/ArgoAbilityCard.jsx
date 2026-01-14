@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
+import React from "react";
 import { FormattedSentence } from "../../FormattedParagraph.jsx";
 
 const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
@@ -26,12 +27,12 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
             <div className="technology-project-box">
               {argoAbility.requirements.map((req, i, array) => {
                 return (
-                  <>
+                  <React.Fragment key={i}>
                   {req.startsWith("@ArgoKnowledge") 
                     ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
                     : req}
                   {!(i >= array.length - 1) && ", "}
-                  </>
+                  </React.Fragment>
                 )
               })}
             </div>

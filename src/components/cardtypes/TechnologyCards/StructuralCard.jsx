@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import React from "react";
 
 const StructuralCard = ({ structural, index, currentSide }) => {
   let side = currentSide
@@ -31,12 +32,12 @@ const StructuralCard = ({ structural, index, currentSide }) => {
               <div className="technology-project-box">
                 {structural.requirements.map((req, i, array) => {
                   return (
-                    <>
+                    <React.Fragment key={i}>
                     {req.startsWith("@ArgoKnowledge") 
                       ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
                       : req}
                     {!(i >= array.length - 1) && ", "}
-                    </>
+                    </React.Fragment>
                   )
                 })}
               </div>
