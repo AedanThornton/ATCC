@@ -2118,8 +2118,29 @@
             "type": "newline"
           },
           {
-            "type": "keyword",
-            "value": "Labyrinth X"
+            "type": "bold",
+            "value": "Labyrinth X:"
+          },
+          {
+            "type": "plainText",
+            "value": "Place X"
+          },
+          {
+            "type": "cardRef",
+            "value": "Labyrinth",
+            "refID": "AI0364"
+          },
+          {
+            "type": "plainText",
+            "value": "Terrain tiles adjacent to and in front of the Primordial"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Use the tile shape that corresponds to the token's location on the track, then move the token clockwise to the next space"
           }
         ]
       }
@@ -4203,8 +4224,28 @@
       {
         "abilityText": [
           {
-            "type": "keyword",
-            "value": "Trample"
+            "type": "bold",
+            "value": "Trample:"
+          },
+          {
+            "type": "plainText",
+            "value": "Labyrinthauros moves forward in a straight line at full"
+          },
+          {
+            "type": "icon",
+            "value": "Speed"
+          },
+          {
+            "type": "plainText",
+            "value": ", then turns to face the most Titans"
+          }
+        ]
+      },
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "If it moves through or ends its move on a knocked down Titan, that Titan draws an Obol"
           }
         ]
       }
