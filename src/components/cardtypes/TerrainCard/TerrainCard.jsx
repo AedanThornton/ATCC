@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./TerrainCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import createTooltip from "../../utils/tooltipsUtil.jsx";
 
 const TerrainCard = ({ terrain, index, currentSide }) => {
   return (
@@ -27,7 +28,11 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
 
         <div className="terrain-abilities">
           <span key={index}>
-            {terrain.keywords.join(". ")}.
+            {terrain.keywords.map((keyword, i, array) => (
+              <span key={i}>
+                {createTooltip(keyword)}.{i !== array.length - 1 && " "}
+              </span>
+            ))}
           </span>
         </div>
 
