@@ -1,5 +1,5 @@
 .app-layout {
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@
 
 .filter-sidebar {
   background-color: rgb(59, 59, 59);
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   left: 0%;
   top: 0%;

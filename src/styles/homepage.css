@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   background-image: url("../assets/ATCC.svg");
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  margin-bottom: 20vh;
+  margin-bottom: 20dvh;
 }
 
 .main-nav ul {

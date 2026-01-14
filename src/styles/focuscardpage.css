@@ -1,5 +1,5 @@
 .focus-card-page {
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   align-items: center;
   position: relative;
@@ -37,7 +37,7 @@
 }
 
 .focus-card-info-container__container {
-  margin-bottom: 10vh;
+  margin-bottom: 10dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,7 +83,7 @@
 }
 
 .focus-card-secrets {
-  min-height: 15vh;
+  min-height: 15dvh;
   position: relative;
 }
 
@@ -93,7 +93,7 @@
 
 .focus-card-overlay {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   position: fixed;
   z-index: 600;
   display: none;

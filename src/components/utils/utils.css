@@ -7,7 +7,7 @@
     text-align: left;
     z-index: 50;
     overflow: scroll;
-    max-height: 50vh;
+    max-height: 50dvh;
 }
 
 .tooltip::-webkit-scrollbar {
