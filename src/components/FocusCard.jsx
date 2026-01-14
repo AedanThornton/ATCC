@@ -44,7 +44,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
       <div className='focus-card-info-container__container'>
         <div className="focus-card-info-container">
           <h1>{cardData.name}</h1>
-          <div><strong>ID(s):</strong> <p>{cardData.cardIDs.map((id, i, array) => {let isLast = i === array.length - 1; return <React.Fragment key={i}>`${id}${isLast ? "" : ", "}`</React.Fragment>})}</p></div>
+          <div><strong>ID(s):</strong> <p>{cardData.cardIDs.map((id, i, array) => {let isLast = i === array.length - 1; return <React.Fragment key={i}>{`${id}${isLast ? "" : ", "}`}</React.Fragment>})}</p></div>
           <div><strong>Type:</strong> <p>{cardData.techSubType && cardData.techSubType + " "}{cardData.subtype && cardData.subtype + " "}{cardData.cardType} Card</p></div>
           <div><strong>Card Size:</strong> <p>{cardData.cardSize}</p></div>
           <div><strong>Game:</strong> <p>Aeon Trespass: {cardData.game}</p></div>
