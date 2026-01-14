@@ -194,6 +194,7 @@ const PrimordialCard = ({ primordial, index }) => {
 
       <div>
         <div className="primordial-level-button-box">
+          <h4>Level Select: </h4>
           {primordial.levels.map((level, i) => (
             <button className="primordial-level-button" onClick={() => setCurrentLevel(i)} style={{backgroundColor: currentLevel === i ? "#3a3a3a" : "black"}} key={i}>{toRoman(level.level)}</button>
           ))}

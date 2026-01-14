@@ -54,6 +54,18 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: gray;
+  padding: 4px 0;
+  gap: 3px;
+}
+
+.primordial-level-button-box > h4 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  color: white;
 }
 
 .primordial-sheet {
