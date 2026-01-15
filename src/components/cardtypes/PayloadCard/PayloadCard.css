@@ -1,0 +1,56 @@
+/* payload template */
+
+.payload {
+  background-color: lightgray;
+  color: rgb(228, 142, 37);
+}
+
+.payload-title {
+  text-align: center;
+}
+
+.payload-ability-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+
+.payload-ability-header {
+  color: white;
+  background-color: rgb(242, 177, 64);
+  border: 1px solid white;
+  width: fit-content;
+  padding: 0px 4px;
+}
+
+.payload-ability {
+  color: white;
+  background-color: rgb(228, 142, 37);
+  border: 1px solid #b7b4a5;
+  padding: 6px 10px;
+  text-align: center;
+  line-height: 12px;
+  width: 90%;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.payload-ability .invertible {
+  filter: invert(1);
+}
+
+.payload-info {
+  text-align: center;
+  color: white;
+  background-color: rgb(228, 142, 37);
+  font-size: 15px;
+  margin: 5px 0;
+  margin-top: 15px;
+}
+
+/* End payload template */
