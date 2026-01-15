@@ -25,6 +25,7 @@ import PrimordialCard from "../components/cardtypes/PrimordialCard/PrimordialCar
 import MapCard from "../components/cardtypes/MapCard/MapCard";
 import DahakaCard from "../components/cardtypes/DahakaCard/DahakaCard";
 import PayloadCard from "../components/cardtypes/PayloadCard/PayloadCard";
+import TraitLikeCard from "../components/cardtypes/TraitLikeCard/TraitLikeCard";
 
 const cardTypes = {
   "Argonaut": (name) => <ArgonautCard key={name.cardIDs} argonaut={name} />,
@@ -65,6 +66,7 @@ const cardTypes = {
   "AI | BP": (name) => <DahakaCard key={name.cardIDs[0]} dahaka={name} />,
   "Sig | Rout": (name) => <DahakaCard key={name.cardIDs[0]} dahaka={name} />,
   "Payload": (name) => <PayloadCard key={name.cardIDs[0]} payload={name} />,
+  "Trait-like": (name) => <TraitLikeCard key={name.cardIDs[0]} traitlike={name} />,
 };
 
 export default cardTypes;
