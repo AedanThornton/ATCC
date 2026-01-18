@@ -126,7 +126,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
         {attack.afterAttackEffects?.length > 0 && (
           <div className="ai-card__after-attack">
             <div className="ai-card__action-line"> {/* Reuse style for alignment */}
-              {attack.preAfterAttackWoO && (<div className="ai-card__woo-icon">{wooIcon}</div>)}
+              <div className="ai-card__woo-icon">{attack.preAfterAttackWoO && wooIcon}</div>
               <span className="ai-card__section-header ai-card__section-header--after-attack" style={{ backgroundColor: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
             </div>
             <div className="ai-card__after-attack-list">
