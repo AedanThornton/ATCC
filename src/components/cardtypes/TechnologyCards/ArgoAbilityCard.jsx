@@ -2,7 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
 import React from "react";
-import { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
+import FormattedParagraph, { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
 
 const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
   return (
@@ -55,7 +55,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
             <div className="technology-ability-box" key={index}>
               <div style={{marginTop: "10px"}}></div>
               <div className="technology-ability-header">{ability.name ? ability.name.toUpperCase() : "ABILITY"}</div>
-              <div className="technology-ability"><FormattedSentence sentence={ability.effects} /></div>
+              <div className="technology-ability"><FormattedParagraph paragraph={ability.effects} /></div>
             </div>
           ))}
 

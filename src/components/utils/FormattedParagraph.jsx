@@ -11,6 +11,12 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
     return sentence
   }
 
+  if (!sentence.abilityText) {
+    console.log(`Error: Invalid formatting object.`)
+    console.log(sentence);
+    
+  }
+
   const isReaction = sentence.abilityText[0].type === "timing" && sentence.abilityText[0].value === "Reaction"
 
   function formatText(textClump) {
