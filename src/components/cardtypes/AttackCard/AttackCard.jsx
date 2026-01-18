@@ -99,15 +99,18 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           </div>
         </div>
 
+        {attack.preAction && <div className="ai-card_pre-action-effects">{parseLines(attack.preAction, "preAction")}</div>}
+
         {/* Action Section */}
         <div className="ai-card__action">
           <div className="ai-card__action-line">
             {/* WoO */}
+
             <div className="ai-card__woo-icon">{attack.preActionWoO && wooIcon}</div>
 
             {/* Header */}
             <span className="ai-card__section-header ai-card__section-header--action" style={{ backgroundColor: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>
-              MOVE & {attack.preAction && attack.preAction.toUpperCase() + " & "}{attack.attackType.includes("Judgement") ? "JUDGE" : "ATTACK"}
+              {attack.moveType === "None" ? "" : attack.moveType.toUpperCase() + " & "}{attack.preAttack && attack.preAttack.toUpperCase() + " & "}{attack.attackType.includes("Judgement") ? "JUDGE" : "ATTACK"}
             </span>
 
             {/* Banners */}
