@@ -103,21 +103,20 @@
   color: #666;
   margin: 0 5px 10px 5px;
   padding: 5px;
-  border-top: 1px solid #dcdcdc;
-  border-bottom: 1px solid #dcdcdc;
 }
 
-/* Section Headers (TARGET, MOVE & ATTACK, AFTER ATTACK) */
+/* Sections (TARGET, MOVE & ATTACK, AFTER ATTACK) */
 .ai-card__section-header {
-  display: inline-block;
+  display: inline;
   color: white;
   border: 1px solid white;
   font-weight: bold;
-  padding: 2px 8px;
+  padding: 2px 4px;
   font-size: 11px;
   border-radius: 1px;
   margin-bottom: 4px;
-  text-transform: uppercase;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .ai-card__section-header--action {
@@ -128,12 +127,14 @@
   margin: 0;
 }
 
-
-/* Targeting */
-.ai-card__targeting {
-  margin-bottom: 8px;
+.ai-card_section {
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
 }
 
+
+/* Targeting */
 .ai-card__targeting-list {
   list-style: none;
   padding: 0;
@@ -142,26 +143,8 @@
 }
 
 /* Action Section */
-.ai-card__action {
-  margin-bottom: 8px;
-}
-
 .ai-card__action-line {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.ai-card__attack-banner {
-  font-size: 12px;
-  background-color: #a0522d;
-  color: white;
-  border: 1px solid white;
-  padding: 1px 5px;
-  border-radius: 1px;
-  margin-left: 5px;
   display: inline-flex;
-  align-items: center;
 }
 
 .ai-card__attack-banner .icon {
@@ -178,15 +161,10 @@
 .ai-card__consequences-list p,
 .ai-card__after-attack-list p {
   margin: 0;
-  padding-right: 6.66%;
   line-height: 18px;
 }
 
 /* After Attack */
-.ai-card__after-attack {
-  margin-bottom: 15px;
-}
-
 .ai-card__after-attack-list {
   margin: 0;
   font-size: 12px;
@@ -222,7 +200,6 @@
 }
 
 .ai-card__woo-icon {
-  width: 6.66%;
   font-size: 14px;
 }
 
@@ -234,4 +211,5 @@
 
 .ai-card_pre-action-effects {
   font-weight: bold;
+  text-align: center;
 }

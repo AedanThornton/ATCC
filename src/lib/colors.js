@@ -6,7 +6,7 @@ export function getCyclePrimaryColor(cycle) {
     "Cycle II": "rgb(77, 18, 11)",
     "Cycle III": "#271a2bff",
     "Cycle IV": "#131004",
-    "Cycle V": "#05233B",
+    "Cycle V": "#19232fff",
     "Mnestis Theatre": "#C59A18",
     "Mnestis": "#C59A18",
     
@@ -22,7 +22,7 @@ export function getCycleSecondaryColor(cycle) {
     "Cycle II": "rgba(138, 22, 9, 1)",
     "Cycle III": "#46364dff",
     "Cycle IV": "#E7CC68",
-    "Cycle V": "#072e4eff",
+    "Cycle V": "#354b6aff",
     "Mnestis Theatre": "#eab61a",
     "Mnestis": "#eab61a",
 
