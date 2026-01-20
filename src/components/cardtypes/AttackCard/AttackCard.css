@@ -119,14 +119,6 @@
   -webkit-box-decoration-break: clone;
 }
 
-.ai-card__section-header--action {
-  margin: 0;
-}
-
-.ai-card__section-header--after-attack {
-  margin: 0;
-}
-
 .ai-card_section {
   margin-bottom: 4px;
   display: flex;
@@ -203,13 +195,20 @@
   font-size: 14px;
 }
 
-.ai-card_main-body {
+.ai-card__main-body {
   min-height: 50%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.ai-card_pre-action-effects {
+.ai-card__main-body::-webkit-scrollbar {
+  display: none;
+}
+
+.ai-card__pre-action-effects {
   font-weight: bold;
   text-align: center;
 }
