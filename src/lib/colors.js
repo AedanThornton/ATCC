@@ -21,7 +21,7 @@ export function getCycleSecondaryColor(cycle) {
     "Tutorial": "#743e27",
     "Cycle II": "rgba(138, 22, 9, 1)",
     "Cycle III": "#46364dff",
-    "Cycle IV": "#E7CC68",
+    "Cycle IV": "#cfb056ff",
     "Cycle V": "#354b6aff",
     "Mnestis Theatre": "#eab61a",
     "Mnestis": "#eab61a",

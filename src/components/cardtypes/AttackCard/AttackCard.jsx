@@ -13,11 +13,11 @@ const parseLines = (lines, isAdversary, colorInput) => {
   let currentBlock = [];
   let startedWithWoO = false
 
-  lines.forEach((line, index) => {
+  lines.forEach((line, index) => {    
     if (line.WoO) {
       if (currentBlock.length > 0) {
         newLines.push(
-          <div key={`${newLines.length}`} style={{ display: "flex" }}>
+          <div key={`${newLines.length}`} style={{ display: "flex" }} className={isAdversary ? "invert-icons" : ""}>
             <div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{startedWithWoO && wooIcon}</div>
             <p style={{ flex: 14 }}>{currentBlock}</p>
           </div>)
@@ -28,7 +28,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
 
     const newBlock = line.banner
       ? <><Banner banner={line} isAdversary={isAdversary} colorInput={colorInput} /><br/></>
-      : <FormattedParagraph paragraph={line.effect} />
+      : <FormattedParagraph paragraph={line.effect}/>
     currentBlock.push(newBlock)
   })
   newLines.push(
@@ -45,8 +45,8 @@ const parseLines = (lines, isAdversary, colorInput) => {
 const Banner = ({ banner, isAdversary, colorInput }) => {
   return (
     <span
-      className={`ai-card__section-header ${isAdversary ? "" : "invert-icons"}`}
-      style={{ backgroundColor: getCycleSecondaryColor(colorInput), color: getCycleTextColor(colorInput) }}
+      className={`ai-card__section-header ${isAdversary ? "uninvert-icons" : "invert-icons"}`}
+      style={{ backgroundColor: getCycleSecondaryColor(colorInput), color: isAdversary ? "black" : "white" }}
     >
       <FormattedParagraph paragraph={banner.effect} />
     </span>
@@ -72,7 +72,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           {/* {attack.usedFor && getIcon(attack.usedFor)} */}
         </div>
         <h2 className="ai-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * attack.name.length)) }}>{attack.name}</h2>
-        <div className="ai-card__stats-bar-right" style={{ color: getCycleTextColor(colorInput) }}>
+        <div className="ai-card__stats-bar-right" style={{ color: isAdversary[attack.usedFor] ? "black" : "white" }}>
           <div
             className="stats-bar-right__level-container"
             style={{
@@ -97,7 +97,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           {/* Flavor Text */}
           {attack.flavor && <span className="ai-card__flavor">{attack.flavor}.</span>}
 
-          {attack.preTarget && <div>{parseLines(attack.preTarget, isAdversary[attack.usedFor], colorInput)}</div>}
+          {attack.preTarget && <div>{parseLines(attack.preTarget, !!isAdversary[attack.usedFor], colorInput)}</div>}
 
           {/* Targeting */}
           <div className="ai-card_section">
@@ -123,7 +123,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
             </div>
           </div>
 
-          {attack.preAction && <div className="ai-card__pre-action-effects">{parseLines(attack.preAction, isAdversary[attack.usedFor], colorInput)}</div>}
+          {attack.preAction && <div className="ai-card__pre-action-effects">{parseLines(attack.preAction, !!isAdversary[attack.usedFor], colorInput)}</div>}
 
           {/* Action Section */}
           <div className="ai-card_section">
@@ -143,8 +143,8 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
                 ))}
               </div>
             </div>
-            <div className={`ai-card__consequences-list ${isAdversary[attack.usedFor] ? "invert-icons" : ""}`}>
-              {parseLines(attack.consequences, isAdversary[attack.usedFor], colorInput)}
+            <div className={`ai-card__consequences-list`}>
+              {parseLines(attack.consequences, !!isAdversary[attack.usedFor], colorInput)}
             </div>
           </div>
 
@@ -156,7 +156,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
                 <span className="ai-card__section-header ai-card__section-header--after-attack" style={{ backgroundColor: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
               </div>
               <div className="ai-card__after-attack-list">
-                {parseLines(attack.afterAttackEffects, isAdversary[attack.usedFor], colorInput)}
+                {parseLines(attack.afterAttackEffects, !!isAdversary[attack.usedFor], colorInput)}
               </div>
             </div>
           )}
