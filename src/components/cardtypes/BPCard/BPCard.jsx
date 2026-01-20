@@ -90,7 +90,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
 
         {/* AT Section */}
         {bp.value && <div className="bp-card__value-container">
-          <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput) }} className={!isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}>
+          <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput) }} className={(!isAdversary[bp.usedFor] && !isDahaka) ? "invert-icons" : ""}>
             {getIcon("AT", undefined, undefined, "20px")}
             {` `}
             {bp.value}
@@ -104,7 +104,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
               {bp.nonResponseText.split(" ")[0]}
             </span>
           </div>
-          <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
+          <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] ? !isDahaka && "invert-icons" : ""}`}>
             {bp.nonResponseText.split(" ").slice(1).join(" ")}
           </div>
         </div>}
@@ -119,7 +119,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
                   {response.type && response.type.toUpperCase()}
                 </span>
               </div>
-              <div className={`bp-card__effects-list  ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
+              <div className={`bp-card__effects-list  ${(isAdversary[bp.usedFor] && !isDahaka) ? "invert-icons" : ""}`}>
                 {parseLines(response.effects, "effects")}
               </div>
             </React.Fragment>
@@ -140,7 +140,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
             <div className="bp-card__critical-flavor" style={{ color: isAdversary[bp.usedFor] && !isDahaka && "white" }}>
               {bp.critFlavor}
             </div>
-            <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] && !isDahaka && "invert-icons"}`}>
+            <div className={`bp-card__critical-list ${(isAdversary[bp.usedFor] && !isDahaka) ? "invert-icons" : ""}`}>
               <FormattedParagraph paragraph={bp.critResponse} />
             </div>
           </>}

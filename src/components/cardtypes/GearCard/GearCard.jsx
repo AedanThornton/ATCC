@@ -53,7 +53,7 @@ const GearCard = ({ gear, index, currentSide }) => {
                     
               <div
                 key={index}
-                className={`gear-stats gear-stats-right ${isResistance && "invert-icons"}`}
+                className={`gear-stats gear-stats-right ${isResistance ? "invert-icons" : ""}`}
                 style={{ 
                   backgroundColor: isResistance && "black",
                   color: isResistance && "white" 

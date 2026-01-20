@@ -13,7 +13,7 @@ const FilterList = ({ title, options, filters, onFilterChange }) => {
       {isOpen && <div className="filters-list">
         {options.map((option, index) => <button
           key={index}
-          className={`dropdown-list-item ${filters.includes(option) && 'dropdown-list-item__selected'}`}
+          className={`dropdown-list-item ${filters.includes(option) ? 'dropdown-list-item__selected' : ""}`}
           onClick={() => onFilterChange(option)}
         >
           {option}

@@ -83,7 +83,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           >
             <div className="stats-bar-right__level">{attack.level}</div>
           </div>
-          {attack.dice && <><div className={`stats-bar-right__dice ${!isAdversary[attack.usedFor] && "invert-icons"}`}>
+          {attack.dice && <><div className={`stats-bar-right__dice ${!isAdversary[attack.usedFor] ? "invert-icons" : ""}`}>
             <span className="stats-bar-right__dice-value">{attack.dice}</span>
             {getIcon("d10")}
           </div>
