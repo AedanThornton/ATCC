@@ -47,7 +47,7 @@
 }
 
 .focus-card-info-container {
-  background-color: rgb(59, 59, 59);
+  background-color: var(--main);
   border-radius: 10px;
   padding: 1rem 0.8rem;
   width: 95%;
@@ -144,15 +144,17 @@
   font-weight: unset;
   font-style: italic;
   box-sizing: border-box;
-  color: inherit;
-  text-shadow: 
-      0.5px 0.5px 0 rgb(255, 0, 0),
-      -0.5px -0.5px 0 brown;
+  color: var(--accent);
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
+
+.inverted-text .card-ref-text > button {
+  color: var(--accent-light);
 }
 
 .card-ref-text > button:hover {
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
+  color: var(--accent-light);
 }
 
 @media (min-width: 820px) {

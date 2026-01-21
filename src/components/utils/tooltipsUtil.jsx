@@ -51,7 +51,7 @@ const createTooltip = (name, index) => {
       offset={[0,0]}
       appendTo={document.body}
       content={
-        <div className="tooltip">
+        <div className="tooltip inverted-text">
           <div className='tooltip-title'>{isAuto && "Auto-"}{keyword}</div>
             <span>
               {isAuto && <>

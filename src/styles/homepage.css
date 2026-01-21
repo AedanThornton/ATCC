@@ -33,13 +33,13 @@
   font-size: 24px;
   margin: 0px 8px;
   border: 1px solid #ffffff00;
-  border-bottom: 1px solid rgb(59, 59, 59);
-  border-right: 1px solid rgb(59, 59, 59);
+  border-bottom: 1px solid var(--main);
+  border-right: 1px solid var(--main);
 }
 
 .main-nav li:hover {
-  background-color: rgb(59, 59, 59);
-  border: 1px solid rgb(59, 59, 59);
+  background-color: var(--main);
+  border: 1px solid var(--main);
 }
 
 .main-nav a {

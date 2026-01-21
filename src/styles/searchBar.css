@@ -5,9 +5,13 @@
 }
 
 .card-search-bar {
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   padding: 5px;
   width: 80vw;
+}
+
+.card-search-bar::placeholder {
+  color: var(--accent);
 }
 
 .search-info-link {
@@ -23,6 +27,5 @@
 @media (min-width: 820px) {
   .card-search-bar {
     width: 60vw;
-    margin-bottom: 20px;
   }
 }

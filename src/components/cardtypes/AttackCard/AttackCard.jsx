@@ -32,7 +32,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
     currentBlock.push(newBlock)
   })
   newLines.push(
-    <div key={newLines.length} style={{ display: "flex" }}>
+    <div key={newLines.length} style={{ display: "flex" }} className={isAdversary ? "invert-icons" : ""}>
       {startedWithWoO && (<div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{wooIcon}</div>)}
       {!startedWithWoO && (<div style={{ flex: 1 }}></div>)}
       <p style={{ flex: marginConstant - 2 }} key={`${newLines.length}`}>{currentBlock}</p>

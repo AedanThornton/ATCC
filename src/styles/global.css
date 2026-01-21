@@ -1,4 +1,16 @@
 :root {
+  --papyrus: #dfdbcd;
+  --papyrus-dark: #cac7b9;
+
+  --accent-light: #c0eef3;
+  --accent: #70a1a2;
+  --accent-dark: #588585;
+  
+  --main-dark: #494949;
+  --main: #262626;
+  --main-light: #333333;
+
+
   height: inherit;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -6,16 +18,12 @@
 
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--main);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  
-	--papyrus: #DFDBCD;
-	--papyrus-dark: #cac7b9;
 }
 
 a {
@@ -97,4 +105,14 @@ html, body {
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
+}
+
+input {
+  background-color: var(--main-dark);
+  border: 2px solid var(--main-dark);
+}
+
+input[type="text"]:focus {
+  outline: none; /* removes default browser outline */
+  border-color: var(--accent-light);
 }

@@ -1,8 +1,8 @@
 .tooltip {
-    background-color: rgb(70, 61, 61);
+    background-color: var(--accent);
     padding: 10px;
-    border-radius: 5px;
-    border: 5px solid white;
+    border-radius: 3px;
+    border: 5px solid var(--accent-dark);
     color: white;
     text-align: left;
     z-index: 50;
@@ -33,7 +33,7 @@
 }
 
 .tooltip-trigger:hover {
-    color: rgb(212, 16, 16);
+    color: var(--accent);
 }
 
 .icon .OneHanded {
