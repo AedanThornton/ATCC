@@ -7,17 +7,23 @@ const FilterList = ({ title, options, filters, onFilterChange }) => {
 
   return (
     <>
-      <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
+      <button 
+        className="dropdown-button" 
+        style={{backgroundColor: isOpen ? "var(--accent-dark)" : "var(--main)"}}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <h3>{title}</h3>{isOpen ? "⮛" : "⮙"}
       </button>
       {isOpen && <div className="filters-list">
-        {options.map((option, index) => <button
-          key={index}
-          className={`dropdown-list-item ${filters.includes(option) ? 'dropdown-list-item__selected' : ""}`}
-          onClick={() => onFilterChange(option)}
-        >
-          {option}
-        </button>)}
+        {options.map((option, index) => 
+          <button
+            key={index}
+            className={`dropdown-list-item ${filters.includes(option) ? 'dropdown-list-item__selected' : ""}`}
+            onClick={() => onFilterChange(option)}
+          >
+            {option}
+          </button>
+        )}
       </div>}
     </>
   )

@@ -85,7 +85,7 @@
 }
 
 .dropdown-list-item__selected {
-  background-color: var(--main-midtone);
+  background-color: var(--main-light);
 }
 /* END Filters */
 
@@ -178,7 +178,11 @@
   }
 
   .dropdown-list-item:hover {
-    background-color: var(--main);
+    background-color: var(--accent);
+  }
+
+  .card-list__control-bar--page-buttons button:enabled {
+    background-color: var(--accent);
   }
 }
 

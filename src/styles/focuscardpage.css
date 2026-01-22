@@ -144,7 +144,7 @@
   font-weight: unset;
   font-style: italic;
   box-sizing: border-box;
-  color: var(--accent);
+  color: var(--accent-hover);
   text-decoration-line: underline;
   text-decoration-style: dashed;
 }
@@ -154,7 +154,7 @@
 }
 
 .card-ref-text > button:hover {
-  color: var(--accent-light);
+  color: var(--accent);
 }
 
 @media (min-width: 820px) {
