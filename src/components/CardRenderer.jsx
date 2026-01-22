@@ -34,7 +34,7 @@ const CardRenderer = ({cardname}) => {
   }
   
   const secretOverlay = <>{
-    isSecretCard && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} setIsVisible={setIsHidden}/>
+    isSecretCard && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} />
   }</>
 
   return (

@@ -1,4 +1,5 @@
-const SecretOverlay = ({text, isVisible, setIsVisible}) => {
+const SecretOverlay = ({text, isVisible}) => {
+
   return (
     <>
       {isVisible && (

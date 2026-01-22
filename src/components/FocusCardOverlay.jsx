@@ -40,7 +40,7 @@ const FocusCardOverlay = ({ cardID, children }) => {
       const data = await response.json();
       setCardData(data);
 
-      const isSecretCard = cardData?.foundIn?.includes("Secret Deck") || cardData?.foundIn?.includes("Envelope") || cardData?.foundIn === "Ultra-secret"
+      const isSecretCard = data?.foundIn?.includes("Secret Deck") || data?.foundIn?.includes("Envelope") || data?.foundIn === "Ultra-secret"
       setIsHidden(isSecretCard)
     } catch (e) {
       console.error("Error fetching card:", e);
@@ -55,7 +55,7 @@ const FocusCardOverlay = ({ cardID, children }) => {
 
   const isSecretCard = cardData?.foundIn?.includes("Secret Deck") || cardData?.foundIn?.includes("Envelope") || cardData?.foundIn === "Ultra-secret"
   const secretOverlay = <>{
-    isSecretCard && <SecretOverlay text={cardData.foundIn} isVisible={isHidden} setIsVisible={setIsHidden} />
+    isSecretCard && <SecretOverlay text={cardData.foundIn} isVisible={isHidden} />
   }</>
 
   return (
