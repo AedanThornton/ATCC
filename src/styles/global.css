@@ -6,9 +6,9 @@
   --accent: #70a1a2;
   --accent-dark: #588585;
   
-  --main-dark: #494949;
+  --main-light: #494949;
+  --main-midtone: #333333;
   --main: #262626;
-  --main-light: #333333;
 
 
   height: inherit;
@@ -108,8 +108,8 @@ body::-webkit-scrollbar {
 }
 
 input {
-  background-color: var(--main-dark);
-  border: 2px solid var(--main-dark);
+  background-color: var(--main-light);
+  border: 2px solid var(--main-light);
 }
 
 input[type="text"]:focus {

@@ -85,7 +85,7 @@
 }
 
 .dropdown-list-item__selected {
-  background-color: var(--main-light);
+  background-color: var(--main-midtone);
 }
 /* END Filters */
 
@@ -109,7 +109,7 @@
 .card-list__control-bar--page-buttons button {
   padding: 4px 12px;
   margin: 0px 10px;
-  background-color: var(--main-dark);
+  background-color: var(--main-light);
 }
 
 .card-list__control-bar--search-wrapper {

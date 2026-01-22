@@ -47,7 +47,7 @@
 }
 
 .focus-card-info-container {
-  background-color: var(--main);
+  background-color: var(--main-light);
   border-radius: 10px;
   padding: 1rem 0.8rem;
   width: 95%;
