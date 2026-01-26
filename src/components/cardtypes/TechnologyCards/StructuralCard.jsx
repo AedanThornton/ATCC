@@ -5,11 +5,12 @@ import getIcon from "../../utils/iconUtils.jsx";
 import React from "react";
 
 const StructuralCard = ({ structural, index, currentSide }) => {
+  currentSide = currentSide === 1 ? 2 : 1
   let side = currentSide
   if (currentSide === 1) side = ""
 
   return (
-    <div className={`card technology ${structural.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
+    <div className={`card technology ${structural.cardSize.replace(" ", "-").toLowerCase()} ${currentSide === 1 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
           <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon("StructuralTech", undefined, undefined, "2.1em", "0em")}</div></div>
@@ -22,7 +23,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
         </div>
 
         {/* structural Project Side */}
-        {currentSide == 2 && (      
+        {currentSide == 1 && (      
           <div className="technology-project">
             <div className="technology-project-divider">
               {structural.flavorTech && (<div className="technology-flavor">
@@ -50,7 +51,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
         )}
 
         {/* structural Tech Side */}
-        {currentSide == 1 && (
+        {currentSide == 2 && (
           <div className="technology-tech">
             {structural.flavorTech && (<div className="technology-flavor">
               {structural.flavorTech}
