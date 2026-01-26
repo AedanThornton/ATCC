@@ -20,7 +20,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
         {currentSide == 2 && (
         <div className="technology-project">
           <div className="technology-project-divider">
-            {argoAbility.flavorTech && (<div className="technology-project-flavor">
+            {argoAbility.flavorProject && (<div className="technology-flavor">
               <i>{argoAbility.flavorProject}</i>
             </div>)}
             <div className="technology-project-header">REQUIREMENTS</div>
@@ -46,9 +46,8 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
         {/* argo-ability Tech Side */}
         {currentSide == 1 && (
         <div className="technology-tech">
-          {argoAbility.flavorTech && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-            <div className="card-info-header">Flavor Text</div>
-            <div className="card-info-detail"><i>{argoAbility.flavorTech}</i></div>
+          {argoAbility.flavorTech && (<div className="technology-flavor">
+            <i>{argoAbility.flavorTech}</i>
           </div>)}
 
           {argoAbility.abilities?.map((ability, index) => (
