@@ -13,7 +13,7 @@ for (const path in modules) {
 
 const nonInvertibles = new Set([
   "Progress", "Reveal", "RedPowerDie", "RedArmorDie", "BlackPowerDie", "BlackArmorDie", "WhitePowerDie", "WhiteArmorDie", "MortalPowerDie", "MortalArmorDie",
-  "Doom", "WoO", "PriorityTarget"
+  "Doom", "WoO", "PriorityTarget", "ToHit"
 ]);
 
 // Utility functions
@@ -47,7 +47,7 @@ const getIcon = (name, type = "none", index, size = "1em") => {
   }
 
   let wide = 1
-  if (name === "ComplicatedAction") { wide = 2 }
+  if (name === "ComplicatedAction" || name === "PrimordialZoneMarker") { wide = 2 }
 
   const icon = icons[name];
   return icon ? (

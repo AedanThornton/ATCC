@@ -1,3 +1,4 @@
+import React from "react";
 import "/src/styles/cardsStyle.css"
 import "./AttackCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
@@ -13,7 +14,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
   let currentBlock = [];
   let startedWithWoO = false
 
-  lines.forEach((line, index) => {    
+  lines.forEach((line, index) => {
     if (line.WoO) {
       if (currentBlock.length > 0) {
         newLines.push(
@@ -27,8 +28,8 @@ const parseLines = (lines, isAdversary, colorInput) => {
     }
 
     const newBlock = line.banner
-      ? <><Banner banner={line} isAdversary={isAdversary} colorInput={colorInput} /><br/></>
-      : <FormattedParagraph paragraph={line.effect}/>
+      ? <><Banner banner={line} isAdversary={isAdversary} colorInput={colorInput} /><br /></>
+      : <FormattedParagraph paragraph={line.effect} />
     currentBlock.push(newBlock)
   })
   newLines.push(
@@ -51,6 +52,64 @@ const Banner = ({ banner, isAdversary, colorInput }) => {
       <FormattedParagraph paragraph={banner.effect} />
     </span>
   )
+}
+
+const AttackDiagram = ({diagram, isAdversary}) => {
+  let primordialAdded = false
+  const attackDiagram = diagram?.map((row, i) => {
+    let span = 0
+    let output = []
+
+    row.split("").map((char, j) => {
+      if (char === "P") {
+        if (primordialAdded) return;
+
+        span += 1
+        return
+      }
+
+      if (span > 1 && char !== "P") {
+        primordialAdded = true;
+
+        output.push(
+          <div
+            key={`${i}-${j}-p`}
+            className={`ai-card__zone-diagram__space zone-type-P`}
+            style={{
+              gridRow: `span ${span}`,
+              gridColumn: `span ${span}`,
+            }}
+          >
+            {getIcon("PrimordialZoneMarker", undefined, undefined, "1.2em")}
+          </div>
+        )
+
+        span = 0;
+      }
+
+      output.push(
+        <div
+          key={`${i}-${j}`}
+          className={`ai-card__zone-diagram__space zone-type-${char}`}
+        >
+          {char === "T" && getIcon("PriorityTarget", undefined, undefined, "0.6em")}
+        </div>
+      )
+    })
+
+    return output
+  });  
+
+  return <div 
+    className="ai-card__zone-diagram"
+    style={{filter: isAdversary && "invert(1)"}}
+  >
+    {attackDiagram.map((cell, i) => (
+      <React.Fragment key={i}>
+        {cell}
+      </React.Fragment>
+    ))}
+  </div>
 }
 
 const AttackCard = ({ attack, index, isDahaka = false }) => {
@@ -95,7 +154,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
       <div>
         <div className="ai-card__main-body">
           {/* Flavor Text */}
-          {attack.flavor && <span className="ai-card__flavor">{attack.flavor}.</span>}
+          {attack.flavor && <span className="ai-card__flavor"><FormattedParagraph paragraph={attack.flavor} /></span>}
 
           {attack.preTarget && <div>{parseLines(attack.preTarget, !!isAdversary[attack.usedFor], colorInput)}</div>}
 
@@ -143,6 +202,9 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
                 ))}
               </div>
             </div>
+
+            {attack.attackDiagram && <AttackDiagram diagram={attack.attackDiagram} isAdversary={isAdversary[attack.usedFor]}/>}
+
             <div className={`ai-card__consequences-list`}>
               {parseLines(attack.consequences, !!isAdversary[attack.usedFor], colorInput)}
             </div>
