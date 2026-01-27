@@ -228,7 +228,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
         <div className="ai-card__footer" style={{ backgroundColor: isDahaka ? adversaryPrimaryColor : getCyclePrimaryColor(colorInput) }}>
           <span className="ai-card_footer-div ai-card__id" style={{ color: getCycleTextColor(colorInput) }}>{!isDahaka && `ID: ${attack.cardIDs?.[0]}`}</span>
           <span className="ai-card_footer-div ai-card__type-indicator" style={{ color: isDahaka ? "white" : getCycleTextColor(colorInput) }}>
-            {getAttackType(attack.attackType, attack.subtype || "AI")}
+            {attack.cycle.includes("Mnestis") && "MNESTIS "}{getAttackType(attack.attackType, attack.subtype || "AI")}
           </span>
           <div className="ai-card_footer-div"></div>
         </div>

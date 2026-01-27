@@ -12,7 +12,7 @@ const FilterList = ({ title, options, filters, onFilterChange }) => {
         style={{backgroundColor: isOpen ? "var(--accent-dark)" : "var(--main)"}}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3>{title}</h3>{isOpen ? "⮛" : "⮙"}
+        <h3>{title}</h3>{isOpen ? "▽" : "△"}
       </button>
       {isOpen && <div className="filters-list">
         {options.map((option, index) => 
@@ -74,23 +74,25 @@ const FilterSidebar = () => {
     setSearchParams(params, {replace: true})
   }
 
-  // Showing loading screen while waiting for sync
-  if (optionsError) {
-    return <div>Error: {optionsError}</div>;
-  }
-  if (!filterOptions || optionsLoading) {
-    return <div>Initializing data...</div>;
-  }
-
   return (
     <div className="filter-sidebar">
 
       <h1>Filters</h1>
       <div className="filters-container">
-        <FilterList title="Card Type" options={filterOptions.cardType} filters={currentFilters.cardType} onFilterChange={(option) => handleFilterChange("cardType", option)} />
-        <FilterList title="Cycle" options={filterOptions.cycle} filters={currentFilters.cycle} onFilterChange={(option) => handleFilterChange("cycle", option)} />
-        <FilterList title="Card Size" options={filterOptions.cardSize} filters={currentFilters.cardSize} onFilterChange={(option) => handleFilterChange("cardSize", option)} />
-        <FilterList title="Found In" options={filterOptions.foundIn} filters={currentFilters.foundIn} onFilterChange={(option) => handleFilterChange("foundIn", option)} />
+        {
+          optionsError
+            ? <div>Error: {optionsError}</div>
+            : 
+          (!filterOptions || optionsLoading)
+            ? <div>Initializing data...</div>
+            : 
+          (<>
+            <FilterList title="Card Type" options={filterOptions.cardType} filters={currentFilters.cardType} onFilterChange={(option) => handleFilterChange("cardType", option)} />
+            <FilterList title="Cycle" options={filterOptions.cycle} filters={currentFilters.cycle} onFilterChange={(option) => handleFilterChange("cycle", option)} />
+            <FilterList title="Card Size" options={filterOptions.cardSize} filters={currentFilters.cardSize} onFilterChange={(option) => handleFilterChange("cardSize", option)} />
+            <FilterList title="Found In" options={filterOptions.foundIn} filters={currentFilters.foundIn} onFilterChange={(option) => handleFilterChange("foundIn", option)} />
+          </>)
+        }
       </div>
 
     </div>

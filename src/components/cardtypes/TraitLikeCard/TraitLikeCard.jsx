@@ -52,7 +52,7 @@ const TraitLikeCard = ({ traitlike, index, isDahaka = false }) => {
         <div className="traitlike-card__footer" style={{ backgroundColor: isDahaka ? getCycleSecondaryColor(colorInput) : getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>
           <span className="traitlike-card_footer-div traitlike-card__id" >ID: {traitlike.cardIDs?.[0]}</span>
           <span className="traitlike-card_footer-div traitlike-card__type-indicator" >
-            {traitlike.actualCardType.toUpperCase()}
+            {traitlike.cycle.includes("Mnestis") && "MNESTIS "}{traitlike.actualCardType.toUpperCase()}
           </span>
           <div className="traitlike-card_footer-div"></div>
         </div>
