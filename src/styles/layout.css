@@ -60,7 +60,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
   width: 100%;
 }
 
@@ -135,5 +134,9 @@
     left: unset;
     background-color: unset;
     padding: 0;
+  }
+  
+  .layout-row {  
+    padding: 10px;
   }
 }

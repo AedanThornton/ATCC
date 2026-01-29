@@ -8,6 +8,7 @@ import cardTypes from "../lib/cardTypes";
 import FocusCard from './FocusCard';
 
 const CardRenderer = ({cardname}) => { 
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
   const isSecretCard = cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope") || cardname.foundIn === "Ultra-secret"
  
   const [isHidden, setIsHidden] = useState(isSecretCard);
@@ -39,27 +40,34 @@ const CardRenderer = ({cardname}) => {
 
   return (
     <div className='card-wrapper'>
-      <Tippy 
-        interactive 
-        duration={[0, 0]} 
-        offset={[15,-25]}
-        trigger="mouseenter focus"
-        placement="right-start"
-        animation="shift-away-extreme"
-        appendTo={document.body}
-        content={
-          <CardMenu 
-            card={cardname}
-            flipFunc={toggleSide}
-            secretFunc={toggleReveal}
-            setDisplay={setDisplayHelper}
-          />}
-      >
-        <div>
+      {isNotMobile
+      ? <Tippy 
+          interactive 
+          duration={[0, 0]} 
+          offset={[15,-25]}
+          trigger="mouseenter focus"
+          placement="right-start"
+          animation="shift-away-extreme"
+          appendTo={document.body}
+          content={
+            <CardMenu 
+              card={cardname}
+              flipFunc={toggleSide}
+              secretFunc={toggleReveal}
+              setDisplay={setDisplayHelper}
+            />}
+        >
+          <div>
+            {currentCard}
+            {secretOverlay}
+          </div>
+        </Tippy>
+        
+      : <div onClick={setDisplayHelper}>
           {currentCard}
           {secretOverlay}
         </div>
-      </Tippy>
+      }
 
       {!isHidden && <div className="card-type-marker">
         {cardname.cardType}

@@ -1,6 +1,8 @@
 import React from "react";
 
 const PaginationControls = ({currentPage, isLoading, totalPages, totalCards, onPageChange}) => {
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
+
   return (
     <div className="card-list__control-bar--page-buttons">
 
@@ -11,19 +13,19 @@ const PaginationControls = ({currentPage, isLoading, totalPages, totalCards, onP
         &lt;
       </button>
 
-      <div>
-        <span>
-          Page
-          <input
+      <span>
+        Page
+        {isNotMobile 
+         ? <input
             type="text"
             value={currentPage}
             onChange={(e) => onPageChange(e.target.value)}
             className="card-list__control-bar--page_number"
           />
-          of {totalPages}<br/>
-          ({totalCards} cards)
-        </span>
-      </div>
+          : <><br /><span>{` ${currentPage} `}</span></>}
+        of {totalPages}
+        {isNotMobile && <><br/><span>({totalCards} cards)</span></>}
+      </span>
 
       <button
         onClick={() => onPageChange(currentPage + 1)}

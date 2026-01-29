@@ -52,6 +52,7 @@ const getIcon = ({ name, type = "none", index, size = "1em" }) => {
   const icon = icons[name];
   return icon ? (
     <Tippy
+      disabled={window.matchMedia('(hover: none)').matches}
       key={name + index}
       duration={0}
       offset={[-10, 5]}
