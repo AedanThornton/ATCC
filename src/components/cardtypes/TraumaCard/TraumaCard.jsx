@@ -44,13 +44,13 @@ const TraumaCard = ({ trauma, index }) => {
         {trauma.subtype !== "Obol" && (
         <div className="trauma-bottom-bar">
           {trauma.subtype === "Minor" 
-            ? <div>{getIcon(trauma.arrow)}</div>
+            ? <div>{getIcon({name: trauma.arrow})}</div>
             : trauma.subtype === "Major" 
               ? <div style={{fontSize: "18px"}}>{trauma.number}</div>
               : <div></div>
           }
           <div className="trauma-type-box">
-            <div className="trauma-type-box__icon">{getIcon(trauma.subtype, undefined, undefined, "3rem")}</div>
+            <div className="trauma-type-box__icon">{getIcon({name: trauma.subtype, size: "3rem"})}</div>
             <div className="trauma-type-box__sign">{trauma.sign}</div>
           </div>
         </div>

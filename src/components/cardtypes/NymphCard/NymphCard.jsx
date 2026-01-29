@@ -25,7 +25,7 @@ const NymphCard = ({ nymph, index }) => {
         {/* Summoning */}
         <div className="nymph-text-box">
           <div className="nymph-text-header">SUMMONING</div>
-          <div className="nymph-text">Spend 1 {getIcon("SummonCharge")} to summon the {nymph.name}. Then, {getIcon("Adversary")}.</div>
+          <div className="nymph-text">Spend 1 {getIcon({name: "SummonCharge"})} to summon the {nymph.name}. Then, {getIcon({name: "Adversary"})}.</div>
         </div>
 
         {/* Effects */}

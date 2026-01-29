@@ -67,8 +67,8 @@ const FocusCardOverlay = ({ cardID, children }) => {
         <div className='focus-card-overlay' style={{ display: focusDisplay ? "flex" : "none" }}>
           <div className='focus-card-overlay__buttons'>
             <button onClick={() => setFocusDisplay(false)}>X</button>
-            {cardData?.name2 && (<button onClick={toggleSide}>{getIcon("Flip", undefined, undefined, "1.5em")}</button>)}
-            {isSecretCard && (<button onClick={toggleReveal}>{getIcon("Reveal", undefined, undefined, "1.5em")}</button>)}
+            {cardData?.name2 && (<button onClick={toggleSide}>{getIcon({name: "Flip", size: "1.5em"})}</button>)}
+            {isSecretCard && (<button onClick={toggleReveal}>{getIcon({name: "Reveal", size: "1.5em"})}</button>)}
           </div>
           {isLoading ? (
             <div>Loading card details...</div>

@@ -5,7 +5,7 @@ import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, isAdversary, adversaryPrimaryColor, getCycleTextColor } from "../../../lib/colors.js"
 import getIcon from "../../utils/iconUtils.jsx";
 
-const wooIcon = getIcon("WoO", undefined, undefined, "1.3em")
+const wooIcon = getIcon({name: "WoO", size: "1.3em"})
 
 const parseLines = (lines, superindex) => {
   const newLines = []
@@ -56,7 +56,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
       {/* Header, Icon, and Banner */}
       <div className="bp-card__header">
         <div className="bp-card__icon-top-left" style={{ borderColor: getCyclePrimaryColor(colorInput), border: isDahaka && "none" }}>
-          {/* {bp.usedFor && getIcon(bp.usedFor)} */}
+          {/* {bp.usedFor && getIcon({name: bp.usedFor})} */}
         </div>
         <h2 className="bp-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * bp.name.length)) }}>{bp.name}</h2>
         <div className="bp-card__stats-bar-right" style={{ color: getCycleTextColor(colorInput) }}>
@@ -91,7 +91,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
         {/* AT Section */}
         {bp.value && <div className="bp-card__value-container">
           <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput) }} className={(!isAdversary[bp.usedFor] && !isDahaka) ? "invert-icons" : ""}>
-            {getIcon("AT", undefined, undefined, "20px")}
+            {getIcon({name: "AT", size: "20px"})}
             {` `}
             {bp.value}
           </span>

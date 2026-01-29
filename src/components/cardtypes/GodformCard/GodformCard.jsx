@@ -33,12 +33,12 @@ const GodformCard = ({ godform, index }) => {
       {/* Stats */}
       <div className="godform-stats-box">
         <div className="godform-stats-subbox">
-          <div className="godform-stat-circled">{getIcon(godform.power, "Power", undefined)}</div>
-          <div className="godform-stat-circled">{getIcon("Speed")}{godform.speed}</div>
+          <div className="godform-stat-circled">{getIcon({name: godform.power, type: "Power"})}</div>
+          <div className="godform-stat-circled">{getIcon({name: "Speed"})}{godform.speed}</div>
         </div>
         <div className="godform-stats-subbox">
           {godform.stats && godform.stats.split(", ").map((stat, index) => (
-            <div key={index} className="godform-stat-uncircled">{stat.split(" ")[0]} {getIcon(stat.split(" ").slice(1).join(""))}</div>
+            <div key={index} className="godform-stat-uncircled">{stat.split(" ")[0]} {getIcon({name: stat.split(" ").slice(1).join("")})}</div>
           ))}
         </div>
       </div>

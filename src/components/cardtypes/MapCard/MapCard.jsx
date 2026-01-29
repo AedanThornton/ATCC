@@ -19,8 +19,8 @@ const MapArrow = ({ cycle, dir, nextTile, split = "", lock = "" }) => {
         {split && <div className="map-arrow-square">{split}</div>}
         {lock &&
           <>
-            <div className="map-arrow-square">{getIcon(lock)}</div>
-            <div className="map-arrow-circle">{getIcon("Lock", undefined, undefined, "0.8rem")}</div>
+            <div className="map-arrow-square">{getIcon({name: lock})}</div>
+            <div className="map-arrow-circle">{getIcon({name: "Lock", size: "0.8rem"})}</div>
           </>
         }
       </div>
@@ -97,7 +97,7 @@ const MapCard = ({ map, index }) => {
             <div className="map-symbol-container">
               {map.symbols.map((symbol, index) => (
                 <div key={index} className="map-symbol" style={getRandomArrow()}>
-                  {getIcon(symbol)}
+                  {getIcon({name: symbol})}
                 </div>
               ))}
             </div>
@@ -136,7 +136,7 @@ const MapCard = ({ map, index }) => {
         <div>
           {map.progDoom && map.progDoom.length > 0 && <div className="map-symbols map-corner left">
             {map.progDoom.map((symbol, index) => (
-              <React.Fragment key={index}>{getIcon(symbol, undefined, undefined, "1.3em")}</React.Fragment>
+              <React.Fragment key={index}>{getIcon({name: symbol, size: "1.3em"})}</React.Fragment>
             ))}
           </div>}
         </div>
@@ -148,7 +148,7 @@ const MapCard = ({ map, index }) => {
 
         <div className="map-factions map-corner right">
           {map.factions.map((faction, index) => (
-            <React.Fragment key={index}>{getIcon(faction.split(" ").join(""), undefined, undefined, "1.3em")}</React.Fragment>
+            <React.Fragment key={index}>{getIcon({name: faction.split(" ").join(""), size: "1.3em"})}</React.Fragment>
           ))}
         </div>
       </div>

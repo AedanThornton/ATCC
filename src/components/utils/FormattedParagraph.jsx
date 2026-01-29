@@ -14,26 +14,26 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
   if (!sentence.abilityText) {
     console.log(`Error: Invalid formatting object.`)
     console.log(sentence);
-    
+
   }
 
   const isReaction = sentence.abilityText[0].type === "timing" && sentence.abilityText[0].value === "Reaction"
 
   function formatText(textClump) {
-    switch(textClump.type) {
+    switch (textClump.type) {
       case "newline":
         return (<br />)
       case "keyword":
         return createTooltip(textClump.value)
       case "timing":
         if (isReaction) return
-        return <><b>{textClump.value}:</b></>
+        return <b>{textClump.value}:</b>
       case "bold":
         return <b>{textClump.value}</b>
       case "italics":
         return <i>{textClump.value}</i>
       case "icon":
-        return getIcon(textClump.value)
+        return getIcon({ name: textClump.value })
       case "cardRef":
         return textClump.refID
           ? <FocusCardOverlay cardID={textClump.refID}>
@@ -50,14 +50,12 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
       {inLineGate && sentence.gate && createAbilityGate(sentence.gate, sentence.value, getGateColor(sentence.gate) || "none")}
       {pos > 0 && (sentence.abilityText[0].type === "timing" || sentence.costs) && <br />}
       <span className="ability-costs">
-        {isReaction && (<>{getIcon("Reaction")}</>)}
-        {sentence.costs?.map((cost, i) => (
-          <React.Fragment key={i}>{getIcon(cost, undefined, i)}</React.Fragment>
-        ))}
+        {isReaction && getIcon({ name: "Reaction" })}
+        {sentence.costs?.map((cost, i) => getIcon({ name: cost, index: i }))}
       </span>
       {sentence.abilityText?.map((textClump, index2, array) => (
         <React.Fragment key={index2}>
-          {formatText(textClump)}{index2 !== array.length -1 && " "}
+          {formatText(textClump)}{index2 !== array.length - 1 && " "}
         </React.Fragment>
       ))}{". "}
     </>
@@ -67,7 +65,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
 const FormattedParagraph = ({ paragraph, inLineGate = false }) => {
   return paragraph?.map((sentence, index) => (
     <React.Fragment key={index}>
-      <FormattedSentence sentence={sentence} inLineGate={inLineGate} pos={index}/>
+      <FormattedSentence sentence={sentence} inLineGate={inLineGate} pos={index} />
     </React.Fragment>
   ))
 }
@@ -79,7 +77,7 @@ export const GatedFormattedParagraph = ({ gatedParagraph }) => {
         return <div key={index} className="gear-gate" style={{ background: getGateColor(gatedSentence.gate) }}>
           <div className="gear-ability-gate">{createAbilityGate(gatedSentence.gate, gatedSentence.value)}</div>
           <div className="gear-gated-ability">
-            <FormattedSentence sentence={gatedSentence}/>
+            <FormattedSentence sentence={gatedSentence} />
           </div>
         </div>
       })}

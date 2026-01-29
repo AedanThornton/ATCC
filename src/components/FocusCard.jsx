@@ -57,7 +57,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
         </div>)}
         
         <div className="focus-card-info-container focus-card-secrets">
-          <button className='focus-card-secrets-button' onClick={() => setSecretsAreVisible(!secretsAreVisible)}>{getIcon("Reveal")}</button>
+          <button className='focus-card-secrets-button' onClick={() => setSecretsAreVisible(!secretsAreVisible)}>{getIcon({name: "Reveal"})}</button>
           <SecretOverlay text={"This section may contain secrets"} isVisible={secretsAreVisible}/>
           This card contains the following secrets:
           {(cardData.secrets && cardData.secrets.length > 0) 

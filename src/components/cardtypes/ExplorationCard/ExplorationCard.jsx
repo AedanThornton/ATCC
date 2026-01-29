@@ -48,7 +48,7 @@ const ExplorationCard = ({ exploration, index }) => {
         <div className="adversary-icon-group">
           {[...Array(exploration.adversaryTriggers)].map((e, index) => (
             <div key={index} className="adversary-icon">
-              {getIcon("Adversary", undefined, undefined, "3em")}
+              {getIcon({name: "Adversary", size: "3em"})}
             </div>
           ))}
         </div>
@@ -57,7 +57,7 @@ const ExplorationCard = ({ exploration, index }) => {
       <div className="exploration-footer">
         <div>{exploration.number && (<div className="exploration-footer__number-circle">{exploration.number}</div>)}</div>
         <div className="exploration-footer__remove-effect">{exploration.removeEffect}</div>
-        <div>{getIcon(exploration.stackType.replace(" ", ""), undefined, undefined, "2.8em")}</div>
+        <div>{getIcon({name: exploration.stackType.replace(" ", ""), size: "2.8em"})}</div>
       </div>
 
       <div>

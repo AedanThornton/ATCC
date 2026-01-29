@@ -9,7 +9,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
     <div className={`card technology ${argoAbility.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
-          <div className="title-icon"><div className={`icon ${argoAbility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="title-icon"><div className={`icon ${argoAbility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon({name: "CombatTech", size: "2.1em"})}</div></div>
           <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * argoAbility.name.length)) }}>
             {argoAbility.name}
           </div>
@@ -29,7 +29,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
                 return (
                   <React.Fragment key={i}>
                   {req.startsWith("@ArgoKnowledge") 
-                    ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                    ? <>{getIcon({name: "ArgoKnowledge"})} {req.split(" ")[1]}</> 
                     : req}
                   {!(i >= array.length - 1) && ", "}
                   </React.Fragment>
@@ -59,7 +59,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
           ))}
 
           <div className="technology-aa-box">
-            {argoAbility.trireme === "TRUE" && (<div className="technology-aa-charges">{getIcon("Trireme")}</div>)}
+            {argoAbility.trireme === "TRUE" && (<div className="technology-aa-charges">{getIcon({name: "Trireme"})}</div>)}
             {argoAbility.charges && (<div className="technology-aa-charges">{argoAbility.charges}</div>)}
           </div>
         </div>

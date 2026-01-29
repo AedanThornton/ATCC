@@ -100,10 +100,10 @@ const PrimordialCard = ({ primordial, index }) => {
             </div>
 
             <div className="primordial-statbar">
-              <div>{getIcon("Tile_" + primordial.figure_size)}</div>
+              <div>{getIcon({name: "Tile_" + primordial.figure_size})}</div>
               {primordial.diagramEffects?.map((effect, index) => (
                 <div key={index}>
-                  {getIcon(effect)}
+                  {getIcon({name: effect})}
                 </div>
               ))}
             </div>
@@ -138,13 +138,13 @@ const PrimordialCard = ({ primordial, index }) => {
               <div className="primordial-attributes__main">
                 <div className="primordial-attributes__main-stat-box">
                   <div style={{borderColor: "#107975"}}>
-                    {getIcon("ToHit", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.toHit}+</div></div>
+                    {getIcon({name: "ToHit", size: "1.2rem"})} {primordial.levels[currentLevel]?.toHit}+</div></div>
                 <div className="primordial-attributes__main-stat-box">
                   <div style={{borderColor: "#2f3f66"}} className="primordial-speed">
-                    {getIcon("Speed", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.speed === "Inf" ? "∞" : primordial.levels[currentLevel]?.speed}</div></div>
+                    {getIcon({name: "Speed", size: "1.2rem"})} {primordial.levels[currentLevel]?.speed === "Inf" ? "∞" : primordial.levels[currentLevel]?.speed}</div></div>
                 <div className="primordial-attributes__main-stat-box">
                   <div style={{borderColor: "#931e23"}}>
-                    {getIcon("Wounds", undefined, undefined, "1.2rem")} {primordial.levels[currentLevel]?.wounds}</div></div>
+                    {getIcon({name: "Wounds", size: "1.2rem"})} {primordial.levels[currentLevel]?.wounds}</div></div>
               </div>
               <div className="primordial-attributes__bonus">
                 {Array.from({ length: 4 }, (_, i) => {
@@ -156,7 +156,7 @@ const PrimordialCard = ({ primordial, index }) => {
                         {primordial.levels[currentLevel]?.attributes[i].count.startsWith("-") ? "" : "+"}
                         {primordial.levels[currentLevel]?.attributes[i].count}
                         {" "}
-                        {getIcon(attr[0])}
+                        {getIcon({name: attr[0]})}
                         {" "}
                         {attr.length > 1 && attr.shift() && attr.join(" ")}</span>
                     </div>)

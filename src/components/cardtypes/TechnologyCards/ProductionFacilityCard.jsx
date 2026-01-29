@@ -9,7 +9,7 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
     <div className={`card technology ${productionFacility.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
-          <div className="title-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon("CombatTech", undefined, undefined, "2.1em", "0em")}</div></div>
+          <div className="title-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon({name: "CombatTech", size: "2.1em"})}</div></div>
           <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * productionFacility.name.length)) }}>
             {productionFacility.name}
           </div>
@@ -29,7 +29,7 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
                   return (
                     <React.Fragment key={i}>
                     {req.startsWith("@ArgoKnowledge") 
-                      ? <>{getIcon("ArgoKnowledge")} {req.split(" ")[1]}</> 
+                      ? <>{getIcon({name: "ArgoKnowledge"})} {req.split(" ")[1]}</> 
                       : req}
                     {!(i >= array.length - 1) && ", "}
                     </React.Fragment>

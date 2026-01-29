@@ -20,7 +20,7 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
             <div key={index} className="terrain-tile-container">
               {`${tile.count} x `}
               <div className="terrain-tile-image-container">
-                {getIcon(`Tile_${tile.type === "O" ? "2x2" : tile.type}`)}
+                {getIcon({name: `Tile_${tile.type === "O" ? "2x2" : tile.type}`})}
               </div>
             </div>
           ))}

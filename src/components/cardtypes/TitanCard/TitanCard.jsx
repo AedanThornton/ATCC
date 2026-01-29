@@ -21,11 +21,11 @@ const TitanCard = ({ titan, index }) => {
               <div>
                 {titan.titanPower.split(" + ").map((power, subindex) => (
                   <React.Fragment key={`${power}-${subindex}`}>
-                    {subindex >= 1 ? " + " : ""}{getIcon(power, "Power", subindex, "1.5em")}
+                    {subindex >= 1 ? " + " : ""}{getIcon({name: power, type: "Power", size: "1.5em"})}
                   </React.Fragment>
                 ))}
               </div>
-              <div>{titan.speed}{getIcon("Speed", undefined, index+"2", "1.5em")}</div>
+              <div>{titan.speed}{getIcon({name: "Speed", index: index+2, size: "1.5em"})}</div>
             </div>
 
             {/* Abilities */}

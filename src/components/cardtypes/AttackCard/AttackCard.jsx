@@ -6,7 +6,7 @@ import { getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTex
 import getIcon from "../../utils/iconUtils.jsx";
 
 
-const wooIcon = getIcon("WoO", undefined, undefined, "1.3em")
+const wooIcon = getIcon({name: "WoO", size: "1.3em"})
 const marginConstant = 15
 
 const parseLines = (lines, isAdversary, colorInput) => {
@@ -80,7 +80,7 @@ const AttackDiagram = ({diagram, isAdversary}) => {
               gridColumn: `span ${span}`,
             }}
           >
-            {getIcon("PrimordialZoneMarker", undefined, undefined, "1.2em")}
+            {getIcon({name: "PrimordialZoneMarker", size: "1.2em"})}
           </div>
         )
 
@@ -92,7 +92,7 @@ const AttackDiagram = ({diagram, isAdversary}) => {
           key={`${i}-${j}`}
           className={`ai-card__zone-diagram__space zone-type-${char}`}
         >
-          {char === "T" && getIcon("PriorityTarget", undefined, undefined, "0.6em")}
+          {char === "T" && getIcon({name: "PriorityTarget", size: "0.6em"})}
         </div>
       )
     })
@@ -128,7 +128,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
       {/* Header */}
       <div className="ai-card__header">
         <div className="ai-card__icon-top-left" style={{ background: getCyclePrimaryColor(colorInput), color: getCycleSecondaryColor(colorInput) }}>
-          {/* {attack.usedFor && getIcon(attack.usedFor)} */}
+          {/* {attack.usedFor && getIcon({name: attack.usedFor})} */}
         </div>
         <h2 className="ai-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * attack.name.length)) }}>{attack.name}</h2>
         <div className="ai-card__stats-bar-right" style={{ color: isAdversary[attack.usedFor] ? "black" : "white" }}>
@@ -144,7 +144,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           </div>
           {attack.dice && <><div className={`stats-bar-right__dice ${!isAdversary[attack.usedFor] ? "invert-icons" : ""}`}>
             <span className="stats-bar-right__dice-value">{attack.dice}</span>
-            {getIcon("d10")}
+            {getIcon({name: "d10"})}
           </div>
             <div className="stats-bar-right__difficulty">{attack.difficulty}+</div>
             <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(colorInput) }}></div></>}

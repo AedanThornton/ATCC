@@ -12,12 +12,12 @@ for (const path in modules) {
 }
 
 const nonInvertibles = new Set([
-  "Progress", "Reveal", "RedPowerDie", "RedArmorDie", "BlackPowerDie", "BlackArmorDie", "WhitePowerDie", "WhiteArmorDie", "MortalPowerDie", "MortalArmorDie",
+  "Reveal", "RedPowerDie", "RedArmorDie", "BlackPowerDie", "BlackArmorDie", "WhitePowerDie", "WhiteArmorDie", "MortalPowerDie", "MortalArmorDie",
   "Doom", "WoO", "PriorityTarget", "ToHit", "InvertedDoom", "InvertedProgress"
 ]);
 
 // Utility functions
-const getIcon = (name, type = "none", index, size = "1em") => {
+const getIcon = ({ name, type = "none", index, size = "1em" }) => {
   const sizeMultiplier = {
     "1 Hand": 0.9,
     "2 Hands": 1.1,

@@ -10,7 +10,7 @@ const PatternCard = ({ pattern, index }) => {
   return (
     <div className={`card pattern ${pattern.cardSize.replace(" ", "-").toLowerCase()}`} style={{ color: getColor(pattern.patternType) }}>
       <div className="pattern-title-section">
-        <div className="title-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType) }}>{getIcon(pattern.slot, undefined, undefined, "2.1em", "0em")}</div></div>
+        <div className="title-icon"><div className={`icon ${pattern.cycle === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getColor(pattern.patternType) }}>{getIcon({icon: pattern.slot, size: "2.1em"})}</div></div>
         <div className="pattern-title" style={{ color: getColor(pattern.patternType), fontSize: Math.min(19, 300 / (1.2 * pattern.name.length)) }}>
           {pattern.name}
         </div>

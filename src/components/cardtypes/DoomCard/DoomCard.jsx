@@ -30,7 +30,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
                 <span className="doom-rules-title">
                   RULES
                 </span>
-                <div>
+                <div className="invert-icons">
                   {doom["rules" + side] && doom["rules" + side].map((paragraph, index) => (
                     <p key={index}><FormattedParagraph paragraph={paragraph} />.</p>
                   ))}
@@ -55,7 +55,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
             </div>
           </div>
         </div>
-        <div className="doom-panel">{getIcon("Doom", undefined, undefined, "18rem")}</div>
+        <div className="doom-panel">{getIcon({name: "Doom", size: "18rem"})}</div>
       </div>
     </div>
   );

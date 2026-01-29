@@ -21,7 +21,7 @@ const TraitLikeCard = ({ traitlike, index, isDahaka = false }) => {
       {/* Header, Icon, and Banner */}
       <div className="traitlike-card__header">
         <div className="traitlike-card__icon-top-left" style={{ borderColor: getCyclePrimaryColor(colorInput), border: isDahaka && "none" }}>
-          {/* {traitlike.usedFor && getIcon(traitlike.usedFor)} */}
+          {/* {traitlike.usedFor && getIcon({name: traitlike.usedFor})} */}
         </div>
         <h2 className="traitlike-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * traitlike.name.length)) }}>{traitlike.name}</h2>
         <div className="traitlike-card__stats-bar-right" style={{ color: getCycleTextColor(colorInput) }}>

@@ -49,7 +49,7 @@ const SearchBar = () => {
         className="card-search-bar"
       />
       <Link to="/search-info" target="_blank" rel="noopener noreferrer">
-        <span className="search-info-link">{getIcon("info")}</span>
+        <span className="search-info-link">{getIcon({name: "info"})}</span>
       </Link>
     </div>
   )

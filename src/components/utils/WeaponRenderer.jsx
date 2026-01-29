@@ -7,7 +7,7 @@ import { createPowerGate } from "./gateUtils";
 const WeaponRenderer = ({ statsArray }) => (
   <div className="weapon-stats-bar">
     {statsArray.attackDice && (
-      <div className="weapon-stats">{statsArray.attackDice}{getIcon("d10", undefined, undefined, "1.5em")}</div>
+      <div className="weapon-stats">{statsArray.attackDice}{getIcon({name: "d10", size: "1.5em"})}</div>
     )}
     {statsArray.precision && (
       <div className="weapon-stats">{statsArray.precision}</div>
