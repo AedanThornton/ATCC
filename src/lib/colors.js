@@ -49,6 +49,7 @@ export function getCycleTextColor(cycle) {
 
 export function getGateColor(gatetype) {
   gatetype = gatetype.toLowerCase()
+  const conditionColor = "#C09513"
   const gateColors = {
     hits: "rgb(155, 35, 21)",
     "full hit": "rgb(155, 35, 21)",
@@ -60,11 +61,14 @@ export function getGateColor(gatetype) {
     bleed: "#040404",
     labyrinth: "#7D4921",
     despair: "#07302fff",
-    condition: "#C09513",
     "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
     midas: "#d4ae43ff",
     pain: "#707070ff",
-    aether: "#071530ff"
+    aether: "#071530ff",
+    "any condition": conditionColor,
+    bravery: conditionColor,
+    "negative condition": conditionColor,
+    "positive condition": conditionColor,
   };
   return gateColors[gatetype] || "#AAAAAA";
 };

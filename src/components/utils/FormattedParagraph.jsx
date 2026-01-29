@@ -76,7 +76,7 @@ export const GatedFormattedParagraph = ({ gatedParagraph }) => {
   return (
     <div className="gated-abilities">
       {gatedParagraph.map((gatedSentence, index) => {
-        return <div key={index} className="card-info" style={{ background: getGateColor(gatedSentence.gate) }}>
+        return <div key={index} className="gear-gate" style={{ background: getGateColor(gatedSentence.gate) }}>
           <div className="gear-ability-gate">{createAbilityGate(gatedSentence.gate, gatedSentence.value)}</div>
           <div className="gear-gated-ability">
             <FormattedSentence sentence={gatedSentence}/>

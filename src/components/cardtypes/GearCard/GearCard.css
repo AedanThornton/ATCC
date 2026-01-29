@@ -82,10 +82,23 @@
 	flex-direction: column;
 }
 
+.gear-gate {
+	width: 100%;
+	display: flex;
+	column-gap: 10px;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.gear .gear-gate svg {
+	height: 15px;
+	width: fit-content;
+	display: block;
+}
+
 .gear .gear-ability-gate {
 	text-align: center;
 	color: white;
-	flex-basis: 15%;
 	padding-left: 18px;
 	text-wrap: nowrap;
 	padding-top: 4px;
@@ -95,7 +108,6 @@
 .gear .gear-gated-ability {
 	text-align: left;
 	color: white;
-	flex-basis: 85%;
 	padding-right: 10px;
 }
 
@@ -110,11 +122,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.gear .card-info svg {
-	height: 15px;
-	width: fit-content;
 }
 
 .gate .invertible, .gear-ability-gate .invertible, .gear-gated-ability .invertible, .icon .invertible {

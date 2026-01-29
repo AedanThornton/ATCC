@@ -13,7 +13,7 @@ for (const path in modules) {
 
 const nonInvertibles = new Set([
   "Progress", "Reveal", "RedPowerDie", "RedArmorDie", "BlackPowerDie", "BlackArmorDie", "WhitePowerDie", "WhiteArmorDie", "MortalPowerDie", "MortalArmorDie",
-  "Doom", "WoO", "PriorityTarget", "ToHit"
+  "Doom", "WoO", "PriorityTarget", "ToHit", "InvertedDoom", "InvertedProgress"
 ]);
 
 // Utility functions
