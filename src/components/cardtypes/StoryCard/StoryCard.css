@@ -2,6 +2,7 @@
 
 .story {
   background-color: white;
+  overflow: hidden;
 }
 
 .story p {
@@ -58,6 +59,11 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 1;
+  overflow-y: auto;
+}
+
+.story-book-top-page::-webkit-scrollbar {
+	display: none;
 }
 
 .story-flavor {
@@ -68,7 +74,7 @@
 
 .story-panel {
   flex: 4;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -106,6 +112,12 @@
   clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
   height: 1.8rem;
   aspect-ratio: 7/6;
+}
+
+@media (min-width: 820px) {
+  .story-panel {
+    display: flex;
+  }
 }
 
 /* End story template */

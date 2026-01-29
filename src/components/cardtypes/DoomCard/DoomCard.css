@@ -2,6 +2,7 @@
 
 .doom {
   background-color: white;
+  overflow: hidden;
 }
 
 .doom p {
@@ -59,6 +60,11 @@
   justify-content: space-between;
   z-index: 1;
   box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.doom-book-top-page::-webkit-scrollbar {
+	display: none;
 }
 
 .doom-flavor {
@@ -68,8 +74,8 @@
 }
 
 .doom-panel {
+  display: none;
   flex: 4;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(26, 26, 26);
@@ -108,6 +114,12 @@
   clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
   height: 1.8rem;
   aspect-ratio: 7/6;
+}
+
+@media (min-width: 820px) {
+  .doom-panel {
+    display: flex;
+  }
 }
 
 /* End doom template */
