@@ -72,8 +72,8 @@ const AbilityGate = ({ icon, value, fill }) => {
     const iconX = 30 - iconSize/2
     const iconY = 20 - iconSize/2
     const iconDisplay = (
-        <image className="invertible" xlinkHref={link} width={iconSize} height={iconSize} x={iconX} y={iconY} />  
-    )
+        <image filter="url(#invert)" xlinkHref={link} width={iconSize} height={iconSize} x={iconX} y={iconY} />  
+    ) //#invert filter is in AutoSizedSVG.jsx
 
     const textX = 65 + (iconAdjustment*2)/2
     const textDisplay = (
@@ -197,7 +197,7 @@ const PowerGate = ({ icon, value }) => {
     const iconX = 33 - iconSize/2
     const iconY = 14.5 - iconSize/2
     const iconDisplay = (
-        <image className="invertible" xlinkHref={link} width={iconSize} height={iconSize} x={iconX} y={iconY} />  
+        <image filter="url(#invert)" xlinkHref={link} width={iconSize} height={iconSize} x={iconX} y={iconY} />  
     )
 
     const textX = 70 + (iconAdjustment*2)/2

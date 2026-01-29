@@ -53,7 +53,7 @@
 
 .gear .gear-stats {
 	text-align: center;
-	padding: 3% 0;
+	padding-bottom: 3%;
 	background-color: #BFBCAB;
 	font-size: 15px;
 }
@@ -63,13 +63,8 @@
 }
 
 .gear .gate {
-	width: 100%;
-	color: white;
-	padding: 0;
 	font-size: 10px;
-	height: 11.5px;
-	font-weight: bold;
-	line-height: 11px;
+	line-height: 8px;
 }
 
 .gear .gear-abilities {
@@ -92,7 +87,6 @@
 
 .gear .gear-gate svg {
 	height: 15px;
-	width: fit-content;
 	display: block;
 }
 

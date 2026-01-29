@@ -17,13 +17,11 @@ const WeaponRenderer = ({ statsArray }) => (
       <div key={index} className="weapon-stats" style={{display: p.gate && "unset"}}>
         {p.gate && (
           <div className="gate" style={{ background: getGateColor(p.gate.type) }}>
-            <span>
-              {
-                p.gate.type === "Hits" ? p.gate.value + " " + (p.gate.value === "1" ? "Hit" : "Hits")
-                  : p.gate.type === "Full Hit" ? "Full Hit"
-                    : createPowerGate(p.gate.type, p.gate.value)
-              }
-            </span>
+            {
+              p.gate.type === "Hits" ? p.gate.value + " " + (p.gate.value === "1" ? "Hit" : "Hits")
+                : p.gate.type === "Full Hit" ? "Full Hit"
+                  : createPowerGate(p.gate.type, p.gate.value)
+            }
           </div>
         )}
         <div className="weapon-stats">
