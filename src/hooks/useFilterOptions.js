@@ -12,7 +12,10 @@ export function useFilterOptions() {
       setOptionsLoading(true);
       setOptionsError(null);
 
-      const apiUrl = `/api/filter-options`;      
+      const apiBase = import.meta.env.PROD
+        ? import.meta.env.VITE_API_BASE_URL
+        : '';
+      const apiUrl = `${apiBase}/api/filter-options`;      
 
       try {
         const response = await fetch(apiUrl);

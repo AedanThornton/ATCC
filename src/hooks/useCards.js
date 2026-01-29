@@ -21,7 +21,10 @@ export function useCards(searchParams) {
       setIsLoading(true);
       setError(null);
 
-      const apiUrl = `/api/cards?${searchParams.toString()}`;            
+      const apiBase = import.meta.env.PROD
+        ? import.meta.env.VITE_API_BASE_URL
+        : '';
+      const apiUrl = `${apiBase}/api/cards?${searchParams.toString()}`;         
 
       try {
           const response = await fetch(apiUrl);
