@@ -5,7 +5,7 @@ import createTooltip from "./tooltipsUtil"
 import getIcon from "./iconUtils"
 import { createAbilityGate } from "./gateUtils"
 
-export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => {
+export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, invertIcons = false }) => {
   if (typeof sentence === "string") {
     console.log("!!!Formatted text had a string input!!!", sentence)
     return sentence
@@ -33,7 +33,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
       case "italics":
         return <i>{textClump.value}</i>
       case "icon":
-        return getIcon({ name: textClump.value })
+        return getIcon({ name: textClump.value, invert: invertIcons })
       case "cardRef":
         return textClump.refID
           ? <FocusCardOverlay cardID={textClump.refID}>
@@ -62,10 +62,10 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0 }) => 
   )
 }
 
-const FormattedParagraph = ({ paragraph, inLineGate = false }) => {
+const FormattedParagraph = ({ paragraph, inLineGate = false, invertIcons }) => {
   return paragraph?.map((sentence, index) => (
     <React.Fragment key={index}>
-      <FormattedSentence sentence={sentence} inLineGate={inLineGate} pos={index} />
+      <FormattedSentence sentence={sentence} inLineGate={inLineGate} pos={index} invertIcons={invertIcons}/>
     </React.Fragment>
   ))
 }

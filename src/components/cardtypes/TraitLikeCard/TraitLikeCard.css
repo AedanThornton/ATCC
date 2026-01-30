@@ -23,10 +23,6 @@
   gap: 40px;
 }
 
-.traitlike-card__invert-icons .invertible {
-  filter: invert(1)
-}
-
 /* Header */
 .traitlike-card__header {
   display: flex;

@@ -53,7 +53,7 @@ const GearCard = ({ gear, index, currentSide }) => {
                     
               <div
                 key={index}
-                className={`gear-stats gear-stats-right ${isResistance ? "invert-icons" : ""}`}
+                className={`gear-stats gear-stats-right`}
                 style={{ 
                   backgroundColor: isResistance && "black",
                   color: isResistance && "white" 
@@ -72,7 +72,7 @@ const GearCard = ({ gear, index, currentSide }) => {
                 )}
                 {defensiveStat.type === "Armor"
                   ? <DiceStack diceArray={defensiveStat.armorDice} diceType="Armor"/>
-                  : <>{defensiveStat.amount} {getIcon({name: defensiveStat.type, type: "Armor", size: "1.5em"})}</>
+                  : <>{defensiveStat.amount} {getIcon({name: defensiveStat.type, type: "Armor", size: "1.5em", invert: isResistance })}</>
                 }
               </div>
             )

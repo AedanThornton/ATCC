@@ -7,7 +7,7 @@ import getIcon from "../../utils/iconUtils.jsx";
 
 const wooIcon = getIcon({name: "WoO", size: "1.3em"})
 
-const parseLines = (lines, superindex) => {
+const parseLines = (lines, invertIcons) => {
   const newLines = []
   let currentBlock = [];
   let startedWithWoO = false
@@ -27,7 +27,7 @@ const parseLines = (lines, superindex) => {
       startedWithWoO = true
     }
 
-    currentBlock.push(<FormattedParagraph paragraph={line.effect} />)
+    currentBlock.push(<FormattedParagraph paragraph={line.effect} invertIcons={invertIcons} />)
   })
   newLines.push(
     <div key={newLines.length} style={{ display: "flex" }}>
@@ -90,8 +90,8 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
 
         {/* AT Section */}
         {bp.value && <div className="bp-card__value-container">
-          <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput) }} className={(!isAdversary[bp.usedFor] && !isDahaka) ? "invert-icons" : ""}>
-            {getIcon({name: "AT", size: "20px"})}
+          <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput) }}>
+            {getIcon({name: "AT", size: "20px", invert: (!isAdversary[bp.usedFor] && !isDahaka)})}
             {` `}
             {bp.value}
           </span>
@@ -104,7 +104,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
               {bp.nonResponseText.split(" ")[0]}
             </span>
           </div>
-          <div className={`bp-card__critical-list ${isAdversary[bp.usedFor] ? !isDahaka && "invert-icons" : ""}`}>
+          <div className="bp-card__critical-list">
             {bp.nonResponseText.split(" ").slice(1).join(" ")}
           </div>
         </div>}
@@ -119,8 +119,8 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
                   {response.type && response.type.toUpperCase()}
                 </span>
               </div>
-              <div className={`bp-card__effects-list  ${(isAdversary[bp.usedFor] && !isDahaka) ? "invert-icons" : ""}`}>
-                {parseLines(response.effects, "effects")}
+              <div className="bp-card__effects-list">
+                {parseLines(response.effects, (isAdversary[bp.usedFor] && !isDahaka))}
               </div>
             </React.Fragment>
           ))}
@@ -140,8 +140,8 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
             <div className="bp-card__critical-flavor" style={{ color: isAdversary[bp.usedFor] && !isDahaka && "white" }}>
               {bp.critFlavor}
             </div>
-            <div className={`bp-card__critical-list ${(isAdversary[bp.usedFor] && !isDahaka) ? "invert-icons" : ""}`}>
-              <FormattedParagraph paragraph={bp.critResponse} />
+            <div className="bp-card__critical-list">
+              <FormattedParagraph paragraph={bp.critResponse} invertIcons={(isAdversary[bp.usedFor] && !isDahaka)}/>
             </div>
           </>}
         </div>

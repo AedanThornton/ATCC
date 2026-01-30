@@ -30,9 +30,9 @@ const DoomCard = ({ doom, index, currentSide }) => {
                 <span className="doom-rules-title">
                   RULES
                 </span>
-                <div className="invert-icons">
+                <div>
                   {doom["rules" + side] && doom["rules" + side].map((paragraph, index) => (
-                    <p key={index}><FormattedParagraph paragraph={paragraph} />.</p>
+                    <p key={index}><FormattedParagraph paragraph={paragraph} invertIcons={true} />.</p>
                   ))}
                 </div>
               </div>

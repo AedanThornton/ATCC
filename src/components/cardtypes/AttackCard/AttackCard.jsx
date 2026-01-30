@@ -18,7 +18,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
     if (line.WoO) {
       if (currentBlock.length > 0) {
         newLines.push(
-          <div key={`${newLines.length}`} style={{ display: "flex" }} className={isAdversary ? "invert-icons" : ""}>
+          <div key={`${newLines.length}`} style={{ display: "flex" }}>
             <div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{startedWithWoO && wooIcon}</div>
             <p style={{ flex: 14 }}>{currentBlock}</p>
           </div>)
@@ -29,11 +29,11 @@ const parseLines = (lines, isAdversary, colorInput) => {
 
     const newBlock = line.banner
       ? <><Banner banner={line} isAdversary={isAdversary} colorInput={colorInput} /><br /></>
-      : <FormattedParagraph paragraph={line.effect} />
+      : <FormattedParagraph paragraph={line.effect} invertIcons={isAdversary}/>
     currentBlock.push(newBlock)
   })
   newLines.push(
-    <div key={newLines.length} style={{ display: "flex" }} className={isAdversary ? "invert-icons" : ""}>
+    <div key={newLines.length} style={{ display: "flex" }}>
       {startedWithWoO && (<div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{wooIcon}</div>)}
       {!startedWithWoO && (<div style={{ flex: 1 }}></div>)}
       <p style={{ flex: marginConstant - 2 }} key={`${newLines.length}`}>{currentBlock}</p>
@@ -46,10 +46,10 @@ const parseLines = (lines, isAdversary, colorInput) => {
 const Banner = ({ banner, isAdversary, colorInput }) => {
   return (
     <span
-      className={`ai-card__section-header ${isAdversary ? "uninvert-icons" : "invert-icons"}`}
+      className={`ai-card__section-header`}
       style={{ backgroundColor: getCycleSecondaryColor(colorInput), color: isAdversary ? "black" : "white" }}
     >
-      <FormattedParagraph paragraph={banner.effect} />
+      <FormattedParagraph paragraph={banner.effect} invertIcons={!isAdversary} />
     </span>
   )
 }
@@ -142,9 +142,9 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           >
             <div className="stats-bar-right__level">{attack.level}</div>
           </div>
-          {attack.dice && <><div className={`stats-bar-right__dice ${!isAdversary[attack.usedFor] ? "invert-icons" : ""}`}>
+          {attack.dice && <><div className={`stats-bar-right__dice`}>
             <span className="stats-bar-right__dice-value">{attack.dice}</span>
-            {getIcon({name: "d10"})}
+            {getIcon({name: "d10", invert: !isAdversary[attack.usedFor]})}
           </div>
             <div className="stats-bar-right__difficulty">{attack.difficulty}+</div>
             <div className="ai-card__stats-background" style={{ background: getCycleSecondaryColor(colorInput) }}></div></>}
@@ -173,9 +173,9 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
             </div>
             <div className="ai-card__targeting-list">
               {attack.targeting?.map((line, index) => (
-                <span key={index} style={{ display: "flex" }} className={`${isAdversary[attack.usedFor] ? "invert-icons" : ""}`}>
+                <span key={index} style={{ display: "flex" }}>
                   <span style={{ paddingLeft: `${100 / marginConstant}%` }}></span>
-                  <span style={{ flex: marginConstant - 1 }}><span style={{ fontWeight: "bold" }}>{line.type}</span> <FormattedParagraph paragraph={line.target} /></span>
+                  <span style={{ flex: marginConstant - 1 }}><span style={{ fontWeight: "bold" }}>{line.type}</span> <FormattedParagraph paragraph={line.target} invertIcons={isAdversary[attack.usedFor]} /></span>
                 </span>
               )
               )}
