@@ -48,7 +48,7 @@ const ExplorationCard = ({ exploration, index }) => {
         <div className="adversary-icon-group">
           {[...Array(exploration.adversaryTriggers)].map((e, index) => (
             <div key={index} className="adversary-icon">
-              {getIcon({name: "Adversary", size: "3em"})}
+              {getIcon({name: "Adversary", size: "3em", invert: true})}
             </div>
           ))}
         </div>

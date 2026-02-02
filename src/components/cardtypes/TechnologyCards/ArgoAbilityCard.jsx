@@ -54,7 +54,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
             <div className="technology-ability-box" key={index}>
               <div style={{marginTop: "10px"}}></div>
               <div className="technology-ability-header">{ability.name ? ability.name.toUpperCase() : "ABILITY"}</div>
-              <div className="technology-ability"><FormattedParagraph paragraph={ability.effects} /></div>
+              <div className="technology-ability"><FormattedParagraph paragraph={ability.effects} invertIcons={true} /></div>
             </div>
           ))}
 

@@ -4,6 +4,7 @@ import cardTypes from '../lib/cardTypes';
 import SecretOverlay from './utils/SecretOverlay';
 import { useState } from 'react';
 import getIcon from './utils/iconUtils';
+import { useSpoilers } from "../context/SpoilerContext";
 
 function isWide(card){
   return (card.cardSize === "Half-Page" || card.cardSize === "Full-Page" || card.techSubType === "Core")
@@ -29,6 +30,7 @@ function displayCycle(cycle){
 }
 
 function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
+  const { spoilersEnabled } = useSpoilers();
   const [secretsAreVisible, setSecretsAreVisible] = useState(true);
 
   const componentRenderer = cardTypes[cardData.cardType];
@@ -58,7 +60,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
         
         <div className="focus-card-info-container focus-card-secrets">
           <button className='focus-card-secrets-button' onClick={() => setSecretsAreVisible(!secretsAreVisible)}>{getIcon({name: "Reveal"})}</button>
-          <SecretOverlay text={"This section may contain secrets"} isVisible={secretsAreVisible}/>
+          <SecretOverlay text={"This section may contain secrets"} isVisible={spoilersEnabled && secretsAreVisible}/>
           This card contains the following secrets:
           {(cardData.secrets && cardData.secrets.length > 0) 
             ? cardData.secrets.map((secret, index) => (
