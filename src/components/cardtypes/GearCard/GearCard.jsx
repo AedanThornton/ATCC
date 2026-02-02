@@ -16,11 +16,11 @@ const GearCard = ({ gear, index, currentSide }) => {
   return (
     <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()} papyrus`} >
       <div className="card-info">
-        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon({name: gear["slot" + side], size: "2.1em"})}</div></div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon({name: gear["slot" + side], size: "2.1em", invert: true})}</div></div>
         <div className="gear-title" style={{ color: getCyclePrimaryColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
           {gear["name" + side]}
         </div>
-        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon({name: "Gear", size: "2em"})}</div></div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon({name: "Gear", size: "2em", invert: true})}</div></div>
       </div>
 
       {/* Stats and Image */}

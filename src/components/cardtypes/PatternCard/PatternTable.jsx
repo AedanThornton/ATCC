@@ -10,9 +10,9 @@ const PatternTable = ({table, type}) => (
                 <div key={index} className="kratos-row" style={{justifyContent: (row.length === 1 && 'center')}}>
                     {row.map((option, index) =>
                     <div key={index} className="kratos-option">
-                        {option[0].x_value && `${option[0].x_value} `}{getIcon({name: option[0].name, type: option[0].x_value ? undefined : "Power", size: "1.3rem"})}
-                        {option[1]?.name && (<>{" +"}{option[1].x_value && `${option[1].x_value} `}{getIcon({name: option[1].name, type: option[1].x_value ? undefined : "Power", size: "1.3rem"})}</>)}
-                        {option[2]?.name && (<>{" +"}{option[2].x_value && `${option[2].x_value} `}{getIcon({name: option[2].name, type: option[2].x_value ? undefined : "Power", size: "1.3rem"})}</>)}
+                        {option[0].x_value && `${option[0].x_value} `}{getIcon({name: option[0].name, type: option[0].x_value ? undefined : "Power", size: "1.3rem", invert: true})}
+                        {option[1]?.name && (<>{" +"}{option[1].x_value && `${option[1].x_value} `}{getIcon({name: option[1].name, type: option[1].x_value ? undefined : "Power", size: "1.3rem", invert: true})}</>)}
+                        {option[2]?.name && (<>{" +"}{option[2].x_value && `${option[2].x_value} `}{getIcon({name: option[2].name, type: option[2].x_value ? undefined : "Power", size: "1.3rem", invert: true})}</>)}
                     </div>
                     )}
                 </div>

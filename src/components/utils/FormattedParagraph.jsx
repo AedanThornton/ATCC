@@ -50,8 +50,8 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, inver
       {inLineGate && sentence.gate && createAbilityGate(sentence.gate, sentence.value, getGateColor(sentence.gate) || "none")}
       {pos > 0 && (sentence.abilityText[0].type === "timing" || sentence.costs) && <br />}
       <span className="ability-costs">
-        {isReaction && getIcon({ name: "Reaction" })}
-        {sentence.costs?.map((cost, i) => getIcon({ name: cost, index: i }))}
+        {isReaction && getIcon({ name: "Reaction", invert: invertIcons })}
+        {sentence.costs?.map((cost, i) => getIcon({ name: cost, index: i, invert: invertIcons }))}
       </span>
       {sentence.abilityText?.map((textClump, index2, array) => (
         <React.Fragment key={index2}>
@@ -77,7 +77,7 @@ export const GatedFormattedParagraph = ({ gatedParagraph }) => {
         return <div key={index} className="gear-gate" style={{ background: getGateColor(gatedSentence.gate) }}>
           <div className="gear-ability-gate">{createAbilityGate(gatedSentence.gate, gatedSentence.value)}</div>
           <div className="gear-gated-ability">
-            <FormattedSentence sentence={gatedSentence} />
+            <FormattedSentence sentence={gatedSentence} invertIcons={true} />
           </div>
         </div>
       })}

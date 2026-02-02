@@ -33,7 +33,7 @@ const TraumaCard = ({ trauma, index }) => {
             <div className="trauma-title">{trauma.name.toUpperCase()}</div>
             {trauma.flavor && <div className="trauma-flavor">"{trauma.flavor}."</div>}
             {trauma.effects && <div className={`trauma-text ${trauma.name.toUpperCase().includes("LIVE") ? "" : "you-died"}`}>
-              <FormattedParagraph paragraph={trauma.effects} />
+              <FormattedParagraph paragraph={trauma.effects} invertIcons={!trauma.name.toUpperCase().includes("LIVE")} />
             </div>}
           </div>
         )
