@@ -19,8 +19,8 @@ const MapArrow = ({ cycle, dir, nextTile, split = "", lock = "" }) => {
         {split && <div className="map-arrow-square">{split}</div>}
         {lock &&
           <>
-            <div className="map-arrow-square">{getIcon({name: lock})}</div>
-            <div className="map-arrow-circle">{getIcon({name: "Lock", size: "0.8rem"})}</div>
+            <div className="map-arrow-square">{getIcon({name: lock, invert: true})}</div>
+            <div className="map-arrow-circle">{getIcon({name: "Lock", size: "0.8rem", invert: true})}</div>
           </>
         }
       </div>

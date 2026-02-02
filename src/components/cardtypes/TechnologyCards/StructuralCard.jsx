@@ -13,7 +13,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
     <div className={`card technology ${structural.cardSize.replace(" ", "-").toLowerCase()} ${currentSide === 1 ? "projectside" : "techside"}`} key={index}>
       <div>
         <div className="card-info">
-          <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon({name: "StructuralTech", size: "2.1em"})}</div></div>
+          <div className="title-icon"><div className={`icon ${structural.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon({name: "StructuralTech", size: "2.1em", invert: true})}</div></div>
           <div style={{display: "flex", flexDirection: "column"}}>
             <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * structural["name" + side].length)) }}>
               {(structural.name2 && currentSide === 2) ? structural.name2 : structural.name}
@@ -61,7 +61,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
             {structural.abilities?.map((ability, index) => (
               <div className="technology-ability-box" key={index}>
                 <div className="technology-ability-header">{ability.name.toUpperCase()}</div>
-                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{getIcon({name: "City"})} Negotiation. </> : `${ability.type}. `}</b>)}<FormattedParagraph paragraph={ability.effects[0]} /></div>
+                <div className="technology-ability">{ability.type && (<b>{ability.type === "City Negotiation" ? <>{getIcon({name: "City", invert: true})} Negotiation. </> : `${ability.type}. `}</b>)}<FormattedParagraph paragraph={ability.effects[0]} invertIcons={true} /></div>
               </div>
             ))}
           </div>
