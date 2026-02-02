@@ -27,6 +27,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html[data-spoilers="off"] {
+  --accent-light: #db0000;
+  --accent: #a10000;
+  --accent-dark: #810000;
+  --accent-hover: #56c5c5;
+
+  --main-light: #810000;
+  --main-midtone: #590000;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

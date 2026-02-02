@@ -5,8 +5,10 @@ import logo from "../assets/ATCC.svg"
 import FilterSidebar from './FilterSidebar';
 import ControlBar from "./ControlBar";
 import SearchBar from './SearchBar';
+import { useSpoilers } from "../context/SpoilerContext";
 
 function Layout({ isCatalog = false }) {
+  const { spoilersEnabled } = useSpoilers();
   const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false);
 
   return (
@@ -45,6 +47,8 @@ function Layout({ isCatalog = false }) {
         </div>
 
         {isCatalog && <SearchBar />}
+
+        {!spoilersEnabled && <div className='layout-spoiler-warning-banner'>!! Warning: Spoilers are NOT hidden. !!</div>}
         
       </header>
       <main className="app">

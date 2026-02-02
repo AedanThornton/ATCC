@@ -7,6 +7,7 @@
 
 .app-footer {
   text-align: center;
+  background-color: var(--main-midtone);
 }
 
 .top-menu {
@@ -101,6 +102,7 @@
   z-index: 525;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .nav-sidebar {
@@ -117,6 +119,121 @@
 
 .menu-button:hover .nav-sidebar {
   display: flex;
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+  width: 100%;
+}
+
+/* Filters */
+.dropdown-button {
+  padding: 0 20px;
+  border: unset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+.filters-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+}
+
+.filters-list {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.dropdown-list-item {
+  display: block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  background-color: var(--main);
+  text-align: left;
+  width: max-content;
+}
+
+.dropdown-list-item__selected {
+  background-color: var(--main-light);
+}
+/* END Filters */
+
+/* The switch - the box around the slider */
+.filters-switch {
+  position: relative;
+  display: inline-block;
+  width: 43px;
+  height: 23px;
+}
+
+/* Hide default HTML checkbox */
+.filters-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.filters-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--main-light);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.filters-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 17px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .filters-slider {
+  background-color: var(--accent);
+}
+
+input:focus + .filters-slider {
+  box-shadow: 0 0 1px var(--accent);
+}
+
+input:checked + .filters-slider:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+
+.layout-spoiler-warning-banner {
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: var(--main-light);
+  border: 2px solid var(--accent);
+  width: 100%;
 }
 
 @media (min-width: 820px) {

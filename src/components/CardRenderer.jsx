@@ -6,8 +6,10 @@ import Tippy from '@tippyjs/react';
 
 import cardTypes from "../lib/cardTypes";
 import FocusCard from './FocusCard';
+import { useSpoilers } from "../context/SpoilerContext";
 
 const CardRenderer = ({cardname}) => { 
+  const { spoilersEnabled } = useSpoilers();
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
   const isSecretCard = cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope") || cardname.foundIn === "Ultra-secret"
  
@@ -35,7 +37,7 @@ const CardRenderer = ({cardname}) => {
   }
   
   const secretOverlay = <>{
-    isSecretCard && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} />
+    spoilersEnabled && isSecretCard && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} />
   }</>
 
   return (
@@ -69,7 +71,7 @@ const CardRenderer = ({cardname}) => {
         </div>
       }
 
-      {!isHidden && <div className="card-type-marker">
+      {(!spoilersEnabled || !isHidden) && <div className="card-type-marker">
         {cardname.cardType}
       </div>}
 
