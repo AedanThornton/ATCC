@@ -1,5 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./ConditionCard.css"; // Add corresponding CSS for styling
+import FormattedParagraph from "../../utils/FormattedParagraph";
 
 const ConditionCard = ({ condition, index, currentSide }) => {
   let side = currentSide
@@ -8,26 +9,28 @@ const ConditionCard = ({ condition, index, currentSide }) => {
   return (
     <div className={`card condition ${condition.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
       <div>
-        <div className="condition-title" style={{ fontSize: Math.min(19, 400 / (1.1 * condition["name" + side].length)) }}>
-          {condition["name" + side].toUpperCase()}
+        <div className="condition-title-block">
+          <div className="condition-title" style={{ fontSize: Math.min(19, 400 / (1.1 * condition["name" + side].length)) }}>
+            {condition["name" + side].toUpperCase()}
+          </div>
+          {condition["subtitle" + side] && <div className="condition-title" style={{fontSize: "14px"}}>
+            {`(${condition["subtitle" + side].toUpperCase()})`}
+          </div>}
         </div>
-        {condition["subtitle" + side] && <div className="condition-title" style={{fontSize: "14px"}}>
-          {`(${condition["subtitle" + side].toUpperCase()})`}
-        </div>}
 
         {/* Effects */}
-        <div className="condition-effects">{condition["side" + side].effect}.</div>
+        <div className="condition-effects"><FormattedParagraph paragraph={condition["side" + side].effect} /></div>
 
-        {/* Resolution */}
-        {condition["side" + side].resolution && (
-          <div className="condition-resolution-box">
-            <div className="condition-resolution-header">{condition["side" + side].resolution.split(": ")[0]}</div>
-            <div className="condition-resolution">{condition["side" + side].resolution.split(": ")[1]}.</div>
+        {/* Abilities */}
+        {condition["side" + side].abilities && (
+          <div className="condition-abilities-box">
+            <div className="condition-abilities-header">{condition["side" + side].abilities.title}</div>
+            <div className="condition-abilities"><FormattedParagraph paragraph={condition["side" + side].abilities.effects} /></div>
           </div>
         )}
 
         {condition["side" + side].endOfBattle && (
-          <div className="condition-effects"><b>End of Battle: </b>{condition["side" + side].endOfBattle}.</div>
+          <div className="condition-effects"><b>End of Battle: </b>{condition["side" + side].endOfBattle}</div>
         )}
       </div>
 
