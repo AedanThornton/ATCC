@@ -1,6 +1,6 @@
 import '../styles/focuscardpage.css'
 import React from 'react';
-import cardTypes from '../lib/cardTypes';
+import renderTypes from '../lib/renderTypes';
 import SecretOverlay from './utils/SecretOverlay';
 import { useState } from 'react';
 import getIcon from './utils/iconUtils';
@@ -33,7 +33,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
   const { spoilersEnabled } = useSpoilers();
   const [secretsAreVisible, setSecretsAreVisible] = useState(true);
 
-  const componentRenderer = cardTypes[cardData.cardType];
+  const componentRenderer = renderTypes[cardData.renderType];
   const currentCard = componentRenderer
     ? componentRenderer(cardData, currentSide)
     : null;

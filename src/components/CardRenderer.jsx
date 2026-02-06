@@ -4,7 +4,7 @@ import getIcon from './utils/iconUtils';
 import CardMenu from "./CardMenu";
 import Tippy from '@tippyjs/react';
 
-import cardTypes from "../lib/cardTypes";
+import renderTypes from "../lib/renderTypes";
 import FocusCard from './FocusCard';
 import { useSpoilers } from "../context/SpoilerContext";
 
@@ -17,7 +17,7 @@ const CardRenderer = ({cardname}) => {
   const [currentSide, setCurrentSide] = useState(1);
   const [focusDisplay, setFocusDisplay] = useState(false);
 
-  const componentRenderer = cardTypes[cardname.cardType];
+  const componentRenderer = renderTypes[cardname.renderType];
   const currentCard = componentRenderer
     ? componentRenderer(cardname, currentSide)
     : null;
