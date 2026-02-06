@@ -43,7 +43,7 @@ const TraitLikeCard = ({ traitlike, index, isDahaka = false }) => {
             {traitlike.flavor}
           </i>
 
-          <FormattedParagraph paragraph={traitlike.effects} invertIcons={isAdversary[traitlike.usedFor]} />
+          <div><FormattedParagraph paragraph={traitlike.effects} invertIcons={isAdversary[traitlike.usedFor]} /></div>
         </div>
 
         {/* Footer */}

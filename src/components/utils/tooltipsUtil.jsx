@@ -59,12 +59,12 @@ const createTooltip = (name, index) => {
                 <br />
                 <br />
               </>}
-              <FormattedParagraph paragraph={keywordData.mainDef} inLineGate={true} />
+              <FormattedParagraph paragraph={keywordData.mainDef} inLineGate={true} invertIcons={true} />
               {Array.from({ length: 8 }, (_, i) => {
                 return<>{keywordData["subName" + i] && 
                   <>
                     <div className='tooltip-subtitle' key={"subtitle-" + i}>{keywordData["subName" + i]}</div>
-                    {keywordData["subDef" + i] ? <FormattedParagraph paragraph={keywordData["subDef" + i]} inLineGate={true} /> : <span>Missing definition...</span>}
+                    {keywordData["subDef" + i] ? <FormattedParagraph paragraph={keywordData["subDef" + i]} inLineGate={true} invertIcons={true}/> : <span>Missing definition...</span>}
                   </>
                 }</>
               })}
