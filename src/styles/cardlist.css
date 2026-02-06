@@ -142,7 +142,7 @@
   }
 
   .dropdown-list-item:hover {
-    background-color: var(--accent);
+    background-color: var(--main-light);
   }
 }
 
