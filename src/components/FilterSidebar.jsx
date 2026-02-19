@@ -3,13 +3,25 @@ import { useFilterOptions } from "../hooks/useFilterOptions";
 import { useSearchParams } from "react-router-dom";
 import { useSpoilers } from "../context/SpoilerContext";
 
-const RenderTieredFilters = ({ options, clickFunc, filters, depth }) => {
+const getAllValues = (nodes) =>
+  nodes.flatMap(n =>
+    n.children ? getAllValues(n.children) : [n.value]
+  );
+
+const RenderTieredFilters = ({ options, clickFunc, onToggleCategory, filters, depth }) => {
   return (
     <div>
       {options.map((option, i) => (
         <div key={`${option.label}-${i}`}>
           {option.children ? (
-            <FilterList title={option.label} options={option.children} filters={filters} onFilterChange={clickFunc} depth={depth + 1} />
+            <FilterList 
+              title={option.label}
+              options={option.children}
+              filters={filters}
+              onFilterChange={clickFunc}
+              depth={depth + 1}
+              onToggleCategory={() => onToggleCategory(getAllValues(option.children))}
+            />
           ) : (
             <div style={{ marginLeft: depth * 24 }}>
               <FilterOptionButton option={option.value} clickFunc={clickFunc} filters={filters} />
@@ -66,7 +78,7 @@ const FilterList = ({ title, options, filters, onFilterChange, depth = 0, onTogg
 
       {isOpen && <div className="filters-list" style={{ backgroundColor: depth > 0 && "var(--main)" }}>
         {isObj
-          ? <RenderTieredFilters options={options} clickFunc={onFilterChange} filters={filters} depth={depth} />
+          ? <RenderTieredFilters options={options} clickFunc={onFilterChange} onToggleCategory={onToggleCategory} filters={filters} depth={depth} />
           : options.map((option, index) =>
             <FilterOptionButton option={option} clickFunc={onFilterChange} filters={filters} index={index} />
           )
@@ -114,20 +126,28 @@ const FilterSidebar = () => {
     setSearchParams(params, { replace: true })
   };
 
-  const toggleCategory = (category) => {
+  const toggleCategory = (category, whitelist) => {
+    whitelist = Array.isArray(whitelist) ? whitelist : [];
     const params = new URLSearchParams(searchParams);
-    const isObjList = typeof filterOptions[category][0] === "object"
-    const getAllValues = (nodes) =>
-      nodes.flatMap(n =>
-        n.children ? getAllValues(n.children) : [n.value]
-      );
-    const allFilters = isObjList ? getAllValues(filterOptions[category]) : filterOptions[category]
+    const isObjList = typeof filterOptions[category][0] === "object";
+    const allFilters = isObjList ? getAllValues(filterOptions[category]) : filterOptions[category];
+    const currentFilters = new Set(params.get(category)?.split(","))
 
-    if (params.get(category)?.split(",").length === filterOptions[category]?.length || params.get(category)?.split(",").length === getAllValues(filterOptions[category]).length) {
-      params.delete(category)
+    console.log(allFilters, currentFilters);
+    
+
+    if ((whitelist && whitelist.length > 0 && whitelist.every(item => currentFilters.has(item))) || allFilters.every(item => currentFilters.has(item))) {
+      (whitelist && whitelist.length > 0) 
+        ? params.set(category, [...currentFilters].filter((filter) => !whitelist.includes(filter))) 
+        : params.delete(category)
     } else {
-      params.set(category, allFilters)
+      (whitelist && whitelist.length > 0) 
+        ? params.set(category, [...new Set([...allFilters.filter((filter) => whitelist.includes(filter)), ...currentFilters])]) 
+        : params.set(category, allFilters)
     }
+
+    if (params.get(category)?.split(",").length === 1 && params.get(category)?.split(",")[0] === '') params.delete(category)
+
     setSearchParams(params, { replace: true })
   }
 
@@ -161,10 +181,30 @@ const FilterSidebar = () => {
               ? <div>Initializing data...</div>
               :
               (<>
-                <FilterList title="Card Type" options={filterOptions.cardType} filters={currentFilters.cardType} onFilterChange={(option) => handleFilterChange("cardType", option)} onToggleCategory={() => toggleCategory("cardType")} />
-                <FilterList title="Cycle" options={filterOptions.cycle} filters={currentFilters.cycle} onFilterChange={(option) => handleFilterChange("cycle", option)} onToggleCategory={() => toggleCategory("cycle")} />
-                <FilterList title="Card Size" options={filterOptions.cardSize} filters={currentFilters.cardSize} onFilterChange={(option) => handleFilterChange("cardSize", option)} onToggleCategory={() => toggleCategory("cardSize")} />
-                <FilterList title="Found In" options={filterOptions.foundIn} filters={currentFilters.foundIn} onFilterChange={(option) => handleFilterChange("foundIn", option)} onToggleCategory={() => toggleCategory("foundIn")} />
+                <FilterList title="Card Type" 
+                  options={filterOptions.cardType}
+                  filters={currentFilters.cardType}
+                  onFilterChange={(option) => handleFilterChange("cardType", option)}
+                  onToggleCategory={(whitelist) => toggleCategory("cardType", whitelist)}
+                />
+                <FilterList title="Cycle"
+                  options={filterOptions.cycle}
+                  filters={currentFilters.cycle}
+                  onFilterChange={(option) => handleFilterChange("cycle", option)}
+                  onToggleCategory={(whitelist) => toggleCategory("cycle", whitelist)}
+                />
+                <FilterList title="Card Size"
+                  options={filterOptions.cardSize}
+                  filters={currentFilters.cardSize}
+                  onFilterChange={(option) => handleFilterChange("cardSize", option)}
+                  onToggleCategory={(whitelist) => toggleCategory("cardSize", whitelist)}
+                />
+                <FilterList title="Found In"
+                  options={filterOptions.foundIn}
+                  filters={currentFilters.foundIn}
+                  onFilterChange={(option) => handleFilterChange("foundIn", option)}
+                  onToggleCategory={(whitelist) => toggleCategory("foundIn", whitelist)}
+                />
               </>)
         }
       </div>
