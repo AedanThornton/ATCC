@@ -88,23 +88,12 @@
     justify-content: center;
   }
 
-  .dropdowns {
-    display: flex;
-    flex-direction: unset;
-    justify-content: center;
-    flex: 2;
-  }
-
   .filter-reset-button {
     margin-left: 1rem;
   }
 
   .filter-dropdown {
     flex: 0 1 20%;
-  }
-
-  .dropdown-list {
-    width: 80vw;
   }
 
   .card-list__control-bar--page_number {
@@ -135,14 +124,6 @@
 
   .card-list__control-bar--search-wrapper {
     position: relative;
-  }
-
-  .dropdown-list {
-    width: 70vw;
-  }
-
-  .dropdown-list-item:hover {
-    background-color: var(--main-light);
   }
 }
 

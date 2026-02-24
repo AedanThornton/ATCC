@@ -164,6 +164,7 @@
 
 .dropdown-select-box:hover .dropdown-select-box-radio {
   background-color: var(--main-light);
+  border: 1px solid var(--accent);
 }
 
 input:checked + .dropdown-select-box-radio {
@@ -185,31 +186,61 @@ input:checked + .dropdown-select-box-radio {
   overflow: hidden;
 }
 
+.dropdown-button > h3 {
+  margin: 0.5em 0;
+}
+
 .filters-container {
   flex: 1;
-  overflow-y: auto;
+  min-height: 0;
   padding: 4%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
   width: 90%;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  min-height: 0;
 }
 
 .filters-list {
-  display: flex;
   width: 100%;
+  display: flex;
   flex-direction: column;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  min-height: 0;
+  max-height: 0;
+  background-color: var(--main-midtone);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: max-height 0s ease;
+}
+
+.filters-list.open {
+  transition: max-height 1s ease;
+  max-height: 80dvh;
+}
+
+.filters-list.deep {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  background-color: var(--main);
+  box-sizing: border-box;
+}
+
+.filters-list.open.deep {
+  padding: 5px;
 }
 
 .dropdown-list-item {
-  margin: 2.5px;
   border-radius: 5px;
   padding: 2px 8px;
-  background-color: var(--main-midtone);
+  background-color: var(--main-light);
   text-align: left;
   width: 100%;
+  line-height: 1.5rem;
+  box-sizing: border-box;
+  transition: line-height 0.3s ease, border 0.3s ease;
+  white-space: nowrap;
 }
 
 .dropdown-list-item__selected {
@@ -282,6 +313,17 @@ input:checked + .filters-slider:before {
 }
 
 @media (min-width: 820px) {
+  .dropdowns {
+    display: flex;
+    flex-direction: unset;
+    justify-content: center;
+    flex: 2;
+  }
+
+  .dropdown-list {
+    width: 80vw;
+  }
+
   .filters-menu {
     position: static;
   }
@@ -300,5 +342,30 @@ input:checked + .filters-slider:before {
   
   .layout-row {  
     padding: 10px;
+  }
+
+  .dropdown-button > h3 {
+    margin: 0.75em 0;
+  }
+
+  .filters-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filters-list.deep {
+    display: flex;
+  }
+}
+
+@media (min-width: 1250px) {
+  .dropdown-list {
+    width: 70vw;
+  }
+
+  .dropdown-list-item:hover {
+    line-height: 2rem;
+    border: 1px solid var(--accent);
   }
 }

@@ -28,9 +28,9 @@
 }
 
 html[data-spoilers="off"] {
-  --accent-light: #db0000;
-  --accent: #a10000;
-  --accent-dark: #810000;
+  --accent-light: #e27324;
+  --accent: #db5b00;
+  --accent-dark: #bf420d;
   --accent-hover: #56c5c5;
 
   --main-light: #810000;

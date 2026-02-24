@@ -10,7 +10,7 @@ const getAllValues = (nodes) =>
 
 const RenderTieredFilters = ({ options, clickFunc, onToggleCategory, filters, depth }) => {
   return (
-    <div>
+    <>
       {options.map((option, i) => (
         <div key={`${option.label}-${i}`}>
           {option.children ? (
@@ -29,7 +29,7 @@ const RenderTieredFilters = ({ options, clickFunc, onToggleCategory, filters, de
           )}
         </div>
       ))}
-    </div>
+    </>
   )
 }
 
@@ -55,7 +55,7 @@ const FilterList = ({ title, options, filters, onFilterChange, depth = 0, onTogg
       <div
         className="dropdown-container"
         style={{
-          backgroundColor: filters.length ? "var(--accent-dark)" : "var(--main)"
+          backgroundColor: filters.length ? "var(--accent-dark)" : (depth ? "var(--main-light)" : "var(--main)")
         }}
       >
         <label className="dropdown-select-box">
@@ -76,14 +76,18 @@ const FilterList = ({ title, options, filters, onFilterChange, depth = 0, onTogg
         </button>
       </div>
 
-      {isOpen && <div className="filters-list" style={{ backgroundColor: depth > 0 && "var(--main)" }}>
+      <div className={`filters-list ${isOpen ? "open" : ""} ${depth > 0 ? "deep" : ""}`}
+        style={{
+          gridTemplateRows: `repeat(${Math.ceil(options.length / 2)}, auto)`,
+        }}
+      >
         {isObj
           ? <RenderTieredFilters options={options} clickFunc={onFilterChange} onToggleCategory={onToggleCategory} filters={filters} depth={depth} />
           : options.map((option, index) =>
             <FilterOptionButton option={option} clickFunc={onFilterChange} filters={filters} index={index} />
           )
         }
-      </div>}
+      </div>
     </>
   )
 }
