@@ -54,7 +54,7 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
 
   const icon = icons[name];
   return icon ? (
-    <Tippy
+    <>{/*<Tippy
       disabled={window.matchMedia('(hover: none)').matches}
       key={name + index}
       duration={0}
@@ -65,14 +65,14 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
         <span style={{ backgroundColor: "gray", color: "white", padding: "2px 3px", borderRadius: "5px", fontSize: "12px" }}>
           {name}
         </span>}
-    >
+    >*/}
       <img
         src={icon}
         style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, filter: (invert && !nonInvertibles.has(name)) && "invert(1)" }}
         alt={name}
         className={`text-icon ${name}`}
       />
-    </Tippy>
+    {/*</Tippy>*/}</>
   ) : name;
 }
 
