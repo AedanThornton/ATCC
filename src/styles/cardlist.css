@@ -189,13 +189,22 @@
 }
 
 .card-menu {
+  position: absolute;
+  right: -8px;
+  top: 17px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  border: 1px solid lightgray;
-  background-color: slategrey;
+  border: 1px solid var(--accent-light);
+  background-color: var(--accent);
   padding: 2px;
+  padding-left: 10px;
   gap: 2px;
+  transition: right 0.3s ease;
+}
+
+.card-menu:hover {
+  right: -35px;
 }
 
 .card-menu button {

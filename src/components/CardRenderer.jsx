@@ -43,27 +43,16 @@ const CardRenderer = ({cardname}) => {
   return (
     <div className='card-wrapper'>
       {isNotMobile
-      ? <Tippy 
-          interactive 
-          duration={[0, 0]} 
-          offset={[15,-25]}
-          trigger="mouseenter focus"
-          placement="right-start"
-          animation="shift-away-extreme"
-          appendTo={document.body}
-          content={
-            <CardMenu 
-              card={cardname}
-              flipFunc={toggleSide}
-              secretFunc={toggleReveal}
-              setDisplay={setDisplayHelper}
-            />}
-        >
-          <div>
-            {currentCard}
-            {secretOverlay}
-          </div>
-        </Tippy>
+      ? <div style={{position: "relative"}}>
+          {currentCard}
+          {secretOverlay}
+          <CardMenu 
+            card={cardname}
+            flipFunc={toggleSide}
+            secretFunc={toggleReveal}
+            setDisplay={setDisplayHelper}
+          />
+        </div>
         
       : <div onClick={setDisplayHelper}>
           {currentCard}
