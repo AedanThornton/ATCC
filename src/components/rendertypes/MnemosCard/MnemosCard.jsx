@@ -3,6 +3,7 @@ import "/src/styles/cardsStyle.css"
 import "./MnemosCard.css"; // Add corresponding CSS for styling
 import { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
 import StatTitle from "../../utils/StatTitle.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const MnemosCard = ({ mnemos, index }) => {
   return (
@@ -35,18 +36,7 @@ const MnemosCard = ({ mnemos, index }) => {
       </div>
 
       <div>
-        <div className="card-info offset" style={{lineHeight: "14px"}}>
-            <div className="card-info-header">Cycle:</div>
-            <div className="card-info-detail">{mnemos.cycle}</div>
-        </div>
-        <div className="card-info offset" style={{lineHeight: "14px"}}>
-            <div className="card-info-header">Flavor:</div>
-            <div className="card-info-detail"><i>{mnemos.flavor}.</i></div>
-        </div>
-        <div className="card-info offset" style={{lineHeight: "14px"}}>
-            <div className="card-info-header">ID:</div>
-            <div className="card-info-detail">{mnemos.cardIDs}</div>
-        </div>
+        <CardFooter cardIDs={mnemos.cardIDs} color="black" />
       </div>
 
     </div>

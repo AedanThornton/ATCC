@@ -21,23 +21,6 @@
   color: #ae6511;
 }
 
-.condition-info {
-  text-align: center;
-  color: white;
-  background-color: #ae6511;
-  font-size: 15px;
-  margin: 5px 0;
-  margin-top: 15px;
-}
-
-.condition-flavor {
-	border-top: 1px solid lightgray;
-	color: gray;
-	margin: 0 30px;
-	font-style: italic;
-	text-align: center;
-}
-
 .condition-effects {
 	border-top: 1px solid lightgray;
 	border-bottom: 1px solid lightgray;

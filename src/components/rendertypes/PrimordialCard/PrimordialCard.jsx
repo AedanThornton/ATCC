@@ -6,6 +6,7 @@ import { useState } from "react";
 import primordialAbilities from "../../../data/JSON/primordialAbilityData.json";
 import getIcon from "../../utils/iconUtils.jsx";
 import FocusCardOverlay from "../../FocusCardOverlay.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const toRoman = (num) => {
   var charset = {
@@ -202,15 +203,7 @@ const PrimordialCard = ({ primordial, index }) => {
 
 
         {/* Info */}
-        <div className="primordial-info">Card Info</div>
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{primordial.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{primordial.cycle}</div>
-        </div>
+        <CardFooter cardIDs={primordial.cardIDs} color="black" />
       </div>
       
     </div>

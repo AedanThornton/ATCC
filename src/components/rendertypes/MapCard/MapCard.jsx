@@ -102,28 +102,6 @@ const MapCard = ({ map, index }) => {
               ))}
             </div>
           }
-
-          <div className="map-info-text-box" style={{backgroundColor: getCycleSecondaryColor(map.cycle)}}>
-            {map.otherFeatures && map.otherFeatures.length > 0 && <>
-              <div className="map-info" style={{ backgroundColor: getCyclePrimaryColor(map.cycle) }}>Other Map Details</div>
-              <div className="map-other-features">
-                {map.otherFeatures.map((feature, index) => (
-                  <p key={index}>{feature}.</p>
-                ))}
-              </div>
-            </>}
-
-            {/* Info */}
-            <div className="map-info" style={{ backgroundColor: getCyclePrimaryColor(map.cycle) }}>Card Info</div>
-            <div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-              <div className="card-info-header">ID(s)</div>
-              <div className="card-info-detail">{map.cardIDs.join(", ")}</div>
-            </div>
-            <div className="card-info centered">
-              <div className="card-info-header">Cycle</div>
-              <div className="card-info-detail">{map.cycle}</div>
-            </div>
-          </div>
         </div>
 
         <div className="map-bar right">

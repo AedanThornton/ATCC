@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./TraitCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const TraitCard = ({ trait, index }) => {
   return (
@@ -21,17 +22,7 @@ const TraitCard = ({ trait, index }) => {
       
 
       {/* Info */}
-      <div>
-        <div className="trait-info">Card Info</div>
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{trait.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{trait.cycle}</div>
-        </div>
-      </div>
+      <CardFooter cardIDs={trait.cardIDs} color="black" />
       
     </div>
   );

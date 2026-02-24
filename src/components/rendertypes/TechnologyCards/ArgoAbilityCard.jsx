@@ -3,6 +3,7 @@ import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
 import React from "react";
 import FormattedParagraph, { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
   return (
@@ -66,19 +67,7 @@ const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
         )}
       </div>
 
-      {/* argo-ability Info */}
-      <div>
-        <div className="technology-info">Card Info</div>
-
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{argoAbility.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{argoAbility.cycle}</div>
-        </div>
-      </div>
+      <CardFooter cardIDs={argoAbility.cardIDs} />
     </div>
   );
 };

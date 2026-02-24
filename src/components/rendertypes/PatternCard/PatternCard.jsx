@@ -5,6 +5,7 @@ import PatternTable from "./PatternTable.jsx";
 import { getGateColor } from "../../../lib/colors.js"
 import FormattedParagraph, { GatedFormattedParagraph } from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const PatternCard = ({ pattern, index }) => {
   return (
@@ -38,23 +39,7 @@ const PatternCard = ({ pattern, index }) => {
         )}
 
         {/* Pattern Info */}
-        <div className="pattern-info" style={{ background: getColor(pattern.patternType) }}>Card Info</div>
-        <div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-          <div className="card-info-header">Traits</div>
-          <div className="card-info-detail" style={{ fontStyle: 'italic' }}>{pattern.patternType}, {pattern.patternTrait}</div>
-        </div>
-        {/* <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">Flavor Text</div>
-          <div className="card-info-detail">{pattern.flavor}</div>
-        </div>*/}
-        <div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{pattern.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{pattern.cycle}</div>
-        </div>
+        <CardFooter cardIDs={pattern.cardIDs} bkgdColor={getColor(pattern.patternType)} />
       </div>
     </div>
   );

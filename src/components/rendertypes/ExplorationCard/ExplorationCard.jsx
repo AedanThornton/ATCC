@@ -3,6 +3,7 @@ import "./ExplorationCard.css"; // Add corresponding CSS for styling
 import {FormattedSentence} from "../../utils/FormattedParagraph.jsx";
 import StatTitle from "../../utils/StatTitle.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const ExplorationCard = ({ exploration, index }) => {
   const diplomacies = [
@@ -61,14 +62,7 @@ const ExplorationCard = ({ exploration, index }) => {
       </div>
 
       <div>
-        <div className="card-info centered" style={{lineHeight: "14px"}}>
-            <div className="card-info-header">Cycle:</div>
-            <div className="card-info-detail">{exploration.cycle}</div>
-        </div>
-        <div className="card-info centered" style={{lineHeight: "14px"}}>
-            <div className="card-info-header">ID:</div>
-            <div className="card-info-detail">{exploration.cardIDs}</div>
-        </div>
+        <CardFooter cardIDs={exploration.cardIDs} color="black" />
       </div>
 
     </div>

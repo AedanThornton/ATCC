@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./FatedMnemosCard.css"; // Add corresponding CSS for styling
 import {FormattedSentence} from "../../utils/FormattedParagraph.jsx";
 import StatTitle from "../../utils/StatTitle.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const FatedMnemosCard = ({ fatedMnemos, index }) => {
   return (
@@ -39,14 +40,7 @@ const FatedMnemosCard = ({ fatedMnemos, index }) => {
       </div>
 
       <div>
-        <div className="card-info centered" style={{lineHeight: "14px"}}>
-            <div className="card-info-header">Cycle:</div>
-            <div className="card-info-detail">{fatedMnemos.cycle}</div>
-        </div>
-        <div className="card-info centered" style={{lineHeight: "14px"}}>
-            <div className="card-info-header">ID:</div>
-            <div className="card-info-detail">{fatedMnemos.cardIDs}</div>
-        </div>
+        <CardFooter cardIDs={fatedMnemos.cardIDs} color="black" />
       </div>
 
     </div>

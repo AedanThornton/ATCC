@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./StoryCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const StoryCard = ({ story, index, currentSide }) => {
   let side = currentSide
@@ -41,18 +42,7 @@ const StoryCard = ({ story, index, currentSide }) => {
               
 
               {/* Info */}
-              <div>
-                <div className="story-info">Card Info</div>
-                <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-                  <div className="card-info-header">ID(s)</div>
-                  <div className="card-info-detail">{story.cardIDs.join(", ")}</div>
-                </div>
-                <div className="card-info centered">
-                  <div className="card-info-header">Cycle</div>
-                  <div className="card-info-detail">{story.cycle}</div>
-                </div>
-              </div>
-
+              <CardFooter cardIDs={story.cardIDs} />
 
             </div>
           </div>

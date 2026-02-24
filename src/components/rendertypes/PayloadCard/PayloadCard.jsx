@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./PayloadCard.css"; // Add corresponding CSS for styling
 import { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const PayloadCard = ({ payload, index }) => {
   return (
@@ -23,16 +24,7 @@ const PayloadCard = ({ payload, index }) => {
 
       {/* Info */}
       <div>
-        <div className="payload-info">Card Info</div>
-
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{payload.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{payload.cycle}</div>
-        </div>
+        <CardFooter cardIDs={payload.cardIDs} color="black" />
       </div>
       
     </div>

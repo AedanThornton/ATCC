@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./ConditionCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph";
+import CardFooter from "../../CardFooter";
 
 const ConditionCard = ({ condition, index, currentSide }) => {
   let side = currentSide
@@ -34,19 +35,7 @@ const ConditionCard = ({ condition, index, currentSide }) => {
         )}
       </div>
 
-      {/* Info */}
-      <div>
-        <div className="condition-info">Card Info</div>
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{condition.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{condition.cycle}</div>
-        </div>
-      </div>
-      
+      <CardFooter cardIDs={condition.cardIDs} bkgdColor={"#ae6511"} />
     </div>
   );
 };

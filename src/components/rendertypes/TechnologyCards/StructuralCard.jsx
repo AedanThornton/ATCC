@@ -3,6 +3,7 @@ import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import React from "react";
+import CardFooter from "../../CardFooter.jsx";
 
 const StructuralCard = ({ structural, index, currentSide }) => {
   currentSide = currentSide === 1 ? 2 : 1
@@ -68,19 +69,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
         )}
       </div>
 
-      {/* structural Info */}
-      <div>
-        <div className="technology-info">Card Info</div>
-
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{structural.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{structural.cycle}</div>
-        </div>
-      </div>
+      <CardFooter cardIDs={structural.cardIDs} />
       
     </div>
   );

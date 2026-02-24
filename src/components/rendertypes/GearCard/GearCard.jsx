@@ -6,6 +6,7 @@ import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
 import { DiceStack } from "../../utils/DiceStack.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import { createPowerGate } from "../../utils/gateUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const GearCard = ({ gear, index, currentSide }) => {
   let side = currentSide
@@ -87,27 +88,7 @@ const GearCard = ({ gear, index, currentSide }) => {
         )}
 
         {/* Gear Info */}
-        <div className="gear-info" style={{ background: getCyclePrimaryColor(gear["cycle" + side]), color: "white" }}>Card Info</div>
-        <div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-          <div className="card-info-header">Acquisition</div>
-          <div className="card-info-detail">{gear["acquisition" + side]}</div>
-        </div>
-        <div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-          <div className="card-info-header">Traits</div>
-          <div className="card-info-detail" style={{ fontStyle: 'italic' }}>{gear["traits" + side].join(", ")}</div>
-        </div>
-        {gear["flavor" + side] && (<div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-          <div className="card-info-header">Flavor</div>
-          <div className="card-info-detail">{gear["flavor" + side]}.</div>
-        </div>)}
-        <div className="card-info centered" style={{ lineHeight: "14px", marginBottom: "4px" }}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{gear["cardIDs" + side].join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{gear["cycle" + side]}</div>
-        </div>
+        <CardFooter cardIDs={gear.cardIDs} bkgdColor={getCyclePrimaryColor(gear["cycle" + side])} />
       </div>
     </div>
   );

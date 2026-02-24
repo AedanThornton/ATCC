@@ -29,6 +29,35 @@ function displayCycle(cycle){
   return cycleName[cycle]
 }
 
+function getCardTypeUniqueInfo(cardtype) {
+  const cardInfo = {
+    "clue": ["Story Card", "Sub Deck"],
+    "gear": ["Acquisition", "Traits"],
+    "pattern": ["Traits"]
+  }
+
+  return cardInfo[cardtype.toLowerCase()]
+}
+
+const UniqueCardInfo = ({ cardData, cardInfoList }) => {
+  const renderedList = []
+
+  cardInfoList.map((cardInfo, i) => {
+    const infoWords = cardInfo.replace(/\s+/g, '')
+    const infoKey = infoWords[0].toLowerCase() + infoWords.slice(1)
+    if (!cardData[infoKey]) return
+
+    let data = cardData[infoKey]
+    if (typeof data !== "string") data = data.join(", ")
+
+    renderedList.push(
+      <div key={i}><strong>{cardInfo}:</strong> <p>{data}</p></div>
+    )
+  })
+
+  return renderedList
+}
+
 function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
   const { spoilersEnabled } = useSpoilers();
   const [secretsAreVisible, setSecretsAreVisible] = useState(true);
@@ -52,6 +81,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
           <div><strong>Game:</strong> <p>Aeon Trespass: {cardData.game}</p></div>
           <div><strong>Cycle:</strong> <p>{displayCycle(cardData.cycle)}</p></div>
           <div><strong>Lore:</strong> <p><i>{displayFlavor(cardData, currentSide)}</i></p></div>
+          {getCardTypeUniqueInfo(cardData.cardType) && <UniqueCardInfo cardData={cardData} cardInfoList={getCardTypeUniqueInfo(cardData.cardType)} />}
         </div>
         {(cardData.faq || cardData.errata) && (<div className="focus-card-info-container">
           {cardData.faq && (<div><strong>FAQ:</strong> <p>{cardData.faq}</p></div>)}

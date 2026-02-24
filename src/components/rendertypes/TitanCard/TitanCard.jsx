@@ -5,6 +5,7 @@ import PatternTable from "../PatternCard/PatternTable.jsx";
 import {getCyclePrimaryColor, getCycleTextColor, getGateColor} from "../../../lib/colors.js"
 import FormattedParagraph, { GatedFormattedParagraph } from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const TitanCard = ({ titan, index }) => {
   return (
@@ -42,15 +43,7 @@ const TitanCard = ({ titan, index }) => {
           </div>
 
           {/* Titan Info */}
-          <div className="titan-info" style={{ background: getCyclePrimaryColor(titan.cycle), color: getCycleTextColor(titan.cycle) }}>Card Info</div>
-          <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-            <div className="card-info-header">ID(s)</div>
-            <div className="card-info-detail">{titan.cardIDs.join(", ")}</div>
-          </div>
-          <div className="card-info centered">
-            <div className="card-info-header">Cycle</div>
-            <div className="card-info-detail">{titan.cycle}</div>
-          </div>
+          <CardFooter cardIDs={titan.cardIDs} color={getCyclePrimaryColor(titan.cycle)} />
         </div>
 
         <div className="titan-table">

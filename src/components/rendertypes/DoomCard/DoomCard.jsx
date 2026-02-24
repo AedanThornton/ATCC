@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./DoomCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const DoomCard = ({ doom, index, currentSide }) => {
   let side = currentSide
@@ -40,15 +41,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
 
               {/* Info */}
               <div>
-                <div className="doom-info">Card Info</div>
-                <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-                  <div className="card-info-header">ID(s)</div>
-                  <div className="card-info-detail">{doom.cardIDs.join(", ")}</div>
-                </div>
-                <div className="card-info centered">
-                  <div className="card-info-header">Cycle</div>
-                  <div className="card-info-detail">{doom.cycle}</div>
-                </div>
+                <CardFooter cardIDs={doom.cardIDs} bkgdColor="black" />
               </div>
 
 

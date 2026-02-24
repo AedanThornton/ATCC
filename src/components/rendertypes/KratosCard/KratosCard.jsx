@@ -1,6 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./KratosCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph, { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const KratosCard = ({ kratos, index }) => {
   return (
@@ -28,19 +29,7 @@ const KratosCard = ({ kratos, index }) => {
         )}
       </div>
       
-
-      {/* Info */}
-      <div>
-        <div className="kratos-info">Card Info</div>
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{kratos.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{kratos.cycle}</div>
-        </div>
-      </div>
+      <CardFooter cardIDs={kratos.cardIDs} color="black" />
       
     </div>
   );

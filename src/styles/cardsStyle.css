@@ -114,3 +114,25 @@
 		width: 834px;
 	}
 }
+
+.card__footer {
+  margin-top: auto;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  padding: 6px 10px 4px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card_footer-div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__id {
+  font-size: 10px;
+  justify-content: flex-start;
+}

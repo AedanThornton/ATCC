@@ -2,6 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./TraumaCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
 
 const TraumaCard = ({ trauma, index }) => {
   return (
@@ -58,15 +59,7 @@ const TraumaCard = ({ trauma, index }) => {
         
 
         {/* Info */}
-        <div className="trauma-info">Card Info</div>
-        <div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-          <div className="card-info-header">ID(s)</div>
-          <div className="card-info-detail">{trauma.cardIDs.join(", ")}</div>
-        </div>
-        <div className="card-info centered">
-          <div className="card-info-header">Cycle</div>
-          <div className="card-info-detail">{trauma.cycle}</div>
-        </div>
+        <CardFooter cardIDs={trauma.cardIDs} bkgdColor="rgb(77, 18, 11)" />
       </div>
 
     </div>
