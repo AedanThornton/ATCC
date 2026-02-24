@@ -121,7 +121,7 @@ const FilterSidebar = () => {
 
     //Update URL and data state
     const params = new URLSearchParams(searchParams)
-    if (newCategoryValues.length > 0 && newCategoryValues.length < filterOptions[category]?.length) {
+    if (newCategoryValues.length > 0) {
       params.set(category, newCategoryValues.join(','));
     } else {
       params.delete(category);
