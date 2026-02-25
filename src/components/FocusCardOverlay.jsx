@@ -27,7 +27,10 @@ const FocusCardOverlay = ({ cardID, children }) => {
     setError(null);
     setCardData(null); // Clear previous card data
 
-    const apiUrl = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/api/card/${cardID}`;
+    const apiBase = import.meta.env.PROD
+      ? import.meta.env.VITE_API_BASE_URL
+      : '';
+    const apiUrl = `${apiBase}/api/card/${cardID}`;    
     console.log(`Fetching card detail from: ${apiUrl}`);
 
     try {
@@ -64,7 +67,7 @@ const FocusCardOverlay = ({ cardID, children }) => {
         {children}
       </button>
       {focusDisplay && createPortal(
-        <div className='focus-card-overlay' style={{ display: focusDisplay ? "flex" : "none" }}>
+        <div className='focus-card-overlay' style={{ visibility: focusDisplay ? "visible" : "hidden" }}>
           <div className='focus-card-overlay__buttons'>
             <button onClick={() => setFocusDisplay(false)}>X</button>
             {cardData?.name2 && (<button onClick={toggleSide}>{getIcon({name: "Flip", size: "1.5em"})}</button>)}
