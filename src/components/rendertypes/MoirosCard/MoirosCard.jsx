@@ -12,7 +12,7 @@ const MoirosCard = ({ moiros, index }) => {
         </div>
 
         {/* Effects */}
-        <div className="moiros-effects"><FormattedParagraph paragraph={moiros.effects} />.</div>
+        <div className="moiros-effects"><FormattedParagraph paragraph={moiros.effects} /></div>
       </div>
 
       {/* Info */}

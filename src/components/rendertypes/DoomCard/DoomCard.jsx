@@ -33,7 +33,7 @@ const DoomCard = ({ doom, index, currentSide }) => {
                 </span>
                 <div>
                   {doom["rules" + side] && doom["rules" + side].map((paragraph, index) => (
-                    <p key={index}><FormattedParagraph paragraph={paragraph} invertIcons={true} />.</p>
+                    <p key={index}><FormattedParagraph paragraph={paragraph} invertIcons={true} /></p>
                   ))}
                 </div>
               </div>
