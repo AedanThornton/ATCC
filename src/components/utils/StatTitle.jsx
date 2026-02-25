@@ -1,4 +1,5 @@
 import React from "react";
+import AutoSizedSVG from "./AutoSizedSVG";
 
 // Text length helper function from https://stackoverflow.com/questions/118241/calculate-text-width-with-javascript
 function getTextWidth(text, font) {
@@ -86,12 +87,12 @@ const StatTitle = ({ text, color = "#FFF", bkgdColor = "#000", stat = "1" }) => 
     )
 
     return (
-        <svg viewBox={`${XOffset} ${YOffset} ${Width} ${Height}`} xmlns="http://www.w3.org/2000/svg" className="ability--svg">
+        <AutoSizedSVG>
             {textPolygon}
             {valuePolygon}
             {statDisplay}
             {iDisplay}
-        </svg>
+        </AutoSizedSVG>
     );
 };
   

@@ -195,7 +195,9 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  border: 1px solid var(--main-light);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--main-light);
   background-color: var(--main);
   padding: 2px;
   padding-left: 10px;

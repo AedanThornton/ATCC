@@ -7,8 +7,8 @@ export function getCyclePrimaryColor(cycle) {
     "Cycle III": "#271a2bff",
     "Cycle IV": "#131004",
     "Cycle V": "#19232fff",
-    "Mnestis Theatre": "#C59A18",
-    "Mnestis": "#C59A18",
+    "Mnestis Theatre": "#a07800",
+    "Mnestis": "#a07800",
     
     "Adversary": "#FFFFFF",
   };

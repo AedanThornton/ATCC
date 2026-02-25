@@ -21,7 +21,7 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
         {currentSide == 2 && (
           <div className="technology-project">
             <div className="technology-project-divider">
-              {productionFacility.flavorTech && (<div className="technology-project-flavor">
+              {productionFacility.flavorProject && (<div className="technology-flavor">
                 <i>{productionFacility.flavorProject}</i>
               </div>)}
               <div className="technology-project-header">REQUIREMENTS</div>
@@ -51,10 +51,6 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
           <div className="technology-info">
             {productionFacility.facilityName}
           </div>
-          {productionFacility.flavorTech && (<div className="card-info centered" style={{lineHeight: "14px", marginBottom: "4px"}}>
-            <div className="card-info-header">Flavor Text</div>
-            <div className="card-info-detail"><i>{productionFacility.flavorTech}</i></div>
-          </div>)}
 
           {productionFacility.recipes?.map((recipe, index) => (
             <div className="technology-recipes" key={index}>

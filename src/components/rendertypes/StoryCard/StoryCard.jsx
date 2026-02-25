@@ -42,7 +42,7 @@ const StoryCard = ({ story, index, currentSide }) => {
               
 
               {/* Info */}
-              <CardFooter cardIDs={story.cardIDs} />
+              <CardFooter cardIDs={story.cardIDs} color="black" />
 
             </div>
           </div>

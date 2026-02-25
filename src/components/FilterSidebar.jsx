@@ -50,12 +50,16 @@ const FilterList = ({ title, options, filters, onFilterChange, depth = 0, onTogg
   const isObj = typeof (options[0]) === "object"
   const ref = new Set(options.map(item => item.value));
 
+  console.log(options);
+  
+
   return (
     <>
       <div
         className="dropdown-container"
         style={{
-          backgroundColor: filters.length ? "var(--accent-dark)" : (depth ? "var(--main-light)" : "var(--main)")
+          backgroundColor: ( isObj ? getAllValues(options).some(option => filters.includes(option)) : options.some(option => filters.includes(option)) )
+            ? "var(--accent-dark)" : (depth ? "var(--main-light)" : "var(--main)")
         }}
       >
         <label className="dropdown-select-box">
@@ -135,10 +139,7 @@ const FilterSidebar = () => {
     const params = new URLSearchParams(searchParams);
     const isObjList = typeof filterOptions[category][0] === "object";
     const allFilters = isObjList ? getAllValues(filterOptions[category]) : filterOptions[category];
-    const currentFilters = new Set(params.get(category)?.split(","))
-
-    console.log(allFilters, currentFilters);
-    
+    const currentFilters = new Set(params.get(category)?.split(","))    
 
     if ((whitelist && whitelist.length > 0 && whitelist.every(item => currentFilters.has(item))) || allFilters.every(item => currentFilters.has(item))) {
       (whitelist && whitelist.length > 0) 
