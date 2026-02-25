@@ -37,14 +37,7 @@ const GearCard = ({ gear, index, currentSide }) => {
           <WeaponRenderer statsArray={gear["offensiveStatistics" + side]} />
         </div>
 
-        {/* Ability Box */}
-        <div className="gear-abilities">
-          <div>
-            <FormattedParagraph paragraph={gear["abilities" + side]} />
-          </div>
-
-          {gear["asteriskEffect" + side] && (<div className="asterisk-text">*<FormattedSentence sentence={gear["asteriskEffect" + side]} />.</div>)}
-        </div>
+        <div className="gear-image-spacer"></div>
 
         {/* Defensive Statistics */}
         <div className="gear-stats-container gear-stats-right">
@@ -82,10 +75,21 @@ const GearCard = ({ gear, index, currentSide }) => {
       </div>
 
       <div>
-        {/* Gated Abilities */}
-        {gear["gatedAbilities" + side] && gear["gatedAbilities" + side].length > 0 && (
-          <GatedFormattedParagraph gatedParagraph={gear["gatedAbilities" + side]} />
-        )}
+        {/* Abilities */}
+        <div className="gear-abilities">
+          <div className="gear-abilities-no-gates">
+            <div>
+              <FormattedParagraph paragraph={gear["abilities" + side]} />
+            </div>
+
+            {gear["asteriskEffect" + side] && (<div className="asterisk-text">*<FormattedSentence sentence={gear["asteriskEffect" + side]} />.</div>)}
+          </div>
+
+          {/* Gated Abilities */}
+          {gear["gatedAbilities" + side] && gear["gatedAbilities" + side].length > 0 && (
+            <GatedFormattedParagraph gatedParagraph={gear["gatedAbilities" + side]} />
+          )}
+        </div>
 
         {/* Gear Info */}
         <CardFooter cardIDs={gear.cardIDs} bkgdColor={getCyclePrimaryColor(gear["cycle" + side])} />

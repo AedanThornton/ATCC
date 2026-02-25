@@ -67,14 +67,22 @@
 	line-height: 8px;
 }
 
-.gear .gear-abilities {
-	text-align: center;
-	text-wrap: balance;
-	padding: 0 10px;
+.gear .gear-image-spacer {
 	flex: 80 50;
+}
+
+.gear-abilities {
+	font-size: 13px;
+}
+
+.gear-abilities-no-gates {
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
+	text-align: center;
+	text-wrap: balance;
+	padding: 15px;
+	padding-top: 0;
 }
 
 .gear-gate {
