@@ -23,10 +23,10 @@ const ConditionCard = ({ condition, index, currentSide }) => {
         <div className="condition-effects"><FormattedParagraph paragraph={condition["side" + side].effect} /></div>
 
         {/* Abilities */}
-        {condition["side" + side].abilities && (
-          <div className="condition-abilities-box">
-            <div className="condition-abilities-header">{condition["side" + side].abilities.title}</div>
-            <div className="condition-abilities"><FormattedParagraph paragraph={condition["side" + side].abilities.effects} /></div>
+        {condition["side" + side].abilities?.map((ability, i) =>
+          <div className="condition-abilities-box" key={i}>
+            <div className="condition-abilities-header">{ability.title}</div>
+            <div className="condition-abilities"><FormattedParagraph paragraph={ability.effects} /></div>
           </div>
         )}
 
