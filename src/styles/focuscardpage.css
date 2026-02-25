@@ -96,13 +96,13 @@
   height: 100dvh;
   position: fixed;
   z-index: 600;
-  display: none;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(137, 137, 137, 0.684);
   top: 0;
   display: flex;
   justify-content: center;
+  visibility: hidden;
 }
 
 .focus-card-overlay .focus-card-page {

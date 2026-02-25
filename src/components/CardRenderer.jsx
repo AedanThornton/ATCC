@@ -64,7 +64,7 @@ const CardRenderer = ({cardname}) => {
         {cardname.cardType}
       </div>}
 
-      <div className='focus-card-overlay' style={{display: focusDisplay ? "flex" : "none"}}>
+      <div className='focus-card-overlay' style={{visibility: focusDisplay ? "visible" : "hidden"}}>
         <div className='focus-card-overlay__buttons'>
           <button onClick={setDisplayHelper}>X</button>
           {cardname.name2 && (<button onClick={toggleSide}>{getIcon({name: "Flip", size: "1.5em"})}</button>)}
