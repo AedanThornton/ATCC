@@ -48,10 +48,7 @@ const FilterOptionButton = ({ option, clickFunc, filters, index }) => {
 const FilterList = ({ title, options, filters, onFilterChange, depth = 0, onToggleCategory }) => {
   const [isOpen, setIsOpen] = useState(false)
   const isObj = typeof (options[0]) === "object"
-  const ref = new Set(options.map(item => item.value));
-
-  console.log(options);
-  
+  const ref = new Set(options.map(item => item.value));  
 
   return (
     <>

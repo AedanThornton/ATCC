@@ -55,7 +55,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, inver
       </span>
       {sentence.abilityText?.map((textClump, index2, array) => (
         <React.Fragment key={index2}>
-          {formatText(textClump)}{index2 !== array.length - 1 && " "}
+          {formatText(textClump)}
         </React.Fragment>
       ))}{". "}
     </>

@@ -82,7 +82,7 @@ const GearCard = ({ gear, index, currentSide }) => {
               <FormattedParagraph paragraph={gear["abilities" + side]} />
             </div>
 
-            {gear["asteriskEffect" + side] && (<div className="asterisk-text">*<FormattedSentence sentence={gear["asteriskEffect" + side]} />.</div>)}
+            {gear["asteriskEffect" + side] && (<div className="asterisk-text">*<FormattedSentence sentence={gear["asteriskEffect" + side]} /></div>)}
           </div>
 
           {/* Gated Abilities */}
