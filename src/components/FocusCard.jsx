@@ -5,6 +5,7 @@ import SecretOverlay from './utils/SecretOverlay';
 import { useState } from 'react';
 import getIcon from './utils/iconUtils';
 import { useSpoilers } from "../context/SpoilerContext";
+import FormattedParagraph, { FormattedSentence } from './utils/FormattedParagraph';
 
 function isWide(card){
   return (card.cardSize === "Half-Page" || card.cardSize === "Full-Page" || card.techSubType === "Core")
@@ -83,9 +84,32 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
           <div><strong>Lore:</strong> <p><i>{displayFlavor(cardData, currentSide)}</i></p></div>
           {getCardTypeUniqueInfo(cardData.cardType) && <UniqueCardInfo cardData={cardData} cardInfoList={getCardTypeUniqueInfo(cardData.cardType)} />}
         </div>
-        {(cardData.faq || cardData.errata) && (<div className="focus-card-info-container">
+        {(cardData.faq || (cardData.errata && Object.keys(cardData.errata).length > 0)) && (<div className="focus-card-info-container">
           {cardData.faq && (<div><strong>FAQ:</strong> <p>{cardData.faq}</p></div>)}
-          {cardData.errata && (<div><strong>Errata:</strong> <p>{cardData.errata}</p></div>)}
+          {cardData.errata && Object.keys(cardData.errata).length > 0 && (
+            <>
+              <strong>Errata</strong>
+              <br/>
+              {cardData.errata["v1.2"] && (<><br/>
+              <strong>Version 1.2 Changes</strong>
+              <ul>
+                {cardData.errata["v1.2"].map((update, i) => (
+                  <li key={i}>
+                    {<FormattedSentence sentence={update} />}
+                  </li>
+                ))}
+              </ul></>)}
+              <br/>
+              <strong>Version 1.1 Changes</strong>
+              <ul>
+                {cardData.errata["v1.1"].map((update, i) => (
+                  <li key={i}>
+                    {<FormattedSentence sentence={update} />}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>)}
         
         <div className="focus-card-info-container focus-card-secrets">

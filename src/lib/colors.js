@@ -58,7 +58,7 @@ export function getGateColor(gatetype) {
     fate: "#557DBD",
     rage: "#040404",
     ambrosia: "#5D0D69",
-    bleed: "#040404",
+    bleeding: "#040404",
     labyrinth: "#7D4921",
     despair: "#07302fff",
     "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",

@@ -25,7 +25,7 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
     "Armor": 0.9
   };
 
-  const reversed = name.startsWith("Reversed")
+  const reversed = name && name.startsWith("Reversed")
   if (reversed) {
     name = name.replace(/Reversed/g, "")
   }
@@ -54,6 +54,9 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
   if (reversed) {
     name = "Reversed" + name
   }
+
+  console.log(name);
+  
 
   let wide = 1
   if (name === "ComplicatedAction" || name === "PrimordialZoneMarker") { wide = 2 }
