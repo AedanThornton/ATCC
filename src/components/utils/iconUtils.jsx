@@ -55,9 +55,6 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
     name = "Reversed" + name
   }
 
-  console.log(name);
-  
-
   let wide = 1
   if (name === "ComplicatedAction" || name === "PrimordialZoneMarker") { wide = 2 }
 
