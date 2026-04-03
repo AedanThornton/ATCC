@@ -25,6 +25,11 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
     "Armor": 0.9
   };
 
+  const reversed = name.startsWith("Reversed")
+  if (reversed) {
+    name = name.replace(/Reversed/g, "")
+  }
+
   // Special case name mapping
   const nameMap = {
     "Red": type === "Power" ? "RedPowerDie" : type === "Armor" ? "RedArmorDie" : "Red",
@@ -44,6 +49,10 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
   if (nameMap[name]) {
     name = nameMap[name];
     size = `${parseFloat(size) * (sizeMultiplier[name] || 1)}em`;
+  }
+
+  if (reversed) {
+    name = "Reversed" + name
   }
 
   let wide = 1

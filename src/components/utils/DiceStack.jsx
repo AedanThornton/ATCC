@@ -27,10 +27,10 @@ export const DiceStack = ({ diceArray, diceType = "Power" }) => {
             className="power-die"
             style={{
               zIndex: 100 - depth,
-              transform: `translate(${x}px, ${y}px) scale(${-dir}, 1)`
+              transform: `translate(${x}px, ${y}px)`
             }}
           >
-            {getIcon({name: src, type: diceType, index: i + src, size: `${(1 + (0.1 * (3 - Math.floor(depth / 2)))) * scale}em`})}
+            {getIcon({name: (dir > 0 ? "Reversed" : "") + `${src}`, type: diceType, index: i + src, size: `${(1 + (0.1 * (3 - Math.floor(depth / 2)))) * scale}em`})}
           </div>
         );
       })}
