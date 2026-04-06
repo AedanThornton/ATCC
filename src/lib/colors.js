@@ -65,6 +65,8 @@ export function getGateColor(gatetype) {
     pain: "#707070ff",
     aether: "#071530ff",
     paradox: "#557DBD",
+    death: "#000",
+    //moiros: "#162f9a"
   };
   return gateColors[gatetype] || conditionColor;
 };

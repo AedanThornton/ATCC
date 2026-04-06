@@ -43,7 +43,9 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
     "2 1 Hands": "TwoOneHanded",
     "3 1 Hands": "ThreeOneHanded",
     "AdversaryActivation": "Adversary",
-    "Labyrinth": "Labyrinthians"
+    "Labyrinth": "Labyrinthians",
+    "Laser": type === "Armor" ? "LaserResistance" : "Laser",
+    "Microwave": type === "Armor" ? "MicrowaveResistance" : "Microwave"
   };
 
   if (nameMap[name]) {
