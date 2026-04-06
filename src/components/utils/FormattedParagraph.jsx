@@ -3,7 +3,7 @@ import { getGateColor } from "../../lib/colors"
 import FocusCardOverlay from "../FocusCardOverlay"
 import createTooltip from "./tooltipsUtil"
 import getIcon from "./iconUtils"
-import { createAbilityGate } from "./gateUtils"
+import { createGate } from "./gateUtils"
 
 export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, invertIcons = false }) => {
   if (typeof sentence === "string") {
@@ -47,7 +47,7 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, inver
 
   return (
     <>
-      {inLineGate && sentence.gate && createAbilityGate(sentence.gate, sentence.value, getGateColor(sentence.gate) || "none")}
+      {inLineGate && sentence.gate && createGate([sentence.gate], [sentence.value], getGateColor(sentence.gate) || "none")}
       {pos > 0 && (sentence.abilityText[0].type === "timing" || sentence.costs) && <br />}
       <span className="ability-costs">
         {isReaction && getIcon({ name: "Reaction", invert: invertIcons })}
@@ -76,12 +76,9 @@ export const GatedFormattedParagraph = ({ gatedParagraph }) => {
       {gatedParagraph.map((gatedSentence, index) => {
         return <div key={index} className="gear-gate" style={{ background:  `linear-gradient(90deg, ${getGateColor(gatedSentence.gate)} 30%, ${getGateColor(gatedSentence.gate2 ? gatedSentence.gate2 : gatedSentence.gate)} 70%)` }}>
           <div className="gear-ability-gate">
-            {createAbilityGate(
-                gatedSentence.gate2
-                  ? [gatedSentence.gate, gatedSentence.gate2, gatedSentence.comboGate]
-                  : gatedSentence.gate
-                , 
-                gatedSentence.value
+            {createGate(
+                [gatedSentence.gate, gatedSentence.gate2 || "", gatedSentence.comboGate || ""],
+                [gatedSentence.value, gatedSentence.value2 || ""]
             )}
           </div>
           <div className="gear-gated-ability">

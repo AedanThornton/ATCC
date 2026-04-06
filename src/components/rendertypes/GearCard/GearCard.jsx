@@ -5,7 +5,7 @@ import { getCyclePrimaryColor, getCycleTextColor, getGateColor } from "../../../
 import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
 import { DiceStack } from "../../utils/DiceStack.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
-import { createPowerGate } from "../../utils/gateUtils.jsx";
+import { createGate } from "../../utils/gateUtils.jsx";
 import CardFooter from "../../CardFooter.jsx";
 
 const GearCard = ({ gear, index, currentSide }) => {
@@ -59,7 +59,7 @@ const GearCard = ({ gear, index, currentSide }) => {
                       {
                         defensiveStat.gate.type === "Hits" ? defensiveStat.gate.value + " " + (defensiveStat.gate.value === "1" ? "Hit" : "Hits")
                           : defensiveStat.gate.type === "Full Hit" ? "Full Hit"
-                            : createPowerGate(defensiveStat.gate.type, defensiveStat.gate.value)
+                            : createGate([defensiveStat.gate.type], [defensiveStat.gate.value], undefined, "power")
                       }
                     </span>
                   </div>

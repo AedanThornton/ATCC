@@ -8,7 +8,7 @@ for (const path in modules) {
     icons[key] = modules[path].default;
 }
 
-const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = undefined, comboGate = undefined }) => {
+const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = undefined, comboGate = undefined, value2 = undefined }) => {
     let iconAdjustment = 0
     let iconSize = 22
     switch (icon){
@@ -27,11 +27,13 @@ const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = und
     const gateXOffset = 0
     const gateYOffset = 0
     const gateHeight = 32
-    const gateWidth = 105 + iconAdjustment + (icon2 ? iconSize + 5 : 0)
+    const gateWidth = 105 + iconAdjustment + (icon2 ? iconSize + 5 : 0) + (comboGate === "OR" ? iconSize : 0)
     const gateArrow = 12
     const gateIncline = 10
-    const gateSplitPoint = 46
+    const gateSplitPoint = 46 + (comboGate === "OR" ? iconSize : 0)
     const gateSplitSize = 5
+
+    const ORwidth = comboGate === "OR" ? 65 : 0
     
                         /*
                         --ICON--
@@ -55,16 +57,22 @@ const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = und
                         ${gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline} ${gateYOffset + gateHeight},
                         ${gateXOffset + gateArrow} ${gateYOffset + gateHeight}`
 
-    const valuePoints = `${gateXOffset + gateWidth - gateSplitPoint} ${gateYOffset},
-                        ${gateXOffset + gateWidth - gateArrow} ${gateYOffset}, 
-                        ${gateXOffset + gateWidth} ${gateYOffset + gateHeight/2}, 
-                        ${gateXOffset + gateWidth - gateArrow} ${gateYOffset + gateHeight},
-                        ${gateXOffset + gateWidth - gateSplitPoint - gateIncline} ${gateYOffset + gateHeight}`
+    const valuePoints = `${gateXOffset + gateWidth - gateSplitPoint + ORwidth} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateArrow + ORwidth} ${gateYOffset}, 
+                        ${gateXOffset + gateWidth + ORwidth} ${gateYOffset + gateHeight/2}, 
+                        ${gateXOffset + gateWidth - gateArrow + ORwidth} ${gateYOffset + gateHeight},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateIncline + ORwidth} ${gateYOffset + gateHeight}`
 
     const dividerPoints = `${gateXOffset + gateWidth - gateSplitPoint - gateSplitSize} ${gateYOffset},
                         ${gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline} ${gateYOffset + gateHeight},
                         ${gateXOffset + gateWidth - gateSplitPoint} ${gateYOffset},
                         ${gateXOffset + gateWidth - gateSplitPoint - gateIncline} ${gateYOffset + gateHeight}`
+
+    const ORSpacerPoints = `${gateXOffset + gateWidth - gateSplitPoint} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateSplitPoint + ORwidth - gateSplitSize} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateIncline + ORwidth - gateSplitSize} ${gateYOffset + gateHeight},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateIncline} ${gateYOffset + gateHeight}`
+    
 
     const iconPolygon = (
         <polygon 
@@ -105,6 +113,19 @@ const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = und
         />
     )
 
+    const ORSpacerPolygon = (
+        <polygon 
+                x="0" 
+                y="0" 
+                width="120" 
+                height="40" 
+                stroke="#FFF"
+                strokeWidth="3"
+                fill={fill}
+                points={ORSpacerPoints}
+        />
+    )
+
     const iconX = gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline - iconSize - (icon2 ? iconSize + 8 : 0) - 5
     const iconY = gateYOffset + gateHeight/2 - iconSize/2
     const gateDisplay = (
@@ -118,19 +139,19 @@ const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = und
 
         {comboGate && (
         <text
-            x={iconSize + 6}
-            y={iconSize * 0.75}
-            fontSize="20"
+            x={comboGate === "&" ? iconSize + 6 : iconSize * 1.75} // AND vs OR gate spacing
+            y={comboGate === "&" ? iconSize * 0.75 : 14} // AND vs OR gate spacing
+            fontSize={comboGate === "&" ? 20 : 26} // AND vs OR gate font size
             fontWeight="bold"
             fill="#FFF"
             textAnchor="middle"
             dominantBaseline="middle"
         >
-            {comboGate}
+            {comboGate === "&" ? comboGate : value}
         </text>
         )}
 
-        {link2 && (
+        {comboGate === "&" && link2 && (
         <image
             filter="url(#invert)" //#invert filter is in AutoSizedSVG.jsx
             xlinkHref={link2}
@@ -152,15 +173,50 @@ const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = und
             fontWeight="bold" 
             fill="#FFF"
         >
-            {value}
+            {comboGate === "OR" ? "OR" : value}
         </text>
     )
+
+    const rightGateX = gateWidth - gateSplitPoint + 5 + ORwidth
+    const rightGateDisplay = link2 && (
+    <g transform={`translate(${rightGateX}, ${iconY})`}>
+        <image
+        filter="url(#invert)" //#invert filter is in AutoSizedSVG.jsx
+        xlinkHref={link2}
+        width={iconSize}
+        height={iconSize}
+        />
+
+        {comboGate && (
+        <text
+            x={iconSize * 1.75}
+            y={14}
+            fontSize={26}
+            fontWeight="bold"
+            fill="#FFF"
+            textAnchor="middle"
+            dominantBaseline="middle"
+        >
+            {value2}
+        </text>
+        )}
+    </g>
+    );
 
     return type === "power" ? (
         <AutoSizedSVG>
             {dividerPolygon}
             {gateDisplay}
             {textDisplay}
+        </AutoSizedSVG>
+    ) : comboGate === "OR" ? (
+        <AutoSizedSVG>
+            {iconPolygon}
+            {ORSpacerPolygon}
+            {valuePolygon}
+            {gateDisplay}
+            {textDisplay}
+            {rightGateDisplay}
         </AutoSizedSVG>
     ) : (
         <AutoSizedSVG>
@@ -230,15 +286,8 @@ const AbilityTextGate = ({ text, color, bkgdColor }) => {
     );
 }
 
-export const createAbilityGate = (gate, value, fill = "none") => {
-    if (Array.isArray(gate)) {
-        return value ? <AbilityGate icon={gate[0]} value={value} fill={fill} icon2={gate[1]} comboGate={gate[2]} /> : <AbilityTextGate text={gate} color="white" bkgdColor={fill} icon2={gate[1]} comboGate={gate[2]} />
-    }
-    return value ? <AbilityGate icon={gate} value={value} fill={fill} /> : <AbilityTextGate text={gate} color="white" bkgdColor={fill} />
-}
-export const createPowerGate = (gate, value) => {
-    if (Array.isArray(gate)) {
-        return <AbilityGate type="power" icon={gate[0]} value={value} icon2={gate[1]} comboGate={gate[2]} />
-    }
-    return <AbilityGate type="power" icon={gate} value={value} />
+export const createGate = (gate = [], value = [], fill = "none", type = "ability") => {
+    return value 
+        ? <AbilityGate type={type} icon={gate[0]} value={value[0]} fill={fill} icon2={gate[1] || undefined} comboGate={gate[2] || undefined} value2={value[1] || undefined} /> 
+        : <AbilityTextGate text={gate} color="white" bkgdColor={fill} />
 }

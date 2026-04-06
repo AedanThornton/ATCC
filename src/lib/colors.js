@@ -61,16 +61,11 @@ export function getGateColor(gatetype) {
     bleeding: "#040404",
     labyrinth: "#7D4921",
     despair: "#07302fff",
-    "danger+fate": "linear-gradient(90deg, rgba(155,35,21,1) 38%, rgba(34,85,167,1) 62%)",
     midas: "#d4ae43ff",
     pain: "#707070ff",
     aether: "#071530ff",
-    "any condition": conditionColor,
-    bravery: conditionColor,
-    "negative condition": conditionColor,
-    "positive condition": conditionColor,
   };
-  return gateColors[gatetype] || "#AAAAAA";
+  return gateColors[gatetype] || conditionColor;
 };
 
 export const isAdversary = {

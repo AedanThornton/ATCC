@@ -2,7 +2,7 @@ import { getGateColor } from "../../lib/colors";
 import "/src/styles/weaponStats.css"
 import { DiceStack } from "./DiceStack";
 import getIcon from "./iconUtils";
-import { createPowerGate } from "./gateUtils";
+import { createGate } from "./gateUtils";
 
 const WeaponRenderer = ({ statsArray }) => (
   <div className="weapon-stats-bar">
@@ -28,11 +28,12 @@ const WeaponRenderer = ({ statsArray }) => (
             {
               p.gate.type === "Hits" ? p.gate.value + " " + (p.gate.value === "1" ? "Hit" : "Hits")
                 : !p.gate.value ? p.gate.type
-                  : createPowerGate(
-                      p.gate.type2
-                        ? [p.gate.type, p.gate.type2, p.gate.comboGate]
-                        : p.gate.type
-                    , p.gate.value)
+                  : createGate(
+                      [p.gate.type, p.gate.type2, p.gate.comboGate], 
+                      [p.gate.value], 
+                      undefined, 
+                      "power"
+                    )
             }
           </div>
         )}
