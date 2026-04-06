@@ -8,7 +8,7 @@ for (const path in modules) {
     icons[key] = modules[path].default;
 }
 
-const AbilityGate = ({ icon, value, fill, icon2 = undefined, comboGate = undefined }) => {
+const AbilityGate = ({ type = "ability", icon, value, fill = "#FFF", icon2 = undefined, comboGate = undefined }) => {
     let iconAdjustment = 0
     let iconSize = 22
     switch (icon){
@@ -27,7 +27,7 @@ const AbilityGate = ({ icon, value, fill, icon2 = undefined, comboGate = undefin
     const gateXOffset = 0
     const gateYOffset = 0
     const gateHeight = 32
-    const gateWidth = 103 + iconAdjustment + (icon2 ? iconSize + 5 : 0)
+    const gateWidth = 105 + iconAdjustment + (icon2 ? iconSize + 5 : 0)
     const gateArrow = 12
     const gateIncline = 10
     const gateSplitPoint = 46
@@ -61,6 +61,11 @@ const AbilityGate = ({ icon, value, fill, icon2 = undefined, comboGate = undefin
                         ${gateXOffset + gateWidth - gateArrow} ${gateYOffset + gateHeight},
                         ${gateXOffset + gateWidth - gateSplitPoint - gateIncline} ${gateYOffset + gateHeight}`
 
+    const dividerPoints = `${gateXOffset + gateWidth - gateSplitPoint - gateSplitSize} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline} ${gateYOffset + gateHeight},
+                        ${gateXOffset + gateWidth - gateSplitPoint} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateIncline} ${gateYOffset + gateHeight}`
+
     const iconPolygon = (
         <polygon 
                 x="0" 
@@ -87,7 +92,20 @@ const AbilityGate = ({ icon, value, fill, icon2 = undefined, comboGate = undefin
         />
     )
 
-    const iconX = gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline - iconSize - (icon2 ? iconSize + 5 : 0) - 5
+    const dividerPolygon = (
+        <polygon 
+                x="0" 
+                y="0" 
+                width="120" 
+                height="40" 
+                stroke="#FFF"
+                strokeWidth="3"
+                fill={fill}
+                points={dividerPoints}
+        />
+    )
+
+    const iconX = gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline - iconSize - (icon2 ? iconSize + 8 : 0) - 5
     const iconY = gateYOffset + gateHeight/2 - iconSize/2
     const gateDisplay = (
     <g transform={`translate(${iconX}, ${iconY})`}>
@@ -138,7 +156,13 @@ const AbilityGate = ({ icon, value, fill, icon2 = undefined, comboGate = undefin
         </text>
     )
 
-    return (
+    return type === "power" ? (
+        <AutoSizedSVG>
+            {dividerPolygon}
+            {gateDisplay}
+            {textDisplay}
+        </AutoSizedSVG>
+    ) : (
         <AutoSizedSVG>
             {iconPolygon}
             {valuePolygon}
@@ -206,76 +230,15 @@ const AbilityTextGate = ({ text, color, bkgdColor }) => {
     );
 }
 
-const PowerGate = ({ icon, value }) => {
-
-    const link = icons[icon]
-
-    let iconAdjustment = 0
-    let iconSize = 22
-    switch (icon){
-        case "Ambrosia":
-            iconAdjustment = 5
-            iconSize = 35
-            break;
-    }
-
-    const gateXOffset = 8
-    const gateYOffset = 0
-    const gateHeight = 28 - gateYOffset
-    const gateWidth = 105 - gateXOffset + iconAdjustment
-    const gateSplitPoint = gateWidth * 0.45
-    const gateSplitSize = 1
-
-    const dividerPoints = `${(gateWidth - gateSplitPoint) - gateSplitSize + gateXOffset} ${gateYOffset},
-                        ${gateSplitPoint - gateSplitSize + gateXOffset} ${gateHeight + gateYOffset},
-                        ${gateSplitPoint + gateSplitSize + gateXOffset} ${gateHeight + gateYOffset},
-                        ${(gateWidth - gateSplitPoint) + gateSplitSize + gateXOffset} ${gateYOffset}`
-
-    const dividerPolygon = (
-        <polygon 
-                x="0" 
-                y="0" 
-                width="120" 
-                height="40" 
-                stroke="#FFF"
-                strokeWidth="2"
-                fill="#FFF"
-                points={dividerPoints}
-        />
-    )
-
-    const iconX = 33 - iconSize/2
-    const iconY = 14.5 - iconSize/2
-    const iconDisplay = (
-        <image filter="url(#invert)" xlinkHref={link} width={iconSize} height={iconSize} x={iconX} y={iconY} />  
-    )
-
-    const textX = 70 + (iconAdjustment*2)/2
-    const textDisplay = (
-        <text 
-            x={textX} 
-            y="23.5" 
-            fontSize="26" 
-            fontWeight="bold" 
-            fill="#FFF"
-        >
-            {value}
-        </text>
-    )
-
-    return (
-        <AutoSizedSVG>
-            {dividerPolygon}
-            {iconDisplay}
-            {textDisplay}
-        </AutoSizedSVG>
-    );
-};
-
 export const createAbilityGate = (gate, value, fill = "none") => {
     if (Array.isArray(gate)) {
         return value ? <AbilityGate icon={gate[0]} value={value} fill={fill} icon2={gate[1]} comboGate={gate[2]} /> : <AbilityTextGate text={gate} color="white" bkgdColor={fill} icon2={gate[1]} comboGate={gate[2]} />
     }
     return value ? <AbilityGate icon={gate} value={value} fill={fill} /> : <AbilityTextGate text={gate} color="white" bkgdColor={fill} />
 }
-export const createPowerGate = (icon, value) => <PowerGate icon={icon} value={value} />
+export const createPowerGate = (gate, value) => {
+    if (Array.isArray(gate)) {
+        return <AbilityGate type="power" icon={gate[0]} value={value} icon2={gate[1]} comboGate={gate[2]} />
+    }
+    return <AbilityGate type="power" icon={gate} value={value} />
+}
