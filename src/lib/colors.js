@@ -64,6 +64,7 @@ export function getGateColor(gatetype) {
     midas: "#d4ae43ff",
     pain: "#707070ff",
     aether: "#071530ff",
+    paradox: "#557DBD",
   };
   return gateColors[gatetype] || conditionColor;
 };

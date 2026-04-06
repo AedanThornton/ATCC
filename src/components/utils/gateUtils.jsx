@@ -287,7 +287,7 @@ const AbilityTextGate = ({ text, color, bkgdColor }) => {
 }
 
 export const createGate = (gate = [], value = [], fill = "none", type = "ability") => {
-    return value 
+    return value[0]
         ? <AbilityGate type={type} icon={gate[0]} value={value[0]} fill={fill} icon2={gate[1] || undefined} comboGate={gate[2] || undefined} value2={value[1] || undefined} /> 
-        : <AbilityTextGate text={gate} color="white" bkgdColor={fill} />
+        : <AbilityTextGate text={gate[0]} color="white" bkgdColor={fill} />
 }

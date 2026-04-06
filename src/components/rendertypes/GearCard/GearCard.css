@@ -88,7 +88,6 @@
 .gear-gate {
 	width: 100%;
 	display: flex;
-	column-gap: 10px;
 	justify-content: flex-start;
 	align-items: center;
 }
@@ -110,7 +109,7 @@
 .gear .gear-gated-ability {
 	text-align: left;
 	color: white;
-	padding-right: 10px;
+	padding: 0 10px;
 }
 
 .gear .icon {

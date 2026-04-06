@@ -73,15 +73,15 @@ const FormattedParagraph = ({ paragraph, inLineGate = false, invertIcons }) => {
 export const GatedFormattedParagraph = ({ gatedParagraph }) => {
   return (
     <div className="gated-abilities">
-      {gatedParagraph.map((gatedSentence, index) => {
-        return <div key={index} className="gear-gate" style={{ background:  `linear-gradient(90deg, ${getGateColor(gatedSentence.gate)} 30%, ${getGateColor(gatedSentence.gate2 ? gatedSentence.gate2 : gatedSentence.gate)} 70%)` }}>
-          <div className="gear-ability-gate">
+      {gatedParagraph.map((gatedSentence, index, array) => {
+        return <div key={index} className="gear-gate" style={{ flexDirection: array.length === 1 ? "column" : "row", background:  `linear-gradient(90deg, ${getGateColor(gatedSentence.gate)} 30%, ${getGateColor(gatedSentence.gate2 ? gatedSentence.gate2 : gatedSentence.gate)} 70%)` }}>
+          <div className="gear-ability-gate" style={{ paddingLeft: array.length === 1 ? 0 : "18px"}}>
             {createGate(
                 [gatedSentence.gate, gatedSentence.gate2 || "", gatedSentence.comboGate || ""],
                 [gatedSentence.value, gatedSentence.value2 || ""]
             )}
           </div>
-          <div className="gear-gated-ability">
+          <div className="gear-gated-ability" style={{ textAlign: array.length === 1 ? "center" : "left"}}>
             <FormattedSentence sentence={gatedSentence} invertIcons={true} />
           </div>
         </div>
