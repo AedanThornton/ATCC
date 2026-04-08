@@ -39,7 +39,7 @@ const TitanCard = ({ titan, index }) => {
 
           {/* Gated Abilities */}
           <div className="gated-abilities">
-            <GatedFormattedParagraph gatedParagraph={titan.gatedAbilities} />
+            <GatedFormattedParagraph gatedParagraph={titan.gatedAbilities} inLineGate={true} />
           </div>
 
           {/* Titan Info */}
