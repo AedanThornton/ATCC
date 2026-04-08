@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./ExplorationCard.css"; // Add corresponding CSS for styling
 import {FormattedSentence} from "../../utils/FormattedParagraph.jsx";
-import StatTitle from "../../utils/StatTitle.jsx";
+import { createGate } from "../../utils/gateUtils.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import CardFooter from "../../CardFooter.jsx";
 
@@ -18,36 +18,26 @@ const ExplorationCard = ({ exploration, index }) => {
       </div>
 
       <div className="exploration-effects">
-        {exploration.effects[0]?.map((effect, index) => (
-          <p key={index} style={{fontSize: "12px", lineHeight: "12px"}}>
-            <span className="exploration-effect-text">
-              <FormattedSentence sentence={effect} />
-            </span>
+        {exploration.effects?.map((effect, index) => (
+          <p key={index}>
+            {effect.gate && createGate([effect.gate], [effect.value], "#000")}
+            {" "}
+            <FormattedSentence sentence={effect} />
           </p>
         ))}
-        {exploration.effects[1]?.map((effect, index) => {
-          let diplomacy = '', diplomacySign = ''
-          if (effect.gate) {
-            diplomacySign = effect.gate.endsWith('+') ? '+' : effect.gate.endsWith('-') ? '-' : ''
-            if (diplomacySign) {
-              diplomacy = diplomacies.includes(effect.gate.slice(0, -1)) ? effect.gate.slice(0, -1) : ''
-            } else {
-              diplomacy = diplomacies.includes(effect.gate) ? effect.gate : ''
-            }
-          }
-
-          return <p key={index} style={{fontSize: "12px", lineHeight: "12px"}}>
-            {diplomacy !== '' && <span className="exploration-diplomacy-banner"><span><StatTitle text={diplomacy} color="white" bkgdColor="black" stat={diplomacySign} /></span></span>}
-            <span className="exploration-effect-text">
-              <FormattedSentence sentence={effect} />
-            </span>
+        <div style={{ borderTop: exploration.effects2?.length > 0 ? "1px solid black" : "none", margin: "4% 10%"}}></div>
+        {exploration.effects2?.map((effect, index) => (
+          <p key={index}>
+            {effect.gate && createGate([effect.gate], [effect.value], "#000")}
+            {" "}
+            <FormattedSentence sentence={effect} />
           </p>
-        })}
+        ))}
       </div>
 
       {exploration.adversaryTriggers && (
         <div className="adversary-icon-group">
-          {[...Array(exploration.adversaryTriggers)].map((e, index) => (
+          {Array.from({ length: exploration.adversaryTriggers }).map((_, index) => (
             <div key={index} className="adversary-icon">
               {getIcon({name: "Adversary", size: "3em", invert: true})}
             </div>
