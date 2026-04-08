@@ -85,7 +85,19 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
           {getCardTypeUniqueInfo(cardData.cardType) && <UniqueCardInfo cardData={cardData} cardInfoList={getCardTypeUniqueInfo(cardData.cardType)} />}
         </div>
         {(cardData.faq || (cardData.errata && Object.keys(cardData.errata).length > 0)) && (<div className="focus-card-info-container">
-          {cardData.faq && (<div><strong>FAQ:</strong> <p>{cardData.faq}</p></div>)}
+          {cardData.faq && cardData.faq.length > 0 && (
+            <>
+              <strong>FAQ</strong>
+              <br/>
+              <ul>
+                {cardData.faq.map((faq, i) => (
+                  <li key={i}>
+                    {<FormattedSentence sentence={faq} invertIcons={true} />}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
           {cardData.errata && Object.keys(cardData.errata).length > 0 && (
             <>
               <strong>Errata</strong>
@@ -95,19 +107,19 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
               <ul>
                 {cardData.errata["v1.2"].map((update, i) => (
                   <li key={i}>
-                    {<FormattedSentence sentence={update} />}
+                    {<FormattedSentence sentence={update} invertIcons={true} />}
                   </li>
                 ))}
               </ul></>)}
-              <br/>
-              <strong>Version 1.1 Changes</strong>
+              {cardData.errata["v1.1"] && (<><br/>
+              <strong>Version 1.2 Changes</strong>
               <ul>
                 {cardData.errata["v1.1"].map((update, i) => (
                   <li key={i}>
-                    {<FormattedSentence sentence={update} />}
+                    {<FormattedSentence sentence={update} invertIcons={true} />}
                   </li>
                 ))}
-              </ul>
+              </ul></>)}
             </>
           )}
         </div>)}
