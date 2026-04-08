@@ -25,6 +25,7 @@ function Layout({ isCatalog = false }) {
                     <li><Link to="/catalog">Card Catalog</Link></li>
                     <li><Link to="/search-info">Catalog Docs</Link></li>
                     <li><Link to="/about">About</Link></li>
+                    <li><Link to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer">Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></Link></li>
                   </ul>
                 </div>
               </button>
