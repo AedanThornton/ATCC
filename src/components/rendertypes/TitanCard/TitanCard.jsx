@@ -13,6 +13,9 @@ const TitanCard = ({ titan, index }) => {
       <div className="titan-title" style={{ color: getCyclePrimaryColor(titan.cycle) }}>
         {titan.name}
       </div>
+      {titan.subtitle && <div className="titan-subtitle" style={{ color: getCyclePrimaryColor(titan.cycle) }}>
+        {titan.subtitle}
+      </div>}
 
       <div className="titan-main">
         <div className="titan-details">
@@ -32,6 +35,7 @@ const TitanCard = ({ titan, index }) => {
             {/* Abilities */}
             <div className="titan-abilities">
               <div>
+                <br />
                 <FormattedParagraph paragraph={titan.abilities} inLineGate={true} />
               </div>
             </div>

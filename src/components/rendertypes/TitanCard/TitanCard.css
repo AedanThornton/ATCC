@@ -9,6 +9,8 @@
 
 .titan-details {
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
 }
 
 .titan-table {
@@ -33,6 +35,11 @@
 	text-align: center;
 	font-size: 22px;
 	padding: 0.3rem;
+}
+
+.titan-subtitle {
+	text-align: center;
+	font-size: 14px;
 }
 
 .titan-main {
@@ -79,10 +86,16 @@
 	text-align: center;
 	text-wrap: balance;
 	padding: 0 10px;
-	flex: 80 50;
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
+	font-size: 16px;
+}
+
+.titan-abilities svg {
+	height: 16px;
+	width: auto;
+	vertical-align: middle;
 }
 
 .titan .titan-ability-gate {
