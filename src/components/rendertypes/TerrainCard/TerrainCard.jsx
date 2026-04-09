@@ -38,7 +38,7 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
         </div>
 
         <div className="terrain-abilities">
-          <FormattedParagraph paragraph={terrain.abilities[0]} />
+          <FormattedParagraph paragraph={terrain.abilities} inLineGate={true} />
         </div>
       </div>
 

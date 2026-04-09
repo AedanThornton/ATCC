@@ -17,7 +17,7 @@ const TraitCard = ({ trait, index }) => {
         </div>
 
         {/* Effects */}
-        <div className="trait-effects"><FormattedParagraph paragraph={trait.effects[0]} /></div>
+        <div className="trait-effects"><FormattedParagraph paragraph={trait.effects} /></div>
       </div>
       
 

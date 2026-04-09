@@ -20,14 +20,14 @@ const GodformCard = ({ godform, index }) => {
             {ability.attack && <div style={{flex: 1}}>
               <WeaponRenderer statsArray={ability.attack}/>
             </div>}
-            <div style={{flex: 4}}><FormattedParagraph paragraph={ability.effects[0]} /></div>
+            <div style={{flex: 4}}><FormattedParagraph paragraph={ability.effects} /></div>
           </div>
         </div>
       ))}
       
-      {godform.keywords[0].length > 0 && (
+      {godform.keywords.length > 0 && (
         <div className="godform-ability-box">
-          <div className="godform-ability"><div><FormattedParagraph paragraph={godform.keywords[0]} /></div></div>
+          <div className="godform-ability"><div><FormattedParagraph paragraph={godform.keywords} /></div></div>
         </div>
       )}
 

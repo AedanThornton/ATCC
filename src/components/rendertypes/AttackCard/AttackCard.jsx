@@ -20,7 +20,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
         newLines.push(
           <div key={`${newLines.length}`} style={{ display: "flex" }}>
             <div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{startedWithWoO && wooIcon}</div>
-            <p style={{ flex: 14 }}>{currentBlock}</p>
+            <div style={{ flex: 14 }}>{currentBlock}</div>
           </div>)
         currentBlock = []
       }
@@ -36,7 +36,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
     <div key={newLines.length} style={{ display: "flex" }}>
       {startedWithWoO && (<div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{wooIcon}</div>)}
       {!startedWithWoO && (<div style={{ flex: 1 }}></div>)}
-      <p style={{ flex: marginConstant - 2 }} key={`${newLines.length}`}>{currentBlock}</p>
+      <div style={{ flex: marginConstant - 2 }} key={`${newLines.length}`}>{currentBlock}</div>
       <div style={{ flex: 1, width: `${100 / marginConstant}%` }}></div>
     </div>)
 

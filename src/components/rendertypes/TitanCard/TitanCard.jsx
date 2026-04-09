@@ -3,7 +3,7 @@ import "/src/styles/cardsStyle.css"
 import "./TitanCard.css"; // Add corresponding CSS for styling
 import PatternTable from "../PatternCard/PatternTable.jsx";
 import {getCyclePrimaryColor, getCycleTextColor, getGateColor} from "../../../lib/colors.js"
-import FormattedParagraph, { GatedFormattedParagraph } from "../../utils/FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import CardFooter from "../../CardFooter.jsx";
 
@@ -32,14 +32,9 @@ const TitanCard = ({ titan, index }) => {
             {/* Abilities */}
             <div className="titan-abilities">
               <div>
-                <FormattedParagraph paragraph={titan.abilities} />
+                <FormattedParagraph paragraph={titan.abilities} inLineGate={true} />
               </div>
             </div>
-          </div>
-
-          {/* Gated Abilities */}
-          <div className="gated-abilities">
-            <GatedFormattedParagraph gatedParagraph={titan.gatedAbilities} inLineGate={true} />
           </div>
 
           {/* Titan Info */}

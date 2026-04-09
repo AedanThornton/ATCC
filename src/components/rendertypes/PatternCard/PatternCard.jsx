@@ -3,7 +3,7 @@ import "/src/styles/cardsStyle.css"
 import "./PatternCard.css"; // Add corresponding CSS for styling
 import PatternTable from "./PatternTable.jsx";
 import { getGateColor } from "../../../lib/colors.js"
-import FormattedParagraph, { GatedFormattedParagraph } from "../../utils/FormattedParagraph.jsx";
+import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import CardFooter from "../../CardFooter.jsx";
 
@@ -32,11 +32,6 @@ const PatternCard = ({ pattern, index }) => {
             <FormattedParagraph paragraph={pattern.abilities} />
           </div>}
         </div>
-
-        {/* Gated Abilities */}
-        {pattern.gatedAbilities && pattern.gatedAbilities.length > 0 && (
-          <GatedFormattedParagraph gatedParagraph={pattern.gatedAbilities} />
-        )}
 
         {/* Pattern Info */}
         <CardFooter cardIDs={pattern.cardIDs} bkgdColor={getColor(pattern.patternType)} />

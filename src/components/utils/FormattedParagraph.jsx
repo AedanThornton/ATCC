@@ -37,8 +37,8 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, inver
       case "cardRef":
         return textClump.refID
           ? <FocusCardOverlay cardID={textClump.refID}>
-              {textClump.value}
-            </FocusCardOverlay>
+            {textClump.value}
+          </FocusCardOverlay>
           : <>{textClump.value}</>
       default:
         return textClump.value
@@ -63,34 +63,34 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, inver
 }
 
 const FormattedParagraph = ({ paragraph, inLineGate = false, invertIcons }) => {
-  return paragraph?.map((sentence, index) => (
-    <React.Fragment key={index}>
-      <FormattedSentence sentence={sentence} inLineGate={inLineGate} pos={index} invertIcons={invertIcons}/>
-    </React.Fragment>
-  ))
+  return paragraph?.map((sentence, index) => {
+    return sentence.gate ?
+      inLineGate && <FormattedSentence sentence={sentence} invertIcons={invertIcons} inLineGate={inLineGate} />
+      :
+      <React.Fragment key={index}>
+        <FormattedSentence sentence={sentence} inLineGate={inLineGate} pos={index} invertIcons={invertIcons} />
+      </React.Fragment>
+  })
 }
 
-export const GatedFormattedParagraph = ({ gatedParagraph, inLineGate = false }) => {
-  return (
-    <div className="gated-abilities">
-      {gatedParagraph.map((gatedSentence, index, array) => {
-        return inLineGate ?
-        <FormattedSentence sentence={gatedSentence} inLineGate={inLineGate} />
-        :
-        <div key={index} className="gear-gate" style={{ flexDirection: array.length === 1 ? "column" : "row", background:  `linear-gradient(90deg, ${getGateColor(gatedSentence.gate)} 30%, ${getGateColor(gatedSentence.gate2 ? gatedSentence.gate2 : gatedSentence.gate)} 70%)` }}>
-          <div className="gear-ability-gate" style={{ paddingLeft: array.length === 1 ? 0 : "18px"}}>
-            {createGate(
-                [gatedSentence.gate, gatedSentence.gate2 || "", gatedSentence.comboGate || ""],
-                [gatedSentence.value, gatedSentence.value2 || ""]
-            )}
-          </div>
-          <div className="gear-gated-ability" style={{ textAlign: array.length === 1 ? "center" : "left"}}>
-            <FormattedSentence sentence={gatedSentence} invertIcons={true} />
-          </div>
-        </div>
-      })}
+export const GatedAbilities = ({ gateGroups }) => {
+  return gateGroups?.map((gateGroup, index, array) => {
+    //Only use if there's 1 gate && there are fewer than 6 render components && there are fewer than 16 characters
+    //This can almost certainly be improved
+    const useOverheadGate =  array.length === 1 && (gateGroup.comboGate === "OR" || gateGroup.abilities[0].abilityText.length > 5 || gateGroup.abilities[0].abilityText[0].value.length > 15)
+    
+    return <div key={index} className="gear-gate" style={{ flexDirection: useOverheadGate ? "column" : "row", background: `linear-gradient(90deg, ${getGateColor(gateGroup.gate)} 30%, ${getGateColor(gateGroup.gate2 ? gateGroup.gate2 : gateGroup.gate)} 70%)` }}>
+      <div className="gear-ability-gate" style={{ paddingLeft: useOverheadGate ? 0 : "18px" }}>
+        {createGate(
+          [gateGroup.gate, gateGroup.gate2 || "", gateGroup.comboGate || ""],
+          [gateGroup.value, gateGroup.value2 || ""]
+        )}
+      </div>
+      <div className="gear-gated-ability" style={{ textAlign: useOverheadGate ? "center" : "left" }}>
+        <FormattedParagraph paragraph={gateGroup.abilities} invertIcons={true} />
+      </div>
     </div>
-  )
+  })
 }
 
 export default FormattedParagraph

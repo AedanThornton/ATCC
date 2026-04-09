@@ -16,7 +16,7 @@ export const DiceStack = ({ diceArray, diceType = "Power" }) => {
 
         const scale = 1 - (depth * 0.05); // shrink each layer
         let x = dir * (9 - depth); // zig-zag offset        
-        const y = -8 * Math.floor(depth / 2) * scale - 2 * depth + 4 * Math.floor((array.length - 1) / 2); // push upward in pairs
+        const y = -8 * Math.floor(depth / 2) * scale - 2 * depth + 4 * Math.floor((array.length - 1) / 2); // push upward in pairs        
 
         if (src === "Power" || array.length < 2) return getIcon({name: src, type: diceType, index: i + src, size: `1.5em`});
         if (i === array.length - 1 && dir === -1) x = 0;

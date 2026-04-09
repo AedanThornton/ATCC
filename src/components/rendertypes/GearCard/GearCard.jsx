@@ -1,6 +1,6 @@
 import "/src/styles/cardsStyle.css"
 import "./GearCard.css"; // Add corresponding CSS for styling
-import FormattedParagraph, { FormattedSentence, GatedFormattedParagraph } from "../../utils/FormattedParagraph.jsx";
+import FormattedParagraph, { FormattedSentence, GatedAbilities } from "../../utils/FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleTextColor, getGateColor } from "../../../lib/colors.js"
 import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
 import { DiceStack } from "../../utils/DiceStack.jsx";
@@ -87,7 +87,7 @@ const GearCard = ({ gear, index, currentSide }) => {
 
           {/* Gated Abilities */}
           {gear["gatedAbilities" + side] && gear["gatedAbilities" + side].length > 0 && (
-            <GatedFormattedParagraph gatedParagraph={gear["gatedAbilities" + side]} />
+            <GatedAbilities gateGroups={gear["gatedAbilities" + side]} />
           )}
         </div>
 

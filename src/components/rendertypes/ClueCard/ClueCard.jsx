@@ -23,8 +23,7 @@ const ClueCard = ({ clue, index }) => {
       )}
 
       <div className="clue-text" style={{lineHeight: "14px"}}>
-        <FormattedParagraph paragraph={clue.text[0]} />
-        <FormattedParagraph paragraph={clue.text[1]} inLineGate={true} />
+        <FormattedParagraph paragraph={clue.text} inLineGate={true} />
       </div>
 
       <div>

@@ -18,11 +18,11 @@ const KratosCard = ({ kratos, index }) => {
         <div className="kratos-effects"><FormattedParagraph paragraph={kratos.effects} /></div>
 
         {/* Rally */}
-        {kratos.rally && (
+        {kratos.rally && kratos.rally.length > 0 && (
           <div className="kratos-rally-box">
             <div className="kratos-rally-header">RALLY</div>
             <div className="kratos-rally">
-              <p><b>End of your turn:</b> <FormattedSentence sentence={kratos.rally} /></p>
+              <p><b>End of your turn:</b> <FormattedParagraph paragraph={kratos.rally} /></p>
               <p><b>Success:</b> Discard this card.</p>
             </div>
           </div>
