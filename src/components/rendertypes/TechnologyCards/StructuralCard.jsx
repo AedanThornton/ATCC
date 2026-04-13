@@ -61,7 +61,7 @@ const StructuralCard = ({ structural, index, currentSide }) => {
             {/* Abilities */}
             {structural.abilities?.map((ability, index) => (
               <div className="technology-ability-box" key={index}>
-                <div className="technology-ability-header">{ability.name.toUpperCase()}</div>
+                {ability.name && <div className="technology-ability-header">{ability.name.toUpperCase()}</div>}
                 <div className="technology-ability">
                   {ability.type && (<b>{ability.type === "City Negotiation" ? <>{getIcon({name: "City", invert: true})} Negotiation. </> : `${ability.type}. `}</b>)}
                   <FormattedParagraph paragraph={ability.effects} invertIcons={true} />

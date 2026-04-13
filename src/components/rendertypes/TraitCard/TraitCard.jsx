@@ -13,7 +13,11 @@ const TraitCard = ({ trait, index }) => {
           <div className="trait-title" style={{ fontSize: Math.min(19, 400 / (1.1 * trait.name.length)) }}>
             {trait.name.toUpperCase()}
           </div>
-          <div className="title-icon trait-level"><div className="trait-icon trait-level-icon">{trait.level || "X"}</div></div>
+          <div className="title-icon">
+            <div className="trait-level">
+              <div className="trait-icon trait-level-icon">{trait.level || "X"}</div>
+            </div>
+          </div>
         </div>
 
         {/* Effects */}

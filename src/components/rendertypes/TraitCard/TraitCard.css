@@ -44,6 +44,12 @@
 .trait-level {
   transform: rotate(45deg) scale(0.65);
   background-color: rgb(106, 106, 106);
+  width: 4em;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
 }
 
 .trait-level-icon {
