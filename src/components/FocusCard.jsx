@@ -84,7 +84,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
           <div><strong>Lore:</strong> <p><i>{displayFlavor(cardData, currentSide)}</i></p></div>
           {getCardTypeUniqueInfo(cardData.cardType) && <UniqueCardInfo cardData={cardData} cardInfoList={getCardTypeUniqueInfo(cardData.cardType)} />}
         </div>
-        {(cardData.faq || (cardData.errata && Object.keys(cardData.errata).length > 0)) && (<div className="focus-card-info-container">
+        {((cardData.faq && cardData.faq.length > 0) || (cardData.errata && Object.keys(cardData.errata).length > 0)) && (<div className="focus-card-info-container">
           {cardData.faq && cardData.faq.length > 0 && (
             <>
               <strong>FAQ</strong>
@@ -112,7 +112,7 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
                 ))}
               </ul></>)}
               {cardData.errata["v1.1"] && (<><br/>
-              <strong>Version 1.2 Changes</strong>
+              <strong>Version 1.1 Changes</strong>
               <ul>
                 {cardData.errata["v1.1"].map((update, i) => (
                   <li key={i}>
