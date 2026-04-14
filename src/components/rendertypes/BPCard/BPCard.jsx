@@ -89,13 +89,24 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
         </div>
 
         {/* AT Section */}
-        {bp.value && <div className="bp-card__value-container">
-          <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput) }}>
-            {getIcon({name: "AT", size: "20px", invert: (!isAdversary[bp.usedFor] && !isDahaka)})}
-            {` `}
-            {bp.value}
-          </span>
-        </div>}
+        {bp.defense.value && 
+          <div className="bp-card__AT-section">
+            <div className={bp.defense.comboType === "Interrupt" ? "bp-card__interrupt-container" : ""}>
+              {bp.defense.comboType === "Interrupt" &&
+                <span>
+                  {bp.defense.value2}
+                </span>
+              }
+              <div className="bp-card__value-container">
+                <span style={{ background: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput), borderColor: getCycleTextColor(colorInput), boxShadow: isAdversary[bp.usedFor] && "none" }}>
+                  {getIcon({name: bp.defense.type, size: "20px", invert: (!isAdversary[bp.usedFor] && !isDahaka)})}
+                  {` `}
+                  {bp.defense.value}
+                </span>
+              </div>
+            </div>
+          </div>
+        }
 
         {/* Non-Response Text Section */}
         {bp.nonResponseText && <div> {/* Reuse style for alignment */}

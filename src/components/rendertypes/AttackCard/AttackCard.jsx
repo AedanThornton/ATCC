@@ -4,9 +4,8 @@ import "./AttackCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, getGateColor, getCycleTextColor, isAdversary, adversaryPrimaryColor } from "../../../lib/colors.js"
 import getIcon from "../../utils/iconUtils.jsx";
+import WoOIcon from "../../utils/WoOIcon.jsx";
 
-
-const wooIcon = getIcon({name: "WoO", size: "1.3em"})
 const marginConstant = 15
 
 const parseLines = (lines, isAdversary, colorInput) => {
@@ -19,7 +18,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
       if (currentBlock.length > 0) {
         newLines.push(
           <div key={`${newLines.length}`} style={{ display: "flex" }}>
-            <div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{startedWithWoO && wooIcon}</div>
+            <div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{startedWithWoO && <WoOIcon cycle={colorInput} />}</div>
             <div style={{ flex: 14 }}>{currentBlock}</div>
           </div>)
         currentBlock = []
@@ -34,7 +33,7 @@ const parseLines = (lines, isAdversary, colorInput) => {
   })
   newLines.push(
     <div key={newLines.length} style={{ display: "flex" }}>
-      {startedWithWoO && (<div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{wooIcon}</div>)}
+      {startedWithWoO && (<div style={{ flex: 1, width: `${100 / marginConstant}%` }} className="ai-card__woo-icon">{<WoOIcon cycle={colorInput} />}</div>)}
       {!startedWithWoO && (<div style={{ flex: 1 }}></div>)}
       <div style={{ flex: marginConstant - 2 }} key={`${newLines.length}`}>{currentBlock}</div>
       <div style={{ flex: 1, width: `${100 / marginConstant}%` }}></div>
@@ -188,7 +187,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           <div className="ai-card_section">
             <div className="ai-card__action-line" style={{ marginRight: `${100 / marginConstant}%` }}>
               {/* WoO */}
-              <div className="ai-card__woo-icon" style={{ width: `${100 / marginConstant}%` }}>{attack.preActionWoO && wooIcon}</div>
+              <div className="ai-card__woo-icon" style={{ width: `${100 / marginConstant}%` }}>{attack.preActionWoO && <WoOIcon cycle={colorInput} />}</div>
 
               <div>
                 {/* Header */}
@@ -214,7 +213,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
           {attack.afterAttackEffects?.length > 0 && (
             <div className="ai-card_section">
               <div className="ai-card__action-line" style={{ marginRight: `${100 / marginConstant}%` }}>
-                <div className="ai-card__woo-icon" style={{ width: `${100 / marginConstant}%` }}>{attack.preAfterAttackWoO && wooIcon}</div>
+                <div className="ai-card__woo-icon" style={{ width: `${100 / marginConstant}%` }}>{attack.preAfterAttackWoO && <WoOIcon cycle={colorInput} />}</div>
                 <span className="ai-card__section-header ai-card__section-header--after-attack" style={{ backgroundColor: getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>AFTER {attack.afterFinal && "FINAL"} ATTACK</span>
               </div>
               <div className="ai-card__after-attack-list">
@@ -223,6 +222,13 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
             </div>
           )}
         </div>
+
+        {isDahaka && 
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <WoOIcon isInterrupt={true} />
+            <span>{attack.interruptEffect && attack.interruptEffect}</span>
+          </div>
+        }
 
         {/* Footer */}
         <div className="ai-card__footer" style={{ backgroundColor: isDahaka ? adversaryPrimaryColor : getCyclePrimaryColor(colorInput) }}>

@@ -66,3 +66,29 @@
 .ability-costs .text-icon {
     margin-right: 2px;
 }
+
+/* WoO Icon */
+
+.woo-icon {
+    position: relative;
+    height: 18px;
+    width: 18px;
+}
+
+.woo-icon-rectangle {
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    top: 15%;
+    left: 0;
+    background-color: white;
+
+}
+
+.woo-icon img {
+    height: 80%;
+    width: 80%;
+    top: 10%;
+    right: 0;
+    position: absolute;
+}
