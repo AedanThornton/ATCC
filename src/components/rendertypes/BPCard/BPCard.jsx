@@ -148,7 +148,7 @@ const BPCard = ({ bp, index, isDahaka = false }) => {
                 CRITICAL
               </span>
             </div>
-            <div className="bp-card__critical-flavor" style={{ color: isAdversary[bp.usedFor] && !isDahaka && "white" }}>
+            <div className="bp-card__critical-flavor" style={{ color: isAdversary[bp.usedFor] && !isDahaka && "white", borderColor: isDahaka ? "white" : "var(--papyrus-dark" }}>
               {bp.critFlavor}
             </div>
             <div className="bp-card__critical-list">
