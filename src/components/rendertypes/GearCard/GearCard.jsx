@@ -21,7 +21,7 @@ const GearCard = ({ gear, index, currentSide }) => {
         <div className="gear-title" style={{ color: getCyclePrimaryColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
           {gear["name" + side]}
         </div>
-        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon({name: "Gear", size: "2em", invert: true})}</div></div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]), marginLeft: "auto" }}>{getIcon({name: "Gear", size: "2em", invert: true})}</div></div>
       </div>
 
       {/* Stats and Image */}

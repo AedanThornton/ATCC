@@ -9,13 +9,15 @@ const TraitCard = ({ trait, index }) => {
     <div className={`card trait ${trait.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
       <div>
         <div className="title-row">
-          <div className="title-icon"><div className="trait-icon">{getIcon({name: trait.primordial, size: "2.1em"})}</div></div>
-          <div className="trait-title" style={{ fontSize: Math.min(19, 400 / (1.1 * trait.name.length)) }}>
-            {trait.name.toUpperCase()}
-          </div>
-          <div className="title-icon">
-            <div className="trait-level">
-              <div className="trait-icon trait-level-icon">{trait.level || "X"}</div>
+          <div className="card-info">
+            <div className="title-icon"><div className="trait-icon">{getIcon({name: trait.primordial, size: "2.1em"})}</div></div>
+            <div className="trait-title" style={{ fontSize: Math.min(19, 400 / (1.1 * trait.name.length)) }}>
+              {trait.name.toUpperCase()}
+            </div>
+            <div className="title-icon">
+              <div className="trait-level">
+                <div className="trait-icon trait-level-icon">{trait.level || "X"}</div>
+              </div>
             </div>
           </div>
         </div>
