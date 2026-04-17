@@ -28,13 +28,11 @@ const TerrainCard = ({ terrain, index, currentSide }) => {
         </div>
 
         <div className="terrain-abilities">
-          <span key={index}>
-            {terrain.keywords.map((keyword, i, array) => (
-              <span key={i}>
-                {createTooltip(keyword)}.{i !== array.length - 1 && " "}
-              </span>
-            ))}
-          </span>
+          {terrain.keywords.map((keyword, i, array) => (
+            <span key={i}>
+              {createTooltip(keyword)}.{i !== array.length - 1 && " "}
+            </span>
+          ))}
         </div>
 
         <div className="terrain-abilities">
