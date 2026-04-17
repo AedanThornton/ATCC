@@ -39,7 +39,7 @@
 
 .card-wrapper {
   position: relative;
-	max-width: 100%;
+  transition: transform 150ms ease;
 }
 
 .card-wrapper > div {

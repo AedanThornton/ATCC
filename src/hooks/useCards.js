@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ingestCards } from './cardCache';
 
 export function useCards(searchParams) {
   const [filteredCards, setFilteredCards] = useState([]);
@@ -32,6 +33,7 @@ export function useCards(searchParams) {
           const data = await response.json();
           
           setFilteredCards(data.cards);
+          ingestCards(data.cards);
           setTotalCards(parseInt(data.totalCards));
           setTotalPages(parseInt(data.totalPages));
       } catch (e) {

@@ -1,0 +1,70 @@
+.drag-backpack-overlay {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000000;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+  padding: 10px;
+  transition: background-color 250ms;
+  display: none;
+}
+
+.drag-backpack-overlay.backpack-open {
+  background-color: #0000007b;
+  display: flex;
+}
+
+.drag-backpack {
+  width: 30dvw;
+  height: 70dvh;
+  border: 3px dashed rgb(220, 220, 220);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.455);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  font-size: 30px;
+  transition: border 1s, background-color 1s, left 500ms;
+  position: fixed;
+  z-index: 10;
+  left: -27dvw;
+  top: 0;
+  margin-top: 20dvh;
+  padding: 3%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.drag-backpack::-webkit-scrollbar{
+  display: none;
+}
+
+.drag-backpack:hover, .drag-backpack.backpack-open {
+  left: 10px;
+}
+
+.drag-backpack-item {
+  width: 150px;
+  height: 225px;
+  flex: 0 0 auto;
+}
+
+.drag-backpack .card-wrapper {
+  transform: scale(0.4);
+  transform-origin: top left;
+  width: 250%;
+  height: 250%;
+}
+
+.is-drop-target {
+  border-color: white;
+  background-color: #c6f9ffc3;
+}
+
+@media (min-width: 820px) {
+}
