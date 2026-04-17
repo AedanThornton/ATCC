@@ -1,22 +1,20 @@
 import { useState } from 'react';
 import SecretOverlay from "../utils/SecretOverlay";
-import getIcon from '../utils/iconUtils';
 import CardMenu from "./CardMenu";
-import Tippy from '@tippyjs/react';
 import { useDraggable } from '@dnd-kit/react';
 
 import renderTypes from "../../lib/renderTypes";
-import FocusCard from '../FocusCard';
 import { useSpoilers } from "../../context/SpoilerContext";
+import { useModal } from '../../context/FocusContext';
 
 const CardRenderer = ({ cardname, variant = "" }) => {
+  const { openModal } = useModal();
   const { spoilersEnabled } = useSpoilers();
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
   const isSecretCard = cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope") || cardname.foundIn === "Ultra-secret"
 
   const [isHidden, setIsHidden] = useState(isSecretCard);
   const [currentSide, setCurrentSide] = useState(1);
-  const [focusDisplay, setFocusDisplay] = useState(false);
 
   const componentRenderer = renderTypes[cardname.renderType];
   const currentCard = componentRenderer
@@ -34,7 +32,7 @@ const CardRenderer = ({ cardname, variant = "" }) => {
   }
 
   const setDisplayHelper = () => {
-    setFocusDisplay(!focusDisplay);
+    openModal("focusCard", { id: cardname.cardIDs[0] })
   }
 
   const secretOverlay = <>{
@@ -66,16 +64,6 @@ const CardRenderer = ({ cardname, variant = "" }) => {
       {variant !== "backpack" && (!spoilersEnabled || !isHidden) && <div className="card-type-marker">
         {cardname.cardType}
       </div>}
-
-      <div className='focus-card-overlay' style={{ visibility: focusDisplay ? "visible" : "hidden" }}>
-        <div className='focus-card-overlay__buttons'>
-          <button onClick={setDisplayHelper}>X</button>
-          {cardname.name2 && (<button onClick={toggleSide}>{getIcon({ name: "Flip", size: "1.5em" })}</button>)}
-          {isSecretCard && (<button onClick={toggleReveal}>{getIcon({ name: "Reveal", size: "1.5em" })}</button>)}
-        </div>
-        <FocusCard cardData={cardname} currentSide={currentSide} secretOverlay={secretOverlay} />
-      </div>
-
     </div>
   )
 };

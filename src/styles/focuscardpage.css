@@ -102,7 +102,6 @@
   top: 0;
   display: flex;
   justify-content: center;
-  visibility: hidden;
 }
 
 .focus-card-overlay .focus-card-page {
