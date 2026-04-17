@@ -5,7 +5,7 @@ import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { useState } from "react";
 import primordialAbilities from "../../../data/JSON/primordialAbilityData.json";
 import getIcon from "../../utils/iconUtils.jsx";
-import FocusCardOverlay from "../../focuscard/FocusCardOverlay.jsx";
+import FocusCardFetch from "../../focuscard/FocusCardFetch.jsx";
 import CardFooter from "../../cards/CardFooter.jsx";
 
 const toRoman = (num) => {
@@ -180,7 +180,7 @@ const PrimordialCard = ({ primordial, index }) => {
                 <div className="primordial-section-header">
                   {primordialAbilities[trait]
                     ? <span>{trait.toUpperCase()}</span>
-                    : <FocusCardOverlay cardID={traitIDs[trait]}>{trait.toUpperCase()}</FocusCardOverlay>
+                    : <FocusCardFetch cardID={traitIDs[trait]}>{trait.toUpperCase()}</FocusCardFetch>
                   }
                 </div>
                 <p>

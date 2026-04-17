@@ -1,5 +1,5 @@
 import React from 'react';
-import CardList from '../components/CardList';
+import CardList from '../components/catalog/CardList';
 
 function CardLibraryPage() {
   return (

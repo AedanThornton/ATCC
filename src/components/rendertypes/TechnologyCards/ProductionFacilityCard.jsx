@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
-import FocusCardOverlay from "../../focuscard/FocusCardOverlay.jsx";
+import FocusCardFetch from "../../focuscard/FocusCardFetch.jsx";
 import React from "react";
 import CardFooter from "../../cards/CardFooter.jsx";
 
@@ -54,14 +54,14 @@ const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
 
           {productionFacility.recipes?.map((recipe, index) => (
             <div className="technology-recipes" key={index}>
-              <div className="technology-tech-header"><FocusCardOverlay cardID={recipe.refID}>{recipe.name}</FocusCardOverlay></div>
+              <div className="technology-tech-header"><FocusCardFetch cardID={recipe.refID}>{recipe.name}</FocusCardFetch></div>
               <div className="technology-tech-box">
                 {recipe.ingredients?.map((ingredient, index2) => (
                   <span key={index2}>
                     {index2 > 0 && ", "}
                     {ingredient.count}x{' '}
                     {ingredient.refID 
-                      ? <FocusCardOverlay cardID={ingredient.refID}>{ingredient.name}</FocusCardOverlay>
+                      ? <FocusCardFetch cardID={ingredient.refID}>{ingredient.name}</FocusCardFetch>
                       : ingredient.name}
                   </span>
                 ))}

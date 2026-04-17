@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react"
-import { useFilterOptions } from "../hooks/useFilterOptions";
+import { useFilterOptions } from "../../hooks/useFilterOptions";
 import { useSearchParams } from "react-router-dom";
-import { useSpoilers } from "../context/SpoilerContext";
+import { useSpoilers } from "../../context/SpoilerContext";
 
 const getAllValues = (nodes) =>
   nodes.flatMap(n =>

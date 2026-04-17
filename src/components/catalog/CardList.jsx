@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import "../styles/cardlist.css";
+import "../../styles/cardlist.css";
 import { useFilterOptions } from "../../hooks/useFilterOptions";
 import { useCards } from "../../hooks/useCards";
 import CardRenderer from "../cards/CardRenderer"

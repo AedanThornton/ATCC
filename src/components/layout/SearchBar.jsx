@@ -1,8 +1,8 @@
 import { useDebounce } from "use-debounce";
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import getIcon from "./utils/iconUtils";
-import "../styles/searchBar.css"
+import getIcon from "../utils/iconUtils";
+import "../../styles/searchBar.css"
 
 //Search Bar Input
 const SearchBar = () => {

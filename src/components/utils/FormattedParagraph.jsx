@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { getGateColor } from "../../lib/colors"
-import FocusCardOverlay from "../focuscard/FocusCardOverlay"
+import FocusCardFetch from "../focuscard/FocusCardFetch"
 import createTooltip from "./tooltipsUtil"
 import getIcon from "./iconUtils"
 import { createGate } from "./gateUtils"
@@ -36,9 +36,9 @@ export const FormattedSentence = ({ sentence, inLineGate = false, pos = 0, inver
         return getIcon({ name: textClump.value, invert: invertIcons })
       case "cardRef":
         return textClump.refID
-          ? <FocusCardOverlay cardID={textClump.refID}>
+          ? <FocusCardFetch cardID={textClump.refID}>
             {textClump.value}
-          </FocusCardOverlay>
+          </FocusCardFetch>
           : <>{textClump.value}</>
       default:
         return textClump.value

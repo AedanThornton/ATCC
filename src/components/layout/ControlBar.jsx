@@ -1,7 +1,7 @@
 import PaginationControls from "./PaginationControls";
 import SortControls from "./SortControls";
 import { useSearchParams } from "react-router-dom";
-import { useCards } from "../hooks/useCards";
+import { useCards } from "../../hooks/useCards";
 
 const ControlBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
