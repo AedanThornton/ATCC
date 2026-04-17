@@ -1,14 +1,21 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import DragBackpack from "./DragBackpack";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CardRenderer from "../cards/CardRenderer";
 import cardCache from "../../hooks/cardCache";
 import { AutoScroller } from "@dnd-kit/dom";
 
 const DragDropWrapper = ({ children }) => {
   const [isDragging, setIsDragging] = useState(false);
-  const [backpackChildren, setBackpackChildren] = useState([]);
+  const [backpackChildren, setBackpackChildren] = useState(() => {
+    const saved = localStorage.getItem("backpack");
+    return saved ? JSON.parse(saved) : [];
+  });
   const backpackRef = useRef(null);
+
+  useEffect(() => {
+    localStorage.setItem("backpack", JSON.stringify(backpackChildren));
+  }, [backpackChildren]);
 
   function handleBackpackChange(event) {
     if (event.canceled) return;
