@@ -3,7 +3,7 @@ import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
 import React from "react";
 import FormattedParagraph, { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
   return (

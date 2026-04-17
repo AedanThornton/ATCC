@@ -1,5 +1,5 @@
-import getIcon from "./utils/iconUtils"
-import { useSpoilers } from "../context/SpoilerContext";
+import getIcon from "../utils/iconUtils"
+import { useSpoilers } from "../../context/SpoilerContext";
 
 const CardMenu = ({ card, flipFunc, secretFunc, setDisplay }) => {
   const { spoilersEnabled } = useSpoilers();

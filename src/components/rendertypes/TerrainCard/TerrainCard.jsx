@@ -3,7 +3,7 @@ import "./TerrainCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import createTooltip from "../../utils/tooltipsUtil.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const TerrainCard = ({ terrain, index, currentSide }) => {
   return (

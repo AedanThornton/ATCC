@@ -1,7 +1,7 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import DragBackpack from "./DragBackpack";
 import { useRef, useState } from "react";
-import CardRenderer from "../CardRenderer";
+import CardRenderer from "../cards/CardRenderer";
 import cardCache from "../../hooks/cardCache";
 import { AutoScroller } from "@dnd-kit/dom";
 

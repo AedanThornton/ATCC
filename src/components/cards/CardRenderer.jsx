@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import SecretOverlay from "./utils/SecretOverlay";
-import getIcon from './utils/iconUtils';
+import SecretOverlay from "../utils/SecretOverlay";
+import getIcon from '../utils/iconUtils';
 import CardMenu from "./CardMenu";
 import Tippy from '@tippyjs/react';
 import { useDraggable } from '@dnd-kit/react';
 
-import renderTypes from "../lib/renderTypes";
-import FocusCard from './FocusCard';
-import { useSpoilers } from "../context/SpoilerContext";
+import renderTypes from "../../lib/renderTypes";
+import FocusCard from '../FocusCard';
+import { useSpoilers } from "../../context/SpoilerContext";
 
 const CardRenderer = ({ cardname, variant = "" }) => {
   const { spoilersEnabled } = useSpoilers();

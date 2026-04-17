@@ -3,7 +3,7 @@ import "./GodformCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const GodformCard = ({ godform, index }) => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { getGateColor } from "../../lib/colors"
-import FocusCardOverlay from "../FocusCardOverlay"
+import FocusCardOverlay from "../focuscard/FocusCardOverlay"
 import createTooltip from "./tooltipsUtil"
 import getIcon from "./iconUtils"
 import { createGate } from "./gateUtils"

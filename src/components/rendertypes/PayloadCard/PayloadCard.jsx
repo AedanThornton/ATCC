@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./PayloadCard.css"; // Add corresponding CSS for styling
 import { FormattedSentence } from "../../utils/FormattedParagraph.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const PayloadCard = ({ payload, index }) => {
   return (

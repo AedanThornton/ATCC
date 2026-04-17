@@ -2,7 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./StoryCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const StoryCard = ({ story, index, currentSide }) => {
   let side = currentSide

@@ -6,7 +6,7 @@ import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
 import { DiceStack } from "../../utils/DiceStack.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import { createGate } from "../../utils/gateUtils.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const GearCard = ({ gear, index, currentSide }) => {
   let side = currentSide

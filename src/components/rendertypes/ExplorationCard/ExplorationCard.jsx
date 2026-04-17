@@ -3,7 +3,7 @@ import "./ExplorationCard.css"; // Add corresponding CSS for styling
 import {FormattedSentence} from "../../utils/FormattedParagraph.jsx";
 import { createGate } from "../../utils/gateUtils.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const ExplorationCard = ({ exploration, index }) => {
   const diplomacies = [

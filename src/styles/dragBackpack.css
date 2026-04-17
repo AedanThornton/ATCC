@@ -19,7 +19,7 @@
 }
 
 .drag-backpack {
-  width: 30dvw;
+  width: 50dvw;
   height: 70dvh;
   border: 3px dashed rgb(220, 220, 220);
   border-radius: 20px;
@@ -31,7 +31,7 @@
   transition: border 1s, background-color 1s, left 500ms;
   position: fixed;
   z-index: 10;
-  left: -27dvw;
+  left: -45dvw;
   top: 0;
   margin-top: 20dvh;
   padding: 3%;
@@ -67,4 +67,8 @@
 }
 
 @media (min-width: 820px) {
+  .drag-backpack {
+    width: 30dvw;
+    left: -28dvw;
+  }
 }

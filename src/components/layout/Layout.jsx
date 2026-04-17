@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import "../styles/layout.css"
 import logo from "../assets/ATCC.svg"
-import FilterSidebar from './FilterSidebar';
-import ControlBar from "./ControlBar";
-import SearchBar from './SearchBar';
-import { useSpoilers } from "../context/SpoilerContext";
+import FilterSidebar from '../FilterSidebar';
+import ControlBar from "../ControlBar";
+import SearchBar from '../SearchBar';
+import { useSpoilers } from "../../context/SpoilerContext";
 
 function Layout({ isCatalog = false }) {
   const { spoilersEnabled } = useSpoilers();

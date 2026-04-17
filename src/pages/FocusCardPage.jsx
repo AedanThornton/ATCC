@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import '../styles/focuscardpage.css'
-import FocusCard from '../components/FocusCard';
+import FocusCard from '../components/focuscard/FocusCard';
 
 function FocusCardPage() {
   // --- Get URL Parameter ---

@@ -1,11 +1,11 @@
-import '../styles/focuscardpage.css'
+import '../../styles/focuscardpage.css'
 import React from 'react';
-import renderTypes from '../lib/renderTypes';
-import SecretOverlay from './utils/SecretOverlay';
+import renderTypes from '../../lib/renderTypes';
+import SecretOverlay from '../utils/SecretOverlay';
 import { useState } from 'react';
-import getIcon from './utils/iconUtils';
-import { useSpoilers } from "../context/SpoilerContext";
-import FormattedParagraph, { FormattedSentence } from './utils/FormattedParagraph';
+import getIcon from '../utils/iconUtils';
+import { useSpoilers } from "../../context/SpoilerContext";
+import FormattedParagraph, { FormattedSentence } from '../utils/FormattedParagraph';
 
 function isWide(card){
   return (card.cardSize === "Half-Page" || card.cardSize === "Full-Page" || card.techSubType === "Core")

@@ -1,8 +1,8 @@
-import SecretOverlay from "./utils/SecretOverlay";
+import SecretOverlay from "../utils/SecretOverlay";
 import { useState, useEffect, Children } from "react";
 import FocusCard from "./FocusCard";
 import { createPortal } from "react-dom";
-import getIcon from "./utils/iconUtils";
+import getIcon from "../utils/iconUtils";
 
 const FocusCardOverlay = ({ cardID, children }) => {
   const [cardData, setCardData] = useState(null);

@@ -3,7 +3,7 @@ import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
 import React from "react";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const StructuralCard = ({ structural, index, currentSide }) => {
   currentSide = currentSide === 1 ? 2 : 1

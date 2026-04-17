@@ -5,8 +5,8 @@ import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { useState } from "react";
 import primordialAbilities from "../../../data/JSON/primordialAbilityData.json";
 import getIcon from "../../utils/iconUtils.jsx";
-import FocusCardOverlay from "../../FocusCardOverlay.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import FocusCardOverlay from "../../focuscard/FocusCardOverlay.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const toRoman = (num) => {
   var charset = {

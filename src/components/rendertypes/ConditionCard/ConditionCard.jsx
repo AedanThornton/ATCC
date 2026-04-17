@@ -1,7 +1,7 @@
 import "/src/styles/cardsStyle.css"
 import "./ConditionCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph";
-import CardFooter from "../../CardFooter";
+import CardFooter from "../../cards/CardFooter";
 
 const ConditionCard = ({ condition, index, currentSide }) => {
   let side = currentSide

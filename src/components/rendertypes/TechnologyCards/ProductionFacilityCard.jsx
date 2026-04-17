@@ -1,9 +1,9 @@
 import "/src/styles/cardsStyle.css"
 import "./TechnologyCard.css"; // Add corresponding CSS for styling
 import getIcon from "../../utils/iconUtils.jsx";
-import FocusCardOverlay from "../../FocusCardOverlay.jsx";
+import FocusCardOverlay from "../../focuscard/FocusCardOverlay.jsx";
 import React from "react";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
   return (

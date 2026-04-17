@@ -2,7 +2,7 @@ import "/src/styles/cardsStyle.css"
 import "./TraumaCard.css"; // Add corresponding CSS for styling
 import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import getIcon from "../../utils/iconUtils.jsx";
-import CardFooter from "../../CardFooter.jsx";
+import CardFooter from "../../cards/CardFooter.jsx";
 
 const TraumaCard = ({ trauma, index }) => {
   return (
