@@ -18,7 +18,6 @@ const App = () => {
       ? import.meta.env.VITE_API_BASE_URL
       : '';
     const apiUrl = `${apiBase}/api/cards/?q=${searchString}`;    
-    console.log(`Fetching card detail from: ${apiUrl}`);
 
     try {
       const response = await fetch(apiUrl);
