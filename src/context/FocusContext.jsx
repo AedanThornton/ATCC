@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-
-const FocusContext = React.createContext();
+const FocusContext = createContext();
 
 export function ModalProvider({ children }) {
   const [modal, setModal] = useState({ isOpen: false, type: null, data: null });
