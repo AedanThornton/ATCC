@@ -101,6 +101,50 @@
   cursor: pointer;
 }
 
+.backpack-search-bar-wrapper {
+  background-color: var(--main);
+  border: 1px solid rgb(146, 146, 146);
+  border-radius: 5px;
+  padding: 2px 5px;
+  display: flex;
+}
+
+.backpack-search-bar {
+  background-color: var(--main);
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.backpack-search-bar::placeholder {
+  text-align: center;
+}
+
+.backpack-search-bar:focus {
+  border-color: rgb(146, 146, 146);
+}
+
+.backpack-search-bar:focus::placeholder {
+  color: var(--main);
+}
+
+.backpack-search-bar-wrapper button {
+  padding: 2px;
+  background-color: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backpack-menu-error {
+  animation: backpackMenuError 0.5s ease;
+}
+
+@keyframes backpackMenuError {
+  0%   { background-color: rgb(150, 0, 0); }
+  100% { background-color: var(--main); }
+}
+
 @media (min-width: 820px) {
   .backpack-wrapper {
     width: 30dvw;

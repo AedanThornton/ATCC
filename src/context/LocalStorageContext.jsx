@@ -29,6 +29,11 @@ export function LocalStorageProvider({ children }) {
     }
   }));
 
+  const loadSet = (name) => setAppState(prev => ({
+    ...prev,
+    backpack: prev.savedSets[name]
+  }));
+
   const deleteSet = (setName) => {
     setAppState(prev => {
       const newSavedSets = { ...prev.savedSets };
@@ -42,10 +47,10 @@ export function LocalStorageProvider({ children }) {
   }
 
   const backpack = appState.backpack
-  const sets = appState.savedSets
+  const savedSets = appState.savedSets
 
   return (
-    <LocalStorageContext.Provider value={{ appState, backpack, sets, addToBackpack, removeFromBackpack, saveSet, deleteSet }}>
+    <LocalStorageContext.Provider value={{ appState, backpack, savedSets, addToBackpack, removeFromBackpack, saveSet, loadSet, deleteSet }}>
       {children}
     </LocalStorageContext.Provider>
   );
