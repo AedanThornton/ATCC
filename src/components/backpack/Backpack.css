@@ -129,11 +129,16 @@
 }
 
 .backpack-search-bar-wrapper button {
-  padding: 2px;
+  padding: 4px;
   background-color: unset;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+}
+
+.backpack-search-bar-wrapper button:hover {
+  background-color: var(--main-light);
 }
 
 .backpack-menu-error {

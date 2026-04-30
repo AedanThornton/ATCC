@@ -1,8 +1,7 @@
 import { DragDropProvider } from "@dnd-kit/react";
-import DragBackpack from "./DragBackpack";
+import Backpack from "./Backpack";
 import { useContext, useEffect, useRef, useState } from "react";
 import CardRenderer from "../cards/CardRenderer";
-import cardCache from "../../hooks/cardCache";
 import { AutoScroller } from "@dnd-kit/dom";
 import { useLocalStorage } from "../../context/LocalStorageContext";
 
@@ -41,13 +40,7 @@ const DragDropWrapper = ({ children }) => {
     >
       {children}
       <div className={isDragging ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay" }></div>
-      <DragBackpack isDragging={isDragging}>
-        {backpack.map((card, i) => 
-          <div className="drag-backpack-item">
-            <CardRenderer cardname={cardCache.get(card)} key={i} variant="backpack" />
-          </div>
-        )}
-      </DragBackpack>
+      <Backpack isDragging={isDragging} />
     </DragDropProvider>
   )
 }
