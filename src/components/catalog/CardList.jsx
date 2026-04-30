@@ -50,7 +50,7 @@ const CardList = () => {
           {filteredCards.length > 0 ? (
             filteredCards.map((cardname, index) => {
               return (
-                <CardRenderer cardname={cardname} key={cardname.cardIDs[0] + index}/>
+                <CardRenderer cardData={cardname} key={cardname.cardIDs[0] + index}/>
               )
             })
           ) : (

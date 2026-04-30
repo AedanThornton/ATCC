@@ -7,18 +7,18 @@ import renderTypes from "../../lib/renderTypes";
 import { useSpoilers } from "../../context/SpoilerContext";
 import { useModal } from '../../context/FocusContext';
 
-const CardRenderer = ({ cardname, variant = "" }) => {
+const CardRenderer = ({ cardData, variant = "" }) => {
   const { openModal } = useModal();
   const { spoilersEnabled } = useSpoilers();
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
-  const isSecretCard = cardname.foundIn?.includes("Secret Deck") || cardname.foundIn?.includes("Envelope") || cardname.foundIn === "Ultra-secret"
+  const isSecretCard = cardData.foundIn?.includes("Secret Deck") || cardData.foundIn?.includes("Envelope") || cardData.foundIn === "Ultra-secret"
 
   const [isHidden, setIsHidden] = useState(isSecretCard);
   const [currentSide, setCurrentSide] = useState(1);
 
-  const componentRenderer = renderTypes[cardname.renderType];
+  const componentRenderer = renderTypes[cardData.renderType];
   const currentCard = componentRenderer
-    ? componentRenderer(cardname, currentSide)
+    ? componentRenderer(cardData, currentSide)
     : null;
 
   const toggleReveal = () => {
@@ -32,14 +32,14 @@ const CardRenderer = ({ cardname, variant = "" }) => {
   }
 
   const setDisplayHelper = () => {
-    openModal("focusCard", { id: cardname.cardIDs[0] })
+    openModal("focusCard", { id: cardData.cardIDs[0] })
   }
 
   const secretOverlay = <>{
-    spoilersEnabled && isSecretCard && <SecretOverlay text={cardname.foundIn} isVisible={isHidden} />
+    spoilersEnabled && isSecretCard && <SecretOverlay text={cardData.foundIn} isVisible={isHidden} />
   }</>
 
-  const { ref } = useDraggable({ id: `${cardname.cardIDs[0]}` + variant })
+  const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` + variant })
 
   return (
     <div className='card-wrapper'>
@@ -48,7 +48,7 @@ const CardRenderer = ({ cardname, variant = "" }) => {
           {currentCard}
           {secretOverlay}
           <CardMenu
-            card={cardname}
+            card={cardData}
             flipFunc={toggleSide}
             secretFunc={toggleReveal}
             setDisplay={setDisplayHelper}
@@ -62,7 +62,7 @@ const CardRenderer = ({ cardname, variant = "" }) => {
       }
 
       {variant !== "backpack" && (!spoilersEnabled || !isHidden) && <div className="card-type-marker">
-        {cardname.cardType}
+        {cardData.cardType}
       </div>}
     </div>
   )

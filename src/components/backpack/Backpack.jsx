@@ -3,6 +3,7 @@ import "./Backpack.css"
 import BackpackMenu from "./BackpackMenu";
 import cardCache from "../../hooks/cardCache";
 import { useLocalStorage } from "../../context/LocalStorageContext";
+import CardRenderer from "../cards/CardRenderer";
 
 const Backpack = ({ isDragging }) => {
   const { ref, isDropTarget } = useDroppable({ id: "backpack" });
@@ -11,8 +12,8 @@ const Backpack = ({ isDragging }) => {
   return <div className={`backpack-wrapper ${isDropTarget ? "is-drop-target" : ""} ${isDragging ? "backpack-open" : ""}`}>
     <div ref={ref} className={`drag-backpack`}>
       {backpack.map((card, i) => 
-        <div className="drag-backpack-item">
-          <CardRenderer cardname={cardCache.get(card)} key={i} variant="backpack" />
+        <div className="drag-backpack-item" key={i}>
+          <CardRenderer cardData={cardCache.get(card)} variant="backpack" />
         </div>
       )}
     </div>

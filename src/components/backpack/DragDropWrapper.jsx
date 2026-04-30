@@ -1,7 +1,6 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import Backpack from "./Backpack";
 import { useContext, useEffect, useRef, useState } from "react";
-import CardRenderer from "../cards/CardRenderer";
 import { AutoScroller } from "@dnd-kit/dom";
 import { useLocalStorage } from "../../context/LocalStorageContext";
 
