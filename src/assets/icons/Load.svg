@@ -24,14 +24,15 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      inkscape:zoom="1.4142136"
-     inkscape:cx="27.223611"
-     inkscape:cy="117.37973"
+     inkscape:cx="26.870057"
+     inkscape:cy="117.37972"
      inkscape:window-width="1920"
-     inkscape:window-height="1110"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:window-height="1010"
+     inkscape:window-x="1529"
+     inkscape:window-y="-6"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1" />
   <g
@@ -42,6 +43,6 @@
     <path
        id="path1"
        style="stroke-width:0.326177"
-       d="m 77.030957,110.47233 v 27.33063 l -4.095874,-3.74499 -3.65249,3.99459 10.385413,9.49606 0.0279,-0.0305 0.0098,0.0103 10.385929,-9.49554 -3.653007,-3.99511 -3.994588,3.65249 v -27.21797 z m -19.414835,34.85162 v 10.157 l 44.758508,-5.2e-4 v -10.15648 h -3.571358 v 6.24871 l -37.278862,5.2e-4 v -6.24923 z" />
+       d="M 102.49967,130.0122 H 75.169036 l 3.74499,-4.09587 -3.99459,-3.65249 -9.49606,10.38541 0.0305,0.0279 -0.0103,0.01 9.49554,10.38593 3.99511,-3.65301 -3.65249,-3.99459 H 102.49971 Z M 67.648046,110.59737 h -10.157 l 5.2e-4,44.7585 h 10.15648 v -3.57135 h -6.24871 l -5.2e-4,-37.27887 h 6.24923 z" />
   </g>
 </svg>

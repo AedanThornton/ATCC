@@ -1,16 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import getIcon from "../utils/iconUtils"
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import { useState, useRef } from "react";
+import { useCards } from "../../hooks/useCards";
 
 const BackpackSetsManager = ({ children }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchTermUI, setSearchTermUI] = useState("");
   const [saveError, setSaveError] = useState(false)
   const [importError, setImportError] = useState(false)
   const [showSavedSets, setShowSavedSets] = useState(false);
 
-  const { appState, saveSet, loadSet, deleteSet, clearBackpack } = useLocalStorage();
+  const { appState, saveSet, loadSet, deleteSet, clearBackpack, addToBackpack } = useLocalStorage();
   const backpackSearchRef = useRef(null);
+  const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
 
   const handleSaveSet = (setName) => {
     if (typeof setName !== "string" || !setName) {
@@ -38,6 +41,9 @@ const BackpackSetsManager = ({ children }) => {
   }
 
   const handleImportSet = () => {
+    filteredCards?.map((card) => {
+      addToBackpack(card.cardIDs[0])
+    })
   }
 
   const handleSearchUpdate = (term) => {
@@ -96,6 +102,7 @@ const BackpackSetsManager = ({ children }) => {
       </div>
 
       <button className={`backpack-button ${saveError ? "backpack-menu-error" : ""}`} onClick={() => handleSaveSet(searchTermUI)}>{getIcon({ name: "Save", invert: true })}</button>
+      <button className={`backpack-button ${importError ? "backpack-menu-error" : ""}`} onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
     </div>
 
     {children}
