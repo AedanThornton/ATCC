@@ -42,9 +42,9 @@ const CardRenderer = ({ cardData, variant = "" }) => {
   const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` + variant })
 
   return (
-    <div className='card-wrapper'>
+    <div className='card-wrapper' ref={ref}>
       {(isNotMobile && variant !== "backpack")
-        ? <div style={{ position: "relative" }} ref={ref}>
+        ? <div style={{ position: "relative" }}>
           {currentCard}
           {secretOverlay}
           <CardMenu
@@ -55,7 +55,7 @@ const CardRenderer = ({ cardData, variant = "" }) => {
           />
         </div>
 
-        : <div onClick={variant !== "backpack" ? setDisplayHelper : undefined} ref={ref}>
+        : <div onClick={variant !== "backpack" ? setDisplayHelper : undefined}>
           {currentCard}
           {secretOverlay}
         </div>
