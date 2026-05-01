@@ -4,10 +4,12 @@ import BackpackMenu from "./BackpackMenu";
 import cardCache from "../../hooks/cardCache";
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import CardRenderer from "../cards/CardRenderer";
+import BackpackSetsManager from "./BackpackSetsManager";
 
 const Backpack = ({ isDragging }) => {
   const { ref, isDropTarget } = useDroppable({ id: "backpack" });
-  const { backpack } = useLocalStorage()
+  const { backpack } = useLocalStorage();
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   return <div className={`backpack-wrapper ${isDropTarget ? "is-drop-target" : ""} ${isDragging ? "backpack-open" : ""}`}>
     <div ref={ref} className={`drag-backpack`}>
@@ -17,7 +19,7 @@ const Backpack = ({ isDragging }) => {
         </div>
       )}
     </div>
-    <BackpackMenu />
+    <BackpackSetsManager />
   </div>
 }
 

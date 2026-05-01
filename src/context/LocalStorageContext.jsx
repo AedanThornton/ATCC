@@ -20,6 +20,11 @@ export function LocalStorageProvider({ children }) {
     ...prev,
     backpack: prev.backpack.filter(cardID => cardID !== id && cardID !== id.replace("backpack", ""))
   }));
+
+  const clearBackpack = () => setAppState(prev => ({
+    ...prev,
+    backpack: []
+  }));
   
   const saveSet = (name, ids) => setAppState(prev => ({
     ...prev,
@@ -50,7 +55,7 @@ export function LocalStorageProvider({ children }) {
   const savedSets = appState.savedSets
 
   return (
-    <LocalStorageContext.Provider value={{ appState, backpack, savedSets, addToBackpack, removeFromBackpack, saveSet, loadSet, deleteSet }}>
+    <LocalStorageContext.Provider value={{ appState, backpack, savedSets, addToBackpack, removeFromBackpack, clearBackpack, saveSet, loadSet, deleteSet }}>
       {children}
     </LocalStorageContext.Provider>
   );

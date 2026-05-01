@@ -39,7 +39,6 @@
 
 .drag-backpack {
   width: 100%;
-  height: 80%;
   padding: 3%;
   display: flex;
   flex-wrap: wrap;
@@ -49,13 +48,15 @@
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
+  flex: 1;
 }
 
-.drag-backpack::-webkit-scrollbar{
+.drag-backpack::-webkit-scrollbar {
   display: none;
 }
 
-.backpack-wrapper:hover, .backpack-wrapper.backpack-open {
+.backpack-wrapper:hover,
+.backpack-wrapper.backpack-open {
   left: 10px;
 }
 
@@ -90,7 +91,7 @@
 .backpack-menu > * {
   flex: 1 1 auto;
   width: 30%;
-  background-color: var(--main);
+  background-color: var(--main-midtone);
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -101,12 +102,23 @@
   cursor: pointer;
 }
 
+.backpack-sets-manager {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .backpack-search-bar-wrapper {
-  background-color: var(--main);
-  border: 1px solid rgb(146, 146, 146);
+  background-color: var(--main-midtone);
   border-radius: 5px;
   padding: 2px 5px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 5px;
+  position: relative;
+  max-width: 100%;
 }
 
 .backpack-search-bar {
@@ -114,6 +126,7 @@
   border: none;
   border-radius: 5px;
   text-align: center;
+  width: 100%;
 }
 
 .backpack-search-bar::placeholder {
@@ -125,10 +138,10 @@
 }
 
 .backpack-search-bar:focus::placeholder {
-  color: var(--main);
+  color: var(--main-midtone);
 }
 
-.backpack-search-bar-wrapper button {
+.backpack-button {
   padding: 4px;
   background-color: unset;
   display: flex;
@@ -137,17 +150,43 @@
   border-radius: 5px;
 }
 
-.backpack-search-bar-wrapper button:hover {
+.backpack-button:hover {
   background-color: var(--main-light);
+}
+
+.backpack-button.clear-all {
+  background-color: var(--main);
 }
 
 .backpack-menu-error {
   animation: backpackMenuError 0.5s ease;
 }
 
+.backpack-saved-sets-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--main-light);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.backpack-saved-set-item {
+  padding: 5px;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
 @keyframes backpackMenuError {
-  0%   { background-color: rgb(150, 0, 0); }
-  100% { background-color: var(--main); }
+  0% {
+    background-color: rgb(150, 0, 0);
+  }
+
+  100% {
+    background-color: var(--main-midtone);
+  }
 }
 
 @media (min-width: 820px) {
