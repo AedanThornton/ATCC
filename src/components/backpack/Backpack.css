@@ -165,12 +165,14 @@
 .backpack-saved-sets-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   width: 100%;
   background-color: var(--main-light);
   display: flex;
   flex-direction: column;
   z-index: 1;
+  max-height: 450%;
+  overflow-y: auto;
 }
 
 .backpack-saved-set-item {

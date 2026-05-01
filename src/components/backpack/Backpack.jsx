@@ -12,6 +12,7 @@ const Backpack = ({ isDragging }) => {
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   return <div className={`backpack-wrapper ${isDropTarget ? "is-drop-target" : ""} ${isDragging ? "backpack-open" : ""}`}>
+    <BackpackSetsManager />
     <div ref={ref} className={`drag-backpack`}>
       {backpack.map((card, i) => 
         <div className="drag-backpack-item" key={i}>
@@ -19,7 +20,6 @@ const Backpack = ({ isDragging }) => {
         </div>
       )}
     </div>
-    <BackpackSetsManager />
   </div>
 }
 
