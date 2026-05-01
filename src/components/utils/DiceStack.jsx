@@ -1,4 +1,5 @@
 import getIcon from "./iconUtils";
+import React from "react";
 
 export const DiceStack = ({ diceArray, diceType = "Power" }) => {
   const boxHeight = 20 + 5 * Math.floor((diceArray.length + 1) / 2);
@@ -17,22 +18,22 @@ export const DiceStack = ({ diceArray, diceType = "Power" }) => {
         const scale = 1 - (depth * 0.05); // shrink each layer
         let x = dir * (9 - depth); // zig-zag offset        
         const y = -8 * Math.floor(depth / 2) * scale - 2 * depth + 4 * Math.floor((array.length - 1) / 2); // push upward in pairs        
-
-        if (src === "Power" || array.length < 2) return getIcon({name: src, type: diceType, index: i + src, size: `1.5em`});
         if (i === array.length - 1 && dir === -1) x = 0;
 
-        return (
-          <div
-            key={i}
-            className="power-die"
-            style={{
-              zIndex: 100 - depth,
-              transform: `translate(${x}px, ${y}px)`
-            }}
-          >
-            {getIcon({name: (dir > 0 ? "Reversed" : "") + `${src}`, type: diceType, index: i + src, size: `${(1 + (0.1 * (3 - Math.floor(depth / 2)))) * scale}em`})}
-          </div>
-        );
+        return <React.Fragment key={i}>
+          {(src === "Power" || array.length < 2) 
+            ? getIcon({name: src, type: diceType, size: `1.5em`})
+            : <div
+              className="power-die"
+              style={{
+                zIndex: 100 - depth,
+                transform: `translate(${x}px, ${y}px)`
+              }}
+            >
+              {getIcon({name: (dir > 0 ? "Reversed" : "") + `${src}`, type: diceType, size: `${(1 + (0.1 * (3 - Math.floor(depth / 2)))) * scale}em`})}
+            </div>
+          };
+        </React.Fragment>
       })}
     </span>
   );

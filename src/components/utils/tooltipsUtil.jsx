@@ -1,5 +1,6 @@
 import Tippy from '@tippyjs/react';
 import './utils.css';
+import React from 'react';
 
 import StandardKeywords from '/src/data/JSON/keywords.json';
 import TitanAbilities from '/src/data/JSON/titanAbilityData.json';
@@ -61,12 +62,14 @@ const createTooltip = (name, index) => {
               </>}
               <FormattedParagraph paragraph={keywordData.mainDef} inLineGate={true} invertIcons={true} />
               {Array.from({ length: 8 }, (_, i) => {
-                return<>{keywordData["subName" + i] && 
-                  <>
-                    <div className='tooltip-subtitle' key={"subtitle-" + i}>{keywordData["subName" + i]}</div>
-                    {keywordData["subDef" + i] ? <FormattedParagraph paragraph={keywordData["subDef" + i]} inLineGate={true} invertIcons={true}/> : <span>Missing definition...</span>}
-                  </>
-                }</>
+                return (
+                  <React.Fragment key={i}>{keywordData["subName" + i] && 
+                    <>
+                      <div className='tooltip-subtitle'>{keywordData["subName" + i]}</div>
+                      {keywordData["subDef" + i] ? <FormattedParagraph paragraph={keywordData["subDef" + i]} inLineGate={true} invertIcons={true}/> : <span>Missing definition...</span>}
+                    </>
+                  }</React.Fragment>
+                )
               })}
               
             </span>

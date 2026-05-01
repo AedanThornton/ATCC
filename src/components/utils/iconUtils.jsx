@@ -79,6 +79,7 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
     >*/}
       <img
         src={icon}
+        key={index ? index : name}
         style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, filter: (invert && !nonInvertibles.has(name)) && "invert(1)" }}
         alt={name}
         className={`text-icon ${name}`}
