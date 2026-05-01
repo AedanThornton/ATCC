@@ -6,7 +6,7 @@ import { useLocalStorage } from "../../context/LocalStorageContext";
 
 const DragDropWrapper = ({ children }) => {
   const [isDragging, setIsDragging] = useState(false);
-  const { backpack, addToBackpack, removeFromBackpack } = useLocalStorage()
+  const { appState, addToBackpack, removeFromBackpack } = useLocalStorage()
   const backpackRef = useRef(null);
 
   function handleBackpackChange(event) {
@@ -17,7 +17,7 @@ const DragDropWrapper = ({ children }) => {
 
     const id = event.operation.source?.id;
 
-    if (!id.endsWith("backpack") && event.operation.target?.id === "backpack" && backpack.includes(id)) return;
+    if (!id.endsWith("backpack") && event.operation.target?.id === "backpack" && appState.backpack.includes(id)) return;
     if (!id.endsWith("backpack") && event.operation.target?.id === "backpack") addToBackpack(id);
     if (id.endsWith("backpack") && event.operation.target?.id !== "backpack") removeFromBackpack(id);
 

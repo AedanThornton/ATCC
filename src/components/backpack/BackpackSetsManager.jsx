@@ -3,15 +3,14 @@ import getIcon from "../utils/iconUtils"
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import { useState, useRef } from "react";
 
-const BackpackSetsManager = ({ }) => {
+const BackpackSetsManager = ({ children }) => {
   const [searchTermUI, setSearchTermUI] = useState("");
   const [saveError, setSaveError] = useState(false)
-  const [loadError, setLoadError] = useState(false)
+  const [importError, setImportError] = useState(false)
   const [showSavedSets, setShowSavedSets] = useState(false);
 
-  const { saveSet, loadSet, clearBackpack, backpack, savedSets } = useLocalStorage();
+  const { appState, saveSet, loadSet, deleteSet, clearBackpack } = useLocalStorage();
   const backpackSearchRef = useRef(null);
-  const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   const handleSaveSet = (setName) => {
     if (typeof setName !== "string" || !setName) {
@@ -21,39 +20,24 @@ const BackpackSetsManager = ({ }) => {
       return;
     }
 
-    if (backpack.length === 0) {
+    if (appState.backpack.length === 0) {
       console.log("Cannot save empty backpack");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
       return;
     }
 
-    if (savedSets.length >= 20) {
+    if (appState.savedSets.length >= 20) {
       console.log("Max Saved Sets reached");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
       return;
     }
 
-    saveSet(setName, backpack);
+    saveSet(setName, appState.backpack);
   }
 
-  const handleLoadSet = (setName) => {
-    if (typeof setName !== "string" || !setName) {
-      console.log("Invalid set name");
-      setLoadError(true);
-      setTimeout(() => setLoadError(false), 500);
-      return;
-    }    
-
-    if (!Object.keys(savedSets).includes(setName)) {
-      console.log("Set does not exist");
-      setLoadError(true);
-      setTimeout(() => setLoadError(false), 500);
-      return;
-    }
-
-    loadSet(setName);
+  const handleImportSet = () => {
   }
 
   const handleSearchUpdate = (term) => {
@@ -67,7 +51,7 @@ const BackpackSetsManager = ({ }) => {
   const handleDropdownSelect = (setName) => {
     setSearchTermUI(setName);
     setShowSavedSets(false);
-    handleLoadSet(setName);
+    handleImportSet(setName);
   }
 
   const handleReset = () => {
@@ -77,9 +61,14 @@ const BackpackSetsManager = ({ }) => {
     clearBackpack();
   }
 
-  return <div className="backpack-sets-manager">
-    <div className="backpack-search-bar-wrapper" onMouseLeave={() => setShowSavedSets(false)}>
-      <div style={{ display: "flex", position: "relative" }}>
+  const handleDeleteSet = (setName) => {
+    deleteSet(setName);
+    setSearchTermUI("");
+  }
+
+  return <div className="backpack-menu">
+    <div className="backpack-sets-manager" onMouseLeave={() => setShowSavedSets(false)}>
+      <div className="backpack-search-bar-wrapper">
         <button className="backpack-button" onClick={() => {backpackSearchRef.current?.focus(); setShowSavedSets(true)}}>{getIcon({ name: "DaedalusWorkshop", invert: true })}</button>
 
         <input
@@ -94,11 +83,12 @@ const BackpackSetsManager = ({ }) => {
 
         {showSavedSets && (
           <div className="backpack-saved-sets-dropdown" style={{ width: backpackSearchRef.current.offsetWidth }}>
-            {Object.keys(savedSets).length === 0 && <div className="backpack-saved-set-item">No saved sets</div>}
-            {Object.keys(savedSets).map((setName) => {
+            {Object.keys(appState.savedSets).length === 0 && <div className="backpack-saved-set-item">No saved sets</div>}
+            {Object.keys(appState.savedSets).map((setName) => {
               if (!setName.toLowerCase().includes(searchTermUI.toLowerCase())) return null;
-              return <div className="backpack-saved-set-item" key={setName} onClick={() => handleDropdownSelect(setName)}>
+              return <div className="backpack-saved-set-item" key={setName}  onClick={() => handleDropdownSelect(setName)}>
                 {setName}
+                <button className="backpack-button" onClick={(e) => {e.stopPropagation(); handleDeleteSet(setName)}}>{getIcon({ name: "Trash", invert: true })}</button>
               </div>
             })}
           </div>
@@ -106,10 +96,11 @@ const BackpackSetsManager = ({ }) => {
       </div>
 
       <button className={`backpack-button ${saveError ? "backpack-menu-error" : ""}`} onClick={() => handleSaveSet(searchTermUI)}>{getIcon({ name: "Save", invert: true })}</button>
-      <button className={`backpack-button ${loadError ? "backpack-menu-error" : ""}`} onClick={() => handleLoadSet(searchTermUI)}>{getIcon({ name: "Load", invert: true })}</button>
-      <button className="backpack-button clear-all" onClick={() => handleReset()}>{getIcon({ name: "Trash", invert: true })}</button>
-
     </div>
+
+    {children}
+
+    <button className="backpack-button clear-all" onClick={() => handleReset()}>Clear</button>
   </div>
 }
 

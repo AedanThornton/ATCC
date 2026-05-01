@@ -33,11 +33,12 @@ const LocalStorageManager = ({}) => {
 
   useEffect(() => {
     async function hydrate() {
-      const appState = localStorage.getItem("appState");
-      const backpackChildren = appState ? JSON.parse(appState)?.backpack : [];
-      const missing = backpackChildren.filter(
-        id => !cardCache.has(id)
-      );
+      const appStateRaw = localStorage.getItem("appState");
+      const appState = appStateRaw ? JSON.parse(appStateRaw) : [];
+
+      const missingBackpack = appState.backpack?.filter(id => !cardCache.has(id));
+      const missingSets = Object.keys(appState.savedSets).flatMap((set) => appState.savedSets[set]).filter(id => !cardCache.has(id));
+      const missing = [...new Set([...missingBackpack, ...missingSets])]
 
       if (missing.length === 0) return;
 

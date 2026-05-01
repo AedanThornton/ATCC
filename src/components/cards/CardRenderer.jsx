@@ -55,7 +55,7 @@ const CardRenderer = ({ cardData, variant = "" }) => {
           />
         </div>
 
-        : <div onClick={setDisplayHelper} ref={ref}>
+        : <div onClick={variant !== "backpack" ? setDisplayHelper : undefined} ref={ref}>
           {currentCard}
           {secretOverlay}
         </div>

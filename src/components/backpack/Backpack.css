@@ -79,36 +79,14 @@
 }
 
 .backpack-menu {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
   width: 100%;
-  height: 20%;
-  gap: 5px;
-  padding: 5px;
-}
-
-.backpack-menu > * {
-  flex: 1 1 auto;
-  width: 30%;
-  background-color: var(--main-midtone);
-  border-radius: 10px;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-
-  overflow: hidden;
-  cursor: pointer;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .backpack-sets-manager {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.backpack-search-bar-wrapper {
   background-color: var(--main-midtone);
   border-radius: 5px;
   padding: 2px 5px;
@@ -117,8 +95,12 @@
   justify-content: space-around;
   align-items: stretch;
   gap: 5px;
-  position: relative;
   max-width: 100%;
+}
+
+.backpack-search-bar-wrapper {
+  display: flex;
+  position: relative;
 }
 
 .backpack-search-bar {
@@ -178,7 +160,12 @@
 .backpack-saved-set-item {
   padding: 5px;
   cursor: pointer;
-  margin: 0 15px;
+  margin: 0 3px;
+  display: flex;
+  justify-content: space-between;
+}
+.backpack-saved-set-item:hover {
+  background-color: var(--main-midtone);
 }
 
 @keyframes backpackMenuError {
@@ -195,5 +182,9 @@
   .backpack-wrapper {
     width: 30dvw;
     left: -28dvw;
+  }
+
+  .backpack-search-bar-wrapper {
+    flex: 1;
   }
 }
