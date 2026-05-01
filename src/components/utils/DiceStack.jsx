@@ -32,7 +32,7 @@ export const DiceStack = ({ diceArray, diceType = "Power" }) => {
             >
               {getIcon({name: (dir > 0 ? "Reversed" : "") + `${src}`, type: diceType, size: `${(1 + (0.1 * (3 - Math.floor(depth / 2)))) * scale}em`})}
             </div>
-          };
+          }
         </React.Fragment>
       })}
     </span>

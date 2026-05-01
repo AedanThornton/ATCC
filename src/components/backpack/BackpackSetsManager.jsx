@@ -42,7 +42,9 @@ const BackpackSetsManager = ({ children }) => {
 
   const handleImportSet = () => {
     filteredCards?.map((card) => {
-      addToBackpack(card.cardIDs[0])
+      if (!appState.backpack.includes(card.cardIDs[0])) {
+        addToBackpack(card.cardIDs[0])
+      }
     })
   }
 
