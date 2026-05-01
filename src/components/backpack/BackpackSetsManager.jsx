@@ -8,7 +8,7 @@ const BackpackSetsManager = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTermUI, setSearchTermUI] = useState("");
   const [saveError, setSaveError] = useState(false)
-  const [importError, setImportError] = useState(false)
+  const [loadError, setLoadError] = useState(false)
   const [showSavedSets, setShowSavedSets] = useState(false);
 
   const { appState, saveSet, loadSet, deleteSet, clearBackpack, addToBackpack } = useLocalStorage();
@@ -56,10 +56,28 @@ const BackpackSetsManager = ({ children }) => {
     setSearchTermUI(term);
   }
 
+  const handleLoadSet = (setName) => {
+    if (typeof setName !== "string" || !setName) {
+      console.log("Invalid set name");
+      setLoadError(true);
+      setTimeout(() => setLoadError(false), 500);
+      return;
+    }    
+
+    if (!Object.keys(appState.savedSets).includes(setName)) {
+      console.log("Set does not exist");
+      setLoadError(true);
+      setTimeout(() => setLoadError(false), 500);
+      return;
+    }
+
+    loadSet(setName);
+  }
+
   const handleDropdownSelect = (setName) => {
     setSearchTermUI(setName);
     setShowSavedSets(false);
-    handleImportSet(setName);
+    handleLoadSet(setName);
   }
 
   const handleReset = () => {
@@ -104,7 +122,7 @@ const BackpackSetsManager = ({ children }) => {
       </div>
 
       <button className={`backpack-button ${saveError ? "backpack-menu-error" : ""}`} onClick={() => handleSaveSet(searchTermUI)}>{getIcon({ name: "Save", invert: true })}</button>
-      <button className={`backpack-button ${importError ? "backpack-menu-error" : ""}`} onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
+      <button className={`backpack-button ${loadError ? "backpack-menu-error" : ""}`} onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
     </div>
 
     {children}
