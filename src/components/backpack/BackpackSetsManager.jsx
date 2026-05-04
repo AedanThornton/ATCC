@@ -9,29 +9,39 @@ const BackpackSetsManager = ({ children }) => {
   const [searchTermUI, setSearchTermUI] = useState("");
   const [saveError, setSaveError] = useState(false)
   const [loadError, setLoadError] = useState(false)
+  const [buttonError, setButtonError] = useState(null)
   const [showSavedSets, setShowSavedSets] = useState(false);
 
   const { appState, saveSet, loadSet, deleteSet, clearBackpack, addToBackpack } = useLocalStorage();
-  const backpackSearchRef = useRef(null);
   const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
+  
+  const backpackSearchRef = useRef(null);
+
+  const handleError = (msg) => {
+    setButtonError("Error: " + msg)
+
+    setTimeout(() => {
+      setButtonError(null)
+    }, 800)
+  }
 
   const handleSaveSet = (setName) => {
     if (typeof setName !== "string" || !setName) {
-      console.log("Invalid set name");
+      handleError("Invalid set name");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
       return;
     }
 
     if (appState.backpack.length === 0) {
-      console.log("Cannot save empty backpack");
+      handleError("Cannot save empty backpack");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
       return;
     }
 
     if (appState.savedSets.length >= 20) {
-      console.log("Max Saved Sets reached");
+      handleError("Max Saved Sets reached");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
       return;
@@ -57,20 +67,6 @@ const BackpackSetsManager = ({ children }) => {
   }
 
   const handleLoadSet = (setName) => {
-    if (typeof setName !== "string" || !setName) {
-      console.log("Invalid set name");
-      setLoadError(true);
-      setTimeout(() => setLoadError(false), 500);
-      return;
-    }    
-
-    if (!Object.keys(appState.savedSets).includes(setName)) {
-      console.log("Set does not exist");
-      setLoadError(true);
-      setTimeout(() => setLoadError(false), 500);
-      return;
-    }
-
     loadSet(setName);
   }
 
@@ -122,10 +118,16 @@ const BackpackSetsManager = ({ children }) => {
       </div>
 
       <button className={`backpack-button ${saveError ? "backpack-menu-error" : ""}`} onClick={() => handleSaveSet(searchTermUI)}>{getIcon({ name: "Save", invert: true })}</button>
-      <button className={`backpack-button ${loadError ? "backpack-menu-error" : ""}`} onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
+      <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
     </div>
 
-    {children}
+    <div>
+      {children}
+
+      {buttonError && <div className="backpack-error-overlay">
+        <span>{buttonError}</span>
+      </div>}
+    </div>
 
     <button className="backpack-button clear-all" onClick={() => handleReset()}>Clear</button>
   </div>
