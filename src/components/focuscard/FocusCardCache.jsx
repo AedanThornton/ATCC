@@ -3,11 +3,12 @@ import { useState, useEffect, Children } from "react";
 import FocusCard from "./FocusCard";
 import { createPortal } from "react-dom";
 import getIcon from "../utils/iconUtils";
-import cardCache from "../../hooks/cardCache";
 import { useModal } from "../../context/FocusContext";
+import { useLocalStorage } from "../../context/LocalStorageContext";
 
 const FocusCardCache = () => {
   const { modal, closeModal } = useModal();
+  const { cardCache } = useLocalStorage();
 
   const [isHidden, setIsHidden] = useState(true);
   const [currentSide, setCurrentSide] = useState(1);

@@ -17,9 +17,9 @@ createRoot(document.getElementById('root')).render(
       <SpoilerProvider>
         <ModalProvider>
           <LocalStorageProvider>
-            <App />
             <FocusCardCache />
             <LocalStorageManager />
+            <App />
           </LocalStorageProvider>
         </ModalProvider>
       </SpoilerProvider>

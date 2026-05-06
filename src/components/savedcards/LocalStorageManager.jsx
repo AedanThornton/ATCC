@@ -1,5 +1,4 @@
 import { useLocalStorage } from "../../context/LocalStorageContext";
-import cardCache from "../../hooks/cardCache";
 import { useEffect } from "react";
 
 const fetchCardsByIds = async (cardIDsList) => {
@@ -25,7 +24,7 @@ const fetchCardsByIds = async (cardIDsList) => {
 };
 
 const LocalStorageManager = ({}) => {
-  const { appState } = useLocalStorage()
+  const { appState, cardCache, ingestCards } = useLocalStorage()
 
   useEffect(() => {
     localStorage.setItem("appState", JSON.stringify(appState));
@@ -42,11 +41,8 @@ const LocalStorageManager = ({}) => {
 
       if (missing.length === 0) return;
 
-      const data = await fetchCardsByIds(missing);      
-
-      for (const card of data.cards) {
-        cardCache.set(card.cardIDs[0], card);
-      }
+      const data = await fetchCardsByIds(missing);
+      ingestCards(data.cards)
     }
 
     hydrate();

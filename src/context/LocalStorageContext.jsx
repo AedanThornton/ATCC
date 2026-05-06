@@ -1,8 +1,9 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const LocalStorageContext = createContext();
 
 export function LocalStorageProvider({ children }) {
+  const [cardCache, setCardCache] = useState(new Map());
   const [appState, setAppState] = useState(() => {
     const saved = localStorage.getItem("appState");
 
@@ -19,6 +20,18 @@ export function LocalStorageProvider({ children }) {
       savedSets: parsed.savedSets ?? {}
     };
   });
+
+  function ingestCards(cards) {
+    setCardCache(prev => {
+      const newMap = new Map(prev);
+
+      cards?.forEach(c => {
+        newMap.set(c.cardIDs[0], c);
+      });
+
+      return newMap;
+    });
+  }
 
   const addToBackpack = (id) => setAppState(prev => ({
     ...prev,
@@ -59,7 +72,12 @@ export function LocalStorageProvider({ children }) {
   });
 
   return (
-    <LocalStorageContext.Provider value={{ appState, addToBackpack, removeFromBackpack, clearBackpack, saveSet, loadSet, deleteSet }}>
+    <LocalStorageContext.Provider 
+      value={{ 
+        appState, cardCache,
+        ingestCards,
+        addToBackpack, removeFromBackpack, clearBackpack, 
+        saveSet, loadSet, deleteSet }}>
       {children}
     </LocalStorageContext.Provider>
   );

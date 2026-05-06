@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import FocusCardPage from './pages/FocusCardPage'
 import NotFoundPage from './pages/NotFoundPage';
 import SearchInfoPage from './pages/SearchInfoPage'
+import SavedSetPage from "./pages/SavedSetPage";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="about" element={<AboutPage />} />
         <Route path="search-info" element={<SearchInfoPage />} />
+        <Route path="savedsets" element={<SavedSetPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

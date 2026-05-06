@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ingestCards } from './cardCache';
+import { useLocalStorage } from '../context/LocalStorageContext';
 
 export function useCards(searchParams) {
   const [filteredCards, setFilteredCards] = useState([]);
@@ -11,6 +11,8 @@ export function useCards(searchParams) {
   //Function states
   const [isLoading, setIsLoading] = useState(true); // Start loading initially
   const [error, setError] = useState(null);
+
+  const { ingestCards } = useLocalStorage();
 
   // --- Effect to Fetch Data (Depends on Filters) ---
   // This runs on mount AND whenever filter state changes
