@@ -121,13 +121,11 @@ const BackpackSetsManager = ({ children }) => {
       <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
     </div>
 
-    <div>
-      {children}
+    {children}
 
-      {buttonError && <div className="backpack-error-overlay">
-        <span>{buttonError}</span>
-      </div>}
-    </div>
+    {buttonError && <div className="backpack-error-overlay">
+      <span>{buttonError}</span>
+    </div>}
 
     <button className="backpack-button clear-all" onClick={() => handleReset()}>Clear</button>
   </div>
