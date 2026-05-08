@@ -17,12 +17,37 @@
   box-sizing: border-box;
 }
 
-.saved-set-title {
-  font-size: 1.5em;
-  font-weight: bold;
+.saved-set-menu {
   text-align: center;
-  padding: 0 5%;
-  width: 200px;
+  width: 350px;
+  height: 100%;
+  margin-right: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 10px;
+}
+
+.saved-set-title {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  background-color: var(--main);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.saved-set-menu, .saved-set-title::placeholder, .saved-set-title input[type="text"] {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.saved-sets-title-nonediting, .saved-set-title::placeholder, .saved-set-title input[type="text"] {
+  width: 250px;
+  height: 36px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .saved-set-cards {
@@ -45,9 +70,30 @@
   cursor: pointer;
 }
 
+.saved-sets-card-details.title {
+  border-bottom: 1px solid white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .saved-sets-card-list {
   overflow-y: scroll;
   height: 20dvh;
+}
+
+.saved-sets-button {
+  width: fit-content;
+  flex: unset;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.saved-sets-button:hover {
+  background-color: var(--main-light);
 }
 
 @media (min-width: 820px) {
