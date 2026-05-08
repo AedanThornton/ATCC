@@ -90,8 +90,9 @@ const BackpackSetsManager = ({ children }) => {
 
   return <div className="backpack-menu">
     <div className="backpack-sets-manager" onMouseLeave={() => setShowSavedSets(false)}>
+      <Link to="/savedsets">{getIcon({ name: "List", invert: true })}</Link>
       <div className="backpack-search-bar-wrapper">
-        <button className="backpack-button" onClick={() => {backpackSearchRef.current?.focus(); setShowSavedSets(true)}}>{getIcon({ name: "DaedalusWorkshop", invert: true })}</button>
+        <button className="backpack-button" onClick={() => {backpackSearchRef.current?.focus(); setShowSavedSets(true)}}>{getIcon({ name: "Edit", invert: true })}</button>
 
         <input
           type="text"

@@ -35,6 +35,14 @@ function SavedSetPage() {
     setDraftingName(name)
   }
 
+  const handleSearchUpdate = (term) => {
+    if (term.length > 20) {
+      term = term.slice(0, 20);
+    }
+
+    setDraftingName(term);
+  }
+
   return (
     <div className="saved-sets-page">
       {Object.keys(appState.savedSets).map((set, i) => (
@@ -53,7 +61,7 @@ function SavedSetPage() {
                   type="text"
                   placeholder="Set name..."
                   value={draftingName}
-                  onChange={(e) => setDraftingName(e.target.value)}
+                  onChange={(e) => handleSearchUpdate(e.target.value)}
                   className="saved-sets-page-search-bar"
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
