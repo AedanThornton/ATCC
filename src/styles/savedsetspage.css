@@ -1,0 +1,33 @@
+.saved-set-row {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: var(--main-midtone);
+  width: 90%;
+  margin: 5%;
+  padding: 10px 20px;
+}
+
+.saved-set-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 5%;
+}
+
+.saved-set-cards {
+  width: fit-content;
+  overflow-y: scroll;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.saved-sets-card-details {
+  display: flex;
+}
+.saved-sets-card-details > span {
+  flex: 1;
+}

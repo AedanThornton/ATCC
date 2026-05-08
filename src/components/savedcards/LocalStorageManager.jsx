@@ -7,7 +7,7 @@ const fetchCardsByIds = async (cardIDsList) => {
   const apiBase = import.meta.env.PROD
     ? import.meta.env.VITE_API_BASE_URL
     : '';
-  const apiUrl = `${apiBase}/api/cards/?q=${searchString}`;    
+  const apiUrl = `${apiBase}/api/cards/?q=${searchString}&limit=5000`;    
 
   try {
     const response = await fetch(apiUrl);

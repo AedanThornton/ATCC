@@ -14,7 +14,7 @@ const Backpack = ({ isDragging }) => {
       <div ref={ref} className={`drag-backpack`}>
         {appState.backpack?.map((card, i) => 
           <div className="drag-backpack-item" key={i}>
-            <CardRenderer cardData={cardCache.get(card)} variant="backpack" />
+            {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant="backpack" />}
           </div>
         )}
       </div>
