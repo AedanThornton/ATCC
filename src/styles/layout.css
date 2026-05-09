@@ -312,6 +312,21 @@ input:checked + .filters-slider:before {
   width: 100%;
 }
 
+.back-to-catalog-button {
+  background-color: var(--main-light);
+  padding: 2px 10px;
+  margin-right: 20px;
+  border-radius: 15px;
+  border: unset;
+  color: white;
+  float: right;
+}
+
+.back-to-catalog-button:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
 @media (min-width: 820px) {
   .dropdowns {
     display: flex;

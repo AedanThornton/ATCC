@@ -7,7 +7,7 @@ import ControlBar from "./ControlBar";
 import SearchBar from './SearchBar';
 import { useSpoilers } from "../../context/SpoilerContext";
 
-function Layout({ isCatalog = false }) {
+function Layout({ isCatalog = false, subpage = false }) {
   const { spoilersEnabled } = useSpoilers();
   const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false);
 
@@ -44,6 +44,7 @@ function Layout({ isCatalog = false }) {
 
               {isFilterSidebarOpen && <FilterSidebar />}
             </div>}
+            {subpage && <Link to="/catalog" className='back-to-catalog-button'>← Back to Catalog</Link>}
           </div>
         </div>
 

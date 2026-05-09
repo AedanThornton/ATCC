@@ -24,6 +24,10 @@ const App = () => {
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="about" element={<AboutPage />} />
         <Route path="search-info" element={<SearchInfoPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+      <Route path="/" element={<Layout subpage={true} />}>
+        <Route index element={<Navigate to="/home" replace />}/>
         <Route path="savedsets" element={<SavedSetPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
