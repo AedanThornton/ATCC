@@ -4,6 +4,7 @@ import { useLocalStorage } from "../context/LocalStorageContext";
 import "../styles/savedsetspage.css"
 import { useModal } from "../context/FocusContext";
 import getIcon from "../components/utils/iconUtils";
+import { Link } from "react-router-dom";
 
 function SavedSetPage() {
   const { appState, cardCache, saveSet, deleteSet } = useLocalStorage();
@@ -49,6 +50,13 @@ function SavedSetPage() {
         <div key={i} className="saved-set-row">
           <div className="saved-set-menu">
             <span className="saved-set-title">
+              <Link 
+                className="saved-sets-button"
+                to="/deck"
+                state={{cardSetName: set }}
+              >
+                {getIcon({ name: "EditDeck", invert: true })}
+              </Link>
               <span 
                 className="saved-sets-button" 
                 onClick={() => editingID === i ? handleSaveName(set) : handleStartEditing(i, set)}
@@ -98,6 +106,12 @@ function SavedSetPage() {
           </div>
         </div>
       ))}
+      {Object.keys(appState.savedSets).length === 0 && 
+        <div className="no-saved-sets">
+          <p>No saved sets yet!</p>
+          <p>Sets can be saved in the <Link to="/catalog">Card Catalog</Link> on the left popout panel.</p>
+        </div>
+      }
     </div>
   );
 }
