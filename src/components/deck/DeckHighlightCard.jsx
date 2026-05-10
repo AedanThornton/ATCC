@@ -25,7 +25,7 @@ const DeckHighlightCard = ({ highlightCard, setHighlightCard, setCardPools }) =>
   }
 
   return <div className="deck-page_highlight-card">
-    <CardRenderer cardData={cardCache.get(highlightCard)} />
+    <CardRenderer cardData={cardCache.get(highlightCard)} variant="backpack" />
     <div className="deck-page_highlight-card__menu">
       {/* Leave card available button */}
       <button className="deck-page_highlight-card__button"

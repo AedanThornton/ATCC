@@ -2,8 +2,9 @@ import { useLocalStorage } from "../../context/LocalStorageContext"
 import getIcon from "../utils/iconUtils";
 import "../../styles/deckpage.css"
 import CardRenderer from "../cards/CardRenderer";
+import DeckCardMenu from "./DeckCardMenu";
 
-const DeckRenderer = ({ cardPools, activeCardPool, hiddenCards, setHiddenCards }) => {
+const DeckRenderer = ({ cardPools, setCardPools, activeCardPool, hiddenCards, setHiddenCards }) => {
   const { cardCache } = useLocalStorage();
 
   const toggleSingleHiddenCard = (cardToChange) => {
@@ -18,7 +19,7 @@ const DeckRenderer = ({ cardPools, activeCardPool, hiddenCards, setHiddenCards }
     {cardPools[activeCardPool]?.map((card, i) =>
       <div key={i}>
         {!hiddenCards[card]
-          ? cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} />
+          ? cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} menu={<DeckCardMenu card={card} setCardPools={setCardPools} activeCardPool={activeCardPool} />} />
           : <div className="deck-page_hidden-card mini-american">
             Hidden Card
             <button className="deck-page_action-button"

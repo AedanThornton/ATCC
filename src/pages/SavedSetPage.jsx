@@ -50,6 +50,13 @@ function SavedSetPage() {
         <div key={i} className="saved-set-row">
           <div className="saved-set-menu">
             <span className="saved-set-title">
+              <Link 
+                className="saved-sets-button"
+                to="/deck"
+                state={{cardSetName: set }}
+              >
+                {getIcon({ name: "EditDeck", invert: true })}
+              </Link>
               <span 
                 className="saved-sets-button" 
                 onClick={() => editingID === i ? handleSaveName(set) : handleStartEditing(i, set)}

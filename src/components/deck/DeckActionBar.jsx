@@ -2,8 +2,9 @@ import { useState } from "react";
 import getIcon from "../utils/iconUtils"
 import "../../styles/deckpage.css"
 import { useLocalStorage } from "../../context/LocalStorageContext";
+import { Link } from "react-router-dom";
 
-const DeckActionBar = ({ hiddenCards, setHiddenCards, cardPools, setCardPools, setHighlightCard, cardSetName }) => {
+const DeckActionBar = ({ hiddenCards, setHiddenCards, cardPools, setCardPools, setHighlightCard, cardSetName, activeCardPool }) => {
   const [showSetList, setShowSetList] = useState(false);
   const [activeSetName, setActiveSetName] = useState(cardSetName);
   const { appState } = useLocalStorage()
@@ -60,23 +61,25 @@ const DeckActionBar = ({ hiddenCards, setHiddenCards, cardPools, setCardPools, s
     setHighlightCard(cardPools.deck[chosenCard])
   }
 
+  const handleReturnAllToDeck = () => {
+    setCardPools(prev => ({
+      ...prev,
+      [activeCardPool]: [],
+      deck: [...prev.deck, ...prev[activeCardPool]]
+    }))
+  }
+
   return <div className="deck-page_action-bar">
 
     <div className="deck-page_button-wrapper">
       {/* Hide/Reveal cards toggle */}
-      <button className="deck-page_action-button"
+      {activeCardPool === "deck" && <button className="deck-page_action-button"
         onClick={() => toggleHiddenCards()}
         disabled={!activeSetName}
       >
-        {getIcon({ name: "Reveal", invert: true })}
-      </button>
-      {/* Shuffle cards button */}
-      <button className="deck-page_action-button"
-        onClick={() => handleShuffleCards()}
-        disabled={!activeSetName}
-      >
-        {getIcon({ name: "Shuffle", invert: true })}
-      </button>
+        {getIcon({ name: "Reveal", size: "1.5em" })}
+      </button>}
+      <Link to="/savedsets" className="deck-page_action-button">{getIcon({ name: "List", invert: true })}</Link>
     </div>
 
     <div className="deck-page_set-title" onMouseEnter={() => setShowSetList(true)} onMouseLeave={() => setShowSetList(false)}>
@@ -96,12 +99,25 @@ const DeckActionBar = ({ hiddenCards, setHiddenCards, cardPools, setCardPools, s
     </div>
 
     <div className="deck-page_button-wrapper">
-      {/* Draw a card button */}
-      <button className="deck-page_action-button"
-        onClick={() => handleDrawCard()}
+      {/* Shuffle cards button */}
+      {activeCardPool === "deck" && <button className="deck-page_action-button"
+        onClick={() => handleShuffleCards()}
         disabled={!activeSetName}
       >
-        {getIcon({ name: "ContinueStack", invert: true })}
+        {getIcon({ name: "Shuffle", invert: true })}
+      </button>}
+      {/* Draw a card button */}
+      <button className="deck-page_action-button"
+        onClick={() => activeCardPool === "deck"
+          ? handleDrawCard()
+          : handleReturnAllToDeck()
+        }
+        disabled={!activeSetName}
+      >
+        {activeCardPool === "deck"
+          ? getIcon({ name: "ContinueStack", invert: true, size: "1.5em" })
+          : getIcon({ name: "ReturnAllToDeck", invert: true, size: "1.5em" })
+        }
       </button>
     </div>
 

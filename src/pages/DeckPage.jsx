@@ -8,8 +8,11 @@ import DeckRenderer from '../components/deck/DeckRenderer';
 import DeckHighlightCard from '../components/deck/DeckHighlightCard';
 import DeckActionBar from '../components/deck/DeckActionBar';
 import DeckSelector from '../components/deck/DeckSelector';
+import { useLocation } from 'react-router-dom';
 
-function DeckPage({ cardSetName = "" }) {
+function DeckPage({}) {
+  const location = useLocation()
+  const cardSetName = location.state?.cardSetName ?? "";
   const { appState, cardCache } = useLocalStorage();
 
   const [activeCardPool, setActiveCardPool] = useState("deck")
@@ -48,6 +51,7 @@ function DeckPage({ cardSetName = "" }) {
       />
       <DeckRenderer
         cardPools={cardPools}
+        setCardPools={setCardPools}
         activeCardPool={activeCardPool}
         hiddenCards={hiddenCards}
         setHiddenCards={setHiddenCards}

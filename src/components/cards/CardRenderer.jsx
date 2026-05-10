@@ -7,7 +7,7 @@ import renderTypes from "../../lib/renderTypes";
 import { useSpoilers } from "../../context/SpoilerContext";
 import { useModal } from '../../context/FocusContext';
 
-const CardRenderer = ({ cardData, variant = "" }) => {
+const CardRenderer = ({ cardData, variant = "", menu }) => {
   const { openModal } = useModal();
   const { spoilersEnabled } = useSpoilers();
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
@@ -41,18 +41,21 @@ const CardRenderer = ({ cardData, variant = "" }) => {
 
   const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` + variant })
 
+  menu = menu ? menu : 
+    <CardMenu
+      card={cardData}
+      flipFunc={toggleSide}
+      secretFunc={toggleReveal}
+      setDisplay={setDisplayHelper}
+    />
+
   return (
     <div className='card-wrapper' ref={ref}>
       {(isNotMobile && variant !== "backpack")
         ? <div style={{ position: "relative" }}>
           {currentCard}
           {secretOverlay}
-          <CardMenu
-            card={cardData}
-            flipFunc={toggleSide}
-            secretFunc={toggleReveal}
-            setDisplay={setDisplayHelper}
-          />
+          {menu}
         </div>
 
         : <div onClick={variant !== "backpack" ? setDisplayHelper : undefined}>
