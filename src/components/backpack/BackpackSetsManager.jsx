@@ -48,6 +48,8 @@ const BackpackSetsManager = ({ children }) => {
     }
 
     saveSet(setName, appState.backpack);
+    backpackSearchRef.current?.blur();
+    setShowSavedSets(false)
   }
 
   const handleImportSet = () => {
@@ -102,6 +104,11 @@ const BackpackSetsManager = ({ children }) => {
           onChange={(e) => handleSearchUpdate(e.target.value)}
           onMouseEnter={() => setShowSavedSets(true)}
           className="backpack-search-bar"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSaveSet(searchTermUI)
+            }
+          }}
         />
 
         {showSavedSets && (
