@@ -4,7 +4,7 @@ import FocusCard from "./FocusCard";
 import { createPortal } from "react-dom";
 import getIcon from "../utils/iconUtils";
 
-const FocusCardOverlay = ({ cardID, children }) => {
+const FocusCardFetch = ({ cardID, children }) => {
   const [cardData, setCardData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -90,4 +90,4 @@ const FocusCardOverlay = ({ cardID, children }) => {
 
 }
 
-export default FocusCardOverlay
+export default FocusCardFetch
