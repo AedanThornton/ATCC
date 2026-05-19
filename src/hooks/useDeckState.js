@@ -25,20 +25,27 @@ export function useDeckState(initialSetName) {
   useEffect(() => {
     if (deckSource !== "prebuilt") {
       setCardPools(prev => ({
-        ...prev,
         deck: [],
         discard: [],
         removed: []
       }))
     } else {
+      const newCardPools = {}
+      prebuiltDeck.otherCardPools?.map(pool => {
+        newCardPools[pool.name] = pool.cards.map(card => card.cardIDs[0])
+      })
+
+      console.log(newCardPools);
+      
+
       setCardPools(prev => ({
-        ...prev,
         deck: prebuiltDeck.deckCards.map(card => card.cardIDs[0]),
         discard: [],
-        removed: []
+        removed: [],
+        ...newCardPools
       }))
     }
-  }, [deckSource, prebuiltDeck.deckCards])
+  }, [deckSource, prebuiltDeck.deckCards, prebuiltDeck.otherCardPools])
 
   const setHideAllCards = (hide) => {
     setHiddenCards(() => {

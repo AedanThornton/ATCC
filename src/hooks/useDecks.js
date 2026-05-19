@@ -3,7 +3,8 @@ import { useLocalStorage } from '../context/LocalStorageContext';
 
 export function useDecks(searchParams) {
   const [deckCards, setDeckCards] = useState([]);
-  const [primordialOptions, setPrimordialOptions] = useState([])
+  const [primordialOptions, setPrimordialOptions] = useState([]);
+  const [otherCardPools, setOtherCardPools] = useState([]);
 
   //Function states
   const [isLoading, setIsLoading] = useState(true); // Start loading initially
@@ -14,7 +15,7 @@ export function useDecks(searchParams) {
   useEffect(() => {
     if (!(
       searchParams.has("type") || 
-      (searchParams.has("type") && searchParams.has("name") && searchParams.has("variant") && searchParams.has("level"))
+      (searchParams.has("type") && searchParams.has("name") && searchParams.has("variant"))
     )) { 
       return //don't fetch data except when 1. only "type" is selected (to get primordial list) or 2. everything is selected
     }
@@ -36,11 +37,16 @@ export function useDecks(searchParams) {
           setDeckCards(data.deck);
           ingestCards(data.deck);
           setPrimordialOptions(data.primordialOptions);
+          setOtherCardPools(data.otherCardPools);
+          data.otherCardPools.map(pool => {
+            ingestCards(pool.cards)
+          })
       } catch (e) {
           console.error("Error fetching deck:", e);
           setError(e.message);
           setDeckCards([]);
-      } finally {
+          setOtherCardPools([]);
+        } finally {
           setIsLoading(false); // Set loading false when fetch finishes (success or error)
       }
     };
@@ -48,5 +54,5 @@ export function useDecks(searchParams) {
     fetchDeck();
   }, [searchParams]);
 
-  return { deckCards, primordialOptions, isLoading, error }
+  return { deckCards, primordialOptions, otherCardPools, isLoading, error }
 }

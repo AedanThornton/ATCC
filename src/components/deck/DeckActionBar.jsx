@@ -60,14 +60,14 @@ const DeckActionBar = ({ cardSetName, deckState }) => {
       {/* Hide/Reveal cards toggle */}
       {deckState.activeCardPool === "deck" && <button className="deck-page_action-button"
         onClick={() => deckState.toggleHiddenCards()}
-        disabled={deckState.cardPools[deckState.activeCardPool].length < 1}
+        disabled={deckState.cardPools[deckState.activeCardPool]?.length < 1}
       >
         {getIcon({ name: "Reveal", size: "1.5em" })}
       </button>}
       {/* Shuffle cards button */}
       {deckState.activeCardPool === "deck" && <button className="deck-page_action-button"
         onClick={() => deckState.shuffleCards()}
-        disabled={deckState.cardPools[deckState.activeCardPool].length < 1}
+        disabled={deckState.cardPools[deckState.activeCardPool]?.length < 1}
       >
         {getIcon({ name: "Shuffle", invert: true })}
       </button>}
@@ -77,7 +77,7 @@ const DeckActionBar = ({ cardSetName, deckState }) => {
           ? deckState.drawCard()
           : deckState.returnAllCardsToDeck()
         }
-        disabled={deckState.cardPools[deckState.activeCardPool].length < 1}
+        disabled={deckState.cardPools[deckState.activeCardPool]?.length < 1}
       >
         {deckState.activeCardPool === "deck"
           ? getIcon({ name: "ContinueStack", invert: true, size: "1.5em" })

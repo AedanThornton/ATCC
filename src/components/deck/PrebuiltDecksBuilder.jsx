@@ -14,13 +14,12 @@ const PrebuiltDecksBuilder = ({ }) => {
 
   // Set Initial params if missing
   useEffect(() => {
-    if (!searchParams.has("type") || !searchParams.has("name") || !searchParams.has("variant") || !searchParams.has("level")) {
+    if (!searchParams.has("type") || !searchParams.has("name") || !searchParams.has("variant")) {
       const newParams = new URLSearchParams(searchParams)
 
       if (!newParams.has("type")) newParams.set("type", "")
       if (!newParams.has("name")) newParams.set("name", "")
       if (!newParams.has("variant")) newParams.set("variant", "")
-      if (!newParams.has("level")) newParams.set("level", "")
 
       setSearchParams(newParams)
     }
@@ -32,13 +31,12 @@ const PrebuiltDecksBuilder = ({ }) => {
     newParams.set("type", prebuiltDeckParameters.type)
     newParams.set("name", prebuiltDeckParameters.name)
     newParams.set("variant", prebuiltDeckParameters.variant)
-    newParams.set("level", prebuiltDeckParameters.level)
 
     setSearchParams(newParams)
   }, [prebuiltDeckParameters])
 
   const handleSelectType = (newType) => {
-    setPrebuilDeckParameters({ type: newType, name: "", variant: "", level: "" })
+    setPrebuilDeckParameters({ type: newType, name: "", variant: "" })
   }
 
   return (
@@ -77,26 +75,11 @@ const PrebuiltDecksBuilder = ({ }) => {
               <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "bp" }))}>BP</li></>
           }
           {prebuiltDeckParameters.type === "exploration" &&
-            <><li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "true" }))}>Use extras</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "false" }))}>Don't use extras</li></>
-          }
-        </ul>
-      </div>
-      <div className="prebuilt-decks-dropdown__button">
-        {prebuiltDeckParameters.level ? prebuiltDeckParameters.level : "Level"}
-        <ul className="prebuilt-decks-dropdown">
-          {prebuiltDeckParameters.type === "primordial" &&
-            <><li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "I" }))}>Level I</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "II" }))}>Level II</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "III" }))}>Level III</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "all" }))}>All</li></>
-          }
-          {prebuiltDeckParameters.type === "exploration" &&
-            <><li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "0" }))}>Acclimation 0</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "1" }))}>Acclimation 1</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "2" }))}>Acclimation 2</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "3" }))}>Acclimation 3</li>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, level: "all" }))}>All</li></>
+            <><li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "0" }))}>Acclimation 0</li>
+              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "1" }))}>Acclimation 1</li>
+              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "2" }))}>Acclimation 2</li>
+              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "3" }))}>Acclimation 3</li>
+              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "all" }))}>All</li></>
           }
         </ul>
       </div>
