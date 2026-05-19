@@ -56,12 +56,12 @@ export function useDeckState(initialSetName) {
   }
 
   const toggleHiddenCards = () => {
-    const anyHidden = cardPools.deck.some(card => hiddenCards[card] === true)
-    anyHidden
-      ? setHideAllCards(false)
+    const anyNotHidden = cardPools[activeCardPool].some(card => hiddenCards[card] === false)
+    anyNotHidden
+      ? setHideAllCards(true)
       : setHiddenCards(() => {
-        const newSet = {};
-        cardPools.deck.map(card => newSet[card] = !hiddenCards[card])
+        const newSet = {...hiddenCards};
+        cardPools[activeCardPool].map(card => newSet[card] = !hiddenCards[card])
         return newSet;
       })
   }  
