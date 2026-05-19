@@ -3,35 +3,31 @@ import getIcon from "../utils/iconUtils";
 import "../../styles/deckpage.css"
 import CardRenderer from "../cards/CardRenderer";
 import DeckCardMenu from "./DeckCardMenu";
+import { useDecks } from "../../hooks/useDecks";
 
-const DeckRenderer = ({ cardPools, setCardPools, activeCardPool, hiddenCards, setHiddenCards }) => {
+const DeckRenderer = ({ deckState }) => {
   const { cardCache } = useLocalStorage();
-
-  const toggleSingleHiddenCard = (cardToChange) => {
-    setHiddenCards(() => {
-      const newSet = {};
-      cardPools.deck.map(card => newSet[card] = card === cardToChange ? !hiddenCards[card] : hiddenCards[card])
-      return newSet;
-    })
-  }
-
+  
   return <div className="deck-page_card-list">
-    {cardPools[activeCardPool]?.map((card, i) =>
-      <div key={i}>
-        {!hiddenCards[card]
-          ? cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} menu={<DeckCardMenu card={card} setCardPools={setCardPools} activeCardPool={activeCardPool} />} />
-          : <div className="deck-page_hidden-card mini-american">
+    {deckState.cardPools[deckState.activeCardPool]?.map((cardID, i) => {
+
+      return <div key={i}>
+        {!deckState.hiddenCards[cardID]
+          ? cardCache.get(cardID) && <CardRenderer cardData={cardCache.get(cardID)} menu={<DeckCardMenu deckState={deckState} card={cardID} />} />
+          : 
+          <div className="deck-page_hidden-card mini-american">
             Hidden Card
             <button className="deck-page_action-button"
-              onClick={() => toggleSingleHiddenCard(card)}
+              onClick={() => deckState.toggleSingleHiddenCard(cardID)}
             >
               {getIcon({ name: "Reveal", invert: true })}
             </button>
           </div>
         }
       </div>
-    )}
-    {cardPools[activeCardPool]?.length < 1 && <span>No cards in {activeCardPool} pool.</span>}
+    })}
+    
+    {deckState.cardPools[deckState.activeCardPool]?.length < 1 && <span>No cards in {deckState.activeCardPool} pool.</span>}
   </div>
 }
 

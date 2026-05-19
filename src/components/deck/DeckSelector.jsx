@@ -1,21 +1,23 @@
-const DeckSelector = ({ activeCardPool, setActiveCardPool }) => {
+import { useDeckState } from "../../hooks/useDeckState"
+
+const DeckSelector = ({ deckState }) => {
   return (
     <div className="deck-page_card-pool-selector">
       <button className="deck-page_card-pool-selector_action-button"
-        onClick={() => setActiveCardPool("deck")}
-        disabled={activeCardPool === "deck"}
+        onClick={() => deckState.setActiveCardPool("deck")}
+        disabled={deckState.activeCardPool === "deck"}
       >
         Deck
       </button>
       <button className="deck-page_card-pool-selector_action-button"
-        onClick={() => setActiveCardPool("discard")}
-        disabled={activeCardPool === "discard"}
+        onClick={() => deckState.setActiveCardPool("discard")}
+        disabled={deckState.activeCardPool === "discard"}
       >
         Discard
       </button>
       <button className="deck-page_card-pool-selector_action-button"
-        onClick={() => setActiveCardPool("removed")}
-        disabled={activeCardPool === "removed"}
+        onClick={() => deckState.setActiveCardPool("removed")}
+        disabled={deckState.activeCardPool === "removed"}
       >
         Removed
       </button>

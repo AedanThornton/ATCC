@@ -9,6 +9,7 @@
 .deck-page_action-bar {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   width: 90%;
   margin: 10px;
   padding: 10px;
@@ -17,9 +18,14 @@
   box-sizing: border-box;
 }
 
+.deck-page_action-bar > * {
+  order: 0;
+}
+
 .deck-page_set-title {
-  flex: 2 1 70%;
   position: relative;
+  width: 100%;
+  order: 99;
 }
 
 .deck-page_set-list {
@@ -43,6 +49,8 @@
   gap: 40px;
   overflow-y: scroll;
   width: 100%;
+  padding: 0 3% 0 4%;
+  box-sizing: border-box;
 }
 
 .deck-page_button-wrapper {
@@ -136,4 +144,42 @@
 
 .deck-page_card-pool-selector_action-button:disabled {
   background-color: var(--accent);
+}
+
+/*  Prebuilt decks bar  */
+.prebuilt-decks-dropdown__button {
+  position: relative;
+  width: 25%;
+}
+
+.prebuilt-decks-dropdown__button:hover .prebuilt-decks-dropdown {
+  display: block;
+}
+
+.prebuilt-decks-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--main-midtone);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+  display: none;
+  max-height: 50dvh;
+  overflow-y: scroll;
+}
+
+.prebuilt-decks-dropdown li {
+  list-style-type: none;
+}
+.prebuilt-decks-dropdown li:hover {
+  background-color: var(--main-light);
+}
+
+@media (min-width: 820px) {
+  .deck-page_set-title {
+    flex: 2 1 70%;
+    order: 0;
+  }
 }

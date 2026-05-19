@@ -1,62 +1,22 @@
-import React, { useState } from 'react';
-import CardList from '../components/catalog/CardList';
-import { useLocalStorage } from '../context/LocalStorageContext';
-import CardRenderer from '../components/cards/CardRenderer';
-import getIcon from '../components/utils/iconUtils';
 import "../styles/deckpage.css"
 import DeckRenderer from '../components/deck/DeckRenderer';
 import DeckHighlightCard from '../components/deck/DeckHighlightCard';
 import DeckActionBar from '../components/deck/DeckActionBar';
 import DeckSelector from '../components/deck/DeckSelector';
 import { useLocation } from 'react-router-dom';
+import { useDeckState } from '../hooks/useDeckState';
 
 function DeckPage({}) {
-  const location = useLocation()
-  const cardSetName = location.state?.cardSetName ?? "";
-  const { appState, cardCache } = useLocalStorage();
-
-  const [activeCardPool, setActiveCardPool] = useState("deck")
-  //Active Card Pools
-  const [cardPools, setCardPools] = useState({
-    deck: appState.savedSets[cardSetName] || [],
-    discard: [],
-    removed: []
-  })
-
-  const [hiddenCards, setHiddenCards] = useState(() => {
-    const newSet = {};
-    cardPools.deck.map(card => newSet[card] = false)
-    return newSet;
-  });
-  const [highlightCard, setHighlightCard] = useState(null);
+  const location = useLocation();
+  const initialSetName = location.state?.cardSetName ?? ""
+  const deckState = useDeckState(initialSetName);
 
   return (
     <div className="deck-page">
-      {highlightCard &&
-        <DeckHighlightCard
-          highlightCard={highlightCard}
-          setHighlightCard={setHighlightCard}
-          setCardPools={setCardPools}
-        />
-      }
-      <DeckActionBar
-        cardSetName={cardSetName}
-        cardPools={cardPools}
-        setCardPools={setCardPools}
-        hiddenCards={hiddenCards}
-        setHiddenCards={setHiddenCards}
-        setHighlightCard={setHighlightCard}
-        activeCardPool={activeCardPool}
-        setActiveCardPool={setActiveCardPool}
-      />
-      <DeckRenderer
-        cardPools={cardPools}
-        setCardPools={setCardPools}
-        activeCardPool={activeCardPool}
-        hiddenCards={hiddenCards}
-        setHiddenCards={setHiddenCards}
-      />
-      <DeckSelector activeCardPool={activeCardPool} setActiveCardPool={setActiveCardPool} />
+      {deckState.highlightCard && <DeckHighlightCard deckState={deckState} />}
+      <DeckActionBar cardSetName={initialSetName} deckState={deckState} />
+      <DeckRenderer deckState={deckState} />
+      <DeckSelector deckState={deckState} />
     </div>
   );
 }

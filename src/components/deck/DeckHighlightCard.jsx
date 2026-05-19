@@ -3,12 +3,12 @@ import "../../styles/deckpage.css"
 import CardRenderer from "../cards/CardRenderer";
 import getIcon from "../utils/iconUtils";
 
-const DeckHighlightCard = ({ highlightCard, setHighlightCard, setCardPools }) => {
+const DeckHighlightCard = ({ deckState }) => {
   const { cardCache } = useLocalStorage();
 
   const sendCardToDiscard = (card) => {
-    setHighlightCard(null)
-    setCardPools(prev => ({
+    deckState.setHighlightCard(null)
+    deckState.setCardPools(prev => ({
       ...prev,
       discard: [...prev.discard, card],
       deck: prev.deck.filter(c => c !== card)
@@ -16,8 +16,8 @@ const DeckHighlightCard = ({ highlightCard, setHighlightCard, setCardPools }) =>
   }
 
   const sendCardToRemoved = (card) => {
-    setHighlightCard(null)
-    setCardPools(prev => ({
+    deckState.setHighlightCard(null)
+    deckState.setCardPools(prev => ({
       ...prev,
       removed: [...prev.removed, card],
       deck: prev.deck.filter(c => c !== card)
@@ -25,23 +25,23 @@ const DeckHighlightCard = ({ highlightCard, setHighlightCard, setCardPools }) =>
   }
 
   return <div className="deck-page_highlight-card">
-    <CardRenderer cardData={cardCache.get(highlightCard)} variant="backpack" />
+    <CardRenderer cardData={cardCache.get(deckState.highlightCard)} variant="backpack" />
     <div className="deck-page_highlight-card__menu">
       {/* Leave card available button */}
       <button className="deck-page_highlight-card__button"
-        onClick={() => setHighlightCard(null)}
+        onClick={() => deckState.setHighlightCard(null)}
       >
         {getIcon({ name: "Check", invert: true })}
       </button>
       {/* Discard card button */}
       <button className="deck-page_highlight-card__button"
-        onClick={() => sendCardToDiscard(highlightCard)}
+        onClick={() => sendCardToDiscard(deckState.highlightCard)}
       >
         {getIcon({ name: "Discard", invert: true })}
       </button>
       {/* Remove card from deck button */}
       <button className="deck-page_highlight-card__button"
-        onClick={() => sendCardToRemoved(highlightCard)}
+        onClick={() => sendCardToRemoved(deckState.highlightCard)}
       >
         {getIcon({ name: "EndStack", invert: true })}
       </button>
