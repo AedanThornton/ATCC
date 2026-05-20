@@ -1,5 +1,5 @@
 import { useDroppable } from "@dnd-kit/react"
-import "../../styles/pagearrow.css"
+import "./pagearrow.css"
 import { useState } from "react";
 import Backpack from "./Backpack";
 

@@ -42,7 +42,7 @@ const DragDropWrapper = ({ children }) => {
       {children}
       <div className={isDragging ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay" }></div>
       {/* <Backpack isDragging={isDragging} /> */}
-      <PageArrow isDragging={isDragging} icon={getIcon({name: "Backpack"})} />
+      <PageArrow isDragging={isDragging} icon={getIcon({name: "Backpack", invert: true})} />
     </DragDropProvider>
   )
 }

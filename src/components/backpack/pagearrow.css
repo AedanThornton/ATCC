@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   transition: background-color 0.2s ease, left 0.6s ease;
@@ -20,13 +19,18 @@
   background-color: var(--accent);
   border-radius: 50%;
   padding: 10px;
-  height: 40px;
-  width: 40px;
+  height: 70px;
+  width: 70px;
   text-align: center;
   line-height: 34px;
   z-index: 550;
   position: absolute;
   left: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }
 
 .page-over .backpack {

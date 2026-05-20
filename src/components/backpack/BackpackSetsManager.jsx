@@ -3,6 +3,7 @@ import getIcon from "../utils/iconUtils"
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import { useState, useRef } from "react";
 import { useCards } from "../../hooks/useCards";
+import BackpackMenu from "./BackpackMenu";
 
 const BackpackSetsManager = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -92,10 +93,8 @@ const BackpackSetsManager = ({ children }) => {
 
   return <div className="backpack-menu">
     <div className="backpack-sets-manager" onMouseLeave={() => setShowSavedSets(false)}>
-      <Link to="/savedsets">{getIcon({ name: "List", invert: true })}</Link>
+      <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
       <div className="backpack-search-bar-wrapper">
-        <button className="backpack-button" onClick={() => {backpackSearchRef.current?.focus(); setShowSavedSets(true)}}>{getIcon({ name: "Edit", invert: true })}</button>
-
         <input
           type="text"
           ref={backpackSearchRef}
@@ -126,7 +125,7 @@ const BackpackSetsManager = ({ children }) => {
       </div>
 
       <button className={`backpack-button ${saveError ? "backpack-menu-error" : ""}`} onClick={() => handleSaveSet(searchTermUI)}>{getIcon({ name: "Save", invert: true })}</button>
-      <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
+      <button className="backpack-button clear-all" onClick={() => handleReset()}>Clear</button>
     </div>
 
     {children}
@@ -135,7 +134,7 @@ const BackpackSetsManager = ({ children }) => {
       <span>{buttonError}</span>
     </div>}
 
-    <button className="backpack-button clear-all" onClick={() => handleReset()}>Clear</button>
+    <BackpackMenu set={searchTermUI} />
   </div>
 }
 

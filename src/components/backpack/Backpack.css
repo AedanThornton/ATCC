@@ -62,24 +62,25 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: column;
 }
 
 .backpack-sets-manager {
   background-color: var(--main-midtone);
   border-radius: 5px;
-  padding: 2px 5px;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: stretch;
-  gap: 5px;
-  max-width: 100%;
+  justify-content: center;
+  gap: 25px;
+  width: 60%;
 }
 
 .backpack-search-bar-wrapper {
   display: flex;
   position: relative;
+  width: 60%;
 }
 
 .backpack-search-bar {
@@ -109,6 +110,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  font-size: 30px;
 }
 
 .backpack-button:hover {
@@ -142,6 +144,7 @@
   margin: 0 3px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .backpack-saved-set-item:hover {
   background-color: var(--main-midtone);
@@ -166,6 +169,38 @@
   border-radius: 5px;
 }
 
+.backpack-side-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  right: 0;
+  position: absolute;
+  gap: 10px;
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+.backpack-side-controls > * {
+  background-color: var(--main);
+  border-radius: 50%;
+  padding: 10px;
+  height: 70px;
+  width: 70px;
+  text-align: center;
+  line-height: 34px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.backpack-side-controls > *:hover {
+  background-color: var(--accent);
+}
+
 @keyframes backpackMenuError {
   0% {
     background-color: rgba(150, 0, 0, 0.562);
@@ -180,9 +215,5 @@
   .backpack-wrapper {
     width: 30dvw;
     left: -28dvw;
-  }
-
-  .backpack-search-bar-wrapper {
-    flex: 1;
   }
 }
