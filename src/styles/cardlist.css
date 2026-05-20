@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 0px;
   margin: 0 4%;
   width: 100%;
   height: 100%;
@@ -40,6 +40,7 @@
 .card-wrapper {
   position: relative;
   transition: transform 150ms ease;
+  transform: scale(0.85);
 }
 
 .card-wrapper > div {
@@ -86,6 +87,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    gap: 40px;
   }
 
   .filter-reset-button {
@@ -98,6 +100,10 @@
 
   .card-list__control-bar--page_number {
     max-width: 25px;
+  }
+
+  .card-wrapper {
+    transform: scale(1);
   }
 }
 
