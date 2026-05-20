@@ -1,0 +1,78 @@
+.page-over {
+  width: 100dvw;
+  height: 100%;
+  position: absolute;
+  left: 90dvw;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: background-color 0.2s ease, left 0.6s ease;
+  z-index: 2000;
+}
+
+.page-over-arrow {
+  transform: translateX(80px);
+  transition: transform 0.8s ease;
+  background-color: var(--accent);
+  border-radius: 50%;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 34px;
+  z-index: 550;
+  position: absolute;
+  left: 0;
+}
+
+.page-over .backpack {
+  transform: scale(0.5);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.page-over.backpack-open .backpack {
+  transform: scale(1);
+}
+
+.page-over:hover .page-over-arrow, .page-over.open .page-over-arrow {
+  transform: translateX(-30px);
+  cursor: pointer;
+}
+
+.page-over.open {
+  background-color: var(--main-light);
+}
+
+.page-over.is-drop-target {
+  background-color: var(--accent);
+  left: 80dvw;
+}
+
+.page-over.backpack-open {
+  left: 0;
+  background-color: var(--main-midtone);
+}
+
+.page-over-arrow.backpack-open {
+  transform: translateX(10px);
+  background-color: var(--main);
+}
+
+.page-over:hover .page-over-arrow.backpack-open {
+  transform: translateX(10px);
+}
+
+.page-over-arrow.backpack-open:hover {
+  background-color: var(--main);
+}
+
+@media (min-width: 820px) {
+  .page-over {
+    left: 96dvw;
+  }
+}
