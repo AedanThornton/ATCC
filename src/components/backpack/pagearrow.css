@@ -1,9 +1,9 @@
 .page-over {
   width: 100dvw;
-  height: 100%;
+  height: 50dvh;
   position: absolute;
   left: 90dvw;
-  top: 0;
+  top: 25dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,6 +77,6 @@
 
 @media (min-width: 820px) {
   .page-over {
-    left: 96dvw;
+    left: 97dvw;
   }
 }
