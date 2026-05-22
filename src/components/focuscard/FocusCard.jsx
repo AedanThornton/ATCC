@@ -76,12 +76,13 @@ function FocusCard({ cardData, currentSide = 1, secretOverlay }) {
       <div className='focus-card-info-container__container'>
         <div className="focus-card-info-container">
           <h1>{cardData.name}</h1>
-          <div><strong>ID(s):</strong> <p>{cardData.cardIDs.map((id, i, array) => {let isLast = i === array.length - 1; return <React.Fragment key={i}>{`${id}${isLast ? "" : ", "}`}</React.Fragment>})}</p></div>
-          <div><strong>Type:</strong> <p>{cardData.techSubType && cardData.techSubType + " "}{cardData.subtype && cardData.subtype + " "}{cardData.cardType} Card</p></div>
-          <div><strong>Card Size:</strong> <p>{cardData.cardSize}</p></div>
           <div><strong>Game:</strong> <p>Aeon Trespass: {cardData.game}</p></div>
           <div><strong>Cycle:</strong> <p>{displayCycle(cardData.cycle)}</p></div>
+          <div><strong>Card Size:</strong> <p>{cardData.cardSize}</p></div>
+          <div><strong>Type:</strong> <p>{cardData.techSubType && cardData.techSubType + " "}{cardData.subtype && cardData.subtype + " "}{cardData.cardType} Card</p></div>
+          <div><strong>ID(s):</strong> <p>{cardData.cardIDs.map((id, i, array) => {let isLast = i === array.length - 1; return <React.Fragment key={i}>{`${id}${isLast ? "" : ", "}`}</React.Fragment>})}</p></div>
           <div><strong>Lore:</strong> <p><i>{displayFlavor(cardData, currentSide)}</i></p></div>
+          {cardData.foundIn && <div><strong>Found In:</strong> <p>{cardData.foundIn}{cardData.secretCardNumber && `, Card ${cardData.secretCardNumber}`}</p></div>}
           {getCardTypeUniqueInfo(cardData.cardType) && <UniqueCardInfo cardData={cardData} cardInfoList={getCardTypeUniqueInfo(cardData.cardType)} />}
         </div>
         {((cardData.faq && cardData.faq.length > 0) || (cardData.errata && Object.keys(cardData.errata).length > 0)) && (<div className="focus-card-info-container">

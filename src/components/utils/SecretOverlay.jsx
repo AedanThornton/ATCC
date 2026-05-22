@@ -1,4 +1,4 @@
-const SecretOverlay = ({text, isVisible}) => {
+const SecretOverlay = ({text, subText, isVisible}) => {
 
   return (
     <>
@@ -6,6 +6,7 @@ const SecretOverlay = ({text, isVisible}) => {
         <div className="secret-overlay">
           <span>Spoiler Warning:</span>
           <span>{text}</span>
+          {subText && <span>{subText}</span>}
         </div>
       )}
     </>

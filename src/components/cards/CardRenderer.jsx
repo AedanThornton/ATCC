@@ -36,7 +36,12 @@ const CardRenderer = ({ cardData, variant = "", menu }) => {
   }
 
   const secretOverlay = <>{
-    spoilersEnabled && isSecretCard && <SecretOverlay text={cardData.foundIn} isVisible={isHidden} />
+    spoilersEnabled && isSecretCard && 
+    <SecretOverlay 
+      text={cardData.foundIn}
+      subText={`Card ${cardData.secretCardNumber}`}
+      isVisible={isHidden} 
+    />
   }</>
 
   const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` + variant })
