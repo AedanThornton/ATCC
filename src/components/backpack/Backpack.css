@@ -48,7 +48,6 @@
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
-  flex: 1;
   gap: 40px;
 }
 
