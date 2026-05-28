@@ -90,7 +90,7 @@ const BackpackSetsManager = ({ children }) => {
     setSearchTermUI("");
   }
 
-  return <div className="backpack-sidebar">
+  return <>
     <div className="backpack-control-bar" onMouseLeave={() => setShowSavedSets(false)}>
       <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
       <div className="backpack-search-bar-wrapper">
@@ -132,7 +132,7 @@ const BackpackSetsManager = ({ children }) => {
     {buttonError && <div className="backpack-error-overlay">
       <span>{buttonError}</span>
     </div>}
-  </div>
+  </>
 }
 
 export default BackpackSetsManager

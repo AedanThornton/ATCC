@@ -22,9 +22,7 @@ const Backpack = ({ isDragging, icon }) => {
   return <div ref={ref} className={`page-over ${isDropTarget ? "is-drop-target" : ""} ${(isDragging && !openBackpack) ? "open" : ""} ${showBackpack ? "backpack-show" : ""} ${openBackpack ? "backpack-open" : ""}`}>
     <BackpackTabSelector showBackpack={showBackpack} />
     <div onClick={() => handleOpen()} className={`page-over-arrow ${openBackpack ? "backpack-open" : ""}`}>{icon}</div>
-    <div style={{flex: 1}}>
-      {showBackpack && <BackpackCardList />}
-    </div>
+    {showBackpack && <BackpackCardList />}
   </div>
 }
 
