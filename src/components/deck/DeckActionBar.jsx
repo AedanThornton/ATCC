@@ -6,7 +6,6 @@ import { Link, useSearchParams } from "react-router-dom";
 import PrebuiltDecksBuilder from "./PrebuiltDecksBuilder";
 
 const DeckActionBar = ({ cardSetName, deckState }) => {
-  const [searchParams, setSearchParams] = useSearchParams()
   const [showSetList, setShowSetList] = useState(false);
   const [activeSetName, setActiveSetName] = useState(cardSetName);
   const { appState } = useLocalStorage();
@@ -28,7 +27,7 @@ const DeckActionBar = ({ cardSetName, deckState }) => {
       <Link to="/savedsets" className="deck-page_action-button">{getIcon({ name: "List", invert: true })}</Link>
       {/* Custom/prebuild toggle button */}
       <button className="deck-page_action-button"
-        onClick={() => {deckState.setDeckSource(deckState.deckSource === "prebuilt" ? "custom" : "prebuilt"); setSearchParams({}); setActiveSetName("")}}
+        onClick={() => {deckState.setDeckSource(deckState.deckSource === "prebuilt" ? "custom" : "prebuilt"); setActiveSetName("")}}
       >
         {deckState.deckSource === "prebuilt"
           ? getIcon({ name: "ArgoKnowledge", invert: true, size: "1.2em" })
@@ -38,7 +37,7 @@ const DeckActionBar = ({ cardSetName, deckState }) => {
     </div>
 
     {deckState.deckSource === "prebuilt"
-      ? <PrebuiltDecksBuilder />
+      ? <PrebuiltDecksBuilder deckState={deckState} />
       : <div className="deck-page_set-title" onMouseEnter={() => setShowSetList(true)} onMouseLeave={() => setShowSetList(false)}>
         {activeSetName}
 

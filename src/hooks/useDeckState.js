@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useLocalStorage } from "../context/LocalStorageContext";
-import { useSearchParams } from "react-router-dom";
 import { useDecks } from "./useDecks";
 
 export function useDeckState(initialSetName) {
@@ -18,9 +17,15 @@ export function useDeckState(initialSetName) {
     return newSet;
   });
   const [highlightCard, setHighlightCard] = useState(null);
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const prebuiltDeck = useDecks(searchParams);
+  
+  const [deckParams, setDeckParams] = useState(() => {
+    const newParams = new URLSearchParams()
+    newParams.set("type", "")
+    newParams.set("name", "")
+    newParams.set("variant", "")
+    return newParams
+  })
+  const prebuiltDeck = useDecks(deckParams);
 
   useEffect(() => {
     if (deckSource !== "prebuilt") {
@@ -113,7 +118,7 @@ export function useDeckState(initialSetName) {
 
   return { 
     toggleHiddenCards, shuffleCards, drawCard, returnAllCardsToDeck, setHideAllCards, toggleSingleHiddenCard, moveCard,
-    deckSource, cardPools, activeCardPool, highlightCard, hiddenCards,
-    setCardPools, setDeckSource, setActiveCardPool, setHiddenCards, setHighlightCard
+    deckSource, cardPools, activeCardPool, highlightCard, hiddenCards, deckParams, prebuiltDeck,
+    setCardPools, setDeckSource, setActiveCardPool, setHiddenCards, setHighlightCard, setDeckParams
   }
 }

@@ -36,7 +36,7 @@ const Backpack = ({ isDragging, icon }) => {
     <div className={`page-over-arrow ${openBackpack ? "backpack-open" : ""}`}>
       <div onClick={() => handleOpen()}>{icon}</div>
     </div>
-    <div style={{display: "flex", flexDirection: "column", justifyContent: "flex-start", height: "100%"}}>
+    <div className="page-over-view-window">
       {showBackpack && views[activeView]}
     </div>
   </div>

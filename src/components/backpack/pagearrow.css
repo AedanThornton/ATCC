@@ -80,6 +80,13 @@
   background-color: var(--main);
 }
 
+.page-over-view-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
 @media (min-width: 820px) {
   .page-over {
     left: 97dvw;

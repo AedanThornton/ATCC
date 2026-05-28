@@ -13,9 +13,11 @@ export function useDecks(searchParams) {
   const { ingestCards } = useLocalStorage();
 
   useEffect(() => {
+    console.log(searchParams)
     if (!(
-      searchParams.has("type") || 
-      (searchParams.has("type") && searchParams.has("name") && searchParams.has("variant"))
+      !searchParams ||
+      (searchParams.get("type") !== "" && searchParams.get("name") === "" && searchParams.get("variant") === "") || 
+      (searchParams.get("type") !== "" && searchParams.get("name") !== "" && searchParams.get("variant") !== "")
     )) { 
       return //don't fetch data except when 1. only "type" is selected (to get primordial list) or 2. everything is selected
     }

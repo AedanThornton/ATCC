@@ -2,37 +2,23 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDecks } from '../../hooks/useDecks.js';
 
-const PrebuiltDecksBuilder = ({ }) => {
-  const [searchParams, setSearchParams] = useSearchParams()
+const PrebuiltDecksBuilder = ({ deckState }) => {
   const [prebuiltDeckParameters, setPrebuilDeckParameters] = useState({
     type: "",
     name: "",
     variant: "",
     level: "",
   })
-  const deck = useDecks(searchParams)
-
-  // Set Initial params if missing
-  useEffect(() => {
-    if (!searchParams.has("type") || !searchParams.has("name") || !searchParams.has("variant")) {
-      const newParams = new URLSearchParams(searchParams)
-
-      if (!newParams.has("type")) newParams.set("type", "")
-      if (!newParams.has("name")) newParams.set("name", "")
-      if (!newParams.has("variant")) newParams.set("variant", "")
-
-      setSearchParams(newParams)
-    }
-  }, [])
 
   useEffect(() => {
-    const newParams = new URLSearchParams(searchParams)
+    const newParams = new URLSearchParams(deckState.deckParams)
 
     newParams.set("type", prebuiltDeckParameters.type)
     newParams.set("name", prebuiltDeckParameters.name)
     newParams.set("variant", prebuiltDeckParameters.variant)
 
-    setSearchParams(newParams)
+    deckState.setDeckParams(newParams)
+    console.log(newParams.toString())
   }, [prebuiltDeckParameters])
 
   const handleSelectType = (newType) => {
@@ -51,11 +37,11 @@ const PrebuiltDecksBuilder = ({ }) => {
       <div className="prebuilt-decks-dropdown__button">
         {prebuiltDeckParameters.name ? prebuiltDeckParameters.name : "Name"}
         <ul className="prebuilt-decks-dropdown">
-          {prebuiltDeckParameters?.type === "primordial" && deck.isLoading && <li>Options loading...</li>}
-          {prebuiltDeckParameters?.type === "primordial" && deck.error && <li>Error loading options... {deck.error}</li>}
+          {prebuiltDeckParameters?.type === "primordial" && deckState.prebuiltDeck.isLoading && <li>Options loading...</li>}
+          {prebuiltDeckParameters?.type === "primordial" && deckState.prebuiltDeck.error && <li>Error loading options... {deckState.prebuiltDeck.error}</li>}
           {prebuiltDeckParameters?.type === "primordial" &&
-            deck.primordialOptions.map(primordial =>
-              <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: primordial }))}>{primordial}</li>
+            deckState.prebuiltDeck.primordialOptions.map((primordial, i) =>
+              <li key={i} onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: primordial }))}>{primordial}</li>
             )
           }
           {prebuiltDeckParameters?.type === "exploration" &&
