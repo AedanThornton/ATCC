@@ -1,9 +1,8 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import Backpack from "./Backpack";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AutoScroller } from "@dnd-kit/dom";
 import { useLocalStorage } from "../../context/LocalStorageContext";
-import PageArrow from "./PageArrow";
 import getIcon from "../utils/iconUtils";
 
 const DragDropWrapper = ({ children }) => {
@@ -42,7 +41,7 @@ const DragDropWrapper = ({ children }) => {
       {children}
       <div className={isDragging ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay" }></div>
       {/* <Backpack isDragging={isDragging} /> */}
-      <PageArrow isDragging={isDragging} icon={getIcon({name: "Backpack", invert: true})} />
+      <Backpack isDragging={isDragging} icon={getIcon({name: "Backpack", invert: true})} />
     </DragDropProvider>
   )
 }

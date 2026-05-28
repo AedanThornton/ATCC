@@ -5,8 +5,8 @@
   left: 90dvw;
   top: 25dvh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   transition: background-color 0.2s ease, left 0.6s ease;
@@ -33,16 +33,6 @@
   font-size: 30px;
 }
 
-.page-over .backpack {
-  transform: scale(0.5);
-  transform-origin: center;
-  transition: transform 0.2s ease;
-}
-
-.page-over.backpack-open .backpack {
-  transform: scale(1);
-}
-
 .page-over:hover .page-over-arrow, .page-over.open .page-over-arrow {
   transform: translateX(-30px);
   cursor: pointer;
@@ -50,6 +40,8 @@
 
 .page-over.open {
   background-color: var(--main-light);
+  top: 0;
+  height: 100dvh;
 }
 
 .page-over.is-drop-target {
@@ -59,7 +51,12 @@
 
 .page-over.backpack-open {
   left: 0;
+}
+
+.page-over.backpack-show {
   background-color: var(--main-midtone);
+  top: 0;
+  height: 100dvh;
 }
 
 .page-over-arrow.backpack-open {

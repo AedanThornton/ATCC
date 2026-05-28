@@ -1,9 +1,8 @@
-import { Link, useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import getIcon from "../utils/iconUtils"
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import { useState, useRef } from "react";
 import { useCards } from "../../hooks/useCards";
-import BackpackMenu from "./BackpackMenu";
 
 const BackpackSetsManager = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -91,8 +90,8 @@ const BackpackSetsManager = ({ children }) => {
     setSearchTermUI("");
   }
 
-  return <div className="backpack-menu">
-    <div className="backpack-sets-manager" onMouseLeave={() => setShowSavedSets(false)}>
+  return <div className="backpack-sidebar">
+    <div className="backpack-control-bar" onMouseLeave={() => setShowSavedSets(false)}>
       <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
       <div className="backpack-search-bar-wrapper">
         <input
@@ -133,8 +132,6 @@ const BackpackSetsManager = ({ children }) => {
     {buttonError && <div className="backpack-error-overlay">
       <span>{buttonError}</span>
     </div>}
-
-    <BackpackMenu set={searchTermUI} />
   </div>
 }
 

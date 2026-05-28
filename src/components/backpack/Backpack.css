@@ -57,7 +57,7 @@
   background-color: #9ec5c9;
 }
 
-.backpack-menu {
+.backpack-sidebar {
   width: 100%;
   height: 100%;
   display: flex;
@@ -66,7 +66,7 @@
   flex-direction: column;
 }
 
-.backpack-sets-manager {
+.backpack-control-bar {
   background-color: var(--main-midtone);
   border-radius: 5px;
   padding: 15px;
@@ -169,25 +169,25 @@
   border-radius: 5px;
 }
 
-.backpack-side-controls {
+.backpack-tab-selector {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  right: 0;
-  position: absolute;
-  gap: 10px;
-  margin-right: 20px;
   font-size: 30px;
+  padding-top: 5px;
+  background-color: unset;
 }
 
-.backpack-side-controls > * {
+.backpack-tab-selector.backpack-open {
   background-color: var(--main);
-  border-radius: 50%;
+  border-bottom: 4px solid var(--main);
+}
+
+.backpack-tab-selector > * {
+  background-color: var(--main);
   padding: 10px;
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 140px;
   text-align: center;
   line-height: 34px;
   box-sizing: border-box;
@@ -195,9 +195,14 @@
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease;
+  border-radius: unset;
 }
 
-.backpack-side-controls > *:hover {
+.backpack-tab-selector > *:hover {
+  background-color: var(--main-light);
+}
+
+.backpack-tab-selector > *:disabled {
   background-color: var(--accent);
 }
 
