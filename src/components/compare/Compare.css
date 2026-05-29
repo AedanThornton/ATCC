@@ -1,0 +1,52 @@
+.compare{
+  display: flex;
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  flex: 1 1 0;
+}
+
+.compare-labels, .compare-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.compare-labels > *, .compare-panel > * {
+  padding: 5px 15px;
+  border: 1px solid var(--main);
+}
+
+.compare-labels {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: var(--main);
+}
+
+.compare-labels-item {
+  min-width: max-content;
+  font-weight: bold;
+}
+
+.compare-panels {
+  display: flex;
+}
+
+.compare-panel__controls {
+  height: 20px;
+}
+
+.compare-panel__card {
+  flex: 1;
+}
+
+.compare-panel__details {
+  height: 60px;
+}
+
+.compare-panel__spacer {
+  height: 500px;
+  border: unset;
+}

@@ -5,6 +5,7 @@ import BackpackCardList from "./BackpackCardList";
 import BackpackTabSelector from "./BackpackTabSelector";
 import SavedSetPage from "../../pages/SavedSetPage";
 import DeckPage from "../../pages/DeckPage";
+import Compare from "../compare/Compare";
 
 const Backpack = ({ isDragging, icon }) => {
   const [openBackpack, setOpenBackpack] = useState(false)
@@ -15,9 +16,9 @@ const Backpack = ({ isDragging, icon }) => {
   const views = {
     "Backpack": <BackpackCardList />,
     "EditDeck": <DeckPage />,
-    "Compare": <div style={{height: "1000px"}}>Compare</div>,
-    "LoadoutBuilder": <div style={{height: "1000px"}}>LoadoutBuilder</div>,
-    "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
+    "Compare": <Compare />,
+    // "LoadoutBuilder": <div style={{height: "1000px"}}>LoadoutBuilder</div>,
+    // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
     "List": <SavedSetPage />, 
   };
 
