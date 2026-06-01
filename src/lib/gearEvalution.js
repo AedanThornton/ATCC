@@ -36,7 +36,6 @@ export function getPowerDiceList({hits = 0, maxHits = 0, powerArray = [], curren
             "Power": 0,
           }
           powerGroup.type.map(die => output[die] += (powerGroup.gate.type === "Hits" ? 1 : hits))
-          console.log(output)
         }
       }
     } else {

@@ -90,7 +90,6 @@ const Compare = ({}) => {
             </div>
 
             <div className="compare-panel__card">
-              {console.log(cardData.name)}
               <CardRenderer cardData={cardData} variant="backpack" />
             </div>
 

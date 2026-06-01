@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./utils.css"
 import getIcon from "./iconUtils";
 
 const EditableTitle = ({ titleID, onSave, initialName }) => {
   const [draftingName, setDraftingName] = useState("")
   const [editingID, setEditingID] = useState(null);
+  const titleRef = useRef(null)
 
   const handleSaveName = (oldName) => {
     onSave(oldName, draftingName)
@@ -24,6 +25,10 @@ const EditableTitle = ({ titleID, onSave, initialName }) => {
     setDraftingName(term);
   }
 
+  useEffect(() => {
+    if (editingID === titleID) titleRef.current?.focus()
+  }, [editingID])
+
   return (
     <span className="editable-title">
       <span 
@@ -35,17 +40,18 @@ const EditableTitle = ({ titleID, onSave, initialName }) => {
 
       {editingID === titleID
         ? <input
-          type="text"
-          placeholder="..."
-          value={draftingName}
-          onChange={(e) => handleSearchUpdate(e.target.value)}
-          className="editable-title-search-bar"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSaveName(set)
-            }
-          }}
-        />
+            ref={titleRef}
+            type="text"
+            placeholder="..."
+            value={draftingName}
+            onChange={(e) => handleSearchUpdate(e.target.value)}
+            className="editable-title-search-bar"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSaveName(set)
+              }
+            }}
+          />
         : <span className="editable-title-nonediting">{initialName}</span>
       }
     </span>

@@ -177,12 +177,12 @@
 }
 
 .backpack-tab-selector.backpack-open {
-  background-color: var(--main);
-  border-bottom: 4px solid var(--main);
+  background-color: var(--main-midtone);
+  border-bottom: 4px solid var(--main-midtone);
 }
 
 .backpack-tab-selector > * {
-  background-color: var(--main);
+  background-color: var(--main-midtone);
   padding: 10px;
   height: 40px;
   width: 140px;

@@ -15,14 +15,14 @@
 
 .compare-labels > *, .compare-panel > * {
   padding: 5px 15px;
-  border: 1px solid var(--main);
+  border: 1px solid var(--main-midtone);
 }
 
 .compare-labels {
   position: sticky;
   left: 0;
   z-index: 10;
-  background-color: var(--main);
+  background-color: var(--main-midtone);
 }
 
 .compare-labels-item {

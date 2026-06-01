@@ -59,7 +59,7 @@
 }
 
 .page-over.backpack-show {
-  background-color: var(--main-midtone);
+  background-color: var(--main);
   top: 0;
   height: 100dvh;
 }
