@@ -92,3 +92,41 @@
     right: 0;
     position: absolute;
 }
+
+/* Editable Title */
+.editable-title {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  background-color: var(--main);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.editable-title::placeholder, .editable-title input[type="text"] {
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.editable-title-nonediting, .editable-title::placeholder, .editable-title input[type="text"] {
+  height: 36px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+}
+
+.editable-title-button {
+  width: fit-content;
+  flex: unset;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.editable-title-button:hover {
+  background-color: var(--main-light);
+}

@@ -27,35 +27,15 @@
 
 .saved-set-menu {
   text-align: center;
-  max-width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  width: 90%;
   height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: end;
   gap: 10px;
-}
-
-.saved-set-title {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  background-color: var(--main);
-  border-radius: 5px;
-  padding: 5px 10px;
-}
-
-.saved-set-menu, .saved-set-title::placeholder, .saved-set-title input[type="text"] {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.saved-sets-title-nonediting, .saved-set-title::placeholder, .saved-set-title input[type="text"] {
-  width: 250px;
-  max-width: 80%;
-  height: 36px;
-  box-sizing: border-box;
-  text-align: center;
 }
 
 .saved-set-cards {

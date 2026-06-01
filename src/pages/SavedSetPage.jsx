@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
-import CardRenderer from "../components/cards/CardRenderer";
 import { useLocalStorage } from "../context/LocalStorageContext";
 import "../styles/savedsetspage.css"
 import { useModal } from "../context/FocusContext";
 import getIcon from "../components/utils/iconUtils";
 import { Link } from "react-router-dom";
+import EditableTitle from "../components/utils/EditableTitle";
 
 function SavedSetPage() {
   const { appState, cardCache, saveSet, deleteSet } = useLocalStorage();
   const { openModal } = useModal();
-  const [draftingName, setDraftingName] = useState("")
-  const [editingID, setEditingID] = useState(null);
   
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
@@ -26,61 +23,13 @@ function SavedSetPage() {
     deleteSet(setName)
   }
 
-  const handleSaveName = (oldName) => {
-    renameSet(oldName, draftingName)
-    setEditingID(null)
-  }
-
-  const handleStartEditing = (id, name) => {
-    setEditingID(id)
-    setDraftingName(name)
-  }
-
-  const handleSearchUpdate = (term) => {
-    if (term.length > 20) {
-      term = term.slice(0, 20);
-    }
-
-    setDraftingName(term);
-  }
-
   return (
     <div className="saved-sets-page">
       {Object.keys(appState.savedSets).map((set, i) => (
         <div key={i} className="saved-set-row">
           <div className="saved-set-menu">
-            <span className="saved-set-title">
-              <Link 
-                className="saved-sets-button"
-                to="/deck"
-                state={{cardSetName: set }}
-              >
-                {getIcon({ name: "EditDeck", invert: true })}
-              </Link>
-              <span 
-                className="saved-sets-button" 
-                onClick={() => editingID === i ? handleSaveName(set) : handleStartEditing(i, set)}
-              >
-                {getIcon({ name: editingID === i ? "Check" : "Edit", invert: true })}
-              </span>
-
-              {editingID === i
-                ? <input
-                  type="text"
-                  placeholder="Set name..."
-                  value={draftingName}
-                  onChange={(e) => handleSearchUpdate(e.target.value)}
-                  className="saved-sets-page-search-bar"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      handleSaveName(set)
-                    }
-                  }}
-                />
-                : <span className="saved-sets-title-nonediting">{set}</span>
-              }
-              <span className="saved-sets-button" onClick={() => deleteSet(set)}>{getIcon({ name: "Trash", invert: true })}</span>
-            </span>
+            <EditableTitle titleID={i} onSave={renameSet} initialName={set} />
+            <span className="saved-sets-button" onClick={() => deleteSet(set)}>{getIcon({ name: "Trash", invert: true })}</span>
             <span style={{ fontSize: "14px" }}>Cards in set: {appState.savedSets[set].length}</span>
           </div>
           <div className="saved-set-cards">
