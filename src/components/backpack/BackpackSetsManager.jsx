@@ -8,12 +8,12 @@ const BackpackSetsManager = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchTermUI, setSearchTermUI] = useState("");
   const [saveError, setSaveError] = useState(false)
-  const [loadError, setLoadError] = useState(false)
   const [buttonError, setButtonError] = useState(null)
   const [showSavedSets, setShowSavedSets] = useState(false);
 
   const { appState, saveSet, loadSet, deleteSet, clearBackpack, addToBackpack } = useLocalStorage();
-  const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
+  const { data } = useCards(searchParams);
+  const filteredCards = data?.cards
   
   const backpackSearchRef = useRef(null);
 

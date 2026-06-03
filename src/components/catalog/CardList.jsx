@@ -11,7 +11,8 @@ const CardList = () => {
 
   //Response values from API
   const { filterOptions, optionsLoading, optionsError } = useFilterOptions();
-  const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
+  const { data, isLoading, error } = useCards(searchParams);
+  const filteredCards = data?.cards
 
   // Set Initial params if missing
   useEffect(() => {

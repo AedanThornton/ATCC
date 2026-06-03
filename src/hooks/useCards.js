@@ -1,55 +1,39 @@
-import { useState, useEffect } from 'react';
-import { useLocalStorage } from '../context/LocalStorageContext';
+import { useQuery } from "@tanstack/react-query";
+import { useLocalStorage } from "../context/LocalStorageContext";
 
 export function useCards(searchParams) {
-  const [filteredCards, setFilteredCards] = useState([]);
-
-  //Page states
-  const [totalPages, setTotalPages] = useState(0);
-  const [totalCards, setTotalCards] = useState(0);
-
-  //Function states
-  const [isLoading, setIsLoading] = useState(true); // Start loading initially
-  const [error, setError] = useState(null);
-
   const { ingestCards } = useLocalStorage();
 
-  // --- Effect to Fetch Data (Depends on Filters) ---
-  // This runs on mount AND whenever filter state changes
-  useEffect(() => {
-    if (!searchParams.has("p") || !searchParams.has("s")) { return; }
-
-    // --- API Fetching Function (using useCallback) ---
-    const fetchCards = async () => {
-      setIsLoading(true);
-      setError(null);
+  return useQuery({
+    queryKey: ["cards", searchParams.toString()],
+    queryFn: async () => {
+      if (!searchParams.has("p") || !searchParams.has("s")) {
+        return {
+          cards: [],
+          totalCards: 0,
+          totalPages: 0
+        };
+      }
 
       const apiBase = import.meta.env.PROD
         ? import.meta.env.VITE_API_BASE_URL
-        : '';
-      const apiUrl = `${apiBase}/api/cards?${searchParams.toString()}`;         
+        : "";
 
-      try {
-          const response = await fetch(apiUrl);
-          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-          const data = await response.json();
-          
-          setFilteredCards(data.cards);
-          ingestCards(data.cards);
-          setTotalCards(parseInt(data.totalCards));
-          setTotalPages(parseInt(data.totalPages));
-      } catch (e) {
-          console.error("Error fetching cards:", e);
-          setError(e.message);
-          setFilteredCards([]);
-      } finally {
-          setIsLoading(false); // Set loading false when fetch finishes (success or error)
+      const apiUrl = `${apiBase}/api/cards?${searchParams.toString()}`;
+
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
 
-    console.log("Filters changed or initial load done, fetching data...");
-    fetchCards();
-  }, [searchParams]);
+      const data = await response.json();
 
-  return { filteredCards, totalPages, totalCards, isLoading, error }
+      // optional side effect (see note below)
+      ingestCards(data.cards);
+
+      return data;
+    },
+    keepPreviousData: true,
+    staleTime: 1000 * 60 * 5
+  });
 }
