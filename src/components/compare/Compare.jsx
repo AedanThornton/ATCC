@@ -86,6 +86,7 @@ const Compare = ({}) => {
 
             <div className="compare-panel__controls">
               {/* rearrange */}
+              {/* editable name field to swap with different card */}
               {/* remove from compare */}
             </div>
 
