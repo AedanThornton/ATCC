@@ -62,6 +62,7 @@ const BackpackSetsManager = ({ children }) => {
   }
 
   const handleLoadSet = (setName) => {
+    console.log(setName)
     loadSet(setName);
   }
 
@@ -76,7 +77,7 @@ const BackpackSetsManager = ({ children }) => {
     <div className="backpack-control-bar" onMouseLeave={() => setShowSavedSets(false)}>
       <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
       <SearchableList 
-        itemNames={Object.keys(appState.savedSets)}
+        items={Object.keys(appState.savedSets).map(key => {return {id: key, name: key}})}
         onSearchEnter={handleSaveSet}
         onItemClick={handleLoadSet}
         customPlaceholder="Saved Sets"

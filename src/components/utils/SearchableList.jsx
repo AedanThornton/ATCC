@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-const SearchableList = ({ itemNames, onItemClick, onSearchEnter, customPlaceholder, customEmptyMsg }) => {
+const SearchableList = ({ items, onItemClick, onSearchEnter, customPlaceholder, customEmptyMsg }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchTermUI, setSearchTermUI] = useState("");
   
@@ -21,14 +21,14 @@ const SearchableList = ({ itemNames, onItemClick, onSearchEnter, customPlacehold
   }
 
   
-  return <div className="searchable-list-wrapper">
+  return <div className="searchable-list-wrapper" onMouseLeave={() => setShowDropdown(false)}>
     <input
       type="text"
       ref={searchableListRef}
       placeholder={customPlaceholder ? customPlaceholder : ""}
       value={searchTermUI}
       onChange={(e) => handleSearchUpdate(e.target.value)}
-      onFocus={() => setShowDropdown(true)}
+      onMouseEnter={() => setShowDropdown(true)}
       onBlur={() => setShowDropdown(false)}
       className="searchable-list-search-bar"
       onKeyDown={(e) => {
@@ -40,11 +40,11 @@ const SearchableList = ({ itemNames, onItemClick, onSearchEnter, customPlacehold
 
     {showDropdown && (
       <div className="searchable-list-dropdown" style={{ width: searchableListRef.current.offsetWidth }}>
-        {itemNames.length === 0 && <div className="searchable-list-item">{customEmptyMsg ? customEmptyMsg : "Nothing to display..."}</div>}
-        {itemNames.map((itemName) => {
-          if (!itemName.toLowerCase().includes(searchTermUI.toLowerCase())) return null;
-          return <div className="searchable-list-item" key={itemName} onClick={() => handleDropdownSelect(itemName)}>
-            {itemName}
+        {items.length === 0 && <div className="searchable-list-item">{customEmptyMsg ? customEmptyMsg : "Nothing to display..."}</div>}
+        {items.map((item) => {
+          if (!item.name.toLowerCase().includes(searchTermUI.toLowerCase())) return null;
+          return <div className="searchable-list-item" key={item.id} onClick={() => handleDropdownSelect(item.id)}>
+            {item.name}
           </div>
         })}
       </div>
