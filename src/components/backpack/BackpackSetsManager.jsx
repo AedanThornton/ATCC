@@ -62,7 +62,6 @@ const BackpackSetsManager = ({ children }) => {
   }
 
   const handleLoadSet = (setName) => {
-    console.log(setName)
     loadSet(setName);
   }
 

@@ -35,7 +35,27 @@
 }
 
 .compare-panel__controls {
-  height: 20px;
+  padding: 0;
+  background-color: var(--main);
+  display: flex;
+  justify-content: space-around;
+}
+
+.compare-panel__controls-button {
+  padding: 2px;
+  background-color: var(--main);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30%;
+  border: 1px solid var(--main-midtone);
+  margin: 2px;
+}
+
+.compare-panel__controls-button:hover {
+  background-color: var(--accent);
 }
 
 .compare-panel__card {
@@ -49,4 +69,26 @@
 .compare-panel__spacer {
   height: 500px;
   border: unset;
+}
+
+.compare-add-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.compare-add-panel__button {
+  font-size: 3em;
+  line-height: 1.15em;
+  background-color: var(--main-midtone);
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.compare-add-panel__button:hover {
+  background-color: var(--accent);
 }

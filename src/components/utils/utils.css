@@ -140,7 +140,7 @@
 
 .searchable-list-search-bar {
   background-color: var(--main);
-  border: none;
+  border: 1px solid var(--main);
   border-radius: 5px;
   text-align: center;
   width: 100%;
@@ -150,7 +150,7 @@
   text-align: center;
 }
 
-.searchable-list-search-bar:focus {
+.searchable-list-search-bar:focus, .searchable-list-search-bar:hover {
   border-color: rgb(146, 146, 146);
 }
 
