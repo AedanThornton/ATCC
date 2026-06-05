@@ -95,7 +95,7 @@ const Compare = ({}) => {
     <div className="compare">
 
       <div className="compare-labels">
-        <div className="compare-panel__controls"></div>{/* controls placeholder */}
+        <div className="compare-panel__controls" style={{backgroundColor: "var(--main-midtone)"}}><div className="compare-panel__controls-button" style={{backgroundColor: "var(--main-midtone)"}}></div></div>{/* controls placeholder */}
         <div className="compare-panel__card"><div className="mini-american" style={{width: 0}}></div></div>{/* card placeholder */}
         {Object.keys(compareRows).map((rowName, i) => (
           <div key={i} className="compare-panel__details compare-labels-item">
