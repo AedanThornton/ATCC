@@ -13,7 +13,6 @@ export function useDecks(searchParams) {
   const { ingestCards } = useLocalStorage();
 
   useEffect(() => {
-    console.log(searchParams)
     if (!(
       !searchParams ||
       (searchParams.get("type") !== "" && searchParams.get("name") === "" && searchParams.get("variant") === "") || 

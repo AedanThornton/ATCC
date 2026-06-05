@@ -3,6 +3,7 @@ import getIcon from "../utils/iconUtils"
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import { useState, useRef } from "react";
 import { useCards } from "../../hooks/useCards";
+import SearchableList from "../utils/SearchableList";
 
 const BackpackSetsManager = ({ children }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -60,22 +61,8 @@ const BackpackSetsManager = ({ children }) => {
     })
   }
 
-  const handleSearchUpdate = (term) => {
-    if (term.length > 20) {
-      term = term.slice(0, 20);
-    }
-
-    setSearchTermUI(term);
-  }
-
   const handleLoadSet = (setName) => {
     loadSet(setName);
-  }
-
-  const handleDropdownSelect = (setName) => {
-    setSearchTermUI(setName);
-    setShowSavedSets(false);
-    handleLoadSet(setName);
   }
 
   const handleReset = () => {
@@ -85,43 +72,16 @@ const BackpackSetsManager = ({ children }) => {
     clearBackpack();
   }
 
-  const handleDeleteSet = (setName) => {
-    deleteSet(setName);
-    setSearchTermUI("");
-  }
-
   return <>
     <div className="backpack-control-bar" onMouseLeave={() => setShowSavedSets(false)}>
       <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
-      <div className="backpack-search-bar-wrapper">
-        <input
-          type="text"
-          ref={backpackSearchRef}
-          placeholder="Saved Sets"
-          value={searchTermUI}
-          onChange={(e) => handleSearchUpdate(e.target.value)}
-          onMouseEnter={() => setShowSavedSets(true)}
-          className="backpack-search-bar"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSaveSet(searchTermUI)
-            }
-          }}
-        />
-
-        {showSavedSets && (
-          <div className="backpack-saved-sets-dropdown" style={{ width: backpackSearchRef.current.offsetWidth }}>
-            {Object.keys(appState.savedSets).length === 0 && <div className="backpack-saved-set-item">No saved sets</div>}
-            {Object.keys(appState.savedSets).map((setName) => {
-              if (!setName.toLowerCase().includes(searchTermUI.toLowerCase())) return null;
-              return <div className="backpack-saved-set-item" key={setName}  onClick={() => handleDropdownSelect(setName)}>
-                {setName}
-                <button className="backpack-button" onClick={(e) => {e.stopPropagation(); handleDeleteSet(setName)}}>{getIcon({ name: "Trash", invert: true })}</button>
-              </div>
-            })}
-          </div>
-        )}
-      </div>
+      <SearchableList 
+        itemNames={Object.keys(appState.savedSets)}
+        onSearchEnter={handleSaveSet}
+        onItemClick={handleLoadSet}
+        customPlaceholder="Saved Sets"
+        customEmptyMsg="No Saved Sets"
+      />
 
       <button className={`backpack-button ${saveError ? "backpack-menu-error" : ""}`} onClick={() => handleSaveSet(searchTermUI)}>{getIcon({ name: "Save", invert: true })}</button>
       <button className="backpack-button clear-all" onClick={() => handleReset()}>Clear</button>

@@ -75,32 +75,6 @@
   gap: 25px;
 }
 
-.backpack-search-bar-wrapper {
-  display: flex;
-  position: relative;
-  width: 60%;
-}
-
-.backpack-search-bar {
-  background-color: var(--main);
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  width: 100%;
-}
-
-.backpack-search-bar::placeholder {
-  text-align: center;
-}
-
-.backpack-search-bar:focus {
-  border-color: rgb(146, 146, 146);
-}
-
-.backpack-search-bar:focus::placeholder {
-  color: var(--main-midtone);
-}
-
 .backpack-button {
   padding: 4px;
   background-color: unset;
@@ -121,31 +95,6 @@
 
 .backpack-menu-error {
   animation: backpackMenuError 0.5s ease;
-}
-
-.backpack-saved-sets-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 100%;
-  background-color: var(--main-light);
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  max-height: 450%;
-  overflow-y: auto;
-}
-
-.backpack-saved-set-item {
-  padding: 5px;
-  cursor: pointer;
-  margin: 0 3px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.backpack-saved-set-item:hover {
-  background-color: var(--main-midtone);
 }
 
 .backpack-error-overlay {

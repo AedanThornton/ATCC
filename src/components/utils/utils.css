@@ -130,3 +130,69 @@
 .editable-title-button:hover {
   background-color: var(--main-light);
 }
+
+/* Searchable List */
+.searchable-list-wrapper {
+  display: flex;
+  position: relative;
+  width: 60%;
+}
+
+.searchable-list-search-bar {
+  background-color: var(--main);
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.searchable-list-search-bar::placeholder {
+  text-align: center;
+}
+
+.searchable-list-search-bar:focus {
+  border-color: rgb(146, 146, 146);
+}
+
+.searchable-list-search-bar:focus::placeholder {
+  color: var(--main-midtone);
+}
+
+.searchable-list-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  background-color: var(--main-light);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  max-height: 450%;
+  overflow-y: auto;
+}
+
+.searchable-list-item {
+  padding: 5px;
+  cursor: pointer;
+  margin: 0 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchable-list-item:hover {
+  background-color: var(--main-midtone);
+}
+
+.searchable-list-button {
+  padding: 4px;
+  background-color: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+.searchable-list-button:hover {
+  background-color: var(--main-light);
+}
