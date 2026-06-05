@@ -1,4 +1,4 @@
-const SecretOverlay = ({text, subText, isVisible}) => {
+const SecretOverlay = ({text, subText = "", isVisible}) => {
 
   return (
     <>

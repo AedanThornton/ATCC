@@ -39,7 +39,7 @@ const CardRenderer = ({ cardData, variant = "", menu }) => {
     spoilersEnabled && isSecretCard && 
     <SecretOverlay 
       text={cardData.foundIn}
-      subText={`Card ${cardData.secretCardNumber}`}
+      subText={cardData.secretCardNumber ? `Card ${cardData.secretCardNumber}` : null}
       isVisible={isHidden} 
     />
   }</>
