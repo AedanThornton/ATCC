@@ -6,9 +6,10 @@ import { toPercent } from "../../lib/extraMath.js"
 import { getPowerDiceList, calculateHitChance } from "../../lib/gearEvalution.js"
 import SearchableList from "../utils/SearchableList.jsx"
 import getIcon from "../utils/iconUtils.jsx"
+import { useAllCards } from "../../hooks/useAllCards.js"
 
 const Compare = ({}) => {
-  const { cardCache } = useLocalStorage()
+  const { data, isLoading, error } = useAllCards()
   const [cards, setCards] = useState([])
   const inputArgs = {
     toHitTarget: 10,
@@ -66,11 +67,11 @@ const Compare = ({}) => {
     "Chance to Wound": card => card.cycle,
     "Chance to Fail": card => card.cycle,
   }
-
-  const gearNames = [...cardCache]
-    .map(keyvalue => keyvalue[1])
+  const cachedCards = data ? data.cards : []
+  const gearNames = cachedCards
     .filter(card => card.cardType.toLowerCase() === 'gear')
     .map(card => {return {id: card.cardIDs[0], name: card.name}})
+    
 
   const addPanel = () => {
     setCards([
@@ -81,7 +82,7 @@ const Compare = ({}) => {
 
   const setPanelCard = (pos, id) => {
     const newCards = [...cards]
-    newCards[pos] = cardCache.get(id)
+    newCards[pos] = cachedCards.filter(card => card.cardIDs[0] === id)[0]
     setCards(newCards)
   }
 
