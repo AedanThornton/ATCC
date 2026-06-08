@@ -18,11 +18,14 @@
   border: 1px solid var(--main-midtone);
 }
 
+.compare-labels > * {
+  background-color: var(--main-midtone);
+}
+
 .compare-labels {
   position: sticky;
   left: 0;
   z-index: 10;
-  background-color: var(--main-midtone);
 }
 
 .compare-labels-item {

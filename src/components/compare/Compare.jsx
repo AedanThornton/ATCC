@@ -115,7 +115,7 @@ const Compare = ({}) => {
               {/* rearrange */}
               <div className="compare-panel__controls-button">{getIcon({name: "List", invert: true})}</div>
               {/* editable name field to swap with different card */}
-              <SearchableList items={gearNames} onItemClick={(id) => setPanelCard(i, id)} />
+              <SearchableList items={gearNames} onItemClick={(id) => setPanelCard(i, id)} customPlaceholder="Select card..." />
               {/* remove from compare */}
               <div className="compare-panel__controls-button" onClick={() => removePanelCard(i)}>X</div>
             </div>
