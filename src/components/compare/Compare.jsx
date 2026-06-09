@@ -31,7 +31,9 @@ const Compare = ({}) => {
   }
   const compareRows = {
     "Power Level": card => card.cycle,
-    "Power Tier": card => card.tier,
+    "Power Tier": card => card.tier || "missing data",
+  }
+  const compareRowsOffense = {
     "Dice": card => parseInt(card.offensiveStatistics.attackDice),
     "Precision": card => card.offensiveStatistics.precision,
     "Max Dice": card => {
@@ -44,7 +46,7 @@ const Compare = ({}) => {
       precision: parseInt(card.offensiveStatistics.precision),
       toHitTarget: inputArgs.toHitTarget
     }),
-    "Chance to Hit/Full Miss": card => {
+    "% Hit/Full Miss": card => {
       const hitChance = calculateHitChance({ 
         diceCount: parseInt(card.offensiveStatistics.attackDice), 
         precision: parseInt(card.offensiveStatistics.precision),
@@ -58,14 +60,17 @@ const Compare = ({}) => {
         <span style={{color: "rgb(211, 21, 21)"}}>{toPercent(1 - hitChance)}</span>
       </>)
     },
-    "Chance to Full Hit": card => toPercent(calculateHitChance({ 
+    "% Full Hit": card => toPercent(calculateHitChance({ 
       diceCount: parseInt(card.offensiveStatistics.attackDice), 
       precision: parseInt(card.offensiveStatistics.precision),
       desiredHits: parseInt(card.offensiveStatistics.attackDice),
       toHitTarget: inputArgs.toHitTarget
     })),
-    "Chance to Wound": card => card.cycle,
-    "Chance to Fail": card => card.cycle,
+    "% Wound/Fail (max hits)": card => card.cycle,
+    "% Wound/Fail (rolled hits)": card => card.cycle,
+  }
+  const compareRowsDefense = {
+
   }
   const cachedCards = data ? data.cards : []
   const gearNames = cachedCards
@@ -103,6 +108,16 @@ const Compare = ({}) => {
             {rowName}
           </div>
         ))}
+        {Object.keys(compareRowsOffense).map((rowName, i) => (
+          <div key={i} className="compare-panel__details compare-labels-item">
+            {rowName}
+          </div>
+        ))}
+        {Object.keys(compareRowsDefense).map((rowName, i) => (
+          <div key={i} className="compare-panel__details compare-labels-item">
+            {rowName}
+          </div>
+        ))}
         <div className="compare-panel__spacer"></div>
       </div>
 
@@ -122,7 +137,7 @@ const Compare = ({}) => {
 
             <div className="compare-panel__card">
               {cardHasData
-                ? <CardRenderer cardData={card} variant="backpack" />
+                ? <CardRenderer cardData={card} variant="backpack" notDraggable={true} />
                 : <div className="mini-american"></div>
               }
             </div>
@@ -130,6 +145,16 @@ const Compare = ({}) => {
             {Object.keys(compareRows).map((rowName, i) => (
               <div key={i} className="compare-panel__details">
                 {(cardHasData && (compareRows[rowName](card) === 0 || compareRows[rowName](card))) ? compareRows[rowName](card) : "-"}
+              </div>
+            ))}
+            {Object.keys(compareRowsOffense).map((rowName, i) => (
+              <div key={i} className="compare-panel__details">
+                {(cardHasData && Object.keys(card.offensiveStatistics).length > 0 && (compareRowsOffense[rowName](card) === 0 || compareRowsOffense[rowName](card))) ? compareRowsOffense[rowName](card) : "-"}
+              </div>
+            ))}
+            {Object.keys(compareRowsDefense).map((rowName, i) => (
+              <div key={i} className="compare-panel__details">
+                {(cardHasData && Object.keys(card.defensiveStatistics).length > 0 && (compareRowsDefense[rowName](card) === 0 || compareRowsDefense[rowName](card))) ? compareRowsDefense[rowName](card) : "-"}
               </div>
             ))}
 

@@ -13,13 +13,15 @@
   align-items: stretch;
 }
 
-.compare-labels > *, .compare-panel > * {
+.compare-panel > * {
   padding: 5px 15px;
   border: 1px solid var(--main-midtone);
 }
 
 .compare-labels > * {
-  background-color: var(--main-midtone);
+  padding: 5px 15px;
+  border: 1px solid var(--main);
+  background-color: var(--main-light);
 }
 
 .compare-labels {
@@ -29,8 +31,9 @@
 }
 
 .compare-labels-item {
-  min-width: max-content;
   font-weight: bold;
+  text-wrap: nowrap;
+  text-align: start;
 }
 
 .compare-panels {

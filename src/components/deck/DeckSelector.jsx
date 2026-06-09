@@ -1,8 +1,9 @@
 const DeckSelector = ({ deckState }) => {
   return (
     <div className="deck-page_card-pool-selector">
-      {Object.keys(deckState.cardPools).map(poolName => ( 
-        <button className="deck-page_card-pool-selector_action-button"
+      {Object.keys(deckState.cardPools).map((poolName, i) => ( 
+        <button key={i}
+          className="deck-page_card-pool-selector_action-button"
           onClick={() => deckState.setActiveCardPool(poolName)}
           disabled={deckState.activeCardPool === poolName}
         >

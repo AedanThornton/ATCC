@@ -7,7 +7,7 @@ import renderTypes from "../../lib/renderTypes";
 import { useSpoilers } from "../../context/SpoilerContext";
 import { useModal } from '../../context/FocusContext';
 
-const CardRenderer = ({ cardData, variant = "", menu }) => {
+const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
   const { openModal } = useModal();
   const { spoilersEnabled } = useSpoilers();
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
@@ -55,7 +55,7 @@ const CardRenderer = ({ cardData, variant = "", menu }) => {
     />
 
   return (
-    <div className='card-wrapper' ref={ref}>
+    <div className='card-wrapper' ref={!notDraggable ? ref : () => {}}>
       {(isNotMobile && variant !== "backpack")
         ? <div style={{ position: "relative" }}>
           {currentCard}

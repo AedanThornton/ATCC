@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { act, useState } from "react";
 import getIcon from "../utils/iconUtils"
 import "../../styles/deckpage.css"
 import { useLocalStorage } from "../../context/LocalStorageContext";
@@ -39,7 +39,7 @@ const DeckActionBar = ({ cardSetName, deckState }) => {
     {deckState.deckSource === "prebuilt"
       ? <PrebuiltDecksBuilder deckState={deckState} />
       : <div className="deck-page_set-title" onMouseEnter={() => setShowSetList(true)} onMouseLeave={() => setShowSetList(false)}>
-        {activeSetName}
+        {activeSetName ? activeSetName : <span style={{color: "gray", fontSize: "0.8em"}}>Select a card set to play with...</span>}
 
         {showSetList && <div className="deck-page_set-list">
           {Object.keys(appState.savedSets)?.map((setName, i) => (
