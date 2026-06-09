@@ -47,7 +47,7 @@ function SavedSetPage() {
                   <span>{cardCache.get(card)?.cardIDs.join(", ")}</span>
                   <span>{cardCache.get(card)?.name}</span>
                   <span>{cardCache.get(card)?.cardType}</span>
-                  <span className="saved-sets-button" style={{ flex: "unset" }} onClick={(e) => {e.stopPropagation(); removeCardFromSet(set, card)}}>{getIcon({ name: "Trash", invert: true })}</span>
+                  <span className="saved-sets-button" style={{ flex: "unset" }} onClick={(e) => {e.stopPropagation(); removeCardFromSet(set, card)}}>✖</span>
                 </div>
               ))}
             </div>
