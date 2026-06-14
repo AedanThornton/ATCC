@@ -73,7 +73,7 @@ const BackpackSetsManager = ({ children }) => {
   }
 
   return <>
-    <div className="backpack-control-bar" onMouseLeave={() => setShowSavedSets(false)}>
+    {/* <div className="backpack-control-bar" onMouseLeave={() => setShowSavedSets(false)}>
       <button className="backpack-button" onClick={() => handleImportSet()}>{getIcon({ name: "Load", invert: true })}</button>
       <SearchableList 
         items={Object.keys(appState.savedSets).map(key => {return {id: key, name: key}})}
@@ -85,7 +85,7 @@ const BackpackSetsManager = ({ children }) => {
 
       <button className={`backpack-button ${saveError ? "backpack-menu-error" : ""}`} onClick={() => handleSaveSet(searchTermUI)}>{getIcon({ name: "Save", invert: true })}</button>
       <button className="backpack-button clear-all" onClick={() => handleReset()}>Clear</button>
-    </div>
+    </div> */}
 
     {children}
 

@@ -66,6 +66,8 @@
 
 .page-over-arrow.backpack-open {
   transform: translateX(10px);
+  align-items: flex-end;
+  z-index: unset;
 }
 
 .page-over-arrow.backpack-open > * {
@@ -80,11 +82,36 @@
   background-color: var(--main);
 }
 
-.page-over-view-window {
+.page-over__main {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.page-over__view-window {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
+  flex: 3;
+}
+
+.page-over__setslist-sidebar {
+  flex: 1;
+  height: 100%;
+}
+
+.page-over__setslist-sidebar__button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  height: 20px;
+  width: 20px;
+  background-color: var(--main-midtone);
+}
+.page-over__setslist-sidebar__button:hover {
+  background-color: var(--accent);
 }
 
 @media (min-width: 820px) {

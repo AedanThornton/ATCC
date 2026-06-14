@@ -8,7 +8,6 @@ import AboutPage from './pages/AboutPage';
 import FocusCardPage from './pages/FocusCardPage'
 import NotFoundPage from './pages/NotFoundPage';
 import SearchInfoPage from './pages/SearchInfoPage'
-import SavedSetPage from "./pages/SavedSetPage";
 import DeckPage from "./pages/DeckPage";
 
 const App = () => {
@@ -29,7 +28,6 @@ const App = () => {
       </Route>
       <Route path="/" element={<Layout subpage={true} />}>
         <Route index element={<Navigate to="/home" replace />}/>
-        <Route path="savedsets" element={<SavedSetPage />} />
         <Route path="deck" element={<DeckPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

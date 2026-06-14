@@ -3,13 +3,14 @@ import "./pagearrow.css"
 import { useState } from "react";
 import BackpackCardList from "./BackpackCardList";
 import BackpackTabSelector from "./BackpackTabSelector";
-import SavedSetPage from "../../pages/SavedSetPage";
+import SavedSets from "./SavedSets";
 import DeckPage from "../../pages/DeckPage";
 import Compare from "../compare/Compare";
 
 const Backpack = ({ isDragging, icon }) => {
   const [openBackpack, setOpenBackpack] = useState(false)
   const [showBackpack, setShowBackpack] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
   const [activeView, setActiveView] = useState("Backpack")
   const { ref, isDropTarget } = useDroppable({ id: "backpack" });
 
@@ -19,7 +20,6 @@ const Backpack = ({ isDragging, icon }) => {
     "Compare": <Compare />,
     // "LoadoutBuilder": <div style={{height: "1000px"}}>LoadoutBuilder</div>,
     // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
-    "List": <SavedSetPage />, 
   };
 
   const handleOpen = () => {
@@ -37,9 +37,16 @@ const Backpack = ({ isDragging, icon }) => {
     <div className={`page-over-arrow ${openBackpack ? "backpack-open" : ""}`}>
       <div onClick={() => handleOpen()}>{icon}</div>
     </div>
-    <div className="page-over-view-window">
-      {showBackpack && views[activeView]}
-    </div>
+    {showBackpack && <div className="page-over__main">
+      {/* REPLACE BELOW WITH HAMBURGER BUTTON */}
+      <div className="page-over__setslist-sidebar__button" onClick={() => setSidebarOpen(!sidebarOpen)} />
+      {sidebarOpen && <div className="page-over__setslist-sidebar">
+        <SavedSets />
+      </div>}
+      <div className="page-over__view-window">
+        {showBackpack && views[activeView]}
+      </div>
+    </div>}
   </div>
 }
 

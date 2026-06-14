@@ -101,6 +101,7 @@
   background-color: var(--main);
   border-radius: 5px;
   padding: 5px 10px;
+  flex: 1;
 }
 
 .editable-title::placeholder, .editable-title input[type="text"] {
@@ -112,7 +113,6 @@
 .editable-title-nonediting, .editable-title::placeholder, .editable-title input[type="text"] {
   height: 36px;
   box-sizing: border-box;
-  text-align: center;
   width: 100%;
 }
 
