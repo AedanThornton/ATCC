@@ -106,12 +106,6 @@
   top: 10px;
   left: 10px;
   z-index: 1;
-  height: 20px;
-  width: 20px;
-  background-color: var(--main-midtone);
-}
-.page-over__setslist-sidebar__button:hover {
-  background-color: var(--accent);
 }
 
 @media (min-width: 820px) {

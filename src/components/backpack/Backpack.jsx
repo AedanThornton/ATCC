@@ -6,6 +6,7 @@ import BackpackTabSelector from "./BackpackTabSelector";
 import SavedSets from "./SavedSets";
 import DeckPage from "../../pages/DeckPage";
 import Compare from "../compare/Compare";
+import HamburgerButton from "../utils/HamburgerButton";
 
 const Backpack = ({ isDragging, icon }) => {
   const [openBackpack, setOpenBackpack] = useState(false)
@@ -39,7 +40,7 @@ const Backpack = ({ isDragging, icon }) => {
     </div>
     {showBackpack && <div className="page-over__main">
       {/* REPLACE BELOW WITH HAMBURGER BUTTON */}
-      <div className="page-over__setslist-sidebar__button" onClick={() => setSidebarOpen(!sidebarOpen)} />
+      <div className="page-over__setslist-sidebar__button"><HamburgerButton clickFunc={() => setSidebarOpen(!sidebarOpen)}/></div>
       {sidebarOpen && <div className="page-over__setslist-sidebar">
         <SavedSets />
       </div>}
