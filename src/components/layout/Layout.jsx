@@ -6,6 +6,7 @@ import FilterSidebar from '../catalog/FilterSidebar';
 import ControlBar from "./ControlBar";
 import SearchBar from './SearchBar';
 import { useSpoilers } from "../../context/SpoilerContext";
+import HamburgerButton from '../utils/HamburgerButton';
 
 function Layout({ isCatalog = false, subpage = false }) {
   const { spoilersEnabled } = useSpoilers();
@@ -36,11 +37,7 @@ function Layout({ isCatalog = false, subpage = false }) {
 
           <div className='top-menu'>
             {isCatalog && <div className='filters-menu'>
-              <button className='filters-hamburger-button' onClick={() => setIsFilterSidebarOpen(!isFilterSidebarOpen)}>
-                <div className='hamburger-bar'></div>
-                <div className='hamburger-bar'></div>
-                <div className='hamburger-bar'></div>
-              </button>
+              <HamburgerButton clickFunc={() => setIsFilterSidebarOpen(!isFilterSidebarOpen)} />
 
               {isFilterSidebarOpen && <FilterSidebar />}
             </div>}
