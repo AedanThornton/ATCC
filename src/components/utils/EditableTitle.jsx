@@ -48,7 +48,7 @@ const EditableTitle = ({ titleID, onSave, initialName }) => {
             className="editable-title-search-bar"
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                handleSaveName(set)
+                handleSaveName(initialName)
               }
             }}
           />

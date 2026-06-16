@@ -4,6 +4,8 @@ import { useModal } from "../../context/FocusContext";
 import getIcon from "../utils/iconUtils";
 import EditableTitle from "../utils/EditableTitle";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useCards } from "../../hooks/useCards";
 
 function SavedSet({setname, set, index}) {
   const [isOpen, setIsOpen] = useState(false)
@@ -63,7 +65,67 @@ function SavedSet({setname, set, index}) {
 }
 
 function SavedSets() {
-  const { appState } = useLocalStorage();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchTermUI, setSearchTermUI] = useState("");
+  const [saveError, setSaveError] = useState(false)
+  const [buttonError, setButtonError] = useState(null)
+  const [showSavedSets, setShowSavedSets] = useState(false);
+
+  const { appState, saveSet, loadSet, deleteSet, clearBackpack, addToBackpack } = useLocalStorage();
+  const { data } = useCards(searchParams);
+  const filteredCards = data?.cards
+
+  const handleError = (msg) => {
+    setButtonError("Error: " + msg)
+
+    setTimeout(() => {
+      setButtonError(null)
+    }, 800)
+  }
+
+  const handleSaveSet = (setName) => {
+    if (typeof setName !== "string" || !setName) {
+      handleError("Invalid set name");
+      setSaveError(true);
+      setTimeout(() => setSaveError(false), 500);
+      return;
+    }
+
+    if (appState.backpack.length === 0) {
+      handleError("Cannot save empty backpack");
+      setSaveError(true);
+      setTimeout(() => setSaveError(false), 500);
+      return;
+    }
+
+    if (appState.savedSets.length >= 20) {
+      handleError("Max Saved Sets reached");
+      setSaveError(true);
+      setTimeout(() => setSaveError(false), 500);
+      return;
+    }
+
+    saveSet(setName, appState.backpack);
+    setShowSavedSets(false)
+  }
+
+  const handleImportSet = () => {
+    filteredCards?.map((card) => {
+      if (!appState.backpack.includes(card.cardIDs[0])) {
+        addToBackpack(card.cardIDs[0])
+      }
+    })
+  }
+
+  const handleLoadSet = (setName) => {
+    loadSet(setName);
+  }
+
+  const handleReset = () => {
+    setSearchTermUI("");
+    setShowSavedSets(false);
+    clearBackpack();
+  }
 
   return (
     <div className="saved-sets-panel">
@@ -78,6 +140,13 @@ function SavedSets() {
           <p>No saved sets yet!</p>
         </div>
       }
+      <div className="saved-sets__new-set-button" onClick={() => handleSaveSet(`New Set ${Object.keys(appState.savedSets).length + 1}`)}>
+        {getIcon({name: "Save", invert: true})} Save Current as New Set
+      </div>
+      
+      {buttonError && <div className="backpack-error-overlay">
+        <span>{buttonError}</span>
+      </div>}
     </div>
   );
 }

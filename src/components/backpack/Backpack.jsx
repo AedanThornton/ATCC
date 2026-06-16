@@ -12,8 +12,10 @@ import getIcon from "../utils/iconUtils";
 const Backpack = ({ isDragging, icon }) => {
   const [openBackpack, setOpenBackpack] = useState(false);
   const [showBackpack, setShowBackpack] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [pageOverHover, setPageOverHover] = useState(false)
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  
   const [activeView, setActiveView] = useState("Backpack");
   const { ref, isDropTarget } = useDroppable({ id: "backpack" });
 
