@@ -2,12 +2,15 @@
   padding: 50px 10px;
   height: 100%;
   border-right: 2px dotted var(--main-light);
+  overflow-y: scroll;
 }
 
 .saved-set {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  min-height: 0;
+  max-height: 20%;
 }
 
 .saved-set__title-bar {
@@ -19,8 +22,6 @@
 
 .saved-set__dropdown {
   overflow-y: scroll;
-  min-height: 0;
-  max-height: 20%;
   list-style-type: disc;
 }
 

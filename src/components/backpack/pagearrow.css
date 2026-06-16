@@ -25,7 +25,7 @@
   align-items: center;
 }
 
-.page-over-arrow > * {
+.page-over-arrow-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +36,10 @@
   border-radius: 50%;
   height: 70px;
   width: 70px;
+  z-index: 20;
+}
+.page-over-arrow-button:hover {
+  background-color: var(--accent-dark);
 }
 
 .page-over:hover .page-over-arrow, .page-over.open .page-over-arrow {
@@ -66,20 +70,12 @@
 
 .page-over-arrow.backpack-open {
   transform: translateX(10px);
-  align-items: flex-end;
-  z-index: unset;
-}
-
-.page-over-arrow.backpack-open > * {
-  background-color: var(--main);
+  height: fit-content;
+  bottom: 10px;
 }
 
 .page-over:hover .page-over-arrow.backpack-open {
   transform: translateX(10px);
-}
-
-.page-over-arrow.backpack-open > *:hover {
-  background-color: var(--main);
 }
 
 .page-over__main {
