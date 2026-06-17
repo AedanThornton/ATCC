@@ -6,10 +6,11 @@ import EditableTitle from "../utils/EditableTitle";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useCards } from "../../hooks/useCards";
+import SavedSetsMenu from "./SavedSetsMenu";
 
 function SavedSet({setname, set, index}) {
   const [isOpen, setIsOpen] = useState(false)
-  const { appState, cardCache, saveSet, deleteSet } = useLocalStorage();
+  const { appState, cardCache, saveSet, loadSet, deleteSet } = useLocalStorage();
   const { openModal } = useModal();
   const isBackpackSet = setname === "Backpack"
   
@@ -36,7 +37,17 @@ function SavedSet({setname, set, index}) {
           ? <span>{getIcon({name: "Backpack", invert: true})} Backpack</span>
           : <EditableTitle titleID={index} onSave={renameSet} initialName={setname} />
         }
-        <span className="saved-sets-button" onClick={() => deleteSet(setname)}>{getIcon({ name: "Trash", invert: true })}</span>
+        {isBackpackSet
+        ? <span></span>
+        : <SavedSetsMenu options={[
+          {title: "Load", func: () => loadSet(setname)},
+          {title: "Delete", func: () => deleteSet(setname)}
+        ]}>
+          <span className="saved-sets-button">
+            {getIcon({name: "List", invert: true})}
+          </span>
+        </SavedSetsMenu>}
+        
         {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.savedSets[set].length}</span> */}
       </div>
 

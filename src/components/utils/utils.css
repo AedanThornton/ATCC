@@ -99,7 +99,6 @@
   justify-content: center;
   gap: 5px;
   background-color: var(--main);
-  border-radius: 5px;
   padding: 5px 10px;
   flex: 1;
 }
@@ -112,9 +111,12 @@
 
 .editable-title-nonediting, .editable-title::placeholder, .editable-title input[type="text"] {
   height: 36px;
-  box-sizing: border-box;
   width: 100%;
+  max-width: 15dvw;
+  box-sizing: border-box;
   font-size: 24px;
+  overflow-x: hidden;
+  text-wrap: nowrap;
 }
 
 .editable-title-button {
