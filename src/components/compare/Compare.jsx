@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./Compare.css"
 import { useLocalStorage } from "../../context/LocalStorageContext"
 import CardRenderer from "../cards/CardRenderer"
@@ -9,6 +9,7 @@ import getIcon from "../utils/iconUtils.jsx"
 import { useAllCards } from "../../hooks/useAllCards.js"
 
 const Compare = ({}) => {
+  const { ingestCards } = useLocalStorage()
   const { data, isLoading, error } = useAllCards()
   const [cards, setCards] = useState([])
   const inputArgs = {
@@ -76,6 +77,10 @@ const Compare = ({}) => {
   const gearNames = cachedCards
     .filter(card => card.cardType.toLowerCase() === 'gear')
     .map(card => {return {id: card.cardIDs[0], name: card.name}})
+
+  useEffect(() => {
+    ingestCards(data.cards)
+  }, [data])
     
 
   const addPanel = () => {
@@ -137,7 +142,7 @@ const Compare = ({}) => {
 
             <div className="compare-panel__card">
               {cardHasData
-                ? <CardRenderer cardData={card} variant="backpack" notDraggable={true} />
+                ? <CardRenderer cardData={card} notDraggable={true} />
                 : <div className="mini-american"></div>
               }
             </div>

@@ -9,13 +9,13 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   transition: background-color 0.2s ease, left 0.6s ease;
-  z-index: 2000;
+  z-index: 550;
 }
 
 .page-over-arrow {
   transform: translateX(80px);
   transition: transform 0.8s ease;
-  z-index: 550;
+  z-index: 10;
   position: absolute;
   left: 0;
   box-sizing: border-box;

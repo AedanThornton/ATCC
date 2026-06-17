@@ -1,8 +1,6 @@
 import Tippy from "@tippyjs/react";
-import getIcon from "../utils/iconUtils";
 
 const SavedSetsMenu = ({ children, options }) => {
-
   return <Tippy
     interactive
     duration={0}

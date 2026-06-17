@@ -2,7 +2,7 @@ import getIcon from "../utils/iconUtils"
 import { useSpoilers } from "../../context/SpoilerContext";
 import { useLocalStorage } from "../../context/LocalStorageContext";
 
-const CardMenu = ({ card, flipFunc, secretFunc, setDisplay, inBackpack = false }) => {
+const CardMenu = ({ card = {}, flipFunc = ()=>{}, secretFunc = ()=>{}, setDisplay = ()=>{}, inBackpack = false }) => {
   const { addToBackpack, removeFromBackpack } = useLocalStorage();
   const { spoilersEnabled } = useSpoilers();
   return (
