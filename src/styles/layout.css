@@ -13,6 +13,7 @@
 .top-menu {
   position: relative;
   flex: 1;
+  padding: 0 10px;
 }
 
 .layout-nav {
@@ -23,8 +24,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  top: -30px;
-  left: -24px;
   width: 100%;
 }
 
@@ -71,19 +70,13 @@
   background-color: var(--main-midtone);
 }
 
-.menu-button, .filters-hamburger-button {
+.menu-button {
   display: flex;
   flex-direction: column;
   gap: 8px;
   background-color: unset;
   z-index: 550;
   position: relative;
-}
-
-.hamburger-bar {
-  background-color: var(--accent);
-  width: 28px;
-  height: 4px;
 }
 
 .filters-menu {

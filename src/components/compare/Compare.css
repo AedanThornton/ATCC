@@ -93,6 +93,7 @@
   height: 65px;
   text-align: center;
   margin-left: 30px;
+  cursor: pointer;
 }
 
 .compare-add-panel__button:hover {

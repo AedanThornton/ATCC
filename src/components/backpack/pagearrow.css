@@ -99,9 +99,8 @@
 
 .page-over__setslist-sidebar__button {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
+  top: 4px;
+  left: 0;
 }
 
 @media (min-width: 820px) {

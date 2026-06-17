@@ -197,3 +197,24 @@
 .searchable-list-button:hover {
   background-color: var(--main-light);
 }
+
+/* Hamburger */
+.filters-hamburger-button {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background-color: unset;
+  z-index: 550;
+  position: relative;
+  padding: 5px 10px;
+}
+
+.hamburger-bar {
+  background-color: var(--accent);
+  width: 27px;
+  height: 4px;
+}
+
+.filters-hamburger-button:hover .hamburger-bar {
+  background-color: var(--accent-light);
+}
