@@ -33,10 +33,13 @@ export function LocalStorageProvider({ children }) {
     });
   }
 
-  const addToBackpack = (id) => setAppState(prev => ({
-    ...prev,
-    backpack: [...prev.backpack, id]
-  }));
+  const addToBackpack = (id) => {
+    if (appState.backpack.includes(id)) return
+    setAppState(prev => ({
+      ...prev,
+      backpack: [...prev.backpack, id]
+    }))
+  };
 
   const removeFromBackpack = (id) => setAppState(prev => ({
     ...prev,
