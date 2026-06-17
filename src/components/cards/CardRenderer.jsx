@@ -52,24 +52,25 @@ const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
       flipFunc={toggleSide}
       secretFunc={toggleReveal}
       setDisplay={setDisplayHelper}
+      inBackpack={variant === "backpack" ? true : false}
     />
 
   return (
     <div className='card-wrapper' ref={!notDraggable ? ref : () => {}}>
-      {(isNotMobile && variant !== "backpack")
+      {(isNotMobile)
         ? <div style={{ position: "relative" }}>
           {currentCard}
           {secretOverlay}
           {menu}
         </div>
 
-        : <div onClick={variant !== "backpack" ? setDisplayHelper : undefined}>
+        : <div onClick={setDisplayHelper}>
           {currentCard}
           {secretOverlay}
         </div>
       }
 
-      {variant !== "backpack" && (!spoilersEnabled || !isHidden) && <div className="card-type-marker">
+      {(!spoilersEnabled || !isHidden) && <div className="card-type-marker">
         {cardData.cardType}
       </div>}
     </div>
