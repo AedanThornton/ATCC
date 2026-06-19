@@ -1,4 +1,3 @@
-import React from 'react';
 import CardList from '../components/catalog/CardList';
 
 function CardLibraryPage() {
