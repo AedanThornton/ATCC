@@ -79,8 +79,8 @@ const Compare = ({}) => {
     .map(card => {return {id: card.cardIDs[0], name: card.name}})
 
   useEffect(() => {
-    ingestCards(data.cards)
-  }, [data])
+    ingestCards(cachedCards)
+  }, [cachedCards])
     
 
   const addPanel = () => {
