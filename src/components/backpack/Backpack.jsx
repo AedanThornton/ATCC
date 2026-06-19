@@ -38,7 +38,7 @@ const Backpack = ({ isDragging, icon }) => {
   }
 
   return <div ref={ref} className={`page-over ${isDropTarget ? "is-drop-target" : ""} ${(isDragging && !openBackpack) ? "open" : ""} ${showBackpack ? "backpack-show" : ""} ${openBackpack ? "backpack-open" : ""}`}>
-    <BackpackTabSelector showBackpack={showBackpack} views={Object.keys(views)} activeView={activeView} setActiveView={setActiveView} />
+    {showBackpack && <BackpackTabSelector showBackpack={showBackpack} views={Object.keys(views)} activeView={activeView} setActiveView={setActiveView} />}
     <div className={`page-over-arrow ${openBackpack ? "backpack-open" : ""}`}>
       <div
         className="page-over-arrow-button"

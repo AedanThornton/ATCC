@@ -44,7 +44,7 @@ function SavedSet({setname, set, index}) {
           {title: "Delete", func: () => deleteSet(setname)}
         ]}>
           <span className="saved-sets-button">
-            {getIcon({name: "List", invert: true})}
+            {getIcon({name: "Options", invert: true})}
           </span>
         </SavedSetsMenu>}
         

@@ -1,5 +1,3 @@
-import React from "react";
-
 const PaginationControls = ({currentPage, isLoading, totalPages, totalCards, onPageChange}) => {
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
