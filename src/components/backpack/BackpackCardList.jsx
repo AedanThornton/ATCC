@@ -9,7 +9,7 @@ const BackpackCardList = ({}) => {
 
   return (
     <BackpackSetsManager>
-      <div className={`backpack`}>
+      <div className={`backpack-card-list`}>
         {appState.backpack?.map((card, i) => 
           <div className="drag-backpack-item" key={i}>
             {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant="backpack" />}

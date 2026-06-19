@@ -45,21 +45,19 @@ const CardList = () => {
   };
 
   return (
-    <>
-      <div className="card-list">
-        <DragDropWrapper>
-          {filteredCards.length > 0 ? (
-            filteredCards.map((cardname, index) => {
-              return (
-                <CardRenderer cardData={cardname} key={cardname.cardIDs[0] + index}/>
-              )
-            })
-          ) : (
-            <p>No results found.</p>
-          )}
-        </DragDropWrapper>
-      </div>
-    </>
+    <div className="card-list">
+      <DragDropWrapper>
+        {filteredCards.length > 0 ? (
+          filteredCards.map((cardname, index) => {
+            return (
+              <CardRenderer cardData={cardname} key={cardname.cardIDs[0] + index}/>
+            )
+          })
+        ) : (
+          <p>No results found.</p>
+        )}
+      </DragDropWrapper>
+    </div>
   );
 };
 

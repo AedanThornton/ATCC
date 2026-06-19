@@ -1,7 +1,7 @@
 import getIcon from "../utils/iconUtils"
 
-const BackpackTabSelector = ({ showBackpack, views, activeView, setActiveView }) => {
-  return <div className={`backpack-tab-selector ${showBackpack ? "backpack-open" : ""}`}>
+const BackpackTabSelector = ({ views, activeView, setActiveView }) => {
+  return <div className="backpack-tab-selector">
     {views && views.length > 0 && views.map((view, i) => (
       <button
         key={i}

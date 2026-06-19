@@ -38,6 +38,14 @@
 }
 
 .backpack {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.backpack-card-list {
   width: 100%;
   padding: 3%;
   display: flex;
@@ -123,9 +131,6 @@
   font-size: 30px;
   padding-top: 5px;
   background-color: unset;
-}
-
-.backpack-tab-selector.backpack-open {
   background-color: var(--main-midtone);
   border-bottom: 4px solid var(--main-midtone);
 }
@@ -151,6 +156,31 @@
 
 .backpack-tab-selector > *:disabled {
   background-color: var(--accent);
+}
+
+.backpack__main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.backpack__view-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  flex: 3;
+}
+
+.backpack__setslist-sidebar {
+  flex: 1;
+  height: 100%;
+}
+
+.backpack__setslist-sidebar__button {
+  position: absolute;
+  top: 4px;
+  left: 0;
 }
 
 @keyframes backpackMenuError {

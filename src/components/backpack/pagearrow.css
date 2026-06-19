@@ -1,14 +1,14 @@
 .page-over {
-  width: 100dvw;
+  width: 10dvw;
   height: 50dvh;
   position: absolute;
-  left: 90dvw;
+  right: 0;
   top: 25dvh;
   display: flex;
   flex-direction: column;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  transition: background-color 0.2s ease, left 0.6s ease;
+  transition: background-color 0.2s ease, width 0.6s ease;
   z-index: 550;
 }
 
@@ -55,56 +55,11 @@
 
 .page-over.is-drop-target {
   background-color: var(--accent);
-  left: 80dvw;
-}
-
-.page-over.backpack-open {
-  left: 0;
-}
-
-.page-over.backpack-show {
-  background-color: var(--main);
-  top: 0;
-  height: 100dvh;
-}
-
-.page-over-arrow.backpack-open {
-  transform: translateX(10px);
-  height: fit-content;
-  bottom: 10px;
-}
-
-.page-over:hover .page-over-arrow.backpack-open {
-  transform: translateX(10px);
-}
-
-.page-over__main {
-  display: flex;
-  height: 100%;
-  position: relative;
-}
-
-.page-over__view-window {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-  flex: 3;
-}
-
-.page-over__setslist-sidebar {
-  flex: 1;
-  height: 100%;
-}
-
-.page-over__setslist-sidebar__button {
-  position: absolute;
-  top: 4px;
-  left: 0;
+  width: 20dvw;
 }
 
 @media (min-width: 820px) {
   .page-over {
-    left: 97dvw;
+    width: 3dvw;
   }
 }

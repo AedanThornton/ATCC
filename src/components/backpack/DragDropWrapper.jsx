@@ -1,11 +1,11 @@
 import { DragDropProvider } from "@dnd-kit/react";
-import Backpack from "./Backpack";
+import PageArrow from "./PageArrow";
 import { useRef, useState } from "react";
 import { AutoScroller } from "@dnd-kit/dom";
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import getIcon from "../utils/iconUtils";
 
-const DragDropWrapper = ({ children }) => {
+const DragDropWrapper = ({ children, subpage, setSubpage }) => {
   const [isDragging, setIsDragging] = useState(false);
   const { appState, addToBackpack, removeFromBackpack } = useLocalStorage()
   const backpackRef = useRef(null);
@@ -38,10 +38,11 @@ const DragDropWrapper = ({ children }) => {
         defaults.filter((plugin) => plugin !== AutoScroller)
       }
     >
+      {subpage === "backpack" && <PageArrow isDragging={isDragging} icon={getIcon({name: "Catalog", invert: true})} funcTrigger={() => setSubpage("cardlist")} />}
       {children}
       <div className={isDragging ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay" }></div>
-      {/* <Backpack isDragging={isDragging} /> */}
-      <Backpack isDragging={isDragging} icon={getIcon({name: "Backpack", invert: true})} />
+
+      {subpage === "cardlist" && <PageArrow isDragging={isDragging} icon={getIcon({name: "Backpack", invert: true})} funcTrigger={() => setSubpage("backpack")} />}
     </DragDropProvider>
   )
 }
