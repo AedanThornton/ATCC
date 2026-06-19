@@ -1,4 +1,3 @@
-import { useDeckState } from "../../hooks/useDeckState";
 import getIcon from "../utils/iconUtils"
 
 const DeckCardMenu = ({ deckState, card }) => {

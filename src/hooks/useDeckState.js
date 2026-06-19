@@ -39,8 +39,6 @@ export function useDeckState(initialSetName) {
       prebuiltDeck.otherCardPools?.map(pool => {
         newCardPools[pool.name] = pool.cards.map(card => card.cardIDs[0])
       })
-
-      console.log(newCardPools);
       
 
       setCardPools(prev => ({
@@ -55,7 +53,7 @@ export function useDeckState(initialSetName) {
   const setHideAllCards = (hide) => {
     setHiddenCards(() => {
       const newSet = {};
-      cardPools.deck.map(card => newSet[card] = hide)
+      cardPools[activeCardPool].map(card => newSet[card] = hide)
       return newSet;
     })
   }
@@ -74,13 +72,13 @@ export function useDeckState(initialSetName) {
   const toggleSingleHiddenCard = (cardToChange) => {
     setHiddenCards(() => {
       const newSet = {};
-      cardPools.deck.map(card => newSet[card] = card === cardToChange ? !hiddenCards[card] : hiddenCards[card])
+      cardPools[activeCardPool].map(card => newSet[card] = card === cardToChange ? !hiddenCards[card] : hiddenCards[card])
       return newSet;
     })
   }
 
   const shuffleCards = () => {
-    const cardSetCopy = [...cardPools.deck]
+    const cardSetCopy = [...cardPools[activeCardPool]]
     //Fisher-Yates Shuffle
     for (let i = cardSetCopy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

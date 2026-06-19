@@ -1,5 +1,5 @@
 import { useLocalStorage } from "../../context/LocalStorageContext"
-import "../../styles/deckpage.css"
+import "./deck.css"
 import CardRenderer from "../cards/CardRenderer";
 import getIcon from "../utils/iconUtils";
 
@@ -24,23 +24,23 @@ const DeckHighlightCard = ({ deckState }) => {
     }))
   }
 
-  return <div className="deck-page_highlight-card">
+  return <div className="deck-page__highlight-card">
     <CardRenderer cardData={cardCache.get(deckState.highlightCard)} variant="backpack" />
-    <div className="deck-page_highlight-card__menu">
+    <div className="deck-page__highlight-card__menu">
       {/* Leave card available button */}
-      <button className="deck-page_highlight-card__button"
+      <button className="deck-page__highlight-card__button"
         onClick={() => deckState.setHighlightCard(null)}
       >
         {getIcon({ name: "Check", invert: true })}
       </button>
       {/* Discard card button */}
-      <button className="deck-page_highlight-card__button"
+      <button className="deck-page__highlight-card__button"
         onClick={() => sendCardToDiscard(deckState.highlightCard)}
       >
         {getIcon({ name: "Discard", invert: true })}
       </button>
       {/* Remove card from deck button */}
-      <button className="deck-page_highlight-card__button"
+      <button className="deck-page__highlight-card__button"
         onClick={() => sendCardToRemoved(deckState.highlightCard)}
       >
         {getIcon({ name: "EndStack", invert: true })}

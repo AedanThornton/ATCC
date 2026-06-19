@@ -3,7 +3,7 @@ import { useState } from "react";
 import BackpackCardList from "./BackpackCardList";
 import BackpackTabSelector from "./BackpackTabSelector";
 import SavedSets from "./SavedSets";
-import DeckPage from "../../pages/DeckPage";
+import Deck from "../deck/Deck";
 import Compare from "../compare/Compare";
 import HamburgerButton from "../utils/HamburgerButton";
 
@@ -13,7 +13,7 @@ const Backpack = ({}) => {
 
   const views = {
     "Backpack": <BackpackCardList />,
-    "EditDeck": <DeckPage />,
+    "EditDeck": <Deck />,
     "Compare": <Compare />,
     // "LoadoutBuilder": <div style={{height: "1000px"}}>LoadoutBuilder</div>,
     // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
