@@ -234,7 +234,7 @@ const AttackCard = ({ attack, index, isDahaka = false }) => {
         <div className="ai-card__footer" style={{ backgroundColor: isDahaka ? adversaryPrimaryColor : getCyclePrimaryColor(colorInput) }}>
           <span className="ai-card_footer-div ai-card__id" style={{ color: getCycleTextColor(colorInput) }}>{!isDahaka && `ID: ${attack.cardIDs?.[0]}`}</span>
           <span className="ai-card_footer-div ai-card__type-indicator" style={{ color: isDahaka ? "white" : getCycleTextColor(colorInput) }}>
-            {attack.cycle.includes("Mnestis") && "MNESTIS "}{getAttackType(attack.attackType, attack.subtype || "AI")}
+            {attack.cycle.includes("Mnestis") && "MNESTIS "}{getAttackType(attack.attackType, attack.subtype || "AI", attack.cardType)}
           </span>
           <div className="ai-card_footer-div"></div>
         </div>
@@ -252,19 +252,22 @@ const getMoveType = (moveType, location = "") => {
   }
 }
 
-const getAttackType = (attackType, subtype) => {
+const getAttackType = (attackType, subtype, cardType) => {
   if (subtype !== "AI") return subtype.toUpperCase()
 
   const typeList = [
     "Judgement", "Wish", "Sequential", "Simultaneous", "Regular"
   ]
 
-  const priType = attackType.includes("Judgement") ? "JUDGEMENT" : "ATTACK"
+  let priType = attackType.includes("Judgement") ? "JUDGEMENT" : "ATTACK"
   const isWish = attackType.includes("Wish") ? "WISH" : ""
   const secType = attackType.filter(type => !typeList.includes(type)).join(" ").toUpperCase()
   const terType =
     attackType.includes("Sequential") ? "SEQUENTIAL" :
       attackType.includes("Simultaneous") ? "SIMULTANEOUS" : ""
+
+  if (cardType.toLowerCase() === "signature") priType = "SIGNATURE"
+  if (cardType.toLowerCase() === "routine") priType = "ROUTINE"
 
 
   return `${terType && terType + " "}${secType && secType + " "}${isWish && isWish + " "}${priType}`
