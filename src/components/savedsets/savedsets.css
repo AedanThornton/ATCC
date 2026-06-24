@@ -1,8 +1,6 @@
 .saved-sets-panel {
-  margin: 10px;
   padding: 50px 10px;
   height: 70%;
-  border: 3px dotted var(--main-light);
   overflow-y: scroll;
   display: flex;
   flex-direction: column;

@@ -173,14 +173,23 @@
 }
 
 .backpack__setslist-sidebar {
-  flex: 1;
-  height: 100%;
+  background-color: var(--main);
+  height: 100dvh;
+  width: 100vw;
+  left: 0%;
+  top: 0%;
+  position: fixed;
+  z-index: 525;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px dotted var(--main-light);
 }
 
 .backpack__setslist-sidebar__button {
-  position: absolute;
-  top: 4px;
-  left: 0;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @keyframes backpackMenuError {
@@ -197,5 +206,14 @@
   .backpack-wrapper {
     width: 30dvw;
     left: -28dvw;
+  }
+
+  .backpack__setslist-sidebar {
+    width: 30%;
+    left: 70%;
+  }
+
+  .backpack__setslist-sidebar__button {
+      position: static;
   }
 }

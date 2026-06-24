@@ -11,6 +11,7 @@ import { LocalStorageProvider } from './context/LocalStorageContext.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { LayoutProvider } from './context/LayoutContext.jsx'
+import { BackpackProvider } from './context/BackpackContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
 
@@ -32,9 +33,11 @@ createRoot(document.getElementById('root')).render(
           <ModalProvider>
             <LocalStorageProvider>
               <LayoutProvider>
-                <FocusCardCache />
-                <LocalStorageManager />
-                <App />
+                <BackpackProvider>
+                  <FocusCardCache />
+                  <LocalStorageManager />
+                  <App />
+                </BackpackProvider>
               </LayoutProvider>
             </LocalStorageProvider>
           </ModalProvider>

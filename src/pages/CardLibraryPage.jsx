@@ -4,6 +4,7 @@ import Backpack from '../components/backpack/Backpack';
 import DragDropWrapper from '../components/backpack/DragDropWrapper';
 import { useLayout } from '../context/LayoutContext';
 import { CatalogLayoutMain, CatalogLayoutTopbar } from '../components/catalog/CatalogLayout';
+import { BackpackLayoutTopbar } from '../components/backpack/BackpackLayout';
 
 function CardLibraryPage() {
   const [subpage, setSubpage] = useState("cardlist")
@@ -19,7 +20,10 @@ function CardLibraryPage() {
       main: <CatalogLayoutMain />,
       topbar: <CatalogLayoutTopbar />
     },
-    "backpack": null
+    "backpack": {
+      main: null,
+      topbar: <BackpackLayoutTopbar />
+    }
   }
 
   useEffect(() => {
