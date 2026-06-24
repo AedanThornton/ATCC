@@ -2,7 +2,7 @@ import { useDroppable } from "@dnd-kit/react"
 import { useState } from "react";
 import BackpackCardList from "./BackpackCardList";
 import BackpackTabSelector from "./BackpackTabSelector";
-import SavedSets from "./SavedSets";
+import SavedSets from "../savedsets/SavedSets";
 import Deck from "../deck/Deck";
 import Compare from "../compare/Compare";
 import HamburgerButton from "../utils/HamburgerButton";

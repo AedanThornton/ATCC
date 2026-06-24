@@ -1,5 +1,5 @@
 import { DragDropProvider } from "@dnd-kit/react";
-import PageArrow from "./PageArrow";
+import PageArrow from "../pagearrow/PageArrow";
 import { useRef, useState } from "react";
 import { AutoScroller } from "@dnd-kit/dom";
 import { useLocalStorage } from "../../context/LocalStorageContext";
