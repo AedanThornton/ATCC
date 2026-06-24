@@ -58,7 +58,10 @@ function getRandomArrow() {
   return arrows[Math.floor(Math.random() * 4)]
 }
 
-const MapCard = ({ map, index }) => {
+const MapCard = ({ map, index, currentSide }) => {
+  let side = currentSide
+  if (currentSide === 1) side = ""
+
   return (
     <div className={`card map ${map.cardSize.replace(" ", "-").toLowerCase()}`}
       key={index}
@@ -77,25 +80,25 @@ const MapCard = ({ map, index }) => {
 
         {/* Top Arrows */}
         <div className="middle">
-          {map.movementArrows.north && <ArrowArray dir={"north"} cycle={map.cycle} arrowArray={map.movementArrows.north} />}
+          {map["movementArrows" + side].north && <ArrowArray dir={"north"} cycle={map.cycle} arrowArray={map["movementArrows" + side].north} />}
         </div>
 
         <div className="map-tile-number map-corner right" style={{ backgroundColor: getCyclePrimaryColor(map.cycle), color: getCycleTextColor(map.cycle) }}>
-          {map.name}
+          {map["name" + side]}
         </div>
       </div>
 
       <div className="map-row" style={{ flex: 1 }}>
         <div className="map-bar left">
           {/* Left Arrows */}
-          {map.movementArrows.west && <ArrowArray dir={"west"} cycle={map.cycle} arrowArray={map.movementArrows.west} />}
+          {map["movementArrows" + side].west && <ArrowArray dir={"west"} cycle={map.cycle} arrowArray={map["movementArrows" + side].west} />}
         </div>
 
         <div className="map-info-container middle">
 
-          {map.symbols && map.symbols.length > 0 &&
+          {map["symbols" + side] && map["symbols" + side].length > 0 &&
             <div className="map-symbol-container">
-              {map.symbols.map((symbol, index) => (
+              {map["symbols" + side].map((symbol, index) => (
                 <div key={index} className="map-symbol" style={getRandomArrow()}>
                   {getIcon({name: symbol})}
                 </div>
@@ -106,14 +109,14 @@ const MapCard = ({ map, index }) => {
 
         <div className="map-bar right">
           {/* Right Arrows */}
-          {map.movementArrows.east && <ArrowArray dir={"east"} cycle={map.cycle} arrowArray={map.movementArrows.east} />}
+          {map["movementArrows" + side].east && <ArrowArray dir={"east"} cycle={map.cycle} arrowArray={map["movementArrows" + side].east} />}
         </div>
       </div>
 
       <div className="map-row">
         <div>
-          {map.progDoom && map.progDoom.length > 0 && <div className="map-symbols map-corner left">
-            {map.progDoom.map((symbol, index) => (
+          {map["progDoom" + side] && map["progDoom" + side].length > 0 && <div className="map-symbols map-corner left">
+            {map["progDoom" + side].map((symbol, index) => (
               <React.Fragment key={index}>{getIcon({name: symbol, size: "1.3em"})}</React.Fragment>
             ))}
           </div>}
@@ -121,11 +124,11 @@ const MapCard = ({ map, index }) => {
 
         {/* Bottom Arrows */}
         <div className="middle">
-          {map.movementArrows.south && <ArrowArray dir={"south"} cycle={map.cycle} arrowArray={map.movementArrows.south} />}
+          {map["movementArrows" + side].south && <ArrowArray dir={"south"} cycle={map.cycle} arrowArray={map["movementArrows" + side].south} />}
         </div>
 
         <div className="map-factions map-corner right">
-          {map.factions.map((faction, index) => (
+          {map["factions" + side].map((faction, index) => (
             <React.Fragment key={index}>{getIcon({name: faction.split(" ").join(""), size: "1.3em"})}</React.Fragment>
           ))}
         </div>

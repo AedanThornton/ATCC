@@ -5,15 +5,17 @@ import FormattedParagraph from "../../utils/FormattedParagraph.jsx";
 import { getCyclePrimaryColor, getCycleSecondaryColor, isAdversary, adversaryPrimaryColor, getCycleTextColor } from "../../../lib/colors.js"
 import getIcon from "../../utils/iconUtils.jsx";
 
-const TraitLikeCard = ({ traitlike, index, isDahaka = false }) => {
-  const colorInput = isAdversary[traitlike.usedFor] ? "Adversary" : traitlike.cycle
+const TraitLikeCard = ({ traitlike, index, isDahaka = false, currentSide }) => {
+  let side = currentSide
+  if (currentSide === 1) side = ""
+  const colorInput = isAdversary[traitlike["usedFor" + side]] ? "Adversary" : traitlike["cycle" + side]
 
   return (
     <div
       key={index} className={`card traitlike-card ${traitlike.cardSize.replace(" ", "-").toLowerCase()}`}
       style={{
         color: isDahaka ? "black" : getCyclePrimaryColor(colorInput),
-        backgroundColor: isAdversary[traitlike.usedFor] && (isDahaka ? getCycleSecondaryColor(colorInput) : adversaryPrimaryColor),
+        backgroundColor: isAdversary[traitlike["usedFor" + side]] && (isDahaka ? getCycleSecondaryColor(colorInput) : adversaryPrimaryColor),
         borderTopLeftRadius: isDahaka && 0,
         borderTopRightRadius: isDahaka && 0,
       }}
@@ -23,7 +25,7 @@ const TraitLikeCard = ({ traitlike, index, isDahaka = false }) => {
         <div className="traitlike-card__icon-top-left" style={{ borderColor: getCyclePrimaryColor(colorInput), border: isDahaka && "none" }}>
           {/* {traitlike.usedFor && getIcon({name: traitlike.usedFor})} */}
         </div>
-        <h2 className="traitlike-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * traitlike.name.length)) }}>{traitlike.name}</h2>
+        <h2 className="traitlike-card__name" style={{ fontSize: Math.min(19, 400 / (1.1 * traitlike["name" + side].length)) }}>{traitlike["name" + side]}</h2>
         <div className="traitlike-card__stats-bar-right" style={{ color: getCycleTextColor(colorInput) }}>
           <div
             className="stats-bar-right__level-container"
@@ -32,7 +34,7 @@ const TraitLikeCard = ({ traitlike, index, isDahaka = false }) => {
               borderColor: isDahaka ? "white" : getCycleTextColor(colorInput),
               color: isDahaka && "white"
             }}>
-            <div className="stats-bar-right__level">{traitlike.level}</div>
+            <div className="stats-bar-right__level">{traitlike["level" + side]}</div>
           </div>
         </div>
       </div>
@@ -40,18 +42,18 @@ const TraitLikeCard = ({ traitlike, index, isDahaka = false }) => {
       <div className="traitlike-card__main-body">
         <div className="traitlike-card__text">
           <i>
-            {traitlike.flavor}
+            {traitlike["flavor" + side]}
           </i>
 
-          <div><FormattedParagraph paragraph={traitlike.effects} invertIcons={isAdversary[traitlike.usedFor]} /></div>
+          <div><FormattedParagraph paragraph={traitlike["effects" + side]} invertIcons={isAdversary[traitlike["usedFor" + side]]} /></div>
         </div>
 
         {/* Footer */}
         <div className="traitlike-card__footer" style={{ backgroundColor: isDahaka ? getCycleSecondaryColor(colorInput) : getCyclePrimaryColor(colorInput), color: getCycleTextColor(colorInput) }}>
           <span className="traitlike-card_footer-div traitlike-card__id" >ID: {traitlike.cardIDs?.[0]}</span>
           <span className="traitlike-card_footer-div traitlike-card__type-indicator" >
-            {traitlike.cycle.includes("Mnestis") && "MNESTIS "}
-            {traitlike.cardType === "BP" ? "BODY PART" : traitlike.cardType.toUpperCase()}
+            {traitlike["cycle" + side].includes("Mnestis") && "MNESTIS "}
+            {traitlike["cardType" + side] === "BP" ? "BODY PART" : traitlike["cardType" + side].toUpperCase()}
           </span>
           <div className="traitlike-card_footer-div"></div>
         </div>

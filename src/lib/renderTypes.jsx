@@ -57,16 +57,16 @@ const renderTypes = {
   "Nymph": (name) => <NymphCard key={name.cardIDs[0]} nymph={name} />,
   "Condition": (name, currentSide = 1) => <ConditionCard key={name.cardIDs[0]} condition={name} currentSide={currentSide}/>,
   "Trauma": (name) => <TraumaCard key={name.cardIDs[0]} trauma={name} />,
-  "Trait": (name) => <TraitCard key={name.cardIDs[0]} trait={name} />,
+  "Trait": (name, currentSide = 1) => <TraitCard key={name.cardIDs[0]} trait={name} currentSide={currentSide} />,
   "Story": (name, currentSide = 1) => <StoryCard key={name.cardIDs[0]} story={name} currentSide={currentSide} />,
   "Doom": (name, currentSide = 1) => <DoomCard key={name.cardIDs[0]} doom={name} currentSide={currentSide} />,
   "Terrain": (name, currentSide = 1) => <TerrainCard key={name.cardIDs[0]} terrain={name} currentSide={currentSide} />,
   "Primordial": (name) => <PrimordialCard key={name.cardIDs[0]} primordial={name} />,
-  "Map": (name) => <MapCard key={name.cardIDs[0]} map={name} />,
+  "Map": (name, currentSide = 1) => <MapCard key={name.cardIDs[0]} map={name} currentSide={currentSide} />,
   "AI | BP": (name) => <DahakaCard key={name.cardIDs[0]} dahaka={name} />,
   "Sig | Rout": (name) => <DahakaCard key={name.cardIDs[0]} dahaka={name} />,
   "Payload": (name) => <PayloadCard key={name.cardIDs[0]} payload={name} />,
-  "Trait-like": (name) => <TraitLikeCard key={name.cardIDs[0]} traitlike={name} />,
+  "Trait-like": (name, currentSide = 1) => <TraitLikeCard key={name.cardIDs[0]} traitlike={name} currentSide={currentSide} />,
 };
 
 export default renderTypes;
