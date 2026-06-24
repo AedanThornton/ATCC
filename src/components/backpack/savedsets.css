@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  gap: 5px;
 }
 .saved-set__title-bar:hover {
   background-color: var(--main-midtone);
@@ -77,6 +78,7 @@
   border-radius: 5px;
   padding: 2px;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .saved-sets-button:hover {

@@ -8,6 +8,7 @@ export function LocalStorageProvider({ children }) {
     const saved = localStorage.getItem("appState");
 
     if (!saved) return {
+      activeSet: [],
       backpack: [],
       savedSets: {}
     };
@@ -16,6 +17,7 @@ export function LocalStorageProvider({ children }) {
 
     return {
       ...parsed,
+      activeSet: parsed.activeSet ?? [],
       backpack: parsed.backpack ?? [],
       savedSets: parsed.savedSets ?? {}
     };
@@ -34,21 +36,21 @@ export function LocalStorageProvider({ children }) {
   }
 
   const addToBackpack = (id) => {
-    if (appState.backpack.includes(id)) return
+    if (appState.activeSet.includes(id)) return
     setAppState(prev => ({
       ...prev,
-      backpack: [...prev.backpack, id]
+      activeSet: [...prev.activeSet, id]
     }))
   };
 
   const removeFromBackpack = (id) => setAppState(prev => ({
     ...prev,
-    backpack: prev.backpack.filter(cardID => cardID !== id && cardID !== id.replace("backpack", ""))
+    activeSet: prev.activeSet.filter(cardID => cardID !== id && cardID !== id.replace("activeSet", ""))
   }));
 
   const clearBackpack = () => setAppState(prev => ({
     ...prev,
-    backpack: []
+    activeSet: []
   }));
   
   const saveSet = (name, ids) => setAppState(prev => ({
@@ -59,9 +61,9 @@ export function LocalStorageProvider({ children }) {
     }
   }));
 
-  const loadSet = (name) => setAppState(prev => ({
+  const loadSet = (cardSet) => setAppState(prev => ({
     ...prev,
-    backpack: prev.savedSets[name] || []
+    activeSet: cardSet || []
   }));
 
   const deleteSet = (setName) => setAppState(prev => {

@@ -18,9 +18,9 @@ const DragDropWrapper = ({ children, subpage, setSubpage }) => {
 
     const id = event.operation.source?.id;
 
-    if (!id.endsWith("backpack") && event.operation.target?.id === "backpack" && appState.backpack.includes(id)) return;
-    if (!id.endsWith("backpack") && event.operation.target?.id === "backpack") addToBackpack(id);
-    if (id.endsWith("backpack") && event.operation.target?.id !== "backpack") removeFromBackpack(id);
+    if (!id.endsWith("activeSet") && event.operation.target?.id === "backpack" && appState.activeSet.includes(id)) return;
+    if (!id.endsWith("activeSet") && event.operation.target?.id === "backpack") addToBackpack(id);
+    if (id.endsWith("activeSet") && event.operation.target?.id !== "backpack") removeFromBackpack(id);
 
     requestAnimationFrame(() => {
       if (container) container.scrollLeft = scrollLeft;

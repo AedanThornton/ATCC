@@ -10,6 +10,8 @@ const PrebuiltDecksBuilder = ({ deckState }) => {
     level: "",
   })
 
+  const typeSelected = !!prebuiltDeckParameters?.type
+
   useEffect(() => {
     const newParams = new URLSearchParams(deckState.deckParams)
 
@@ -34,7 +36,7 @@ const PrebuiltDecksBuilder = ({ deckState }) => {
             <li onClick={() => handleSelectType("exploration")}>Exploration</li>
           </ul>
         </div>
-        <div className="prebuilt-decks-dropdown__button">
+        <div className={`prebuilt-decks-dropdown__button ${!typeSelected && "disabled"}`}>
           {prebuiltDeckParameters.name ? prebuiltDeckParameters.name : "Name"}
           <ul className="prebuilt-decks-dropdown">
             {prebuiltDeckParameters?.type === "primordial" && deckState.prebuiltDeck.isLoading && <li>Options loading...</li>}
@@ -53,7 +55,7 @@ const PrebuiltDecksBuilder = ({ deckState }) => {
             }
           </ul>
         </div>
-        <div className="prebuilt-decks-dropdown__button">
+        <div className={`prebuilt-decks-dropdown__button ${!typeSelected && "disabled"}`}>
           {prebuiltDeckParameters.variant ? prebuiltDeckParameters.variant : "Variant"}
           <ul className="prebuilt-decks-dropdown">
             {prebuiltDeckParameters.type === "primordial" &&

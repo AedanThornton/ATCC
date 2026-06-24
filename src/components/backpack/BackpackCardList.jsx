@@ -1,22 +1,26 @@
-import { useDroppable } from "@dnd-kit/react"
 import "./Backpack.css"
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import CardRenderer from "../cards/CardRenderer";
-import BackpackSetsManager from "./BackpackSetsManager";
+import { useState } from "react";
 
 const BackpackCardList = ({}) => {
   const { appState, cardCache } = useLocalStorage();
+  const [buttonError, setButtonError] = useState(null)
 
   return (
-    <BackpackSetsManager>
+    <>
       <div className={`backpack-card-list`}>
-        {appState.backpack?.map((card, i) => 
+        {appState.activeSet?.map((card, i) => 
           <div className="drag-backpack-item" key={i}>
             {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant="backpack" />}
           </div>
         )}
       </div>
-    </BackpackSetsManager>
+
+      {buttonError && <div className="backpack-error-overlay">
+        <span>{buttonError}</span>
+      </div>}
+    </>
   )
 }
 
