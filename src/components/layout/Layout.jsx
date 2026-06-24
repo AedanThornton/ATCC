@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import "../../styles/layout.css"
 import logo from "../../assets/ATCC.svg"
-import FilterSidebar from '../catalog/FilterSidebar';
-import ControlBar from "./ControlBar";
-import SearchBar from './SearchBar';
-import { useSpoilers } from "../../context/SpoilerContext";
-import HamburgerButton from '../utils/HamburgerButton';
+import { useLayout } from '../../context/LayoutContext';
 
-function Layout({ isCatalog = false, subpage = false }) {
-  const { spoilersEnabled } = useSpoilers();
-  const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false);
+function Layout({}) {
+  const { layout } = useLayout()
 
   return (
     <div className="app-layout">
@@ -32,22 +26,11 @@ function Layout({ isCatalog = false, subpage = false }) {
               </button>
             </nav>
           </div>
-          
-          {isCatalog && <ControlBar />}
 
-          <div className='top-menu'>
-            {isCatalog && <div className='filters-menu'>
-              <HamburgerButton clickFunc={() => setIsFilterSidebarOpen(!isFilterSidebarOpen)} />
-
-              {isFilterSidebarOpen && <FilterSidebar />}
-            </div>}
-            {subpage && <Link to="/catalog" className='back-to-catalog-button'>← Back to Catalog</Link>}
-          </div>
+          {layout?.topbar}
         </div>
 
-        {isCatalog && <SearchBar />}
-
-        {!spoilersEnabled && <div className='layout-spoiler-warning-banner'>!! Warning: Spoilers are NOT hidden. !!</div>}
+        {layout?.main}
         
       </header>
       <main className="app">

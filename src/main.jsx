@@ -10,6 +10,7 @@ import LocalStorageManager from './components/savedcards/LocalStorageManager.jsx
 import { LocalStorageProvider } from './context/LocalStorageContext.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { LayoutProvider } from './context/LayoutContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
 
@@ -30,9 +31,11 @@ createRoot(document.getElementById('root')).render(
         <SpoilerProvider>
           <ModalProvider>
             <LocalStorageProvider>
-              <FocusCardCache />
-              <LocalStorageManager />
-              <App />
+              <LayoutProvider>
+                <FocusCardCache />
+                <LocalStorageManager />
+                <App />
+              </LayoutProvider>
             </LocalStorageProvider>
           </ModalProvider>
         </SpoilerProvider>

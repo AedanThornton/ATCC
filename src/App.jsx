@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import "./styles/global.css";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
@@ -14,7 +13,7 @@ const App = () => {
     <Routes>
       <Route path="/home" element={<HomePage />} />
       <Route path="/card/:cardID" element={<FocusCardPage />} />
-      <Route path="/" element={<Layout isCatalog={true}/>}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="catalog" element={<CardLibraryPage />} />
         <Route path="*" element={<NotFoundPage />} />
