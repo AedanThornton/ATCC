@@ -80,7 +80,7 @@ function SavedSet({setname, set, index}) {
         {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.savedSets[set].length}</span> */}
       </div>
 
-      {isOpen && <ul className="saved-set__dropdown">
+      {isOpen && <ul className="saved-set__dropdown" onClick={(e) => e.stopPropagation()}>
         {set?.map((card, j) => {
           const cardData = cardCache.get(card)
           return <li key={j}>
