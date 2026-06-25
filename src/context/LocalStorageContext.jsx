@@ -47,7 +47,7 @@ export function LocalStorageProvider({ children }) {
 
   const removeFromBackpack = (id) => setAppState(prev => ({
     ...prev,
-    activeSet: prev.activeSet.filter(cardID => cardID !== id && cardID !== id.replace("activeSet", ""))
+    activeSet: prev.activeSet.filter(cardID => cardID !== id && cardID !== id.replace("backpack", ""))
   }));
 
   const clearBackpack = () => setAppState(prev => ({

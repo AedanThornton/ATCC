@@ -2,7 +2,7 @@ import { useDroppable } from "@dnd-kit/react";
 import "./pagearrow.css"
 
 const PageArrow = ({ isDragging, icon, funcTrigger = ()=>{}, variant }) => {
-  const { ref, isDropTarget } = useDroppable({ id: "backpack" });
+  const { ref, isDropTarget } = useDroppable({ id: variant });
 
   const options = {
     "backpack": "backpack-arrow",
