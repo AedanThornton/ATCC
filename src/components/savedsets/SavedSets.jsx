@@ -72,7 +72,6 @@ function SavedSet({setname, set, index}) {
             {getIcon({name: "Save", invert: true})}
           </span>
         : <SavedSetsMenu options={[
-            {title: "Load", func: () => loadSet(set)},
             {title: "Delete", func: () => deleteSet(setname)}
           ]} />
         }

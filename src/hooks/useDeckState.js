@@ -2,12 +2,12 @@ import { useEffect, useState } from "react"
 import { useLocalStorage } from "../context/LocalStorageContext";
 import { useDecks } from "./useDecks";
 
-export function useDeckState(initialSetName) {
+export function useDeckState() {
   const { appState } = useLocalStorage();
   const [deckSource, setDeckSource] = useState("custom"); // "custom" or "prebuilt"
   const [activeCardPool, setActiveCardPool] = useState("deck")
   const [cardPools, setCardPools] = useState({
-    deck: appState.savedSets[initialSetName] || [],
+    deck: appState?.activeSet || [],
     discard: [],
     removed: []
   })
@@ -30,7 +30,7 @@ export function useDeckState(initialSetName) {
   useEffect(() => {
     if (deckSource !== "prebuilt") {
       setCardPools(prev => ({
-        deck: [],
+        deck: appState?.activeSet || [],
         discard: [],
         removed: []
       }))
@@ -48,7 +48,7 @@ export function useDeckState(initialSetName) {
         ...newCardPools
       }))
     }
-  }, [deckSource, prebuiltDeck.deckCards, prebuiltDeck.otherCardPools])
+  }, [deckSource, prebuiltDeck.deckCards, prebuiltDeck.otherCardPools, appState])
 
   const setHideAllCards = (hide) => {
     setHiddenCards(() => {

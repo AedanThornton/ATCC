@@ -7,7 +7,7 @@ import DeckActionSidebar from "./DeckActionSidebar";
 import PrebuiltDecksBuilder from "./PrebuiltDecksBuilder";
 
 function Deck({}) {
-  const deckState = useDeckState("");
+  const deckState = useDeckState();
 
   return (
     <div className="deck-page">
