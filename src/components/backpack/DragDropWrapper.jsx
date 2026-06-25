@@ -38,11 +38,11 @@ const DragDropWrapper = ({ children, subpage, setSubpage }) => {
         defaults.filter((plugin) => plugin !== AutoScroller)
       }
     >
-      {subpage === "backpack" && <PageArrow isDragging={isDragging} icon={getIcon({name: "Catalog", invert: true})} funcTrigger={() => setSubpage("cardlist")} />}
+      {subpage === "backpack" && <PageArrow isDragging={isDragging} icon={getIcon({name: "Catalog", invert: true})} funcTrigger={() => setSubpage("cardlist")} variant={"catalog"} />}
       {children}
       <div className={isDragging ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay" }></div>
 
-      {subpage === "cardlist" && <PageArrow isDragging={isDragging} icon={getIcon({name: "Backpack", invert: true})} funcTrigger={() => setSubpage("backpack")} />}
+      {subpage === "cardlist" && <PageArrow isDragging={isDragging} icon={getIcon({name: "Backpack", invert: true})} funcTrigger={() => setSubpage("backpack")} variant={"backpack"} />}
     </DragDropProvider>
   )
 }

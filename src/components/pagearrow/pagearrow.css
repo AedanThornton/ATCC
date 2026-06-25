@@ -2,27 +2,40 @@
   width: 10dvw;
   height: 50dvh;
   position: absolute;
-  left: 0;
   top: 25dvh;
   display: flex;
   flex-direction: column;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
   transition: background-color 0.2s ease, width 0.6s ease;
   z-index: 550;
 }
+.page-over.catalog-arrow {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  left: 0;
+}
+.page-over.backpack-arrow {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  right: 0;
+}
 
 .page-over-arrow {
-  transform: translateX(-80px);
   transition: transform 0.8s ease;
   z-index: 10;
   position: absolute;
-  right: 0;
   box-sizing: border-box;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.catalog-arrow .page-over-arrow {
+  transform: translateX(-80px);
+  right: 0;
+}
+.backpack-arrow .page-over-arrow {
+  transform: translateX(80px);
+  left: 0;
 }
 
 .page-over-arrow-button {
@@ -43,8 +56,13 @@
 }
 
 .page-over:hover .page-over-arrow, .page-over.open .page-over-arrow {
-  transform: translateX(30px);
   cursor: pointer;
+}
+.catalog-arrow.page-over:hover .page-over-arrow, .catalog-arrow.page-over.open .page-over-arrow {
+  transform: translateX(30px);
+}
+.backpack-arrow.page-over:hover .page-over-arrow, .backpack-arrow.page-over.open .page-over-arrow {
+  transform: translateX(-30px);
 }
 
 .page-over.open {
