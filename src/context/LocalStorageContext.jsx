@@ -9,6 +9,7 @@ export function LocalStorageProvider({ children }) {
 
     if (!saved) return {
       activeSet: [],
+      searchSet: [],
       backpack: [],
       savedSets: {}
     };
@@ -18,6 +19,7 @@ export function LocalStorageProvider({ children }) {
     return {
       ...parsed,
       activeSet: parsed.activeSet ?? [],
+      searchSet: parsed.searchSet ?? [],
       backpack: parsed.backpack ?? [],
       savedSets: parsed.savedSets ?? {}
     };
@@ -76,13 +78,19 @@ export function LocalStorageProvider({ children }) {
     };
   });
 
+  const updateSearchSet = ({cardIDs}) => setAppState(prev => ({
+    ...prev,
+    searchSet: cardIDs || []
+  }));
+
   return (
     <LocalStorageContext.Provider 
       value={{ 
         appState, cardCache,
         ingestCards,
         addToBackpack, removeFromBackpack, clearBackpack, 
-        saveSet, loadSet, deleteSet }}>
+        saveSet, loadSet, deleteSet,
+        updateSearchSet }}>
       {children}
     </LocalStorageContext.Provider>
   );

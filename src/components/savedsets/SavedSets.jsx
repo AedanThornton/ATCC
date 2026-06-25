@@ -12,7 +12,7 @@ function SavedSet({setname, set, index}) {
   const [isOpen, setIsOpen] = useState(false)
   const { appState, cardCache, saveSet, loadSet, deleteSet } = useLocalStorage();
   const { openModal } = useModal();
-  const isBackpackSet = setname === "Backpack"
+  const isBackpackSet = setname === "Backpack" || setname === "Cards from Search"
   
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
@@ -36,8 +36,8 @@ function SavedSet({setname, set, index}) {
       return;
     }
 
-    if (appState.activeSet.length === 0) {
-      handleError("Cannot save empty backpack");
+    if (set.length === 0) {
+      handleError("Cannot save empty set");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
       return;
@@ -50,33 +50,31 @@ function SavedSet({setname, set, index}) {
       return;
     }
 
-    saveSet(setName, appState.activeSet);
+    saveSet(setName, set);
   }
 
   return (
     <div key={index} className="saved-set"
-      style={{border: isBackpackSet ? "3px solid var(--accent)" : "none"}}
+      style={{border: appState.activeSet === set ? "3px solid var(--accent)" : "3px solid #00000000"}}
       onClick={() => loadSet(set)}
     >
 
       <div className="saved-set__title-bar">
-        <div className="saved-sets-button" onClick={() => setIsOpen(!isOpen)}>{isOpen ? "▽" : "△"}</div>
-        {isBackpackSet
+        <div className="saved-sets-button" onClick={(e) => {e.stopPropagation(); setIsOpen(!isOpen)}}>{isOpen ? "▽" : "△"}</div>
+        {setname === "Backpack"
           ? <span>{getIcon({name: "Backpack", invert: true})} Backpack</span>
-          : <EditableTitle titleID={index} onSave={renameSet} initialName={setname} />
+          : setname === "Cards from Search"
+            ? <span>{setname}</span>
+            : <EditableTitle titleID={index} onSave={renameSet} initialName={setname} />
         }
         {isBackpackSet
-        ? <span className="saved-sets-button" onClick={() => {e.stopPropagation(); handleSaveSet(`New Set ${Object.keys(appState.savedSets).length + 1}`)}}>
+        ? <span className="saved-sets-button" onClick={(e) => {e.stopPropagation(); handleSaveSet(`New Set ${Object.keys(appState.savedSets).length + 1}`)}}>
             {getIcon({name: "Save", invert: true})}
           </span>
         : <SavedSetsMenu options={[
             {title: "Load", func: () => loadSet(set)},
             {title: "Delete", func: () => deleteSet(setname)}
-          ]}>
-            <span className="saved-sets-button">
-              {getIcon({name: "Options", invert: true})}
-            </span>
-          </SavedSetsMenu>
+          ]} />
         }
         
         {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.savedSets[set].length}</span> */}
@@ -132,6 +130,9 @@ function SavedSets() {
     <div className="saved-sets-panel">
       {appState.activeSet && appState.activeSet.length > 0 &&
         <SavedSet setname={"Backpack"} set={appState.backpack} />
+      }
+      {appState.searchSet && appState.searchSet.length > 0 &&
+        <SavedSet setname={"Cards from Search"} set={appState.searchSet} />
       }
       {Object.keys(appState.savedSets).map((set, i) => (
         <SavedSet setname={set} set={appState.savedSets[set]} index={i} />

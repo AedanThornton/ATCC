@@ -5,6 +5,7 @@ import { useFilterOptions } from "../../hooks/useFilterOptions";
 import { useCards } from "../../hooks/useCards";
 import CardRenderer from "../cards/CardRenderer"
 import DragDropWrapper from "../backpack/DragDropWrapper";
+import { useLocalStorage } from "../../context/LocalStorageContext";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,6 +14,14 @@ const CardList = () => {
   const { filterOptions, optionsLoading, optionsError } = useFilterOptions();
   const { data, isLoading, error } = useCards(searchParams);
   const filteredCards = data?.cards
+
+  const { updateSearchSet } = useLocalStorage()
+  useEffect(() => {
+    if (isLoading || error) return
+
+    const cardIDs = data?.cards.map(card => card.cardIDs[0])
+    updateSearchSet({cardIDs: cardIDs})
+  }, [data])
 
   // Set Initial params if missing
   useEffect(() => {
