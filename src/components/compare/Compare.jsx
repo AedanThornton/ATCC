@@ -9,7 +9,7 @@ import getIcon from "../utils/iconUtils.jsx"
 import { useAllCards } from "../../hooks/useAllCards.js"
 
 const Compare = ({}) => {
-  const { ingestCards } = useLocalStorage()
+  const { ingestCards, appState, cardCache } = useLocalStorage()
   const { data, isLoading, error } = useAllCards()
   const [cards, setCards] = useState([])
   const inputArgs = {
@@ -81,6 +81,11 @@ const Compare = ({}) => {
   useEffect(() => {
     ingestCards(cachedCards)
   }, [cachedCards])
+
+  useEffect(() => {
+    const cardSet = appState.activeSet.map(id => cardCache.get(id)).filter(Boolean)
+    if (cardSet.length > 0) setCards(cardSet.filter(c => c.cardType === "Gear"))
+  }, [appState])
     
 
   const addPanel = () => {
