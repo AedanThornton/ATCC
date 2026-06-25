@@ -105,6 +105,8 @@
 .saved-sets-menu {
   background-color: var(--main-midtone);
   border: 2px solid var(--accent-dark);
+  position: absolute;
+  right: 0;
 }
 .saved-sets-menu__options {
   background-color: var(--main-midtone);
