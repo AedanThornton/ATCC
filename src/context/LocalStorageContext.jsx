@@ -38,11 +38,13 @@ export function LocalStorageProvider({ children }) {
   }
 
   const addToBackpack = (id) => {
-    if (appState.activeSet.includes(id)) return
+    if (appState.activeSet.includes(id)) return 1
     setAppState(prev => ({
       ...prev,
       activeSet: [...prev.activeSet, id]
     }))
+
+    return 0
   };
 
   const removeFromBackpack = (id) => setAppState(prev => ({
