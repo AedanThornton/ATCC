@@ -38,6 +38,21 @@ export function LocalStorageProvider({ children }) {
   }
 
   const addToBackpack = (id) => {
+    if (appState.backpack.includes(id)) return 1
+    setAppState(prev => ({
+      ...prev,
+      backpack: [...prev.backpack, id]
+    }))
+
+    return 0
+  };
+
+  const removeFromBackpack = (id) => setAppState(prev => ({
+    ...prev,
+    backpack: prev.backpack.filter(cardID => cardID !== id)
+  }));
+
+  const addToActiveSet = (id) => {
     if (appState.activeSet.includes(id)) return 1
     setAppState(prev => ({
       ...prev,
@@ -47,12 +62,12 @@ export function LocalStorageProvider({ children }) {
     return 0
   };
 
-  const removeFromBackpack = (id) => setAppState(prev => ({
+  const removeFromActiveSet = (id) => setAppState(prev => ({
     ...prev,
-    activeSet: prev.activeSet.filter(cardID => cardID !== id && cardID !== id.replace("backpack", ""))
+    activeSet: prev.activeSet.filter(cardID => cardID !== id)
   }));
 
-  const clearBackpack = () => setAppState(prev => ({
+  const clearActiveSet = () => setAppState(prev => ({
     ...prev,
     activeSet: []
   }));
@@ -90,7 +105,7 @@ export function LocalStorageProvider({ children }) {
       value={{ 
         appState, cardCache,
         ingestCards,
-        addToBackpack, removeFromBackpack, clearBackpack, 
+        addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet, clearActiveSet, 
         saveSet, loadSet, deleteSet,
         updateSearchSet }}>
       {children}

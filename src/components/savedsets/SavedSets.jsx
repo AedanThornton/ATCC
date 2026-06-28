@@ -4,15 +4,15 @@ import { useModal } from "../../context/FocusContext";
 import getIcon from "../utils/iconUtils";
 import EditableTitle from "../utils/EditableTitle";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { useCards } from "../../hooks/useCards";
 import SavedSetsMenu from "./SavedSetsMenu";
+import { useBackpackContext } from "../../context/BackpackContext";
 
 function SavedSet({setname, set, index}) {
   const [isOpen, setIsOpen] = useState(false)
   const { appState, cardCache, saveSet, loadSet, deleteSet } = useLocalStorage();
+  const { backpackIsActive, setBackpackIsActive } = useBackpackContext()
   const { openModal } = useModal();
-  const isBackpackSet = setname === "Backpack" || setname === "Cards from Search"
+  const isBackpackSet = setname === "Backpack"
   
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
@@ -53,10 +53,20 @@ function SavedSet({setname, set, index}) {
     saveSet(setName, set);
   }
 
+  const handleClickOnSet = () => {
+    loadSet(set); 
+    
+    if (isBackpackSet) {
+      setBackpackIsActive(true)
+    } else {
+      setBackpackIsActive(false)
+    }
+  }
+
   return (
     <div key={index} className="saved-set"
-      style={{border: appState.activeSet === set ? "3px solid var(--accent)" : "3px solid #00000000"}}
-      onClick={() => loadSet(set)}
+      style={{border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent)" : "3px solid #00000000"}}
+      onClick={() => handleClickOnSet()}
     >
 
       <div className="saved-set__title-bar">
@@ -67,7 +77,7 @@ function SavedSet({setname, set, index}) {
             ? <span>{setname}</span>
             : <EditableTitle titleID={index} onSave={renameSet} initialName={setname} />
         }
-        {isBackpackSet
+        {(isBackpackSet || setname === "Cards from Search")
         ? <span className="saved-sets-button" onClick={(e) => {e.stopPropagation(); handleSaveSet(`New Set ${Object.keys(appState.savedSets).length + 1}`)}}>
             {getIcon({name: "Save", invert: true})}
           </span>
@@ -102,12 +112,9 @@ function SavedSet({setname, set, index}) {
 }
 
 function SavedSets() {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [buttonError, setButtonError] = useState(null)
 
-  const { appState, saveSet, loadSet, deleteSet, clearBackpack, addToBackpack } = useLocalStorage();
-  const { data } = useCards(searchParams);
-  const filteredCards = data?.cards
+  const { appState } = useLocalStorage();
 
   const handleError = (msg) => {
     setButtonError("Error: " + msg)
@@ -115,14 +122,6 @@ function SavedSets() {
     setTimeout(() => {
       setButtonError(null)
     }, 800)
-  }
-
-  const importFromCatalog = () => {
-    filteredCards?.map((card) => {
-      if (!appState.activeSet.includes(card.cardIDs[0])) {
-        addToBackpack(card.cardIDs[0])
-      }
-    })
   }
 
   return (

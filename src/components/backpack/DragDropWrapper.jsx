@@ -17,8 +17,8 @@ const DragDropWrapper = ({ children, subpage, setSubpage }) => {
 
     const id = event.operation.source?.id;
 
-    if (!id.endsWith("backpack") && event.operation.target?.id === "backpack") handleAddToBackpack(id);
-    if (id.endsWith("backpack") && event.operation.target?.id === "catalog") handleRemoveFromBackpack(id);
+    if (event.operation.target?.id === "backpack") handleAddToBackpack(id);
+    if (event.operation.target?.id === "catalog") handleRemoveFromBackpack(id);
 
     requestAnimationFrame(() => {
       if (container) container.scrollLeft = scrollLeft;
@@ -36,11 +36,11 @@ const DragDropWrapper = ({ children, subpage, setSubpage }) => {
         defaults.filter((plugin) => plugin !== AutoScroller)
       }
     >
-      {subpage === "backpack" && <PageArrow isDragging={backpackPreviewOpen} icon={getIcon({name: "Catalog", invert: true})} funcTrigger={() => setSubpage("cardlist")} variant={"catalog"} />}
+      {subpage === "backpack" && <PageArrow isDragging={backpackPreviewOpen} icon={getIcon({ name: "Catalog", invert: true })} funcTrigger={() => setSubpage("cardlist")} variant={"catalog"} />}
       {children}
-      <div className={backpackPreviewOpen ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay" }></div>
+      <div className={backpackPreviewOpen ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay"}></div>
 
-      {subpage === "cardlist" && <PageArrow isDragging={backpackPreviewOpen} icon={getIcon({name: "Backpack", invert: true})} funcTrigger={() => setSubpage("backpack")} variant={"backpack"} />}
+      {subpage === "cardlist" && <PageArrow isDragging={backpackPreviewOpen} icon={getIcon({ name: "Backpack", invert: true })} funcTrigger={() => setSubpage("backpack")} variant={"backpack"} />}
     </DragDropProvider>
   )
 }

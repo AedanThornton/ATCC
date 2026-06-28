@@ -7,12 +7,16 @@ import { useLocalStorage } from "./LocalStorageContext";
 const BackpackContext = createContext();
 
 export function BackpackProvider({ children }) {
-  const { addToBackpack, removeFromBackpack } = useLocalStorage()
+  const { appState, addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet } = useLocalStorage()
   const [activeView, setActiveView] = useState("Backpack");
+  const [backpackIsActive, setBackpackIsActive] = useState(true)
   const [backpackPreviewOpen, setBackpackPreviewOpen] = useState(false);
 
   async function handleAddToBackpack(id) {
     if (addToBackpack(id)) return;
+    if (backpackIsActive) {
+      addToActiveSet(id)
+    }
 
     setBackpackPreviewOpen(true);
     setTimeout(() => {
@@ -21,8 +25,11 @@ export function BackpackProvider({ children }) {
   }
 
   function handleRemoveFromBackpack(id) {
-    removeFromBackpack(id)
-
+    if (backpackIsActive) {
+      removeFromBackpack(id)
+    }
+    removeFromActiveSet(id)
+    
     setBackpackPreviewOpen(true);
     setTimeout(() => {
       setBackpackPreviewOpen(false);
@@ -39,7 +46,8 @@ export function BackpackProvider({ children }) {
 
   const values = { 
     views, 
-    activeView, setActiveView, 
+    activeView, setActiveView,
+    backpackIsActive, setBackpackIsActive,
     backpackPreviewOpen, setBackpackPreviewOpen,
     handleAddToBackpack, handleRemoveFromBackpack
   }

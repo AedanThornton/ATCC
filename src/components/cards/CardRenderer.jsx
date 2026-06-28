@@ -44,7 +44,7 @@ const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
     />
   }</>
 
-  const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` + variant })
+  const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` })
 
   menu = menu ? menu : 
     <CardMenu
@@ -52,7 +52,7 @@ const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
       flipFunc={toggleSide}
       secretFunc={toggleReveal}
       setDisplay={setDisplayHelper}
-      inBackpack={variant === "backpack" ? true : false}
+      variant={variant}
     />
 
   return (
