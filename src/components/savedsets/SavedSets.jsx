@@ -50,7 +50,15 @@ function SavedSet({setname, set, index}) {
       return;
     }
 
-    saveSet(setName, set);
+    function checkNames(origName, name = origName, i = 1) {
+      if (name in appState.savedSets) {
+        return checkNames(origName, origName + " " + i, i+1)
+      } else {
+        return name
+      }
+    }
+
+    saveSet(checkNames(setName), set);
   }
 
   const handleClickOnSet = () => {
@@ -78,7 +86,7 @@ function SavedSet({setname, set, index}) {
             : <EditableTitle titleID={index} onSave={renameSet} initialName={setname} />
         }
         {(isBackpackSet || setname === "Cards from Search")
-        ? <span className="saved-sets-button" onClick={(e) => {e.stopPropagation(); handleSaveSet(`New Set ${Object.keys(appState.savedSets).length + 1}`)}}>
+        ? <span className="saved-sets-button" onClick={(e) => {e.stopPropagation(); handleSaveSet(`New Set`)}}>
             {getIcon({name: "Save", invert: true})}
           </span>
         : <SavedSetsMenu options={[
