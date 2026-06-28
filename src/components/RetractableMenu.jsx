@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import getIcon from "./utils/iconUtils"
 import "./deck/deck.css"
 
 const RectractableMenu = ({ preformattedButtons, customButtons }) => {
+  const [menuOpen, setMenuOpen] = useState(false)
 
-  return <div className="deck-page__action-sidebar">
+  return <div className={`retractable-menu ${menuOpen ? "open" : ""}`}>
 
     {customButtons.map((button, i) => (
       <React.Fragment key={i}>
@@ -21,6 +22,10 @@ const RectractableMenu = ({ preformattedButtons, customButtons }) => {
         {getIcon({ name: button.iconName, size: "1.5em", invert: true })}
       </button>
     ))}
+
+    <button className="retractable-menu__display-button" onClick={() => setMenuOpen(!menuOpen)}>
+      {getIcon({name: "Options", invert: true})}
+    </button>
 
   </div>
 }

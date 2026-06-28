@@ -3,7 +3,6 @@ import DeckRenderer from './DeckRenderer';
 import DeckHighlightCard from './DeckHighlightCard';
 import DeckSelector from './DeckSelector';
 import { useDeckState } from '../../hooks/useDeckState';
-import DeckActionSidebar from "./DeckActionSidebar";
 import PrebuiltDecksBuilder from "./PrebuiltDecksBuilder";
 
 function Deck({}) {
@@ -14,7 +13,6 @@ function Deck({}) {
       {deckState.highlightCard && <DeckHighlightCard deckState={deckState} />}
       {deckState.deckSource === "prebuilt" && <PrebuiltDecksBuilder deckState={deckState} />}
       <DeckRenderer deckState={deckState} />
-      <DeckActionSidebar deckState={deckState} />
       <DeckSelector deckState={deckState} />
     </div>
   );

@@ -60,6 +60,7 @@
   width: 100%;
   padding: 0 3% 0 4%;
   box-sizing: border-box;
+  position: relative;
 }
 
 .deck-page__button-wrapper {
@@ -67,16 +68,40 @@
   gap: 5px;
 }
 
-.deck-page__action-sidebar {
+.retractable-menu {
   position: absolute;
-  right: 25px;
-  bottom: 60px;
-  height: max-content;
+  left: 0;
+  bottom: 10px;
+  padding-left: 10px;
+  width: max-content;
   display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: var(--main-midtone);
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transform: translateX(calc(40px - 100%));
+  transition: transform 0.5s ease, right 0.5s ease;
+}
+.retractable-menu.open {
+  transform: translateX(0);
+}
+
+.retractable-menu__display-button {
+  background-color: var(--main-midtone);
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 28px;
+  height: 50px;
+}
+.retractable-menu__display-button:hover {
+  background-color: var(--main-light);
 }
 
 .deck-page__action-button {
@@ -104,9 +129,7 @@
 }
 
 .deck-page__toggle {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  height: fit-content;
+  width: fit-content;
 }
 
 .deck-page__hidden-card {

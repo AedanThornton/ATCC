@@ -3,6 +3,7 @@ import getIcon from "../utils/iconUtils";
 import "./deck.css"
 import CardRenderer from "../cards/CardRenderer";
 import DeckCardMenu from "./DeckCardMenu";
+import DeckActionSidebar from "./DeckActionSidebar";
 
 const DeckRenderer = ({ deckState }) => {
   const { cardCache } = useLocalStorage();
@@ -33,6 +34,8 @@ const DeckRenderer = ({ deckState }) => {
           <><br /><span>Select a card set to play with in the left panel.</span></>}
       </p>
     }
+    
+    <DeckActionSidebar deckState={deckState} />
   </div>
 }
 
