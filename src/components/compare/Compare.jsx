@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import "./Compare.css"
 import { useLocalStorage } from "../../context/LocalStorageContext"
 import CardRenderer from "../cards/CardRenderer"
@@ -7,11 +7,23 @@ import { getPowerDiceList, calculateHitChance } from "../../lib/gearEvalution.js
 import SearchableList from "../utils/SearchableList.jsx"
 import getIcon from "../utils/iconUtils.jsx"
 import { useAllCards } from "../../hooks/useAllCards.js"
+import { useDroppable } from "@dnd-kit/react"
 
 const Compare = ({}) => {
   const { ingestCards, appState, cardCache } = useLocalStorage()
   const { data, isLoading, error } = useAllCards()
   const [cards, setCards] = useState([])
+  const { ref, isDropTarget } = useDroppable({ id: "compare", data: {onDrop: handleCompareDrop} });
+
+  function handleCompareDrop(id) {
+    if (!id) return
+    const idParts = id.split("-")
+    const realID = idParts[idParts.length - 1]
+    const cardData = cardCache.get(realID)
+    if (cards.includes(cardData)) return
+    setCards(prev => [...prev, cardData])
+  }
+
   const inputArgs = {
     toHitTarget: 10,
     tokens: {
@@ -83,10 +95,22 @@ const Compare = ({}) => {
   }, [cachedCards])
 
   useEffect(() => {
-    const cardSet = appState.activeSet.map(id => cardCache.get(id)).filter(Boolean)
-    if (cardSet.length > 0) setCards(cardSet.filter(c => c.cardType === "Gear"))
-  }, [appState])
-    
+    const cardSet = appState.activeSet
+      .map(id => cardCache.get(id))
+      .filter(c => c?.cardType === "Gear");
+
+    setCards(prev => {
+      if (
+        prev.length === cardSet.length &&
+        prev.every((c, i) => c === cardSet[i])
+      ) {
+        return prev;
+      }
+
+      return cardSet;
+    });
+  }, [appState.activeSet, cardCache]);
+
 
   const addPanel = () => {
     setCards([
@@ -108,7 +132,7 @@ const Compare = ({}) => {
   }
 
   return (
-    <div className="compare">
+    <div className={`compare ${isDropTarget ? "is-drop-target" : ""}`} ref={ref}>
 
       <div className="compare-labels">
         <div className="compare-panel__controls" style={{backgroundColor: "var(--main-midtone)"}}><div className="compare-panel__controls-button" style={{backgroundColor: "var(--main-midtone)"}}></div></div>{/* controls placeholder */}

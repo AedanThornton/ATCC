@@ -20,7 +20,19 @@ function AutoSizedSVG({ children }) {
     if (!svg) return;
 
     const bbox = svg.getBBox();
-    setBox(bbox);
+    setBox(prev => {
+      if (
+        prev &&
+        prev.x === bbox.x &&
+        prev.y === bbox.y &&
+        prev.width === bbox.width &&
+        prev.height === bbox.height
+      ) {
+        return prev;
+      }
+
+      return bbox;
+    });
   }, [children]); // re-run when SVG content changes
 
   return (

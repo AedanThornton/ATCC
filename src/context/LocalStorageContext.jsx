@@ -27,13 +27,17 @@ export function LocalStorageProvider({ children }) {
 
   function ingestCards(cards) {
     setCardCache(prev => {
+      let changed = false;
       const newMap = new Map(prev);
 
-      cards?.forEach(c => {
-        newMap.set(c.cardIDs[0], c);
+      cards?.forEach(card => {
+        if (newMap.get(card.cardIDs[0]) !== card) {
+          newMap.set(card.cardIDs[0], card);
+          changed = true;
+        }
       });
 
-      return newMap;
+      return changed ? newMap : prev;
     });
   }
 
