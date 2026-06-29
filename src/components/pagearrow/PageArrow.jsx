@@ -1,15 +1,17 @@
 import { useDroppable } from "@dnd-kit/react";
 import "./pagearrow.css"
+import { useBackpackContext } from "../../context/BackpackContext";
 
-const PageArrow = ({ isDragging, icon, funcTrigger = ()=>{}, variant }) => {
+const PageArrow = ({ icon, funcTrigger = ()=>{}, variant }) => {
   const { ref, isDropTarget } = useDroppable({ id: variant });
+  const { backpackPreviewOpen } = useBackpackContext()
 
   const options = {
     "backpack": "backpack-arrow",
     "catalog": "catalog-arrow"
   }
 
-  return <div ref={ref} className={`${options[variant]} page-over ${isDropTarget ? "is-drop-target" : ""} ${(isDragging) ? "open" : ""}`}>
+  return <div ref={ref} className={`${options[variant]} page-over ${isDropTarget ? "is-drop-target" : ""} ${(backpackPreviewOpen) ? "open" : ""}`}>
     <div className="page-over-arrow">
       <div
         className="page-over-arrow-button"
