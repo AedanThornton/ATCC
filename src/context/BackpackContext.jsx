@@ -37,12 +37,11 @@ export function BackpackProvider({ children }) {
   }
 
   const views = {
-    "Backpack": <BackpackCardList />,
-    "EditDeck": <Deck />,
-    "Compare": <Compare />,
-    // "LoadoutBuilder": <div style={{height: "1000px"}}>LoadoutBuilder</div>,
+    "Backpack": BackpackCardList,
+    "EditDeck": Deck,
+    "Compare": Compare,
     // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
-  } || {};
+  };
 
   const values = { 
     views, 
@@ -59,4 +58,12 @@ export function BackpackProvider({ children }) {
   );
 }
 
-export const useBackpackContext = () => useContext(BackpackContext);
+export function useBackpackContext() {
+  const context = useContext(BackpackContext);
+
+  if (!context) {
+    throw new Error("useBackpackContext must be used within BackpackProvider");
+  }
+
+  return context;
+}
