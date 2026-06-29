@@ -114,9 +114,17 @@ export function useDeckState() {
     }))
   }
 
+  const addCardToActivePool = (card) => {
+    setCardPools(prev => ({
+      ...prev,
+      [activeCardPool]: [...prev[activeCardPool], card]
+    }))
+  }
+
   return { 
     toggleHiddenCards, shuffleCards, drawCard, returnAllCardsToDeck, setHideAllCards, toggleSingleHiddenCard, moveCard,
     deckSource, cardPools, activeCardPool, highlightCard, hiddenCards, deckParams, prebuiltDeck,
-    setCardPools, setDeckSource, setActiveCardPool, setHiddenCards, setHighlightCard, setDeckParams
+    setCardPools, setDeckSource, setActiveCardPool, setHiddenCards, setHighlightCard, setDeckParams,
+    addCardToActivePool
   }
 }

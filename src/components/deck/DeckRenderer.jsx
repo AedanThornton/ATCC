@@ -4,12 +4,22 @@ import "./deck.css"
 import CardRenderer from "../cards/CardRenderer";
 import DeckCardMenu from "./DeckCardMenu";
 import DeckActionSidebar from "./DeckActionSidebar";
+import { useDroppable } from "@dnd-kit/react";
 
 const DeckRenderer = ({ deckState }) => {
   const { cardCache } = useLocalStorage();
+  const { ref, isDropTarget } = useDroppable({ id: "deck", data: {onDrop: handleDeckDrop} });
+
+  function handleDeckDrop(id) {
+    if (!id) return
+    const idParts = id.split("-")
+    const realID = idParts[idParts.length - 1]
+    if (deckState.cardPools[deckState.activeCardPool].includes(realID)) return
+    deckState.addCardToActivePool(realID)
+  }
   
   return (
-    <div className="deck-page__card-list__wrapper">
+    <div className={`deck-page__card-list__wrapper ${isDropTarget ? "is-drop-target" : ""}`} ref={ref}>
       <div className="deck-page__card-list">
         {deckState.cardPools[deckState.activeCardPool]?.map((cardID, i) => {
 
@@ -33,7 +43,7 @@ const DeckRenderer = ({ deckState }) => {
           <p style={{textAlign: "center"}}>
             <span>No cards in {deckState.activeCardPool} pool.</span>
             {!(Object.keys(deckState.cardPools).some(pool => deckState.cardPools[pool].length > 0)) && 
-              <><br /><span>Select a card set to play with in the left panel.</span></>}
+              <><br /><span>Select a card set to play with in the right panel.</span></>}
           </p>
         }
         
