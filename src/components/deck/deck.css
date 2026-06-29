@@ -50,17 +50,24 @@
   background-color: var(--main-light);
 }
 
+.deck-page__card-list__wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
 .deck-page__card-list {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
   overflow-y: scroll;
-  width: 100%;
   padding: 0 3% 0 4%;
   box-sizing: border-box;
-  position: relative;
 }
 
 .deck-page__button-wrapper {

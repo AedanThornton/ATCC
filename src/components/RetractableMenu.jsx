@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import getIcon from "./utils/iconUtils"
 import "./deck/deck.css"
 
-const RectractableMenu = ({ preformattedButtons, customButtons }) => {
+const RectractableMenu = ({ preformattedButtons = [], customButtons = [] }) => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return <div className={`retractable-menu ${menuOpen ? "open" : ""}`}>

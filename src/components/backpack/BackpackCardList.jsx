@@ -3,11 +3,20 @@ import { useLocalStorage } from "../../context/LocalStorageContext";
 import CardRenderer from "../cards/CardRenderer";
 import { useState } from "react";
 import { useBackpackContext } from "../../context/BackpackContext";
+import RectractableMenu from "../RetractableMenu";
 
 const BackpackCardList = ({}) => {
   const { appState, cardCache } = useLocalStorage();
   const { backpackIsActive } = useBackpackContext();
   const [buttonError, setButtonError] = useState(null)
+
+  const buttons = [
+    {
+      iconName: "LoadoutBuilder", 
+      isDisabled: false, 
+      clickFunc: () => console.log("Look a loadout!")
+    }
+  ]
 
   return (
     <>
@@ -17,6 +26,8 @@ const BackpackCardList = ({}) => {
             {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant={backpackIsActive ? "backpack" : "workspace"} />}
           </div>
         )}
+
+        <RectractableMenu preformattedButtons={buttons} />
       </div>
 
       {buttonError && <div className="backpack-error-overlay">
