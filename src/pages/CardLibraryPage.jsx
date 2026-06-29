@@ -5,6 +5,8 @@ import DragDropWrapper from '../components/backpack/DragDropWrapper';
 import { useLayout } from '../context/LayoutContext';
 import { CatalogLayoutMain, CatalogLayoutTopbar } from '../components/catalog/CatalogLayout';
 import { BackpackLayoutTopbar } from '../components/backpack/BackpackLayout';
+import PageArrow from "../components/pagearrow/PageArrow";
+import getIcon from '../components/utils/iconUtils';
 
 function CardLibraryPage() {
   const [subpage, setSubpage] = useState("cardlist")
@@ -32,9 +34,11 @@ function CardLibraryPage() {
 
   return (
     <div className="card-list-main">
-      <DragDropWrapper subpage={subpage} setSubpage={setSubpage}>
-        {subpages[subpage]}
-      </DragDropWrapper>
+      {subpage === "backpack" && <PageArrow icon={getIcon({ name: "Catalog", invert: true })} funcTrigger={() => setSubpage("cardlist")} variant={"catalog-arrow"} />}
+
+      {subpages[subpage]}
+
+      {subpage === "cardlist" && <PageArrow icon={getIcon({ name: "Backpack", invert: true })} funcTrigger={() => setSubpage("backpack")} variant={"backpack-arrow"} />}
     </div>
   );
 }

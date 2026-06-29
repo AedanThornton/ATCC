@@ -10,6 +10,7 @@ import { useModal } from '../../context/FocusContext';
 const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
   const { openModal } = useModal();
   const { spoilersEnabled } = useSpoilers();
+  const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` })
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
   const isSecretCard = cardData.foundIn?.includes("Secret Deck") || cardData.foundIn?.includes("Envelope") || cardData.foundIn === "Ultra-secret"
 
@@ -43,8 +44,6 @@ const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
       isVisible={isHidden} 
     />
   }</>
-
-  const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` })
 
   menu = menu ? menu : 
     <CardMenu

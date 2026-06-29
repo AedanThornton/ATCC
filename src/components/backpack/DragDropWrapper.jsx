@@ -1,11 +1,9 @@
 import { DragDropProvider } from "@dnd-kit/react";
-import PageArrow from "../pagearrow/PageArrow";
 import { useRef } from "react";
 import { AutoScroller } from "@dnd-kit/dom";
-import getIcon from "../utils/iconUtils";
 import { useBackpackContext } from "../../context/BackpackContext";
 
-const DragDropWrapper = ({ children, subpage, setSubpage }) => {
+const DragDropWrapper = ({ children }) => {
   const { backpackPreviewOpen, setBackpackPreviewOpen, handleAddToBackpack, handleRemoveFromBackpack } = useBackpackContext()
   const backpackRef = useRef(null);
 
@@ -17,8 +15,12 @@ const DragDropWrapper = ({ children, subpage, setSubpage }) => {
 
     const id = event.operation.source?.id;
 
-    if (event.operation.target?.id === "backpack") handleAddToBackpack(id);
-    if (event.operation.target?.id === "catalog") handleRemoveFromBackpack(id);
+    const handler = event.operation.target?.data.onDrop
+    handler?.(id)
+
+    //these function the same as the above two lines, but are here to prevent needlessly jumping from here to PageArrow and back again, and to keep PageArrow dynamic
+    if (event.operation.target?.id === "backpack-arrow") handleAddToBackpack(id);
+    if (event.operation.target?.id === "catalog-arrow") handleRemoveFromBackpack(id);
 
     requestAnimationFrame(() => {
       if (container) container.scrollLeft = scrollLeft;
@@ -36,11 +38,9 @@ const DragDropWrapper = ({ children, subpage, setSubpage }) => {
         defaults.filter((plugin) => plugin !== AutoScroller)
       }
     >
-      {subpage === "backpack" && <PageArrow icon={getIcon({ name: "Catalog", invert: true })} funcTrigger={() => setSubpage("cardlist")} variant={"catalog"} />}
       {children}
       <div className={backpackPreviewOpen ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay"}></div>
 
-      {subpage === "cardlist" && <PageArrow icon={getIcon({ name: "Backpack", invert: true })} funcTrigger={() => setSubpage("backpack")} variant={"backpack"} />}
     </DragDropProvider>
   )
 }
