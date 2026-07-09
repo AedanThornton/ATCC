@@ -5,6 +5,11 @@
   width: 100dvw;
   text-align: center;
   flex: 1 1 0;
+  box-sizing: border-box;
+}
+
+.compare.is-drop-target {
+  border: 3px solid var(--accent)
 }
 
 .compare-labels, .compare-panel {

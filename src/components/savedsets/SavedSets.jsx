@@ -6,14 +6,14 @@ import EditableTitle from "../utils/EditableTitle";
 import { useState } from "react";
 import SavedSetsMenu from "./SavedSetsMenu";
 import { useBackpackContext } from "../../context/BackpackContext";
+import { useDraggable } from "@dnd-kit/react";
 
-function SavedSet({setname, set, index}) {
-  const [isOpen, setIsOpen] = useState(false)
-  const { appState, cardCache, saveSet, loadSet, deleteSet } = useLocalStorage();
-  const { backpackIsActive, setBackpackIsActive } = useBackpackContext()
+function SavedSetCard({setname, card, index}) {
   const { openModal } = useModal();
-  const isBackpackSet = setname === "Backpack"
-  
+  const { appState, cardCache, saveSet } = useLocalStorage();
+  const cardData = cardCache.get(card)
+  const { ref } = useDraggable({ id: setname + "-" + card })
+
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
   }
@@ -22,12 +22,32 @@ function SavedSet({setname, set, index}) {
     saveSet(setName, appState.savedSets[setName].filter(c => c !== cardID))
   }
 
+  return <li key={index} ref={ref}>
+    <div className="saved-sets-card-details clickable" onClick={() => setDisplayHelper(cardCache.get(card)?.cardIDs[0])}>
+      <span>{cardData?.name}</span>
+      <span
+        className="saved-sets-button"
+        style={{ flex: "unset" }}
+        onClick={(e) => { e.stopPropagation(); removeCardFromSet(setname, card) }}
+      >
+        {getIcon({ name: "Trash", invert: true })}
+      </span>
+    </div>
+  </li>
+}
+
+function SavedSet({ setname, set, index }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const { appState, saveSet, loadSet, deleteSet } = useLocalStorage();
+  const { backpackIsActive, setBackpackIsActive } = useBackpackContext()
+  const isBackpackSet = setname === "Backpack"
+
   const renameSet = (setName, newName) => {
     if (setName === newName) return
     saveSet(newName, appState.savedSets[setName])
     deleteSet(setName)
   }
-  
+
   const handleSaveSet = (setName) => {
     if (typeof setName !== "string" || !setName) {
       handleError("Invalid set name");
@@ -52,7 +72,7 @@ function SavedSet({setname, set, index}) {
 
     function checkNames(origName, name = origName, i = 1) {
       if (name in appState.savedSets) {
-        return checkNames(origName, origName + " " + i, i+1)
+        return checkNames(origName, origName + " " + i, i + 1)
       } else {
         return name
       }
@@ -62,8 +82,8 @@ function SavedSet({setname, set, index}) {
   }
 
   const handleClickOnSet = () => {
-    loadSet(set); 
-    
+    loadSet(set);
+
     if (isBackpackSet) {
       setBackpackIsActive(true)
     } else {
@@ -73,48 +93,36 @@ function SavedSet({setname, set, index}) {
 
   return (
     <div key={index} className="saved-set"
-      style={{border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent)" : "3px solid #00000000"}}
+      style={{ border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent)" : "3px solid #00000000" }}
       onClick={() => handleClickOnSet()}
     >
 
       <div className="saved-set__title-bar">
-        <div className="saved-sets-button" onClick={(e) => {e.stopPropagation(); setIsOpen(!isOpen)}}>{isOpen ? "▽" : "△"}</div>
+        <div className="saved-sets-button" onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen) }}>{isOpen ? "▽" : "△"}</div>
         {setname === "Backpack"
-          ? <span>{getIcon({name: "Backpack", invert: true})} Backpack</span>
+          ? <span>{getIcon({ name: "Backpack", invert: true })} Backpack</span>
           : setname === "Cards from Search"
             ? <span>{setname}</span>
             : <EditableTitle titleID={index} onSave={renameSet} initialName={setname} />
         }
         {(isBackpackSet || setname === "Cards from Search")
-        ? <span className="saved-sets-button" onClick={(e) => {e.stopPropagation(); handleSaveSet(`New Set`)}}>
-            {getIcon({name: "Save", invert: true})}
+          ? <span className="saved-sets-button" onClick={(e) => { e.stopPropagation(); handleSaveSet(`New Set`) }}>
+            {getIcon({ name: "Save", invert: true })}
           </span>
-        : <SavedSetsMenu options={[
-            {title: "Delete", func: () => deleteSet(setname)}
+          : <SavedSetsMenu options={[
+            { title: "Delete", func: () => deleteSet(setname) }
           ]} />
         }
-        
+
         {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.savedSets[set].length}</span> */}
       </div>
 
-      {isOpen && <ul className="saved-set__dropdown" onClick={(e) => e.stopPropagation()}>
-        {set?.map((card, j) => {
-          const cardData = cardCache.get(card)
-          return <li key={j}>
-            <div className="saved-sets-card-details clickable" onClick={() => setDisplayHelper(cardCache.get(card)?.cardIDs[0])}>
-              <span>{cardData?.name}</span>
-              <span 
-                className="saved-sets-button"
-                style={{ flex: "unset" }}
-                onClick={(e) => {e.stopPropagation(); removeCardFromSet(setname, card)}}
-              >
-                {getIcon({ name: "Trash", invert: true })}
-              </span>
-            </div>
-          </li>
-        })}
+      <ul className="saved-set__dropdown" style={{display: isOpen ? "block" : "none"}} onClick={(e) => e.stopPropagation()}>
+        {set?.map((card, j) => 
+          <SavedSetCard setname={setname} card={card} index={j} />
+        )}
+      </ul>
 
-      </ul>}
     </div>
   )
 }
@@ -143,12 +151,12 @@ function SavedSets() {
       {Object.keys(appState.savedSets).map((set, i) => (
         <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
       ))}
-      {Object.keys(appState.savedSets).length === 0 && 
+      {Object.keys(appState.savedSets).length === 0 &&
         <div className="no-saved-sets">
           <p>No saved sets yet!</p>
         </div>
       }
-      
+
       {buttonError && <div className="backpack-error-overlay">
         <span>{buttonError}</span>
       </div>}

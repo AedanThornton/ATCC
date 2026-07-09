@@ -6,12 +6,7 @@ const PageArrow = ({ icon, funcTrigger = ()=>{}, variant }) => {
   const { ref, isDropTarget } = useDroppable({ id: variant });
   const { backpackPreviewOpen } = useBackpackContext()
 
-  const options = {
-    "backpack": "backpack-arrow",
-    "catalog": "catalog-arrow"
-  }
-
-  return <div ref={ref} className={`${options[variant]} page-over ${isDropTarget ? "is-drop-target" : ""} ${(backpackPreviewOpen) ? "open" : ""}`}>
+  return <div ref={ref} className={`${variant} page-over ${isDropTarget ? "is-drop-target" : ""} ${(backpackPreviewOpen) ? "open" : ""}`}>
     <div className="page-over-arrow">
       <div
         className="page-over-arrow-button"
