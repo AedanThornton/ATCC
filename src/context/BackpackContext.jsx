@@ -38,7 +38,7 @@ export function BackpackProvider({ children }) {
 
   const views = {
     "Backpack": BackpackCardList,
-    "EditDeck": Deck,
+    "Deck": Deck,
     "Compare": Compare,
     // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
   };
