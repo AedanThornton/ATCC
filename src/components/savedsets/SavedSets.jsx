@@ -93,7 +93,7 @@ function SavedSet({ setname, set, index }) {
 
   return (
     <div key={index} className="saved-set"
-      style={{ border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent)" : "3px solid #00000000" }}
+      style={{ border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent-light)" : "3px solid #00000000" }}
       onClick={() => handleClickOnSet()}
     >
 

@@ -173,7 +173,7 @@
 }
 
 .backpack__setslist-sidebar {
-  background-color: var(--main);
+  background-color: var(--accent-dark);
   height: 100dvh;
   width: 100vw;
   left: 0%;
@@ -183,7 +183,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 3px dotted var(--main-light);
+  border: 3px dotted var(--accent-light);
 }
 
 .backpack__setslist-sidebar__button {

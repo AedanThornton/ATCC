@@ -2,10 +2,10 @@
   --papyrus: #dfdbcd;
   --papyrus-dark: #cac7b9;
 
-  --accent-light: #c0eef3;
-  --accent: #70a1a2;
-  --accent-dark: #588585;
-  --accent-hover: #c57856;
+  --accent-light: #89e2ec;
+  --accent: #44a0a1;
+  --accent-dark: #368a8a;
+  --accent-hover: #c7683f;
   
   --main-light: #494949;
   --main-midtone: #333333;
@@ -34,7 +34,7 @@ html[data-spoilers="off"] {
   --accent-light: #e27324;
   --accent: #db5b00;
   --accent-dark: #bf420d;
-  --accent-hover: #56c5c5;
+  --accent-hover: #44a0a1;
 
   --main-light: #810000;
   --main-midtone: #590000;
