@@ -33,13 +33,15 @@ function CardLibraryPage() {
   }, [subpage])
 
   return (
-    <div className="card-list-main">
-      {subpage === "backpack" && <PageArrow icon={getIcon({ name: "Catalog", invert: true })} funcTrigger={() => setSubpage("cardlist")} variant={"catalog-arrow"} />}
+    <DragDropWrapper>
+      <div className="card-list-main">
+        {subpage === "backpack" && <PageArrow icon={getIcon({ name: "Catalog", invert: true })} funcTrigger={() => setSubpage("cardlist")} variant={"catalog-arrow"} />}
 
-      {subpages[subpage]}
+        {subpages[subpage]}
 
-      {subpage === "cardlist" && <PageArrow icon={getIcon({ name: "Backpack", invert: true })} funcTrigger={() => setSubpage("backpack")} variant={"backpack-arrow"} />}
-    </div>
+        {subpage === "cardlist" && <PageArrow icon={getIcon({ name: "Backpack", invert: true })} funcTrigger={() => setSubpage("backpack")} variant={"backpack-arrow"} />}
+      </div>
+    </DragDropWrapper>
   );
 }
 export default CardLibraryPage;

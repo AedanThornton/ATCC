@@ -6,7 +6,8 @@ import EditableTitle from "../utils/EditableTitle";
 import { useState } from "react";
 import SavedSetsMenu from "./SavedSetsMenu";
 import { useBackpackContext } from "../../context/BackpackContext";
-import { useDraggable } from "@dnd-kit/react";
+import { useDraggable, useDroppable } from "@dnd-kit/react";
+import SavedSetsDnDWrapper from "./SavedSetsDnDWrapper";
 
 function SavedSetCard({setname, card, index}) {
   const { openModal } = useModal();
@@ -141,26 +142,28 @@ function SavedSets() {
   }
 
   return (
-    <div className="saved-sets-panel">
-      {appState.activeSet && appState.activeSet.length > 0 &&
-        <SavedSet setname={"Backpack"} set={appState.backpack} />
-      }
-      {appState.searchSet && appState.searchSet.length > 0 &&
-        <SavedSet setname={"Cards from Search"} set={appState.searchSet} />
-      }
-      {Object.keys(appState.savedSets).map((set, i) => (
-        <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
-      ))}
-      {Object.keys(appState.savedSets).length === 0 &&
-        <div className="no-saved-sets">
-          <p>No saved sets yet!</p>
-        </div>
-      }
+    <SavedSetsDnDWrapper>
+      <div className="saved-sets-panel">
+        {appState.activeSet && appState.activeSet.length > 0 &&
+          <SavedSet setname={"Backpack"} set={appState.backpack} />
+        }
+        {appState.searchSet && appState.searchSet.length > 0 &&
+          <SavedSet setname={"Cards from Search"} set={appState.searchSet} />
+        }
+        {Object.keys(appState.savedSets).map((set, i) => (
+          <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+        ))}
+        {Object.keys(appState.savedSets).length === 0 &&
+          <div className="no-saved-sets">
+            <p>No saved sets yet!</p>
+          </div>
+        }
 
-      {buttonError && <div className="backpack-error-overlay">
-        <span>{buttonError}</span>
-      </div>}
-    </div>
+        {buttonError && <div className="backpack-error-overlay">
+          <span>{buttonError}</span>
+        </div>}
+      </div>
+    </SavedSetsDnDWrapper>
   );
 }
 
