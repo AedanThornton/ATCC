@@ -13,7 +13,6 @@
 
 .card-list-main {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -24,13 +23,13 @@
   flex-direction: column;
   align-items: center;
   gap: 0px;
-  margin: 0 4%;
+  padding: 2% 4%;
   width: 100%;
   height: 100%;
+  flex: 2;
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 2%;
 }
 
 .card-list::-webkit-scrollbar-thumb {

@@ -1,9 +1,10 @@
 .saved-sets-panel {
   padding: 50px 10px;
-  height: 70%;
+  height: 100%;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 .saved-sets-panel::-webkit-scrollbar {
 	display: none;

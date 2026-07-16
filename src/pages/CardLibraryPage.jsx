@@ -7,9 +7,11 @@ import { CatalogLayoutMain, CatalogLayoutTopbar } from '../components/catalog/Ca
 import { BackpackLayoutTopbar } from '../components/backpack/BackpackLayout';
 import PageArrow from "../components/pagearrow/PageArrow";
 import getIcon from '../components/utils/iconUtils';
+import SavedSets from '../components/savedsets/SavedSets';
 
 function CardLibraryPage() {
   const [subpage, setSubpage] = useState("cardlist")
+  const [savedSetsOpen, setSavedSetsOpen] = useState(false)
   const { setLayout } = useLayout()
 
   const subpages = {
@@ -33,13 +35,23 @@ function CardLibraryPage() {
   }, [subpage])
 
   return (
-    <div className="card-list-main">
-      {subpage === "backpack" && <PageArrow icon={getIcon({ name: "Catalog", invert: true })} funcTrigger={() => setSubpage("cardlist")} variant={"catalog-arrow"} />}
+    <DragDropWrapper>
+      <div className="card-list-main">
 
-      {subpages[subpage]}
+        <div className='backpack__setslist-sidebar__container' style={{ transform: `translateX(${savedSetsOpen ? "-100%" : "0"})`, width: savedSetsOpen ? "0" : "initial", flex: savedSetsOpen ? "0" : "1"}}>
+          <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "none" : "initial"}}>
+            <SavedSets />
+          </div>
 
-      {subpage === "cardlist" && <PageArrow icon={getIcon({ name: "Backpack", invert: true })} funcTrigger={() => setSubpage("backpack")} variant={"backpack-arrow"} />}
-    </div>
+          <div className='backpack__setslist-sidebar__thumb' onClick={() => setSavedSetsOpen(!savedSetsOpen)}>
+            {getIcon({name: "Options", invert: true, size: "1.4em"})}
+          </div>
+        </div>
+        
+        {subpages[subpage]}
+
+      </div>
+    </DragDropWrapper>
   );
 }
 export default CardLibraryPage;
