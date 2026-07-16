@@ -213,6 +213,8 @@
 
 .hamburger-bar {
   background-color: var(--accent);
+  border: 1px solid var(--accent-light);
+  box-sizing: border-box;
   width: 27px;
   height: 4px;
 }
