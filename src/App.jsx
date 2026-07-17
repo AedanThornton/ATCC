@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage';
 import FocusCardPage from './pages/FocusCardPage'
 import NotFoundPage from './pages/NotFoundPage';
 import SearchInfoPage from './pages/SearchInfoPage'
+import Backpack from "./components/backpack/Backpack";
 
 const App = () => {
   return (
@@ -16,10 +17,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="catalog" element={<CardLibraryPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Route>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/home" replace />}/>
+        <Route path="backpack" element={<Backpack />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="search-info" element={<SearchInfoPage />} />
         <Route path="*" element={<NotFoundPage />} />

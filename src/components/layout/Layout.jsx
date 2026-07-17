@@ -2,6 +2,7 @@ import { Link, Outlet } from 'react-router-dom';
 import "../../styles/layout.css"
 import logo from "../../assets/ATCC.svg"
 import { useLayout } from '../../context/LayoutContext';
+import getIcon from '../utils/iconUtils';
 
 function Layout({}) {
   const { layout } = useLayout()
@@ -18,6 +19,7 @@ function Layout({}) {
                     <li><Link to="/home">Home</Link></li>
                     <li><Link to="/catalog">Card Catalog</Link></li>
                     <li><Link to="/search-info">Catalog Docs</Link></li>
+                    <li><Link to="/backpack">{getIcon({name: "Backpack", invert: true})} Backpack</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer">Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></Link></li>
                   </ul>

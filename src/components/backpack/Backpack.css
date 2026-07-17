@@ -166,7 +166,6 @@
 
 .backpack__view-window {
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   height: 100%;
   flex: 3;
