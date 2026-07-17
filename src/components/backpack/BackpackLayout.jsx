@@ -20,19 +20,12 @@ const BackpackTabSelector = () => {
 }
 
 export const BackpackLayoutTopbar = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return <>
     <BackpackTabSelector />
 
     <div className="top-menu">
-      <div className="backpack__setslist-sidebar__button">
-        <HamburgerButton clickFunc={() => setSidebarOpen(!sidebarOpen)}/>
-          
-        {sidebarOpen && <div className="backpack__setslist-sidebar">
-          <SavedSets />
-        </div>}
-      </div>
+
     </div>
   </>
 }
