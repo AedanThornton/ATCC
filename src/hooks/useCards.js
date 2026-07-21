@@ -28,7 +28,6 @@ export function useCards(searchParams) {
 
       const data = await response.json();
 
-      // optional side effect (see note below)
       ingestCards(data.cards);
 
       return data;

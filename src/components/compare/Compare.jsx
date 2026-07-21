@@ -85,14 +85,9 @@ const Compare = ({}) => {
   const compareRowsDefense = {
 
   }
-  const cachedCards = data ? data.cards : []
-  const gearNames = cachedCards
-    .filter(card => card.cardType.toLowerCase() === 'gear')
-    .map(card => {return {id: card.cardIDs[0], name: card.name}})
-
-  useEffect(() => {
-    ingestCards(cachedCards)
-  }, [cachedCards])
+  const gearNames = [...cardCache.entries()]
+    .filter(([key, card]) => card.cardType?.toLowerCase() === 'gear')
+    .map(([key, card]) => {return {id: card.cardIDs[0], name: card.name}})
 
   useEffect(() => {
     const cardSet = appState.activeSet
@@ -121,7 +116,7 @@ const Compare = ({}) => {
 
   const setPanelCard = (pos, id) => {
     const newCards = [...cards]
-    newCards[pos] = cachedCards.filter(card => card.cardIDs[0] === id)[0]
+    newCards[pos] = [...cardCache.entries()].filter(card => card.cardIDs[0] === id)[0]
     setCards(newCards)
   }
 

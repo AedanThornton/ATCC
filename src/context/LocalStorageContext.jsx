@@ -37,7 +37,12 @@ export function LocalStorageProvider({ children }) {
         }
       });
 
-      return changed ? newMap : prev;
+      const sortedMap = new Map(
+        [...newMap.entries()].sort(([, card], [, card2]) => card.cardIDs[0].localeCompare(card2.cardIDs[0], undefined, {
+      numeric: true}))
+      )
+
+      return changed ? sortedMap : prev;
     });
   }
 
