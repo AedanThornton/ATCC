@@ -116,6 +116,14 @@ export function LocalStorageProvider({ children }) {
     searchSet: cardIDs || []
   }));
 
+  const addCardToSet = (setName, cardID) => setAppState(prev => ({
+    ...prev,
+    savedSets: {
+      ...prev.savedSets,
+      [setName]: [...prev.savedSets[setName], cardID]
+    }
+  }));
+
   const removeCardFromSet = (setName, cardID) => setAppState(prev => ({
     ...prev,
     savedSets: {
@@ -130,7 +138,7 @@ export function LocalStorageProvider({ children }) {
         appState, cardCache,
         ingestCards,
         addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet, clearActiveSet, 
-        saveSet, loadSet, deleteSet, removeCardFromSet,
+        saveSet, loadSet, deleteSet, addCardToSet, removeCardFromSet,
         updateSearchSet }}>
       {children}
     </LocalStorageContext.Provider>

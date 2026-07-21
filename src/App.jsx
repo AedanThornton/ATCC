@@ -8,8 +8,11 @@ import FocusCardPage from './pages/FocusCardPage'
 import NotFoundPage from './pages/NotFoundPage';
 import SearchInfoPage from './pages/SearchInfoPage'
 import Backpack from "./components/backpack/Backpack";
+import { useAllCards } from "./hooks/useAllCards";
 
 const App = () => {
+  const { data, isLoading, error } = useAllCards()
+  
   return (
     <Routes>
       <Route path="/home" element={<HomePage />} />

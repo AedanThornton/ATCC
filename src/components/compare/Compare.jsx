@@ -11,7 +11,6 @@ import { useDroppable } from "@dnd-kit/react"
 
 const Compare = ({}) => {
   const { ingestCards, appState, cardCache } = useLocalStorage()
-  const { data, isLoading, error } = useAllCards()
   const [cards, setCards] = useState([])
   const { ref, isDropTarget } = useDroppable({ id: "compare", data: {onDrop: handleCompareDrop} });
 

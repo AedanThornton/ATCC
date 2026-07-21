@@ -9,6 +9,7 @@ import { useBackpackContext } from "../../context/BackpackContext";
 import { useDraggable } from "@dnd-kit/react";
 import savedSetsLib from "./savedSetsLib";
 import SavedSetsDnDWrapper from "./SavedSetsDnDWrapper";
+import SearchableList from "../utils/SearchableList";
 
 function SavedSetCard({setname, card, index}) {
   const { openModal } = useModal();
@@ -35,11 +36,20 @@ function SavedSetCard({setname, card, index}) {
 }
 
 function SavedSet({ setname, set, index }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const { appState, deleteSet } = useLocalStorage();
-  const { backpackIsActive } = useBackpackContext()
-  const { handleSaveSet, handleClickOnSet, renameSet } = savedSetsLib()
-  const isBackpackSet = setname === "Backpack"
+  const [isOpen, setIsOpen] = useState(false);
+  const [addingCard, setAddingCard] = useState(false);
+  const { appState, cardCache, deleteSet, addCardToSet } = useLocalStorage();
+  const { backpackIsActive } = useBackpackContext();
+  const { handleSaveSet, handleClickOnSet, renameSet } = savedSetsLib();
+  const isBackpackSet = setname === "Backpack";
+
+  const allCards = [...cardCache.entries()]
+    .map(([, card]) => {return {id: card.cardIDs[0], name: card.name}})
+
+  function handleAddCardToSet(set, cardID) {
+    addCardToSet(set, cardID);
+    setAddingCard(false);
+  }
 
   return (
     <div key={index} className="saved-set"
@@ -68,6 +78,11 @@ function SavedSet({ setname, set, index }) {
       </div>
 
       <ul className="saved-set__dropdown" style={{display: isOpen ? "block" : "none"}} onClick={(e) => e.stopPropagation()}>
+        {addingCard
+          ? <SearchableList items={allCards} onItemClick={(id) => handleAddCardToSet(setname, id)} customPlaceholder="Add card..." />
+          : <span className="saved-sets__new-set-button" onClick={()=>setAddingCard(true)}>+ Add Card</span>
+        }
+
         {set?.map((card, j) => 
           <SavedSetCard setname={setname} card={card} index={j} />
         )}
@@ -102,6 +117,10 @@ function SavedSets() {
                 <p>No saved sets yet!</p>
               </div>
             }
+
+            <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", [])}>
+              + New Empty Set
+            </div>
 
             <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", appState.activeSet)}>
               {getIcon({name: "Save", invert: true})} Save Current As New Set

@@ -32,13 +32,13 @@ createRoot(document.getElementById('root')).render(
         <SpoilerProvider>
           <ModalProvider>
             <LocalStorageProvider>
-              <LayoutProvider>
-                <BackpackProvider>
+              <BackpackProvider>
+                <LayoutProvider>
                   <FocusCardCache />
                   <LocalStorageManager />
                   <App />
-                </BackpackProvider>
-              </LayoutProvider>
+                </LayoutProvider>
+              </BackpackProvider>
             </LocalStorageProvider>
           </ModalProvider>
         </SpoilerProvider>

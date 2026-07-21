@@ -18,8 +18,8 @@ const Backpack = ({}) => {
 
   return <div className="backpack">
     <div className="backpack__main">
+      <SavedSets />
       <div className="backpack__view-window">
-        <SavedSets />
         <View />
       </div>
     </div>

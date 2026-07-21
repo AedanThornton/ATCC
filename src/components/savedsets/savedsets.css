@@ -45,6 +45,9 @@
 .saved-set__dropdown::-webkit-scrollbar {
 	display: none;
 }
+.saved-set__dropdown .searchable-list-wrapper {
+  width: 80%;
+}
 
 .saved-sets-card-details {
   display: flex;
@@ -101,9 +104,10 @@
   gap: 5px;
   align-self: center;
   margin-top: 15px;
+  cursor: pointer;
 }
 .saved-sets__new-set-button:hover {
-  background-color: var(--accent);
+  background-color: var(--accent-light);
 }
 
 /* Menu */

@@ -47,12 +47,15 @@ const SearchableList = ({ items = [{id: "", name: ""}], onItemClick = ()=>{}, on
     {showDropdown && (
       <div className="searchable-list-dropdown" style={{ width: searchableListRef.current.offsetWidth }}>
         {items.length === 0 && <div className="searchable-list-item">{customEmptyMsg ? customEmptyMsg : "Nothing to display..."}</div>}
-        {items.map((item) => {
-          if (isEditing && !item.name.toLowerCase().includes(searchTermUI.toLowerCase())) return null;
-          return <div className="searchable-list-item" key={item.id} onClick={() => handleDropdownSelect(item)}>
-            {item.name}
-          </div>
-        })}
+        {items
+          .filter(item => !isEditing || item.name.toLowerCase().includes(searchTermUI.toLowerCase()) || item.id.toLowerCase().includes(searchTermUI.toLowerCase()))
+          .slice(0,30)
+          .map((item) => {
+            return <div className="searchable-list-item" key={item.id} onClick={() => handleDropdownSelect(item)}>
+              {item.name}
+            </div>
+          })
+        }
       </div>
     )}
   </div>
