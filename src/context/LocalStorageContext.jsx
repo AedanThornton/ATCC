@@ -120,7 +120,7 @@ export function LocalStorageProvider({ children }) {
     ...prev,
     savedSets: {
       ...prev.savedSets,
-      [setName]: [...prev.savedSets[setName], cardID]
+      [setName]: [...new Set([...prev.savedSets[setName], cardID])]
     }
   }));
 

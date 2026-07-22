@@ -70,6 +70,8 @@ function SavedSet({ setname, set, index }) {
             {getIcon({ name: "Save", invert: true })}
           </span>
           : <SavedSetsMenu options={[
+            { title: <>Merge {getIcon({name: "Backpack", invert: true})}</>, func: () => appState.backpack.map(card => addCardToSet(setname, card)) },
+            { title: "Duplicate", func: () => handleSaveSet(setname, set) },
             { title: "Delete", func: () => deleteSet(setname) }
           ]} />
         }
@@ -103,10 +105,10 @@ function SavedSets() {
       <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "initial" : "none"}}>
         <SavedSetsDnDWrapper>
           <div className="saved-sets-panel">
-            {appState.activeSet && appState.activeSet.length > 0 &&
+            {appState.activeSet &&
               <SavedSet setname={"Backpack"} set={appState.backpack} />
             }
-            {appState.searchSet && appState.searchSet.length > 0 &&
+            {appState.searchSet &&
               <SavedSet setname={"Cards from Search"} set={appState.searchSet} />
             }
             {Object.keys(appState.savedSets).map((set, i) => (
