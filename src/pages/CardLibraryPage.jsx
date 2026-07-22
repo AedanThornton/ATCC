@@ -8,6 +8,7 @@ import { BackpackLayoutTopbar } from '../components/backpack/BackpackLayout';
 import PageArrow from "../components/pagearrow/PageArrow";
 import getIcon from '../components/utils/iconUtils';
 import SavedSets from '../components/savedsets/SavedSets';
+import { SavedSetsProvider } from '../context/SavedSetsContext';
 
 function CardLibraryPage() {
   const { setLayout } = useLayout()
@@ -22,7 +23,9 @@ function CardLibraryPage() {
   return (
     <DragDropWrapper>
       <div className="card-list-main">
-        <SavedSets />
+        <SavedSetsProvider>
+          <SavedSets />
+        </ SavedSetsProvider>
         
         <CardList />
       </div>
