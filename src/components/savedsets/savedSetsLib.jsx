@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { act, useState } from "react";
 import { useBackpackContext } from "../../context/BackpackContext";
 import { useLocalStorage } from "../../context/LocalStorageContext";
+import { useSavedSetsContext } from "../../context/SavedSetsContext";
 
 
 const savedSetsLib = () => {
   const { appState, saveSet, loadSet, deleteSet } = useLocalStorage();
   const { setBackpackIsActive } = useBackpackContext();
+  const { activeSetName, setActiveSetName } = useSavedSetsContext();
   const [buttonError, setButtonError] = useState(null);
 
   const handleSaveSet = (setName, set) => {
@@ -35,12 +37,14 @@ const savedSetsLib = () => {
 
   const renameSet = (setName, newName) => {
     if (setName === newName) return
+    if (activeSetName == setName) setActiveSetName(newName)
     saveSet(newName, appState.savedSets[setName])
     deleteSet(setName)
   }
 
   const handleClickOnSet = (setname) => {
     loadSet(appState.savedSets[setname]);
+    setActiveSetName(setname)
 
     if (setname === "Backpack") {
       setBackpackIsActive(true)
@@ -57,8 +61,14 @@ const savedSetsLib = () => {
     }, 800)
   }
 
+  const handleDeleteSet = (setname) => {
+    if (activeSetName === setname) handleClickOnSet("Backpack")
+    deleteSet(setname)
+  }
+
   return {
     handleSaveSet,
+    handleDeleteSet,
     handleClickOnSet,
     renameSet,
     handleError,

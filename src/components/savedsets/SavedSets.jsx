@@ -40,9 +40,9 @@ function SavedSetCard({setname, card, index}) {
 function SavedSet({ setname, set, index }) {
   const [isOpen, setIsOpen] = useState(false);
   const [addingCard, setAddingCard] = useState(false);
-  const { appState, cardCache, deleteSet, addCardToSet } = useLocalStorage();
+  const { appState, cardCache, addCardToSet } = useLocalStorage();
   const { backpackIsActive } = useBackpackContext();
-  const { handleSaveSet, handleClickOnSet, renameSet } = savedSetsLib();
+  const { handleSaveSet, handleClickOnSet, renameSet, handleDeleteSet } = savedSetsLib();
   const isBackpackSet = setname === "Backpack";
   const isSearchSet = setname === "Current Search";
 
@@ -74,7 +74,7 @@ function SavedSet({ setname, set, index }) {
           : <SavedSetsMenu options={[
             { title: <>Merge {getIcon({name: "Backpack", invert: true})}</>, func: () => appState.backpack.map(card => addCardToSet(setname, card)) },
             { title: "Duplicate", func: () => handleSaveSet(setname, set) },
-            { title: "Delete", func: () => deleteSet(setname) }
+            { title: "Delete", func: () => handleDeleteSet(setname) }
           ]} />
         }
 
@@ -98,7 +98,7 @@ function SavedSet({ setname, set, index }) {
 
 function SavedSets() {
   const [savedSetsOpen, setSavedSetsOpen] = useState(false);
-  const { currentSetType } = useSavedSetsContext();
+  const { currentSetType, activeSetName } = useSavedSetsContext();
   const { buttonError } = savedSetsLib();
 
   const { appState, saveSet } = useLocalStorage();
@@ -108,9 +108,14 @@ function SavedSets() {
       <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "initial" : "none"}}>
         <SavedSetsDnDWrapper>
           <div className="saved-sets-panel">
-            {appState.activeSet &&
-              <SavedSet setname={"Backpack"} set={appState.backpack} />
-            }
+
+            <h1>
+              {activeSetName === "Backpack" && <>{getIcon({name: "Backpack", invert: true})} </>}
+              {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
+              {activeSetName}
+            </h1>
+
+            <SavedSet setname={"Backpack"} set={appState.backpack} />
             {appState.searchSet &&
               <SavedSet setname={"Current Search"} set={appState.searchSet} />
             }
@@ -119,17 +124,19 @@ function SavedSets() {
 
             <SavedSetsSelector />
 
-            {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
-              <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
-            ))}
-            {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
-              // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
-              <></>
-            ))}
-            {currentSetType === "Loadouts" && Object.keys(appState.savedSets).map((set, i) => (
-              // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
-              <></>
-            ))}
+            <div className="saved-sets__set-list">
+              {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
+                <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+              ))}
+              {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
+                // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+                <></>
+              ))}
+              {/* {currentSetType === "Loadouts" && Object.keys(appState.savedSets).map((set, i) => (
+                // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+                <></>
+              ))} */}
+            </div>
 
             {!appState["saved" + currentSetType] || Object.keys(appState["saved" + currentSetType]).length === 0 &&
               <div className="no-saved-sets">

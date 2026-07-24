@@ -33,7 +33,11 @@ const EditableTitle = ({ titleID, onSave, initialName }) => {
     <span className="editable-title">
       <span 
         className="editable-title-button"
-        onClick={() => editingID === titleID ? handleSaveName(initialName) : handleStartEditing(titleID, initialName)}
+        onClick={(e) => {editingID === titleID
+            ? handleSaveName(initialName)
+            : handleStartEditing(titleID, initialName);
+          e.stopPropagation();
+        }}
       >
         {getIcon({ name: editingID === titleID ? "Check" : "Edit", invert: true })}
       </span>

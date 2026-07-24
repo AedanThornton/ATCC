@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { LayoutProvider } from './context/LayoutContext.jsx'
 import { BackpackProvider } from './context/BackpackContext.jsx'
+import { SavedSetsProvider } from './context/SavedSetsContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
 
@@ -34,9 +35,11 @@ createRoot(document.getElementById('root')).render(
             <LocalStorageProvider>
               <BackpackProvider>
                 <LayoutProvider>
-                  <FocusCardCache />
-                  <LocalStorageManager />
-                  <App />
+                  <SavedSetsProvider>
+                    <FocusCardCache />
+                    <LocalStorageManager />
+                    <App />
+                  </SavedSetsProvider>
                 </LayoutProvider>
               </BackpackProvider>
             </LocalStorageProvider>

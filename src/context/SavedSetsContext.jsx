@@ -3,10 +3,13 @@ import { createContext, useContext, useState } from "react";
 const SavedSetsContext = createContext();
 
 export function SavedSetsProvider({ children }) {
+  const [activeSetName, setActiveSetName] = useState("Backpack")
   const [currentSetType, setCurrentSetType] = useState("Sets")
-  const setTypes = ["Sets", "Decks", "Loadouts"]
+  const setTypes = ["Sets", "Decks"]
+  // const setTypes = ["Sets", "Decks", "Loadouts"]
 
   const values = { 
+    activeSetName, setActiveSetName,
     currentSetType, setCurrentSetType,
     setTypes
   }

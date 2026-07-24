@@ -1,19 +1,35 @@
 .saved-sets-panel {
-  padding: 50px 10px;
+  padding: 20px 10px;
   height: 100%;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
-.saved-sets-panel::-webkit-scrollbar {
-	display: none;
-}
 
+.saved-sets-panel h1 {
+  text-align: center;
+  border: 5px solid var(--main-light);
+  border-radius: 20px;
+  font-size: 30px;
+  padding: 5px;
+  margin: 0px 15px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  background-color: var(--main);
+}
 .saved-sets-panel h2 {
   text-align: center;
   border-bottom: 3px solid white;
+  margin-block-start: 0;
   margin-block-end: 0;
+}
+
+.saved-sets__set-list {
+  overflow-y: scroll;
+  flex: 1;
+}
+.saved-sets__set-list::-webkit-scrollbar {
+	display: none;
 }
 
 .saved-set {
