@@ -104,7 +104,14 @@ function SavedSets() {
   const { appState, saveSet } = useLocalStorage();
 
   return (
-    <div className='backpack__setslist-sidebar__container' style={{ transform: `translateX(${savedSetsOpen ? "0" : "-100%"})`, width: savedSetsOpen ? "initial" : "0", flex: savedSetsOpen ? "1" : "0"}}>
+    <div className='backpack__setslist-sidebar__container' 
+      style={{ 
+        transform: `translateX(${savedSetsOpen ? "0" : "-100%"})`,
+        width: savedSetsOpen ? "initial" : "0",
+        flex: savedSetsOpen ? "1" : "0",
+        border: savedSetsOpen ? "3px dotted var(--accent-light)" : "0px dotted var(--main)"
+      }}
+    >
       <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "initial" : "none"}}>
         <SavedSetsDnDWrapper>
           <div className="saved-sets-panel">

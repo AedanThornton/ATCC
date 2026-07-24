@@ -168,6 +168,7 @@
   display: flex;
   justify-content: flex-start;
   height: 100%;
+  width: 100dvw;
   flex: 3;
 }
 
@@ -183,7 +184,6 @@
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  border: 3px dotted var(--accent-light);
   position: relative;
 }
 
@@ -202,7 +202,7 @@
   right: -33px;
   top: 0;
   padding: 15px;
-  width: 30px;
+  width: 33px;
   height: 80px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -240,7 +240,7 @@
   .backpack__setslist-sidebar__container {
     position: relative;
     height: 100%;
-    transition: transform 1s ease, flex 1s ease;
+    transition: transform 1s ease, flex 1s ease, border 0.2s ease;
     flex: 1;
   }
 
