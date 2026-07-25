@@ -1,6 +1,6 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import { useRef } from "react";
-import { AutoScroller } from "@dnd-kit/dom";
+import { AutoScroller, PointerActivationConstraints, PointerSensor } from "@dnd-kit/dom";
 import { useBackpackContext } from "../../context/BackpackContext";
 
 const DragDropWrapper = ({ children }) => {
@@ -37,6 +37,14 @@ const DragDropWrapper = ({ children }) => {
       plugins={(defaults) =>
         defaults.filter((plugin) => plugin !== AutoScroller)
       }
+      sensors={(defaults) => [
+        ...defaults.filter((sensor) => sensor !== PointerSensor),
+        PointerSensor.configure({
+          activationConstraints: [
+            new PointerActivationConstraints.Delay({value: 300, tolerance: 10})
+          ]
+        })
+      ]}
     >
       {children}
       <div className={backpackPreviewOpen ? "drag-backpack-overlay backpack-open" : "drag-backpack-overlay"}></div>

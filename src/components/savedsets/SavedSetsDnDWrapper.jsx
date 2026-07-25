@@ -1,7 +1,7 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import { useRef, useState } from "react";
-import { AutoScroller } from "@dnd-kit/dom";
 import { useLocalStorage } from "../../context/LocalStorageContext";
+import { PointerActivationConstraints, PointerSensor } from "@dnd-kit/dom";
 
 const SavedSetsDnDWrapper = ({ children }) => {
   const backpackRef = useRef(null);
@@ -30,6 +30,14 @@ const SavedSetsDnDWrapper = ({ children }) => {
         handleDragEvent(event)
         setIsDragging(true)
       }}
+      sensors={(defaults) => [
+        ...defaults.filter((sensor) => sensor !== PointerSensor),
+        PointerSensor.configure({
+          activationConstraints: [
+            new PointerActivationConstraints.Delay({value: 300, tolerance: 10})            
+          ]
+        })
+      ]}
     >
       {children}
     </DragDropProvider>
