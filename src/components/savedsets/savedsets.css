@@ -4,6 +4,10 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  overflow-y: auto;
+}
+.saved-sets-panel::-webkit-scrollbar {
+	display: none;
 }
 
 .saved-sets-panel h1 {
@@ -27,6 +31,8 @@
 .saved-sets__set-list {
   overflow-y: scroll;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 .saved-sets__set-list::-webkit-scrollbar {
 	display: none;
