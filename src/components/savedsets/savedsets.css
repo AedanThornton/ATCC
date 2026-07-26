@@ -77,6 +77,21 @@
   width: 80%;
 }
 
+.saved-sets-card__hover-display {
+  transform: scale(0.5);
+  transform-origin: bottom left;
+}
+
+.saved-sets-card__dragging {
+  transform: scale(0.5);
+  transform-origin: top;
+}
+
+.saved-sets-card__empty-slot {
+  background-color: var(--accent);
+  margin-top: 3px;
+}
+
 .saved-sets-card-details {
   display: flex;
   justify-content: space-between;

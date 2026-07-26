@@ -1,4 +1,3 @@
-import Tippy from "@tippyjs/react";
 import { useState } from "react";
 import getIcon from "../utils/iconUtils";
 

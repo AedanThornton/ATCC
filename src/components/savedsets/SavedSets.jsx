@@ -3,7 +3,7 @@ import "./savedsets.css"
 import { useModal } from "../../context/FocusContext";
 import getIcon from "../utils/iconUtils";
 import EditableTitle from "../utils/EditableTitle";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import SavedSetsMenu from "./SavedSetsMenu";
 import { useBackpackContext } from "../../context/BackpackContext";
 import { useDraggable } from "@dnd-kit/react";
@@ -12,28 +12,62 @@ import SavedSetsDnDWrapper from "./SavedSetsDnDWrapper";
 import SearchableList from "../utils/SearchableList";
 import SavedSetsSelector from "./SavedSetsSelector";
 import { useSavedSetsContext } from "../../context/SavedSetsContext";
+import Tippy from "@tippyjs/react";
+import CardRenderer from "../cards/CardRenderer";
 
 function SavedSetCard({setname, card, index}) {
+  const [longHover, setLongHover] = useState(false);
+  const hoverTimer = useRef();
+
   const { openModal } = useModal();
   const { cardCache, removeCardFromSet } = useLocalStorage();
   const cardData = cardCache.get(card)
-  const { ref } = useDraggable({ id: setname + "-" + card })
+  const { ref, isDragging } = useDraggable({ id: setname + "-" + card })
 
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
   }
 
+  const onHover = () => {
+    hoverTimer.current = setTimeout(() => {
+      setLongHover(true)
+    }, 500);
+  }
+
+  const onUnhover = () => {
+    clearTimeout(hoverTimer.current)
+    setLongHover(false)
+  }
+
   return <li key={index} ref={ref}>
-    <div className="saved-sets-card-details clickable" onClick={() => setDisplayHelper(cardCache.get(card)?.cardIDs[0])}>
-      <span>{cardData?.name}</span>
-      <span
-        className="saved-sets-button"
-        style={{ flex: "unset" }}
-        onClick={(e) => { e.stopPropagation(); removeCardFromSet(setname, card) }}
+    {isDragging ?
+      <div className="saved-sets-card__dragging"><CardRenderer cardData={cardData} /></div>
+    :
+      <Tippy
+        duration={0} 
+        appendTo={document.body}
+        offset={[0, 0]}
+        placement="right-start"
+        content={longHover && <div className="saved-sets-card__hover-display"><CardRenderer cardData={cardData} /></div>}
       >
-        {getIcon({ name: "Trash", invert: true })}
-      </span>
-    </div>
+
+        <div 
+          className="saved-sets-card-details clickable"
+          onClick={() => setDisplayHelper(cardData?.cardIDs[0])}
+          onPointerEnter={() => onHover()}
+          onPointerLeave={() => onUnhover()}
+        >
+          <span>{cardData?.name}</span>
+          <span
+            className="saved-sets-button"
+            style={{ flex: "unset" }}
+            onClick={(e) => { e.stopPropagation(); removeCardFromSet(setname, card) }}
+          >
+            {getIcon({ name: "Trash", invert: true })}
+          </span>
+        </div>
+      </Tippy>
+    }
   </li>
 }
 
@@ -88,7 +122,9 @@ function SavedSet({ setname, set, index }) {
         }
 
         {set?.map((card, j) => 
-          <SavedSetCard setname={setname} card={card} index={j} />
+          <div className="saved-sets-card__empty-slot">
+            <SavedSetCard setname={setname} card={card} index={j} />
+          </div>
         )}
       </ul>
 
