@@ -83,8 +83,14 @@
 }
 
 .saved-sets-card__dragging {
-  transform: scale(0.5);
-  transform-origin: top;
+  background-color: rgba(40, 40, 40, 0.093);
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0, -100%);
 }
 
 .saved-sets-card__empty-slot {

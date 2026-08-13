@@ -6,7 +6,8 @@ import EditableTitle from "../utils/EditableTitle";
 import { useRef, useState } from "react";
 import SavedSetsMenu from "./SavedSetsMenu";
 import { useBackpackContext } from "../../context/BackpackContext";
-import { useDraggable } from "@dnd-kit/react";
+import { DragOverlay, useDraggable, useDroppable } from "@dnd-kit/react";
+import { Feedback } from "@dnd-kit/dom";
 import savedSetsLib from "./savedSetsLib";
 import SavedSetsDnDWrapper from "./SavedSetsDnDWrapper";
 import SearchableList from "../utils/SearchableList";
@@ -22,7 +23,7 @@ function SavedSetCard({setname, card, index}) {
   const { openModal } = useModal();
   const { cardCache, removeCardFromSet } = useLocalStorage();
   const cardData = cardCache.get(card)
-  const { ref, isDragging } = useDraggable({ id: setname + "-" + card })
+  const { ref, isDragging } = useDraggable({ id: setname + "-" + card, plugins: [Feedback.configure({ feedback: 'clone' })] })
 
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
@@ -40,34 +41,31 @@ function SavedSetCard({setname, card, index}) {
   }
 
   return <li key={index} ref={ref}>
-    {isDragging ?
-      <div className="saved-sets-card__dragging"><CardRenderer cardData={cardData} /></div>
-    :
-      <Tippy
-        duration={0} 
-        appendTo={document.body}
-        offset={[0, 0]}
-        placement="right-start"
-        content={longHover && <div className="saved-sets-card__hover-display"><CardRenderer cardData={cardData} /></div>}
-      >
+    <Tippy
+      duration={0} 
+      appendTo={document.body}
+      offset={[0, 0]}
+      placement="right-start"
+      content={longHover && <div className="saved-sets-card__hover-display"><CardRenderer cardData={cardData} /></div>}
+    >
 
-        <div 
-          className="saved-sets-card-details clickable"
-          onClick={() => setDisplayHelper(cardData?.cardIDs[0])}
-          onPointerEnter={() => onHover()}
-          onPointerLeave={() => onUnhover()}
+      <div 
+        className="saved-sets-card-details clickable"
+        onClick={() => setDisplayHelper(cardData?.cardIDs[0])}
+        onPointerEnter={() => onHover()}
+        onPointerLeave={() => onUnhover()}
+        style={{opacity: isDragging ? "0.3" : "unset"}}
+      >
+        <span>{cardData?.name}</span>
+        <span
+          className="saved-sets-button"
+          style={{ flex: "unset" }}
+          onClick={(e) => { e.stopPropagation(); removeCardFromSet(setname, card) }}
         >
-          <span>{cardData?.name}</span>
-          <span
-            className="saved-sets-button"
-            style={{ flex: "unset" }}
-            onClick={(e) => { e.stopPropagation(); removeCardFromSet(setname, card) }}
-          >
-            {getIcon({ name: "Trash", invert: true })}
-          </span>
-        </div>
-      </Tippy>
-    }
+          {getIcon({ name: "Trash", invert: true })}
+        </span>
+      </div>
+    </Tippy>
   </li>
 }
 
@@ -79,6 +77,7 @@ function SavedSet({ setname, set, index }) {
   const { handleSaveSet, handleClickOnSet, renameSet, handleDeleteSet } = savedSetsLib();
   const isBackpackSet = setname === "Backpack";
   const isSearchSet = setname === "Current Search";
+  const {ref, isDropTarget} = useDroppable({ id: setname });
 
   const allCards = [...cardCache.entries()]
     .map(([, card]) => {return {id: card.cardIDs[0], name: card.name}})
@@ -90,7 +89,12 @@ function SavedSet({ setname, set, index }) {
 
   return (
     <div key={index} className="saved-set"
-      style={{ border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent)" : "3px solid #00000000" }}
+      ref={ref}
+      style={{ 
+        border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent)" : "3px solid #00000000",
+        outline: isDropTarget ? "3px solid var(--accent-light)" : "initial",
+        outlineOffset: "-3px"
+      }}
       onClick={() => handleClickOnSet(setname)}
     >
 
@@ -145,7 +149,6 @@ function SavedSets() {
         transform: `translateX(${savedSetsOpen ? "0" : "-100%"})`,
         width: savedSetsOpen ? "initial" : "0",
         flex: savedSetsOpen ? "1" : "0",
-        border: savedSetsOpen ? "3px dotted var(--accent-light)" : "0px dotted var(--main)"
       }}
     >
       <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "initial" : "none"}}>
