@@ -6,15 +6,15 @@ import EditableTitle from "../utils/EditableTitle";
 import { useRef, useState } from "react";
 import SavedSetsMenu from "./SavedSetsMenu";
 import { useBackpackContext } from "../../context/BackpackContext";
-import { DragOverlay, useDraggable, useDroppable } from "@dnd-kit/react";
+import { useDraggable, useDroppable } from "@dnd-kit/react";
 import { Feedback } from "@dnd-kit/dom";
 import savedSetsLib from "./savedSetsLib";
-import SavedSetsDnDWrapper from "./SavedSetsDnDWrapper";
 import SearchableList from "../utils/SearchableList";
 import SavedSetsSelector from "./SavedSetsSelector";
 import { useSavedSetsContext } from "../../context/SavedSetsContext";
 import Tippy from "@tippyjs/react";
 import CardRenderer from "../cards/CardRenderer";
+import { useMatch } from "react-router-dom";
 
 function SavedSetCard({setname, card, index}) {
   const [longHover, setLongHover] = useState(false);
@@ -77,7 +77,14 @@ function SavedSet({ setname, set, index }) {
   const { handleSaveSet, handleClickOnSet, renameSet, handleDeleteSet } = savedSetsLib();
   const isBackpackSet = setname === "Backpack";
   const isSearchSet = setname === "Current Search";
-  const {ref, isDropTarget} = useDroppable({ id: setname });
+  const {ref, isDropTarget} = useDroppable({ id: setname, data: {onDrop: handleSetDrop} });
+
+  function handleSetDrop(id){
+    if (!id) return
+    const idParts = id.split("-")
+    const realID = idParts[idParts.length - 1]
+    addCardToSet(setname, realID)    
+  }
 
   const allCards = [...cardCache.entries()]
     .map(([, card]) => {return {id: card.cardIDs[0], name: card.name}})
@@ -140,8 +147,10 @@ function SavedSets() {
   const [savedSetsOpen, setSavedSetsOpen] = useState(false);
   const { currentSetType, activeSetName } = useSavedSetsContext();
   const { buttonError } = savedSetsLib();
-
   const { appState, saveSet } = useLocalStorage();
+
+  const {ref} = useDroppable({id: "saved-sets-panel"})
+  const isCatalogPage = useMatch("/catalog")
 
   return (
     <div className='backpack__setslist-sidebar__container' 
@@ -152,57 +161,55 @@ function SavedSets() {
       }}
     >
       <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "initial" : "none"}}>
-        <SavedSetsDnDWrapper>
-          <div className="saved-sets-panel">
+        <div className="saved-sets-panel" ref={ref}>
 
-            <h1>
-              {activeSetName === "Backpack" && <>{getIcon({name: "Backpack", invert: true})} </>}
-              {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
-              {activeSetName}
-            </h1>
+          {!isCatalogPage && <h1>
+            {activeSetName === "Backpack" && <>{getIcon({name: "Backpack", invert: true})} </>}
+            {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
+            {activeSetName}
+          </h1>}
 
-            <SavedSet setname={"Backpack"} set={appState.backpack} />
-            {appState.searchSet &&
-              <SavedSet setname={"Current Search"} set={appState.searchSet} />
-            }
+          <SavedSet setname={"Backpack"} set={appState.backpack} />
+          {appState.searchSet &&
+            <SavedSet setname={"Current Search"} set={appState.searchSet} />
+          }
 
-            <h2>SAVED</h2>
+          <h2>SAVED</h2>
 
-            <SavedSetsSelector />
+          <SavedSetsSelector />
 
-            <div className="saved-sets__set-list">
-              {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
-                <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
-              ))}
-              {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
-                // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
-                <></>
-              ))}
-              {/* {currentSetType === "Loadouts" && Object.keys(appState.savedSets).map((set, i) => (
-                // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
-                <></>
-              ))} */}
-            </div>
-
-            {!appState["saved" + currentSetType] || Object.keys(appState["saved" + currentSetType]).length === 0 &&
-              <div className="no-saved-sets">
-                <p>No saved {currentSetType} yet!</p>
-              </div>
-            }
-
-            <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", [])}>
-              + New Empty Set
-            </div>
-
-            <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", appState.activeSet)}>
-              {getIcon({name: "Save", invert: true})} Save Current As New Set
-            </div>
-
-            {buttonError && <div className="backpack-error-overlay">
-              <span>{buttonError}</span>
-            </div>}
+          <div className="saved-sets__set-list">
+            {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
+              <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+            ))}
+            {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
+              // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+              <></>
+            ))}
+            {/* {currentSetType === "Loadouts" && Object.keys(appState.savedSets).map((set, i) => (
+              // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+              <></>
+            ))} */}
           </div>
-        </SavedSetsDnDWrapper>
+
+          {!appState["saved" + currentSetType] || Object.keys(appState["saved" + currentSetType]).length === 0 &&
+            <div className="no-saved-sets">
+              <p>No saved {currentSetType} yet!</p>
+            </div>
+          }
+
+          <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", [])}>
+            + New Empty Set
+          </div>
+
+          <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", appState.activeSet)}>
+            {getIcon({name: "Save", invert: true})} Save Current As New Set
+          </div>
+
+          {buttonError && <div className="backpack-error-overlay">
+            <span>{buttonError}</span>
+          </div>}
+        </div>
       </div>
 
       <div className='backpack__setslist-sidebar__thumb' onClick={() => setSavedSetsOpen(!savedSetsOpen)}>

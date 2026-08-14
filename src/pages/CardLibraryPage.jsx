@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import CardList from '../components/catalog/CardList';
-import DragDropWrapper from '../components/backpack/DragDropWrapper';
 import { useLayout } from '../context/LayoutContext';
 import { CatalogLayoutMain, CatalogLayoutTopbar } from '../components/catalog/CatalogLayout';
 import SavedSets from '../components/savedsets/SavedSets';
@@ -16,13 +15,11 @@ function CardLibraryPage() {
   }, [])
 
   return (
-    <DragDropWrapper>
-      <div className="card-list-main">
-        <SavedSets />
-        
-        <CardList />
-      </div>
-    </DragDropWrapper>
+    <div className="card-list-main">
+      <SavedSets />
+      
+      <CardList />
+    </div>
   );
 }
 export default CardLibraryPage;
