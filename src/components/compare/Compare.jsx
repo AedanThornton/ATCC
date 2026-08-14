@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import "./Compare.css"
 import { useLocalStorage } from "../../context/LocalStorageContext"
 import CardRenderer from "../cards/CardRenderer"
@@ -6,11 +6,10 @@ import { toPercent } from "../../lib/extraMath.js"
 import { getPowerDiceList, calculateHitChance } from "../../lib/gearEvalution.js"
 import SearchableList from "../utils/SearchableList.jsx"
 import getIcon from "../utils/iconUtils.jsx"
-import { useAllCards } from "../../hooks/useAllCards.js"
 import { useDroppable } from "@dnd-kit/react"
 
 const Compare = ({}) => {
-  const { ingestCards, appState, cardCache } = useLocalStorage()
+  const { appState, cardCache, addToActiveSet } = useLocalStorage()
   const [cards, setCards] = useState([])
   const { ref, isDropTarget } = useDroppable({ id: "compare", data: {onDrop: handleCompareDrop} });
 
@@ -18,9 +17,7 @@ const Compare = ({}) => {
     if (!id) return
     const idParts = id.split("-")
     const realID = idParts[idParts.length - 1]
-    const cardData = cardCache.get(realID)
-    if (cards.includes(cardData)) return
-    setCards(prev => [...prev, cardData])
+    addToActiveSet(realID)
   }
 
   const inputArgs = {
