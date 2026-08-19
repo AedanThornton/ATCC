@@ -21,6 +21,13 @@
   box-sizing: border-box;
   background-color: var(--main);
 }
+.saved-sets-panel h1.setbutton {
+  background-color: var(--accent);
+  cursor: pointer;
+}
+.saved-sets-panel h1.setbutton:hover {
+  background-color: var(--accent-dark);
+}
 .saved-sets-panel h2 {
   text-align: center;
   border-bottom: 3px solid white;
@@ -102,7 +109,7 @@
   display: flex;
   justify-content: space-between;
   background-color: var(--accent-dark);
-  border: 3px dotted var(--accent-dark);
+  border: 3px solid var(--accent-dark);
   padding: 0 4px;
   box-sizing: border-box;
 }

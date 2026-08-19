@@ -3,7 +3,7 @@ import "./savedsets.css"
 import { useModal } from "../../context/FocusContext";
 import getIcon from "../utils/iconUtils";
 import EditableTitle from "../utils/EditableTitle";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SavedSetsMenu from "./SavedSetsMenu";
 import { useBackpackContext } from "../../context/BackpackContext";
 import { useDraggable, useDroppable } from "@dnd-kit/react";
@@ -25,6 +25,10 @@ function SavedSetCard({setname, card, index}) {
   const cardData = cardCache.get(card)
   const { ref, isDragging } = useDraggable({ id: setname + "-" + card, plugins: [Feedback.configure({ feedback: 'clone' })] })
 
+  const { activeView } = useBackpackContext();
+  const isComparePage = useMatch("/backpack") && activeView === "Compare"
+  const enabled = (!isComparePage || cardData.cardType === "Gear")
+
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
   }
@@ -40,7 +44,7 @@ function SavedSetCard({setname, card, index}) {
     setLongHover(false)
   }
 
-  return <li key={index} ref={ref}>
+  return <li key={index} ref={enabled ? ref : null}>
     <Tippy
       duration={0} 
       appendTo={document.body}
@@ -54,9 +58,9 @@ function SavedSetCard({setname, card, index}) {
         onClick={() => setDisplayHelper(cardData?.cardIDs[0])}
         onPointerEnter={() => onHover()}
         onPointerLeave={() => onUnhover()}
-        style={{opacity: isDragging ? "0.3" : "unset"}}
+        style={{opacity: isDragging ? "0.3" : "unset", textDecoration: !enabled ? "line-through solid black 2px" : "unset"}}
       >
-        <span>{cardData?.name}</span>
+        <span>{!enabled && getIcon({name: "X"})}{!enabled && " "}{cardData?.name}</span>
         <span
           className="saved-sets-button"
           style={{ flex: "unset" }}
@@ -69,15 +73,16 @@ function SavedSetCard({setname, card, index}) {
   </li>
 }
 
-function SavedSet({ setname, set, index }) {
+function SavedSet({ setname, index }) {
   const [isOpen, setIsOpen] = useState(false);
   const [addingCard, setAddingCard] = useState(false);
   const { appState, cardCache, addCardToSet } = useLocalStorage();
-  const { backpackIsActive } = useBackpackContext();
   const { handleSaveSet, handleClickOnSet, renameSet, handleDeleteSet } = savedSetsLib();
   const isBackpackSet = setname === "Backpack";
   const isSearchSet = setname === "Current Search";
   const {ref, isDropTarget} = useDroppable({ id: setname, data: {onDrop: handleSetDrop} });
+
+  const set = appState.savedSets[setname]
 
   function handleSetDrop(id){
     if (!id) return
@@ -98,7 +103,6 @@ function SavedSet({ setname, set, index }) {
     <div key={index} className="saved-set"
       ref={ref}
       style={{ 
-        border: ((isBackpackSet && backpackIsActive) || (!isBackpackSet && appState.activeSet === set)) ? "3px solid var(--accent)" : "3px solid #00000000",
         outline: isDropTarget ? "3px solid var(--accent-light)" : "initial",
         outlineOffset: "-3px"
       }}
@@ -146,11 +150,15 @@ function SavedSet({ setname, set, index }) {
 function SavedSets() {
   const [savedSetsOpen, setSavedSetsOpen] = useState(false);
   const { currentSetType, activeSetName } = useSavedSetsContext();
-  const { buttonError } = savedSetsLib();
+  const { buttonError, checkForSetNameMatch } = savedSetsLib();
   const { appState, saveSet } = useLocalStorage();
 
   const {ref} = useDroppable({id: "saved-sets-panel"})
   const isCatalogPage = useMatch("/catalog")
+
+  useEffect(() => {
+    checkForSetNameMatch()
+  }, [appState.activeSet])
 
   return (
     <div className='backpack__setslist-sidebar__container' 
@@ -163,11 +171,22 @@ function SavedSets() {
       <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "initial" : "none"}}>
         <div className="saved-sets-panel" ref={ref}>
 
-          {!isCatalogPage && <h1>
-            {activeSetName === "Backpack" && <>{getIcon({name: "Backpack", invert: true})} </>}
-            {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
-            {activeSetName}
-          </h1>}
+          {!isCatalogPage && appState.activeSet.length < 1 && <h1>Select a set...</h1>}
+          {!isCatalogPage && appState.activeSet.length > 0 && 
+            (activeSetName === null
+            ? <h1 
+                className="setbutton"
+                onClick={() => saveSet("New Set", appState.activeSet)}
+              >
+                +{getIcon({name: "Save", invert: true})} Save Current
+              </h1>
+            : <h1>
+                {activeSetName === "Backpack" && <>{getIcon({name: "Backpack", invert: true})} </>}
+                {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
+                {activeSetName}
+              </h1>
+            )
+          }
 
           <SavedSet setname={"Backpack"} set={appState.backpack} />
           {appState.searchSet &&
@@ -180,7 +199,7 @@ function SavedSets() {
 
           <div className="saved-sets__set-list">
             {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
-              <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+              <SavedSet setname={set} index={i} />
             ))}
             {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
               // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
@@ -200,10 +219,6 @@ function SavedSets() {
 
           <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", [])}>
             + New Empty Set
-          </div>
-
-          <div className="saved-sets__new-set-button" onClick={() => saveSet("New Set", appState.activeSet)}>
-            {getIcon({name: "Save", invert: true})} Save Current As New Set
           </div>
 
           {buttonError && <div className="backpack-error-overlay">
