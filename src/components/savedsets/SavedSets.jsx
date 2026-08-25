@@ -16,12 +16,12 @@ import Tippy from "@tippyjs/react";
 import CardRenderer from "../cards/CardRenderer";
 import { useMatch } from "react-router-dom";
 
-function SavedSetCard({setname, card, index}) {
+function SavedSetCard({setname, card, index, isBackpackSet, isSearchSet}) {
   const [longHover, setLongHover] = useState(false);
   const hoverTimer = useRef();
 
   const { openModal } = useModal();
-  const { cardCache, removeCardFromSet } = useLocalStorage();
+  const { cardCache, removeCardFromSet, removeFromBackpack } = useLocalStorage();
   const cardData = cardCache.get(card)
   const { ref, isDragging } = useDraggable({ id: setname + "-" + card, plugins: [Feedback.configure({ feedback: 'clone' })] })
 
@@ -61,13 +61,13 @@ function SavedSetCard({setname, card, index}) {
         style={{opacity: isDragging ? "0.3" : "unset", textDecoration: !enabled ? "line-through solid black 2px" : "unset"}}
       >
         <span>{!enabled && getIcon({name: "X"})}{!enabled && " "}{cardData?.name}</span>
-        <span
+        {!isSearchSet && <span
           className="saved-sets-button"
           style={{ flex: "unset" }}
-          onClick={(e) => { e.stopPropagation(); removeCardFromSet(setname, card) }}
+          onClick={(e) => { e.stopPropagation(); isBackpackSet ? removeFromBackpack(card) : removeCardFromSet(setname, card) }}
         >
           {getIcon({ name: "Trash", invert: true })}
-        </span>
+        </span>}
       </div>
     </Tippy>
   </li>
@@ -140,7 +140,7 @@ function SavedSet({ setname, index }) {
 
         {set?.map((card, j) => 
           <div className="saved-sets-card__empty-slot">
-            <SavedSetCard setname={setname} card={card} index={j} />
+            <SavedSetCard setname={setname} card={card} index={j} isBackpackSet={isBackpackSet} isSearchSet={isSearchSet} />
           </div>
         )}
       </ul>
