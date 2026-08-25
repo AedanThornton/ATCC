@@ -5,7 +5,7 @@ const SavedSetsContext = createContext();
 export function SavedSetsProvider({ children }) {
   const [activeSetName, setActiveSetName] = useState("Backpack")
   const [currentSetType, setCurrentSetType] = useState("Sets")
-  const setTypes = ["Sets", "Decks"]
+  const setTypes = []
   // const setTypes = ["Sets", "Decks", "Loadouts"]
 
   const values = { 

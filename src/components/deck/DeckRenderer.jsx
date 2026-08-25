@@ -43,7 +43,10 @@ const DeckRenderer = ({ deckState }) => {
           <p style={{textAlign: "center"}}>
             <span>No cards in {deckState.activeCardPool} pool.</span>
             {!(Object.keys(deckState.cardPools).some(pool => deckState.cardPools[pool].length > 0)) && 
-              <><br /><span>Select a card set to play with in the right panel.</span></>}
+              deckState.deckSource === "custom"
+                ? <><br /><span>Select a card set to play with in the right panel.</span></>
+                : <><br /><span>Use the dropdowns above to select a deck.</span></>
+            }
           </p>
         }
         

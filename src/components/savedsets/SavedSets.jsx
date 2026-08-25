@@ -208,10 +208,10 @@ function SavedSets() {
               // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
               <></>
             ))}
-            {/* {currentSetType === "Loadouts" && Object.keys(appState.savedSets).map((set, i) => (
+            {currentSetType === "Loadouts" && Object.keys(appState.savedSets).map((set, i) => (
               // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
               <></>
-            ))} */}
+            ))}
           </div>
 
           {!appState["saved" + currentSetType] || Object.keys(appState["saved" + currentSetType]).length === 0 &&

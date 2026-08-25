@@ -36,7 +36,7 @@ const BackpackCardList = ({}) => {
           </div>
         )}
 
-        <RectractableMenu preformattedButtons={buttons} />
+        {/* <RectractableMenu preformattedButtons={buttons} /> */}
       </div>
 
       {buttonError && <div className="backpack-error-overlay">
