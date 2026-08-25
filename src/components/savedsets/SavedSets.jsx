@@ -76,7 +76,7 @@ function SavedSetCard({setname, card, index, isBackpackSet, isSearchSet}) {
 function SavedSet({ setname, index }) {
   const [isOpen, setIsOpen] = useState(false);
   const [addingCard, setAddingCard] = useState(false);
-  const { appState, cardCache, addCardToSet } = useLocalStorage();
+  const { appState, cardCache, addCardToSet, addToBackpack } = useLocalStorage();
   const { handleSaveSet, handleClickOnSet, renameSet, handleDeleteSet } = savedSetsLib();
   const isBackpackSet = setname === "Backpack";
   const isSearchSet = setname === "Current Search";
@@ -90,7 +90,8 @@ function SavedSet({ setname, index }) {
     if (!id) return
     const idParts = id.split("-")
     const realID = idParts[idParts.length - 1]
-    addCardToSet(setname, realID)    
+    isBackpackSet && addToBackpack(realID)
+    !isBackpackSet && !isSearchSet && addCardToSet(setname, realID)   
   }
 
   const allCards = [...cardCache.entries()]
