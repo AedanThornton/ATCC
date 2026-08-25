@@ -630,15 +630,92 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "If\u2026"
+            "value": "You must gain 1"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "plainText",
+            "value": "to declare this weapon as your active weapon."
           }
         ]
       }
     ],
-    "subDef0": "\u2026no parentheses, you must gain 1 @Fate to declare this weapon as your active weapon.",
-    "subDef1": "\u2026X is a negative token, you must gain 1 of that token type to declare this weapon as your active weapon.",
-    "subDef2": "\u2026X is a positive token, you must discard 1 of that  token type to declare this weapon as your active weapon.",
-    "subDef3": "\u2026X is a Charge token, you must discard 1 Charge token to declare this weapon as your active weapon."
+    "subName1": "Commit (cost)",
+    "subDef1": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Some weapons have more complex Commit costs. You must pay every cost as specified below to activate these weapons."
+          }
+        ]
+      }
+    ],
+    "subName2": "Negative tokens and Fate symbols",
+    "subDef2": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You must gain the specified amount of "
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "icon",
+            "value": "Fate"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "plainText",
+            "value": "and/or negative tokens"
+          }
+        ]
+      }
+    ],
+    "subName3": "Positive tokens and Charge tokens",
+    "subDef3": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "You must lose the specified amount of positive tokens and/or"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "icon",
+            "value": "Energy"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "plainText",
+            "value": "tokens. If you do not have the requisite tokens, you cannot activate the weapon."
+          }
+        ]
+      }
+    ]
   },
   "Consume": {
     "mainDef": [
@@ -650,7 +727,7 @@
           }
         ]
       }
-    ]
+    ],
   },
   "Crash": {
     "mainDef": [
@@ -3176,7 +3253,23 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "Until the start of the next Titan Round, treat your Titan as being on as shaded space"
+            "value": "During the first ability window, you may gain 1"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "plainText",
+            "value": "to place one Break token in the Kratos Pool"
           }
         ]
       }
@@ -3189,6 +3282,34 @@
           {
             "type": "plainText",
             "value": "The Primordial immediately moves X spaces in a straight line in a random direction, where X is its current level"
+          }
+        ]
+      }
+    ]
+  },
+  "Soak": {
+    "mainDef": [
+      {
+        "abilityText": [
+          {
+            "type": "plainText",
+            "value": "Reduce each"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "icon",
+            "value": "Danger"
+          },
+          {
+            "type": "whitespace",
+            "value": " "
+          },
+          {
+            "type": "plainText",
+            "value": "gain by 1 (to a minimum of 1)."
           }
         ]
       }
