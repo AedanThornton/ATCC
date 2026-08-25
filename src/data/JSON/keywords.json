@@ -622,14 +622,6 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "This Keyword forces a cost to pay in order to declare this Weapon as an Active Weapon"
-          }
-        ]
-      },
-      {
-        "abilityText": [
-          {
-            "type": "plainText",
             "value": "You must gain 1"
           },
           {
@@ -646,13 +638,13 @@
           },
           {
             "type": "plainText",
-            "value": "to declare this weapon as your active weapon."
+            "value": "to declare this weapon as your Active Weapon"
           }
         ]
       }
     ],
-    "subName1": "Commit (cost)",
-    "subDef1": [
+    "subName0": "Commit (cost)",
+    "subDef0": [
       {
         "abilityText": [
           {
@@ -662,8 +654,8 @@
         ]
       }
     ],
-    "subName2": "Negative tokens and Fate symbols",
-    "subDef2": [
+    "subName1": "Negative tokens and Fate symbols",
+    "subDef1": [
       {
         "abilityText": [
           {
@@ -689,8 +681,8 @@
         ]
       }
     ],
-    "subName3": "Positive tokens and Charge tokens",
-    "subDef3": [
+    "subName2": "Positive tokens and Charge tokens",
+    "subDef2": [
       {
         "abilityText": [
           {
@@ -727,7 +719,7 @@
           }
         ]
       }
-    ],
+    ]
   },
   "Crash": {
     "mainDef": [
@@ -3253,23 +3245,7 @@
         "abilityText": [
           {
             "type": "plainText",
-            "value": "During the first ability window, you may gain 1"
-          },
-          {
-            "type": "whitespace",
-            "value": " "
-          },
-          {
-            "type": "icon",
-            "value": "Danger"
-          },
-          {
-            "type": "whitespace",
-            "value": " "
-          },
-          {
-            "type": "plainText",
-            "value": "to place one Break token in the Kratos Pool"
+            "value": "Until the start of the next Titan Round, treat your Titan as being on as shaded space"
           }
         ]
       }
