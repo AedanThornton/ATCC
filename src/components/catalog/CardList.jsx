@@ -5,9 +5,12 @@ import { useFilterOptions } from "../../hooks/useFilterOptions";
 import { useCards } from "../../hooks/useCards";
 import CardRenderer from "../cards/CardRenderer"
 import { useLocalStorage } from "../../context/LocalStorageContext";
+import { useSavedSetsContext } from "../../context/SavedSetsContext";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { savedSetsOpen } = useSavedSetsContext();
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   //Response values from API
   const { filterOptions, optionsLoading, optionsError } = useFilterOptions();
@@ -53,7 +56,7 @@ const CardList = () => {
   };
 
   return (
-    <div className="card-list">
+    <div className="card-list" style={(savedSetsOpen && !isNotMobile) ? {display: "none"} : {}}>
       {filteredCards.length > 0 ? (
         filteredCards.map((cardname, index) => {
           return (

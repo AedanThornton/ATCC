@@ -151,8 +151,9 @@ function SavedSet({ setname, index }) {
 }
 
 function SavedSets() {
-  const [savedSetsOpen, setSavedSetsOpen] = useState(false);
-  const { currentSetType, activeSetName } = useSavedSetsContext();
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
+
+  const { currentSetType, activeSetName, savedSetsOpen, setSavedSetsOpen } = useSavedSetsContext();
   const { buttonError, checkForSetNameMatch } = savedSetsLib();
   const { appState, saveSet } = useLocalStorage();
 
@@ -165,11 +166,11 @@ function SavedSets() {
 
   return (
     <div className='saved-sets__container' 
-      style={{ 
-        transform: `translateX(${savedSetsOpen ? "0" : "-100%"})`,
-        width: savedSetsOpen ? "initial" : "0",
-        flex: savedSetsOpen ? "1" : "0",
-      }}
+      style={!savedSetsOpen ? { 
+        transform: `translateX(-100%)`,
+        width: "0",
+        flex: "0",
+      } : {}}
     >
       <div className='saved-sets' style={{display: savedSetsOpen ? "initial" : "none"}}>
         <div className="saved-sets-panel" ref={ref}>
@@ -230,7 +231,7 @@ function SavedSets() {
         </div>
       </div>
 
-      <div className='saved-sets__thumb' onClick={() => setSavedSetsOpen(!savedSetsOpen)}>
+      <div className={`saved-sets__thumb ${(savedSetsOpen && !isNotMobile) ? "flip-thumb" : ""}`} onClick={() => setSavedSetsOpen(!savedSetsOpen)}>
         {getIcon({name: "Options", invert: true, size: "1.4em"})}
       </div>
     </div>

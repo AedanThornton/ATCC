@@ -2,15 +2,14 @@
   background-color: var(--accent-dark);
   height: 100dvh;
   width: 100dvw;
-  left: 0%;
-  top: 0%;
-  position: fixed;
-  z-index: 525;
+  left: 0;
+  top: 0;
+  z-index: 575;
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  position: relative;
+  position: fixed;
 }
 
 .saved-sets {
@@ -26,7 +25,7 @@
   background-color: var(--accent);
   position: absolute;
   right: -33px;
-  top: 0;
+  top: 50%;
   padding: 15px;
   width: 33px;
   height: 80px;
@@ -39,6 +38,11 @@
 }
 .saved-sets__thumb:hover {
   background-color: var(--accent-dark);
+}
+.saved-sets__thumb.flip-thumb {
+  transform-origin: left;
+  transform: scale(-100%);
+  background-color: var(--accent-light);
 }
 
 .saved-sets__button {
@@ -257,12 +261,16 @@
 @media (min-width: 820px) {
   .saved-sets__container {
     position: relative;
-    height: 100%;
     transition: transform 1s ease, flex 1s ease, border 0.2s ease;
     flex: 1;
+    height: 100%;
   }
 
   .saved-sets__button {
     position: static;
+  }
+
+  .saved-sets__thumb {
+    top: 0;
   }
 }
