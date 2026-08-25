@@ -164,14 +164,14 @@ function SavedSets() {
   }, [appState.activeSet])
 
   return (
-    <div className='backpack__setslist-sidebar__container' 
+    <div className='saved-sets__container' 
       style={{ 
         transform: `translateX(${savedSetsOpen ? "0" : "-100%"})`,
         width: savedSetsOpen ? "initial" : "0",
         flex: savedSetsOpen ? "1" : "0",
       }}
     >
-      <div className='backpack__setslist-sidebar' style={{display: savedSetsOpen ? "initial" : "none"}}>
+      <div className='saved-sets' style={{display: savedSetsOpen ? "initial" : "none"}}>
         <div className="saved-sets-panel" ref={ref}>
 
           {!isCatalogPage && appState.activeSet.length < 1 && <h1>Select a set...</h1>}
@@ -230,7 +230,7 @@ function SavedSets() {
         </div>
       </div>
 
-      <div className='backpack__setslist-sidebar__thumb' onClick={() => setSavedSetsOpen(!savedSetsOpen)}>
+      <div className='saved-sets__thumb' onClick={() => setSavedSetsOpen(!savedSetsOpen)}>
         {getIcon({name: "Options", invert: true, size: "1.4em"})}
       </div>
     </div>
