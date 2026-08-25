@@ -82,7 +82,9 @@ function SavedSet({ setname, index }) {
   const isSearchSet = setname === "Current Search";
   const {ref, isDropTarget} = useDroppable({ id: setname, data: {onDrop: handleSetDrop} });
 
-  const set = appState.savedSets[setname]
+  const set = isBackpackSet ? appState.backpack
+    : isSearchSet ? appState.searchSet
+    : appState.savedSets[setname]
 
   function handleSetDrop(id){
     if (!id) return
@@ -106,7 +108,7 @@ function SavedSet({ setname, index }) {
         outline: isDropTarget ? "3px solid var(--accent-light)" : "initial",
         outlineOffset: "-3px"
       }}
-      onClick={() => handleClickOnSet(setname)}
+      onClick={() => handleClickOnSet(setname, isBackpackSet, isSearchSet)}
     >
 
       <div className="saved-set__title-bar">
@@ -131,10 +133,10 @@ function SavedSet({ setname, index }) {
       </div>
 
       <ul className="saved-set__dropdown" style={{display: isOpen ? "block" : "none"}} onClick={(e) => e.stopPropagation()}>
-        {addingCard
+        {(!isBackpackSet && !isSearchSet) && (addingCard
           ? <SearchableList items={allCards} onItemClick={(id) => handleAddCardToSet(setname, id)} customPlaceholder="Add card..." />
           : <span className="saved-sets__new-set-button" onClick={()=>setAddingCard(true)}>+ Add Card</span>
-        }
+        )}
 
         {set?.map((card, j) => 
           <div className="saved-sets-card__empty-slot">

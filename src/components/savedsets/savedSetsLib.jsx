@@ -10,19 +10,27 @@ const savedSetsLib = () => {
   const { activeSetName, setActiveSetName } = useSavedSetsContext();
   const [buttonError, setButtonError] = useState(null);
 
+  const arraysEqual = (a, b) => {
+    return a?.length === b?.length &&
+    a.every((value, i) => value === b[i]);
+  }
+
   const checkForSetNameMatch = () => {
     if (activeSetName === "Backpack") {
-      if (appState.backpack !== appState.activeSet){
+      if (!arraysEqual(appState.backpack, appState.activeSet)){
         setActiveSetName(null)
       }
+      return
     }
     if (activeSetName === "Current Search") {
-      if (appState.searchSet !== appState.activeSet){
+      if (!arraysEqual(appState.searchSet, appState.activeSet)){
         setActiveSetName(null)
       }
+      return
     }
-    if (appState.savedSets[activeSetName] !== appState.activeSet){
+    if (!arraysEqual(appState.savedSets[activeSetName], appState.activeSet)){
       setActiveSetName(null)
+      return
     }
   }
 
@@ -58,14 +66,18 @@ const savedSetsLib = () => {
     deleteSet(setName)
   }
 
-  const handleClickOnSet = (setname) => {
-    loadSet(appState.savedSets[setname]);
+  const handleClickOnSet = (setname, isBackpackSet, isSearchSet) => {
     setActiveSetName(setname)
 
-    if (setname === "Backpack") {
+    if (isBackpackSet) {
+      loadSet(appState.backpack);
       setBackpackIsActive(true)
+    } else if (isSearchSet) { 
+      loadSet(appState.searchSet);
+      setBackpackIsActive(false)
     } else {
       setBackpackIsActive(false)
+      loadSet(appState.savedSets[setname]);
     }
   }
 
