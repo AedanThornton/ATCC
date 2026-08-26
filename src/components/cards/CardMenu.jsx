@@ -14,8 +14,7 @@ const CardMenu = ({ card = {}, flipFunc = ()=>{}, secretFunc = ()=>{}, setDispla
       {(card.name2 || card.renderType === "Technology") && (<button onClick={flipFunc}>{getIcon({name: "Flip", size: "1.5em", invert: true})}</button>)}
       {(card.foundIn?.includes("Secret Deck") || card.foundIn?.includes("Envelope") || card.foundIn === "Ultra-secret") && (<button disabled={!spoilersEnabled} onClick={secretFunc}>{getIcon({name: "Reveal", size: "1.5em", invert: true})}</button>)}
       {variant === "" && <button disabled={appState.backpack.includes(card.cardIDs[0])} onClick={() => handleAddToBackpack(card.cardIDs[0])}>{getIcon({name: "Backpack", size: "1.5em", invert: true})}</button>}
-      {variant === "workspace" && <button onClick={() => removeFromActiveSet(card.cardIDs[0])}>✖</button>}
-      {variant === "backpack" && <button onClick={() => handleRemoveFromBackpack(card.cardIDs[0])}>✖</button>}
+      {(variant === "workspace" || variant === "backpack") && <button onClick={() => removeFromActiveSet(card.cardIDs[0])}>✖</button>}
     </div>
   )
 };

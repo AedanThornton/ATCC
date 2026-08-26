@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useBackpackContext } from "../../context/BackpackContext";
 import { useLocalStorage } from "../../context/LocalStorageContext";
 import { useSavedSetsContext } from "../../context/SavedSetsContext";
+import { arraysEqual } from "../../lib/arrays";
 
 
 const savedSetsLib = () => {
@@ -9,11 +10,6 @@ const savedSetsLib = () => {
   const { setBackpackIsActive } = useBackpackContext();
   const { activeSetName, setActiveSetName } = useSavedSetsContext();
   const [buttonError, setButtonError] = useState(null);
-
-  const arraysEqual = (a, b) => {
-    return a?.length === b?.length &&
-    a.every((value, i) => value === b[i]);
-  }
 
   const checkForSetNameMatch = () => {
     if (activeSetName === "Backpack") {

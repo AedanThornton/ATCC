@@ -15,6 +15,7 @@ import { useSavedSetsContext } from "../../context/SavedSetsContext";
 import Tippy from "@tippyjs/react";
 import CardRenderer from "../cards/CardRenderer";
 import { useMatch } from "react-router-dom";
+import { arraysEqual } from "../../lib/arrays";
 
 function SavedSetCard({setname, card, index, isBackpackSet, isSearchSet}) {
   const [longHover, setLongHover] = useState(false);
@@ -155,7 +156,7 @@ function SavedSets() {
 
   const { currentSetType, activeSetName, savedSetsOpen, setSavedSetsOpen } = useSavedSetsContext();
   const { buttonError, checkForSetNameMatch } = savedSetsLib();
-  const { appState, saveSet } = useLocalStorage();
+  const { appState, saveSet, loadSet } = useLocalStorage();
 
   const {ref} = useDroppable({id: "saved-sets-panel"})
   const isCatalogPage = useMatch("/catalog")
