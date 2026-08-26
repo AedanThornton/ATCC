@@ -21,6 +21,11 @@
   box-sizing: border-box;
 }
 
+.no-saved-sets {
+  flex: 1;
+  align-self: center;
+}
+
 .saved-sets__thumb {
   background-color: var(--accent);
   position: absolute;
