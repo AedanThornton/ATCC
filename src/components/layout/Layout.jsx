@@ -19,11 +19,11 @@ function Layout({}) {
           <div className='top-menu'>
             <nav className='layout-nav'>
               {!(savedSetsOpen && !isNotMobile) && <button className='menu-button'
-                onPointerOver={() => setNavOpen(true)}
+                onPointerOver={() => setNavOpen(isNotMobile ? true : !navOpen)}
               >
                 <img src={logo} alt='Menu' width="40" height="40"/>
-                <div className='nav-sidebar' style={navOpen ? {display: "flex"} : {}} onPointerLeave={() => setNavOpen(false)}>
-                  <div className='nav-close-button' onClick={() => setNavOpen(false)}>✖</div>
+                <div className='nav-sidebar' style={navOpen ? {display: "flex"} : {}} onPointerLeave={() => isNotMobile && setNavOpen(false)}>
+                  <div className='nav-close-button' onClick={(e) => {e.stopPropagation; setNavOpen(false)}}>✖</div>
                   <ul>
                     <Link onClick={() => setNavOpen(false)} to="/home"><li>Home</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="/catalog"><li>Card Catalog</li></Link>
