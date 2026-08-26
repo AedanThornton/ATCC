@@ -1,76 +1,99 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { useDecks } from '../../hooks/useDecks.js';
+import { useEffect } from "react"
+
+const PrebuiltDecksDropdownButton = ({displayName, dropdownItems, disabled = false}) => {
+  return <div className={`prebuilt-decks-dropdown__button ${disabled ? "disabled" : ""}`}>
+    {displayName}
+    <ul className="prebuilt-decks-dropdown">
+      {dropdownItems}
+    </ul>
+  </div>
+}
 
 const PrebuiltDecksBuilder = ({ deckState }) => {
-  const [prebuiltDeckParameters, setPrebuilDeckParameters] = useState({
-    type: "",
-    name: "",
-    variant: "",
-    level: "",
-  })
-
-  const typeSelected = !!prebuiltDeckParameters?.type
-
+  //reset on reload
   useEffect(() => {
-    const newParams = new URLSearchParams(deckState.deckParams)
+    const newParams = new URLSearchParams()
 
-    newParams.set("type", prebuiltDeckParameters.type)
-    newParams.set("name", prebuiltDeckParameters.name)
-    newParams.set("variant", prebuiltDeckParameters.variant)
+    newParams.set("type", "")
+    newParams.set("name", "")
+    newParams.set("variant", "")
 
     deckState.setDeckParams(newParams)
-  }, [prebuiltDeckParameters])
+  }, [])
 
-  const handleSelectType = (newType) => {
-    setPrebuilDeckParameters({ type: newType, name: "", variant: "" })
+
+  const typeSelected = deckState?.deckParams?.get("type")
+
+  const handleUpdateParams = (paramName, newParamVal) => {
+    console.log(deckState)
+    const newParams = new URLSearchParams(deckState.deckParams)
+
+    if (paramName === "type") newParams.set("type", newParamVal); else newParams.set("type", deckState.deckParams.get("type"))
+    if (paramName === "name") newParams.set("name", newParamVal); else newParams.set("name", deckState.deckParams.get("name"))
+    if (paramName === "variant") newParams.set("variant", newParamVal); else newParams.set("variant", deckState.deckParams.get("variant"))
+
+    deckState.setDeckParams(newParams)
   }
 
   return (
     <div className="deck-page__action-bar">
       <div className="deck-page__set-title">
-        <div className="prebuilt-decks-dropdown__button">
-          {prebuiltDeckParameters.type ? prebuiltDeckParameters.type : "Type"}
-          <ul className="prebuilt-decks-dropdown">
-            <li onClick={() => handleSelectType("primordial")}>Primordial</li>
-            <li onClick={() => handleSelectType("exploration")}>Exploration</li>
-          </ul>
-        </div>
-        <div className={`prebuilt-decks-dropdown__button ${!typeSelected && "disabled"}`}>
-          {prebuiltDeckParameters.name ? prebuiltDeckParameters.name : "Name"}
-          <ul className="prebuilt-decks-dropdown">
-            {prebuiltDeckParameters?.type === "primordial" && deckState.prebuiltDeck.isLoading && <li>Options loading...</li>}
-            {prebuiltDeckParameters?.type === "primordial" && deckState.prebuiltDeck.error && <li>Error loading options... {deckState.prebuiltDeck.error}</li>}
-            {prebuiltDeckParameters?.type === "primordial" &&
-              deckState.prebuiltDeck.primordialOptions.map((primordial, i) =>
-                <li key={i} onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: primordial }))}>{primordial}</li>
-              )
-            }
-            {prebuiltDeckParameters?.type === "exploration" &&
-              <><li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: "Cycle I" }))}>Cycle I</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: "Cycle II" }))}>Cycle II</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: "Cycle III" }))}>Cycle III</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: "Cycle IV" }))}>Cycle IV</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, name: "Cycle V" }))}>Cycle V</li></>
-            }
-          </ul>
-        </div>
-        <div className={`prebuilt-decks-dropdown__button ${!typeSelected && "disabled"}`}>
-          {prebuiltDeckParameters.variant ? prebuiltDeckParameters.variant : "Variant"}
-          <ul className="prebuilt-decks-dropdown">
-            {prebuiltDeckParameters.type === "primordial" &&
-              <><li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "ai" }))}>AI</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "bp" }))}>BP</li></>
-            }
-            {prebuiltDeckParameters.type === "exploration" &&
-              <><li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "0" }))}>Acclimation 0</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "1" }))}>Acclimation 1</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "2" }))}>Acclimation 2</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "3" }))}>Acclimation 3</li>
-                <li onClick={() => setPrebuilDeckParameters(prev => ({ ...prev, variant: "all" }))}>All</li></>
-            }
-          </ul>
-        </div>
+        <PrebuiltDecksDropdownButton
+          displayName={typeSelected ? deckState.deckParams.get("type") : "Type"}
+          dropdownItems={<>
+            <li onClick={() => handleUpdateParams("type", "primordial")}>Primordial</li>
+            <li onClick={() => handleUpdateParams("type", "exploration")}>Exploration</li>
+          </>}
+        />
+
+        {!typeSelected && <PrebuiltDecksDropdownButton
+          displayName="Name"
+          disabled={true}
+        />}
+        {!typeSelected && <PrebuiltDecksDropdownButton
+          displayName="Variant"
+          disabled={true}
+        />}
+
+        {typeSelected === "primordial" && <PrebuiltDecksDropdownButton 
+          displayName={deckState.deckParams.get("name") !== "" ? deckState.deckParams.get("name") : "Name"}
+          dropdownItems={<>
+            {deckState.prebuiltDeck.isLoading && <li>Options loading...</li>}
+            {deckState.prebuiltDeck.error && <li>Error loading options... {deckState.prebuiltDeck.error}</li>}
+            {deckState.prebuiltDeck.primordialOptions.map((primordial, i) =>
+              <li key={i} onClick={() => handleUpdateParams("name", primordial)}>{primordial}</li>
+            )}
+          </>}
+        />}
+        {typeSelected === "exploration" && <PrebuiltDecksDropdownButton 
+          displayName={deckState.deckParams.get("name") !== "" ? deckState.deckParams.get("name") : "Name"}
+          dropdownItems={<>
+            <li onClick={() => handleUpdateParams("name", "Cycle I")}>Cycle I</li>
+            <li onClick={() => handleUpdateParams("name", "Cycle II")}>Cycle II</li>
+            <li onClick={() => handleUpdateParams("name", "Cycle III")}>Cycle III</li>
+            <li onClick={() => handleUpdateParams("name", "Cycle IV")}>Cycle IV</li>
+            <li onClick={() => handleUpdateParams("name", "Cycle V")}>Cycle V</li>
+          </>}
+        />}
+
+
+        {typeSelected === "primordial" && <PrebuiltDecksDropdownButton
+          displayName={deckState.deckParams.get("variant") !== "" ? deckState.deckParams.get("variant") : "Variant"}
+          dropdownItems={<>
+            <li onClick={() => handleUpdateParams("variant", "ai")}>AI</li>
+            <li onClick={() => handleUpdateParams("variant", "bp")}>BP</li>
+          </>}
+        />}
+        {typeSelected === "exploration" && <PrebuiltDecksDropdownButton
+          displayName={deckState.deckParams.get("variant") !== "" ? deckState.deckParams.get("variant") : "Variant"}
+          dropdownItems={<>
+            <li onClick={() => handleUpdateParams("variant", "0")}>Acclimation 0</li>
+            <li onClick={() => handleUpdateParams("variant", "1")}>Acclimation 1</li>
+            <li onClick={() => handleUpdateParams("variant", "2")}>Acclimation 2</li>
+            <li onClick={() => handleUpdateParams("variant", "3")}>Acclimation 3</li>
+            <li onClick={() => handleUpdateParams("variant", "all")}>All</li>
+          </>}
+        />}
       </div>
     </div>
   )
