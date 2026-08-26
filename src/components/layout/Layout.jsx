@@ -19,7 +19,7 @@ function Layout({}) {
           <div className='top-menu'>
             <nav className='layout-nav'>
               {!(savedSetsOpen && !isNotMobile) && <button className='menu-button'
-                onPointerOver={() => setNavOpen(isNotMobile ? true : !navOpen)}
+                onPointerOver={() => setNavOpen(true)}
               >
                 <img src={logo} alt='Menu' width="40" height="40"/>
                 <div className='nav-sidebar' style={navOpen ? {display: "flex"} : {}} onPointerLeave={() => isNotMobile && setNavOpen(false)}>

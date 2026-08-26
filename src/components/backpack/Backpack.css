@@ -137,9 +137,9 @@
 
 .backpack-tab-selector > * {
   background-color: var(--main-midtone);
-  padding: 10px;
+  padding: 10px 20px;
   height: 40px;
-  width: 140px;
+  width: fit-content;
   text-align: center;
   line-height: 34px;
   box-sizing: border-box;
@@ -186,5 +186,10 @@
   .backpack-wrapper {
     width: 30dvw;
     left: -28dvw;
+  }
+
+  .backpack-tab-selector > * {
+    width: 140px;
+    padding: 10px;
   }
 }
