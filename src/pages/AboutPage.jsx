@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import "../styles/aboutpage.css"
+import { useLayout } from "../context/LayoutContext";
+import { useEffect } from "react";
 
 function AboutPage() {
+  const { setLayout } = useLayout()
+
+  useEffect(()=> {
+    setLayout({
+      main: null,
+      topbar: null
+    })
+  }, [])
+
   return (
     <div className='about-page'>
       <h2>About This Project</h2>

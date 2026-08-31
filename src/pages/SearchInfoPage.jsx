@@ -1,6 +1,17 @@
+import { useEffect } from "react";
+import { useLayout } from "../context/LayoutContext";
 import "../styles/searchInfoPage.css"
 
 function SearchInfoPage() {
+  const { setLayout } = useLayout()
+
+  useEffect(()=> {
+    setLayout({
+      main: null,
+      topbar: null
+    })
+  }, [])
+
   return (
     <div className='search-info-page'>
       <div className="search-info__title-section">

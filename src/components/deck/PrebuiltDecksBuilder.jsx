@@ -25,7 +25,6 @@ const PrebuiltDecksBuilder = ({ deckState }) => {
   const typeSelected = deckState?.deckParams?.get("type")
 
   const handleUpdateParams = (paramName, newParamVal) => {
-    console.log(deckState)
     const newParams = new URLSearchParams(deckState.deckParams)
 
     if (paramName === "type") newParams.set("type", newParamVal); else newParams.set("type", deckState.deckParams.get("type"))
