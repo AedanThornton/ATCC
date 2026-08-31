@@ -238,19 +238,41 @@ function getTextWidth(text, font) {
 
 const AbilityTextGate = ({ text, color, bkgdColor }) => {
     const lengthAdjustment = 0.85 * getTextWidth(text, "bold 26pt 'Times New Roman'")
-
+    const link = icons["Condition"]
+    const iconSize = 26
     const gateXOffset = 2
     const gateYOffset = 4
     const gateHeight = 37 - gateYOffset
-    const gateWidth = 30 - gateXOffset + lengthAdjustment
+    const gateWidth = 50 + iconSize - gateXOffset + lengthAdjustment
     const gateArrow = 12
+    const gateIncline = 10
+    const gateSplitPoint = lengthAdjustment + 10
+    const gateSplitSize = 5
 
-    const textPoints = `${gateXOffset} ${gateHeight/2 + gateYOffset},
-                        ${gateArrow + gateXOffset} ${gateYOffset},
-                        ${gateWidth - gateArrow + gateXOffset} ${gateYOffset}, 
-                        ${gateWidth + gateXOffset} ${gateHeight/2 + gateYOffset}, 
-                        ${gateWidth - gateArrow + gateXOffset} ${gateHeight + gateYOffset}, 
-                        ${gateArrow + gateXOffset} ${gateHeight + gateYOffset}`
+    const iconPoints = `${gateXOffset} ${gateYOffset + gateHeight/2},
+                        ${gateXOffset + gateArrow} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateSplitSize} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline} ${gateYOffset + gateHeight},
+                        ${gateXOffset + gateArrow} ${gateYOffset + gateHeight}`
+
+    const textPoints = `${gateXOffset + gateWidth - gateSplitPoint} ${gateYOffset},
+                        ${gateXOffset + gateWidth - gateArrow} ${gateYOffset}, 
+                        ${gateXOffset + gateWidth} ${gateYOffset + gateHeight/2}, 
+                        ${gateXOffset + gateWidth - gateArrow} ${gateYOffset + gateHeight},
+                        ${gateXOffset + gateWidth - gateSplitPoint - gateIncline} ${gateYOffset + gateHeight}`
+
+    const iconPolygon = (
+        <polygon 
+                x="0" 
+                y="0" 
+                width="120" 
+                height="40" 
+                stroke="#FFF"
+                strokeWidth="3"
+                fill={bkgdColor}
+                points={iconPoints}
+        />
+    )
 
     const textPolygon = (
         <polygon 
@@ -265,7 +287,20 @@ const AbilityTextGate = ({ text, color, bkgdColor }) => {
         />
     )
 
-    const textX = 20
+    const iconX = gateXOffset + gateWidth - gateSplitPoint - gateSplitSize - gateIncline - iconSize - 5
+    const iconY = gateYOffset + gateHeight/2 - iconSize/2
+    const gateDisplay = (
+    <g transform={`translate(${iconX}, ${iconY})`}>
+        <image
+        filter="url(#invert)" //#invert filter is in AutoSizedSVG.jsx
+        xlinkHref={link}
+        width={iconSize}
+        height={iconSize}
+        />
+    </g>
+    );
+
+    const textX = gateWidth - gateSplitPoint + 5
     const textDisplay = (
         <text 
             x={textX} 
@@ -280,6 +315,8 @@ const AbilityTextGate = ({ text, color, bkgdColor }) => {
 
     return (
         <AutoSizedSVG>
+            {iconPolygon}
+            {gateDisplay}
             {textPolygon}
             {textDisplay}
         </AutoSizedSVG>
@@ -287,7 +324,7 @@ const AbilityTextGate = ({ text, color, bkgdColor }) => {
 }
 
 export const createGate = (gate = [], value = [], fill = "none", type = "ability") => {
-    return value[0]
-        ? <AbilityGate type={type} icon={gate[0]} value={value[0]} fill={fill} icon2={gate[1] || undefined} comboGate={gate[2] || undefined} value2={value[1] || undefined} /> 
-        : <AbilityTextGate text={gate[0]} color="white" bkgdColor={fill} />
+    return gate[0] === "Condition"
+        ? <AbilityTextGate text={value[0]} color="white" bkgdColor={fill} />
+        : <AbilityGate type={type} icon={gate[0]} value={value[0]} fill={fill} icon2={gate[1] || undefined} comboGate={gate[2] || undefined} value2={value[1] || undefined} /> 
 }
