@@ -29,6 +29,11 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+	width: fit-content;
+}
+
+.power-dice-group.is-stack {
+	width: 38px;
 }
 
 .power-die {

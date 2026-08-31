@@ -65,27 +65,38 @@ const getIcon = ({ name, type = "none", index, size = "1em", invert = false }) =
 
   const icon = icons[name];
   return icon ? (
-    <>{/*<Tippy
-      disabled={window.matchMedia('(hover: none)').matches}
-      key={name + index}
-      duration={0}
-      offset={[-10, 5]}
-      appendTo={document.body}
-      placement="right-start"
-      content={
-        <span style={{ backgroundColor: "gray", color: "white", padding: "2px 3px", borderRadius: "5px", fontSize: "12px" }}>
-          {name}
-        </span>}
-    >*/}
-      <img
-        src={icon}
-        key={index ? index : name}
-        style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, filter: (invert && !nonInvertibles.has(name)) && "invert(1)" }}
-        alt={name}
-        className={`text-icon ${name}`}
-      />
-    {/*</Tippy>*/}</>
+    <img
+      src={icon}
+      key={index ? index : name}
+      style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, filter: (invert && !nonInvertibles.has(name)) && "invert(1)" }}
+      alt={name}
+      className={`text-icon ${name}`}
+    />
   ) : name;
 }
 
 export default getIcon;
+
+
+{/* <>
+  <Tippy
+    disabled={window.matchMedia('(hover: none)').matches}
+    key={name + index}
+    duration={0}
+    offset={[-10, 5]}
+    appendTo={document.body}
+    placement="right-start"
+    content={
+      <span style={{ backgroundColor: "gray", color: "white", padding: "2px 3px", borderRadius: "5px", fontSize: "12px" }}>
+        {name}
+      </span>}
+  >
+    <img
+      src={icon}
+      key={index ? index : name}
+      style={{ height: size, maxWidth: `${parseFloat(size) * (wide)}em`, filter: (invert && !nonInvertibles.has(name)) && "invert(1)" }}
+      alt={name}
+      className={`text-icon ${name}`}
+    />
+  </Tippy>
+</> */}

@@ -1,24 +1,28 @@
-import { useDroppable } from "@dnd-kit/react"
-import "./Backpack.css"
-import BackpackMenu from "./BackpackMenu";
-import { useLocalStorage } from "../../context/LocalStorageContext";
-import CardRenderer from "../cards/CardRenderer";
-import BackpackSetsManager from "./BackpackSetsManager";
+import { useEffect } from "react";
+import { useBackpackContext } from "../../context/BackpackContext";
+import { useLayout } from "../../context/LayoutContext";
+import SavedSets from "../savedsets/SavedSets";
+import { BackpackLayoutTopbar } from "./BackpackLayout";
 
-const Backpack = ({ isDragging }) => {
-  const { ref, isDropTarget } = useDroppable({ id: "backpack" });
-  const { appState, cardCache } = useLocalStorage();
+const Backpack = ({}) => {
+  const { setLayout } = useLayout();
+  const { views, activeView } = useBackpackContext();
+  const View = views[activeView];
 
-  return <div className={`backpack-wrapper ${isDropTarget ? "is-drop-target" : ""} ${isDragging ? "backpack-open" : ""}`}>
-    <BackpackSetsManager>
-      <div ref={ref} className={`drag-backpack`}>
-        {appState.backpack?.map((card, i) => 
-          <div className="drag-backpack-item" key={i}>
-            {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant="backpack" />}
-          </div>
-        )}
+  useEffect(()=> {
+    setLayout({
+      main: null,
+      topbar: <BackpackLayoutTopbar />
+    })
+  }, [])
+
+  return <div className="backpack">
+    <div className="backpack__main">
+      <SavedSets />
+      <div className="backpack__view-window">
+        <View />
       </div>
-    </BackpackSetsManager>
+    </div>
   </div>
 }
 

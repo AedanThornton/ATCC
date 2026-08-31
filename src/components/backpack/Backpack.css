@@ -37,7 +37,15 @@
   box-sizing: border-box;
 }
 
-.drag-backpack {
+.backpack {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.backpack-card-list {
   width: 100%;
   padding: 3%;
   display: flex;
@@ -48,79 +56,31 @@
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
-  flex: 1;
+  gap: 40px;
 }
 
-.drag-backpack::-webkit-scrollbar {
-  display: none;
-}
-
-.backpack-wrapper:hover,
-.backpack-wrapper.backpack-open {
-  left: 10px;
-}
-
-.drag-backpack-item {
-  width: 150px;
-  height: 225px;
-  flex: 0 0 auto;
-}
-
-.drag-backpack .card-wrapper {
-  transform: scale(0.4);
-  transform-origin: top left;
-  width: 250%;
-  height: 250%;
-}
-
-.is-drop-target {
+.backpack.is-drop-target {
   border-color: white;
   background-color: #9ec5c9;
 }
 
-.backpack-menu {
+.backpack-sidebar {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-direction: column;
 }
 
-.backpack-sets-manager {
+.backpack-control-bar {
   background-color: var(--main-midtone);
   border-radius: 5px;
-  padding: 2px 5px;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: stretch;
-  gap: 5px;
-  max-width: 100%;
-}
-
-.backpack-search-bar-wrapper {
-  display: flex;
-  position: relative;
-}
-
-.backpack-search-bar {
-  background-color: var(--main);
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  width: 100%;
-}
-
-.backpack-search-bar::placeholder {
-  text-align: center;
-}
-
-.backpack-search-bar:focus {
-  border-color: rgb(146, 146, 146);
-}
-
-.backpack-search-bar:focus::placeholder {
-  color: var(--main-midtone);
+  justify-content: center;
+  gap: 25px;
 }
 
 .backpack-button {
@@ -130,6 +90,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  font-size: 30px;
 }
 
 .backpack-button:hover {
@@ -142,30 +103,6 @@
 
 .backpack-menu-error {
   animation: backpackMenuError 0.5s ease;
-}
-
-.backpack-saved-sets-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 100%;
-  background-color: var(--main-light);
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  max-height: 450%;
-  overflow-y: auto;
-}
-
-.backpack-saved-set-item {
-  padding: 5px;
-  cursor: pointer;
-  margin: 0 3px;
-  display: flex;
-  justify-content: space-between;
-}
-.backpack-saved-set-item:hover {
-  background-color: var(--main-midtone);
 }
 
 .backpack-error-overlay {
@@ -187,6 +124,54 @@
   border-radius: 5px;
 }
 
+.backpack-tab-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  padding-top: 5px;
+  background-color: unset;
+  background-color: var(--main-midtone);
+  border-bottom: 4px solid var(--main-midtone);
+}
+
+.backpack-tab-selector > * {
+  background-color: var(--main-midtone);
+  padding: 10px 20px;
+  height: 40px;
+  width: fit-content;
+  text-align: center;
+  line-height: 34px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: unset;
+}
+
+.backpack-tab-selector > *:hover {
+  background-color: var(--main-light);
+}
+
+.backpack-tab-selector > *:disabled {
+  background-color: var(--accent);
+}
+
+.backpack__main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.backpack__view-window {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100dvw;
+  flex: 3;
+}
+
 @keyframes backpackMenuError {
   0% {
     background-color: rgba(150, 0, 0, 0.562);
@@ -203,7 +188,8 @@
     left: -28dvw;
   }
 
-  .backpack-search-bar-wrapper {
-    flex: 1;
+  .backpack-tab-selector > * {
+    width: 140px;
+    padding: 10px;
   }
 }

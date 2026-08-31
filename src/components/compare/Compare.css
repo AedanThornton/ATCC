@@ -1,0 +1,107 @@
+.compare{
+  display: flex;
+  overflow: scroll;
+  height: 100%;
+  width: 0;
+  text-align: center;
+  flex: 1 1 0;
+  box-sizing: border-box;
+}
+
+.compare.is-drop-target {
+  border: 3px solid var(--accent)
+}
+
+.compare-labels, .compare-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.compare-panel > * {
+  padding: 5px 15px;
+  border: 1px solid var(--main-midtone);
+}
+
+.compare-labels > * {
+  padding: 5px 15px;
+  border: 1px solid var(--main);
+  background-color: var(--main-light);
+}
+
+.compare-labels {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  max-width: 30dvw;
+}
+
+.compare-labels-item {
+  font-weight: bold;
+  text-wrap: nowrap;
+  text-align: start;
+}
+
+.compare-panels {
+  display: flex;
+}
+
+.compare-panel__controls {
+  padding: 0;
+  background-color: var(--main);
+  display: flex;
+  justify-content: space-around;
+}
+
+.compare-panel__controls-button {
+  padding: 2px;
+  background-color: var(--main);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30%;
+  border: 1px solid var(--main-midtone);
+  margin: 2px;
+}
+
+.compare-panel__controls-button:hover {
+  background-color: var(--accent);
+}
+
+.compare-panel__card {
+  flex: 1;
+}
+
+.compare-panel__details {
+  height: 60px;
+}
+
+.compare-panel__spacer {
+  height: 500px;
+  border: unset;
+}
+
+.compare-add-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.compare-add-panel__button {
+  font-size: 3em;
+  line-height: 1.15em;
+  background-color: var(--main-midtone);
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  margin: 30px;
+  cursor: pointer;
+}
+
+.compare-add-panel__button:hover {
+  background-color: var(--accent);
+}

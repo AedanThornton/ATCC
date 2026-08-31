@@ -7,9 +7,10 @@ import renderTypes from "../../lib/renderTypes";
 import { useSpoilers } from "../../context/SpoilerContext";
 import { useModal } from '../../context/FocusContext';
 
-const CardRenderer = ({ cardData, variant = "" }) => {
+const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
   const { openModal } = useModal();
   const { spoilersEnabled } = useSpoilers();
+  const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` })
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
   const isSecretCard = cardData.foundIn?.includes("Secret Deck") || cardData.foundIn?.includes("Envelope") || cardData.foundIn === "Ultra-secret"
 
@@ -36,32 +37,39 @@ const CardRenderer = ({ cardData, variant = "" }) => {
   }
 
   const secretOverlay = <>{
-    spoilersEnabled && isSecretCard && <SecretOverlay text={cardData.foundIn} isVisible={isHidden} />
+    spoilersEnabled && isSecretCard && 
+    <SecretOverlay 
+      text={cardData.foundIn}
+      subText={cardData.secretCardNumber ? `Card ${cardData.secretCardNumber}` : null}
+      isVisible={isHidden} 
+    />
   }</>
 
-  const { ref } = useDraggable({ id: `${cardData.cardIDs[0]}` + variant })
+  menu = menu ? menu : 
+    <CardMenu
+      card={cardData}
+      flipFunc={toggleSide}
+      secretFunc={toggleReveal}
+      setDisplay={setDisplayHelper}
+      variant={variant}
+    />
 
   return (
-    <div className='card-wrapper' ref={ref}>
-      {(isNotMobile && variant !== "backpack")
+    <div className='card-wrapper' ref={!notDraggable ? ref : () => {}}>
+      {(isNotMobile)
         ? <div style={{ position: "relative" }}>
           {currentCard}
           {secretOverlay}
-          <CardMenu
-            card={cardData}
-            flipFunc={toggleSide}
-            secretFunc={toggleReveal}
-            setDisplay={setDisplayHelper}
-          />
+          {menu}
         </div>
 
-        : <div onClick={variant !== "backpack" ? setDisplayHelper : undefined}>
+        : <div onClick={setDisplayHelper}>
           {currentCard}
           {secretOverlay}
         </div>
       }
 
-      {variant !== "backpack" && (!spoilersEnabled || !isHidden) && <div className="card-type-marker">
+      {(!spoilersEnabled || !isHidden) && <div className="card-type-marker">
         {cardData.cardType}
       </div>}
     </div>

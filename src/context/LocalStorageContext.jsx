@@ -8,6 +8,8 @@ export function LocalStorageProvider({ children }) {
     const saved = localStorage.getItem("appState");
 
     if (!saved) return {
+      activeSet: [],
+      searchSet: [],
       backpack: [],
       savedSets: {}
     };
@@ -16,6 +18,8 @@ export function LocalStorageProvider({ children }) {
 
     return {
       ...parsed,
+      activeSet: parsed.activeSet ?? [],
+      searchSet: parsed.searchSet ?? [],
       backpack: parsed.backpack ?? [],
       savedSets: parsed.savedSets ?? {}
     };
@@ -23,42 +27,78 @@ export function LocalStorageProvider({ children }) {
 
   function ingestCards(cards) {
     setCardCache(prev => {
+      let changed = false;
       const newMap = new Map(prev);
 
-      cards?.forEach(c => {
-        newMap.set(c.cardIDs[0], c);
+      cards?.forEach(card => {
+        if (newMap.get(card.cardIDs[0]) !== card) {
+          newMap.set(card.cardIDs[0], card);
+          changed = true;
+        }
       });
 
-      return newMap;
+      const sortedMap = new Map(
+        [...newMap.entries()].sort(([, card], [, card2]) => card.cardIDs[0].localeCompare(card2.cardIDs[0], undefined, {
+      numeric: true}))
+      )
+
+      return changed ? sortedMap : prev;
     });
   }
 
-  const addToBackpack = (id) => setAppState(prev => ({
-    ...prev,
-    backpack: [...prev.backpack, id]
-  }));
+  const addToBackpack = (id) => {
+    if (appState.backpack.includes(id)) return 1
+    setAppState(prev => ({
+      ...prev,
+      backpack: [...prev.backpack, id]
+    }))
+
+    return 0
+  };
 
   const removeFromBackpack = (id) => setAppState(prev => ({
     ...prev,
-    backpack: prev.backpack.filter(cardID => cardID !== id && cardID !== id.replace("backpack", ""))
+    backpack: prev.backpack.filter(cardID => cardID !== id)
   }));
 
-  const clearBackpack = () => setAppState(prev => ({
+  const addToActiveSet = (id) => {
+    if (appState.activeSet.includes(id)) return 1
+    setAppState(prev => ({
+      ...prev,
+      activeSet: [...prev.activeSet, id]
+    }))
+
+    return 0
+  };
+
+  const removeFromActiveSet = (id) => setAppState(prev => ({
     ...prev,
-    backpack: []
+    activeSet: prev.activeSet.filter(cardID => cardID !== id)
+  }));
+
+  const clearActiveSet = () => setAppState(prev => ({
+    ...prev,
+    activeSet: []
   }));
   
+  function checkNames(origName, name = origName, i = 1) {
+    if (name in appState.savedSets) {
+      return checkNames(origName, origName + " " + i, i + 1)
+    } else {
+      return name
+    }
+  }
   const saveSet = (name, ids) => setAppState(prev => ({
     ...prev,
     savedSets: {
       ...prev.savedSets,
-      [name]: ids
+      [checkNames(name)]: ids
     }
   }));
 
-  const loadSet = (name) => setAppState(prev => ({
+  const loadSet = (cardSet) => setAppState(prev => ({
     ...prev,
-    backpack: prev.savedSets[name] || []
+    activeSet: cardSet || []
   }));
 
   const deleteSet = (setName) => setAppState(prev => {
@@ -71,13 +111,35 @@ export function LocalStorageProvider({ children }) {
     };
   });
 
+  const updateSearchSet = ({cardIDs}) => setAppState(prev => ({
+    ...prev,
+    searchSet: cardIDs || []
+  }));
+
+  const addCardToSet = (setName, cardID) => setAppState(prev => ({
+    ...prev,
+    savedSets: {
+      ...prev.savedSets,
+      [setName]: [...new Set([...prev.savedSets[setName], cardID])]
+    }
+  }));
+
+  const removeCardFromSet = (setName, cardID) => setAppState(prev => ({
+    ...prev,
+    savedSets: {
+      ...prev.savedSets,
+      [setName]: prev.savedSets[setName].filter(c => c !== cardID)
+    }
+  }));
+
   return (
     <LocalStorageContext.Provider 
       value={{ 
         appState, cardCache,
         ingestCards,
-        addToBackpack, removeFromBackpack, clearBackpack, 
-        saveSet, loadSet, deleteSet }}>
+        addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet, clearActiveSet, 
+        saveSet, loadSet, deleteSet, addCardToSet, removeCardFromSet,
+        updateSearchSet }}>
       {children}
     </LocalStorageContext.Provider>
   );

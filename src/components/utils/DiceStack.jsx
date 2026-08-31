@@ -5,7 +5,7 @@ export const DiceStack = ({ diceArray, diceType = "Power" }) => {
   const boxHeight = 20 + 5 * Math.floor((diceArray.length + 1) / 2);
 
   return (
-    <span className="power-dice-group"
+    <span className={`power-dice-group ${(diceArray[0] === "Power" || diceArray.length < 2) ? "" : "is-stack"}`}
       style={{
         display: diceArray.length > 1 ? "inline-flex" : "inline",
         minHeight: `${boxHeight}px`

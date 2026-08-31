@@ -1,6 +1,17 @@
+import { useEffect } from "react";
+import { useLayout } from "../context/LayoutContext";
 import "../styles/searchInfoPage.css"
 
 function SearchInfoPage() {
+  const { setLayout } = useLayout()
+
+  useEffect(()=> {
+    setLayout({
+      main: null,
+      topbar: null
+    })
+  }, [])
+
   return (
     <div className='search-info-page'>
       <div className="search-info__title-section">
@@ -37,6 +48,11 @@ function SearchInfoPage() {
             <b>'usedfor:'</b>
             <p className="search-info__element-description">This tag can be used to narrow the search to only look for cards associated with a Primordial whose name contains all or part of the following parameter.</p>
             <p className="search-info__element-example">"usedfor: pursuer"</p>
+          </li>
+          <li>
+            <b>'has:'</b>
+            <p className="search-info__element-description">This tag can be used to narrow the search to only look for cards with the following keyword ability.</p>
+            <p className="search-info__element-example">"has: reposition"</p>
           </li>
           <li>
             <b>No tag</b>

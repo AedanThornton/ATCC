@@ -32,7 +32,7 @@ const traitIDs = {
 	"Slime Trail":  "BX0764",
 	"This Train": "BX0765",
 	"Highly Toxic": "BX0768",
-	"Burden Hardest To Bear": "BX1158",
+	"Burden Hardest to Bear": "BX1158",
 	"Backwards Momentum": "CT1326",
 	"Death by Fate":  "CT1329",
 	"Rapid Adaptation": "CX1679",

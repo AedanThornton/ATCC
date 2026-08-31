@@ -29,7 +29,7 @@ const PatternCard = ({ pattern, index }) => {
         {/* Ability Box */}
         <div className="pattern-abilities">
           {pattern.abilities?.length > 0 && <div key={index} style={{ background: getGateColor("danger"), padding: "2px 0", color: "white" }}>
-            <FormattedParagraph paragraph={pattern.abilities} />
+            <FormattedParagraph paragraph={pattern.abilities} invertIcons={true} />
           </div>}
         </div>
 

@@ -5,7 +5,9 @@ import { useCards } from "../../hooks/useCards";
 
 const ControlBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
+  const { data, isLoading } = useCards(searchParams);
+  const totalPages = data?.totalPages
+  const totalCards = data?.totalCards
 
   const currentPage = parseInt(searchParams.get('p')) || 1;
   const sortTerm = searchParams.get("s") || "id:asc";

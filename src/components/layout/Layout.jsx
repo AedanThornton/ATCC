@@ -1,55 +1,46 @@
-import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import "../../styles/layout.css"
 import logo from "../../assets/ATCC.svg"
-import FilterSidebar from '../catalog/FilterSidebar';
-import ControlBar from "./ControlBar";
-import SearchBar from './SearchBar';
-import { useSpoilers } from "../../context/SpoilerContext";
+import { useLayout } from '../../context/LayoutContext';
+import getIcon from '../utils/iconUtils';
+import { useState } from 'react';
+import { useSavedSetsContext } from '../../context/SavedSetsContext';
 
-function Layout({ isCatalog = false }) {
-  const { spoilersEnabled } = useSpoilers();
-  const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false);
+function Layout({}) {
+  const { layout } = useLayout()
+  const [navOpen, setNavOpen] = useState(false)
+  const { savedSetsOpen } = useSavedSetsContext()
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   return (
     <div className="app-layout">
       <header className="app-header">
-
         <div className="layout-row">
           <div className='top-menu'>
             <nav className='layout-nav'>
-              <button className='menu-button'><img src={logo} alt='Menu' width="40" height="40"/>
-                <div className='nav-sidebar'>
+              {!(savedSetsOpen && !isNotMobile) && <button className='menu-button'
+                onPointerOver={() => setNavOpen(true)}
+              >
+                <img src={logo} alt='Menu' width="40" height="40"/>
+                <div className='nav-sidebar' style={navOpen ? {display: "flex"} : {}} onPointerLeave={() => isNotMobile && setNavOpen(false)}>
+                  <div className='nav-close-button' onClick={(e) => {e.stopPropagation; setNavOpen(false)}}>✖</div>
                   <ul>
-                    <li><Link to="/home">Home</Link></li>
-                    <li><Link to="/catalog">Card Catalog</Link></li>
-                    <li><Link to="/search-info">Catalog Docs</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer">Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></Link></li>
+                    <Link onClick={() => setNavOpen(false)} to="/home"><li>Home</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/catalog"><li>Card Catalog</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/search-info"><li>Catalog Docs</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/backpack"><li>{getIcon({name: "Backpack", invert: true})} Backpack</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/about"><li>About</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer"><li>Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></li></Link>
                   </ul>
                 </div>
-              </button>
+              </button>}
             </nav>
           </div>
-          
-          {isCatalog && <ControlBar />}
 
-          <div className='top-menu'>
-            {isCatalog && <div className='filters-menu'>
-              <button className='filters-hamburger-button' onClick={() => setIsFilterSidebarOpen(!isFilterSidebarOpen)}>
-                <div className='hamburger-bar'></div>
-                <div className='hamburger-bar'></div>
-                <div className='hamburger-bar'></div>
-              </button>
-
-              {isFilterSidebarOpen && <FilterSidebar />}
-            </div>}
-          </div>
+          {layout?.topbar}
         </div>
 
-        {isCatalog && <SearchBar />}
-
-        {!spoilersEnabled && <div className='layout-spoiler-warning-banner'>!! Warning: Spoilers are NOT hidden. !!</div>}
+        {layout?.main}
         
       </header>
       <main className="app">

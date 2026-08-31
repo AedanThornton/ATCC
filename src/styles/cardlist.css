@@ -13,7 +13,6 @@
 
 .card-list-main {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -23,14 +22,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
-  margin: 0 4%;
+  gap: 0px;
+  padding: 2% 4%;
   width: 100%;
   height: 100%;
+  flex: 2;
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 2%;
 }
 
 .card-list::-webkit-scrollbar-thumb {
@@ -40,6 +39,7 @@
 .card-wrapper {
   position: relative;
   transition: transform 150ms ease;
+  transform: scale(0.85);
 }
 
 .card-wrapper > div {
@@ -60,7 +60,8 @@
   display: flex;
   align-items: stretch;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 12px;
+  width: max-content;
 }
 
 .card-list__control-bar--page-buttons button {
@@ -86,6 +87,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    gap: 40px;
   }
 
   .filter-reset-button {
@@ -98,6 +100,10 @@
 
   .card-list__control-bar--page_number {
     max-width: 25px;
+  }
+
+  .card-wrapper {
+    transform: scale(1);
   }
 }
 
@@ -203,6 +209,7 @@
   padding-left: 10px;
   gap: 2px;
   transition: right 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 16px;
 }
 
 .card-menu:hover, .card-wrapper:hover .card-menu {

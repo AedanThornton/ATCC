@@ -4,14 +4,26 @@ import "../../styles/cardlist.css";
 import { useFilterOptions } from "../../hooks/useFilterOptions";
 import { useCards } from "../../hooks/useCards";
 import CardRenderer from "../cards/CardRenderer"
-import DragDropWrapper from "../backpack/DragDropWrapper";
+import { useLocalStorage } from "../../context/LocalStorageContext";
+import { useSavedSetsContext } from "../../context/SavedSetsContext";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { savedSetsOpen } = useSavedSetsContext();
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   //Response values from API
   const { filterOptions, optionsLoading, optionsError } = useFilterOptions();
-  const { filteredCards, totalPages, totalCards, isLoading, error } = useCards(searchParams);
+  const { data, isLoading, error } = useCards(searchParams);
+  const filteredCards = data?.cards
+
+  const { updateSearchSet } = useLocalStorage()
+  useEffect(() => {
+    if (isLoading || error) return
+
+    const cardIDs = data?.cards.map(card => card.cardIDs[0])
+    updateSearchSet({cardIDs: cardIDs})
+  }, [data])
 
   // Set Initial params if missing
   useEffect(() => {
@@ -44,21 +56,17 @@ const CardList = () => {
   };
 
   return (
-    <>
-      <div className="card-list">
-        <DragDropWrapper>
-          {filteredCards.length > 0 ? (
-            filteredCards.map((cardname, index) => {
-              return (
-                <CardRenderer cardData={cardname} key={cardname.cardIDs[0] + index}/>
-              )
-            })
-          ) : (
-            <p>No results found.</p>
-          )}
-        </DragDropWrapper>
-      </div>
-    </>
+    <div className="card-list" style={(savedSetsOpen && !isNotMobile) ? {display: "none"} : {}}>
+      {filteredCards.length > 0 ? (
+        filteredCards.map((cardname, index) => {
+          return (
+            <CardRenderer cardData={cardname} key={cardname.cardIDs[0] + index}/>
+          )
+        })
+      ) : (
+        <p>No results found.</p>
+      )}
+    </div>
   );
 };
 

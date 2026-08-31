@@ -29,8 +29,8 @@ const FocusCardCache = () => {
     <div className='focus-card-overlay'>
       <div className='focus-card-overlay__buttons'>
         <button onClick={() => closeModal()}>X</button>
-        {cardData?.name2 && (<button onClick={toggleSide}>{getIcon({name: "Flip", size: "1.5em"})}</button>)}
-        {isSecretCard && (<button onClick={toggleReveal}>{getIcon({name: "Reveal", size: "1.5em"})}</button>)}
+        {cardData?.name2 && (<button onClick={toggleSide}>{getIcon({name: "Flip", size: "1.5em", invert: true})}</button>)}
+        {isSecretCard && (<button onClick={toggleReveal}>{getIcon({name: "Reveal", size: "1.5em", invert: true})}</button>)}
       </div>
       {cardData ? (
         <FocusCard cardData={cardData} currentSide={currentSide} secretOverlay={secretOverlay} />

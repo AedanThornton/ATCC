@@ -1,12 +1,24 @@
-import React from 'react';
+import { useEffect } from 'react';
 import CardList from '../components/catalog/CardList';
+import { useLayout } from '../context/LayoutContext';
+import { CatalogLayoutMain, CatalogLayoutTopbar } from '../components/catalog/CatalogLayout';
+import SavedSets from '../components/savedsets/SavedSets';
 
 function CardLibraryPage() {
+  const { setLayout } = useLayout()
+
+  useEffect(()=> {
+    setLayout({
+      main: <CatalogLayoutMain />,
+      topbar: <CatalogLayoutTopbar />
+    })
+  }, [])
+
   return (
-    <div>
-      <div className="card-list-main">
-        <CardList />
-      </div>
+    <div className="card-list-main">
+      <SavedSets />
+      
+      <CardList />
     </div>
   );
 }
