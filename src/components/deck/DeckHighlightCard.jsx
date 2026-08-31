@@ -43,7 +43,7 @@ const DeckHighlightCard = ({ deckState }) => {
       <button className="deck-page__highlight-card__button"
         onClick={() => sendCardToRemoved(deckState.highlightCard)}
       >
-        {getIcon({ name: "EndStack", invert: true })}
+        {getIcon({ name: "Trash", invert: true })}
       </button>
 
     </div>

@@ -67,7 +67,7 @@ function SavedSetCard({setname, card, index, isBackpackSet, isSearchSet}) {
           style={{ flex: "unset" }}
           onClick={(e) => { e.stopPropagation(); isBackpackSet ? removeFromBackpack(card) : removeCardFromSet(setname, card) }}
         >
-          {getIcon({ name: "Trash", invert: true })}
+          ✖
         </span>}
       </div>
     </Tippy>
