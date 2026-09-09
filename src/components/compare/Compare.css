@@ -89,19 +89,3 @@
   flex-direction: column;
   justify-content: center;
 }
-
-.compare-add-panel__button {
-  font-size: 3em;
-  line-height: 1.15em;
-  background-color: var(--main-midtone);
-  border-radius: 50%;
-  width: 65px;
-  height: 65px;
-  text-align: center;
-  margin: 30px;
-  cursor: pointer;
-}
-
-.compare-add-panel__button:hover {
-  background-color: var(--accent);
-}

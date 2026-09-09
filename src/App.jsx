@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import SearchInfoPage from './pages/SearchInfoPage'
 import Backpack from "./components/backpack/Backpack";
 import { useAllCards } from "./hooks/useAllCards";
+import Loadout from "./components/loadout/Loadout";
 
 const App = () => {
   const { data, isLoading, error } = useAllCards()
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="/card/:cardID" element={<FocusCardPage />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/home" replace />}/>
+        {/* TEMP ROUTE */}<Route path="loadout" element={<Loadout />} />
         <Route path="catalog" element={<CardLibraryPage />} />
         <Route path="backpack" element={<Backpack />} />
         <Route path="about" element={<AboutPage />} />

@@ -7,6 +7,7 @@ import { getPowerDiceList, calculateHitChance } from "../../lib/gearEvalution.js
 import SearchableList from "../utils/SearchableList.jsx"
 import getIcon from "../utils/iconUtils.jsx"
 import { useDroppable } from "@dnd-kit/react"
+import PlusButton from "../utils/PlusButton.jsx"
 
 const Compare = ({}) => {
   const { appState, cardCache, addToActiveSet } = useLocalStorage()
@@ -189,7 +190,7 @@ const Compare = ({}) => {
       </div>
 
       <div className="compare-add-panel">
-        <div onClick={() => addPanel()} className="compare-add-panel__button">+</div>
+        <PlusButton clickFunc={addPanel} />
       </div>
 
     </div>
