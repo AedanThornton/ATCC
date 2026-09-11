@@ -12,6 +12,8 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
   const { dragCard } = useDnD();
 
+  const displayDropPreview = isDropTarget && cardTypeCompare(dragCard, cardType, type)
+
   function gearSlotCompare(cardSlot, reqSlot) {
     if (reqSlot === "OneHanded") {
       return cardSlot.includes("Hand")
@@ -63,12 +65,22 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   return (
     <div className="loadout-slot" ref={!cardTypeCompare(dragCard, cardType, type) ? ref : null} key={index}>
       {Object.keys(activeGear).length > 0 && <CardRenderer cardData={activeGear} menu={<LoadoutSlotCardMenu setActiveGear={setActiveGear} />} />}
-      {/* {Object.keys(activeGear).length <= 0 && isDropTarget && <div className="loadout-slot__drop-preview"><CardRenderer cardData={activeGear} /></div>} */}
-      {Object.keys(activeGear).length <= 0 &&
-        <div className={`card ${getCardType(cardType)} loadout-slot__empty ${isDropTarget ? "target" : ""} ${(Object.keys(dragCard).length > 0 && !cardTypeCompare(dragCard, cardType, type)) ? " is-drop-option" : ""}`}>
+      {Object.keys(activeGear).length <= 0 && <>
+
+        <div className={`card ${getCardType(cardType)} loadout-slot__empty ${isDropTarget ? "target" : ""} ${(Object.keys(dragCard).length > 0 && !cardTypeCompare(dragCard, cardType, type)) ? " is-drop-option" : ""}`}
+          style={{display: displayDropPreview ? "none" : "flex"}}
+        >
           {getIcon({name: type, size: "5em", invert: true})}
         </div>
-      }
+
+        <div className="loadout-slot__drop-preview"
+          style={{display: displayDropPreview ? "block" : "none"}}
+        >
+          {Object.keys(dragCard).length > 0 && <CardRenderer cardData={dragCard} />}
+        </div>
+        
+      </>}
+
     </div>
   )
 }

@@ -44,7 +44,8 @@
 }
 
 .loadout-slot__drop-preview {
-
+  opacity: 0.8;
+  filter: grayscale(50%)
 }
 
 .loadout-slot__empty {
