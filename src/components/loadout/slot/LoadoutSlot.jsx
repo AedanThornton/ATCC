@@ -20,11 +20,15 @@ const LoadoutSlot = ({ type = "", index, cardType = "gear" }) => {
 
   function getCardType(cardType) {
     switch (cardType) {
-      case "gear":
+      case "Gear":
         return "mini-american"
-      case "titan":
+      case "Pattern":
+        return "mini-american"
+      case "Titan":
         return "half-page"
-      case "mnemos":
+      case "Mnemos":
+        return "standard"
+      case "Fated Mnemos":
         return "standard"
     }
   }

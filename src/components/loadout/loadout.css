@@ -5,20 +5,19 @@
 
 .loadout-main {
   flex: 3;
+  height: inherit;
   width: inherit;
   overflow: auto;
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 .loadout-groups-container {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: min-content;
-  grid-template-rows: 1fr 1fr;
   margin-top: 20px;
-  margin-left: 50px;
-  transform: scale(0.8);
   transform-origin: top left;
 }
 

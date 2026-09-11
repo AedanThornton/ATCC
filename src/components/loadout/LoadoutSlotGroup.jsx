@@ -4,9 +4,9 @@
 import PlusButton from "../utils/PlusButton"
 import LoadoutSlot from "./slot/LoadoutSlot"
 
-const LoadoutSlotGroup = ({cardType = "gear", slotTypes = [], numRows = 1, isExtendible = false}) => {
+const LoadoutSlotGroup = ({cardType = "Gear", slotTypes = [], numRows = 1, isExtendible = false}) => {
   return (
-    <div className="loadout-slotgroup" style={{gridTemplateRows: `repeat(${numRows}, 1fr)`}}>
+    <div className="loadout-slotgroup" style={{gridTemplateRows: `repeat(${numRows}, min-content)`}}>
       {slotTypes.map((type, i) => <LoadoutSlot cardType={cardType} type={type} index={i} />)}
       {isExtendible && <div className="mini-american loadout-slotgroup__add-slot">
         <PlusButton clickFunc={()=>console.log("test")} />
