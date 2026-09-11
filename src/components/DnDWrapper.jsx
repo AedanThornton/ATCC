@@ -1,8 +1,10 @@
 import { DragDropProvider } from "@dnd-kit/react";
 import { useRef } from "react";
 import { PointerActivationConstraints, PointerSensor } from "@dnd-kit/dom";
+import { useDnD } from "../context/DnDContext"
 
 const DnDWrapper = ({ children }) => {
+  const { setDragObj } = useDnD();
   const backpackRef = useRef(null);
 
   function handleDragEvent(event) {
@@ -22,15 +24,18 @@ const DnDWrapper = ({ children }) => {
 
   return (
     <DragDropProvider
-      onDragStart={() => {}}
+      onDragStart={(event) => {
+        setDragObj(event)
+      }}
       onDragEnd={(event) => {
         handleDragEvent(event)
+        setDragObj(null)
       }}
       sensors={(defaults) => [
         ...defaults.filter((sensor) => sensor !== PointerSensor),
         PointerSensor.configure({
           activationConstraints: [
-            new PointerActivationConstraints.Delay({value: 300, tolerance: 10})            
+            new PointerActivationConstraints.Delay({ value: 300, tolerance: 10 })
           ]
         })
       ]}
