@@ -5,17 +5,35 @@ import CardRenderer from "../../cards/CardRenderer"
 import LoadoutSlotCardMenu from "./LoadoutSlotCardMenu";
 import getIcon from "../../utils/iconUtils";
 
-const LoadoutSlot = ({ type = "", index, cardType = "gear" }) => {
+const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   const [activeGear, setActiveGear] = useState({})
   const { cardCache } = useLocalStorage()
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
+
+  function gearSlotCompare(cardSlot, reqSlot) {
+    if (reqSlot === "OneHanded") {
+      return cardSlot.includes("Hand")
+    }
+    return cardSlot === reqSlot
+  }
 
   function handleBackpackDrop(id) {
     if (!id) return
     const idParts = id.split("-")
     const realID = idParts[idParts.length - 1]
     const card = cardCache.get(realID)
-    if (card) setActiveGear(card); else console.log("Invalid Obj dropped in LoadoutSlot")
+    if (card) {
+
+      if (card.cardType === cardType) {
+        console.log(card.cardType, cardType, card.slot, type)
+        if (cardType === "Gear" ? gearSlotCompare(card.slot, type) : true) {
+          setActiveGear(card)
+        }
+      } else {
+        //handleError
+      }
+
+    } else console.log("Invalid Obj dropped in LoadoutSlot")
   }
 
   function getCardType(cardType) {

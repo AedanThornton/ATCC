@@ -13,8 +13,8 @@ const Loadout = ({}) => {
       <div className="loadout-main">
         <div style={{transform: `scale(${zoom})`, transformOrigin: "top left", height: `${zoom * 100}%`, width: `${zoom * 100}%`}}>
           <div className="loadout-groups-container">
-            <div style={{gridRow: "1", gridColumn: "1"}}><LoadoutSlotGroup cardType="Fated Mnemos" slotTypes={["Doom", "Doom"]}/></div>
-            <div style={{gridRow: "1", gridColumn: "2"}}><LoadoutTitanSlot /></div>
+            <div style={{gridRow: "1", gridColumn: "1"}}><LoadoutTitanSlot /></div>
+            <div style={{gridRow: "1", gridColumn: "2"}}><LoadoutSlotGroup cardType="Fated Mnemos" slotTypes={["Doom", "Doom"]}/></div>
           </div>
           <div className="loadout-groups-container">
             <div className="loadout-groups-container" style={{gridRow: "1", gridColumn: "1"}}>
