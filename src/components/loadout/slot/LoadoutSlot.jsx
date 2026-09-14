@@ -7,12 +7,13 @@ import getIcon from "../../utils/iconUtils";
 import { useDnD } from "../../../context/DnDContext";
 
 const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
-  const [activeGear, setActiveGear] = useState({})
-  const { cardCache } = useLocalStorage()
+  const { appState, cardCache, setSlot } = useLocalStorage()
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
   const { dragCard } = useDnD();
 
+  const slotName = `${cardType === "Gear" ? type : cardType}${index ?? ""}`
   const displayDropPreview = isDropTarget && cardTypeCompare(dragCard, cardType, type)
+  const activeGear = cardCache.get(appState.activeLoadout[slotName]) || {}
 
   function gearSlotCompare(cardSlot, reqSlot) {
     if (reqSlot === "OneHanded") {
@@ -38,7 +39,7 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
     if (card) {
 
       if (cardTypeCompare(card, cardType, type)) {
-        setActiveGear(card)
+        setSlot(slotName, realID)
       } else {
         //handleError
       }
@@ -64,7 +65,7 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   //Gear selector
   return (
     <div className="loadout-slot" ref={!cardTypeCompare(dragCard, cardType, type) ? ref : null} key={index}>
-      {Object.keys(activeGear).length > 0 && <CardRenderer cardData={activeGear} menu={<LoadoutSlotCardMenu setActiveGear={setActiveGear} />} />}
+      {Object.keys(activeGear).length > 0 && <CardRenderer cardData={activeGear} menu={<LoadoutSlotCardMenu setActiveGear={(id) => setSlot(slotName, id)} />} />}
       {Object.keys(activeGear).length <= 0 && <>
 
         <div className={`card ${getCardType(cardType)} loadout-slot__empty ${isDropTarget ? "target" : ""} ${(Object.keys(dragCard).length > 0 && !cardTypeCompare(dragCard, cardType, type)) ? " is-drop-option" : ""}`}

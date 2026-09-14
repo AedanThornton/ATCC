@@ -9,7 +9,7 @@
 const LoadoutSlotCardMenu = ({ setActiveGear }) => {
   return (
     <div className="card-menu">
-      <button onClick={() => setActiveGear({})}>✖</button>
+      <button onClick={() => setActiveGear(null)}>✖</button>
     </div>
   )
 }

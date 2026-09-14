@@ -9,9 +9,11 @@ export function LocalStorageProvider({ children }) {
 
     if (!saved) return {
       activeSet: [],
+      activeLoadout: {},
       searchSet: [],
       backpack: [],
-      savedSets: {}
+      savedSets: {},
+      loadouts: {}
     };
 
     const parsed = JSON.parse(saved);
@@ -19,9 +21,11 @@ export function LocalStorageProvider({ children }) {
     return {
       ...parsed,
       activeSet: parsed.activeSet ?? [],
+      activeLoadout: parsed.activeLoadout ?? {},
       searchSet: parsed.searchSet ?? [],
       backpack: parsed.backpack ?? [],
-      savedSets: parsed.savedSets ?? {}
+      savedSets: parsed.savedSets ?? {},
+      loadouts: parsed.loadouts ?? {}
     };
   });
 
@@ -132,6 +136,33 @@ export function LocalStorageProvider({ children }) {
     }
   }));
 
+  function setSlot(slotName, cardID) {
+    setAppState(prev => ({
+      ...prev,
+      activeLoadout: {
+        ...prev.activeLoadout,
+        [slotName]: cardID
+      }
+    }))
+  }
+
+  function loadLoadout(loadoutName) {
+    setAppState(prev => ({
+      ...prev,
+      activeLoadout: prev.loadouts[loadoutName]
+    }))
+  }
+
+  function saveLoadout(loadoutName, slotsList) {
+    setAppState(prev => ({
+      ...prev,
+      loadouts: {
+        ...prev.loadouts,
+        [loadoutName]: slotsList
+      }
+    }))
+  }
+
   return (
     <LocalStorageContext.Provider 
       value={{ 
@@ -139,7 +170,9 @@ export function LocalStorageProvider({ children }) {
         ingestCards,
         addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet, clearActiveSet, 
         saveSet, loadSet, deleteSet, addCardToSet, removeCardFromSet,
-        updateSearchSet }}>
+        updateSearchSet,
+        setSlot, loadLoadout, saveLoadout
+      }}>
       {children}
     </LocalStorageContext.Provider>
   );

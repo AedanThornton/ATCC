@@ -6,7 +6,7 @@ export function SavedSetsProvider({ children }) {
   const [savedSetsOpen, setSavedSetsOpen] = useState(false);
   const [activeSetName, setActiveSetName] = useState("Backpack")
   const [currentSetType, setCurrentSetType] = useState("Sets")
-  const setTypes = []
+  const setTypes = ["Sets", "Loadouts"]
   // const setTypes = ["Sets", "Decks", "Loadouts"]
 
   const values = { 

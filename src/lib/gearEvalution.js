@@ -69,3 +69,9 @@ export function calculateHitChance({diceCount, precision, desiredHits, toHitTarg
 
   return Math.round(averageHits * 100) / 100
 }
+
+export function containsKeyword({card, keyword}) { //expand to include returning true only if gates, timings, and other conditions are met
+  return card.abilities.some(ability => 
+    ability[0].abilityText[0].type === "keyword" && ability[0].abilityText[0].value === keyword
+  )
+}
