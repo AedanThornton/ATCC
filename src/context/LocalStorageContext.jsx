@@ -85,9 +85,9 @@ export function LocalStorageProvider({ children }) {
     activeSet: []
   }));
   
-  function checkNames(origName, name = origName, i = 1) {
-    if (name in appState.savedSets) {
-      return checkNames(origName, origName + " " + i, i + 1)
+  function checkNames(origName, saveGroup, name = origName, i = 1) {
+    if (name in saveGroup) {
+      return checkNames(origName, saveGroup, origName + " " + i, i + 1)
     } else {
       return name
     }
@@ -96,7 +96,7 @@ export function LocalStorageProvider({ children }) {
     ...prev,
     savedSets: {
       ...prev.savedSets,
-      [checkNames(name)]: ids
+      [checkNames(name, prev.savedSets)]: ids
     }
   }));
 
@@ -136,7 +136,21 @@ export function LocalStorageProvider({ children }) {
     }
   }));
 
-  function setSlot(slotName, cardID) {
+  function setSlot(slotName, cardID, loadoutName = null) {
+    if (loadoutName) {
+      setAppState(prev => ({
+        ...prev,
+        loadouts: {
+          ...prev.loadouts,
+          [loadoutName]: {
+            ...prev.loadouts[loadoutName],
+            [slotName]: cardID}
+        }
+      }))
+
+      return
+    }
+
     setAppState(prev => ({
       ...prev,
       activeLoadout: {
@@ -158,9 +172,55 @@ export function LocalStorageProvider({ children }) {
       ...prev,
       loadouts: {
         ...prev.loadouts,
-        [loadoutName]: slotsList
+        [checkNames(loadoutName, prev.loadouts)]: slotsList
       }
     }))
+  }
+
+  const deleteLoadout = (loadoutname) => setAppState(prev => {
+    const newLoadouts = { ...prev.loadouts };
+    delete newLoadouts[loadoutname];
+
+    return {
+      ...prev,
+      loadouts: newLoadouts
+    };
+  });
+
+  function newEmptyLoadout() {
+    saveLoadout(checkNames("New Loadout", appState.loadouts), 
+      {
+        Armor0: null,
+        Attachment0: null,
+        Attachment1: null,
+        Attachment2: null,
+        "Fated Mnemos0": null,
+        "Fated Mnemos1": null,
+        Mnemos0: null,
+        Mnemos1: null,
+        OneHanded0: null,
+        OneHanded1: null,
+        Support0: null,
+        Support1: null,
+        Titan: null
+      }
+    )
+  }
+
+  function renameLoadout(oldName, newName) {
+    if (!(oldName in appState.loadouts)) return
+    setAppState(prev => {
+      const newLoadouts = { ...prev.loadouts };
+      delete newLoadouts[oldName];
+
+      return {
+        ...prev,
+        loadouts: {
+          ...newLoadouts,
+          [checkNames(newName, prev.loadouts)]: prev.loadouts[oldName]
+        }
+      }
+    })
   }
 
   return (
@@ -171,7 +231,7 @@ export function LocalStorageProvider({ children }) {
         addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet, clearActiveSet, 
         saveSet, loadSet, deleteSet, addCardToSet, removeCardFromSet,
         updateSearchSet,
-        setSlot, loadLoadout, saveLoadout
+        setSlot, loadLoadout, saveLoadout, newEmptyLoadout, deleteLoadout, renameLoadout
       }}>
       {children}
     </LocalStorageContext.Provider>

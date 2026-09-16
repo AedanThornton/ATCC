@@ -38,13 +38,6 @@ const savedSetsLib = () => {
       return;
     }
 
-    if (set.length === 0) {
-      handleError("Cannot save empty set");
-      setSaveError(true);
-      setTimeout(() => setSaveError(false), 500);
-      return;
-    }
-
     if (appState.savedSets.length >= 20) {
       handleError("Max Saved Sets reached");
       setSaveError(true);
@@ -62,7 +55,7 @@ const savedSetsLib = () => {
     deleteSet(setName)
   }
 
-  const handleClickOnSet = (setname, isBackpackSet, isSearchSet) => {
+  const handleClickOnSet = (setname, isBackpackSet = false, isSearchSet = false) => {
     setActiveSetName(setname)
 
     if (isBackpackSet) {

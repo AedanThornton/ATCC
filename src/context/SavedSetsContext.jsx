@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const SavedSetsContext = createContext();
 
@@ -15,6 +15,10 @@ export function SavedSetsProvider({ children }) {
     currentSetType, setCurrentSetType,
     setTypes
   }
+
+  useEffect(() => {
+    setActiveSetName(null)
+  }, [currentSetType])
 
   return (
     <SavedSetsContext.Provider value={values}>

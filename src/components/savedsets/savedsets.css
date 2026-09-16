@@ -263,6 +263,30 @@
   background-color: var(--accent);
 }
 
+/* Loadout card */
+.saved-sets__loadout-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 5px;
+  gap: 5px;
+}
+
+.saved-sets__loadout-card li {
+  list-style: none;
+}
+
+.saved-sets__loadout-card__icon {
+  padding: 5px;
+  background-color: var(--accent-dark);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 820px) {
   .saved-sets__container {
     position: relative;
