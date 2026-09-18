@@ -170,6 +170,8 @@
   height: 100%;
   width: 100dvw;
   flex: 3;
+  min-width: 0;
+  min-height: 0;
 }
 
 @keyframes backpackMenuError {

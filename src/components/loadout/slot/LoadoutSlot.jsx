@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useDroppable } from "@dnd-kit/react"
 import { useLocalStorage } from "../../../context/LocalStorageContext"
 import CardRenderer from "../../cards/CardRenderer"
