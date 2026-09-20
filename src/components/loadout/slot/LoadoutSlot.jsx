@@ -4,20 +4,35 @@ import CardRenderer from "../../cards/CardRenderer"
 import LoadoutSlotCardMenu from "./LoadoutSlotCardMenu";
 import getIcon from "../../utils/iconUtils";
 import { useDnD } from "../../../context/DnDContext";
+import { useLoadout } from "../../../context/LoadoutContext";
 
 const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   const { appState, cardCache, setSlot } = useLocalStorage()
+  const { handSlots, bannedHandTypes } = useLoadout()
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
   const { dragCard } = useDnD();
 
+  const isWeaponSlot = type.includes("Hand")
   const dragCardMatchesSlot = cardTypeCompare(dragCard, cardType, type)
   const slotName = `${cardType === "Gear" ? type : cardType}${index ?? ""}`
   const displayDropPreview = isDropTarget && dragCardMatchesSlot
   const activeGear = cardCache.get(appState.activeLoadout[slotName]) || {}
 
+  function checkEmptySlotsForMultihanders(handsNeeded, currentIndex) {
+    if (!handsNeeded) return false
+    if (handsNeeded < 2) return true
+    return Array(handsNeeded - 1).fill("").every((_, i) => {
+      return (`OneHanded${currentIndex + i + 1}` in appState.activeLoadout && currentIndex + i + 1 < handSlots)
+        ? !appState.activeLoadout[`OneHanded${currentIndex + i + 1}`]
+        : handSlots - currentIndex >= handsNeeded
+    })
+  }
+
   function gearSlotCompare(cardSlot, reqSlot) {
     if (reqSlot === "OneHanded") {
-      return cardSlot.includes("Hand")
+      const hasRoom = checkEmptySlotsForMultihanders(parseInt(cardSlot[0]), index)
+
+      return cardSlot.includes("Hand") && hasRoom
     }
     return cardSlot === reqSlot
   }
@@ -71,7 +86,12 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
         <div className={`card ${getCardType(cardType)} loadout-slot__empty ${isDropTarget ? "target" : ""} ${(Object.keys(dragCard).length > 0 && !dragCardMatchesSlot) ? " is-drop-option" : ""}`}
           style={{display: displayDropPreview ? "none" : "flex"}}
         >
-          {getIcon({name: type, size: "5em", invert: true})}
+          {!isWeaponSlot && getIcon({name: type, size: "5em", invert: true})}
+          {isWeaponSlot && <>
+              <>{getIcon({name: "1 Hand", size: "5em", invert: true})}</>
+              <>{checkEmptySlotsForMultihanders(2, index) && getIcon({name: "2 Hands", size: "5em", invert: true})}</>
+              <>{checkEmptySlotsForMultihanders(3, index) && getIcon({name: "3 Hands", size: "5em", invert: true})}</>
+          </>}
         </div>
 
         <div className="loadout-slot__drop-preview"

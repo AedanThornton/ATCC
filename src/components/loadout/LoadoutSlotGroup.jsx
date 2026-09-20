@@ -1,6 +1,7 @@
 //loadout slot arranger
 //inputs: slotTypes (ol), numRows (#), isExtendible (bool)
 
+import { useLoadout } from "../../context/LoadoutContext"
 import PlusButton from "../utils/PlusButton"
 import LoadoutSlot from "./slot/LoadoutSlot"
 
