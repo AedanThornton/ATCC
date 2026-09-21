@@ -8,7 +8,7 @@ import { useLoadout } from "../../../context/LoadoutContext";
 
 const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   const { appState, cardCache, setSlot } = useLocalStorage()
-  const { handSlots, bannedHandTypes, removeSlotFromActive } = useLoadout()
+  const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadout()
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
   const { dragCard } = useDnD();
 
@@ -18,7 +18,7 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   const displayDropPreview = isDropTarget && dragCardMatchesSlot
   const activeGear = cardCache.get(appState.activeLoadout[slotName]) || {}
 
-  const removable = (type === "Support" && index > 0) || (type === "OneHanded" && index > 1)
+  const removable = (type === "Support" && supportSlots > 1) || (type === "OneHanded" && handSlots > 2)
 
   function checkEmptySlotsForMultihanders(handsNeeded, currentIndex) {
     if (!handsNeeded) return false

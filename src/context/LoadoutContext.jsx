@@ -29,7 +29,7 @@ export function LoadoutProvider({ children }) {
       Array(range - 1 - index).fill("").map((_, i) => {
         setSlot(type + `${index + i}`, appState.activeLoadout[type + `${index + i + 1}`])
       })
-      removeSlotFromActiveLoadout(type + `${index + 1}`)
+      removeSlotFromActiveLoadout(type + `${range - 1}`)
     }
 
     if (type === "OneHanded") {
