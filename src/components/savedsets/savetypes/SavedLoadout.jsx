@@ -18,7 +18,7 @@ const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
 
   return (
     <div key={index} className="saved-sets__loadout-card">
-      <div className="saved-sets__loadout-card__icon">{getIcon({name: slotType, invert: true})}</div>
+      <div className="saved-sets__loadout-card__icon">{getIcon({name: slotType.replace(/\s+/g, ''), invert: true})}</div>
 
       <div style={{flex: 1}}>{(loadoutname in appState.loadouts && slot in appState.loadouts[loadoutname] && appState.loadouts[loadoutname][slot])
         ? <SavedSetCard setname={loadoutname} cardID={appState.loadouts[loadoutname][slot]} removeFunc={(loadoutname, id) => setSlot(slot, null, loadoutname)} />

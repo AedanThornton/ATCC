@@ -209,6 +209,7 @@ export function LocalStorageProvider({ children }) {
 
   function renameLoadout(oldName, newName) {
     if (!(oldName in appState.loadouts)) return
+    if (oldName === newName) return
     setAppState(prev => {
       const newLoadouts = { ...prev.loadouts };
       delete newLoadouts[oldName];
@@ -223,6 +224,64 @@ export function LocalStorageProvider({ children }) {
     })
   }
 
+  function addSlotToLoadout(loadoutName, slotName) {
+    if (slotName in appState.loadouts[loadoutName]) return
+    setAppState(prev => {
+      return {
+        ...prev,
+        loadouts: {
+          ...prev.loadouts,
+          [loadoutName]: {
+            ...prev.loadouts[loadoutName],
+            [slotName]: null
+          }
+        }
+      }
+    })
+  }
+
+  function removeSlotFromLoadout(loadoutName, slotName) {
+    if (!(slotName in appState.loadouts[loadoutName])) return
+    setAppState(prev => {
+      const newLoadoutData = { ...prev.loadouts[loadoutName] };
+      delete newLoadoutData[slotName];
+
+      return {
+        ...prev,
+        loadouts: {
+          ...prev.loadouts,
+          [loadoutName]: newLoadoutData
+        }
+      }
+    })
+  }
+
+  function addSlotToActiveLoadout(slotName) {
+    if (slotName in appState.activeLoadout) return
+    setAppState(prev => {
+      return {
+        ...prev,
+        activeLoadout: {
+          ...prev.activeLoadout,
+          [slotName]: null
+        }
+      }
+    })
+  }
+
+  function removeSlotFromActiveLoadout(slotName) {
+    if (!(slotName in appState.activeLoadout)) return
+    setAppState(prev => {
+      const newLoadoutData = { ...prev.activeLoadout };
+      delete newLoadoutData[slotName];
+
+      return {
+        ...prev,
+        activeLoadout: newLoadoutData
+      }
+    })
+  }
+
   return (
     <LocalStorageContext.Provider 
       value={{ 
@@ -231,7 +290,8 @@ export function LocalStorageProvider({ children }) {
         addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet, clearActiveSet, 
         saveSet, loadSet, deleteSet, addCardToSet, removeCardFromSet,
         updateSearchSet,
-        setSlot, loadLoadout, saveLoadout, newEmptyLoadout, deleteLoadout, renameLoadout
+        setSlot, loadLoadout, saveLoadout, newEmptyLoadout, deleteLoadout, renameLoadout, 
+        addSlotToLoadout, removeSlotFromLoadout, addSlotToActiveLoadout, removeSlotFromActiveLoadout
       }}>
       {children}
     </LocalStorageContext.Provider>

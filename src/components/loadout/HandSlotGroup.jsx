@@ -18,7 +18,7 @@ export const HandSlotGroup = ({ }) => {
   const { handSlots, addHandSlot } = useLoadout();
   const { appState, cardCache } = useLocalStorage();
 
-  const currentHandSlots = Array(handSlots).fill("OneHanded").map((slot, i) => slot + i)
+  const currentHandSlots = Object.keys(appState.activeLoadout).filter(key => key.includes("OneHanded")).map(key => appState.activeLoadout[key])
   const handSlotsData = currentHandSlots.map(slot => cardCache.get(appState.activeLoadout[slot]))
   const slotChunks = handSlotsData.map(card => parseInt(card?.slot[0] || 1))
 

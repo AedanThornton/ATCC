@@ -6,10 +6,12 @@ import PlusButton from "../utils/PlusButton"
 import LoadoutSlot from "./slot/LoadoutSlot"
 
 const LoadoutSlotGroup = ({cardType = "Gear", slotTypes = [], numRows = 1, isExtendible = false, extensionFunc = ()=>{}}) => {
+  const { supportSlots } = useLoadout()
+
   return (
     <div className="loadout-slotgroup" style={{gridTemplateRows: `repeat(${numRows}, min-content)`}}>
       {slotTypes.map((type, i) => <LoadoutSlot cardType={cardType} type={type} index={i} />)}
-      {isExtendible && <div className="mini-american loadout-slotgroup__add-slot">
+      {isExtendible && supportSlots < 5 && <div className="mini-american loadout-slotgroup__add-slot">
         <PlusButton clickFunc={()=>extensionFunc()} />
       </div>}
     </div>
