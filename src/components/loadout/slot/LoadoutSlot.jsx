@@ -82,7 +82,17 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
   //Gear selector
   return (
     <div className="loadout-slot" ref={!dragCardMatchesSlot ? ref : null} key={index}>
-      {Object.keys(activeGear).length > 0 && <CardRenderer cardData={activeGear} menu={<LoadoutSlotCardMenu setActiveGear={(id) => setSlot(slotName, id)} />} />}
+      <div className="loadout-slot__icon-display">{getIcon({ 
+        name: Object.keys(activeGear).length > 0
+          ? (cardType === "Gear" ? activeGear.slot : activeGear.cardType.replace(/\s+/g, ''))
+          : type, 
+        size: "2em", 
+        invert: true 
+      })}</div>
+
+      {Object.keys(activeGear).length > 0 && 
+        <CardRenderer cardData={activeGear} menu={<LoadoutSlotCardMenu setActiveGear={(id) => setSlot(slotName, id)} />} />
+      }
       {Object.keys(activeGear).length <= 0 && <>
 
         <div className={`card ${getCardType(cardType)} loadout-slot__empty ${isDropTarget ? "target" : ""} ${(Object.keys(dragCard).length > 0 && !dragCardMatchesSlot) ? " is-drop-option" : ""}`}

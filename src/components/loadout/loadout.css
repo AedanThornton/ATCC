@@ -45,6 +45,8 @@
 /* Slot */
 .loadout-slot {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 }
 
@@ -85,10 +87,22 @@
   align-items: center;
   position: absolute;
   right: -15px;
-  top: -15px;
+  top: 35px;
   z-index: 1;
   cursor: pointer;
 }
 .loadout-slot__remove-button:hover {
   background-color: var(--main-light);
+}
+
+/* Top Icon */
+.loadout-slot__icon-display {
+  height: 50px;
+  width: 50%;
+  background-color: var(--main-midtone);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
 }
