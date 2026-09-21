@@ -15,6 +15,7 @@ import { BackpackProvider } from './context/BackpackContext.jsx'
 import { SavedSetsProvider } from './context/SavedSetsContext.jsx'
 import DnDWrapper from './components/DnDWrapper.jsx'
 import { DnDProvider } from './context/DnDContext.jsx'
+import { LoadoutProvider } from './context/LoadoutContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
 
@@ -38,13 +39,15 @@ createRoot(document.getElementById('root')).render(
               <DnDProvider>
                 <DnDWrapper>
                   <BackpackProvider>
-                    <LayoutProvider>
-                      <SavedSetsProvider>
-                        <FocusCardCache />
-                        <LocalStorageManager />
-                        <App />
-                      </SavedSetsProvider>
-                    </LayoutProvider>
+                    <LoadoutProvider>
+                      <LayoutProvider>
+                        <SavedSetsProvider>
+                          <FocusCardCache />
+                          <LocalStorageManager />
+                          <App />
+                        </SavedSetsProvider>
+                      </LayoutProvider>
+                    </LoadoutProvider>
                   </BackpackProvider>
                 </DnDWrapper>
               </DnDProvider>

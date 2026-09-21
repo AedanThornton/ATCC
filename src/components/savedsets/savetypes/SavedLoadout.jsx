@@ -7,23 +7,39 @@ import { useDroppable } from "@dnd-kit/react";
 import SearchableList from "../../utils/SearchableList";
 import { SavedSetCard } from "./SavedSet";
 import getIcon from "../../utils/iconUtils";
+import { useLoadout } from "../../../context/LoadoutContext";
 
 const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
   const { appState, cardCache, setSlot } = useLocalStorage();
+  const { removeSlot } = useLoadout();
   const slotType = slot === "Titan" ? slot : slot.slice(0, -1)
+
+  const removable = (slot.slice(0, -1) === "Support" && Object.keys(appState.loadouts[loadoutname]).filter(key => key.includes("Support")).length > 1) 
+    || (slot.slice(0, -1) === "OneHanded" && Object.keys(appState.loadouts[loadoutname]).filter(key => key.includes("OneHanded")).length > 2)
 
   const validCards = [...cardCache.entries()]
     .filter(([, card]) => card.cardType === slotType || card.slot === slotType || (slotType === "OneHanded" && card.slot?.includes("Hand")))
     .map(([, card]) => {return {id: card.cardIDs[0], name: card.name}})
 
   return (
-    <div key={index} className="saved-sets__loadout-card">
-      <div className="saved-sets__loadout-card__icon">{getIcon({name: slotType.replace(/\s+/g, ''), invert: true})}</div>
+    <div className="saved-sets__loadout-item">
+      <div key={index} className="saved-sets__loadout-card">
+        <div className="saved-sets__loadout-card__icon">{getIcon({name: slotType.replace(/\s+/g, ''), invert: true})}</div>
 
-      <div style={{flex: 1}}>{(loadoutname in appState.loadouts && slot in appState.loadouts[loadoutname] && appState.loadouts[loadoutname][slot])
-        ? <SavedSetCard setname={loadoutname} cardID={appState.loadouts[loadoutname][slot]} removeFunc={(loadoutname, id) => setSlot(slot, null, loadoutname)} />
-        : <SearchableList items={validCards} onItemClick={(id) => setSlot(slot, id, loadoutname)} customPlaceholder="Add card..." />
-      }</div>
+        <div style={{flex: 1}}>{(loadoutname in appState.loadouts && slot in appState.loadouts[loadoutname] && appState.loadouts[loadoutname][slot])
+          ? <SavedSetCard setname={loadoutname} cardID={appState.loadouts[loadoutname][slot]} removeFunc={(loadoutname, id) => setSlot(slot, null, loadoutname)} />
+          : <SearchableList items={validCards} onItemClick={(id) => setSlot(slot, id, loadoutname)} customPlaceholder="Add card..." />
+        }</div>
+      </div>
+
+      {removable && <div className="saved-sets__loadout-item__button" onClick={(e) => {e.stopPropagation(); removeSlot(
+        slot.slice(0, -1), 
+        parseInt(slot.slice(-1)), 
+        loadoutname, 
+        Object.keys(appState.loadouts[loadoutname]).filter(key => key.includes(slot.slice(0, -1))).length
+      )}}>
+        DEL
+      </div>}
     </div>
   )
 }
