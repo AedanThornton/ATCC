@@ -227,14 +227,17 @@ export function LocalStorageProvider({ children }) {
   function addSlotToLoadout(loadoutName, slotName) {
     if (slotName in appState.loadouts[loadoutName]) return
     setAppState(prev => {
+      const newLoadout = Object.keys({...prev.loadouts[loadoutName], [slotName]: null}).sort().reduce(
+        (obj, key) => {
+          obj[key] = prev.loadouts[loadoutName][key];
+          return obj
+        }, {});
+
       return {
         ...prev,
         loadouts: {
           ...prev.loadouts,
-          [loadoutName]: {
-            ...prev.loadouts[loadoutName],
-            [slotName]: null
-          }
+          [loadoutName]: newLoadout
         }
       }
     })
@@ -259,6 +262,12 @@ export function LocalStorageProvider({ children }) {
   function addSlotToActiveLoadout(slotName) {
     if (slotName in appState.activeLoadout) return
     setAppState(prev => {
+      const newLoadout = Object.keys({...prev.activeLoadout, [slotName]: null}).sort().reduce(
+        (obj, key) => {
+          obj[key] = prev.activeLoadout[key];
+          return obj
+        }, {});
+
       return {
         ...prev,
         activeLoadout: {

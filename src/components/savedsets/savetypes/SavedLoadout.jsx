@@ -40,6 +40,12 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
     addCardToSet(loadoutname, realID)   
   }
 
+  const sortedLoadout = Object.keys(loadout).sort().reduce(
+    (obj, key) => {
+      obj[key] = loadout[key];
+      return obj
+    }, {})
+
   return (
     <div key={index} className="saved-set"
       ref={ref}
@@ -62,7 +68,7 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
       </div>
 
       <ul className="saved-set__dropdown" style={{display: isOpen ? "block" : "none"}} onClick={(e) => e.stopPropagation()}>
-        {Object.keys(loadout)?.map((slot, j) => 
+        {Object.keys(sortedLoadout)?.map((slot, j) => 
           <div className="saved-sets-card__empty-slot">
             <SavedLoadoutCard loadoutname={loadoutname} slot={slot} index={j} />
           </div>
