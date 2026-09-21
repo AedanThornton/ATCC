@@ -45,6 +45,7 @@
 /* Slot */
 .loadout-slot {
   display: flex;
+  position: relative;
 }
 
 .loadout-slot__drop-preview {
@@ -68,4 +69,26 @@
 }
 .card.loadout-slot__empty.is-drop-option {
   border: 4px solid var(--main-midtone);
+}
+
+/* Remove button */
+.loadout-slot__remove-button {
+  background-color: var(--main-midtone);
+  border: 3px solid black;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 3px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  z-index: 1;
+  cursor: pointer;
+}
+.loadout-slot__remove-button:hover {
+  background-color: var(--main-light);
 }

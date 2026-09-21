@@ -4,7 +4,7 @@ import { useLocalStorage } from "./LocalStorageContext";
 const LoadoutContext = createContext();
 
 export function LoadoutProvider({ children }) {
-  const { appState, addSlotToActiveLoadout } = useLocalStorage();
+  const { appState, addSlotToActiveLoadout, removeSlotFromActiveLoadout, setSlot } = useLocalStorage();
   const [bannedHandTypes, setBannedHandTypes] = useState([]);
 
   const handSlots = Object.keys(appState.activeLoadout).filter(key => key.includes("OneHanded")).length
@@ -22,10 +22,34 @@ export function LoadoutProvider({ children }) {
     addSlotToActiveLoadout(`Support${supportSlots}`)
   }
 
+  function removeSlotFromActive(type, index) {
+    function rotateDown (range) {
+      console.log(range - 1, index)
+      if (range - 1 - index < 0) return
+
+      Array(range - 1 - index).fill("").map((_, i) => {
+        console.log(type + `${index + i}`, appState.activeLoadout[type + `${index + i + 1}`])
+        setSlot(type + `${index + i}`, appState.activeLoadout[type + `${index + i + 1}`])
+      })
+      console.log(type + `${index + 1}`)
+      removeSlotFromActiveLoadout(type + `${index + 1}`)
+    }
+
+    if (type === "OneHanded") {
+      rotateDown(handSlots)
+    } else if (type === "Support") {
+      rotateDown(supportSlots)
+    } else {
+      console.error("Error: Non-removeable slot type attempted to be removed")
+    }
+  }
+
+
   const vars = {
     handSlots, supportSlots,
     bannedHandTypes, setBannedHandTypes,
-    addHandSlot, addSupportSlot
+    addHandSlot, addSupportSlot,
+    removeSlotFromActive
   }
 
   return (
