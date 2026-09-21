@@ -9,8 +9,9 @@ function createComboSlots({slotChunks = []}) {
   let count = 0
   return slotChunks.map((size, i) => {
     if (count >= handSlots) return
+    const slot = <LoadoutSlot type="OneHanded" index={count} cardType="Gear"/>
     count = count + size
-    return <LoadoutSlot type="OneHanded" index={i} cardType="Gear"/>
+    return slot
   })
 }
 
