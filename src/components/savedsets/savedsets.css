@@ -164,6 +164,17 @@
   margin-top: 3px;
 }
 
+.saved-sets-card__empty-slot.new-slot-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--accent-dark);
+}
+.saved-sets-card__empty-slot.new-slot-button:hover {
+  background-color: var(--accent);
+}
+
 .saved-sets-card-details {
   display: flex;
   justify-content: space-between;

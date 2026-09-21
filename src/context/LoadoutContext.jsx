@@ -4,7 +4,7 @@ import { useLocalStorage } from "./LocalStorageContext";
 const LoadoutContext = createContext();
 
 export function LoadoutProvider({ children }) {
-  const { appState, addSlotToActiveLoadout, removeSlotFromActiveLoadout, setSlot, removeSlotFromLoadout } = useLocalStorage();
+  const { appState, addSlotToActiveLoadout, removeSlotFromActiveLoadout, setSlot, addSlotToLoadout, removeSlotFromLoadout } = useLocalStorage();
   const [bannedHandTypes, setBannedHandTypes] = useState([]);
 
   const handSlots = Object.keys(appState.activeLoadout).filter(key => key.includes("OneHanded")).length
@@ -20,6 +20,18 @@ export function LoadoutProvider({ children }) {
     if (supportSlots >= 5) return
       
     addSlotToActiveLoadout(`Support${supportSlots}`)
+  }
+
+  function addHandSlotLoadout(loadoutName, slotCount) {
+    if (slotCount >= 5) return
+    
+    addSlotToLoadout(loadoutName, `OneHanded${slotCount}`)
+  }
+
+  function addSupportSlotLoadout(loadoutName, slotCount) {
+    if (slotCount >= 5) return
+      
+    addSlotToLoadout(loadoutName, `Support${slotCount}`)
   }
 
   function removeSlotFromActive(type, index) {
@@ -62,7 +74,7 @@ export function LoadoutProvider({ children }) {
   const vars = {
     handSlots, supportSlots,
     bannedHandTypes, setBannedHandTypes,
-    addHandSlot, addSupportSlot,
+    addHandSlot, addSupportSlot, addHandSlotLoadout, addSupportSlotLoadout,
     removeSlotFromActive, removeSlot
   }
 
