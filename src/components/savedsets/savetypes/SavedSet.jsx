@@ -20,7 +20,7 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
   const hoverTimer = useRef();
 
   const { openModal } = useModal();
-  const { cardCache, removeFromBackpack } = useLocalStorage();
+  const { appState, cardCache, removeFromBackpack } = useLocalStorage();
   const cardData = cardCache.get(cardID)
   const { ref, isDragging } = useDraggable({ id: setname + "-" + cardID, plugins: [Feedback.configure({ feedback: 'clone' })] })
 
@@ -65,14 +65,17 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
           {enabled && currentSetType !== "Loadouts" && getIcon({name: cardData?.slot || "", invert: true})}
           {" "}
           {cardData?.name}
+          {!isBackpackSet && appState.backpack.includes(cardData?.cardIDs[0]) && <span style={{filter: "opacity(25%)"}}> {getIcon({name: "Backpack"})}</span>}
         </span>
-        {!isSearchSet && <span
-          className="saved-sets-button"
-          style={{ flex: "unset" }}
-          onClick={(e) => { e.stopPropagation(); isBackpackSet ? removeFromBackpack(cardID) : removeFunc(setname, cardID) }}
-        >
-          ✖
-        </span>}
+        <span style={{display: "flex", alignItems: "center"}}>
+          {!isSearchSet && <span
+            className="saved-sets-button"
+            style={{ flex: "unset" }}
+            onClick={(e) => { e.stopPropagation(); isBackpackSet ? removeFromBackpack(cardID) : removeFunc(setname, cardID) }}
+          >
+            ✖
+          </span>}
+        </span>
       </div>
     </Tippy>
   </li>
