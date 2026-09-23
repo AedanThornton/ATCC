@@ -88,7 +88,7 @@ function SavedSets() {
               currentSetType === "Sets" && saveSet("New Set", []);
               currentSetType === "Loadouts" && newEmptyLoadout();
             }}>
-            + New Empty Set
+            + New Empty {currentSetType.slice(0, -1)}
           </div>
 
           {buttonError && <div className="backpack-error-overlay">

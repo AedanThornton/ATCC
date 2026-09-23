@@ -1,9 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import BackpackCardList from "../components/backpack/BackpackCardList"
-import Deck from "../components/deck/Deck"
-import Compare from "../components/compare/Compare"
 import { useLocalStorage } from "./LocalStorageContext";
-import Loadout from "../components/loadout/Loadout.jsx";
 
 const BackpackContext = createContext();
 
@@ -37,16 +33,7 @@ export function BackpackProvider({ children }) {
     }, 600);
   }
 
-  const views = {
-    "Backpack": BackpackCardList,
-    "Deck": Deck,
-    "LoadoutBuilder": Loadout
-    // "Compare": Compare,
-    // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
-  };
-
   const values = { 
-    views, 
     activeView, setActiveView,
     backpackIsActive, setBackpackIsActive,
     backpackPreviewOpen, setBackpackPreviewOpen,

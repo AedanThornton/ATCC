@@ -5,10 +5,18 @@ import { useBackpackContext } from "../../context/BackpackContext";
 import getIcon from "../utils/iconUtils";
 
 const BackpackTabSelector = () => {
-  const { views, activeView, setActiveView } = useBackpackContext()
+  const { activeView, setActiveView } = useBackpackContext()
+
+  const views = [
+    "Backpack",
+    "Deck",
+    "LoadoutBuilder",
+    // "Compare": Compare,
+    // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
+  ];
 
   return <div className="backpack-tab-selector">
-    {Object.keys(views).length > 0 && Object.keys(views).map((view, i) => (
+    {views.length > 0 && views.map((view, i) => (
       <button
         key={i}
         onClick={() => setActiveView(view)}
