@@ -7,7 +7,12 @@ export function useAllCards() {
   return useQuery({
     queryKey: ["cards", "all"],
     queryFn: async () => {
-      const res = await fetch("/api/cards/all");
+      
+      const apiBase = import.meta.env.PROD
+        ? import.meta.env.VITE_API_BASE_URL
+        : "";
+
+      const res = await fetch(`${apiBase}/api/cards/all`);
       if (!res.ok) throw new Error("Failed to fetch cards");
       
       const data = await res.json();
