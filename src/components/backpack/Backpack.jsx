@@ -7,6 +7,7 @@ import { BackpackLayoutTopbar } from "./BackpackLayout";
 import BackpackCardList from "./BackpackCardList";
 import Deck from "../deck/Deck";
 import Loadout from "../loadout/Loadout";
+import Compare from "../compare/Compare";
 
 const Backpack = ({}) => {
   const { setLayout } = useLayout();
@@ -15,8 +16,8 @@ const Backpack = ({}) => {
   const views = {
     "Backpack": BackpackCardList,
     "Deck": Deck,
-    "LoadoutBuilder": Loadout
-    // "Compare": Compare,
+    "LoadoutBuilder": Loadout,
+    "Compare": Compare,
     // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
   };
   const View = views[activeView];

@@ -11,8 +11,8 @@ const BackpackTabSelector = () => {
     "Backpack",
     "Deck",
     "LoadoutBuilder",
-    // "Compare": Compare,
-    // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
+    "Compare",
+    // "Simulator",
   ];
 
   return <div className="backpack-tab-selector">

@@ -13,6 +13,7 @@ import SearchableList from "../../utils/SearchableList";
 import Tippy from "@tippyjs/react";
 import CardRenderer from "../../cards/CardRenderer";
 import { useMatch } from "react-router-dom";
+import { useSavedSetsContext } from "../../../context/SavedSetsContext";
 
 export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet, removeFunc}) {
   const [longHover, setLongHover] = useState(false);
@@ -24,8 +25,9 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
   const { ref, isDragging } = useDraggable({ id: setname + "-" + cardID, plugins: [Feedback.configure({ feedback: 'clone' })] })
 
   const { activeView } = useBackpackContext();
+  const { currentSetType } = useSavedSetsContext();
   const isComparePage = useMatch("/backpack") && activeView === "Compare"
-  const enabled = (!isComparePage || cardData.cardType === "Gear")
+  const enabled = (!isComparePage || cardData?.cardType === "Gear")
 
   const setDisplayHelper = (cardID) => {
     openModal("focusCard", { id: cardID })
@@ -58,7 +60,12 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
         onPointerLeave={() => onUnhover()}
         style={{opacity: isDragging ? "0.3" : "unset", textDecoration: !enabled ? "line-through solid black 2px" : "unset"}}
       >
-        <span>{!enabled && getIcon({name: "X"})}{!enabled && " "}{cardData?.name}</span>
+        <span>
+          {!enabled && getIcon({name: "X"})}
+          {enabled && currentSetType !== "Loadouts" && getIcon({name: cardData?.slot || "", invert: true})}
+          {" "}
+          {cardData?.name}
+        </span>
         {!isSearchSet && <span
           className="saved-sets-button"
           style={{ flex: "unset" }}

@@ -16,10 +16,11 @@ export function SavedSetsProvider({ children }) {
     const viewMap = {
       "Backpack": "Sets",
       "Deck": "Sets",
-      "LoadoutBuilder": "Loadouts"
+      "LoadoutBuilder": "Loadouts",
+      "Compare": "Sets",
     }
 
-    setCurrentSetType(viewMap[activeView])
+    setCurrentSetType(viewMap[activeView] || "Sets")
   }, [activeView])
 
   const values = { 
