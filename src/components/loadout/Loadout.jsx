@@ -20,7 +20,7 @@ const Loadout = ({}) => {
           <div className="loadout-groups-container" style={{gridRow: "1", gridColumn: "1"}}>
             <LoadoutSlotGroup cardType="Mnemos" slotTypes={["Mnemos", "Mnemos"]} numRows={2}/>
           </div>
-          <div className="loadout-groups-container" style={{gridRow: "1", gridColumn: "2", transform: "scale(0.8)"}}>
+          <div className="loadout-groups-container" style={{gridRow: "1", gridColumn: "2", transform: "scale(0.8)", margin: "30px 0px"}}>
             <div style={{gridRow: "1", gridColumn: "1"}}><LoadoutSlotGroup cardType="Gear" slotTypes={["Armor"]} /></div>
             <div style={{gridRow: "1", gridColumn: "2/5"}}><HandSlotGroup /></div>
             <div style={{gridRow: "2", gridColumn: "1/4"}}><LoadoutSlotGroup cardType="Gear" slotTypes={Array(supportSlots).fill("Support")} isExtendible={true} extensionFunc={() => addSupportSlot()} /></div>

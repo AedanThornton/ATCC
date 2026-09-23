@@ -3,7 +3,6 @@ import { useLocalStorage } from "../../context/LocalStorageContext";
 import CardRenderer from "../cards/CardRenderer";
 import { useState } from "react";
 import { useBackpackContext } from "../../context/BackpackContext";
-import RectractableMenu from "../RetractableMenu";
 import { useDroppable } from "@dnd-kit/react";
 
 const BackpackCardList = ({}) => {
@@ -19,14 +18,6 @@ const BackpackCardList = ({}) => {
     addToActiveSet(realID)
   }
 
-  const buttons = [
-    {
-      iconName: "LoadoutBuilder", 
-      isDisabled: false, 
-      clickFunc: () => console.log("Look a loadout!")
-    }
-  ]
-
   return (
     <>
       <div className={`backpack-card-list`} ref={ref}>
@@ -35,8 +26,6 @@ const BackpackCardList = ({}) => {
             {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant={backpackIsActive ? "backpack" : "workspace"} />}
           </div>
         )}
-
-        {/* <RectractableMenu preformattedButtons={buttons} /> */}
       </div>
 
       {buttonError && <div className="backpack-error-overlay">

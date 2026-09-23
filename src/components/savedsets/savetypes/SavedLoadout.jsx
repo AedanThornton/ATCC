@@ -14,8 +14,8 @@ const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
   const { removeSlot } = useLoadout();
   const slotType = slot === "Titan" ? slot : slot.slice(0, -1)
 
-  const handCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.includes("OneHanded")).length
-  const supportCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.includes("Support")).length
+  const handCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.slice(0, -1) === "OneHanded").length
+  const supportCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.slice(0, -1) === "Support").length
   const slotTypeIndex = parseInt(slot.slice(-1))
 
   const removable = (slot.slice(0, -1) === "OneHanded" && handCount > 2)
@@ -56,8 +56,8 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
   // const {ref, isDropTarget} = useDroppable({ id: loadoutname, data: {onDrop: handleSetDrop} });
   const { addHandSlotLoadout, addSupportSlotLoadout } = useLoadout();
 
-  const handCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.includes("OneHanded")).length
-  const supportCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.includes("Support")).length
+  const handCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.slice(0, -1) === "OneHanded").length
+  const supportCount = Object.keys(appState.loadouts[loadoutname]).filter(key => key.slice(0, -1) === "Support").length
 
   // function handleSetDrop(id){
   //   if (!id) return
@@ -96,7 +96,7 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
         {Object.keys(sortedLoadout)?.map((slot, j) =>
           <>
             {/* This ugly ass logic is just to check whether or not a handslot should render... consider finding a way to improve this */}
-            {!(slot.includes("OneHanded") && 
+            {!(slot.slice(0, -1) === "OneHanded" && 
             (parseInt(slot.slice(-1)) > 0 && cardCache.get(appState.loadouts[loadoutname][slot.slice(0, -1) + `${parseInt(slot.slice(-1)) - 1}`])?.slot?.[0] === "2") ||
             (parseInt(slot.slice(-1)) > 1 && 
                 cardCache.get(appState.loadouts[loadoutname][slot.slice(0, -1) + `${parseInt(slot.slice(-1)) - 1}`])?.slot?.[0] === "2" ||
@@ -107,12 +107,12 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
               <SavedLoadoutCard loadoutname={loadoutname} slot={slot} index={j} />
             </div>}
 
-            {handCount < 5 && slot.includes("OneHanded") && parseInt(slot.slice(-1)) === handCount - 1 &&
+            {handCount < 5 && slot.slice(0, -1) === "OneHanded" && parseInt(slot.slice(-1)) === handCount - 1 &&
               <div className="saved-sets-card__empty-slot new-slot-button" onClick={() => addHandSlotLoadout(loadoutname, handCount)}>
                 + {getIcon({name: "OneHanded", invert: true})}
               </div>
             }
-            {supportCount < 5 && slot.includes("Support") && parseInt(slot.slice(-1)) === supportCount - 1 &&
+            {supportCount < 5 && slot.slice(0, -1) === "Support" && parseInt(slot.slice(-1)) === supportCount - 1 &&
               <div className="saved-sets-card__empty-slot new-slot-button" onClick={() => addSupportSlotLoadout(loadoutname, supportCount)}>
                 + {getIcon({name: "Support", invert: true})}
               </div>

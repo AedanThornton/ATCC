@@ -62,7 +62,7 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
       >
         <span>
           {!enabled && getIcon({name: "X"})}
-          {enabled && currentSetType !== "Loadouts" && getIcon({name: cardData?.slot || "", invert: true})}
+          {enabled && (isBackpackSet || isSearchSet || currentSetType !== "Loadouts") && getIcon({name: cardData?.slot || "", invert: true})}
           {" "}
           {cardData?.name}
           {!isBackpackSet && appState.backpack.includes(cardData?.cardIDs[0]) && <span style={{filter: "opacity(25%)"}}> {getIcon({name: "Backpack"})}</span>}

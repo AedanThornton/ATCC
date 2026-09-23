@@ -42,12 +42,41 @@
   align-items: center;
 }
 
+/* Loadout Slot Swapper */
+.loadout-slot-swapper {
+  position: relative;
+}
+
+.loadout-slot-swapper__main, .loadout-slot-swapper__attachment {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  transition: bottom 600ms ease-in-out, left 600ms ease, z-index 600ms ease-out;
+  filter: drop-shadow(10px 10px 15px var(--main));
+}
+
+.loadout-slot-swapper__main.active, .loadout-slot-swapper__attachment.active {
+  z-index: 2;
+}
+
+.loadout-slot-swapper__main.behind, .loadout-slot-swapper__attachment.behind {
+  bottom: -20px;
+  left: 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.loadout-slot-swapper__main.behind > .card.loadout-slot__empty, .loadout-slot-swapper__attachment.behind > .card.loadout-slot__empty {
+  filter: brightness(50%);
+}
+
 /* Slot */
 .loadout-slot {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: var(--main);
 }
 
 .loadout-slot__drop-preview {
@@ -61,6 +90,7 @@
   align-items: center;
   justify-content: space-evenly;
   border: 4px inset var(--main);
+  background-color: var(--main);
   transition: background-color 300ms ease, border-style 300ms ease;
 }
 .card.loadout-slot__empty:hover {

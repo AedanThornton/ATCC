@@ -17,7 +17,7 @@ const Backpack = ({}) => {
     "Backpack": BackpackCardList,
     "Deck": Deck,
     "LoadoutBuilder": Loadout,
-    "Compare": Compare,
+    // "Compare": Compare,
     // "Simulator": <div style={{height: "1000px"}}>Simulator</div>,
   };
   const View = views[activeView];

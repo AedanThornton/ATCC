@@ -7,8 +7,8 @@ export function LoadoutProvider({ children }) {
   const { appState, addSlotToActiveLoadout, removeSlotFromActiveLoadout, setSlot, addSlotToLoadout, removeSlotFromLoadout } = useLocalStorage();
   const [bannedHandTypes, setBannedHandTypes] = useState([]);
 
-  const handSlots = Object.keys(appState.activeLoadout).filter(key => key.includes("OneHanded")).length
-  const supportSlots = Object.keys(appState.activeLoadout).filter(key => key.includes("Support")).length
+  const handSlots = Object.keys(appState.activeLoadout).filter(key => key.slice(0, -1) === "OneHanded").length
+  const supportSlots = Object.keys(appState.activeLoadout).filter(key => key.slice(0, -1) === "Support").length
 
   function addHandSlot() {
     if (handSlots >= 5) return

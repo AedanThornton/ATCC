@@ -1,6 +1,3 @@
-import { useState } from "react";
-import HamburgerButton from "../utils/HamburgerButton";
-import SavedSets from "../savedsets/SavedSets";
 import { useBackpackContext } from "../../context/BackpackContext";
 import getIcon from "../utils/iconUtils";
 
@@ -11,7 +8,7 @@ const BackpackTabSelector = () => {
     "Backpack",
     "Deck",
     "LoadoutBuilder",
-    "Compare",
+    // "Compare",
     // "Simulator",
   ];
 
