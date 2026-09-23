@@ -6,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { SpoilerProvider } from './context/SpoilerContext.jsx'
 import { ModalProvider } from './context/FocusContext.jsx'
 import FocusCardCache from './components/focuscard/FocusCardCache.jsx'
-import LocalStorageManager from './components/savedcards/LocalStorageManager.jsx'
 import { LocalStorageProvider } from './context/LocalStorageContext.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -43,7 +42,6 @@ createRoot(document.getElementById('root')).render(
                       <LayoutProvider>
                         <SavedSetsProvider>
                           <FocusCardCache />
-                          <LocalStorageManager />
                           <App />
                         </SavedSetsProvider>
                       </LayoutProvider>
