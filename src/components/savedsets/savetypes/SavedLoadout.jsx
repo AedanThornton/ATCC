@@ -1,9 +1,9 @@
+import React from "react";
 import { useLocalStorage } from "../../../context/LocalStorageContext";
 import "../savedsets.css"
 import EditableTitle from "../../utils/EditableTitle";
 import { useState } from "react";
 import SavedSetsMenu from "../SavedSetsMenu";
-import { useDroppable } from "@dnd-kit/react";
 import SearchableList from "../../utils/SearchableList";
 import { SavedSetCard } from "./SavedSet";
 import getIcon from "../../utils/iconUtils";
@@ -94,7 +94,7 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
 
       <ul className="saved-set__dropdown" style={{display: isOpen ? "block" : "none"}} onClick={(e) => e.stopPropagation()}>
         {Object.keys(sortedLoadout)?.map((slot, j) =>
-          <>
+          <React.Fragment key={j}>
             {/* This ugly ass logic is just to check whether or not a handslot should render... consider finding a way to improve this */}
             {!(slot.slice(0, -1) === "OneHanded" && 
             (parseInt(slot.slice(-1)) > 0 && cardCache.get(appState.loadouts[loadoutname][slot.slice(0, -1) + `${parseInt(slot.slice(-1)) - 1}`])?.slot?.[0] === "2") ||
@@ -117,7 +117,7 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
                 + {getIcon({name: "Support", invert: true})}
               </div>
             }
-          </>
+          </React.Fragment>
         )}
       </ul>
 

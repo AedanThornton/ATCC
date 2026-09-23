@@ -42,6 +42,10 @@
   transform: scale(0.85);
 }
 
+.loadout .card-wrapper {
+  transform: scale(1);
+}
+
 .card-wrapper > div {
 	display: flex;
 	justify-content: center;

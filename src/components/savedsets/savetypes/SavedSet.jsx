@@ -148,8 +148,8 @@ export function SavedSet({ setname, index }) {
         )}
 
         {set?.map((card, j) => 
-          <div className="saved-sets-card__empty-slot">
-            <SavedSetCard setname={setname} cardID={card} index={j} isBackpackSet={isBackpackSet} isSearchSet={isSearchSet} removeFunc={removeCardFromSet} />
+          <div className="saved-sets-card__empty-slot" key={j}>
+            <SavedSetCard setname={setname} cardID={card} isBackpackSet={isBackpackSet} isSearchSet={isSearchSet} removeFunc={removeCardFromSet} />
           </div>
         )}
       </ul>
