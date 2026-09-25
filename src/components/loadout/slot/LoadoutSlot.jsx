@@ -5,8 +5,9 @@ import LoadoutSlotCardMenu from "./LoadoutSlotCardMenu";
 import getIcon from "../../utils/iconUtils";
 import { useDnD } from "../../../context/DnDContext";
 import { useLoadout } from "../../../context/LoadoutContext";
+import { useState } from "react";
 
-const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
+const LoadoutSlot = ({ type = "", index, cardType = "Gear", menuDisabled = false, cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}} }) => {
   const { appState, cardCache, setSlot } = useLocalStorage()
   const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadout()
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
@@ -79,7 +80,15 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
     }
   }
 
+  function onClear() {
+    setSlot(slotName, null)
+    cardStates.setExhausted(false)
+    cardStates.setDiscarded(false)
+  }
+
   //Gear selector
+
+  
   return (
     <div className="loadout-slot" ref={!dragCardMatchesSlot ? ref : null} key={index}>
       <div className="loadout-slot__icon-display">{getIcon({ 
@@ -90,8 +99,17 @@ const LoadoutSlot = ({ type = "", index, cardType = "Gear" }) => {
         invert: true 
       })}</div>
 
+      {cardStates.exhausted && !cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Exhaust", invert: true, size: "2em"})}</div>}
+      {cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Discard", invert: true, size: "2em"})}</div>}
+
       {Object.keys(activeGear).length > 0 && 
-        <CardRenderer cardData={activeGear} menu={<LoadoutSlotCardMenu setActiveGear={(id) => setSlot(slotName, id)} />} />
+        <CardRenderer cardData={activeGear} menu={menuDisabled ? <></> : 
+          <LoadoutSlotCardMenu
+            exhaustFunc={() => cardStates.setExhausted(!cardStates.exhausted)}
+            discardFunc={() => cardStates.setDiscarded(!cardStates.discarded)}
+            clearSlot={() => onClear()}
+          />
+        } />
       }
       {Object.keys(activeGear).length <= 0 && <>
 

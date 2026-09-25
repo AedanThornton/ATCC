@@ -136,3 +136,19 @@
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
 }
+
+/*  */
+.loadout-slot__state-cover {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 50px);
+  top: 50px;
+  background-color: rgba(0, 0, 0, 0.599);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  pointer-events: none;
+  border: 2px dotted white;
+}
