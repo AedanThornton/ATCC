@@ -5,8 +5,15 @@ import { useLoadout } from "../../context/LoadoutContext"
 import PlusButton from "../utils/PlusButton"
 import LoadoutSlotSwapper from "./slot/LoadoutSlotSwapper"
 
-const LoadoutSlotGroup = ({cardType = "Gear", slotTypes = [], numRows = 1, isExtendible = false, extensionFunc = ()=>{}}) => {
-  const { supportSlots } = useLoadout()
+const LoadoutSlotGroup = ({cardType = "Gear", slotTypes = [], numRows = 1, isExtendible = false}) => {
+  const { supportSlots, addSupportSlot } = useLoadout()
+
+  let extensionFunc = () => {}
+
+  if (slotTypes.includes("Support")) {
+    slotTypes = Array(supportSlots).fill("Support")
+    extensionFunc = () => addSupportSlot()
+  }
   
   return (
     <div className="loadout-slotgroup" style={{gridTemplateRows: `repeat(${numRows}, min-content)`}}>

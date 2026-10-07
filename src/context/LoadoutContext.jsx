@@ -22,18 +22,6 @@ export function LoadoutProvider({ children }) {
     addSlotToActiveLoadout(`Support${supportSlots}`)
   }
 
-  function addHandSlotLoadout(loadoutName, slotCount) {
-    if (slotCount >= 5) return
-    
-    addSlotToLoadout(loadoutName, `OneHanded${slotCount}`)
-  }
-
-  function addSupportSlotLoadout(loadoutName, slotCount) {
-    if (slotCount >= 5) return
-      
-    addSlotToLoadout(loadoutName, `Support${slotCount}`)
-  }
-
   function removeSlotFromActive(type, index) {
     function rotateDown (range) {
       if (range - 1 - index < 0) return
@@ -53,29 +41,11 @@ export function LoadoutProvider({ children }) {
     }
   }
 
-  function removeSlot(type, index, loadout, slotCount) {
-    function rotateDown (range) {
-      if (range - 1 - index < 0) return
-
-      Array(range - 1 - index).fill("").map((_, i) => {
-        setSlot(type + `${index + i}`, appState.loadouts[loadout][type + `${index + i + 1}`], loadout)
-      })
-      removeSlotFromLoadout(loadout, type + `${range - 1}`)
-    }
-
-    if (type === "OneHanded" || type === "Support") {
-      rotateDown(slotCount)
-    } else {
-      console.error("Error: Non-removeable slot type attempted to be removed")
-    }
-  }
-
-
   const vars = {
     handSlots, supportSlots,
     bannedHandTypes, setBannedHandTypes,
-    addHandSlot, addSupportSlot, addHandSlotLoadout, addSupportSlotLoadout,
-    removeSlotFromActive, removeSlot
+    addHandSlot, addSupportSlot,
+    removeSlotFromActive
   }
 
   return (
