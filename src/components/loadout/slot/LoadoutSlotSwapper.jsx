@@ -1,38 +1,41 @@
 // Simple component that has two LoadoutSlots and a the ability to swap between them. The second slot is always type "Attachment"
 // --Note: Might make this more complicated for multi-cards. Thanks Gigantus
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import LoadoutSlot from "./LoadoutSlot"
 
-const LoadoutSlotSwapper = ({ type = "", index, cardType = "Gear" }) => {
+const LoadoutSlotSwapper = ({ loadoutState, type = "", index, cardType = "Gear" }) => {
   const [currentSlot, setCurrentSlot] = useState("main")
-  const [exhausted, setExhausted] = useState(false)
-  const [discarded, setDiscarded] = useState(false)
-  const [attachmentExhausted, setAttachmentExhausted] = useState(false)
-  const [attachmentDiscarded, setAttachmentDiscarded] = useState(false)
+  const slotName = `${cardType === "Gear" ? type : cardType}${index ?? ""}`
+  const attachmentSlotName = `Attachment${type}${index ?? ""}`
+
+  useEffect(() => {
+    loadoutState.addSlot(slotName)
+    cardType === "Gear" && type !== "Attachment" && loadoutState.addSlot(attachmentSlotName)
+  }, [])
 
   function handleMainExhaust(state) {
-    setExhausted(state)
-    setAttachmentExhausted(state)
+    loadoutState.setState(slotName, "exhausted", state)
+    loadoutState.setState(attachmentSlotName, "exhausted", state)
   }
 
   function handleMainDiscard(state) {
-    setDiscarded(state)
-    setAttachmentDiscarded(state)
+    loadoutState.setState(slotName, "discarded", state)
+    loadoutState.setState(attachmentSlotName, "discarded", state)
   }
 
   const mainCardStates = {
-    exhausted, 
+    exhausted: loadoutState.slotStates[slotName]?.exhausted,
     setExhausted: handleMainExhaust,
-    discarded, 
+    discarded: loadoutState.slotStates[slotName]?.discarded,
     setDiscarded: handleMainDiscard
   }
 
   const attachmentCardStates = {
-    exhausted: attachmentExhausted, 
-    setExhausted: setAttachmentExhausted,
-    discarded: attachmentDiscarded, 
-    setDiscarded: setAttachmentDiscarded
+    exhausted: loadoutState.slotStates[attachmentSlotName]?.exhausted,
+    setExhausted: (val) => loadoutState.slotStates[slotName]?.exhausted ? {} : loadoutState.setState(attachmentSlotName, "exhausted", val),
+    discarded: loadoutState.slotStates[attachmentSlotName]?.discarded,
+    setDiscarded: (val) => loadoutState.slotStates[slotName]?.discarded ? {} : loadoutState.setState(attachmentSlotName, "discarded", val)
   }
 
   function getCardType(cardType) {
@@ -55,14 +58,14 @@ const LoadoutSlotSwapper = ({ type = "", index, cardType = "Gear" }) => {
       className={"loadout-slot-swapper__main" + (currentSlot === "main" ? " active" : " behind")} 
       onClick={() => currentSlot === "attachment" && setCurrentSlot("main")}
     >
-      <LoadoutSlot type={type} index={index} cardType={cardType} menuDisabled={currentSlot !== "main"} cardStates={mainCardStates}/>
+      <LoadoutSlot slotName={slotName} type={type} index={index} cardType={cardType} menuDisabled={currentSlot !== "main"} cardStates={mainCardStates}/>
     </div>
 
     {cardType === "Gear" && type !== "Attachment" && <div 
       className={"loadout-slot-swapper__attachment" + (currentSlot === "attachment" ? " active" : " behind")} 
       onClick={() => currentSlot === "main" && setCurrentSlot("attachment")}
     >
-      <LoadoutSlot type={"Attachment"} index={type + index} cardType={"Gear"} menuDisabled={currentSlot !== "attachment"} cardStates={attachmentCardStates} />
+      <LoadoutSlot slotName={attachmentSlotName} type={"Attachment"} index={type + index} cardType={"Gear"} menuDisabled={currentSlot !== "attachment"} cardStates={attachmentCardStates} />
     </div>}
   </div>)
 }

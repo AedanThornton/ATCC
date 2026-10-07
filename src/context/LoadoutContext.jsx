@@ -55,4 +55,4 @@ export function LoadoutProvider({ children }) {
   );
 }
 
-export const useLoadout = () => useContext(LoadoutContext);
+export const useLoadoutContext= () => useContext(LoadoutContext);

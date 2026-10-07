@@ -7,7 +7,7 @@ import SavedSetsMenu from "../SavedSetsMenu";
 import SearchableList from "../../utils/SearchableList";
 import { SavedSetCard } from "./SavedSet";
 import getIcon from "../../utils/iconUtils";
-import { useLoadout } from "../../../context/LoadoutContext";
+import { useLoadoutContext} from "../../../context/LoadoutContext";
 
 const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
   const { appState, cardCache, setSlot, removeSlotFromLoadout } = useLocalStorage();

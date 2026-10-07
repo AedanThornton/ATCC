@@ -4,18 +4,16 @@ import CardRenderer from "../../cards/CardRenderer"
 import LoadoutSlotCardMenu from "./LoadoutSlotCardMenu";
 import getIcon from "../../utils/iconUtils";
 import { useDnD } from "../../../context/DnDContext";
-import { useLoadout } from "../../../context/LoadoutContext";
-import { useState } from "react";
+import { useLoadoutContext } from "../../../context/LoadoutContext";
 
-const LoadoutSlot = ({ type = "", index, cardType = "Gear", menuDisabled = false, cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}} }) => {
+const LoadoutSlot = ({ slotName = "", type = "", index, cardType = "Gear", menuDisabled = false, cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}} }) => {
   const { appState, cardCache, setSlot } = useLocalStorage()
-  const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadout()
+  const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadoutContext()
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
   const { dragCard } = useDnD();
 
   const isWeaponSlot = type.includes("Hand")
   const dragCardMatchesSlot = cardTypeCompare(dragCard, cardType, type)
-  const slotName = `${cardType === "Gear" ? type : cardType}${index ?? ""}`
   const displayDropPreview = isDropTarget && dragCardMatchesSlot
   const activeGear = cardCache.get(appState.activeLoadout[slotName]) || {}
 
