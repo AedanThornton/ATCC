@@ -12,18 +12,18 @@ export function LoadoutProvider({ children }) {
 
   function addHandSlot() {
     if (handSlots >= 5) return
-    
+
     addSlotToActiveLoadout(`OneHanded${handSlots}`)
   }
 
   function addSupportSlot() {
     if (supportSlots >= 5) return
-      
+
     addSlotToActiveLoadout(`Support${supportSlots}`)
   }
 
   function removeSlotFromActive(type, index) {
-    function rotateDown (range) {
+    function rotateDown(range) {
       if (range - 1 - index < 0) return
 
       Array(range - 1 - index).fill("").map((_, i) => {
@@ -55,4 +55,4 @@ export function LoadoutProvider({ children }) {
   );
 }
 
-export const useLoadoutContext= () => useContext(LoadoutContext);
+export const useLoadoutContext = () => useContext(LoadoutContext);
