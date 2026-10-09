@@ -5,10 +5,14 @@ import LoadoutTitanSlot from "./LoadoutTitanSlot"
 import { HandSlotGroup } from "./HandSlotGroup"
 import { LoadoutProvider } from "../../context/LoadoutContext"
 import { useLoadout } from "./useLoadout"
+import AbilitySummary from "./AbilitySummary"
+import { useLocalStorage } from "../../context/LocalStorageContext"
 
 const Loadout = ({}) => {
-  const [zoom, setZoom] = useState(0.7);
   const loadoutState = useLoadout();
+  const { appState } = useLocalStorage();
+
+  const [zoom, setZoom] = useState(0.7);
 
   return (
     <LoadoutProvider>
@@ -30,6 +34,8 @@ const Loadout = ({}) => {
             </div>
           </div>
         </div>
+
+        <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} />
       </div>
     </LoadoutProvider>
   )

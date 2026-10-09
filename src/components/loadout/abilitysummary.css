@@ -1,0 +1,43 @@
+.ability-summary {
+  height: 100%;
+  width: 40%;
+  padding: 0px 20px;
+  overflow-y: auto;
+
+  position: absolute;
+  background-color: var(--main);
+  right: 0;
+  top: 0;
+}
+
+.ability-summary h4 {
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.ability-summary__category {
+  background-color: var(--main);
+  border: 2px solid var(--accent);
+  padding: 0px 10px;
+  padding-bottom: 10px;
+  margin: 10px 0px;
+}
+
+.ability-summary__timing-group {
+  background-color: var(--main-midtone);
+  padding: 0px 5px 5px 5px;
+}
+
+.ability-summary__timing-group__ability-line {
+  margin-left: 20px;
+}
+.ability-summary__timing-group__ability-line.activateable:hover {
+  background-color: var(--main-light);
+  cursor: pointer;
+}
+.ability-summary__timing-group__ability-line.disabled, .ability-summary__timing-group__ability-line.disabled:hover {
+  background-color: var(--main-midtone);
+  cursor: auto;
+  text-decoration: line-through;
+  filter: brightness(60%);
+}
