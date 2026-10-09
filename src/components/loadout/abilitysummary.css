@@ -17,7 +17,8 @@
 
 .ability-summary__category {
   background-color: var(--main);
-  border: 2px solid var(--accent);
+  border: 2px solid var(--main-light);
+  border-radius: 20px;
   padding: 0px 10px;
   padding-bottom: 10px;
   margin: 10px 0px;
@@ -25,11 +26,18 @@
 
 .ability-summary__timing-group {
   background-color: var(--main-midtone);
-  padding: 0px 5px 5px 5px;
+  padding: 0px 3px 3px 3px;
 }
 
 .ability-summary__timing-group__ability-line {
   margin-left: 20px;
+  padding: 2px 5px;
+  box-sizing: border-box;
+  border: 1px solid var(--main-midtone)
+}
+.ability-summary__timing-group__ability-line:hover, .ability-summary__timing-group__ability-line.slot-hovered {
+  margin-left: 20px;
+  border: 1px solid var(--accent)
 }
 .ability-summary__timing-group__ability-line.activateable:hover {
   background-color: var(--main-light);

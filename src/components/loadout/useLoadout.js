@@ -3,6 +3,7 @@ import { useState } from "react";
 export function useLoadout() {
   const [slotStates, setSlotStates] = useState({
     Armor0: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -13,6 +14,7 @@ export function useLoadout() {
       }
     },
     Attachment0: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -23,6 +25,7 @@ export function useLoadout() {
       }
     },
     Attachment1: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -33,6 +36,7 @@ export function useLoadout() {
       }
     },
     Attachment2: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -43,6 +47,7 @@ export function useLoadout() {
       }
     },
     Mnemos0: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -53,6 +58,7 @@ export function useLoadout() {
       }
     },
     Mnemos1: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -63,6 +69,7 @@ export function useLoadout() {
       }
     },
     OneHanded0: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -73,6 +80,7 @@ export function useLoadout() {
       }
     },
     OneHanded1: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -83,6 +91,7 @@ export function useLoadout() {
       }
     },
     Support0: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -93,6 +102,7 @@ export function useLoadout() {
       }
     },
     Support1: {
+      highlighted: false,
       exhausted: false,
       discarded: false,
       counters: {
@@ -102,7 +112,9 @@ export function useLoadout() {
         energy: 0,
       }
     },
-    Titan: {}
+    Titan: {
+      highlighted: false,
+    }
   })
 
   function setState(slot, state, value) {
@@ -124,6 +136,7 @@ export function useLoadout() {
     setSlotStates(prev => ({
       ...prev,
       [slot]: {
+        highlighted: false,
         exhausted: false,
         discarded: false,
         counters: {

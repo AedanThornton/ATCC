@@ -6,7 +6,15 @@ import getIcon from "../../utils/iconUtils";
 import { useDnD } from "../../../context/DnDContext";
 import { useLoadoutContext } from "../../../context/LoadoutContext";
 
-const LoadoutSlot = ({ slotName = "", type = "", index, cardType = "Gear", menuDisabled = false, cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}} }) => {
+const LoadoutSlot = ({ 
+    slotName = "", 
+    type = "", 
+    index, 
+    cardType = "Gear", 
+    menuDisabled = false, 
+    cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}, highlighted: false, setHighlighted: () => {}} 
+  }) => {
+
   const { appState, cardCache, setSlot } = useLocalStorage()
   const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadoutContext()
   const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
@@ -97,17 +105,22 @@ const LoadoutSlot = ({ slotName = "", type = "", index, cardType = "Gear", menuD
         invert: true 
       })}</div>
 
-      {cardStates.exhausted && !cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Exhaust", invert: true, size: "2em"})}</div>}
-      {cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Discard", invert: true, size: "2em"})}</div>}
-
       {Object.keys(activeGear).length > 0 && 
-        <CardRenderer cardData={activeGear} menu={menuDisabled ? <></> : 
-          <LoadoutSlotCardMenu
-            exhaustFunc={() => cardStates.setExhausted(!cardStates.exhausted)}
-            discardFunc={() => cardStates.setDiscarded(!cardStates.discarded)}
-            clearSlot={() => onClear()}
-          />
-        } />
+        <div className={"card loadout-slot__filled-slot" + (cardStates.highlighted ? " highlighted" : "")}
+          onPointerEnter={() => cardStates.setHighlighted(true)}
+          onPointerLeave={() => cardStates.setHighlighted(false)}
+        >
+          {cardStates.exhausted && !cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Exhaust", invert: true, size: "2em"})}</div>}
+          {cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Discard", invert: true, size: "2em"})}</div>}
+
+          <CardRenderer cardData={activeGear} menu={menuDisabled ? <></> : 
+            <LoadoutSlotCardMenu
+              exhaustFunc={() => cardStates.setExhausted(!cardStates.exhausted)}
+              discardFunc={() => cardStates.setDiscarded(!cardStates.discarded)}
+              clearSlot={() => onClear()}
+            />
+          } />
+        </div>
       }
       {Object.keys(activeGear).length <= 0 && <>
 

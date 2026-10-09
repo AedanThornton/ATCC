@@ -25,11 +25,16 @@ function TimingGroup({index, timing, abilities, loadoutState}) {
   return <ul key={index} className="ability-summary__timing-group">
     <h4>{timing}</h4>
     {abilities[timing].map((ability, i) => {
-      const inactive = (loadoutState.slotStates[ability.slot].exhausted || loadoutState.slotStates[ability.slot].discarded) 
+      const exhausted = loadoutState.slotStates[ability.slot].exhausted
+      const discarded = loadoutState.slotStates[ability.slot].discarded
+      const inactive = exhausted || discarded
+      const slotHovered = loadoutState.slotStates[ability.slot].highlighted
 
       return <li key={i} 
-          className={"ability-summary__timing-group__ability-line" + (ability.cost ? " activateable" : "") + ((inactive && ability.timing !== "passive") ? " disabled" : "")}
-          onClick={() => activateAbility(ability, loadoutState)}
+          className={"ability-summary__timing-group__ability-line" + (ability.cost ? " activateable" : "") + (((exhausted && ability.timing !== "passive") || discarded) ? " disabled" : "") + (slotHovered ? " slot-hovered" : "")}
+          onClick={() => !inactive && activateAbility(ability, loadoutState)}
+          onPointerEnter={() => loadoutState?.setState(ability.slot, "highlighted", true)}
+          onPointerLeave={() => loadoutState?.setState(ability.slot, "highlighted", false)}
         >
 
           {ability.cost && 

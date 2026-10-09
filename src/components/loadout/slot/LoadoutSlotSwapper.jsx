@@ -28,14 +28,18 @@ const LoadoutSlotSwapper = ({ loadoutState, type = "", index, cardType = "Gear" 
     exhausted: loadoutState.slotStates[slotName]?.exhausted,
     setExhausted: handleMainExhaust,
     discarded: loadoutState.slotStates[slotName]?.discarded,
-    setDiscarded: handleMainDiscard
+    setDiscarded: handleMainDiscard,
+    highlighted: loadoutState.slotStates[slotName]?.highlighted,
+    setHighlighted: (state) => loadoutState.setState(slotName, "highlighted", state),
   }
 
   const attachmentCardStates = {
     exhausted: loadoutState.slotStates[attachmentSlotName]?.exhausted,
-    setExhausted: (val) => loadoutState.slotStates[slotName]?.exhausted ? {} : loadoutState.setState(attachmentSlotName, "exhausted", val),
+    setExhausted: (state) => loadoutState.slotStates[slotName]?.exhausted ? {} : loadoutState.setState(attachmentSlotName, "exhausted", state),
     discarded: loadoutState.slotStates[attachmentSlotName]?.discarded,
-    setDiscarded: (val) => loadoutState.slotStates[slotName]?.discarded ? {} : loadoutState.setState(attachmentSlotName, "discarded", val)
+    setDiscarded: (state) => loadoutState.slotStates[slotName]?.discarded ? {} : loadoutState.setState(attachmentSlotName, "discarded", state),
+    highlighted: loadoutState.slotStates[attachmentSlotName]?.highlighted,
+    setHighlighted: (state) => loadoutState.setState(attachmentSlotName, "highlighted", state),
   }
 
   function getCardType(cardType) {

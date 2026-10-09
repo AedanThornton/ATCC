@@ -84,6 +84,15 @@
   filter: grayscale(50%)
 }
 
+.loadout-slot__filled-slot {
+  outline: 8px solid rgba(0, 0, 0, 0);
+  overflow: visible;
+}
+.loadout-slot__filled-slot.highlighted {
+  outline: 8px solid var(--accent-light);
+  background-color: var(--accent-light);
+}
+
 .card.loadout-slot__empty {
   display: flex;
   flex-direction: column;
@@ -141,8 +150,7 @@
 .loadout-slot__state-cover {
   position: absolute;
   width: 100%;
-  height: calc(100% - 50px);
-  top: 50px;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.599);
   z-index: 1;
   display: flex;
