@@ -11,6 +11,8 @@ import FormattedParagraph from "../utils/FormattedParagraph";
 import createTooltip from "../utils/tooltipsUtil";
 import "./abilitysummary.css"
 import getIcon from "../utils/iconUtils";
+import { createGate } from "../utils/gateUtils";
+import { getGateColor } from "../../lib/colors";
 
 function activateAbility(ability, loadoutState) {
   if (ability.cost.split(" ").includes("Exhaust")) {
@@ -22,13 +24,32 @@ function activateAbility(ability, loadoutState) {
 }
 
 function TimingGroup({index, timing, abilities, loadoutState}) {
+  let timingDisplay = timing
+  if (timing === "SAW") timingDisplay = "Second Ability Window"
+  else if (timing === "FAW") timingDisplay = "First Ability Window"
+
   return <ul key={index} className="ability-summary__timing-group">
-    <h4>{timing}</h4>
+    <h4>{timingDisplay}</h4>
     {abilities[timing].map((ability, i) => {
       const exhausted = loadoutState.slotStates[ability.slot].exhausted
       const discarded = loadoutState.slotStates[ability.slot].discarded
       const inactive = exhausted || discarded
       const slotHovered = loadoutState.slotStates[ability.slot].highlighted
+
+      let effect = ability.effect
+      if (ability.keyword) {
+        const endcap = effect.split(" ").pop()
+        let newendcap = endcap
+        if ("xvalue" in ability) {
+          newendcap = newendcap.replace("X", ability.xvalue)
+        }
+        if ("yvalue" in ability) {
+          newendcap = newendcap.replace("Y", ability.yvalue)
+        }
+        if ("xvalue" in ability || "yvalue" in ability) {
+          effect = effect.replace(" " + endcap, " " + newendcap)
+        }
+      }
 
       return <li key={i} 
           className={"ability-summary__timing-group__ability-line" + (ability.cost ? " activateable" : "") + (((exhausted && ability.timing !== "passive") || discarded) ? " disabled" : "") + (slotHovered ? " slot-hovered" : "")}
@@ -36,13 +57,15 @@ function TimingGroup({index, timing, abilities, loadoutState}) {
           onPointerEnter={() => loadoutState?.setState(ability.slot, "highlighted", true)}
           onPointerLeave={() => loadoutState?.setState(ability.slot, "highlighted", false)}
         >
+          {ability.gate &&
+            <span>{createGate([ability.gate.split(" ")[0]], [ability.gate.split(" ")[1]], getGateColor(ability.gate.split(" ")[0]))} </span>}
 
           {ability.cost && 
             <span>{ability.cost.split(" ").map((cost, i) => <>{getIcon({name: cost, invert: true, index: i})} </>)}</span>}
 
           <span>{"keyword" in ability
-            ? createTooltip(ability.effect)
-            : <FormattedParagraph paragraph={ability.effect} inLineGate={true} invertIcons={true} />
+            ? createTooltip(effect)
+            : <FormattedParagraph paragraph={effect} inLineGate={true} invertIcons={true} />
           }</span>
 
         </li>
