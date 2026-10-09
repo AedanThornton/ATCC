@@ -76,8 +76,11 @@ function TimingGroup({index, timing, abilities, loadoutState}) {
 
 function AbilitySummary({ loadout, loadoutState }) {
   const { appState, cardCache } = useLocalStorage();
+  const [isOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState({});
   const [abilities, setAbilities] = useState({});
+
+  const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   useEffect(() => {
     setCards(Object.keys(loadout).reduce((obj, slot) => {
@@ -118,40 +121,53 @@ function AbilitySummary({ loadout, loadoutState }) {
   const PrimordialAttackOrder = [
     "Crit Evade",
     "After counting hits from an Evasion Roll",
+    "Armor Roll",
     "After you draw a Trauma or Obol card"
   ]
   const TitanAttackOrder = [
+    "Attack Declaration",
+    "When you are about to Attack",
+    "Crit Miss",
+    "Each Hit",
     "FAW",
     "Draw a BP card step",
     "Wound",
+    "Clear the Kratos Pool step",
     "SAW"
   ]
 
   return (
-    <div className="ability-summary">
-      <div className="ability-summary__category">
-        <h3>Primordial Attack</h3>
-        {PrimordialAttackOrder.map((timing, index) => {
-          return timing in abilities &&
-            <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
-        })}
+    <div className={"ability-summary" + (isOpen ? " open" : "")}>
+      <div className={`ability-summary__thumb ${(isOpen && !isNotMobile) ? "flip-thumb" : ""}`} onClick={() => setIsOpen(!isOpen)}>
+        {getIcon({name: "Options", invert: true, size: "1.4em"})}
       </div>
 
-      <div className="ability-summary__category">
-        <h3>Titan Attack</h3>
-        {TitanAttackOrder.map((timing, index) => {
-          return timing in abilities &&
-            <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
-        })}
+      <div className="ability-summary__abilities-list">
+        <div className="ability-summary__category">
+          <h3>Primordial Attack</h3>
+          {PrimordialAttackOrder.map((timing, index) => {
+            return timing in abilities &&
+              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
+          })}
+        </div>
+
+        <div className="ability-summary__category">
+          <h3>Titan Attack</h3>
+          {TitanAttackOrder.map((timing, index) => {
+            return timing in abilities &&
+              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
+          })}
+        </div>
+
+        <div className="ability-summary__category">
+          <h3>Other</h3>
+          {Object.keys(abilities).map((timing, index) => 
+            !([...PrimordialAttackOrder, ...TitanAttackOrder].includes(timing)) && 
+              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
+          )}
+        </div>
       </div>
 
-      <div className="ability-summary__category">
-        <h3>Other</h3>
-        {Object.keys(abilities).map((timing, index) => 
-          !([...PrimordialAttackOrder, ...TitanAttackOrder].includes(timing)) && 
-            <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
-        )}
-      </div>
     </div>
   )
 }

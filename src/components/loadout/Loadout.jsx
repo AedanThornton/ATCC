@@ -34,9 +34,8 @@ const Loadout = ({}) => {
             </div>
           </div>
         </div>
-
-        <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} />
       </div>
+      <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} />
     </LoadoutProvider>
   )
 }
