@@ -66,7 +66,7 @@
   background-color: var(--main-light);
   position: absolute;
   left: -33px;
-  bottom: 40px;
+  top: 160px;
   padding: 15px;
   width: 33px;
   height: 80px;

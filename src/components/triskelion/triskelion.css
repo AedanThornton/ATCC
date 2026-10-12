@@ -4,12 +4,13 @@
   height: fit-content;
   background-color: var(--main-light);
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   right: 0;
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border-top-left-radius: 20px;
   border-bottom-left-radius: 30px;
 }
 
@@ -36,8 +37,25 @@
 }
 
 .triskelion__button {
+  background-color: var(--main);
+  min-width: 50%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.triskelion__button.left {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  padding-left: 2px;
+}
+.triskelion__button.right {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  padding-right: 2px;
+}
+.triskelion__button:hover {
   background-color: var(--main-midtone);
-  aspect-ratio: 2/1;
 }
 
 @media (min-width: 820px) {

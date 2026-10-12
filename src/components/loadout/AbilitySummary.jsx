@@ -14,16 +14,16 @@ import getIcon from "../utils/iconUtils";
 import { createGate } from "../utils/gateUtils";
 import { getGateColor } from "../../lib/colors";
 
-function activateAbility(ability, loadoutState) {
-  if (ability.cost.split(" ").includes("Exhaust")) {
-    loadoutState?.setState(ability.slot, "exhausted", true)
-  }
-  if (ability.cost.split(" ").includes("Discard")) {
-    loadoutState?.setState(ability.slot, "discarded", true)
-  }
+function activateAbility(ability, loadoutState, triskelionState) {
+  ability.cost.split(" ").map(cost => {
+    console.log(cost, loadoutState, triskelionState)
+    if (cost === "Exhaust") loadoutState?.setState(ability.slot, "exhausted", true)
+    if (cost === "Discard") loadoutState?.setState(ability.slot, "discarded", true)
+    if (cost === "Rage" || cost === "Fate" || cost === "Danger") triskelionState?.plusStat(cost)
+  })
 }
 
-function TimingGroup({index, timing, abilities, loadoutState}) {
+function TimingGroup({index, timing, abilities, loadoutState, triskelionState}) {
   let timingDisplay = timing
   if (timing === "SAW") timingDisplay = "Second Ability Window"
   else if (timing === "FAW") timingDisplay = "First Ability Window"
@@ -53,7 +53,7 @@ function TimingGroup({index, timing, abilities, loadoutState}) {
 
       return <li key={i} 
           className={"ability-summary__timing-group__ability-line" + (ability.cost ? " activateable" : "") + (((exhausted && ability.timing !== "passive") || discarded) ? " disabled" : "") + (slotHovered ? " slot-hovered" : "")}
-          onClick={() => !inactive && activateAbility(ability, loadoutState)}
+          onClick={() => !inactive && activateAbility(ability, loadoutState, triskelionState)}
           onPointerEnter={() => loadoutState?.setState(ability.slot, "highlighted", true)}
           onPointerLeave={() => loadoutState?.setState(ability.slot, "highlighted", false)}
         >
@@ -74,7 +74,7 @@ function TimingGroup({index, timing, abilities, loadoutState}) {
   </ul>
 }
 
-function AbilitySummary({ loadout, loadoutState }) {
+function AbilitySummary({ loadout, loadoutState, triskelionState }) {
   const { appState, cardCache } = useLocalStorage();
   const [isOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState({});
@@ -147,7 +147,7 @@ function AbilitySummary({ loadout, loadoutState }) {
           <h3>Primordial Attack</h3>
           {PrimordialAttackOrder.map((timing, index) => {
             return timing in abilities &&
-              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
+              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
           })}
         </div>
 
@@ -155,7 +155,7 @@ function AbilitySummary({ loadout, loadoutState }) {
           <h3>Titan Attack</h3>
           {TitanAttackOrder.map((timing, index) => {
             return timing in abilities &&
-              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
+              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
           })}
         </div>
 
@@ -163,7 +163,7 @@ function AbilitySummary({ loadout, loadoutState }) {
           <h3>Other</h3>
           {Object.keys(abilities).map((timing, index) => 
             !([...PrimordialAttackOrder, ...TitanAttackOrder].includes(timing)) && 
-              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} />
+              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
           )}
         </div>
       </div>

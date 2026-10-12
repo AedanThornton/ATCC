@@ -39,7 +39,7 @@ const Loadout = ({}) => {
         </div>
         <Triskelion triskelionState={triskelionState} />
       </div>
-      <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} />
+      <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} triskelionState={triskelionState} />
     </LoadoutProvider>
   )
 }

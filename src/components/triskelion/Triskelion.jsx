@@ -44,7 +44,10 @@ function Triskelion({triskelionState}) {
   }
 
   return <div className="triskelion">
-    <div className="triskelion__button" onPointerDown={() => setSimpleDisplay(!simpleDisplay)}></div>
+    <div className="triskelion__buttons">
+      <div className="triskelion__button left" onPointerDown={() => setSimpleDisplay(!simpleDisplay)}>{getIcon({name: "List", invert: true, size: "0.8rem"})}</div>
+      <div className="triskelion__button right" onPointerDown={() => resetAll()}></div>
+    </div>
     <TriskelionStatBox statname="Rage" triskelionState={triskelionState} />
     <TriskelionStatBox statname="Fate" triskelionState={triskelionState} />
     <TriskelionStatBox statname="Danger" triskelionState={triskelionState} />
