@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react"
 import { useFilterOptions } from "../../hooks/useFilterOptions";
 import { useSearchParams } from "react-router-dom";
-import { useSpoilers } from "../../context/SpoilerContext";
 
 const getAllValues = (nodes) =>
   nodes.flatMap(n =>
@@ -94,8 +93,6 @@ const FilterList = ({ title, options, filters, onFilterChange, depth = 0, onTogg
 }
 
 const FilterSidebar = () => {
-  const { spoilersEnabled, setSpoilersEnabled } = useSpoilers();
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { filterOptions, optionsLoading, optionsError } = useFilterOptions();
@@ -165,14 +162,6 @@ const FilterSidebar = () => {
   return (
     <div className="filter-sidebar">
       <h1>Filters</h1>
-
-      <div className="filter-controls">
-        Hide Secrets
-        <label className="filters-switch">
-          <input type="checkbox" checked={spoilersEnabled} onChange={() => setSpoilersEnabled(!spoilersEnabled)} />
-          <span className="filters-slider" />
-        </label>
-      </div>
 
       <div className="filters-container">
         {
