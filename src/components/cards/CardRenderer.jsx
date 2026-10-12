@@ -45,14 +45,16 @@ const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
     />
   }</>
 
-  menu = menu ? menu : 
-    <CardMenu
-      card={cardData}
-      flipFunc={toggleSide}
-      secretFunc={toggleReveal}
-      setDisplay={setDisplayHelper}
-      variant={variant}
-    />
+  menu = <div className="card-menu">
+      <CardMenu
+        card={cardData}
+        flipFunc={toggleSide}
+        secretFunc={toggleReveal}
+        setDisplay={setDisplayHelper}
+        variant={variant}
+      />
+      {menu ?? null}
+    </div>
 
   return (
     <div className='card-wrapper' ref={!notDraggable ? ref : () => {}}>

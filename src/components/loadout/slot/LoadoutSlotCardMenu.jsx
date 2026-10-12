@@ -11,11 +11,11 @@ import getIcon from "../../utils/iconUtils";
 
 const LoadoutSlotCardMenu = ({ clearSlot, exhaustFunc, discardFunc }) => {
   return (
-    <div className="card-menu">
+    <>
       <button onClick={() => exhaustFunc()}>{getIcon({name: "Exhaust", invert: true})}</button>
       <button onClick={() => discardFunc()}>{getIcon({name: "Discard", invert: true})}</button>
       <button onClick={() => clearSlot()}>✖</button>
-    </div>
+    </>
   )
 }
 
