@@ -23,6 +23,78 @@ function activateAbility(ability, loadoutState, triskelionState) {
   })
 }
 
+function checkGateIsOpen(gate, triskelionState) {
+  const gateType = gate.split(" ")[0]
+  const gateValue = gate.split(" ")[1]
+
+  if (gateType === "Rage" || gateType === "Fate" || gateType === "Danger") {
+    const gateNum = parseInt(gateValue[0])
+    const gateSign = gateValue[1]
+
+    if ((gateSign === "+" && triskelionState[gateType.toLowerCase()] >= gateNum) || (gateSign === "-" && triskelionState[gateType.toLowerCase()] <= gateNum)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  return false
+}
+
+function AbilityLine({loadoutState, ability, triskelionState, index}) {
+  const exhausted = loadoutState.slotStates[ability.slot].exhausted
+  const discarded = loadoutState.slotStates[ability.slot].discarded
+  const inactive = exhausted || discarded
+  const slotHovered = loadoutState.slotStates[ability.slot].highlighted
+  const gateOpen = ability.gate
+    ? checkGateIsOpen(ability.gate, triskelionState)
+    : true
+
+  let effect = ability.effect
+  if (ability.keyword) {
+    const endcap = effect.split(" ").pop()
+    let newendcap = endcap
+    if ("xvalue" in ability) {
+      newendcap = newendcap.replace("X", ability.xvalue)
+    }
+    if ("yvalue" in ability) {
+      newendcap = newendcap.replace("Y", ability.yvalue)
+    }
+    if ("xvalue" in ability || "yvalue" in ability) {
+      effect = effect.replace(" " + endcap, " " + newendcap)
+    }
+  }
+
+  return <li key={index} 
+      className={"ability-summary__timing-group__ability-line" 
+        + (ability.cost ? " activateable" : "") 
+        + (((exhausted && ability.timing !== "passive") || discarded) ? " disabled" : "") 
+        + (slotHovered ? " slot-hovered" : "")
+        + (!gateOpen ? " gate-closed" : "")
+      }
+      onClick={() => !inactive && gateOpen && activateAbility(ability, loadoutState, triskelionState)}
+      onPointerEnter={() => loadoutState?.setState(ability.slot, "highlighted", true)}
+      onPointerLeave={() => loadoutState?.setState(ability.slot, "highlighted", false)}
+    >
+      {ability.gate &&
+        <span>
+          {!gateOpen && getIcon({name: "Lock", invert: true})}
+          {" "}
+          {createGate([ability.gate.split(" ")[0]], [ability.gate.split(" ")[1]], getGateColor(ability.gate.split(" ")[0]))} 
+          {" "}
+        </span>}
+
+      {ability.cost && 
+        <span>{ability.cost.split(" ").map((cost, i) => <>{getIcon({name: cost, invert: true, index: i})} </>)}</span>}
+
+      <span>{"keyword" in ability
+        ? createTooltip(effect)
+        : <FormattedParagraph paragraph={effect} inLineGate={true} invertIcons={true} />
+      }</span>
+
+    </li>
+}
+
 function TimingGroup({index, timing, abilities, loadoutState, triskelionState}) {
   let timingDisplay = timing
   if (timing === "SAW") timingDisplay = "Second Ability Window"
@@ -30,46 +102,8 @@ function TimingGroup({index, timing, abilities, loadoutState, triskelionState}) 
 
   return <ul key={index} className="ability-summary__timing-group">
     <h4>{timingDisplay}</h4>
-    {abilities[timing].map((ability, i) => {
-      const exhausted = loadoutState.slotStates[ability.slot].exhausted
-      const discarded = loadoutState.slotStates[ability.slot].discarded
-      const inactive = exhausted || discarded
-      const slotHovered = loadoutState.slotStates[ability.slot].highlighted
-
-      let effect = ability.effect
-      if (ability.keyword) {
-        const endcap = effect.split(" ").pop()
-        let newendcap = endcap
-        if ("xvalue" in ability) {
-          newendcap = newendcap.replace("X", ability.xvalue)
-        }
-        if ("yvalue" in ability) {
-          newendcap = newendcap.replace("Y", ability.yvalue)
-        }
-        if ("xvalue" in ability || "yvalue" in ability) {
-          effect = effect.replace(" " + endcap, " " + newendcap)
-        }
-      }
-
-      return <li key={i} 
-          className={"ability-summary__timing-group__ability-line" + (ability.cost ? " activateable" : "") + (((exhausted && ability.timing !== "passive") || discarded) ? " disabled" : "") + (slotHovered ? " slot-hovered" : "")}
-          onClick={() => !inactive && activateAbility(ability, loadoutState, triskelionState)}
-          onPointerEnter={() => loadoutState?.setState(ability.slot, "highlighted", true)}
-          onPointerLeave={() => loadoutState?.setState(ability.slot, "highlighted", false)}
-        >
-          {ability.gate &&
-            <span>{createGate([ability.gate.split(" ")[0]], [ability.gate.split(" ")[1]], getGateColor(ability.gate.split(" ")[0]))} </span>}
-
-          {ability.cost && 
-            <span>{ability.cost.split(" ").map((cost, i) => <>{getIcon({name: cost, invert: true, index: i})} </>)}</span>}
-
-          <span>{"keyword" in ability
-            ? createTooltip(effect)
-            : <FormattedParagraph paragraph={effect} inLineGate={true} invertIcons={true} />
-          }</span>
-
-        </li>
-      }
+    {abilities[timing].map((ability, i) => 
+      <AbilityLine ability={ability} index={i} loadoutState={loadoutState} triskelionState={triskelionState} />
     )}
   </ul>
 }

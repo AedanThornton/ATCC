@@ -63,6 +63,12 @@
   text-decoration: line-through;
   filter: brightness(60%);
 }
+.ability-summary__timing-group__ability-line.gate-closed, .ability-summary__timing-group__ability-line.gate-closed:hover {
+  background-color: var(--main);
+  text-decoration: line-through dashed;
+  cursor: auto;
+  color: gray
+}
 
 
 .ability-summary__thumb {
