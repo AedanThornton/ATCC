@@ -4,6 +4,7 @@
   height: 100%;
   flex: 2;
   min-width: 0;
+  position: relative;
 }
 
 .loadout-main {

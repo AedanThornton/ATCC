@@ -7,9 +7,12 @@ import { LoadoutProvider } from "../../context/LoadoutContext"
 import { useLoadout } from "./useLoadout"
 import AbilitySummary from "./AbilitySummary"
 import { useLocalStorage } from "../../context/LocalStorageContext"
+import Triskelion from "../triskelion/Triskelion"
+import { useTriskelion } from "../triskelion/useTriskelion"
 
 const Loadout = ({}) => {
   const loadoutState = useLoadout();
+  const triskelionState = useTriskelion();
   const { appState } = useLocalStorage();
 
   const [zoom, setZoom] = useState(0.7);
@@ -34,6 +37,7 @@ const Loadout = ({}) => {
             </div>
           </div>
         </div>
+        <Triskelion triskelionState={triskelionState} />
       </div>
       <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} />
     </LoadoutProvider>

@@ -1,0 +1,47 @@
+.triskelion {
+  max-width: 10%;
+  min-width: 3em;
+  height: fit-content;
+  background-color: var(--main-light);
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom-left-radius: 30px;
+}
+
+.triskelion__stat-box {
+  user-select: none;
+  background-color: var(--main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  aspect-ratio: 1/1;
+  max-width: 2em;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 2px solid var(--main);
+}
+
+.triskelion__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+}
+
+.triskelion__button {
+  background-color: var(--main-midtone);
+  aspect-ratio: 2/1;
+}
+
+@media (min-width: 820px) {
+  .triskelion {
+    right: 11px;
+  }
+}
