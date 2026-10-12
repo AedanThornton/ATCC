@@ -57,9 +57,3 @@
 .triskelion__button:hover {
   background-color: var(--main-midtone);
 }
-
-@media (min-width: 820px) {
-  .triskelion {
-    right: 11px;
-  }
-}

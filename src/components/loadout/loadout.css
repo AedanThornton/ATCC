@@ -8,9 +8,7 @@
 }
 
 .loadout-main {
-  height: 100%;
-  width: inherit;
-  overflow: auto;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   padding: 2% 8%;
