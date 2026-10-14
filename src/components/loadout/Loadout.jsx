@@ -40,7 +40,7 @@ const Loadout = ({}) => {
           >
             <div className="loadout-main">
               <div className="loadout-groups-container">
-                <div style={{gridRow: "1", gridColumn: "1"}}><LoadoutTitanSlot /></div>
+                <div style={{gridRow: "1", gridColumn: "1"}}><LoadoutTitanSlot loadoutState={loadoutState} /></div>
                 <div style={{gridRow: "1", gridColumn: "2"}}><LoadoutSlotGroup loadoutState={loadoutState} cardType="Fated Mnemos" slotTypes={["FatedMnemos", "FatedMnemos"]}/></div>
               </div>
               <div className="loadout-groups-container" style={{ height: "95%" }}>
