@@ -1,0 +1,72 @@
+import "../../cardsStyle.css"
+import "./TraumaCard.css"; // Add corresponding CSS for styling
+import FormattedParagraph from "../../../utils/abilitytools/FormattedParagraph.jsx";
+import getIcon from "../../../utils/iconUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
+
+const TraumaCard = ({ trauma, index }) => {
+  return (
+    <div className={`card trauma ${trauma.cardSize.replace(" ", "-").toLowerCase()}`} key={index}>
+      {trauma.subtype !== "Obol" 
+        ? (
+          <div>
+            <div className="trauma-title">
+              <div style={{lineHeight: "26px", fontSize: Math.min(18, 300 / (1 * trauma.name.length))}}>
+                  {trauma.name.toUpperCase()}
+              </div>
+              {trauma.usedFor && <div className="trauma-subtitle">
+                  {trauma.usedFor.toUpperCase()} ONLY
+              </div>}
+            </div>
+
+            {trauma.flavor && <div className="trauma-flavor">
+              "{trauma.flavor}."
+            </div>}
+
+            <div className="trauma-text">
+              <FormattedParagraph paragraph={trauma.effects} />
+            </div>
+          </div>
+        )
+        : (
+          <div style={{height: "100%", backgroundColor: `${trauma.name.toUpperCase().includes("LIVE") ? "white" : "black"}`, color: `${trauma.name.toUpperCase().includes("LIVE") ? "black" : "white"}`}}>
+            <div style={{height: "15%"}}></div>
+            <div className="trauma-title">{trauma.name.toUpperCase()}</div>
+            {trauma.flavor && <div className="trauma-flavor">"{trauma.flavor}."</div>}
+            {trauma.effects && <div className={`trauma-text ${trauma.name.toUpperCase().includes("LIVE") ? "" : "you-died"}`}>
+              <FormattedParagraph paragraph={trauma.effects} invertIcons={!trauma.name.toUpperCase().includes("LIVE")} />
+            </div>}
+          </div>
+        )
+      }
+
+      <div>
+        {/* Bottom Bar */}
+        {trauma.subtype !== "Obol" && (
+        <div className="trauma-bottom-bar">
+          {trauma.subtype === "Minor" 
+            ? <div>{getIcon({name: trauma.arrow})}</div>
+            : trauma.subtype === "Major" 
+              ? <div style={{fontSize: "18px"}}>{trauma.number}</div>
+              : <div></div>
+          }
+          {trauma.subtype !== "Obol" && <div>
+            {trauma.isCondition ? "CONDITION" : trauma.subtype.toUpperCase()} TRAUMA{trauma.isCondition && " (" + trauma.isCondition.toUpperCase() + ")"}
+          </div>}
+          <div className="trauma-type-box">
+            <div className="trauma-type-box__icon">{getIcon({name: trauma.subtype, size: "3rem"})}</div>
+            <div className="trauma-type-box__sign">{trauma.sign}</div>
+          </div>
+        </div>
+        )}
+        
+
+        {/* Info */}
+        <CardFooter cardIDs={trauma.cardIDs} bkgdColor="rgb(77, 18, 11)" />
+      </div>
+
+    </div>
+  );
+};
+
+export default TraumaCard;

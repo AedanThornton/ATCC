@@ -1,13 +1,13 @@
 import "./styles/global.css";
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/layout/Layout';
-import HomePage from './pages/HomePage';
-import CardLibraryPage from './pages/CardLibraryPage';
-import AboutPage from './pages/AboutPage';
-import FocusCardPage from './pages/FocusCardPage'
-import NotFoundPage from './pages/NotFoundPage';
-import SearchInfoPage from './pages/SearchInfoPage'
-import Backpack from "./components/backpack/Backpack";
+import Layout from "./architecture/layout/Layout" ;
+import HomePage from './pages/home/HomePage';
+import CardLibraryPage from './architecture/catalog/CardLibraryPage';
+import AboutPage from './pages/about/AboutPage';
+import FocusCardPage from './components/focuscard/FocusCardPage'
+import NotFoundPage from './pages/404/NotFoundPage';
+import SearchInfoPage from './architecture/catalog/components/searchinfo/SearchInfoPage'
+import Backpack from "./architecture/editor/collections/Collections";
 import { useAllCards } from "./hooks/useAllCards";
 
 const App = () => {

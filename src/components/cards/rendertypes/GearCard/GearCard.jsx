@@ -1,0 +1,101 @@
+import "../../cardsStyle.css"
+import "./GearCard.css"; // Add corresponding CSS for styling
+import FormattedParagraph, { FormattedSentence, GatedAbilities } from "../../../utils/abilitytools/FormattedParagraph.jsx";
+import { getCyclePrimaryColor, getCycleTextColor, getGateColor } from "../../../../lib/colors.js"
+import WeaponRenderer from "../../utils/WeaponRenderer.jsx";
+import { DiceStack } from "../../utils/DiceStack.jsx";
+import getIcon from "../../../utils/iconUtils.jsx";
+import { createGate } from "../../../utils/abilitytools/gateUtils.jsx";
+import CardFooter from "../../CardFooter.jsx";
+
+const GearCard = ({ gear, index, currentSide }) => {
+  let side = currentSide
+  if (currentSide === 1) side = ""
+
+  const resistances = ["Midas", "Laser", "Microwave", "Sun", "Despair", "Pain"]
+
+  return (
+    <div className={`card gear ${gear.cardSize.replace(" ", "-").toLowerCase()} papyrus`} >
+      <div className="card-info">
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]) }}>{getIcon({name: gear["slot" + side], size: "2.1em", invert: true})}</div></div>
+        <div className="gear-title" style={{ color: getCyclePrimaryColor(gear["cycle" + side]), fontSize: Math.min(19, 300 / (1.2 * gear["name" + side].length)) }}>
+          {gear["name" + side]}
+        </div>
+        <div className="title-icon"><div className={`icon ${gear["cycle" + side] === "Cycle IV" ? "cycle4" : ""}`} style={{ background: getCyclePrimaryColor(gear["cycle" + side]), marginLeft: "auto" }}>{getIcon({name: "Gear", size: "2em", invert: true})}</div></div>
+      </div>
+
+      {/* Stats and Image */}
+      <div className="gear-card">
+        {false && ( /* Disabling image rendering for now. Will reenable if loading images in becomes easier */
+          <div className="gear-image">
+            <img src={`./src/assets/images/${gear.cardIDs[0]}.png`} alt={gear["name" + side]} />
+          </div>
+        )}
+
+        {/* Offensive Statistics */}
+        <div className="gear-stats-container">
+          <WeaponRenderer statsArray={gear["offensiveStatistics" + side]} />
+        </div>
+
+        <div className="gear-image-spacer"></div>
+
+        {/* Defensive Statistics */}
+        <div className="gear-stats-container gear-stats-right">
+          {gear["defensiveStatistics" + side]?.map((defensiveStat, index) => {
+            const isResistance = resistances.includes(defensiveStat.type)
+            return (
+                    
+              <div
+                key={index}
+                className={`gear-stats gear-stats-right`}
+                style={{ 
+                  backgroundColor: isResistance && "black",
+                  color: isResistance && "white" 
+                }}
+              >
+                {defensiveStat.gate && (
+                  <div className="gate" style={{ background: getGateColor(defensiveStat.gate.type) }}>
+                    <span>
+                      {
+                        defensiveStat.gate.type === "Hits" ? defensiveStat.gate.value + " " + (defensiveStat.gate.value === "1" ? "Hit" : "Hits")
+                          : defensiveStat.gate.type === "Full Hit" ? "Full Hit"
+                            : createGate([defensiveStat.gate.type], [defensiveStat.gate.value], undefined, "power")
+                      }
+                    </span>
+                  </div>
+                )}
+                {defensiveStat.type === "Armor"
+                  ? <DiceStack diceArray={defensiveStat.armorDice} diceType="Armor"/>
+                  : <>{defensiveStat.amount} {getIcon({name: defensiveStat.type, type: "Armor", size: "1.5em", invert: isResistance })}</>
+                }
+              </div>
+            )
+          })}
+        </div>
+      </div>
+
+      <div>
+        {/* Abilities */}
+        <div className="gear-abilities">
+          <div className="gear-abilities-no-gates">
+            <div>
+              <FormattedParagraph paragraph={gear["abilities" + side]} />
+            </div>
+
+            {gear["asteriskEffect" + side] && (<div className="asterisk-text">*<FormattedSentence sentence={gear["asteriskEffect" + side]} /></div>)}
+          </div>
+
+          {/* Gated Abilities */}
+          {gear["gatedAbilities" + side] && gear["gatedAbilities" + side].length > 0 && (
+            <GatedAbilities gateGroups={gear["gatedAbilities" + side]} />
+          )}
+        </div>
+
+        {/* Gear Info */}
+        <CardFooter cardIDs={gear.cardIDs} bkgdColor={getCyclePrimaryColor(gear["cycle" + side])} />
+      </div>
+    </div>
+  );
+};
+
+export default GearCard;

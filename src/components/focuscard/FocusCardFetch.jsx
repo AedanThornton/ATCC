@@ -1,4 +1,4 @@
-import SecretOverlay from "../utils/SecretOverlay";
+import SecretOverlay from "../cards/utils/SecretOverlay";
 import { useState, useEffect, Children } from "react";
 import FocusCard from "./FocusCard";
 import { createPortal } from "react-dom";

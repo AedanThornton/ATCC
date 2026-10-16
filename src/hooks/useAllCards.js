@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useLocalStorage } from "../context/LocalStorageContext";
+import { useLocalStorage } from "../management/localstorage/LocalStorageContext";
 
 export function useAllCards() {
   const { ingestCards } = useLocalStorage();

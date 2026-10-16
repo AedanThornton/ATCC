@@ -1,0 +1,16 @@
+import getIcon from "../../../../components/utils/iconUtils";
+
+const DeckCardMenu = ({ deckState, card }) => {
+  return (
+    <>
+      {deckState.activeCardPool !== "deck" &&
+        <button onClick={() => deckState.moveCard(card, deckState.activeCardPool, "deck")}>{getIcon({name: "ReturnToDeck", size: "1.5em", invert: true})}</button>}
+      {deckState.activeCardPool !== "discard" &&
+        <button onClick={() => deckState.moveCard(card, deckState.activeCardPool, "discard")}>{getIcon({name: "Discard", size: "1.5em", invert: true})}</button>}
+      {deckState.activeCardPool !== "removed" &&
+        <button onClick={() => deckState.moveCard(card, deckState.activeCardPool, "removed")}>{getIcon({name: "Trash", size: "1.5em", invert: true})}</button>}
+    </>
+  )
+}
+
+export default DeckCardMenu;

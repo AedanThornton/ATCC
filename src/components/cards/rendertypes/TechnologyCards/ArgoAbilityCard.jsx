@@ -1,0 +1,75 @@
+import "../../cardsStyle.css"
+import "./TechnologyCard.css"; // Add corresponding CSS for styling
+import getIcon from "../../../utils/iconUtils.jsx";
+import React from "react";
+import FormattedParagraph from "../../../utils/abilitytools/FormattedParagraph.jsx";
+import CardFooter from "../../CardFooter.jsx";
+
+const ArgoAbilityCard = ({ argoAbility, index, currentSide }) => {
+  return (
+    <div className={`card technology ${argoAbility.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
+      <div>
+        <div className="card-info">
+          <div className="title-icon"><div className={`icon ${argoAbility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon({name: "CombatTech", size: "2.1em", invert: true})}</div></div>
+          <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * argoAbility.name.length)) }}>
+            {argoAbility.name}
+          </div>
+          <div className="title-icon"></div>
+        </div>
+
+        {/* argo-ability Project Side */}
+        {currentSide == 2 && (
+        <div className="technology-project">
+          <div className="technology-project-divider">
+            {argoAbility.flavorProject && (<div className="technology-flavor">
+              <i>{argoAbility.flavorProject}</i>
+            </div>)}
+            <div className="technology-project-header">REQUIREMENTS</div>
+            <div className="technology-project-box">
+              {argoAbility.requirements.map((req, i, array) => {
+                return (
+                  <React.Fragment key={i}>
+                  {req.startsWith("@ArgoKnowledge") 
+                    ? <>{getIcon({name: "ArgoKnowledge"})} {req.split(" ")[1]}</> 
+                    : req}
+                  {!(i >= array.length - 1) && ", "}
+                  </React.Fragment>
+                )
+              })}
+            </div>
+            <div className="technology-project-header">LEADS TO</div>
+            <div className="technology-project-box">
+              {argoAbility.leadsTo.join(", ")}
+            </div>
+          </div>
+        </div>)}
+
+        {/* argo-ability Tech Side */}
+        {currentSide == 1 && (
+        <div className="technology-tech">
+          {argoAbility.flavorTech && (<div className="technology-flavor">
+            <i>{argoAbility.flavorTech}</i>
+          </div>)}
+
+          {argoAbility.abilities?.map((ability, index) => (
+            <div className="technology-ability-box" key={index}>
+              <div style={{marginTop: "10px"}}></div>
+              <div className="technology-ability-header">{ability.name ? ability.name.toUpperCase() : "ABILITY"}</div>
+              <div className="technology-ability"><FormattedParagraph paragraph={ability.effects} invertIcons={true} /></div>
+            </div>
+          ))}
+
+          <div className="technology-aa-box">
+            {argoAbility.trireme === "TRUE" && (<div className="technology-aa-charges">{getIcon({name: "Trireme"})}</div>)}
+            {argoAbility.charges && (<div className="technology-aa-charges">{argoAbility.charges}</div>)}
+          </div>
+        </div>
+        )}
+      </div>
+
+      <CardFooter cardIDs={argoAbility.cardIDs} />
+    </div>
+  );
+};
+
+export default ArgoAbilityCard;

@@ -1,0 +1,49 @@
+import { getGateColor } from "../../../lib/colors";
+import "./weaponStats.css"
+import { DiceStack } from "./DiceStack";
+import getIcon from "../../utils/iconUtils";
+import { createGate } from "../../utils/abilitytools/gateUtils";
+
+const WeaponRenderer = ({ statsArray }) => (
+  <div className="weapon-stats-bar">
+    {statsArray.attackDice && (
+      <div className="weapon-stats">{statsArray.attackDice}{getIcon({name: "d10", size: "1.5em"})}</div>
+    )}
+    {statsArray.precision && (
+      <div className="weapon-stats">{statsArray.precision}</div>
+    )}
+
+    {statsArray.power?.map((p, index) => (
+      <div key={index} className="weapon-stats" style={{display: p.gate && "unset", paddingTop: p.gate && "0"}}>
+        {p.gate && (
+          <div 
+            className="gate" 
+            style={{ 
+              color: "white", 
+              background: `linear-gradient(90deg, ${getGateColor(p.gate.type)} 30%, ${getGateColor(p.gate.type2 ? p.gate.type2 : p.gate.type)} 70%)`, 
+              marginBottom: "0.3%", 
+              padding: p.gate.type.includes("Hit") && "1px 0"
+            }}
+          >
+            {
+              p.gate.type === "Hits" ? p.gate.value + " " + (p.gate.value === "1" ? "Hit" : "Hits")
+                : !p.gate.value ? p.gate.type
+                  : createGate(
+                      [p.gate.type, p.gate.type2, p.gate.comboGate], 
+                      [p.gate.value], 
+                      undefined, 
+                      "power"
+                    )
+            }
+          </div>
+        )}
+        <div className="weapon-stats">
+          {p.plus ? '+ ' : ''}
+          {<DiceStack diceArray={p.type}/>}
+        </div>
+      </div>
+    ))}
+  </div>
+)
+
+export default WeaponRenderer;

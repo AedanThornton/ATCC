@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import SecretOverlay from "../utils/SecretOverlay";
+import SecretOverlay from "./utils/SecretOverlay";
 import CardMenu from "./CardMenu";
 import { useDraggable } from '@dnd-kit/react';
 
-import renderTypes from "../../lib/renderTypes";
+import renderTypes from "./rendertypes/renderTypes";
 import { useSpoilers } from "../../context/SpoilerContext";
-import { useModal } from '../../context/FocusContext';
+import { useModal } from '../focuscard/FocusContext';
 
 const CardRenderer = ({ cardData, variant = "", menu, notDraggable }) => {
   const { openModal } = useModal();

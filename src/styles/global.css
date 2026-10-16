@@ -135,3 +135,16 @@ input[type="text"]:focus {
   outline: none; /* removes default browser outline */
   border-color: var(--accent-light);
 }
+
+.app {
+  width: 100vw;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.app > div {
+  height: inherit;
+  flex: 1;
+  display: flex;
+}

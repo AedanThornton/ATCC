@@ -1,0 +1,81 @@
+import "../../cardsStyle.css"
+import "./TechnologyCard.css"; // Add corresponding CSS for styling
+import getIcon from "../../../utils/iconUtils.jsx";
+import FocusCardFetch from "../../../focuscard/FocusCardFetch.jsx";
+import React from "react";
+import CardFooter from "../../CardFooter.jsx";
+
+const ProductionFacilityCard = ({ productionFacility, index, currentSide }) => {
+  return (
+    <div className={`card technology ${productionFacility.cardSize.replace(" ", "-").toLowerCase()} ${currentSide == 2 ? "projectside" : "techside"}`} key={index}>
+      <div>
+        <div className="card-info">
+          <div className="title-icon"><div className={`icon ${productionFacility.cycle === "Cycle IV" ? "cycle4" : ""}`}>{getIcon({name: "CombatTech", size: "2.1em", invert: true})}</div></div>
+          <div className="technology-title" style={{ fontSize: Math.min(19, 400 / (1.1 * productionFacility.name.length)) }}>
+            {productionFacility.name}
+          </div>
+          <div className="title-icon"></div>
+        </div>
+
+        {/* production-facility Project Side */}
+        {currentSide == 2 && (
+          <div className="technology-project">
+            <div className="technology-project-divider">
+              {productionFacility.flavorProject && (<div className="technology-flavor">
+                <i>{productionFacility.flavorProject}</i>
+              </div>)}
+              <div className="technology-project-header">REQUIREMENTS</div>
+              <div className="technology-project-box">
+                {productionFacility.requirements.map((req, i, array) => {
+                  return (
+                    <React.Fragment key={i}>
+                    {req.startsWith("@ArgoKnowledge") 
+                      ? <>{getIcon({name: "ArgoKnowledge"})} {req.split(" ")[1]}</> 
+                      : req}
+                    {!(i >= array.length - 1) && ", "}
+                    </React.Fragment>
+                  )
+                })}
+              </div>
+              <div className="technology-project-header">LEADS TO</div>
+              <div className="technology-project-box">
+                {productionFacility.leadsTo.join(", ")}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* production-facility Tech Side */}
+        {currentSide == 1 && (
+        <div className="technology-tech">
+          <div className="technology-info">
+            {productionFacility.facilityName}
+          </div>
+
+          {productionFacility.recipes?.map((recipe, index) => (
+            <div className="technology-recipes" key={index}>
+              <div className="technology-tech-header"><FocusCardFetch cardID={recipe.refID}>{recipe.name}</FocusCardFetch></div>
+              <div className="technology-tech-box">
+                {recipe.ingredients?.map((ingredient, index2) => (
+                  <span key={index2}>
+                    {index2 > 0 && ", "}
+                    {ingredient.count}x{' '}
+                    {ingredient.refID 
+                      ? <FocusCardFetch cardID={ingredient.refID}>{ingredient.name}</FocusCardFetch>
+                      : ingredient.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        )}
+      </div>
+
+      <CardFooter cardIDs={productionFacility.cardIDs} />
+      
+    </div>
+  );
+};
+
+export default ProductionFacilityCard;

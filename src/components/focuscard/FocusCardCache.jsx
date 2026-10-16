@@ -1,10 +1,10 @@
-import SecretOverlay from "../utils/SecretOverlay";
+import SecretOverlay from "../cards/utils/SecretOverlay";
 import { useState, useEffect, Children } from "react";
 import FocusCard from "./FocusCard";
 import { createPortal } from "react-dom";
 import getIcon from "../utils/iconUtils";
-import { useModal } from "../../context/FocusContext";
-import { useLocalStorage } from "../../context/LocalStorageContext";
+import { useModal } from "./FocusContext";
+import { useLocalStorage } from "../../management/localstorage/LocalStorageContext";
 
 const FocusCardCache = () => {
   const { modal, closeModal } = useModal();

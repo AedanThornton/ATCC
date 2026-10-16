@@ -1,7 +1,7 @@
 import getIcon from "../utils/iconUtils"
 import { useSpoilers } from "../../context/SpoilerContext";
-import { useBackpackContext } from "../../context/BackpackContext";
-import { useLocalStorage } from "../../context/LocalStorageContext";
+import { useBackpackContext } from "../../architecture/editor/collections/hooks/CollectionsContext";
+import { useLocalStorage } from "../../management/localstorage/LocalStorageContext";
 
 const CardMenu = ({ card = {}, flipFunc = ()=>{}, secretFunc = ()=>{}, setDisplay = ()=>{}, variant = "" }) => {
   const { appState, removeFromActiveSet } = useLocalStorage()
