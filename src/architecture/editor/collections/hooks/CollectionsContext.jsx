@@ -1,57 +1,57 @@
 import { createContext, useContext, useState } from "react";
 import { useLocalStorage } from "../../../../management/localstorage/LocalStorageContext";
 
-const BackpackContext = createContext();
+const CollectionsContext = createContext();
 
-export function BackpackProvider({ children }) {
+export function CollectionsProvider({ children }) {
   const { appState, addToBackpack, removeFromBackpack, addToActiveSet, removeFromActiveSet } = useLocalStorage()
   const [activeView, setActiveView] = useState("Backpack");
   const [backpackIsActive, setBackpackIsActive] = useState(true)
-  const [backpackPreviewOpen, setBackpackPreviewOpen] = useState(false);
+  const [collectionsPreviewOpen, setCollectionsPreviewOpen] = useState(false);
 
-  async function handleAddToBackpack(id) {
+  async function handleAddToCollections(id) {
     if (addToBackpack(id)) return;
     if (backpackIsActive) {
       addToActiveSet(id)
     }
 
-    setBackpackPreviewOpen(true);
+    setCollectionsPreviewOpen(true);
     setTimeout(() => {
-      setBackpackPreviewOpen(false);
+      setCollectionsPreviewOpen(false);
     }, 600);
   }
 
-  function handleRemoveFromBackpack(id) {
+  function handleRemoveFromCollections(id) {
     if (backpackIsActive) {
       removeFromBackpack(id)
     }
     removeFromActiveSet(id)
     
-    setBackpackPreviewOpen(true);
+    setCollectionsPreviewOpen(true);
     setTimeout(() => {
-      setBackpackPreviewOpen(false);
+      setCollectionsPreviewOpen(false);
     }, 600);
   }
 
   const values = { 
     activeView, setActiveView,
     backpackIsActive, setBackpackIsActive,
-    backpackPreviewOpen, setBackpackPreviewOpen,
-    handleAddToBackpack, handleRemoveFromBackpack
+    collectionsPreviewOpen, setCollectionsPreviewOpen,
+    handleAddToCollections, handleRemoveFromCollections
   }
 
   return (
-    <BackpackContext.Provider value={values}>
+    <CollectionsContext.Provider value={values}>
       {children}
-    </BackpackContext.Provider>
+    </CollectionsContext.Provider>
   );
 }
 
-export function useBackpackContext() {
-  const context = useContext(BackpackContext);
+export function useCollectionsContext() {
+  const context = useContext(CollectionsContext);
 
   if (!context) {
-    throw new Error("useBackpackContext must be used within BackpackProvider");
+    throw new Error("useCollectionsContext must be used within CollectionsProvider");
   }
 
   return context;

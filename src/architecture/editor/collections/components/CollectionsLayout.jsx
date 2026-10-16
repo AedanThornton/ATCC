@@ -1,8 +1,8 @@
-import { useBackpackContext } from "../hooks/CollectionsContext";
+import { useCollectionsContext } from "../hooks/CollectionsContext";
 import getIcon from "../../../../components/utils/iconUtils";
 
-const BackpackTabSelector = () => {
-  const { activeView, setActiveView } = useBackpackContext()
+const CollectionsTabSelector = () => {
+  const { activeView, setActiveView } = useCollectionsContext()
 
   const views = [
     "Backpack",
@@ -12,7 +12,7 @@ const BackpackTabSelector = () => {
     // "Simulator",
   ];
 
-  return <div className="backpack-tab-selector">
+  return <div className="collections-tab-selector">
     {views.length > 0 && views.map((view, i) => (
       <button
         key={i}
@@ -24,10 +24,10 @@ const BackpackTabSelector = () => {
   </div>
 }
 
-export const BackpackLayoutTopbar = () => {
+export const CollectionsLayoutTopbar = () => {
 
   return <>
-    <BackpackTabSelector />
+    <CollectionsTabSelector />
 
     <div className="top-menu">
 

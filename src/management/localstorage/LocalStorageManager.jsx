@@ -35,9 +35,9 @@ const LocalStorageManager = ({}) => {
       const appStateRaw = localStorage.getItem("appState");
       const appState = appStateRaw ? JSON.parse(appStateRaw) : [];
 
-      const missingBackpack = appState.activeSet?.filter(id => !cardCache.has(id));
+      const missingCollections = appState.activeSet?.filter(id => !cardCache.has(id));
       const missingSets = Object.keys(appState.savedSets).flatMap((set) => appState.savedSets[set]).filter(id => !cardCache.has(id));
-      const missing = [...new Set([...missingBackpack, ...missingSets])]
+      const missing = [...new Set([...missingCollections, ...missingSets])]
 
       if (missing.length === 0) return;
 

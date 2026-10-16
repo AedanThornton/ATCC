@@ -1,20 +1,20 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useBackpackContext } from "../../editor/collections/hooks/CollectionsContext";
+import { useCollectionsContext } from "../../editor/collections/hooks/CollectionsContext";
 
 const SavedSetsContext = createContext();
 
 export function SavedSetsProvider({ children }) {
-  const { activeView } = useBackpackContext();
+  const { activeView } = useCollectionsContext();
   
   const [savedSetsOpen, setSavedSetsOpen] = useState(false);
-  const [activeSetName, setActiveSetName] = useState("Backpack")
+  const [activeSetName, setActiveSetName] = useState("Collections")
   const [currentSetType, setCurrentSetType] = useState("Sets")
   const setTypes = ["Sets", "Loadouts"]
   // const setTypes = ["Sets", "Decks", "Loadouts"]
 
   useEffect(() => {
     const viewMap = {
-      "Backpack": "Sets",
+      "Collections": "Sets",
       "Deck": "Sets",
       "LoadoutBuilder": "Loadouts",
       "Compare": "Sets",

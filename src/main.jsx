@@ -10,7 +10,7 @@ import { LocalStorageProvider } from './management/localstorage/LocalStorageCont
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { LayoutProvider } from './architecture/layout/LayoutContext.jsx'
-import { BackpackProvider } from './architecture/editor/collections/hooks/CollectionsContext.jsx' 
+import { CollectionsProvider } from './architecture/editor/collections/hooks/CollectionsContext.jsx' 
 import { SavedSetsProvider } from './architecture/savedsets/hooks/SavedSetsContext.jsx' 
 import DnDWrapper from './management/dragndrop/DnDWrapper.jsx' 
 import { DnDProvider } from './management/dragndrop/DnDContext.jsx' 
@@ -37,7 +37,7 @@ createRoot(document.getElementById('root')).render(
             <LocalStorageProvider>
               <DnDProvider>
                 <DnDWrapper>
-                  <BackpackProvider>
+                  <CollectionsProvider>
                     <LayoutProvider>
                       <SavedSetsProvider>
                         <FocusCardCache />
@@ -45,7 +45,7 @@ createRoot(document.getElementById('root')).render(
                         <App />
                       </SavedSetsProvider>
                     </LayoutProvider>
-                  </BackpackProvider>
+                  </CollectionsProvider>
                 </DnDWrapper>
               </DnDProvider>
             </LocalStorageProvider>

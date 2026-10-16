@@ -30,7 +30,7 @@ function Layout({}) {
                     <Link onClick={() => setNavOpen(false)} to="/home"><li>Home</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="/catalog"><li>Card Catalog</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="/search-info"><li>Catalog Docs</li></Link>
-                    <Link onClick={() => setNavOpen(false)} to="/backpack"><li>{getIcon({name: "Backpack", invert: true})} Backpack</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/collections"><li>Collections {getIcon({name: "Backpack", invert: true})}</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="/about"><li>About</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer"><li>Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></li></Link>
                   </ul>

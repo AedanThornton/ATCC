@@ -7,7 +7,7 @@ import AboutPage from './pages/about/AboutPage';
 import FocusCardPage from './components/focuscard/FocusCardPage'
 import NotFoundPage from './pages/404/NotFoundPage';
 import SearchInfoPage from './architecture/catalog/components/searchinfo/SearchInfoPage'
-import Backpack from "./architecture/editor/collections/Collections";
+import Collections from "./architecture/editor/collections/Collections";
 import { useAllCards } from "./hooks/useAllCards";
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="catalog" element={<CardLibraryPage />} />
-        <Route path="backpack" element={<Backpack />} />
+        <Route path="collections" element={<Collections />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="search-info" element={<SearchInfoPage />} />
         <Route path="*" element={<NotFoundPage />} />

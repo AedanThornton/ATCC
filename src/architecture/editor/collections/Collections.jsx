@@ -1,20 +1,20 @@
 import { useEffect } from "react";
-import { useBackpackContext } from "./hooks/CollectionsContext";
+import { useCollectionsContext } from "./hooks/CollectionsContext";
 import { useLayout } from "../../layout/LayoutContext";
 import SavedSets from "../../savedsets/SavedSets";
-import { BackpackLayoutTopbar } from "./components/CollectionsLayout";
+import { CollectionsLayoutTopbar } from "./components/CollectionsLayout";
 
-import BackpackCardList from "./components/CollectionsCardList";
+import CollectionsCardList from "./components/CollectionsCardList";
 import Deck from "../../play/deck/Deck";
 import Loadout from "../loadout/Loadout";
 import Compare from "../../play/compare/Compare";
 
-const Backpack = ({}) => {
+const Collections = ({}) => {
   const { setLayout } = useLayout();
-  const { activeView } = useBackpackContext();
+  const { activeView } = useCollectionsContext();
 
   const views = {
-    "Backpack": BackpackCardList,
+    "Backpack": CollectionsCardList,
     "Deck": Deck,
     "LoadoutBuilder": Loadout,
     // "Compare": Compare,
@@ -25,18 +25,18 @@ const Backpack = ({}) => {
   useEffect(()=> {
     setLayout({
       main: null,
-      topbar: <BackpackLayoutTopbar />
+      topbar: <CollectionsLayoutTopbar />
     })
   }, [])
 
-  return <div className="backpack">
-    <div className="backpack__main">
+  return <div className="collections">
+    <div className="collections__main">
       <SavedSets />
-      <div className="backpack__view-window">
+      <div className="collections__view-window">
         <View />
       </div>
     </div>
   </div>
 }
 
-export default Backpack
+export default Collections

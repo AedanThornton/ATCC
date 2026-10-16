@@ -1,4 +1,4 @@
-.drag-backpack-overlay {
+.drag-collections-overlay {
   height: 100dvh;
   width: 100dvw;
   position: fixed;
@@ -13,12 +13,12 @@
   display: none;
 }
 
-.drag-backpack-overlay.backpack-open {
+.drag-collections-overlay.collections-open {
   background-color: #0000007b;
   display: flex;
 }
 
-.backpack-wrapper {
+.collections-wrapper {
   width: 50dvw;
   height: 70dvh;
   position: fixed;
@@ -37,7 +37,7 @@
   box-sizing: border-box;
 }
 
-.backpack {
+.collections {
   height: 100%;
   width: 100%;
   display: flex;
@@ -45,7 +45,7 @@
   position: relative;
 }
 
-.backpack-card-list {
+.collections-card-list {
   width: 100%;
   padding: 3%;
   display: flex;
@@ -59,12 +59,12 @@
   gap: 40px;
 }
 
-.backpack.is-drop-target {
+.collections.is-drop-target {
   border-color: white;
   background-color: #9ec5c9;
 }
 
-.backpack-sidebar {
+.collections-sidebar {
   width: 100%;
   height: 100%;
   display: flex;
@@ -73,7 +73,7 @@
   flex-direction: column;
 }
 
-.backpack-control-bar {
+.collections-control-bar {
   background-color: var(--main-midtone);
   border-radius: 5px;
   padding: 15px;
@@ -83,7 +83,7 @@
   gap: 25px;
 }
 
-.backpack-button {
+.collections-button {
   padding: 4px;
   background-color: unset;
   display: flex;
@@ -93,38 +93,38 @@
   font-size: 30px;
 }
 
-.backpack-button:hover {
+.collections-button:hover {
   background-color: var(--main-light);
 }
 
-.backpack-button.clear-all {
+.collections-button.clear-all {
   background-color: var(--main);
 }
 
-.backpack-menu-error {
-  animation: backpackMenuError 0.5s ease;
+.collections-menu-error {
+  animation: collectionsMenuError 0.5s ease;
 }
 
-.backpack-error-overlay {
+.collections-error-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   color: white;
-  animation: backpackMenuError 1s ease;
+  animation: collectionsMenuError 1s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.backpack-error-overlay span {
+.collections-error-overlay span {
   padding: 3px 10px;
   background-color: rgb(103, 0, 0);
   border-radius: 5px;
 }
 
-.backpack-tab-selector {
+.collections-tab-selector {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,7 +135,7 @@
   border-bottom: 4px solid var(--main-midtone);
 }
 
-.backpack-tab-selector > * {
+.collections-tab-selector > * {
   background-color: var(--main-midtone);
   padding: 10px 20px;
   height: 40px;
@@ -150,21 +150,21 @@
   border-radius: unset;
 }
 
-.backpack-tab-selector > *:hover {
+.collections-tab-selector > *:hover {
   background-color: var(--main-light);
 }
 
-.backpack-tab-selector > *:disabled {
+.collections-tab-selector > *:disabled {
   background-color: var(--accent);
 }
 
-.backpack__main {
+.collections__main {
   display: flex;
   flex: 1;
   min-height: 0;
 }
 
-.backpack__view-window {
+.collections__view-window {
   display: flex;
   justify-content: flex-start;
   height: 100%;
@@ -174,7 +174,7 @@
   min-height: 0;
 }
 
-@keyframes backpackMenuError {
+@keyframes collectionsMenuError {
   0% {
     background-color: rgba(150, 0, 0, 0.562);
   }
@@ -185,12 +185,12 @@
 }
 
 @media (min-width: 820px) {
-  .backpack-wrapper {
+  .collections-wrapper {
     width: 30dvw;
     left: -28dvw;
   }
 
-  .backpack-tab-selector > * {
+  .collections-tab-selector > * {
     width: 140px;
     padding: 10px;
   }

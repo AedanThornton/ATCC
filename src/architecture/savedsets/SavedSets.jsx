@@ -48,7 +48,7 @@ function SavedSets() {
                 +{getIcon({name: "Save", invert: true})} Save Current
               </h1>
             : <h1>
-                {activeSetName === "Backpack" && <>{getIcon({name: "Backpack", invert: true})} </>}
+                {activeSetName === "Collections" && <>{getIcon({name: "Backpack", invert: true})} </>}
                 {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
                 {activeSetName}
               </h1>
@@ -91,7 +91,7 @@ function SavedSets() {
             + New Empty {currentSetType.slice(0, -1)}
           </div>
 
-          {buttonError && <div className="backpack-error-overlay">
+          {buttonError && <div className="collections-error-overlay">
             <span>{buttonError}</span>
           </div>}
         </div>

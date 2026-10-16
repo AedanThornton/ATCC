@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useBackpackContext } from "../../editor/collections/hooks/CollectionsContext";
+import { useCollectionsContext } from "../../editor/collections/hooks/CollectionsContext";
 import { useLocalStorage } from "../../../management/localstorage/LocalStorageContext";
 import { useSavedSetsContext } from "../hooks/SavedSetsContext";
 import { arraysEqual } from "../../../lib/arrays";
@@ -7,12 +7,12 @@ import { arraysEqual } from "../../../lib/arrays";
 
 const savedSetsLib = () => {
   const { appState, saveSet, loadSet, deleteSet } = useLocalStorage();
-  const { setBackpackIsActive } = useBackpackContext();
+  const { setBackpackIsActive } = useCollectionsContext();
   const { activeSetName, setActiveSetName } = useSavedSetsContext();
   const [buttonError, setButtonError] = useState(null);
 
   const checkForSetNameMatch = () => {
-    if (activeSetName === "Backpack") {
+    if (activeSetName === "Collections") {
       if (!arraysEqual(appState.backpack, appState.activeSet)){
         setActiveSetName(null)
       }
@@ -55,10 +55,10 @@ const savedSetsLib = () => {
     deleteSet(setName)
   }
 
-  const handleClickOnSet = (setname, isBackpackSet = false, isSearchSet = false) => {
+  const handleClickOnSet = (setname, isCollectionsSet = false, isSearchSet = false) => {
     setActiveSetName(setname)
 
-    if (isBackpackSet) {
+    if (isCollectionsSet) {
       loadSet(appState.backpack);
       setBackpackIsActive(true)
     } else if (isSearchSet) { 
@@ -79,7 +79,7 @@ const savedSetsLib = () => {
   }
 
   const handleDeleteSet = (setname) => {
-    if (activeSetName === setname) handleClickOnSet("Backpack")
+    if (activeSetName === setname) handleClickOnSet("Collections")
     deleteSet(setname)
   }
 

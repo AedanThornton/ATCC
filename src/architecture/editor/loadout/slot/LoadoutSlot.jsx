@@ -17,7 +17,7 @@ const LoadoutSlot = ({
 
   const { appState, cardCache, setSlot } = useLocalStorage()
   const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadoutContext()
-  const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleBackpackDrop } })
+  const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleCollectionsDrop } })
   const { dragCard } = useDnD();
 
   const isWeaponSlot = type.includes("Hand")
@@ -55,7 +55,7 @@ const LoadoutSlot = ({
     return false
   }
 
-  function handleBackpackDrop(id) {
+  function handleCollectionsDrop(id) {
     if (!id) return
     const idParts = id.split("-")
     const realID = idParts[idParts.length - 1]

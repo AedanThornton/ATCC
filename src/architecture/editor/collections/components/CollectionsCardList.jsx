@@ -2,16 +2,16 @@ import "../Collections.css"
 import { useLocalStorage } from "../../../../management/localstorage/LocalStorageContext";
 import CardRenderer from "../../../../components/cards/CardRenderer";
 import { useState } from "react";
-import { useBackpackContext } from "../hooks/CollectionsContext";
+import { useCollectionsContext } from "../hooks/CollectionsContext";
 import { useDroppable } from "@dnd-kit/react";
 
-const BackpackCardList = ({}) => {
+const CollectionsCardList = ({}) => {
   const { appState, cardCache, addToActiveSet } = useLocalStorage();
-  const { backpackIsActive } = useBackpackContext();
+  const { backpackIsActive } = useCollectionsContext();
   const [buttonError, setButtonError] = useState(null)
-  const {ref} = useDroppable({id: "backpack", data: {onDrop: handleBackpackDrop} })
+  const {ref} = useDroppable({id: "collections", data: {onDrop: handleCollectionsDrop} })
 
-  function handleBackpackDrop(id){
+  function handleCollectionsDrop(id){
     if (!id) return
     const idParts = id.split("-")
     const realID = idParts[idParts.length - 1]
@@ -20,19 +20,19 @@ const BackpackCardList = ({}) => {
 
   return (
     <>
-      <div className={`backpack-card-list`} ref={ref}>
+      <div className={`collections-card-list`} ref={ref}>
         {appState.activeSet?.map((card, i) => 
-          <div className="drag-backpack-item" key={i}>
-            {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant={backpackIsActive ? "backpack" : "workspace"} />}
+          <div className="drag-collections-item" key={i}>
+            {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant={backpackIsActive ? "collections" : "workspace"} />}
           </div>
         )}
       </div>
 
-      {buttonError && <div className="backpack-error-overlay">
+      {buttonError && <div className="collections-error-overlay">
         <span>{buttonError}</span>
       </div>}
     </>
   )
 }
 
-export default BackpackCardList
+export default CollectionsCardList

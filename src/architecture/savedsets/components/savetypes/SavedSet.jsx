@@ -5,7 +5,7 @@ import getIcon from "../../../../components/utils/iconUtils";
 import EditableTitle from "../../../../components/utils/EditableTitle";
 import { useRef, useState } from "react";
 import SavedSetsMenu from "../SavedSetsMenu";
-import { useBackpackContext } from "../../../editor/collections/hooks/CollectionsContext";
+import { useCollectionsContext } from "../../../editor/collections/hooks/CollectionsContext";
 import { useDraggable, useDroppable } from "@dnd-kit/react";
 import { Feedback } from "@dnd-kit/dom";
 import savedSetsLib from "../../lib/savedSetsLib";
@@ -24,9 +24,9 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
   const cardData = cardCache.get(cardID)
   const { ref, isDragging } = useDraggable({ id: setname + "-" + cardID, plugins: [Feedback.configure({ feedback: 'clone' })] })
 
-  const { activeView } = useBackpackContext();
+  const { activeView } = useCollectionsContext();
   const { currentSetType } = useSavedSetsContext();
-  const isComparePage = useMatch("/backpack") && activeView === "Compare"
+  const isComparePage = useMatch("/collections") && activeView === "Compare"
   const enabled = (!isComparePage || cardData?.cardType === "Gear")
 
   const setDisplayHelper = (cardID) => {
