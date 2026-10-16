@@ -105,7 +105,7 @@ function TimingGroup({index, timing, abilities, filters, loadoutState, triskelio
   return <ul key={index} className="ability-summary__timing-group">
     <h4>{timingDisplay}</h4>
     {abilities[timing].map((ability, i) => 
-      <AbilityLine ability={ability} filters={filters} index={i} loadoutState={loadoutState} triskelionState={triskelionState} />
+      <AbilityLine ability={ability} filters={filters} key={i} loadoutState={loadoutState} triskelionState={triskelionState} />
     )}
   </ul>
 }

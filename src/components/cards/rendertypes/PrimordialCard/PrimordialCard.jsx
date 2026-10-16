@@ -114,7 +114,7 @@ const PrimordialCard = ({ primordial, index }) => {
             <div className="primordial-vp-container">
               <div className="primordial-vp-circle-box">
                 {primordial[vpTier].vpCount !== "0" && Array.from({ length: primordial[vpTier].vpCount }, (_, i) => (
-                  <div key={index} className="primordial-vp-circle">VP</div>
+                  <div key={i} className="primordial-vp-circle">VP</div>
                 ))}
               </div>
 

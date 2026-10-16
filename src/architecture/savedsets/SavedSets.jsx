@@ -55,9 +55,9 @@ function SavedSets() {
             )
           }
 
-          <SavedSet setname={"Backpack"} set={appState.backpack} />
+          <SavedSet setname={"Backpack"} set={appState.backpack} index={"backpack"} />
           {appState.searchSet &&
-            <SavedSet setname={"Current Search"} set={appState.searchSet} />
+            <SavedSet setname={"Current Search"} set={appState.searchSet} index={"search"} />
           }
 
           <h2>SAVED</h2>
@@ -66,14 +66,14 @@ function SavedSets() {
 
           <div className="saved-sets__set-list">
             {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
-              <SavedSet setname={set} index={i} />
+              <SavedSet setname={set} key={i} />
             ))}
             {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
               // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
               <></>
             ))}
             {currentSetType === "Loadouts" && Object.keys(appState.loadouts).map((loadout, i) => (
-              <SavedLoadout loadoutname={loadout} loadout={appState.loadouts[loadout]} index={i} />
+              <SavedLoadout loadoutname={loadout} loadout={appState.loadouts[loadout]} key={i} />
             ))}
           </div>
 
