@@ -161,7 +161,6 @@ export function LocalStorageProvider({ children }) {
   }
 
   function loadLoadout(loadoutName) {
-    console.log(loadoutName)
     setAppState(prev => ({
       ...prev,
       activeLoadout: prev.loadouts[loadoutName]

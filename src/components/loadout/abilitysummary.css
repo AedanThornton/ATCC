@@ -23,6 +23,13 @@
   text-decoration: underline;
 }
 
+.ability-summary__action-bar {
+  margin: 0px 20px;
+  border-bottom: 2px solid var(--main-light);
+  border-radius: 20px;
+  padding: 10px 10px;
+}
+
 .ability-summary__abilities-list {
   padding: 0 20px;
   height: inherit;
