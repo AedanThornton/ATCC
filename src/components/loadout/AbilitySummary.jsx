@@ -41,7 +41,7 @@ function checkGateIsOpen(gate, triskelionState) {
   return false
 }
 
-function AbilityLine({loadoutState, ability, triskelionState, index}) {
+function AbilityLine({ability, filters, loadoutState, triskelionState, index}) {
   const exhausted = loadoutState.slotStates[ability.slot].exhausted
   const discarded = loadoutState.slotStates[ability.slot].discarded
   const inactive = exhausted || discarded
@@ -64,6 +64,8 @@ function AbilityLine({loadoutState, ability, triskelionState, index}) {
       effect = effect.replace(" " + endcap, " " + newendcap)
     }
   }
+
+  if (filters.hideUnavailable && (inactive || !gateOpen)) return
 
   return <li key={index} 
       className={"ability-summary__timing-group__ability-line" 
@@ -95,7 +97,7 @@ function AbilityLine({loadoutState, ability, triskelionState, index}) {
     </li>
 }
 
-function TimingGroup({index, timing, abilities, loadoutState, triskelionState}) {
+function TimingGroup({index, timing, abilities, filters, loadoutState, triskelionState}) {
   let timingDisplay = timing
   if (timing === "SAW") timingDisplay = "Second Ability Window"
   else if (timing === "FAW") timingDisplay = "First Ability Window"
@@ -103,7 +105,7 @@ function TimingGroup({index, timing, abilities, loadoutState, triskelionState}) 
   return <ul key={index} className="ability-summary__timing-group">
     <h4>{timingDisplay}</h4>
     {abilities[timing].map((ability, i) => 
-      <AbilityLine ability={ability} filters={filters} key={i} loadoutState={loadoutState} triskelionState={triskelionState} />
+      <AbilityLine ability={ability} filters={filters} index={i} loadoutState={loadoutState} triskelionState={triskelionState} />
     )}
   </ul>
 }
@@ -113,6 +115,7 @@ function AbilitySummary({ loadout, loadoutState, triskelionState }) {
   const [isOpen, setIsOpen] = useState(false);
   const [cards, setCards] = useState({});
   const [abilities, setAbilities] = useState({});
+  const [hideUnavailable, setHideUnavailable] = useState(false);
 
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
@@ -153,22 +156,42 @@ function AbilitySummary({ loadout, loadoutState, triskelionState }) {
   }, [cards, loadoutState])
 
   const PrimordialAttackOrder = [
+    "When you are about to resolve an Evasion Roll",
+    "Evasion Roll",
     "Crit Evade",
+    "Crit Evade Fail",
     "After counting hits from an Evasion Roll",
+    "After counting hits from a Skill test caused by a Judgement",
     "Armor Roll",
-    "After you draw a Trauma or Obol card"
+    "When you are about to draw a Trauma card",
+    "When you are about to draw an Obol",
+    "After you draw a Trauma or Obol card",
+    "When you survive an Obol",
+    "After you resolve a Primordial Attack against you"
   ]
   const TitanAttackOrder = [
+    "When you attack",
     "Attack Declaration",
     "When you are about to Attack",
+    "Attack Roll",
+    "Crit Chance",
     "Crit Miss",
     "Each Hit",
+    "Full Hit",
+    "Full Miss",
     "FAW",
     "Draw a BP card step",
+    "Draw BP card step",
+    "Power Roll",
     "Wound",
+    "When the Primordial moves away from you because of a Response",
     "Clear the Kratos Pool step",
     "SAW"
   ]
+
+  const filters = {
+    hideUnavailable: hideUnavailable
+  }
 
   return (
     <div className={"ability-summary" + (isOpen ? " open" : "")}>
@@ -176,12 +199,23 @@ function AbilitySummary({ loadout, loadoutState, triskelionState }) {
         {getIcon({name: "Options", invert: true, size: "1.4em"})}
       </div>
 
+      <div className="ability-summary__action-bar">
+        <div className="filter-controls">
+          Hide Unusable
+          <label className="filters-switch">
+            <input type="checkbox" checked={hideUnavailable} onChange={() => setHideUnavailable(!hideUnavailable)} />
+            <span className="filters-slider" />
+          </label>
+        </div>
+
+      </div>
+
       <div className="ability-summary__abilities-list">
         <div className="ability-summary__category">
           <h3>Primordial Attack</h3>
           {PrimordialAttackOrder.map((timing, index) => {
             return timing in abilities &&
-              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
+              <TimingGroup abilities={abilities} timing={timing} filters={filters} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
           })}
         </div>
 
@@ -189,7 +223,7 @@ function AbilitySummary({ loadout, loadoutState, triskelionState }) {
           <h3>Titan Attack</h3>
           {TitanAttackOrder.map((timing, index) => {
             return timing in abilities &&
-              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
+              <TimingGroup abilities={abilities} timing={timing} filters={filters} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
           })}
         </div>
 
@@ -197,7 +231,7 @@ function AbilitySummary({ loadout, loadoutState, triskelionState }) {
           <h3>Other</h3>
           {Object.keys(abilities).map((timing, index) => 
             !([...PrimordialAttackOrder, ...TitanAttackOrder].includes(timing)) && 
-              <TimingGroup abilities={abilities} timing={timing} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
+              <TimingGroup abilities={abilities} timing={timing} filters={filters} index={index} loadoutState={loadoutState} triskelionState={triskelionState} />
           )}
         </div>
       </div>
