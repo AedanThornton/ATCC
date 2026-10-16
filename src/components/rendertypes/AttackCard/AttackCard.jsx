@@ -27,8 +27,8 @@ const parseLines = (lines, isAdversary, colorInput) => {
     }
 
     const newBlock = line.banner
-      ? <><Banner banner={line} isAdversary={isAdversary} colorInput={colorInput} /><br /></>
-      : <FormattedParagraph paragraph={line.effect} invertIcons={isAdversary}/>
+      ? <React.Fragment key={index}><Banner banner={line} isAdversary={isAdversary} colorInput={colorInput} /><br /></React.Fragment>
+      : <React.Fragment key={index}><FormattedParagraph paragraph={line.effect} invertIcons={isAdversary}/></React.Fragment>
     currentBlock.push(newBlock)
   })
   newLines.push(

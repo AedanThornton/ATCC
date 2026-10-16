@@ -27,7 +27,7 @@ const parseLines = (lines, invertIcons) => {
       startedWithWoO = true
     }
 
-    currentBlock.push(<FormattedParagraph paragraph={line.effect} invertIcons={invertIcons} />)
+    currentBlock.push(<React.Fragment key={index}><FormattedParagraph paragraph={line.effect} invertIcons={invertIcons} /></React.Fragment>)
   })
   newLines.push(
     <div key={newLines.length} style={{ display: "flex" }}>
