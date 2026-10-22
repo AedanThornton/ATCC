@@ -1,8 +1,8 @@
-import { useWorkspaceContext } from "../hooks/WorkspaceContext";
+import { usePlayContext } from "../hooks/PlayContext";
 import getIcon from "../../../../components/utils/iconUtils";
 
-const WorkspaceTabSelector = () => {
-  const { activeView, setActiveView } = useWorkspaceContext()
+const PlayTabSelector = () => {
+  const { activeView, setActiveView } = usePlayContext()
 
   const views = [
     "Deck",
@@ -11,7 +11,7 @@ const WorkspaceTabSelector = () => {
     // "Simulator",
   ];
 
-  return <div className="workspace-tab-selector">
+  return <div className="play-tab-selector">
     {views.length > 0 && views.map((view, i) => (
       <button
         key={i}
@@ -23,10 +23,10 @@ const WorkspaceTabSelector = () => {
   </div>
 }
 
-export const WorkspaceLayoutTopbar = () => {
+export const PlayLayoutTopbar = () => {
 
   return <>
-    <WorkspaceTabSelector />
+    <PlayTabSelector />
 
     <div className="top-menu">
 

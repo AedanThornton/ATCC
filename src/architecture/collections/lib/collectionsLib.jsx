@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useSetEditContext } from "../../editor/set/hooks/SetEditContext";
 import { useLocalStorage } from "../../../management/localstorage/LocalStorageContext";
-import { useSavedSetsContext } from "../hooks/SavedSetsContext";
+import { useCollectionsContext } from "../hooks/CollectionsContext";
 import { arraysEqual } from "../../../lib/arrays";
 
 
-const savedSetsLib = () => {
+const collectionsLib = () => {
   const { appState, saveSet, loadSet, deleteSet } = useLocalStorage();
   const { setBackpackIsActive } = useSetEditContext();
-  const { activeSetName, setActiveSetName } = useSavedSetsContext();
+  const { activeSetName, setActiveSetName } = useCollectionsContext();
   const [buttonError, setButtonError] = useState(null);
 
   const checkForSetNameMatch = () => {
-    if (activeSetName === "Collections") {
+    if (activeSetName === "Workspace") {
       if (!arraysEqual(appState.backpack, appState.activeSet)){
         setActiveSetName(null)
       }
@@ -24,7 +24,7 @@ const savedSetsLib = () => {
       }
       return
     }
-    if (!arraysEqual(appState.savedSets[activeSetName], appState.activeSet)){
+    if (!arraysEqual(appState.collections[activeSetName], appState.activeSet)){
       setActiveSetName(null)
       return
     }
@@ -38,7 +38,7 @@ const savedSetsLib = () => {
       return;
     }
 
-    if (appState.savedSets.length >= 20) {
+    if (appState.collections.length >= 20) {
       handleError("Max Saved Sets reached");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
@@ -51,14 +51,14 @@ const savedSetsLib = () => {
   const renameSet = (setName, newName) => {
     if (setName === newName) return
     if (activeSetName == setName) setActiveSetName(newName)
-    saveSet(newName, appState.savedSets[setName])
+    saveSet(newName, appState.collections[setName])
     deleteSet(setName)
   }
 
-  const handleClickOnSet = (setname, isCollectionsSet = false, isSearchSet = false) => {
+  const handleClickOnSet = (setname, isWorkspaceSet = false, isSearchSet = false) => {
     setActiveSetName(setname)
 
-    if (isCollectionsSet) {
+    if (isWorkspaceSet) {
       loadSet(appState.backpack);
       setBackpackIsActive(true)
     } else if (isSearchSet) { 
@@ -66,7 +66,7 @@ const savedSetsLib = () => {
       setBackpackIsActive(false)
     } else {
       setBackpackIsActive(false)
-      loadSet(appState.savedSets[setname]);
+      loadSet(appState.collections[setname]);
     }
   }
 
@@ -79,7 +79,7 @@ const savedSetsLib = () => {
   }
 
   const handleDeleteSet = (setname) => {
-    if (activeSetName === setname) handleClickOnSet("Collections")
+    if (activeSetName === setname) handleClickOnSet("Workspace")
     deleteSet(setname)
   }
 
@@ -95,4 +95,4 @@ const savedSetsLib = () => {
   }
 }
 
-export default savedSetsLib
+export default collectionsLib

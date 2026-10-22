@@ -5,7 +5,7 @@ import { useDnD } from "./DnDContext"
 
 const DnDWrapper = ({ children }) => {
   const { setDragObj } = useDnD();
-  const collectionsRef = useRef(null);
+  const workspaceRef = useRef(null);
 
   function handleDragEvent(event) {
     if (event.canceled) return;
@@ -15,7 +15,7 @@ const DnDWrapper = ({ children }) => {
     handler?.(id)
 
     //Prevent drag auto-scrolling side-to-side
-    const container = collectionsRef.current;
+    const container = workspaceRef.current;
     const scrollLeft = container?.scrollLeft;
     requestAnimationFrame(() => {
       if (container) container.scrollLeft = scrollLeft;
@@ -41,7 +41,7 @@ const DnDWrapper = ({ children }) => {
       ]}
     >
       {children}
-      <div className={false ? "drag-collections-overlay collections-open" : "drag-collections-overlay"}></div>
+      <div className={false ? "drag-workspace-overlay workspace-open" : "drag-workspace-overlay"}></div>
     </DragDropProvider>
   )
 }

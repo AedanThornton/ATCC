@@ -35,9 +35,9 @@ const LocalStorageManager = ({}) => {
       const appStateRaw = localStorage.getItem("appState");
       const appState = appStateRaw ? JSON.parse(appStateRaw) : [];
 
-      const missingCollections = appState.activeSet?.filter(id => !cardCache.has(id));
-      const missingSets = Object.keys(appState.savedSets).flatMap((set) => appState.savedSets[set]).filter(id => !cardCache.has(id));
-      const missing = [...new Set([...missingCollections, ...missingSets])]
+      const missingWorkspace = appState.activeSet?.filter(id => !cardCache.has(id));
+      const missingSets = Object.keys(appState.collections).flatMap((set) => appState.collections[set]).filter(id => !cardCache.has(id));
+      const missing = [...new Set([...missingWorkspace, ...missingSets])]
 
       if (missing.length === 0) return;
 

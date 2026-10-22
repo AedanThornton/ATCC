@@ -4,13 +4,13 @@ import logo from "../../assets/ATCC.svg"
 import { useLayout } from './LayoutContext';
 import getIcon from '../../components/utils/iconUtils';
 import { useState } from 'react';
-import { useSavedSetsContext } from '../savedsets/hooks/SavedSetsContext';
+import { useCollectionsContext } from '../collections/hooks/CollectionsContext';
 import { useSpoilers } from '../../context/SpoilerContext';
 
 function Layout({}) {
   const { layout } = useLayout()
   const [navOpen, setNavOpen] = useState(false)
-  const { savedSetsOpen } = useSavedSetsContext()
+  const { collectionsOpen } = useCollectionsContext()
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
   const { spoilersEnabled, setSpoilersEnabled } = useSpoilers();
 
@@ -20,7 +20,7 @@ function Layout({}) {
         <div className="layout-row">
           <div className='top-menu'>
             <nav className='layout-nav'>
-              {!(savedSetsOpen && !isNotMobile) && <button className='menu-button'
+              {!(collectionsOpen && !isNotMobile) && <button className='menu-button'
                 onPointerOver={() => setNavOpen(true)}
               >
                 <img src={logo} alt='Menu' width="40" height="40"/>
@@ -34,8 +34,8 @@ function Layout({}) {
                         <Link onClick={() => setNavOpen(false)} to="/search-info"><li>Catalog Docs</li></Link>
                       </ul>
                     </Link>
-                    <Link onClick={() => setNavOpen(false)} to="/collections"><li>Collections {getIcon({name: "Backpack", invert: true})}</li></Link>
-                    <Link onClick={() => setNavOpen(false)} to="/workspace"><li>Workspace</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/workspace"><li>Workspace {getIcon({name: "Backpack", invert: true})}</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/play"><li>Play</li></Link>
                     <li className='nav-spacer'></li>
                     <Link onClick={() => setNavOpen(false)} to="/about"><li>About</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer"><li>Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></li></Link>

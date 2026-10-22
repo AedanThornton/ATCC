@@ -1,19 +1,19 @@
 import { useLocalStorage } from "../../../../management/localstorage/LocalStorageContext";
-import "../../styles/savedsets.css"
+import "../../styles/collections.css"
 import { useModal } from "../../../../components/focuscard/FocusContext";
 import getIcon from "../../../../components/utils/iconUtils";
 import EditableTitle from "../../../../components/utils/EditableTitle";
 import { useRef, useState } from "react";
-import SavedSetsMenu from "../SavedSetsMenu";
+import CollectionsMenu from "../CollectionsMenu";
 import { useSetEditContext } from "../../../editor/set/hooks/SetEditContext";
 import { useDraggable, useDroppable } from "@dnd-kit/react";
 import { Feedback } from "@dnd-kit/dom";
-import savedSetsLib from "../../lib/savedSetsLib";
+import collectionsLib from "../../lib/collectionsLib";
 import SearchableList from "../../../../components/utils/SearchableList";
 import Tippy from "@tippyjs/react";
 import CardRenderer from "../../../../components/cards/CardRenderer";
 import { useMatch } from "react-router-dom";
-import { useSavedSetsContext } from "../../hooks/SavedSetsContext";
+import { useCollectionsContext } from "../../hooks/CollectionsContext";
 
 export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet, removeFunc}) {
   const [longHover, setLongHover] = useState(false);
@@ -25,8 +25,8 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
   const { ref, isDragging } = useDraggable({ id: setname + "-" + cardID, plugins: [Feedback.configure({ feedback: 'clone' })] })
 
   const { activeView } = useSetEditContext();
-  const { currentSetType } = useSavedSetsContext();
-  const isComparePage = useMatch("/collections") && activeView === "Compare"
+  const { currentSetType } = useCollectionsContext();
+  const isComparePage = useMatch("/workspace") && activeView === "Compare"
   const enabled = (!isComparePage || cardData?.cardType === "Gear")
 
   const setDisplayHelper = (cardID) => {
@@ -50,11 +50,11 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
       appendTo={document.body}
       offset={[0, 0]}
       placement="right-start"
-      content={longHover && <div className="saved-sets-card__hover-display"><CardRenderer cardData={cardData} /></div>}
+      content={longHover && <div className="collections-card__hover-display"><CardRenderer cardData={cardData} /></div>}
     >
 
       <div 
-        className="saved-sets-card-details clickable"
+        className="collections-card-details clickable"
         onClick={() => setDisplayHelper(cardData?.cardIDs[0])}
         onPointerEnter={() => onHover()}
         onPointerLeave={() => onUnhover()}
@@ -69,7 +69,7 @@ export function SavedSetCard({setname, cardID, index, isBackpackSet, isSearchSet
         </span>
         <span style={{display: "flex", alignItems: "center"}}>
           {!isSearchSet && <span
-            className="saved-sets-button"
+            className="collections-button"
             style={{ flex: "unset" }}
             onClick={(e) => { e.stopPropagation(); isBackpackSet ? removeFromBackpack(cardID) : removeFunc(setname, cardID) }}
           >
@@ -85,14 +85,14 @@ export function SavedSet({ setname, index }) {
   const [isOpen, setIsOpen] = useState(false);
   const [addingCard, setAddingCard] = useState(false);
   const { appState, cardCache, addCardToSet, addToBackpack, removeCardFromSet } = useLocalStorage();
-  const { handleSaveSet, handleClickOnSet, renameSet, handleDeleteSet } = savedSetsLib();
+  const { handleSaveSet, handleClickOnSet, renameSet, handleDeleteSet } = collectionsLib();
   const isBackpackSet = setname === "Backpack";
   const isSearchSet = setname === "Current Search";
   const {ref, isDropTarget} = useDroppable({ id: setname, data: {onDrop: handleSetDrop} });
 
   const set = isBackpackSet ? appState.backpack
     : isSearchSet ? appState.searchSet
-    : appState.savedSets[setname]
+    : appState.collections[setname]
 
   function handleSetDrop(id){
     if (!id) return
@@ -121,34 +121,34 @@ export function SavedSet({ setname, index }) {
     >
 
       <div className="saved-set__title-bar">
-        <div className="saved-sets-button" onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen) }}>{isOpen ? "▽" : "△"}</div>
+        <div className="collections-button" onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen) }}>{isOpen ? "▽" : "△"}</div>
         
         {isBackpackSet && <span>{getIcon({ name: "Backpack", invert: true })} {setname}</span>}
         {isSearchSet && <span>{getIcon({ name: "Catalog", invert: true })} {setname}</span>}
         {(!isBackpackSet && !isSearchSet) && <EditableTitle titleID={index} onSave={renameSet} initialName={setname} />}
         
         {(isBackpackSet || isSearchSet)
-          ? <span className="saved-sets-button" onClick={(e) => { e.stopPropagation(); handleSaveSet(`New Set`, set) }}>
+          ? <span className="collections-button" onClick={(e) => { e.stopPropagation(); handleSaveSet(`New Set`, set) }}>
             {getIcon({ name: "Save", invert: true })}
           </span>
-          : <SavedSetsMenu options={[
+          : <CollectionsMenu options={[
             { title: <>Merge {getIcon({name: "Backpack", invert: true})}</>, func: () => appState.backpack.map(card => addCardToSet(setname, card)) },
             { title: "Duplicate", func: () => handleSaveSet(setname, set) },
             { title: "Delete", func: () => handleDeleteSet(setname) }
           ]} />
         }
 
-        {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.savedSets[set].length}</span> */}
+        {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.collections[set].length}</span> */}
       </div>
 
       <ul className="saved-set__dropdown" style={{display: isOpen ? "block" : "none"}} onClick={(e) => e.stopPropagation()}>
         {(!isBackpackSet && !isSearchSet) && (addingCard
           ? <SearchableList items={allCards} onItemClick={(id) => handleAddCardToSet(setname, id)} customPlaceholder="Add card..." />
-          : <span className="saved-sets__new-set-button" onClick={()=>setAddingCard(true)}>+ Add Card</span>
+          : <span className="collections__new-set-button" onClick={()=>setAddingCard(true)}>+ Add Card</span>
         )}
 
         {set?.map((card, j) => 
-          <div className="saved-sets-card__empty-slot" key={j}>
+          <div className="collections-card__empty-slot" key={j}>
             <SavedSetCard setname={setname} cardID={card} isBackpackSet={isBackpackSet} isSearchSet={isSearchSet} removeFunc={removeCardFromSet} />
           </div>
         )}

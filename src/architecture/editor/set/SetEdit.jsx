@@ -23,7 +23,7 @@ const SetEdit = ({}) => {
       <div className={`setedit-card-list`} ref={ref}>
         {appState.activeSet?.map((card, i) => 
           <div className="drag-setedit-item" key={i}>
-            {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant={backpackIsActive ? "collections" : "workspace"} />}
+            {cardCache.get(card) && <CardRenderer cardData={cardCache.get(card)} variant={backpackIsActive ? "workspace" : "play"} />}
           </div>
         )}
       </div>

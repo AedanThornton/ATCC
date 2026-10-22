@@ -3,10 +3,10 @@ import { createContext, useContext, useState } from "react";
 const WorkspaceContext = createContext();
 
 export function WorkspaceProvider({ children }) {
-  const [activeView, setActiveView] = useState("Deck");
+  const [activeView, setActiveView] = useState("set");
 
   const values = { 
-    activeView, setActiveView,
+    activeView, setActiveView
   }
 
   return (

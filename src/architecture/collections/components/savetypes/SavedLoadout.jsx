@@ -1,9 +1,9 @@
 import React from "react";
 import { useLocalStorage } from "../../../../management/localstorage/LocalStorageContext";
-import "../../styles/savedsets.css"
+import "../../styles/collections.css"
 import EditableTitle from "../../../../components/utils/EditableTitle";
 import { useState } from "react";
-import SavedSetsMenu from "../SavedSetsMenu";
+import CollectionsMenu from "../CollectionsMenu";
 import SearchableList from "../../../../components/utils/SearchableList";
 import { SavedSetCard } from "./SavedSet";
 import getIcon from "../../../../components/utils/iconUtils";
@@ -43,9 +43,9 @@ const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
   }
 
   return (
-    <div className="saved-sets__loadout-item">
-      <div key={index} className="saved-sets__loadout-card">
-        <div className="saved-sets__loadout-card__icon">{getIcon({name: (slotType.includes("Hand") && slotCard) ? slotCard?.slot : slotType.replace(/\s+/g, ''), invert: true})}</div>
+    <div className="collections__loadout-item">
+      <div key={index} className="collections__loadout-card">
+        <div className="collections__loadout-card__icon">{getIcon({name: (slotType.includes("Hand") && slotCard) ? slotCard?.slot : slotType.replace(/\s+/g, ''), invert: true})}</div>
 
         <div style={{flex: 1}}>{(loadoutname in appState.loadouts && slot in appState.loadouts[loadoutname] && appState.loadouts[loadoutname][slot])
           ? <SavedSetCard setname={loadoutname} cardID={appState.loadouts[loadoutname][slot]} removeFunc={(loadoutname, id) => setSlot(slot, null, loadoutname)} />
@@ -53,7 +53,7 @@ const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
         }</div>
       </div>
 
-      {removable && <div className="saved-sets__loadout-item__button" onClick={(e) => {e.stopPropagation(); removeSlot(
+      {removable && <div className="collections__loadout-item__button" onClick={(e) => {e.stopPropagation(); removeSlot(
         slot.slice(0, -1), 
         slotTypeIndex, 
         loadoutname, 
@@ -108,11 +108,11 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
     >
 
       <div className="saved-set__title-bar">
-        <div className="saved-sets-button" onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen) }}>{isOpen ? "▽" : "△"}</div>
+        <div className="collections-button" onClick={(e) => { e.stopPropagation(); setIsOpen(!isOpen) }}>{isOpen ? "▽" : "△"}</div>
         
         <EditableTitle titleID={index} onSave={renameLoadout} initialName={loadoutname} />
         
-        <SavedSetsMenu options={[
+        <CollectionsMenu options={[
           { title: "Duplicate", func: () => saveLoadout(loadoutname, loadout) },
           { title: "Delete", func: () => deleteLoadout(loadoutname) }
         ]} />
@@ -129,17 +129,17 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
                 cardCache.get(appState.loadouts[loadoutname][slot.slice(0, -1) + `${parseInt(slot.slice(-1)) - 2}`])?.slot?.[0] === "3"
             )) 
               &&
-            <div className="saved-sets-card__empty-slot">
+            <div className="collections-card__empty-slot">
               <SavedLoadoutCard loadoutname={loadoutname} slot={slot} index={j} />
             </div>}
 
             {handCount < 5 && slot.slice(0, -1) === "OneHanded" && parseInt(slot.slice(-1)) === handCount - 1 &&
-              <div className="saved-sets-card__empty-slot new-slot-button" onClick={() => addHandSlotLoadout(loadoutname, handCount)}>
+              <div className="collections-card__empty-slot new-slot-button" onClick={() => addHandSlotLoadout(loadoutname, handCount)}>
                 + {getIcon({name: "OneHanded", invert: true})}
               </div>
             }
             {supportCount < 5 && slot.slice(0, -1) === "Support" && parseInt(slot.slice(-1)) === supportCount - 1 &&
-              <div className="saved-sets-card__empty-slot new-slot-button" onClick={() => addSupportSlotLoadout(loadoutname, supportCount)}>
+              <div className="collections-card__empty-slot new-slot-button" onClick={() => addSupportSlotLoadout(loadoutname, supportCount)}>
                 + {getIcon({name: "Support", invert: true})}
               </div>
             }

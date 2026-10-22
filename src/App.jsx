@@ -7,9 +7,9 @@ import AboutPage from './pages/about/AboutPage';
 import FocusCardPage from './components/focuscard/FocusCardPage'
 import NotFoundPage from './pages/404/NotFoundPage';
 import SearchInfoPage from './architecture/catalog/components/searchinfo/SearchInfoPage'
-import Collections from "./architecture/editor/collections/Collections";
+import Workspace from "./architecture/editor/workspace/Workspace";
 import { useAllCards } from "./hooks/useAllCards";
-import Workspace from "./architecture/play/workspace/Workspace";
+import Play from "./architecture/play/main/Play";
 
 const App = () => {
   const { data, isLoading, error } = useAllCards()
@@ -21,8 +21,8 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="catalog" element={<CardLibraryPage />} />
-        <Route path="collections" element={<Collections />} />
         <Route path="workspace" element={<Workspace />} />
+        <Route path="play" element={<Play />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="search-info" element={<SearchInfoPage />} />
         <Route path="*" element={<NotFoundPage />} />

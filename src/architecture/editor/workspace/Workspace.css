@@ -45,20 +45,6 @@
   position: relative;
 }
 
-.workspace-card-list {
-  width: 100%;
-  padding: 3%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: flex-start;
-  font-size: 30px;
-  box-sizing: border-box;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  gap: 40px;
-}
-
 .workspace.is-drop-target {
   border-color: white;
   background-color: #9ec5c9;
@@ -103,25 +89,6 @@
 
 .workspace-menu-error {
   animation: workspaceMenuError 0.5s ease;
-}
-
-.workspace-error-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  animation: workspaceMenuError 1s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.workspace-error-overlay span {
-  padding: 3px 10px;
-  background-color: rgb(103, 0, 0);
-  border-radius: 5px;
 }
 
 .workspace-tab-selector {

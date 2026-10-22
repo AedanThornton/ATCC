@@ -1,4 +1,4 @@
-.drag-collections-overlay {
+.drag-play-overlay {
   height: 100dvh;
   width: 100dvw;
   position: fixed;
@@ -13,12 +13,12 @@
   display: none;
 }
 
-.drag-collections-overlay.collections-open {
+.drag-play-overlay.play-open {
   background-color: #0000007b;
   display: flex;
 }
 
-.collections-wrapper {
+.play-wrapper {
   width: 50dvw;
   height: 70dvh;
   position: fixed;
@@ -37,7 +37,7 @@
   box-sizing: border-box;
 }
 
-.collections {
+.play {
   height: 100%;
   width: 100%;
   display: flex;
@@ -45,12 +45,26 @@
   position: relative;
 }
 
-.collections.is-drop-target {
+.play-card-list {
+  width: 100%;
+  padding: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  font-size: 30px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  gap: 40px;
+}
+
+.play.is-drop-target {
   border-color: white;
   background-color: #9ec5c9;
 }
 
-.collections-sidebar {
+.play-sidebar {
   width: 100%;
   height: 100%;
   display: flex;
@@ -59,7 +73,7 @@
   flex-direction: column;
 }
 
-.collections-control-bar {
+.play-control-bar {
   background-color: var(--main-midtone);
   border-radius: 5px;
   padding: 15px;
@@ -69,7 +83,7 @@
   gap: 25px;
 }
 
-.collections-button {
+.play-button {
   padding: 4px;
   background-color: unset;
   display: flex;
@@ -79,19 +93,38 @@
   font-size: 30px;
 }
 
-.collections-button:hover {
+.play-button:hover {
   background-color: var(--main-light);
 }
 
-.collections-button.clear-all {
+.play-button.clear-all {
   background-color: var(--main);
 }
 
-.collections-menu-error {
-  animation: collectionsMenuError 0.5s ease;
+.play-menu-error {
+  animation: playMenuError 0.5s ease;
 }
 
-.collections-tab-selector {
+.play-error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  animation: playMenuError 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-error-overlay span {
+  padding: 3px 10px;
+  background-color: rgb(103, 0, 0);
+  border-radius: 5px;
+}
+
+.play-tab-selector {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +135,7 @@
   border-bottom: 4px solid var(--main-midtone);
 }
 
-.collections-tab-selector > * {
+.play-tab-selector > * {
   background-color: var(--main-midtone);
   padding: 10px 20px;
   height: 40px;
@@ -117,21 +150,21 @@
   border-radius: unset;
 }
 
-.collections-tab-selector > *:hover {
+.play-tab-selector > *:hover {
   background-color: var(--main-light);
 }
 
-.collections-tab-selector > *:disabled {
+.play-tab-selector > *:disabled {
   background-color: var(--accent);
 }
 
-.collections__main {
+.play__main {
   display: flex;
   flex: 1;
   min-height: 0;
 }
 
-.collections__view-window {
+.play__view-window {
   display: flex;
   justify-content: flex-start;
   height: 100%;
@@ -141,7 +174,7 @@
   min-height: 0;
 }
 
-@keyframes collectionsMenuError {
+@keyframes playMenuError {
   0% {
     background-color: rgba(150, 0, 0, 0.562);
   }
@@ -152,12 +185,12 @@
 }
 
 @media (min-width: 820px) {
-  .collections-wrapper {
+  .play-wrapper {
     width: 30dvw;
     left: -28dvw;
   }
 
-  .collections-tab-selector > * {
+  .play-tab-selector > * {
     width: 140px;
     padding: 10px;
   }

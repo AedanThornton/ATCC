@@ -10,12 +10,12 @@ import { LocalStorageProvider } from './management/localstorage/LocalStorageCont
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { LayoutProvider } from './architecture/layout/LayoutContext.jsx'
-import { CollectionsProvider } from './architecture/editor/collections/hooks/CollectionsContext.jsx' 
-import { SavedSetsProvider } from './architecture/savedsets/hooks/SavedSetsContext.jsx' 
+import { WorkspaceProvider } from './architecture/editor/workspace/hooks/WorkspaceContext.jsx' 
+import { CollectionsProvider } from './architecture/collections/hooks/CollectionsContext.jsx' 
 import DnDWrapper from './management/dragndrop/DnDWrapper.jsx' 
 import { DnDProvider } from './management/dragndrop/DnDContext.jsx' 
 import LocalStorageManager from './management/localstorage/LocalStorageManager.jsx' 
-import { WorkspaceProvider } from './architecture/play/workspace/hooks/WorkspaceContext.jsx'
+import { PlayProvider } from './architecture/play/main/hooks/PlayContext.jsx'
 import { SetEditProvider } from './architecture/editor/set/hooks/SetEditContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
@@ -40,17 +40,17 @@ createRoot(document.getElementById('root')).render(
               <DnDProvider>
                 <DnDWrapper>
                   <SetEditProvider>
-                    <WorkspaceProvider>
-                      <CollectionsProvider>
+                    <PlayProvider>
+                      <WorkspaceProvider>
                         <LayoutProvider>
-                          <SavedSetsProvider>
+                          <CollectionsProvider>
                             <FocusCardCache />
                             <LocalStorageManager />
                             <App />
-                          </SavedSetsProvider>
+                          </CollectionsProvider>
                         </LayoutProvider>
-                      </CollectionsProvider>
-                    </WorkspaceProvider>
+                      </WorkspaceProvider>
+                    </PlayProvider>
                   </SetEditProvider>
                 </DnDWrapper>
               </DnDProvider>

@@ -25,7 +25,7 @@ const DeckHighlightCard = ({ deckState }) => {
   }
 
   return <div className="deck-page__highlight-card">
-    <CardRenderer cardData={cardCache.get(deckState.highlightCard)} variant="collections" />
+    <CardRenderer cardData={cardCache.get(deckState.highlightCard)} variant="workspace" />
     <div className="deck-page__highlight-card__menu">
       {/* Leave card available button */}
       <button className="deck-page__highlight-card__button"

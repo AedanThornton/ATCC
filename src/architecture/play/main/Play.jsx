@@ -1,17 +1,17 @@
 import { useEffect } from "react";
-import { useWorkspaceContext } from "./hooks/WorkspaceContext";
+import { usePlayContext } from "./hooks/PlayContext";
 import { useLayout } from "../../layout/LayoutContext";
-import SavedSets from "../../savedsets/SavedSets";
-import { WorkspaceLayoutTopbar } from "./components/WorkspaceLayout";
-import "./Workspace.css"
+import Collections from "../../collections/Collections";
+import { PlayLayoutTopbar } from "./components/PlayLayout";
+import "./Play.css"
 
 import Deck from "../deck/Deck";
 import Loadout from "../loadout/Loadout";
 import Compare from "../compare/Compare"
 
-const Workspace = ({}) => {
+const Play = ({}) => {
   const { setLayout } = useLayout();
-  const { activeView } = useWorkspaceContext();
+  const { activeView } = usePlayContext();
 
   const views = {
     "Deck": Deck,
@@ -23,18 +23,18 @@ const Workspace = ({}) => {
   useEffect(()=> {
     setLayout({
       main: null,
-      topbar: <WorkspaceLayoutTopbar />
+      topbar: <PlayLayoutTopbar />
     })
   }, [])
 
-  return <div className="workspace">
-    <div className="workspace__main">
-      <SavedSets />
-      <div className="workspace__view-window">
+  return <div className="play">
+    <div className="play__main">
+      <Collections />
+      <div className="play__view-window">
         <View />
       </div>
     </div>
   </div>
 }
 
-export default Workspace
+export default Play

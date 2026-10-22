@@ -1,23 +1,23 @@
 import { useLocalStorage } from "../../management/localstorage/LocalStorageContext";
-import "./styles/savedsets.css"
+import "./styles/collections.css"
 import getIcon from "../../components/utils/iconUtils";
 import { useEffect } from "react";
 import { useDroppable } from "@dnd-kit/react";
-import savedSetsLib from "./lib/savedSetsLib";
-import SavedSetsSelector from "./components/SavedSetsSelector";
-import { useSavedSetsContext } from "./hooks/SavedSetsContext"; 
+import collectionsLib from "./lib/collectionsLib";
+import CollectionsSelector from "./components/CollectionsSelector";
+import { useCollectionsContext } from "./hooks/CollectionsContext"; 
 import { useMatch } from "react-router-dom";
 import SavedLoadout from "./components/savetypes/SavedLoadout";
 import { SavedSet } from "./components/savetypes/SavedSet";
 
-function SavedSets() {
+function Collections() {
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
-  const { currentSetType, activeSetName, savedSetsOpen, setSavedSetsOpen } = useSavedSetsContext();
-  const { buttonError, checkForSetNameMatch } = savedSetsLib();
+  const { currentSetType, activeSetName, collectionsOpen, setCollectionsOpen } = useCollectionsContext();
+  const { buttonError, checkForSetNameMatch } = collectionsLib();
   const { appState, saveSet, saveLoadout, newEmptyLoadout } = useLocalStorage();
 
-  const {ref} = useDroppable({id: "saved-sets-panel"})
+  const {ref} = useDroppable({id: "collections-panel"})
   const isCatalogPage = useMatch("/catalog")
 
   useEffect(() => {
@@ -25,15 +25,15 @@ function SavedSets() {
   }, [appState.activeSet])
 
   return (
-    <div className='saved-sets__container' 
-      style={!savedSetsOpen ? { 
+    <div className='collections__container' 
+      style={!collectionsOpen ? { 
         transform: `translateX(-100%)`,
         width: "0",
         flex: "0",
       } : {}}
     >
-      <div className='saved-sets' style={{display: savedSetsOpen ? "initial" : "none"}}>
-        <div className="saved-sets-panel" ref={ref}>
+      <div className='collections' style={{display: collectionsOpen ? "initial" : "none"}}>
+        <div className="collections-panel" ref={ref}>
 
           {!isCatalogPage && appState.activeSet.length < 1 && <h1>Select a set...</h1>}
           {!isCatalogPage && appState.activeSet.length > 0 && 
@@ -48,7 +48,7 @@ function SavedSets() {
                 +{getIcon({name: "Save", invert: true})} Save Current
               </h1>
             : <h1>
-                {activeSetName === "Collections" && <>{getIcon({name: "Backpack", invert: true})} </>}
+                {activeSetName === "Workspace" && <>{getIcon({name: "Backpack", invert: true})} </>}
                 {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
                 {activeSetName}
               </h1>
@@ -62,14 +62,14 @@ function SavedSets() {
 
           <h2>SAVED</h2>
 
-          <SavedSetsSelector />
+          <CollectionsSelector />
 
-          <div className="saved-sets__set-list">
-            {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
+          <div className="collections__set-list">
+            {currentSetType === "Sets" && Object.keys(appState.collections).map((set, i) => (
               <SavedSet setname={set} key={i} />
             ))}
-            {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
-              // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
+            {currentSetType === "Decks" && Object.keys(appState.collections).map((set, i) => (
+              // <SavedSet setname={set} set={appState.collections[set]} index={i} />
               <></>
             ))}
             {currentSetType === "Loadouts" && Object.keys(appState.loadouts).map((loadout, i) => (
@@ -78,12 +78,12 @@ function SavedSets() {
           </div>
 
           {!appState["saved" + currentSetType] || Object.keys(appState["saved" + currentSetType]).length === 0 &&
-            <div className="no-saved-sets">
+            <div className="no-collections">
               <p>No saved {currentSetType} yet!</p>
             </div>
           }
 
-          <div className="saved-sets__new-set-button" 
+          <div className="collections__new-set-button" 
             onClick={() => {
               currentSetType === "Sets" && saveSet("New Set", []);
               currentSetType === "Loadouts" && newEmptyLoadout();
@@ -91,17 +91,17 @@ function SavedSets() {
             + New Empty {currentSetType.slice(0, -1)}
           </div>
 
-          {buttonError && <div className="collections-error-overlay">
+          {buttonError && <div className="workspace-error-overlay">
             <span>{buttonError}</span>
           </div>}
         </div>
       </div>
 
-      <div className={`saved-sets__thumb ${(savedSetsOpen && !isNotMobile) ? "flip-thumb" : ""}`} onClick={() => setSavedSetsOpen(!savedSetsOpen)}>
+      <div className={`collections__thumb ${(collectionsOpen && !isNotMobile) ? "flip-thumb" : ""}`} onClick={() => setCollectionsOpen(!collectionsOpen)}>
         {getIcon({name: "Options", invert: true, size: "1.4em"})}
       </div>
     </div>
   );
 }
 
-export default SavedSets;
+export default Collections;

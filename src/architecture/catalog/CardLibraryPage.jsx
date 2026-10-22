@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import CardList from './CardList';
 import { useLayout } from "../layout/LayoutContext"
 import { CatalogLayoutMain, CatalogLayoutTopbar } from './components/controls/CatalogLayout';
-import SavedSets from '../savedsets/SavedSets';
+import Collections from '../collections/Collections';
 
 function CardLibraryPage() {
   const { setLayout } = useLayout()
@@ -16,7 +16,7 @@ function CardLibraryPage() {
 
   return (
     <div className="card-list-main">
-      <SavedSets />
+      <Collections />
       
       <CardList />
     </div>

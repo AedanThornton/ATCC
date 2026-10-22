@@ -5,11 +5,11 @@ import { useFilterOptions } from "./components/searchfilters/useFilterOptions";
 import { useCards } from "./hooks/useCards";
 import CardRenderer from "../../components/cards/CardRenderer"
 import { useLocalStorage } from "../../management/localstorage/LocalStorageContext";
-import { useSavedSetsContext } from "../savedsets/hooks/SavedSetsContext";
+import { useCollectionsContext } from "../collections/hooks/CollectionsContext";
 
 const CardList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { savedSetsOpen } = useSavedSetsContext();
+  const { collectionsOpen } = useCollectionsContext();
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
   //Response values from API
@@ -56,7 +56,7 @@ const CardList = () => {
   };
 
   return (
-    <div className="card-list" style={(savedSetsOpen && !isNotMobile) ? {display: "none"} : {}}>
+    <div className="card-list" style={(collectionsOpen && !isNotMobile) ? {display: "none"} : {}}>
       {filteredCards.length > 0 ? (
         filteredCards.map((cardname, index) => {
           return (

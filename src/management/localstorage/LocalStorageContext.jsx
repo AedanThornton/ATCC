@@ -12,7 +12,7 @@ export function LocalStorageProvider({ children }) {
       activeLoadout: {},
       searchSet: [],
       backpack: [],
-      savedSets: {},
+      collections: {},
       loadouts: {}
     };
 
@@ -24,7 +24,7 @@ export function LocalStorageProvider({ children }) {
       activeLoadout: parsed.activeLoadout ?? {},
       searchSet: parsed.searchSet ?? [],
       backpack: parsed.backpack ?? [],
-      savedSets: parsed.savedSets ?? {},
+      collections: parsed.collections ?? {},
       loadouts: parsed.loadouts ?? {}
     };
   });
@@ -94,9 +94,9 @@ export function LocalStorageProvider({ children }) {
   }
   const saveSet = (name, ids) => setAppState(prev => ({
     ...prev,
-    savedSets: {
-      ...prev.savedSets,
-      [checkNames(name, prev.savedSets)]: ids
+    collections: {
+      ...prev.collections,
+      [checkNames(name, prev.collections)]: ids
     }
   }));
 
@@ -106,12 +106,12 @@ export function LocalStorageProvider({ children }) {
   }));
 
   const deleteSet = (setName) => setAppState(prev => {
-    const newSavedSets = { ...prev.savedSets };
-    delete newSavedSets[setName];
+    const newCollections = { ...prev.collections };
+    delete newCollections[setName];
 
     return {
       ...prev,
-      savedSets: newSavedSets
+      collections: newCollections
     };
   });
 
@@ -122,17 +122,17 @@ export function LocalStorageProvider({ children }) {
 
   const addCardToSet = (setName, cardID) => setAppState(prev => ({
     ...prev,
-    savedSets: {
-      ...prev.savedSets,
-      [setName]: [...new Set([...prev.savedSets[setName], cardID])]
+    collections: {
+      ...prev.collections,
+      [setName]: [...new Set([...prev.collections[setName], cardID])]
     }
   }));
 
   const removeCardFromSet = (setName, cardID) => setAppState(prev => ({
     ...prev,
-    savedSets: {
-      ...prev.savedSets,
-      [setName]: prev.savedSets[setName].filter(c => c !== cardID)
+    collections: {
+      ...prev.collections,
+      [setName]: prev.collections[setName].filter(c => c !== cardID)
     }
   }));
 
