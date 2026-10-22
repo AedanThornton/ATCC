@@ -9,6 +9,7 @@ import NotFoundPage from './pages/404/NotFoundPage';
 import SearchInfoPage from './architecture/catalog/components/searchinfo/SearchInfoPage'
 import Collections from "./architecture/editor/collections/Collections";
 import { useAllCards } from "./hooks/useAllCards";
+import Workspace from "./architecture/play/workspace/Workspace";
 
 const App = () => {
   const { data, isLoading, error } = useAllCards()
@@ -21,6 +22,7 @@ const App = () => {
         <Route index element={<Navigate to="/home" replace />}/>
         <Route path="catalog" element={<CardLibraryPage />} />
         <Route path="collections" element={<Collections />} />
+        <Route path="workspace" element={<Workspace />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="search-info" element={<SearchInfoPage />} />
         <Route path="*" element={<NotFoundPage />} />

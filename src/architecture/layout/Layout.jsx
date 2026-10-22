@@ -28,9 +28,15 @@ function Layout({}) {
                   <div className='nav-close-button' onClick={(e) => {e.stopPropagation; setNavOpen(false)}}>✖</div>
                   <ul>
                     <Link onClick={() => setNavOpen(false)} to="/home"><li>Home</li></Link>
-                    <Link onClick={() => setNavOpen(false)} to="/catalog"><li>Card Catalog</li></Link>
-                    <Link onClick={() => setNavOpen(false)} to="/search-info"><li>Catalog Docs</li></Link>
+                    <li className='nav-spacer'></li>
+                    <Link onClick={() => setNavOpen(false)} to="/catalog"><li>Card Catalog {getIcon({name: "Catalog", invert: true})}</li>
+                      <ul>
+                        <Link onClick={() => setNavOpen(false)} to="/search-info"><li>Catalog Docs</li></Link>
+                      </ul>
+                    </Link>
                     <Link onClick={() => setNavOpen(false)} to="/collections"><li>Collections {getIcon({name: "Backpack", invert: true})}</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/workspace"><li>Workspace</li></Link>
+                    <li className='nav-spacer'></li>
                     <Link onClick={() => setNavOpen(false)} to="/about"><li>About</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer"><li>Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></li></Link>
                   </ul>
