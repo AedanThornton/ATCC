@@ -17,6 +17,7 @@ import { DnDProvider } from './management/dragndrop/DnDContext.jsx'
 import LocalStorageManager from './management/localstorage/LocalStorageManager.jsx' 
 import { PlayProvider } from './architecture/play/main/hooks/PlayContext.jsx'
 import { SetEditProvider } from './architecture/editor/set/hooks/SetEditContext.jsx'
+import { AnalyticsProvider } from './architecture/analytics/main/hooks/AnalyticsContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
 
@@ -40,17 +41,19 @@ createRoot(document.getElementById('root')).render(
               <DnDProvider>
                 <DnDWrapper>
                   <SetEditProvider>
-                    <PlayProvider>
-                      <WorkspaceProvider>
-                        <LayoutProvider>
-                          <CollectionsProvider>
-                            <FocusCardCache />
-                            <LocalStorageManager />
-                            <App />
-                          </CollectionsProvider>
-                        </LayoutProvider>
-                      </WorkspaceProvider>
-                    </PlayProvider>
+                    <AnalyticsProvider>
+                      <PlayProvider>
+                        <WorkspaceProvider>
+                          <LayoutProvider>
+                            <CollectionsProvider>
+                              <FocusCardCache />
+                              <LocalStorageManager />
+                              <App />
+                            </CollectionsProvider>
+                          </LayoutProvider>
+                        </WorkspaceProvider>
+                      </PlayProvider>
+                    </AnalyticsProvider>
                   </SetEditProvider>
                 </DnDWrapper>
               </DnDProvider>

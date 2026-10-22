@@ -36,6 +36,7 @@ function Layout({}) {
                     </Link>
                     <Link onClick={() => setNavOpen(false)} to="/workspace"><li>Workspace {getIcon({name: "Backpack", invert: true})}</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="/play"><li>Play</li></Link>
+                    <Link onClick={() => setNavOpen(false)} to="/analytics"><li>Analytics</li></Link>
                     <li className='nav-spacer'></li>
                     <Link onClick={() => setNavOpen(false)} to="/about"><li>About</li></Link>
                     <Link onClick={() => setNavOpen(false)} to="https://ko-fi.com/artifus" target="_blank" rel="noopener noreferrer"><li>Support Me <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt=' on Ko-fi' width="35" height="30" /></li></Link>

@@ -7,7 +7,6 @@ const PlayTabSelector = () => {
   const views = [
     "Deck",
     "LoadoutBuilder",
-    "Compare",
     // "Simulator",
   ];
 

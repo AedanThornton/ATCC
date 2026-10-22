@@ -10,6 +10,7 @@ import SearchInfoPage from './architecture/catalog/components/searchinfo/SearchI
 import Workspace from "./architecture/editor/workspace/Workspace";
 import { useAllCards } from "./hooks/useAllCards";
 import Play from "./architecture/play/main/Play";
+import Analytics from "./architecture/analytics/main/Analytics";
 
 const App = () => {
   const { data, isLoading, error } = useAllCards()
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="catalog" element={<CardLibraryPage />} />
         <Route path="workspace" element={<Workspace />} />
         <Route path="play" element={<Play />} />
+        <Route path="analytics" element={<Analytics />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="search-info" element={<SearchInfoPage />} />
         <Route path="*" element={<NotFoundPage />} />

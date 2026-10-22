@@ -7,7 +7,6 @@ import "./Play.css"
 
 import Deck from "../deck/Deck";
 import Loadout from "../loadout/Loadout";
-import Compare from "../compare/Compare"
 
 const Play = ({}) => {
   const { setLayout } = useLayout();
@@ -16,7 +15,6 @@ const Play = ({}) => {
   const views = {
     "Deck": Deck,
     "LoadoutBuilder": Loadout,
-    "Compare": Compare
   };
   const View = views[activeView];
 
