@@ -1,0 +1,197 @@
+.drag-workspace-overlay {
+  height: 100dvh;
+  width: 100dvw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000000;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+  padding: 10px;
+  transition: background-color 250ms;
+  display: none;
+}
+
+.drag-workspace-overlay.workspace-open {
+  background-color: #0000007b;
+  display: flex;
+}
+
+.workspace-wrapper {
+  width: 50dvw;
+  height: 70dvh;
+  position: fixed;
+  z-index: 550;
+  left: -45dvw;
+  top: 0;
+  margin-top: 20dvh;
+  border: 3px dashed rgb(220, 220, 220);
+  border-radius: 5px;
+  background-color: rgb(146, 146, 146);
+  transition: border 1s, background-color 1s, left 500ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1%;
+  box-sizing: border-box;
+}
+
+.workspace {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.workspace-card-list {
+  width: 100%;
+  padding: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  font-size: 30px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  gap: 40px;
+}
+
+.workspace.is-drop-target {
+  border-color: white;
+  background-color: #9ec5c9;
+}
+
+.workspace-sidebar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.workspace-control-bar {
+  background-color: var(--main-midtone);
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.workspace-button {
+  padding: 4px;
+  background-color: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 30px;
+}
+
+.workspace-button:hover {
+  background-color: var(--main-light);
+}
+
+.workspace-button.clear-all {
+  background-color: var(--main);
+}
+
+.workspace-menu-error {
+  animation: workspaceMenuError 0.5s ease;
+}
+
+.workspace-error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  animation: workspaceMenuError 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workspace-error-overlay span {
+  padding: 3px 10px;
+  background-color: rgb(103, 0, 0);
+  border-radius: 5px;
+}
+
+.workspace-tab-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  padding-top: 5px;
+  background-color: unset;
+  background-color: var(--main-midtone);
+  border-bottom: 4px solid var(--main-midtone);
+}
+
+.workspace-tab-selector > * {
+  background-color: var(--main-midtone);
+  padding: 10px 20px;
+  height: 40px;
+  width: fit-content;
+  text-align: center;
+  line-height: 34px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: unset;
+}
+
+.workspace-tab-selector > *:hover {
+  background-color: var(--main-light);
+}
+
+.workspace-tab-selector > *:disabled {
+  background-color: var(--accent);
+}
+
+.workspace__main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.workspace__view-window {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100dvw;
+  flex: 3;
+  min-width: 0;
+  min-height: 0;
+}
+
+@keyframes workspaceMenuError {
+  0% {
+    background-color: rgba(150, 0, 0, 0.562);
+  }
+
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+@media (min-width: 820px) {
+  .workspace-wrapper {
+    width: 30dvw;
+    left: -28dvw;
+  }
+
+  .workspace-tab-selector > * {
+    width: 140px;
+    padding: 10px;
+  }
+}
