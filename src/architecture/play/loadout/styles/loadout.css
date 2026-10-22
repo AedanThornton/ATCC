@@ -1,0 +1,162 @@
+.loadout {
+  background-color: var(--main);
+  width: 100%;
+  height: 100%;
+  flex: 2;
+  min-width: 0;
+  position: relative;
+}
+
+.loadout-main {
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 8%;
+  box-sizing: border-box;
+}
+
+.loadout-groups-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+  margin-top: 20px;
+  transform-origin: top left;
+  width: fit-content;
+  height: fit-content;
+}
+
+.loadout-groups-container, .loadout-slotgroup {
+  gap: 40px;
+}
+
+/* Slotgroup */
+.loadout-slotgroup {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min-content;
+}
+
+.loadout-slotgroup__add-slot {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+/* Loadout Slot Swapper */
+.loadout-slot-swapper {
+  position: relative;
+}
+
+.loadout-slot-swapper__main, .loadout-slot-swapper__attachment {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  transition: bottom 600ms ease-in-out, left 600ms ease, z-index 600ms ease-out;
+  filter: drop-shadow(10px 10px 15px var(--main));
+}
+
+.loadout-slot-swapper__main.active, .loadout-slot-swapper__attachment.active {
+  z-index: 2;
+}
+
+.loadout-slot-swapper__main.behind, .loadout-slot-swapper__attachment.behind {
+  bottom: -20px;
+  left: 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.loadout-slot-swapper__main.behind > .card.loadout-slot__empty, .loadout-slot-swapper__attachment.behind > .card.loadout-slot__empty {
+  filter: brightness(50%);
+}
+
+/* Slot */
+.loadout-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: var(--main);
+}
+
+.loadout-slot__drop-preview {
+  opacity: 0.8;
+  filter: grayscale(50%)
+}
+
+.loadout-slot__filled-slot {
+  outline: 8px solid rgba(0, 0, 0, 0);
+  overflow: visible;
+}
+.loadout-slot__filled-slot.highlighted {
+  outline: 8px solid var(--accent-light);
+  background-color: var(--accent-light);
+}
+
+.card.loadout-slot__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 4px inset var(--main);
+  background-color: var(--main);
+  transition: background-color 300ms ease, border-style 300ms ease;
+}
+.card.loadout-slot__empty:hover {
+  background-color: var(--main-midtone);
+}
+.card.loadout-slot__empty.target {
+  border: 4px solid white;
+}
+.card.loadout-slot__empty.is-drop-option {
+  border: 4px solid var(--main-midtone);
+}
+
+/* Remove button */
+.loadout-slot__remove-button {
+  background-color: var(--main-midtone);
+  border: 3px solid black;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 3px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -15px;
+  top: 35px;
+  z-index: 1;
+  cursor: pointer;
+}
+.loadout-slot__remove-button:hover {
+  background-color: var(--main-light);
+}
+
+/* Top Icon */
+.loadout-slot__icon-display {
+  height: 50px;
+  width: 50%;
+  background-color: var(--main-midtone);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+/*  */
+.loadout-slot__state-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.599);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  pointer-events: none;
+  border: 2px dotted white;
+}

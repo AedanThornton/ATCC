@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useCollectionsContext } from "../../editor/collections/hooks/CollectionsContext";
+import { useSetEditContext } from "../../editor/set/hooks/SetEditContext";
 
 const SavedSetsContext = createContext();
 
 export function SavedSetsProvider({ children }) {
-  const { activeView } = useCollectionsContext();
+  const { activeView } = useSetEditContext();
   
   const [savedSetsOpen, setSavedSetsOpen] = useState(false);
   const [activeSetName, setActiveSetName] = useState("Collections")

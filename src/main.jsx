@@ -15,6 +15,8 @@ import { SavedSetsProvider } from './architecture/savedsets/hooks/SavedSetsConte
 import DnDWrapper from './management/dragndrop/DnDWrapper.jsx' 
 import { DnDProvider } from './management/dragndrop/DnDContext.jsx' 
 import LocalStorageManager from './management/localstorage/LocalStorageManager.jsx' 
+import { WorkspaceProvider } from './architecture/play/workspace/hooks/WorkspaceContext.jsx'
+import { SetEditProvider } from './architecture/editor/set/hooks/SetEditContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
 
@@ -37,15 +39,19 @@ createRoot(document.getElementById('root')).render(
             <LocalStorageProvider>
               <DnDProvider>
                 <DnDWrapper>
-                  <CollectionsProvider>
-                    <LayoutProvider>
-                      <SavedSetsProvider>
-                        <FocusCardCache />
-                        <LocalStorageManager />
-                        <App />
-                      </SavedSetsProvider>
-                    </LayoutProvider>
-                  </CollectionsProvider>
+                  <SetEditProvider>
+                    <WorkspaceProvider>
+                      <CollectionsProvider>
+                        <LayoutProvider>
+                          <SavedSetsProvider>
+                            <FocusCardCache />
+                            <LocalStorageManager />
+                            <App />
+                          </SavedSetsProvider>
+                        </LayoutProvider>
+                      </CollectionsProvider>
+                    </WorkspaceProvider>
+                  </SetEditProvider>
                 </DnDWrapper>
               </DnDProvider>
             </LocalStorageProvider>

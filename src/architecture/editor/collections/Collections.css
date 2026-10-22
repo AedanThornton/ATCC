@@ -45,20 +45,6 @@
   position: relative;
 }
 
-.collections-card-list {
-  width: 100%;
-  padding: 3%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: flex-start;
-  font-size: 30px;
-  box-sizing: border-box;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  gap: 40px;
-}
-
 .collections.is-drop-target {
   border-color: white;
   background-color: #9ec5c9;
@@ -103,25 +89,6 @@
 
 .collections-menu-error {
   animation: collectionsMenuError 0.5s ease;
-}
-
-.collections-error-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  animation: collectionsMenuError 1s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.collections-error-overlay span {
-  padding: 3px 10px;
-  background-color: rgb(103, 0, 0);
-  border-radius: 5px;
 }
 
 .collections-tab-selector {

@@ -3,6 +3,7 @@ import { useWorkspaceContext } from "./hooks/WorkspaceContext";
 import { useLayout } from "../../layout/LayoutContext";
 import SavedSets from "../../savedsets/SavedSets";
 import { WorkspaceLayoutTopbar } from "./components/WorkspaceLayout";
+import "./Workspace.css"
 
 import Deck from "../deck/Deck";
 import Loadout from "../loadout/Loadout";

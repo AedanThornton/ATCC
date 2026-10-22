@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 const WorkspaceContext = createContext();
 
 export function WorkspaceProvider({ children }) {
-  const [activeView, setActiveView] = useState("Backpack");
+  const [activeView, setActiveView] = useState("Deck");
 
   const values = { 
     activeView, setActiveView,

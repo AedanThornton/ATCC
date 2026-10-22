@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCollectionsContext } from "../../editor/collections/hooks/CollectionsContext";
+import { useSetEditContext } from "../../editor/set/hooks/SetEditContext";
 import { useLocalStorage } from "../../../management/localstorage/LocalStorageContext";
 import { useSavedSetsContext } from "../hooks/SavedSetsContext";
 import { arraysEqual } from "../../../lib/arrays";
@@ -7,7 +7,7 @@ import { arraysEqual } from "../../../lib/arrays";
 
 const savedSetsLib = () => {
   const { appState, saveSet, loadSet, deleteSet } = useLocalStorage();
-  const { setBackpackIsActive } = useCollectionsContext();
+  const { setBackpackIsActive } = useSetEditContext();
   const { activeSetName, setActiveSetName } = useSavedSetsContext();
   const [buttonError, setButtonError] = useState(null);
 

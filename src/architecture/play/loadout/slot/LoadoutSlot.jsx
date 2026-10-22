@@ -1,0 +1,154 @@
+import { useDroppable } from "@dnd-kit/react"
+import { useLocalStorage } from "../../../../management/localstorage/LocalStorageContext"
+import CardRenderer from "../../../../components/cards/CardRenderer";
+import LoadoutSlotCardMenu from "./LoadoutSlotCardMenu";
+import getIcon from "../../../../components/utils/iconUtils";
+import { useDnD } from "../../../../management/dragndrop/DnDContext";
+import { useLoadoutContext } from "../hooks/LoadoutContext";
+
+const LoadoutSlot = ({ 
+    slotName = "", 
+    type = "", 
+    index, 
+    cardType = "Gear", 
+    menuDisabled = false, 
+    cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}, highlighted: false, setHighlighted: () => {}} 
+  }) => {
+
+  const { appState, cardCache, setSlot } = useLocalStorage()
+  const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadoutContext()
+  const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleCollectionsDrop } })
+  const { dragCard } = useDnD();
+
+  const isWeaponSlot = type.includes("Hand")
+  const dragCardMatchesSlot = cardTypeCompare(dragCard, cardType, type)
+  const displayDropPreview = isDropTarget && dragCardMatchesSlot
+  const activeGear = cardCache.get(appState.activeLoadout[slotName]) || {}
+
+  const removable = (type === "Support" && supportSlots > 1) || (type === "OneHanded" && handSlots > 2)
+
+  function checkEmptySlotsForMultihanders(handsNeeded, currentIndex) {
+    if (!handsNeeded) return false
+    if (handsNeeded < 2) return true
+    return Array(handsNeeded - 1).fill("").every((_, i) => {
+      return (`OneHanded${currentIndex + i + 1}` in appState.activeLoadout && currentIndex + i + 1 < handSlots)
+        ? !appState.activeLoadout[`OneHanded${currentIndex + i + 1}`]
+        : handSlots - currentIndex >= handsNeeded
+    })
+  }
+
+  function gearSlotCompare(cardSlot, reqSlot) {
+    if (reqSlot === "OneHanded") {
+      const hasRoom = checkEmptySlotsForMultihanders(parseInt(cardSlot[0]), index)
+
+      return cardSlot.includes("Hand") && hasRoom
+    }
+    return cardSlot === reqSlot
+  }
+
+  function cardTypeCompare(card, reqType, reqSlot) {
+    if ((card?.cardType || "") === reqType) {
+      if (cardType === "Gear" ? gearSlotCompare(card?.slot || "", reqSlot) : true) {
+        return true
+      }
+    }
+    return false
+  }
+
+  function handleCollectionsDrop(id) {
+    if (!id) return
+    const idParts = id.split("-")
+    const realID = idParts[idParts.length - 1]
+    const card = cardCache.get(realID)
+    if (card) {
+
+      if (cardTypeCompare(card, cardType, type)) {
+        setSlot(slotName, realID)
+      } else {
+        //handleError
+      }
+
+    } else console.log("Invalid Obj dropped in LoadoutSlot")
+  }
+
+  function getCardType(cardType) {
+    switch (cardType) {
+      case "Gear":
+        return "mini-american"
+      case "Pattern":
+        return "mini-american"
+      case "Titan":
+        return "half-page"
+      case "Mnemos":
+        return "standard"
+      case "Fated Mnemos":
+        return "standard"
+    }
+  }
+
+  function onClear() {
+    setSlot(slotName, null)
+    cardStates.setExhausted(false)
+    cardStates.setDiscarded(false)
+  }
+
+  //Gear selector
+
+  
+  return (
+    <div className="loadout-slot" ref={!dragCardMatchesSlot ? ref : null} key={index}>
+      <div className="loadout-slot__icon-display">{getIcon({ 
+        name: Object.keys(activeGear).length > 0
+          ? (cardType === "Gear" ? activeGear.slot : activeGear.cardType.replace(/\s+/g, ''))
+          : type, 
+        size: "2em", 
+        invert: true 
+      })}</div>
+
+      {Object.keys(activeGear).length > 0 && 
+        <div className={"card loadout-slot__filled-slot" + (cardStates.highlighted ? " highlighted" : "")}
+          onPointerEnter={() => cardStates.setHighlighted(true)}
+          onPointerLeave={() => cardStates.setHighlighted(false)}
+        >
+          {cardStates.exhausted && !cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Exhaust", invert: true, size: "2em"})}</div>}
+          {cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Discard", invert: true, size: "2em"})}</div>}
+
+          <CardRenderer cardData={activeGear} menu={menuDisabled ? <></> : 
+            <LoadoutSlotCardMenu
+              exhaustFunc={() => cardStates.setExhausted(!cardStates.exhausted)}
+              discardFunc={() => cardStates.setDiscarded(!cardStates.discarded)}
+              clearSlot={() => onClear()}
+            />
+          } />
+        </div>
+      }
+      {Object.keys(activeGear).length <= 0 && <>
+
+        <div className={`card ${getCardType(cardType)} loadout-slot__empty ${isDropTarget ? "target" : ""} ${(Object.keys(dragCard).length > 0 && !dragCardMatchesSlot) ? " is-drop-option" : ""}`}
+          style={{ display: displayDropPreview ? "none" : "flex" }}
+        >
+          {!isWeaponSlot && getIcon({ name: type, size: "5em", invert: true })}
+          {isWeaponSlot && <>
+            <>{getIcon({ name: "1 Hand", size: "5em", invert: true })}</>
+            <>{checkEmptySlotsForMultihanders(2, index) && getIcon({ name: "2 Hands", size: "5em", invert: true })}</>
+            <>{checkEmptySlotsForMultihanders(3, index) && getIcon({ name: "3 Hands", size: "5em", invert: true })}</>
+          </>}
+        </div>
+
+        <div className="loadout-slot__drop-preview"
+          style={{ display: displayDropPreview ? "block" : "none" }}
+        >
+          {Object.keys(dragCard).length > 0 && <CardRenderer cardData={dragCard} />}
+        </div>
+
+        {removable && <div className="loadout-slot__remove-button" onClick={() => removeSlotFromActive(type, index)}>
+          ✖
+        </div>}
+
+      </>}
+
+    </div>
+  )
+}
+
+export default LoadoutSlot;
