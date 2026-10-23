@@ -92,7 +92,7 @@ export function SavedSet({ setname, index }) {
 
   const set = isBackpackSet ? appState.backpack
     : isSearchSet ? appState.searchSet
-    : appState.collections[setname]
+    : appState.savedSets[setname]
 
   function handleSetDrop(id){
     if (!id) return
@@ -138,7 +138,7 @@ export function SavedSet({ setname, index }) {
           ]} />
         }
 
-        {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.collections[set].length}</span> */}
+        {/* <span style={{ fontSize: "14px" }}>Cards in set: {appState.savedSets[set].length}</span> */}
       </div>
 
       <ul className="saved-set__dropdown" style={{display: isOpen ? "block" : "none"}} onClick={(e) => e.stopPropagation()}>

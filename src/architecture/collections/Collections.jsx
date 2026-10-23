@@ -65,11 +65,11 @@ function Collections() {
           <CollectionsSelector />
 
           <div className="collections__set-list">
-            {currentSetType === "Sets" && Object.keys(appState.collections).map((set, i) => (
+            {currentSetType === "Sets" && Object.keys(appState.savedSets).map((set, i) => (
               <SavedSet setname={set} key={i} />
             ))}
-            {currentSetType === "Decks" && Object.keys(appState.collections).map((set, i) => (
-              // <SavedSet setname={set} set={appState.collections[set]} index={i} />
+            {currentSetType === "Decks" && Object.keys(appState.savedSets).map((set, i) => (
+              // <SavedSet setname={set} set={appState.savedSets[set]} index={i} />
               <></>
             ))}
             {currentSetType === "Loadouts" && Object.keys(appState.loadouts).map((loadout, i) => (

@@ -24,7 +24,7 @@ const collectionsLib = () => {
       }
       return
     }
-    if (!arraysEqual(appState.collections[activeSetName], appState.activeSet)){
+    if (!arraysEqual(appState.savedSets[activeSetName], appState.activeSet)){
       setActiveSetName(null)
       return
     }
@@ -38,7 +38,7 @@ const collectionsLib = () => {
       return;
     }
 
-    if (appState.collections.length >= 20) {
+    if (appState.savedSets.length >= 20) {
       handleError("Max Saved Sets reached");
       setSaveError(true);
       setTimeout(() => setSaveError(false), 500);
@@ -51,7 +51,7 @@ const collectionsLib = () => {
   const renameSet = (setName, newName) => {
     if (setName === newName) return
     if (activeSetName == setName) setActiveSetName(newName)
-    saveSet(newName, appState.collections[setName])
+    saveSet(newName, appState.savedSets[setName])
     deleteSet(setName)
   }
 
@@ -66,7 +66,7 @@ const collectionsLib = () => {
       setBackpackIsActive(false)
     } else {
       setBackpackIsActive(false)
-      loadSet(appState.collections[setname]);
+      loadSet(appState.savedSets[setname]);
     }
   }
 
