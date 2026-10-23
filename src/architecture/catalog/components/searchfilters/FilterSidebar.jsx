@@ -84,7 +84,7 @@ const FilterList = ({ title, options, filters, onFilterChange, depth = 0, onTogg
         {isObj
           ? <RenderTieredFilters options={options} clickFunc={onFilterChange} onToggleCategory={onToggleCategory} filters={filters} depth={depth} />
           : options.map((option, index) =>
-            <FilterOptionButton option={option} clickFunc={onFilterChange} filters={filters} index={index} />
+            <FilterOptionButton option={option} clickFunc={onFilterChange} filters={filters} key={index} />
           )
         }
       </div>
