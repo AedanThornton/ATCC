@@ -238,6 +238,56 @@ function getTextWidth(text, font) {
 
 const AbilityTextGate = ({ text, color, bkgdColor }) => {
     const lengthAdjustment = 0.85 * getTextWidth(text, "bold 26pt 'Times New Roman'")
+
+    const gateXOffset = 2
+    const gateYOffset = 4
+    const gateHeight = 37 - gateYOffset
+    const gateWidth = 30 - gateXOffset + lengthAdjustment
+    const gateArrow = 12
+
+    const textPoints = `${gateXOffset} ${gateHeight/2 + gateYOffset},
+                        ${gateArrow + gateXOffset} ${gateYOffset},
+                        ${gateWidth - gateArrow + gateXOffset} ${gateYOffset}, 
+                        ${gateWidth + gateXOffset} ${gateHeight/2 + gateYOffset}, 
+                        ${gateWidth - gateArrow + gateXOffset} ${gateHeight + gateYOffset}, 
+                        ${gateArrow + gateXOffset} ${gateHeight + gateYOffset}`
+
+    const textPolygon = (
+        <polygon 
+                x="0" 
+                y="0" 
+                width="120" 
+                height="40" 
+                stroke={color}
+                strokeWidth="3"
+                fill={bkgdColor}
+                points={textPoints}
+        />
+    )
+
+    const textX = 20
+    const textDisplay = (
+        <text 
+            x={textX} 
+            y="29.5" 
+            fontSize="26" 
+            fontWeight="bold" 
+            fill={color}
+        >
+            {text}
+        </text>
+    )
+
+    return (
+        <AutoSizedSVG>
+            {textPolygon}
+            {textDisplay}
+        </AutoSizedSVG>
+    );
+}
+
+const AbilityConditionGate = ({ text, color, bkgdColor }) => {
+    const lengthAdjustment = 0.85 * getTextWidth(text, "bold 26pt 'Times New Roman'")
     const link = icons["Condition"]
     const iconSize = 26
     const gateXOffset = 2
@@ -324,7 +374,9 @@ const AbilityTextGate = ({ text, color, bkgdColor }) => {
 }
 
 export const createGate = (gate = [], value = [], fill = "none", type = "ability") => {
-    return gate[0] === "Condition"
-        ? <AbilityTextGate text={value[0]} color="white" bkgdColor={fill} />
-        : <AbilityGate type={type} icon={gate[0]} value={value[0]} fill={fill} icon2={gate[1] || undefined} comboGate={gate[2] || undefined} value2={value[1] || undefined} /> 
+    return value[0]
+        ? (gate[0] === "Condition"
+            ? <AbilityConditionGate text={value[0]} color="white" bkgdColor={fill} />
+            : <AbilityGate type={type} icon={gate[0]} value={value[0]} fill={fill} icon2={gate[1] || undefined} comboGate={gate[2] || undefined} value2={value[1] || undefined} /> )
+        : <AbilityTextGate text={gate[0]} color="white" bkgdColor={fill} />
 }
