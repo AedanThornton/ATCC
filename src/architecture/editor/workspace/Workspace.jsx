@@ -5,13 +5,21 @@ import { useWorkspaceContext } from "./hooks/WorkspaceContext";
 import SetEdit from "../set/SetEdit";
 import DeckEdit from "../deck/DeckEdit";
 import LoadoutEdit from "../loadout/LoadoutEdit";
+import "./Workspace.css"
+import { useLayout } from "../../layout/LayoutContext";
 
 const Workspace = ({}) => {
   const { setCollectionsOpen } = useCollectionsContext();
   const { activeView } = useWorkspaceContext();
+  const { setLayout } = useLayout();
 
   useEffect(() => {
     setCollectionsOpen(true)
+
+    setLayout({
+      main: null,
+      topbar: null
+    })
   }, [])
 
   const views = {

@@ -12,12 +12,11 @@ const LoadoutSlot = ({
     index, 
     cardType = "Gear", 
     menuDisabled = false, 
-    cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}, highlighted: false, setHighlighted: () => {}} 
   }) => {
 
   const { appState, cardCache, setSlot } = useLocalStorage()
   const { handSlots, supportSlots, bannedHandTypes, removeSlotFromActive } = useLoadoutContext()
-  const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleWorkspaceDrop } })
+  const { ref, isDropTarget } = useDroppable({ id: `loadoutslot-${type}-${index}`, data: { onDrop: handleSlotDrop } })
   const { dragCard } = useDnD();
 
   const isWeaponSlot = type.includes("Hand")
@@ -55,7 +54,7 @@ const LoadoutSlot = ({
     return false
   }
 
-  function handleWorkspaceDrop(id) {
+  function handleSlotDrop(id) {
     if (!id) return
     const idParts = id.split("-")
     const realID = idParts[idParts.length - 1]
@@ -88,8 +87,6 @@ const LoadoutSlot = ({
 
   function onClear() {
     setSlot(slotName, null)
-    cardStates.setExhausted(false)
-    cardStates.setDiscarded(false)
   }
 
   //Gear selector
@@ -106,17 +103,9 @@ const LoadoutSlot = ({
       })}</div>
 
       {Object.keys(activeGear).length > 0 && 
-        <div className={"card loadout-slot__filled-slot" + (cardStates.highlighted ? " highlighted" : "")}
-          onPointerEnter={() => cardStates.setHighlighted(true)}
-          onPointerLeave={() => cardStates.setHighlighted(false)}
-        >
-          {cardStates.exhausted && !cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Exhaust", invert: true, size: "2em"})}</div>}
-          {cardStates.discarded && <div className="card loadout-slot__state-cover">{getIcon({name: "Discard", invert: true, size: "2em"})}</div>}
-
+        <div className="card loadout-slot__filled-slot">
           <CardRenderer cardData={activeGear} menu={menuDisabled ? <></> : 
             <LoadoutSlotCardMenu
-              exhaustFunc={() => cardStates.setExhausted(!cardStates.exhausted)}
-              discardFunc={() => cardStates.setDiscarded(!cardStates.discarded)}
               clearSlot={() => onClear()}
             />
           } />

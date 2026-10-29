@@ -1,20 +1,13 @@
 import "../loadout/styles/loadout.css"
 import LoadoutSlotGroup from "./components/LoadoutSlotGroup"
-import { useState } from "react"
 import LoadoutTitanSlot from "./components/LoadoutTitanSlot"
 import { HandSlotGroup } from "./components/HandSlotGroup"
 import { LoadoutProvider } from "./hooks/LoadoutContext"
 import { useLoadout } from "./hooks/useLoadout"
-import AbilitySummary from "./abilitysummary/AbilitySummary"
-import { useLocalStorage } from "../../../management/localstorage/LocalStorageContext"
-import Triskelion from "../../play/triskelion/Triskelion"
-import { useTriskelion } from "../../play/triskelion/useTriskelion"
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch"
 
 const LoadoutEdit = ({}) => {
   const loadoutState = useLoadout();
-  const triskelionState = useTriskelion();
-  const { appState } = useLocalStorage();
 
   return (
     <TransformWrapper
@@ -56,9 +49,7 @@ const LoadoutEdit = ({}) => {
               </div>
             </div>
           </TransformComponent>
-          <Triskelion triskelionState={triskelionState} />
         </div>
-        <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} triskelionState={triskelionState} />
       </LoadoutProvider>
     </TransformWrapper>
   )

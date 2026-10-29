@@ -13,12 +13,11 @@ import { SavedSet } from "./components/savetypes/SavedSet";
 function Collections() {
   const isNotMobile = window.matchMedia('(hover: hover)').matches;
 
-  const { currentSetType, activeSetName, collectionsOpen, setCollectionsOpen } = useCollectionsContext();
+  const { currentSetType, collectionsOpen, setCollectionsOpen } = useCollectionsContext();
   const { buttonError, checkForSetNameMatch } = collectionsLib();
-  const { appState, saveSet, saveLoadout, newEmptyLoadout } = useLocalStorage();
+  const { appState, saveSet, newEmptyLoadout } = useLocalStorage();
 
   const {ref} = useDroppable({id: "collections-panel"})
-  const isCatalogPage = useMatch("/catalog")
 
   useEffect(() => {
     checkForSetNameMatch()
@@ -34,26 +33,7 @@ function Collections() {
     >
       <div className='collections' style={{display: collectionsOpen ? "initial" : "none"}}>
         <div className="collections-panel" ref={ref}>
-
-          {!isCatalogPage && appState.activeSet.length < 1 && <h1>Select a set...</h1>}
-          {!isCatalogPage && appState.activeSet.length > 0 && 
-            (activeSetName === null
-            ? <h1 
-                className="setbutton"
-                onClick={() => {
-                  currentSetType === "Sets" && saveSet("New Set", appState.activeSet);
-                  currentSetType === "Loadouts" && saveLoadout("New Loadout", appState.activeLoadout);
-                }}
-              >
-                +{getIcon({name: "Save", invert: true})} Save Current
-              </h1>
-            : <h1>
-                {activeSetName === "Workspace" && <>{getIcon({name: "Backpack", invert: true})} </>}
-                {activeSetName === "Current Search" && <>{getIcon({name: "Catalog", invert: true})} </>}
-                {activeSetName}
-              </h1>
-            )
-          }
+          <h1>Collections</h1>
 
           <SavedSet setname={"Backpack"} set={appState.backpack} index={"backpack"} />
           {appState.searchSet &&

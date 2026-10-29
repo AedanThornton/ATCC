@@ -7,6 +7,7 @@ import CollectionsMenu from "../CollectionsMenu";
 import SearchableList from "../../../../components/utils/SearchableList";
 import { SavedSetCard } from "./SavedSet";
 import getIcon from "../../../../components/utils/iconUtils";
+import { useWorkspaceContext } from "../../../editor/workspace/hooks/WorkspaceContext";
 
 const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
   const { appState, cardCache, setSlot, removeSlotFromLoadout } = useLocalStorage();
@@ -68,6 +69,7 @@ const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
 const SavedLoadout = ({ loadoutname, loadout, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { appState, cardCache, deleteLoadout, saveLoadout, loadLoadout, renameLoadout, addSlotToLoadout } = useLocalStorage();
+  const { setActiveView } = useWorkspaceContext()
   // const {ref, isDropTarget} = useDroppable({ id: loadoutname, data: {onDrop: handleSetDrop} });
   
   function addHandSlotLoadout(loadoutName, slotCount) {
@@ -98,13 +100,19 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
       return obj
     }, {})
 
+  function handleClickOnLoadout(loadoutname) {
+    setActiveView("loadout")
+
+    loadLoadout(loadoutname)
+  }
+
   return (
     <div key={index} className="saved-set"
       style={{ 
         outline: "initial",
         outlineOffset: "-3px"
       }}
-      onClick={() => loadLoadout(loadoutname)}
+      onClick={() => handleClickOnLoadout(loadoutname)}
     >
 
       <div className="saved-set__title-bar">

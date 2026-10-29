@@ -3,12 +3,14 @@ import { useSetEditContext } from "../../editor/set/hooks/SetEditContext";
 import { useLocalStorage } from "../../../management/localstorage/LocalStorageContext";
 import { useCollectionsContext } from "../hooks/CollectionsContext";
 import { arraysEqual } from "../../../lib/arrays";
+import { useWorkspaceContext } from "../../editor/workspace/hooks/WorkspaceContext";
 
 
 const collectionsLib = () => {
   const { appState, saveSet, loadSet, deleteSet } = useLocalStorage();
   const { setBackpackIsActive } = useSetEditContext();
   const { activeSetName, setActiveSetName } = useCollectionsContext();
+  const { setActiveView } = useWorkspaceContext();
   const [buttonError, setButtonError] = useState(null);
 
   const checkForSetNameMatch = () => {
@@ -55,10 +57,11 @@ const collectionsLib = () => {
     deleteSet(setName)
   }
 
-  const handleClickOnSet = (setname, isWorkspaceSet = false, isSearchSet = false) => {
+  const handleClickOnSet = (setname, isBackpackSet = false, isSearchSet = false) => {
     setActiveSetName(setname)
+    setActiveView("set")
 
-    if (isWorkspaceSet) {
+    if (isBackpackSet) {
       loadSet(appState.backpack);
       setBackpackIsActive(true)
     } else if (isSearchSet) { 
