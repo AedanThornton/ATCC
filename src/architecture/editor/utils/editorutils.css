@@ -1,0 +1,21 @@
+.edit-button {
+  position: fixed;
+  left: 10px;
+  bottom: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  background-color: var(--main-midtone);
+  border: 2px solid var(--main-light);
+
+  padding: 15px;
+  font-size: 25px;
+
+  cursor: pointer;
+}
+.edit-button:hover {
+  background-color: var(--main-light);
+}

@@ -10,9 +10,10 @@ import { useLocalStorage } from "../../../management/localstorage/LocalStorageCo
 import Triskelion from "../../play/triskelion/Triskelion"
 import { useTriskelion } from "../../play/triskelion/useTriskelion"
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch"
+import EditButton from "../../editor/utils/EditButton"
 
-const Loadout = ({}) => {
-  const loadoutState = useLoadout();
+const Loadout = ({ collectionName }) => {
+  const loadoutState = {collectionName: collectionName, ...useLoadout()}
   const triskelionState = useTriskelion();
   const { appState } = useLocalStorage();
 
@@ -57,6 +58,7 @@ const Loadout = ({}) => {
             </div>
           </TransformComponent>
           <Triskelion triskelionState={triskelionState} />
+          <EditButton collectionType={"loadout"} collectionName={appState.activeLoadoutName} />
         </div>
         <AbilitySummary loadout={appState.activeLoadout} loadoutState={loadoutState} triskelionState={triskelionState} />
       </LoadoutProvider>

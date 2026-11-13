@@ -1,9 +1,7 @@
-import { useDroppable } from "@dnd-kit/react"
 import { useLocalStorage } from "../../../../management/localstorage/LocalStorageContext"
 import CardRenderer from "../../../../components/cards/CardRenderer";
 import LoadoutSlotCardMenu from "./LoadoutSlotCardMenu";
 import getIcon from "../../../../components/utils/iconUtils";
-import { useDnD } from "../../../../management/dragndrop/DnDContext";
 import { useLoadoutContext } from "../hooks/LoadoutContext";
 
 const LoadoutSlot = ({ 
@@ -12,22 +10,23 @@ const LoadoutSlot = ({
     index, 
     cardType = "Gear", 
     menuDisabled = false, 
+    loadoutName = "",
     cardStates = {exhausted: false, setExhausted: ()=>{}, discarded: false, setDiscarded: ()=>{}, highlighted: false, setHighlighted: () => {}} 
   }) => {
 
   const { appState, cardCache } = useLocalStorage()
   const { handSlots } = useLoadoutContext()
-  const { dragCard } = useDnD();
 
   const isWeaponSlot = type.includes("Hand")
-  const activeGear = cardCache.get(appState.activeLoadout[slotName]) || {}
+  const activeGear = cardCache.get(appState.loadouts?.[loadoutName]?.[slotName]) || {}
 
   function checkEmptySlotsForMultihanders(handsNeeded, currentIndex) {
     if (!handsNeeded) return false
     if (handsNeeded < 2) return true
+    if (!appState.loadouts?.[loadoutName]) return false
     return Array(handsNeeded - 1).fill("").every((_, i) => {
-      return (`OneHanded${currentIndex + i + 1}` in appState.activeLoadout && currentIndex + i + 1 < handSlots)
-        ? !appState.activeLoadout[`OneHanded${currentIndex + i + 1}`]
+      return (`OneHanded${currentIndex + i + 1}` in appState.loadouts?.[loadoutName] && currentIndex + i + 1 < handSlots)
+        ? !appState.loadouts?.[loadoutName][`OneHanded${currentIndex + i + 1}`]
         : handSlots - currentIndex >= handsNeeded
     })
   }

@@ -7,10 +7,11 @@ import "./Play.css"
 
 import Deck from "../deck/Deck";
 import Loadout from "../loadout/Loadout";
+import EditorTray from "../../editortray/EditorTray";
 
 const Play = ({}) => {
   const { setLayout } = useLayout();
-  const { activeView } = usePlayContext();
+  const { activeView, activeCollectionName } = usePlayContext();
 
   const views = {
     "Deck": Deck,
@@ -29,8 +30,9 @@ const Play = ({}) => {
     <div className="play__main">
       <Collections />
       <div className="play__view-window">
-        <View />
+        <View collectionName={activeCollectionName} />
       </div>
+      <EditorTray />
     </div>
   </div>
 }

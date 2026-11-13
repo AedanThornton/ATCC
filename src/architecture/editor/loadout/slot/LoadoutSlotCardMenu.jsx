@@ -9,8 +9,6 @@ import getIcon from "../../../../components/utils/iconUtils";
 const LoadoutSlotCardMenu = ({ clearSlot, exhaustFunc, discardFunc }) => {
   return (
     <>
-      <button onClick={() => exhaustFunc()}>{getIcon({name: "Exhaust", invert: true})}</button>
-      <button onClick={() => discardFunc()}>{getIcon({name: "Discard", invert: true})}</button>
       <button onClick={() => clearSlot()}>✖</button>
     </>
   )

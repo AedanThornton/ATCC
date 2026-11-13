@@ -18,6 +18,7 @@ import LocalStorageManager from './management/localstorage/LocalStorageManager.j
 import { PlayProvider } from './architecture/play/main/hooks/PlayContext.jsx'
 import { SetEditProvider } from './architecture/editor/set/hooks/SetEditContext.jsx'
 import { AnalyticsProvider } from './architecture/analytics/main/hooks/AnalyticsContext.jsx'
+import { EditorTrayProvider } from './architecture/editortray/hooks/EditorTrayContext.jsx'
 
 const basename = import.meta.env.BASE_URL;
 
@@ -40,21 +41,23 @@ createRoot(document.getElementById('root')).render(
             <LocalStorageProvider>
               <DnDProvider>
                 <DnDWrapper>
-                  <SetEditProvider>
-                    <AnalyticsProvider>
-                      <PlayProvider>
-                        <WorkspaceProvider>
-                          <LayoutProvider>
-                            <CollectionsProvider>
-                              <FocusCardCache />
-                              <LocalStorageManager />
-                              <App />
-                            </CollectionsProvider>
-                          </LayoutProvider>
-                        </WorkspaceProvider>
-                      </PlayProvider>
-                    </AnalyticsProvider>
-                  </SetEditProvider>
+                  <EditorTrayProvider>
+                    <SetEditProvider>
+                      <AnalyticsProvider>
+                        <PlayProvider>
+                          <WorkspaceProvider>
+                            <LayoutProvider>
+                              <CollectionsProvider>
+                                <FocusCardCache />
+                                <LocalStorageManager />
+                                <App />
+                              </CollectionsProvider>
+                            </LayoutProvider>
+                          </WorkspaceProvider>
+                        </PlayProvider>
+                      </AnalyticsProvider>
+                    </SetEditProvider>
+                  </EditorTrayProvider>
                 </DnDWrapper>
               </DnDProvider>
             </LocalStorageProvider>

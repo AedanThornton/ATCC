@@ -8,6 +8,8 @@ import SearchableList from "../../../../components/utils/SearchableList";
 import { SavedSetCard } from "./SavedSet";
 import getIcon from "../../../../components/utils/iconUtils";
 import { useWorkspaceContext } from "../../../editor/workspace/hooks/WorkspaceContext";
+import { usePlayContext } from "../../../play/main/hooks/PlayContext";
+import { useMatch } from "react-router-dom";
 
 const SavedLoadoutCard = ({ loadoutname, slot, index}) => {
   const { appState, cardCache, setSlot, removeSlotFromLoadout } = useLocalStorage();
@@ -70,6 +72,9 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { appState, cardCache, deleteLoadout, saveLoadout, loadLoadout, renameLoadout, addSlotToLoadout } = useLocalStorage();
   const { setActiveView } = useWorkspaceContext()
+  const { setActiveCollectionName } = usePlayContext();
+  const isEditor = useMatch("/workspace")
+  const isPlay = useMatch("/play")
   // const {ref, isDropTarget} = useDroppable({ id: loadoutname, data: {onDrop: handleSetDrop} });
   
   function addHandSlotLoadout(loadoutName, slotCount) {
@@ -103,6 +108,7 @@ const SavedLoadout = ({ loadoutname, loadout, index }) => {
   function handleClickOnLoadout(loadoutname) {
     setActiveView("loadout")
 
+    setActiveCollectionName(loadoutname)
     loadLoadout(loadoutname)
   }
 

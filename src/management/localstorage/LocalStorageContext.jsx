@@ -13,7 +13,9 @@ export function LocalStorageProvider({ children }) {
       searchSet: [],
       backpack: [],
       collections: {},
-      loadouts: {}
+      loadouts: {},
+
+      activeLoadoutName
     };
 
     const parsed = JSON.parse(saved);
@@ -25,7 +27,9 @@ export function LocalStorageProvider({ children }) {
       searchSet: parsed.searchSet ?? [],
       backpack: parsed.backpack ?? [],
       collections: parsed.collections ?? {},
-      loadouts: parsed.loadouts ?? {}
+      loadouts: parsed.loadouts ?? {},
+
+      activeLoadoutName: parsed.activeLoadoutName ?? ""
     };
   });
 
@@ -163,7 +167,8 @@ export function LocalStorageProvider({ children }) {
   function loadLoadout(loadoutName) {
     setAppState(prev => ({
       ...prev,
-      activeLoadout: prev.loadouts[loadoutName]
+      activeLoadout: prev.loadouts[loadoutName],
+      activeLoadoutName: loadoutName
     }))
   }
 

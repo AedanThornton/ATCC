@@ -2,7 +2,7 @@
 // --Note: Might make this more complicated for multi-cards. Thanks Gigantus
 
 import { useEffect, useState } from "react"
-import LoadoutSlot from "./LoadoutSlot"
+import LoadoutSlot from "./LoadoutDisplaySlot"
 
 const LoadoutSlotSwapper = ({ loadoutState, type = "", index, cardType = "Gear" }) => {
   const [currentSlot, setCurrentSlot] = useState("main")
@@ -62,14 +62,14 @@ const LoadoutSlotSwapper = ({ loadoutState, type = "", index, cardType = "Gear" 
       className={"loadout-slot-swapper__main" + (currentSlot === "main" ? " active" : " behind")} 
       onClick={() => currentSlot === "attachment" && setCurrentSlot("main")}
     >
-      <LoadoutSlot slotName={slotName} type={type} index={index} cardType={cardType} menuDisabled={currentSlot !== "main"} cardStates={mainCardStates}/>
+      <LoadoutSlot loadoutName={loadoutState.collectionName} slotName={slotName} type={type} index={index} cardType={cardType} menuDisabled={currentSlot !== "main"} cardStates={mainCardStates}/>
     </div>
 
     {cardType === "Gear" && type !== "Attachment" && <div 
       className={"loadout-slot-swapper__attachment" + (currentSlot === "attachment" ? " active" : " behind")} 
       onClick={() => currentSlot === "main" && setCurrentSlot("attachment")}
     >
-      <LoadoutSlot slotName={attachmentSlotName} type={"Attachment"} index={type + index} cardType={"Gear"} menuDisabled={currentSlot !== "attachment"} cardStates={attachmentCardStates} />
+      <LoadoutSlot loadoutName={loadoutState.collectionName} slotName={attachmentSlotName} type={"Attachment"} index={type + index} cardType={"Gear"} menuDisabled={currentSlot !== "attachment"} cardStates={attachmentCardStates} />
     </div>}
   </div>)
 }
